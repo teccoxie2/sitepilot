@@ -3,207 +3,181 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Build Your Website <br className="hidden md:block" />
-              <span className="text-blue-600">With Confidence</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-              Expert reviews and honest comparisons of web hosting, website builders, and AI tools. 
-              We test everything so you don&apos;t have to.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/hosting"
-                className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
-              >
-                Find Best Hosting
-              </Link>
-              <Link
-                href="/ai-tools"
-                className="px-8 py-3 bg-white text-gray-900 font-semibold rounded-lg border border-gray-300 hover:bg-gray-50 transition"
-              >
-                Explore AI Tools
-              </Link>
-            </div>
+      {/* Hero Section - Clean & Professional */}
+      <section className="bg-white py-16 md:py-24 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Independent reviews to help you choose the right tools for your website
+          </h1>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl">
+            We spend hundreds of hours testing web hosting, site builders, and software so you can make informed decisions. No sponsored rankings.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/hosting"
+              className="px-6 py-3 bg-gray-900 text-white font-medium rounded hover:bg-gray-800 transition"
+            >
+              Web Hosting Reviews
+            </Link>
+            <Link
+              href="/ai-tools"
+              className="px-6 py-3 text-gray-700 font-medium rounded border border-gray-300 hover:border-gray-400 transition"
+            >
+              AI Writing Tools
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-20">
+      {/* Featured Guides */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            What Are You Looking For?
+          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-8">
+            Popular Guides
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Web Hosting */}
-            <Link href="/hosting" className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-200 transition">
-                <div className="text-4xl mb-4">🖥️</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
-                  Web Hosting
+            <Link href="/hosting/best-web-hosting" className="group">
+              <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
+                <span className="text-xs font-medium text-gray-500 uppercase">Hosting</span>
+                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
+                  The Best Web Hosting Services for 2026
                 </h3>
-                <p className="text-gray-600 mb-4">
-                  Find the perfect hosting for your website. From shared to VPS, we&apos;ve tested them all.
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  After testing 23 providers over 6 months, these are our top recommendations for different needs and budgets.
                 </p>
-                <span className="text-blue-600 font-medium">
-                  Compare Hosts →
-                </span>
-              </div>
+              </article>
             </Link>
 
-            {/* Website Builders */}
-            <Link href="/builders" className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-200 transition">
-                <div className="text-4xl mb-4">🎨</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
-                  Website Builders
+            <Link href="/hosting/hostinger-review" className="group">
+              <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
+                <span className="text-xs font-medium text-gray-500 uppercase">Review</span>
+                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
+                  Hostinger Review: Is the Hype Justified?
                 </h3>
-                <p className="text-gray-600 mb-4">
-                  No coding required. Build beautiful websites with drag-and-drop builders.
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  A deep dive into Hostinger&apos;s performance, support quality, and whether it lives up to the marketing claims.
                 </p>
-                <span className="text-blue-600 font-medium">
-                  See Builders →
-                </span>
-              </div>
+              </article>
             </Link>
 
-            {/* AI Tools */}
-            <Link href="/ai-tools" className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-200 transition">
-                <div className="text-4xl mb-4">🤖</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
-                  AI Tools
+            <Link href="/ai-tools/best-ai-writing-tools" className="group">
+              <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
+                <span className="text-xs font-medium text-gray-500 uppercase">AI Tools</span>
+                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
+                  Best AI Writing Tools for Content Creators
                 </h3>
-                <p className="text-gray-600 mb-4">
-                  Write content faster, create images, automate tasks. AI tools for every need.
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  We tested 15 AI writing assistants with real content projects. Here&apos;s what actually works.
                 </p>
-                <span className="text-blue-600 font-medium">
-                  Discover AI →
-                </span>
-              </div>
+              </article>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured Reviews */}
-      <section className="py-20 bg-gray-50">
+      {/* Categories */}
+      <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-            Latest Reviews
-          </h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            In-depth reviews based on real testing. No fluff, just facts.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Review Card 1 */}
-            <article className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-              <div className="h-48 bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center">
-                <span className="text-6xl">🚀</span>
-              </div>
-              <div className="p-6">
-                <span className="text-sm text-blue-600 font-medium">Web Hosting</span>
-                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-2">
-                  Best Web Hosting for Beginners 2026
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  We tested 15+ hosts to find the best options for those just starting out.
-                </p>
-              </div>
-            </article>
-
-            {/* Review Card 2 */}
-            <article className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-              <div className="h-48 bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center">
-                <span className="text-6xl">⚡</span>
-              </div>
-              <div className="p-6">
-                <span className="text-sm text-blue-600 font-medium">AI Tools</span>
-                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-2">
-                  Jasper vs ChatGPT: Which is Better?
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  A detailed comparison of two AI writing giants for content creators.
-                </p>
-              </div>
-            </article>
-
-            {/* Review Card 3 */}
-            <article className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-              <div className="h-48 bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center">
-                <span className="text-6xl">🎯</span>
-              </div>
-              <div className="p-6">
-                <span className="text-sm text-blue-600 font-medium">Website Builders</span>
-                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-2">
-                  Elementor vs Webflow: The Ultimate Guide
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Two powerful builders compared. Which one suits your needs?
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Section */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Trust SitePilot?
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-              We&apos;re not just another review site. We actually test everything we recommend.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl mb-4">🔬</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Real Testing</h3>
-              <p className="text-gray-600 text-sm">
-                We sign up, pay, and use every product we review. No fake reviews.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                Web Hosting
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/hosting/best-web-hosting" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Best Web Hosting 2026
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/hosting/cheap-hosting" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Best Cheap Hosting Under $5/mo
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/hosting/wordpress-hosting" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Best WordPress Hosting
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/hosting/hostinger-vs-bluehost" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Hostinger vs Bluehost
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">💯</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Honest Opinions</h3>
-              <p className="text-gray-600 text-sm">
-                We tell you the pros AND cons. If something sucks, we&apos;ll say so.
-              </p>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                Website Builders
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/builders/best-website-builders" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Best Website Builders 2026
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/builders/elementor-review" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Elementor Review
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/builders/webflow-review" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Webflow Review
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/builders/wix-vs-squarespace" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Wix vs Squarespace
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">🔄</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Always Updated</h3>
-              <p className="text-gray-600 text-sm">
-                Products change. We re-test and update our reviews regularly.
-              </p>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                AI Tools
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/ai-tools/best-ai-writing-tools" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Best AI Writing Tools
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ai-tools/jasper-review" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Jasper AI Review
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ai-tools/chatgpt-vs-jasper" className="text-gray-600 hover:text-gray-900 text-sm">
+                    ChatGPT vs Jasper
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ai-tools/copy-ai-review" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Copy.ai Review
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Launch Your Website?
+      {/* About Section - Credibility */}
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            How we test
           </h2>
-          <p className="text-blue-100 mb-8 text-lg">
-            Start with our top-rated hosting pick and get online in minutes.
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Every product we review goes through hands-on testing. For web hosts, we deploy real websites and monitor uptime, speed, and support response times over several months. For software, we use it on actual projects before forming opinions.
           </p>
-          <Link
-            href="/hosting/best-web-hosting"
-            className="inline-block px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition"
-          >
-            See Our #1 Pick
-          </Link>
+          <p className="text-gray-600 leading-relaxed">
+            We may earn affiliate commissions when you purchase through our links, but this never influences our ratings or recommendations. Products that don&apos;t meet our standards don&apos;t make it to publication.
+          </p>
         </div>
       </section>
     </>

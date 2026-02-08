@@ -1,99 +1,106 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Best Web Hosting 2026 - Expert Reviews & Comparisons | SitePilot",
-  description: "Find the perfect web hosting for your website. We test and compare top hosts including Hostinger, Bluehost, SiteGround, and more.",
+  title: "Web Hosting Reviews & Comparisons 2026 | SitePilot",
+  description: "In-depth web hosting reviews based on real testing. Compare performance, pricing, and support across top providers.",
 };
 
 export default function HostingPage() {
-  const hostingArticles = [
-    {
-      slug: "best-web-hosting",
-      title: "Best Web Hosting for Beginners 2026",
-      description: "Our top picks for those just starting out. Affordable, reliable, and easy to use.",
-      category: "Guide",
-    },
-    {
-      slug: "hostinger-vs-bluehost",
-      title: "Hostinger vs Bluehost: Which is Better?",
-      description: "Two budget-friendly hosts compared. See which one wins in our detailed test.",
-      category: "Comparison",
-    },
-    {
-      slug: "cheap-hosting",
-      title: "Best Cheap Web Hosting Under $5/month",
-      description: "Quality hosting doesn't have to break the bank. Our top budget picks.",
-      category: "Guide",
-    },
-    {
-      slug: "wordpress-hosting",
-      title: "Best WordPress Hosting 2026",
-      description: "Optimized hosting for WordPress sites. Speed, security, and support compared.",
-      category: "Guide",
-    },
-  ];
-
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-100 py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <span className="text-5xl mb-4 block">🖥️</span>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Web Hosting Reviews
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real tests, honest reviews. Find the perfect host for your website.
-            </p>
-          </div>
+      <section className="bg-white py-12 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Web Hosting Reviews
+          </h1>
+          <p className="text-lg text-gray-600">
+            We test hosting providers with real websites, measuring uptime, speed, and support quality over months of use.
+          </p>
         </div>
       </section>
 
-      {/* Articles */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {hostingArticles.map((article) => (
-              <Link key={article.slug} href={`/hosting/${article.slug}`} className="group">
-                <article className="bg-white rounded-xl p-6 border border-gray-100 hover:border-blue-200 hover:shadow-lg transition h-full">
-                  <span className="text-sm text-blue-600 font-medium">{article.category}</span>
-                  <h2 className="text-xl font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-600">
-                    {article.title}
-                  </h2>
-                  <p className="text-gray-600">{article.description}</p>
-                </article>
+      {/* Main Content */}
+      <section className="py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Featured Guide */}
+          <div className="mb-12">
+            <span className="text-xs font-medium text-blue-700 uppercase tracking-wide">Featured Guide</span>
+            <Link href="/hosting/best-web-hosting" className="group block mt-2">
+              <h2 className="text-2xl font-semibold text-gray-900 group-hover:text-blue-700 mb-3">
+                The Best Web Hosting Services for 2026
+              </h2>
+              <p className="text-gray-600 mb-4">
+                After testing 23 hosting providers over 6 months—deploying real sites, monitoring uptime, and evaluating support—these are our recommendations for different needs and budgets.
+              </p>
+              <span className="text-sm font-medium text-blue-700">Read the full guide →</span>
+            </Link>
+          </div>
+
+          {/* Divider */}
+          <hr className="border-gray-200 mb-12" />
+
+          {/* Reviews Grid */}
+          <div className="space-y-10">
+            <article>
+              <Link href="/hosting/hostinger-review" className="group">
+                <span className="text-xs font-medium text-gray-500 uppercase">Review</span>
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-700 mt-1 mb-2">
+                  Hostinger Review: Affordable, But Is It Good Enough?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Hostinger is one of the cheapest hosts on the market. We used it for 4 months to find out if the low price comes with compromises.
+                </p>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+            </article>
 
-      {/* Quick Recommendations */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Quick Recommendations
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-100">
-              <div className="text-3xl mb-3">🏆</div>
-              <h3 className="font-semibold text-gray-900">Best Overall</h3>
-              <p className="text-blue-600 font-medium mt-2">Hostinger</p>
-              <p className="text-gray-500 text-sm mt-1">From $2.99/mo</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-100">
-              <div className="text-3xl mb-3">💰</div>
-              <h3 className="font-semibold text-gray-900">Best Value</h3>
-              <p className="text-blue-600 font-medium mt-2">Hostinger</p>
-              <p className="text-gray-500 text-sm mt-1">Most features for price</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-100">
-              <div className="text-3xl mb-3">⚡</div>
-              <h3 className="font-semibold text-gray-900">Best Speed</h3>
-              <p className="text-blue-600 font-medium mt-2">Kinsta</p>
-              <p className="text-gray-500 text-sm mt-1">Premium performance</p>
-            </div>
+            <article>
+              <Link href="/hosting/hostinger-vs-bluehost" className="group">
+                <span className="text-xs font-medium text-gray-500 uppercase">Comparison</span>
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-700 mt-1 mb-2">
+                  Hostinger vs Bluehost: Which Budget Host Wins?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Two of the most popular budget hosting options compared on performance, features, and real-world usability.
+                </p>
+              </Link>
+            </article>
+
+            <article>
+              <Link href="/hosting/cheap-hosting" className="group">
+                <span className="text-xs font-medium text-gray-500 uppercase">Guide</span>
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-700 mt-1 mb-2">
+                  Best Cheap Web Hosting Under $5/month
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Quality hosting doesn&apos;t have to be expensive. These providers offer solid performance without breaking the bank.
+                </p>
+              </Link>
+            </article>
+
+            <article>
+              <Link href="/hosting/wordpress-hosting" className="group">
+                <span className="text-xs font-medium text-gray-500 uppercase">Guide</span>
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-700 mt-1 mb-2">
+                  Best WordPress Hosting 2026
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  WordPress-optimized hosting can significantly improve your site&apos;s performance. Here are the hosts that do it best.
+                </p>
+              </Link>
+            </article>
+
+            <article>
+              <Link href="/hosting/siteground-review" className="group">
+                <span className="text-xs font-medium text-gray-500 uppercase">Review</span>
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-700 mt-1 mb-2">
+                  SiteGround Review: Premium Features at Mid-Range Prices
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  SiteGround positions itself between budget hosts and premium providers. We tested whether it delivers on that promise.
+                </p>
+              </Link>
+            </article>
           </div>
         </div>
       </section>

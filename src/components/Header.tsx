@@ -17,11 +17,11 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/hosting" className="text-sm text-gray-600 hover:text-gray-900 transition">
-              Hosting
+            <Link href="/web-hosting" className="text-sm text-gray-600 hover:text-gray-900 transition">
+              Web Hosting
             </Link>
-            <Link href="/builders" className="text-sm text-gray-600 hover:text-gray-900 transition">
-              Builders
+            <Link href="/website-builders" className="text-sm text-gray-600 hover:text-gray-900 transition">
+              Website Builders
             </Link>
             <Link href="/ai-tools" className="text-sm text-gray-600 hover:text-gray-900 transition">
               AI Tools
@@ -50,11 +50,11 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col space-y-3">
-              <Link href="/hosting" className="text-sm text-gray-600 hover:text-gray-900">
-                Hosting
+              <Link href="/web-hosting" className="text-sm text-gray-600 hover:text-gray-900">
+                Web Hosting
               </Link>
-              <Link href="/builders" className="text-sm text-gray-600 hover:text-gray-900">
-                Builders
+              <Link href="/website-builders" className="text-sm text-gray-600 hover:text-gray-900">
+                Website Builders
               </Link>
               <Link href="/ai-tools" className="text-sm text-gray-600 hover:text-gray-900">
                 AI Tools

@@ -14,7 +14,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/hosting"
+              href="/web-hosting"
               className="px-6 py-3 bg-gray-900 text-white font-medium rounded hover:bg-gray-800 transition"
             >
               Web Hosting Reviews
@@ -36,38 +36,38 @@ export default function Home() {
             Popular Guides
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/hosting/best-web-hosting" className="group">
+            <Link href="/web-hosting" className="group">
               <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
                 <span className="text-xs font-medium text-gray-500 uppercase">Hosting</span>
                 <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
                   The Best Web Hosting Services for 2026
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  After testing 23 providers over 6 months, these are our top recommendations for different needs and budgets.
+                  After testing 30+ providers over 6 months, these are our top recommendations for different needs and budgets.
                 </p>
               </article>
             </Link>
 
-            <Link href="/hosting/hostinger-review" className="group">
-              <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
-                <span className="text-xs font-medium text-gray-500 uppercase">Review</span>
-                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
-                  Hostinger Review: Is the Hype Justified?
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  A deep dive into Hostinger&apos;s performance, support quality, and whether it lives up to the marketing claims.
-                </p>
-              </article>
-            </Link>
-
-            <Link href="/ai-tools/best-ai-writing-tools" className="group">
+            <Link href="/ai-tools" className="group">
               <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
                 <span className="text-xs font-medium text-gray-500 uppercase">AI Tools</span>
                 <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
                   Best AI Writing Tools for Content Creators
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  We tested 15 AI writing assistants with real content projects. Here&apos;s what actually works.
+                  We tested 25+ AI writing platforms with real projects. Here&apos;s what actually works.
+                </p>
+              </article>
+            </Link>
+
+            <Link href="/website-builders" className="group">
+              <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
+                <span className="text-xs font-medium text-gray-500 uppercase">Builders</span>
+                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
+                  Best Website Builders 2026
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Professional websites made easy. We built 40+ test sites to find the best builders for every need.
                 </p>
               </article>
             </Link>

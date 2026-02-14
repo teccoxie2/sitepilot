@@ -28,10 +28,10 @@ export default function Home() {
               Web Hosting Reviews
             </Link>
             <Link
-              href="/ai-tools"
+              href="/best-ai-seo-tools-2026"
               className="px-6 py-3 text-gray-700 font-medium rounded border border-gray-300 hover:border-gray-400 transition"
             >
-              AI Writing Tools
+              AI SEO Tools
             </Link>
           </div>
         </div>
@@ -56,14 +56,14 @@ export default function Home() {
               </article>
             </Link>
 
-            <Link href="/ai-tools" className="group">
+            <Link href="/best-ai-seo-tools-2026" className="group">
               <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
-                <span className="text-xs font-medium text-gray-500 uppercase">AI Tools</span>
+                <span className="text-xs font-medium text-gray-500 uppercase">AI SEO</span>
                 <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
-                  Best AI Writing Tools for Content Creators
+                  Best AI SEO Tools 2026: Complete Testing Review
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  We tested 25+ AI writing platforms with real projects. Here&apos;s what actually works.
+                  8 months testing 27 AI SEO tools across 450+ articles. Real ROI data and performance results.
                 </p>
               </article>
             </Link>

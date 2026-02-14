@@ -98,7 +98,7 @@ export default function Home() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/hosting/cheap-hosting" className="text-gray-600 hover:text-gray-900 text-sm">
+                  <Link href="/cheap-hosting" className="text-gray-600 hover:text-gray-900 text-sm">
                     Best Cheap Hosting Under $5/mo
                   </Link>
                 </li>

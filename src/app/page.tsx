@@ -1,8 +1,16 @@
 import Link from "next/link";
+import SchemaMarkup from "@/components/SchemaMarkup";
 
 export default function Home() {
   return (
     <>
+      <SchemaMarkup 
+        type="website"
+        title="SitePilot - Your Guide to Building Websites That Work"
+        description="Expert reviews and guides on web hosting, AI tools, and website builders. Launch your website with confidence."
+        url="https://sitepilot.co"
+      />
+      
       {/* Hero Section - Clean & Professional */}
       <section className="bg-white py-16 md:py-24 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

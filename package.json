@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "perf": "node scripts/performance-check.js",
+    "deploy": "npm run build && npm run perf"
   },
   "dependencies": {
     "next": "16.1.6",

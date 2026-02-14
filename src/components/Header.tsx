@@ -26,6 +26,9 @@ export default function Header() {
             <Link href="/best-ai-seo-tools-2026" className="text-sm text-gray-600 hover:text-gray-900 transition">
               AI SEO Tools
             </Link>
+            <Link href="/ai-content-generator-comparison" className="text-sm text-gray-600 hover:text-gray-900 transition">
+              AI Writing Tools
+            </Link>
             <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 transition">
               Blog
             </Link>
@@ -58,6 +61,9 @@ export default function Header() {
               </Link>
               <Link href="/best-ai-seo-tools-2026" className="text-sm text-gray-600 hover:text-gray-900">
                 AI SEO Tools
+              </Link>
+              <Link href="/ai-content-generator-comparison" className="text-sm text-gray-600 hover:text-gray-900">
+                AI Writing Tools
               </Link>
               <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900">
                 Blog

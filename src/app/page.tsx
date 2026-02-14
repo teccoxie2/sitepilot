@@ -149,23 +149,23 @@ export default function Home() {
               </h3>
               <ul className="space-y-3">
                 <li>
+                  <Link href="/best-ai-seo-tools-2026" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Best AI SEO Tools 2026
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ai-content-generator-comparison" className="text-gray-600 hover:text-gray-900 text-sm">
+                    AI Content Generator Comparison
+                  </Link>
+                </li>
+                <li>
                   <Link href="/ai-tools/best-ai-writing-tools" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Best AI Writing Tools
+                    Best AI Writing Tools 2026
                   </Link>
                 </li>
                 <li>
                   <Link href="/ai-tools/jasper-review" className="text-gray-600 hover:text-gray-900 text-sm">
                     Jasper AI Review
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ai-tools/chatgpt-vs-jasper" className="text-gray-600 hover:text-gray-900 text-sm">
-                    ChatGPT vs Jasper
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ai-tools/copy-ai-review" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Copy.ai Review
                   </Link>
                 </li>
               </ul>

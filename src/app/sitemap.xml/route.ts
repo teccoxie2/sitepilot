@@ -11,8 +11,15 @@ export async function GET() {
       changeFreq: 'daily',
       priority: '1.0'
     },
+    // Core category pages
     {
       url: `${baseUrl}/web-hosting`,
+      lastModified: currentDate,
+      changeFreq: 'weekly',
+      priority: '0.9'
+    },
+    {
+      url: `${baseUrl}/hosting`,
       lastModified: currentDate,
       changeFreq: 'weekly',
       priority: '0.9'
@@ -28,6 +35,37 @@ export async function GET() {
       lastModified: currentDate,
       changeFreq: 'weekly',
       priority: '0.9'
+    },
+    // In-depth guides and reviews
+    {
+      url: `${baseUrl}/best-web-hosting-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/best-ai-writing-tools-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/best-ai-seo-tools-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/ai-content-generator-comparison`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/cheap-hosting`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.7'
     }
   ]
 

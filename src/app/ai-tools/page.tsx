@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import RelatedLinks, { aiToolsRelatedLinks } from "@/components/RelatedLinks";
 
 export const metadata: Metadata = {
   title: 'Best AI Writing Tools 2026: Complete Comparison & Reviews | SitePilot',
@@ -310,6 +311,12 @@ export default function AIToolsPage() {
             </p>
           </div>
         </section>
+
+        {/* Related Links */}
+        <RelatedLinks
+          title="Explore More AI Tools & Resources"
+          links={aiToolsRelatedLinks}
+        />
 
         {/* Contact Section */}
         <section className="text-center border-t pt-8">

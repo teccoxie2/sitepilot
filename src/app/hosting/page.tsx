@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RelatedLinks, { hostingRelatedLinks } from "@/components/RelatedLinks";
 
 export const metadata = {
   title: "Web Hosting Reviews & Comparisons 2026 | SitePilot",
@@ -102,6 +103,16 @@ export default function HostingPage() {
               </Link>
             </article>
           </div>
+        </div>
+      </section>
+
+      {/* Related Links */}
+      <section className="bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <RelatedLinks
+            title="More Hosting Resources & Tools"
+            links={hostingRelatedLinks}
+          />
         </div>
       </section>
     </>

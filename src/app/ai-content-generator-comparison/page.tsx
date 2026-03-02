@@ -351,7 +351,7 @@ export default function AIContentGeneratorComparison() {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-center">
                   <span className="text-orange-600 mr-2">📊</span>
-                  Content volume >50 articles/month
+                  Content volume &gt;50 articles/month
                 </li>
                 <li className="flex items-center">
                   <span className="text-orange-600 mr-2">👥</span>

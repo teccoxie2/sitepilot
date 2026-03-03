@@ -96,3 +96,30 @@ export const aiToolsRelatedLinks: RelatedLink[] = [
     category: "guide"
   }
 ]
+
+export const websiteBuilderRelatedLinks: RelatedLink[] = [
+  {
+    title: "Best Web Hosting 2026",
+    href: "/best-web-hosting-2026",
+    description: "Top hosting providers for your new website",
+    category: "hosting"
+  },
+  {
+    title: "AI Tools Hub",
+    href: "/ai-tools",
+    description: "Essential AI tools for website optimization",
+    category: "ai"
+  },
+  {
+    title: "Web Hosting Guide",
+    href: "/web-hosting",
+    description: "Complete hosting guide for beginners",
+    category: "guide"
+  },
+  {
+    title: "Cheap Web Hosting",
+    href: "/cheap-hosting",
+    description: "Quality hosting under $5/month",
+    category: "hosting"
+  }
+]

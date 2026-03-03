@@ -56,6 +56,12 @@ export async function GET() {
       priority: '0.8'
     },
     {
+      url: `${baseUrl}/best-website-builders-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
       url: `${baseUrl}/ai-content-generator-comparison`,
       lastModified: currentDate,
       changeFreq: 'monthly',

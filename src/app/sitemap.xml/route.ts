@@ -78,6 +78,18 @@ export async function GET() {
       lastModified: currentDate,
       changeFreq: 'monthly',
       priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/website-builder-vs-wordpress-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.9'
+    },
+    {
+      url: `${baseUrl}/free-website-builders-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.9'
     }
   ]
 

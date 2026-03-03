@@ -72,6 +72,12 @@ export async function GET() {
       lastModified: currentDate,
       changeFreq: 'monthly',
       priority: '0.7'
+    },
+    {
+      url: `${baseUrl}/cloud-hosting-vs-traditional-hosting-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
     }
   ]
 

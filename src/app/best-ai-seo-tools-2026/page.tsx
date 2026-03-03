@@ -1,9 +1,19 @@
 import React from 'react';
 import Header from '@/components/Header';
+import SchemaMarkup from '@/components/SchemaMarkup';
 
 export default function BestAISEOTools2026() {
   return (
     <>
+      <SchemaMarkup 
+        type="article"
+        title="Best AI SEO Tools 2026: Expert Reviews & Comparisons"
+        description="Compare the top AI-powered SEO tools in 2026. Expert reviews of Jasper, Copy.ai, SurferSEO, and more. Boost your search rankings with AI."
+        url="https://sitepilot.co/best-ai-seo-tools-2026"
+        publishedDate="2026-02-15T00:00:00Z"
+        modifiedDate="2026-02-15T00:00:00Z"
+        authorName="SitePilot Team"
+      />
       <Header />
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

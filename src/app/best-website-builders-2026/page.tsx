@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import RelatedLinks, { websiteBuilderRelatedLinks } from '@/components/RelatedLinks'
+import SchemaMarkup from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
   title: 'Best Website Builders 2026: Complete Guide & Comparisons - SitePilot',
@@ -138,7 +139,18 @@ const BuilderCard = ({
 
 export default function BestWebsiteBuilders2026() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <>
+      <SchemaMarkup 
+        type="article"
+        title="Best Website Builders 2026: Complete Guide & Comparisons"
+        description="Compare the top website builders in 2026. Expert reviews of Webflow, Wix, Shopify, Squarespace, and more. Find the perfect builder for your needs."
+        url="https://sitepilot.co/best-website-builders-2026"
+        publishedDate="2026-03-03T00:00:00Z"
+        modifiedDate="2026-03-03T00:00:00Z"
+        authorName="SitePilot Team"
+      />
+      
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
         <div className="container mx-auto px-4">
@@ -516,8 +528,9 @@ export default function BestWebsiteBuilders2026() {
         </div>
       </div>
 
-      {/* Related Links Section */}
-      <RelatedLinks links={websiteBuilderRelatedLinks} title="Explore More Website Building Resources" />
-    </div>
+        {/* Related Links Section */}
+        <RelatedLinks links={websiteBuilderRelatedLinks} title="Explore More Website Building Resources" />
+      </div>
+    </>
   )
 }

@@ -1,0 +1,94 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic [active]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - navigation [ref=e6]:
+            - button "previous" [disabled] [ref=e7]:
+              - img "previous" [ref=e8]
+            - generic [ref=e10]:
+              - generic [ref=e11]: 1/
+              - text: "1"
+            - button "next" [disabled] [ref=e12]:
+              - img "next" [ref=e13]
+          - img
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - img [ref=e17]
+            - generic "Latest available version is detected (16.1.6)." [ref=e19]: Next.js 16.1.6
+            - generic [ref=e20]: Turbopack
+          - img
+      - dialog "Build Error" [ref=e22]:
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic [ref=e29]: Build Error
+              - generic [ref=e30]:
+                - button "Copy Error Info" [ref=e31] [cursor=pointer]:
+                  - img [ref=e32]
+                - button "No related documentation found" [disabled] [ref=e34]:
+                  - img [ref=e35]
+                - button "Attach Node.js inspector" [ref=e37] [cursor=pointer]:
+                  - img [ref=e38]
+            - generic [ref=e47]: Parsing ecmascript source code failed
+          - generic [ref=e49]:
+            - generic [ref=e51]:
+              - img [ref=e53]
+              - generic [ref=e56]: ./src/app/page.tsx (17:84)
+              - button "Open in editor" [ref=e57] [cursor=pointer]:
+                - img [ref=e59]
+            - generic [ref=e62]:
+              - generic [ref=e63]: Parsing ecmascript source code failed
+              - generic [ref=e64]: 15 |
+              - text: <section
+              - generic [ref=e65]: className
+              - text: =
+              - generic [ref=e66]: "\"relative bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20 md:py-28 overflow-hidden\""
+              - text: ">"
+              - generic [ref=e67]: 16 |
+              - generic [ref=e68]: "{"
+              - generic [ref=e69]: /* 背景装饰元素 */
+              - generic [ref=e70]: "}"
+              - text: ">"
+              - generic [ref=e71]: 17 |
+              - text: <div
+              - generic [ref=e72]: className
+              - text: =
+              - generic [ref=e73]: "\"absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\""
+              - text: "60"
+              - generic [ref=e74]: "\" height=\""
+              - text: "60"
+              - generic [ref=e75]: "\" viewBox=\""
+              - text: 0 0 60 60
+              - generic [ref=e76]: "\" xmlns=\""
+              - text: "http:"
+              - generic [ref=e77]: //www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2393C5FD" fill-opacity="0.05"%3E%3Cpath d="m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+              - generic [ref=e78]: "|"
+              - text: ^^
+              - generic [ref=e79]: 18 |
+              - generic [ref=e80]: 19 |
+              - text: <div
+              - generic [ref=e81]: className
+              - text: =
+              - generic [ref=e82]: "\"relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8\""
+              - text: ">"
+              - generic [ref=e83]: 20 |
+              - text: <div
+              - generic [ref=e84]: className
+              - text: ="text-center">
+              - generic [ref=e85]: Expected '</', got 'numeric literal'
+        - generic [ref=e86]: "1"
+        - generic [ref=e87]: "2"
+    - generic [ref=e92] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e93]:
+        - img [ref=e94]
+      - button "Open issues overlay" [ref=e98]:
+        - generic [ref=e99]:
+          - generic [ref=e100]: "0"
+          - generic [ref=e101]: "1"
+        - generic [ref=e102]: Issue
+  - alert [ref=e103]
+```

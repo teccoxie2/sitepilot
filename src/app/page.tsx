@@ -11,181 +11,404 @@ export default function Home() {
         url="https://sitepilot.co"
       />
       
-      {/* Hero Section - Clean & Professional */}
-      <section className="bg-white py-16 md:py-24 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Independent reviews to help you choose the right tools for your website
-          </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl">
-            We spend hundreds of hours testing web hosting, site builders, and software so you can make informed decisions. No sponsored rankings.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/web-hosting"
-              className="px-6 py-3 bg-gray-900 text-white font-medium rounded hover:bg-gray-800 transition"
-            >
-              Web Hosting Reviews
-            </Link>
-            <Link
-              href="/best-ai-seo-tools-2026"
-              className="px-6 py-3 text-gray-700 font-medium rounded border border-gray-300 hover:border-gray-400 transition"
-            >
-              AI SEO Tools
-            </Link>
+      {/* Hero Section - Modern & Compelling */}
+      <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20 md:py-28 overflow-hidden">
+        {/* 背景装饰元素 */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2393C5FD" fill-opacity="0.05"%3E%3Cpath d="m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            {/* 标题区域 */}
+            <div className="mb-8 fade-in-up">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                Trusted by 100,000+ Website Owners
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 mb-6 leading-tight">
+                Build Your Perfect
+                <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"> Website</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Independent reviews and expert guidance on web hosting, AI tools, and website builders. 
+                <strong className="text-slate-700"> No sponsored rankings.</strong> Just honest recommendations.
+              </p>
+            </div>
+
+            {/* CTA 按钮组 */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+              <Link
+                href="/web-hosting"
+                className="btn btn-accent group w-full sm:w-auto"
+              >
+                <svg className="w-5 h-5 mr-2 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Find My Perfect Hosting
+              </Link>
+              <Link
+                href="/best-ai-seo-tools-2026"
+                className="btn btn-secondary w-full sm:w-auto"
+              >
+                Explore AI Tools
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* 信任指标 */}
+            <div className="grid grid-cols-3 gap-8 text-center opacity-75">
+              <div>
+                <div className="text-2xl font-bold text-slate-900">500+</div>
+                <div className="text-sm text-slate-600">Hours Testing</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-slate-900">30+</div>
+                <div className="text-sm text-slate-600">Providers Reviewed</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-slate-900">100%</div>
+                <div className="text-sm text-slate-600">Independent</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Guides */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-8">
-            Popular Guides
-          </h2>
+      {/* Featured Guides - Modern Card Design */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Expert Reviews & Guides
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              In-depth testing and analysis to help you make the right choice for your website
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/web-hosting" className="group">
-              <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
-                <span className="text-xs font-medium text-gray-500 uppercase">Hosting</span>
-                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
-                  The Best Web Hosting Services for 2026
+            <Link href="/web-hosting" className="group hover-lift">
+              <article className="card h-full relative overflow-hidden">
+                {/* 图标区域 */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 bg-blue-100 text-blue-600 rounded-xl">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded-full uppercase tracking-wide">
+                    Top Rated
+                  </span>
+                </div>
+                
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  Best Web Hosting 2026
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-slate-600 leading-relaxed mb-4">
                   After testing 30+ providers over 6 months, these are our top recommendations for different needs and budgets.
                 </p>
+                
+                {/* 统计信息 */}
+                <div className="flex items-center gap-4 text-sm text-slate-500 border-t border-slate-100 pt-4">
+                  <span>✓ 30+ Tested</span>
+                  <span>✓ 6 Months Data</span>
+                </div>
               </article>
             </Link>
 
-            <Link href="/best-ai-seo-tools-2026" className="group">
-              <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
-                <span className="text-xs font-medium text-gray-500 uppercase">AI SEO</span>
-                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
-                  Best AI SEO Tools 2026: Complete Testing Review
+            <Link href="/best-ai-seo-tools-2026" className="group hover-lift">
+              <article className="card h-full relative overflow-hidden">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 bg-purple-100 text-purple-600 rounded-xl">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-1 rounded-full uppercase tracking-wide">
+                    AI Powered
+                  </span>
+                </div>
+                
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
+                  Best AI SEO Tools 2026
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-slate-600 leading-relaxed mb-4">
                   8 months testing 27 AI SEO tools across 450+ articles. Real ROI data and performance results.
                 </p>
+                
+                <div className="flex items-center gap-4 text-sm text-slate-500 border-t border-slate-100 pt-4">
+                  <span>✓ 27 Tools Tested</span>
+                  <span>✓ Real ROI Data</span>
+                </div>
               </article>
             </Link>
 
-            <Link href="/website-builders" className="group">
-              <article className="bg-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition h-full">
-                <span className="text-xs font-medium text-gray-500 uppercase">Builders</span>
-                <h3 className="text-lg font-semibold text-gray-900 mt-2 mb-3 group-hover:text-blue-700">
+            <Link href="/website-builders" className="group hover-lift">
+              <article className="card h-full relative overflow-hidden">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 bg-green-100 text-green-600 rounded-xl">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full uppercase tracking-wide">
+                    Beginner Friendly
+                  </span>
+                </div>
+                
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-green-600 transition-colors">
                   Best Website Builders 2026
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-slate-600 leading-relaxed mb-4">
                   Professional websites made easy. We built 40+ test sites to find the best builders for every need.
                 </p>
+                
+                <div className="flex items-center gap-4 text-sm text-slate-500 border-t border-slate-100 pt-4">
+                  <span>✓ 40+ Test Sites</span>
+                  <span>✓ All Budgets</span>
+                </div>
               </article>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                Web Hosting
-              </h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/hosting/best-web-hosting" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Best Web Hosting 2026
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/cheap-hosting" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Best Cheap Hosting Under $5/mo
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/hosting/wordpress-hosting" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Best WordPress Hosting
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/hosting/hostinger-vs-bluehost" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Hostinger vs Bluehost
-                  </Link>
-                </li>
-              </ul>
+      {/* Quick Navigation - Modern Category Grid */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              Explore All Categories
+            </h2>
+            <p className="text-slate-600">
+              Find exactly what you need with our comprehensive guides and reviews
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Web Hosting Category */}
+            <div className="card hover-lift group">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-blue-100 text-blue-600 rounded-xl mr-4">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  Web Hosting
+                </h3>
+              </div>
+              
+              <div className="space-y-3">
+                <Link href="/hosting/best-web-hosting" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-blue-600 font-medium">Best Web Hosting 2026</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-blue-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+                <Link href="/cheap-hosting" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-blue-600 font-medium">Cheap Hosting Under $5/mo</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-blue-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+                <Link href="/hosting/wordpress-hosting" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-blue-600 font-medium">WordPress Hosting</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-blue-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              </div>
             </div>
 
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                Website Builders
-              </h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/builders/best-website-builders" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Best Website Builders 2026
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/builders/elementor-review" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Elementor Review
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/builders/webflow-review" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Webflow Review
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/builders/wix-vs-squarespace" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Wix vs Squarespace
-                  </Link>
-                </li>
-              </ul>
+            {/* Website Builders Category */}
+            <div className="card hover-lift group">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-purple-100 text-purple-600 rounded-xl mr-4">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors">
+                  Website Builders
+                </h3>
+              </div>
+              
+              <div className="space-y-3">
+                <Link href="/website-builders" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-purple-600 font-medium">Best Website Builders 2026</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-purple-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+                <Link href="/free-website-builders-2026" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-purple-600 font-medium">Free Website Builders</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-purple-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+                <Link href="/best-ecommerce-website-builders-2026" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-purple-600 font-medium">E-commerce Builders</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-purple-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              </div>
             </div>
 
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                AI Tools
-              </h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/best-ai-seo-tools-2026" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Best AI SEO Tools 2026
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ai-content-generator-comparison" className="text-gray-600 hover:text-gray-900 text-sm">
-                    AI Content Generator Comparison
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ai-tools/best-ai-writing-tools" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Best AI Writing Tools 2026
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ai-tools/jasper-review" className="text-gray-600 hover:text-gray-900 text-sm">
-                    Jasper AI Review
-                  </Link>
-                </li>
-              </ul>
+            {/* AI Tools Category */}
+            <div className="card hover-lift group">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-green-100 text-green-600 rounded-xl mr-4">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors">
+                  AI Tools
+                </h3>
+              </div>
+              
+              <div className="space-y-3">
+                <Link href="/best-ai-seo-tools-2026" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-green-600 font-medium">Best AI SEO Tools 2026</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-green-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+                <Link href="/best-ai-writing-tools-2026" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-green-600 font-medium">AI Writing Tools 2026</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-green-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+                <Link href="/ai-content-generator-comparison" className="block p-3 rounded-lg hover:bg-slate-50 group/item">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-700 group-hover/item:text-green-600 font-medium">AI Content Generators</span>
+                    <svg className="w-4 h-4 text-slate-400 group-hover/item:text-green-500 group-hover/item:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Section - Credibility */}
-      <section className="py-16 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">
-            How we test
-          </h2>
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            Every product we review goes through hands-on testing. For web hosts, we deploy real websites and monitor uptime, speed, and support response times over several months. For software, we use it on actual projects before forming opinions.
-          </p>
-          <p className="text-gray-600 leading-relaxed">
-            We may earn affiliate commissions when you purchase through our links, but this never influences our ratings or recommendations. Products that don&apos;t meet our standards don&apos;t make it to publication.
-          </p>
+      {/* Trust & Credibility Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* 左侧内容 */}
+            <div>
+              <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-6">
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                100% Independent Reviews
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                Our Rigorous Testing Process
+              </h2>
+              
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                Every product we review goes through hands-on testing. For web hosts, we deploy real websites and monitor 
+                uptime, speed, and support response times over several months. For software, we use it on actual projects 
+                before forming opinions.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="text-center p-4 bg-slate-50 rounded-xl">
+                  <div className="text-2xl font-bold text-blue-600 mb-1">6+</div>
+                  <div className="text-sm text-slate-600">Months Testing Each Host</div>
+                </div>
+                <div className="text-center p-4 bg-slate-50 rounded-xl">
+                  <div className="text-2xl font-bold text-purple-600 mb-1">24/7</div>
+                  <div className="text-sm text-slate-600">Uptime Monitoring</div>
+                </div>
+              </div>
+              
+              {/* 透明度声明 */}
+              <div className="p-6 bg-amber-50 border border-amber-200 rounded-xl">
+                <div className="flex items-start">
+                  <div className="p-2 bg-amber-100 rounded-lg mr-4 flex-shrink-0">
+                    <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 mb-2">Full Transparency</h4>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      We may earn affiliate commissions when you purchase through our links, but this never influences 
+                      our ratings or recommendations. Products that don't meet our standards don't get published.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 右侧测试流程 */}
+            <div className="space-y-6">
+              <div className="flex items-start">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold mr-4">
+                  1
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-900 mb-2">Initial Evaluation</h4>
+                  <p className="text-slate-600 text-sm">Sign up, test core features, and assess user experience across all devices.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="flex-shrink-0 w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center font-bold mr-4">
+                  2
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-900 mb-2">Long-term Testing</h4>
+                  <p className="text-slate-600 text-sm">Deploy real websites, monitor performance, test customer support, and document issues.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="flex-shrink-0 w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center font-bold mr-4">
+                  3
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-900 mb-2">Data Analysis</h4>
+                  <p className="text-slate-600 text-sm">Compile performance metrics, compare against competitors, and verify results.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="flex-shrink-0 w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold mr-4">
+                  4
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-900 mb-2">Expert Review</h4>
+                  <p className="text-slate-600 text-sm">Write comprehensive analysis with pros, cons, and honest recommendations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

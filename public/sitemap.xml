@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://sitepilot.co/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,57 +11,123 @@
   <!-- Main category pages -->
   <url>
     <loc>https://sitepilot.co/hosting</loc>
-    <lastmod>2026-02-15</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://sitepilot.co/ai-tools</loc>
-    <lastmod>2026-02-15</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://sitepilot.co/website-builders</loc>
-    <lastmod>2026-02-15</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Specific guide pages -->
+  <!-- Web Hosting Guides -->
   <url>
     <loc>https://sitepilot.co/web-hosting</loc>
-    <lastmod>2026-02-15</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://sitepilot.co/best-web-hosting-2026</loc>
-    <lastmod>2026-02-15</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://sitepilot.co/cheap-hosting</loc>
-    <lastmod>2026-02-15</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://sitepilot.co/best-ai-seo-tools-2026</loc>
-    <lastmod>2026-02-15</lastmod>
+    <loc>https://sitepilot.co/cloud-hosting-vs-traditional-hosting-2026</loc>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  
+  <!-- Website Builder Guides -->
+  <url>
+    <loc>https://sitepilot.co/best-website-builders-2026</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://sitepilot.co/free-website-builders-2026</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://sitepilot.co/best-ecommerce-website-builders-2026</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://sitepilot.co/website-builder-vs-wordpress-2026</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- AI Tools Guides -->
+  <url>
+    <loc>https://sitepilot.co/best-ai-seo-tools-2026</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://sitepilot.co/best-ai-writing-tools-2026</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://sitepilot.co/ai-tools-for-bloggers-2026</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://sitepilot.co/ai-content-generator-comparison</loc>
-    <lastmod>2026-02-15</lastmod>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Security & SSL Guides -->
+  <url>
+    <loc>https://sitepilot.co/best-free-ssl-certificates-2026</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://sitepilot.co/website-security-checklist-2026</loc>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

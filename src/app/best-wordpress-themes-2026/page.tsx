@@ -460,7 +460,7 @@ export default function BestWordPressThemes2026() {
                 <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
                 <div>
                   <h4 className="font-semibold">Access Theme Section</h4>
-                  <p className="text-gray-600 text-sm">Go to Appearance > Themes in your WordPress dashboard</p>
+                  <p className="text-gray-600 text-sm">Go to Appearance {`>`} Themes in your WordPress dashboard</p>
                 </div>
               </div>
               
@@ -505,7 +505,7 @@ export default function BestWordPressThemes2026() {
                 <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
                 <div>
                   <h4 className="font-semibold">Activate in Dashboard</h4>
-                  <p className="text-gray-600 text-sm">Go to Appearance > Themes and activate</p>
+                  <p className="text-gray-600 text-sm">Go to Appearance {`>`} Themes and activate</p>
                 </div>
               </div>
             </div>

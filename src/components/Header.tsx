@@ -51,6 +51,9 @@ export default function Header() {
             <Link href="/best-ai-writing-tools-2026" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
               AI Writing
             </Link>
+            <Link href="/best-email-marketing-tools-2026" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all">
+              Email Marketing
+            </Link>
           </div>
 
           {/* CTA Button + Mobile Menu */}
@@ -106,6 +109,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 ✍️ AI Writing
+              </Link>
+              <Link 
+                href="/best-email-marketing-tools-2026" 
+                className="px-3 py-3 text-base font-medium text-slate-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                📧 Email Marketing
               </Link>
               
               <div className="pt-4 mt-4 border-t border-slate-100">

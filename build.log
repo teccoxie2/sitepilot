@@ -6,15 +6,15 @@
 - Environments: .env.local
 
   Creating an optimized production build ...
-✓ Compiled successfully in 2.7s
+✓ Compiled successfully in 2.8s
   Running TypeScript ...
   Collecting page data using 5 workers ...
-  Generating static pages using 5 workers (0/45) ...
+  Generating static pages using 5 workers (0/47) ...
 ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-  Generating static pages using 5 workers (11/45) 
-  Generating static pages using 5 workers (22/45) 
-  Generating static pages using 5 workers (33/45) 
-✓ Generating static pages using 5 workers (45/45) in 789.9ms
+  Generating static pages using 5 workers (11/47) 
+  Generating static pages using 5 workers (23/47) 
+  Generating static pages using 5 workers (35/47) 
+✓ Generating static pages using 5 workers (47/47) in 850.1ms
   Finalizing page optimization ...
 
 Route (app)
@@ -30,10 +30,12 @@ Route (app)
 ├ ○ /ai-roi-calculator
 ├ ○ /ai-tool-implementation-strategy-2026
 ├ ○ /ai-tools
+├ ○ /ai-tools-budget-planning-enterprise-2026
 ├ ○ /ai-tools-cost-benefit-analysis-2026
 ├ ○ /ai-tools-cost-optimization-enterprise-2026
 ├ ○ /ai-tools-for-bloggers-2026
 ├ ○ /ai-tools-risk-assessment-enterprise-2026
+├ ○ /ai-tools-security-compliance-checklist-2026
 ├ ○ /ai-tools-usage-tracking-dashboard-2026
 ├ ○ /best-ai-analytics-tools-bloggers-2026
 ├ ○ /best-ai-automation-tools-bloggers-2026

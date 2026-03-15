@@ -12,6 +12,7 @@
     "verify-analytics": "node scripts/verify-analytics.js"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.36.0",
     "lucide-react": "^0.577.0",
     "marked": "^17.0.4",

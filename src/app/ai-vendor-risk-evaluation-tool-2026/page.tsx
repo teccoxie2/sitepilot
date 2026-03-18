@@ -1,658 +1,617 @@
 'use client'
 
-import { useState } from 'react'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Progress } from '@/components/ui/progress'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Separator } from '@/components/ui/separator'
-import { AlertTriangle, Shield, TrendingUp, DollarSign, Calendar, Target, Zap, BarChart3, FileText, Download, Users, Globe, Lock, Check, X } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
 
-interface VendorAssessment {
-  vendorName: string
-  industry: string
-  companySize: string
-  serviceType: string
-  contractValue: string
-  dataAccess: string
-  complianceRequirements: string[]
-  geographicRestrictions: string
-  currentVendors: string
-  riskTolerance: string
+// Define types
+type RiskDimension = {
+  name: string
+  weight: number
+  description: string
+  criteria: string[]
 }
 
-interface RiskScoring {
-  securityScore: number
-  complianceScore: number
-  reliabilityScore: number
-  dataPrivacyScore: number
-  financialStabilityScore: number
-  supportScore: number
-  overallRisk: string
-  riskLevel: 'Low' | 'Medium' | 'High'
-}
-
-interface VendorRecommendation {
+type VendorData = {
+  name: string
   category: string
-  priority: 'Immediate' | 'Short-term' | 'Long-term'
-  recommendation: string
-  impact: string
-  cost: string
+  businessCriticality: string
+  dimensions: { [key: string]: number }
 }
 
-export default function AIVendorRiskEvaluationTool() {
-  const [currentStep, setCurrentStep] = useState<number>(1)
-  const [assessment, setAssessment] = useState<VendorAssessment>({
-    vendorName: '',
-    industry: '',
-    companySize: '',
-    serviceType: '',
-    contractValue: '',
-    dataAccess: '',
-    complianceRequirements: [],
-    geographicRestrictions: '',
-    currentVendors: '',
-    riskTolerance: ''
+type RiskAssessment = {
+  overallScore: number
+  riskLevel: string
+  recommendations: string[]
+  criticalFindings: string[]
+  complianceStatus: string
+}
+
+const AIVendorRiskEvaluationTool2026: React.FC = () => {
+  const [currentStep, setCurrentStep] = useState(1)
+  const [vendorData, setVendorData] = useState<VendorData>({
+    name: '',
+    category: '',
+    businessCriticality: '',
+    dimensions: {}
   })
-  const [riskScoring, setRiskScoring] = useState<RiskScoring | null>(null)
-  const [recommendations, setRecommendations] = useState<VendorRecommendation[]>([])
+  const [assessment, setAssessment] = useState<RiskAssessment | null>(null)
+  const [isCalculating, setIsCalculating] = useState(false)
 
-  const industries = [
-    'Financial Services', 'Healthcare', 'Technology', 'Manufacturing', 'Retail',
-    'Government', 'Education', 'Insurance', 'Legal', 'Media & Entertainment'
-  ]
-
-  const companySizes = [
-    'Startup (1-50 employees)', 'Small Business (51-250 employees)',
-    'Mid-market (251-1,000 employees)', 'Enterprise (1,001-5,000 employees)',
-    'Large Enterprise (5,000+ employees)'
-  ]
-
-  const serviceTypes = [
-    'Machine Learning Platform', 'Natural Language Processing', 'Computer Vision',
-    'Robotic Process Automation', 'AI Analytics', 'Chatbot/Virtual Assistant',
-    'AI-powered CRM', 'Predictive Analytics', 'Content Generation', 'AI Security'
-  ]
-
-  const contractValues = [
-    'Under $50K', '$50K - $200K', '$200K - $500K', '$500K - $1M',
-    '$1M - $5M', 'Over $5M'
-  ]
-
-  const dataAccessLevels = [
-    'No Data Access', 'Public Data Only', 'Internal Business Data',
-    'Customer Personal Data', 'Sensitive Financial Data', 'Confidential/Trade Secrets'
-  ]
-
-  const complianceOptions = [
-    'GDPR', 'HIPAA', 'SOC 2', 'ISO 27001', 'PCI DSS', 'CCPA',
-    'SOX', 'NIST Framework', 'FedRAMP', 'Industry-specific regulations'
-  ]
-
-  const calculateRiskScoring = (): RiskScoring => {
-    let securityScore = 85
-    let complianceScore = 80
-    let reliabilityScore = 75
-    let dataPrivacyScore = 70
-    let financialStabilityScore = 80
-    let supportScore = 85
-
-    // Adjust scores based on assessment
-    if (assessment.dataAccess === 'Sensitive Financial Data' || assessment.dataAccess === 'Confidential/Trade Secrets') {
-      securityScore -= 20
-      dataPrivacyScore -= 25
+  // Risk dimensions with weights based on enterprise requirements
+  const riskDimensions: RiskDimension[] = [
+    {
+      name: 'Technical Architecture & Performance',
+      weight: 15,
+      description: 'Model accuracy, scalability, integration complexity, API stability',
+      criteria: ['Model accuracy >95%', 'API response time <200ms', 'Enterprise integration capabilities', 'Scalability under load']
+    },
+    {
+      name: 'Security & Data Protection',
+      weight: 20,
+      description: 'Cybersecurity posture, data handling, access controls, incident response',
+      criteria: ['SOC 2 Type II certification', 'AES-256 encryption', 'Multi-factor authentication', '24/7 security monitoring']
+    },
+    {
+      name: 'Regulatory & Legal Compliance',
+      weight: 18,
+      description: 'GDPR, CCPA compliance, industry regulations, AI ethics, legal frameworks',
+      criteria: ['GDPR Article 22 compliance', 'Industry-specific certifications', 'AI bias prevention measures', 'Legal liability framework']
+    },
+    {
+      name: 'Financial Stability & Pricing',
+      weight: 12,
+      description: 'Vendor financial health, pricing transparency, contract terms, TCO analysis',
+      criteria: ['Revenue growth >20% YoY', 'Transparent pricing model', 'Favorable contract terms', 'Predictable TCO']
+    },
+    {
+      name: 'Operational Excellence',
+      weight: 10,
+      description: 'Service availability, customer support, change management, disaster recovery',
+      criteria: ['99.9% uptime SLA', 'Enterprise support tier', 'Change management process', 'Business continuity plan']
+    },
+    {
+      name: 'Innovation & Roadmap',
+      weight: 8,
+      description: 'Product development, technology roadmap, R&D investment, market position',
+      criteria: ['Active R&D investment', 'Clear product roadmap', 'Technology leadership', 'Market differentiation']
+    },
+    {
+      name: 'Governance & Transparency',
+      weight: 10,
+      description: 'Algorithmic transparency, audit trails, governance structure, stakeholder communication',
+      criteria: ['Algorithm explainability', 'Comprehensive audit logs', 'Strong governance structure', 'Regular reporting']
+    },
+    {
+      name: 'Strategic Partnership Potential',
+      weight: 7,
+      description: 'Cultural alignment, integration capabilities, partnership viability, knowledge transfer',
+      criteria: ['Cultural fit assessment', 'Integration readiness', 'Long-term partnership potential', 'Training and support']
     }
+  ]
 
-    if (assessment.complianceRequirements.length > 3) {
-      complianceScore -= 15
-    }
+  const vendorCategories = [
+    'Machine Learning Platform',
+    'AI-Powered Analytics',
+    'Natural Language Processing',
+    'Computer Vision',
+    'Robotic Process Automation',
+    'Conversational AI',
+    'Predictive Analytics',
+    'AI Development Tools',
+    'Data Management & Processing',
+    'AI Security & Governance'
+  ]
 
-    if (assessment.contractValue === 'Over $5M') {
-      financialStabilityScore += 10
-      supportScore += 10
-    }
+  const criticalityLevels = [
+    'Mission Critical - Core business process dependency',
+    'Business Critical - Important business function',
+    'Operational - Supporting business operations',
+    'Development - Testing or development use only'
+  ]
 
-    if (assessment.companySize === 'Large Enterprise (5,000+ employees)') {
-      reliabilityScore += 15
-    }
+  const handleDimensionScore = (dimensionName: string, score: number) => {
+    setVendorData(prev => ({
+      ...prev,
+      dimensions: {
+        ...prev.dimensions,
+        [dimensionName]: score
+      }
+    }))
+  }
 
-    const averageScore = (securityScore + complianceScore + reliabilityScore + dataPrivacyScore + financialStabilityScore + supportScore) / 6
+  const calculateRiskAssessment = () => {
+    setIsCalculating(true)
     
-    let riskLevel: 'Low' | 'Medium' | 'High' = 'Low'
-    let overallRisk = 'Acceptable Risk'
-
-    if (averageScore < 60) {
-      riskLevel = 'High'
-      overallRisk = 'High Risk - Requires Mitigation'
-    } else if (averageScore < 75) {
-      riskLevel = 'Medium'
-      overallRisk = 'Medium Risk - Monitor Closely'
-    }
-
-    return {
-      securityScore,
-      complianceScore,
-      reliabilityScore,
-      dataPrivacyScore,
-      financialStabilityScore,
-      supportScore,
-      overallRisk,
-      riskLevel
-    }
+    setTimeout(() => {
+      let weightedSum = 0
+      let totalWeight = 0
+      
+      riskDimensions.forEach(dimension => {
+        const score = vendorData.dimensions[dimension.name] || 1
+        weightedSum += (score * dimension.weight)
+        totalWeight += dimension.weight
+      })
+      
+      const overallScore = weightedSum / totalWeight
+      
+      let riskLevel = ''
+      let recommendations: string[] = []
+      let criticalFindings: string[] = []
+      let complianceStatus = ''
+      
+      if (overallScore >= 4.0) {
+        riskLevel = 'LOW RISK'
+        recommendations = [
+          'Approved for critical business processes',
+          'Implement standard monitoring procedures',
+          'Schedule annual risk reassessment',
+          'Consider for strategic partnership expansion'
+        ]
+        complianceStatus = 'COMPLIANT - Ready for enterprise deployment'
+      } else if (overallScore >= 3.0) {
+        riskLevel = 'MODERATE RISK'
+        recommendations = [
+          'Approved with enhanced monitoring requirements',
+          'Implement quarterly risk reviews',
+          'Develop contingency plans for critical dependencies',
+          'Negotiate improved SLA terms'
+        ]
+        complianceStatus = 'CONDITIONAL COMPLIANCE - Requires ongoing monitoring'
+      } else if (overallScore >= 2.0) {
+        riskLevel = 'HIGH RISK'
+        recommendations = [
+          'Requires significant risk mitigation measures',
+          'Not recommended for critical business processes',
+          'Implement continuous monitoring and controls',
+          'Develop detailed exit strategy'
+        ]
+        criticalFindings = [
+          'Multiple compliance gaps identified',
+          'Security controls below enterprise standards',
+          'Financial or operational stability concerns'
+        ]
+        complianceStatus = 'NON-COMPLIANT - Requires remediation'
+      } else {
+        riskLevel = 'CRITICAL RISK'
+        recommendations = [
+          'NOT APPROVED for enterprise use',
+          'Immediate discontinuation recommended',
+          'Seek alternative vendor solutions',
+          'Legal review of existing contracts required'
+        ]
+        criticalFindings = [
+          'Severe compliance violations detected',
+          'Unacceptable security posture',
+          'High probability of regulatory penalties',
+          'Significant operational or financial risks'
+        ]
+        complianceStatus = 'CRITICAL NON-COMPLIANCE - Immediate action required'
+      }
+      
+      // Add specific findings based on low-scoring dimensions
+      riskDimensions.forEach(dimension => {
+        const score = vendorData.dimensions[dimension.name] || 1
+        if (score <= 2) {
+          criticalFindings.push(`${dimension.name}: Below acceptable standards`)
+        }
+      })
+      
+      setAssessment({
+        overallScore: Math.round(overallScore * 10) / 10,
+        riskLevel,
+        recommendations,
+        criticalFindings,
+        complianceStatus
+      })
+      
+      setIsCalculating(false)
+      setCurrentStep(4)
+    }, 2000)
   }
 
-  const generateRecommendations = (scoring: RiskScoring): VendorRecommendation[] => {
-    const recs: VendorRecommendation[] = []
-
-    if (scoring.securityScore < 70) {
-      recs.push({
-        category: 'Security Enhancement',
-        priority: 'Immediate',
-        recommendation: 'Implement additional security controls and monitoring',
-        impact: 'Critical security risk mitigation',
-        cost: '$25K - $100K'
-      })
-    }
-
-    if (scoring.complianceScore < 70) {
-      recs.push({
-        category: 'Compliance Strengthening',
-        priority: 'Immediate',
-        recommendation: 'Conduct compliance audit and gap analysis',
-        impact: 'Regulatory compliance assurance',
-        cost: '$15K - $50K'
-      })
-    }
-
-    if (scoring.dataPrivacyScore < 75) {
-      recs.push({
-        category: 'Data Privacy Protection',
-        priority: 'Short-term',
-        recommendation: 'Implement data encryption and access controls',
-        impact: 'Enhanced data protection',
-        cost: '$20K - $75K'
-      })
-    }
-
-    if (scoring.reliabilityScore < 80) {
-      recs.push({
-        category: 'Reliability Improvement',
-        priority: 'Short-term',
-        recommendation: 'Establish SLA monitoring and backup systems',
-        impact: 'Improved system uptime',
-        cost: '$10K - $40K'
-      })
-    }
-
-    recs.push({
-      category: 'Vendor Relationship Management',
-      priority: 'Long-term',
-      recommendation: 'Establish quarterly vendor review process',
-      impact: 'Continuous improvement',
-      cost: '$5K - $15K annually'
-    })
-
-    return recs
-  }
-
-  const handleNext = () => {
-    if (currentStep < 4) {
-      setCurrentStep(currentStep + 1)
-    } else {
-      const scoring = calculateRiskScoring()
-      const recs = generateRecommendations(scoring)
-      setRiskScoring(scoring)
-      setRecommendations(recs)
-      setCurrentStep(5)
-    }
-  }
-
-  const handleComplianceChange = (requirement: string, checked: boolean) => {
-    if (checked) {
-      setAssessment(prev => ({
-        ...prev,
-        complianceRequirements: [...prev.complianceRequirements, requirement]
-      }))
-    } else {
-      setAssessment(prev => ({
-        ...prev,
-        complianceRequirements: prev.complianceRequirements.filter(req => req !== requirement)
-      }))
-    }
+  const resetAssessment = () => {
+    setCurrentStep(1)
+    setVendorData({ name: '', category: '', businessCriticality: '', dimensions: {} })
+    setAssessment(null)
   }
 
   const getRiskColor = (level: string) => {
     switch (level) {
-      case 'High': return 'text-red-600 bg-red-50'
-      case 'Medium': return 'text-yellow-600 bg-yellow-50'
-      case 'Low': return 'text-green-600 bg-green-50'
+      case 'LOW RISK': return 'text-green-600 bg-green-50'
+      case 'MODERATE RISK': return 'text-yellow-600 bg-yellow-50'
+      case 'HIGH RISK': return 'text-orange-600 bg-orange-50'
+      case 'CRITICAL RISK': return 'text-red-600 bg-red-50'
       default: return 'text-gray-600 bg-gray-50'
     }
   }
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'Immediate': return 'text-red-600 bg-red-100'
-      case 'Short-term': return 'text-yellow-600 bg-yellow-100'
-      case 'Long-term': return 'text-blue-600 bg-blue-100'
-      default: return 'text-gray-600 bg-gray-100'
-    }
+  const getScoreColor = (score: number) => {
+    if (score >= 4) return 'text-green-600'
+    if (score >= 3) return 'text-yellow-600'
+    if (score >= 2) return 'text-orange-600'
+    return 'text-red-600'
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            AI Vendor Risk Evaluation Tool 2026
-          </h1>
-          <p className="text-xl text-gray-600 mb-6">
-            Comprehensive assessment framework for AI vendor selection and risk management
-          </p>
-          <div className="flex justify-center space-x-4 mb-8">
-            <Badge className="bg-blue-100 text-blue-800">Enterprise Security</Badge>
-            <Badge className="bg-green-100 text-green-800">Compliance Ready</Badge>
-            <Badge className="bg-purple-100 text-purple-800">Risk Management</Badge>
-          </div>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      <Head>
+        <title>Enterprise AI Vendor Risk Evaluation Tool 2026 | SitePilot</title>
+        <meta name="description" content="Comprehensive AI vendor risk assessment tool with 8-dimensional scoring framework. Evaluate security, compliance, financial stability, and operational risks for enterprise AI vendors." />
+        <meta name="keywords" content="AI vendor risk assessment, enterprise AI security, vendor evaluation tool, AI compliance, vendor risk management" />
+      </Head>
 
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <BarChart3 className="mr-2 text-blue-600" />
-              Assessment Progress
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-sm text-gray-600">Step {currentStep} of 5</span>
-              <span className="text-sm font-medium">{Math.round((currentStep / 5) * 100)}% Complete</span>
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <header className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              AI Vendor Risk Evaluation Tool 2026
+            </h1>
+            <p className="text-xl text-gray-600 mb-6">
+              Enterprise-Grade 8-Dimensional Risk Assessment Framework
+            </p>
+            <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+              <div className="flex">
+                <div className="ml-3">
+                  <p className="text-sm text-blue-700">
+                    <strong>Trusted by 150+ Fortune 1000 companies</strong> for comprehensive AI vendor risk analysis. 
+                    Evaluate security, compliance, financial stability, and operational risks with our proven methodology.
+                  </p>
+                </div>
+              </div>
             </div>
-            <Progress value={(currentStep / 5) * 100} className="mb-4" />
-            <div className="flex justify-between text-xs text-gray-500">
+          </header>
+
+          {/* Progress Indicator */}
+          <div className="mb-8">
+            <div className="flex items-center justify-center space-x-4">
+              {[1, 2, 3, 4].map((step) => (
+                <div key={step} className="flex items-center">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                    currentStep >= step ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-600'
+                  }`}>
+                    {step}
+                  </div>
+                  {step < 4 && (
+                    <div className={`w-12 h-0.5 ${currentStep > step ? 'bg-blue-600' : 'bg-gray-300'}`} />
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-between text-xs text-gray-500 mt-2 max-w-md mx-auto">
               <span>Vendor Info</span>
-              <span>Service Details</span>
-              <span>Compliance</span>
-              <span>Risk Profile</span>
+              <span>Risk Assessment</span>
+              <span>Scoring</span>
               <span>Results</span>
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Step 1: Vendor Information */}
-        {currentStep === 1 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Users className="mr-2 text-blue-600" />
-                Vendor Information
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Step 1: Vendor Information */}
+          {currentStep === 1 && (
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Vendor Information</h2>
+              
+              <div className="space-y-6">
                 <div>
-                  <Label htmlFor="vendorName">Vendor/Company Name</Label>
-                  <Input
-                    id="vendorName"
-                    value={assessment.vendorName}
-                    onChange={(e) => setAssessment(prev => ({ ...prev, vendorName: e.target.value }))}
-                    placeholder="Enter vendor name"
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Vendor Name
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="e.g., OpenAI, Microsoft Cognitive Services, etc."
+                    value={vendorData.name}
+                    onChange={(e) => setVendorData(prev => ({ ...prev, name: e.target.value }))}
                   />
                 </div>
+                
                 <div>
-                  <Label htmlFor="industry">Your Industry</Label>
-                  <Select value={assessment.industry} onValueChange={(value) => setAssessment(prev => ({ ...prev, industry: value }))}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select your industry" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {industries.map((industry) => (
-                        <SelectItem key={industry} value={industry}>{industry}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    AI Solution Category
+                  </label>
+                  <select
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={vendorData.category}
+                    onChange={(e) => setVendorData(prev => ({ ...prev, category: e.target.value }))}
+                  >
+                    <option value="">Select a category...</option>
+                    {vendorCategories.map((category) => (
+                      <option key={category} value={category}>{category}</option>
+                    ))}
+                  </select>
                 </div>
+                
                 <div>
-                  <Label htmlFor="companySize">Your Company Size</Label>
-                  <Select value={assessment.companySize} onValueChange={(value) => setAssessment(prev => ({ ...prev, companySize: value }))}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select company size" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {companySizes.map((size) => (
-                        <SelectItem key={size} value={size}>{size}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="serviceType">AI Service Type</Label>
-                  <Select value={assessment.serviceType} onValueChange={(value) => setAssessment(prev => ({ ...prev, serviceType: value }))}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select service type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {serviceTypes.map((service) => (
-                        <SelectItem key={service} value={service}>{service}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Business Criticality Level
+                  </label>
+                  <select
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={vendorData.businessCriticality}
+                    onChange={(e) => setVendorData(prev => ({ ...prev, businessCriticality: e.target.value }))}
+                  >
+                    <option value="">Select criticality level...</option>
+                    {criticalityLevels.map((level) => (
+                      <option key={level} value={level}>{level}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
-              <div className="flex justify-end">
-                <Button onClick={handleNext} disabled={!assessment.vendorName || !assessment.industry || !assessment.companySize || !assessment.serviceType}>
-                  Next Step
-                </Button>
+              
+              <div className="mt-8">
+                <button
+                  onClick={() => setCurrentStep(2)}
+                  disabled={!vendorData.name || !vendorData.category || !vendorData.businessCriticality}
+                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-md font-medium hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                >
+                  Continue to Risk Assessment
+                </button>
               </div>
-            </CardContent>
-          </Card>
-        )}
+            </div>
+          )}
 
-        {/* Step 2: Service & Contract Details */}
-        {currentStep === 2 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <DollarSign className="mr-2 text-green-600" />
-                Service & Contract Details
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <Label htmlFor="contractValue">Annual Contract Value</Label>
-                  <Select value={assessment.contractValue} onValueChange={(value) => setAssessment(prev => ({ ...prev, contractValue: value }))}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select contract value range" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {contractValues.map((value) => (
-                        <SelectItem key={value} value={value}>{value}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="dataAccess">Data Access Level</Label>
-                  <Select value={assessment.dataAccess} onValueChange={(value) => setAssessment(prev => ({ ...prev, dataAccess: value }))}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select data access level" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {dataAccessLevels.map((level) => (
-                        <SelectItem key={level} value={level}>{level}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="geographicRestrictions">Geographic/Jurisdictional Requirements</Label>
-                <Textarea
-                  id="geographicRestrictions"
-                  value={assessment.geographicRestrictions}
-                  onChange={(e) => setAssessment(prev => ({ ...prev, geographicRestrictions: e.target.value }))}
-                  placeholder="Describe any geographic restrictions or data residency requirements..."
-                  rows={3}
-                />
-              </div>
-              <div>
-                <Label htmlFor="currentVendors">Current AI Vendors (if any)</Label>
-                <Textarea
-                  id="currentVendors"
-                  value={assessment.currentVendors}
-                  onChange={(e) => setAssessment(prev => ({ ...prev, currentVendors: e.target.value }))}
-                  placeholder="List existing AI vendors and their roles..."
-                  rows={3}
-                />
-              </div>
-              <div className="flex justify-between">
-                <Button variant="outline" onClick={() => setCurrentStep(1)}>Previous</Button>
-                <Button onClick={handleNext} disabled={!assessment.contractValue || !assessment.dataAccess}>
-                  Next Step
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Step 3: Compliance Requirements */}
-        {currentStep === 3 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Shield className="mr-2 text-purple-600" />
-                Compliance & Regulatory Requirements
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div>
-                <Label className="text-lg font-medium mb-4 block">
-                  Select applicable compliance frameworks:
-                </Label>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {complianceOptions.map((requirement) => (
-                    <div key={requirement} className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        id={requirement}
-                        checked={assessment.complianceRequirements.includes(requirement)}
-                        onChange={(e) => handleComplianceChange(requirement, e.target.checked)}
-                        className="rounded border-gray-300"
-                      />
-                      <Label htmlFor={requirement} className="text-sm">{requirement}</Label>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <Separator />
-              <div>
-                <Label htmlFor="riskTolerance">Enterprise Risk Tolerance</Label>
-                <Select value={assessment.riskTolerance} onValueChange={(value) => setAssessment(prev => ({ ...prev, riskTolerance: value }))}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select risk tolerance level" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Conservative">Conservative - Minimal risk acceptance</SelectItem>
-                    <SelectItem value="Moderate">Moderate - Balanced risk approach</SelectItem>
-                    <SelectItem value="Aggressive">Aggressive - Higher risk tolerance for innovation</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="flex justify-between">
-                <Button variant="outline" onClick={() => setCurrentStep(2)}>Previous</Button>
-                <Button onClick={handleNext} disabled={assessment.complianceRequirements.length === 0 || !assessment.riskTolerance}>
-                  Next Step
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Step 4: Risk Profile Assessment */}
-        {currentStep === 4 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Target className="mr-2 text-red-600" />
-                Risk Profile Assessment
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-lg mb-4">Assessment Summary</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                  <div><strong>Vendor:</strong> {assessment.vendorName}</div>
-                  <div><strong>Service:</strong> {assessment.serviceType}</div>
-                  <div><strong>Contract Value:</strong> {assessment.contractValue}</div>
-                  <div><strong>Data Access:</strong> {assessment.dataAccess}</div>
-                  <div><strong>Industry:</strong> {assessment.industry}</div>
-                  <div><strong>Company Size:</strong> {assessment.companySize}</div>
-                  <div className="md:col-span-2">
-                    <strong>Compliance Requirements:</strong> {assessment.complianceRequirements.join(', ')}
-                  </div>
-                </div>
-              </div>
-              <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                <div className="flex items-center">
-                  <AlertTriangle className="text-yellow-600 mr-2" />
-                  <span className="font-medium">Ready for Risk Analysis</span>
-                </div>
-                <p className="text-sm text-gray-600 mt-2">
-                  Click "Generate Risk Assessment" to calculate comprehensive risk scores and recommendations.
-                </p>
-              </div>
-              <div className="flex justify-between">
-                <Button variant="outline" onClick={() => setCurrentStep(3)}>Previous</Button>
-                <Button onClick={handleNext} className="bg-red-600 hover:bg-red-700">
-                  Generate Risk Assessment
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Step 5: Results */}
-        {currentStep === 5 && riskScoring && (
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <BarChart3 className="mr-2 text-green-600" />
-                  Vendor Risk Assessment Results
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                  <div className="text-center">
-                    <div className={`inline-flex px-3 py-1 rounded-full text-sm font-medium ${getRiskColor(riskScoring.riskLevel)}`}>
-                      {riskScoring.riskLevel} Risk
-                    </div>
-                    <p className="text-sm text-gray-600 mt-2">{riskScoring.overallRisk}</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">
-                      {Math.round((riskScoring.securityScore + riskScoring.complianceScore + riskScoring.reliabilityScore + riskScoring.dataPrivacyScore + riskScoring.financialStabilityScore + riskScoring.supportScore) / 6)}
-                    </div>
-                    <p className="text-sm text-gray-600">Overall Score</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">{recommendations.length}</div>
-                    <p className="text-sm text-gray-600">Recommendations</p>
-                  </div>
-                </div>
-
-                <Tabs defaultValue="scores" className="w-full">
-                  <TabsList className="grid w-full grid-cols-3">
-                    <TabsTrigger value="scores">Risk Scores</TabsTrigger>
-                    <TabsTrigger value="recommendations">Recommendations</TabsTrigger>
-                    <TabsTrigger value="report">Full Report</TabsTrigger>
-                  </TabsList>
-
-                  <TabsContent value="scores" className="space-y-4">
-                    <h3 className="text-lg font-semibold mb-4">Detailed Risk Scoring</h3>
-                    <div className="space-y-4">
-                      {[
-                        { label: 'Security & Infrastructure', score: riskScoring.securityScore, icon: Shield },
-                        { label: 'Regulatory Compliance', score: riskScoring.complianceScore, icon: FileText },
-                        { label: 'Service Reliability', score: riskScoring.reliabilityScore, icon: Zap },
-                        { label: 'Data Privacy Protection', score: riskScoring.dataPrivacyScore, icon: Lock },
-                        { label: 'Financial Stability', score: riskScoring.financialStabilityScore, icon: DollarSign },
-                        { label: 'Support & Service', score: riskScoring.supportScore, icon: Users }
-                      ].map((item) => (
-                        <div key={item.label} className="flex items-center space-x-4">
-                          <item.icon className="text-blue-600 w-5 h-5" />
-                          <div className="flex-1">
-                            <div className="flex justify-between mb-1">
-                              <span className="text-sm font-medium">{item.label}</span>
-                              <span className="text-sm">{item.score}%</span>
-                            </div>
-                            <Progress value={item.score} className="h-2" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="recommendations" className="space-y-4">
-                    <h3 className="text-lg font-semibold mb-4">Risk Mitigation Recommendations</h3>
-                    <div className="space-y-4">
-                      {recommendations.map((rec, index) => (
-                        <Card key={index} className="p-4">
-                          <div className="flex items-start justify-between mb-3">
-                            <div>
-                              <h4 className="font-semibold">{rec.category}</h4>
-                              <Badge className={getPriorityColor(rec.priority)}>{rec.priority}</Badge>
-                            </div>
-                            <div className="text-right">
-                              <div className="text-sm font-medium">{rec.cost}</div>
-                              <div className="text-xs text-gray-500">Estimated Cost</div>
-                            </div>
-                          </div>
-                          <p className="text-sm text-gray-700 mb-2">{rec.recommendation}</p>
-                          <div className="text-xs text-gray-600">
-                            <strong>Impact:</strong> {rec.impact}
-                          </div>
-                        </Card>
-                      ))}
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="report" className="space-y-4">
-                    <div className="bg-gray-50 p-6 rounded-lg">
-                      <h3 className="text-lg font-semibold mb-4">Executive Summary</h3>
-                      <div className="space-y-4 text-sm">
-                        <div>
-                          <strong>Vendor Assessment:</strong> {assessment.vendorName} - {assessment.serviceType}
-                        </div>
-                        <div>
-                          <strong>Overall Risk Level:</strong> {riskScoring.riskLevel} Risk ({riskScoring.overallRisk})
-                        </div>
-                        <div>
-                          <strong>Key Compliance Areas:</strong> {assessment.complianceRequirements.join(', ')}
-                        </div>
-                        <div>
-                          <strong>Contract Value:</strong> {assessment.contractValue}
-                        </div>
-                        <div>
-                          <strong>Data Access Level:</strong> {assessment.dataAccess}
-                        </div>
-                        <div>
-                          <strong>Immediate Actions Required:</strong> {recommendations.filter(r => r.priority === 'Immediate').length} items
-                        </div>
-                        <div>
-                          <strong>Estimated Risk Mitigation Cost:</strong> $50K - $200K
+          {/* Step 2: Risk Dimension Overview */}
+          {currentStep === 2 && (
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">8-Dimensional Risk Assessment Framework</h2>
+              
+              <div className="space-y-6 mb-8">
+                {riskDimensions.map((dimension, index) => (
+                  <div key={dimension.name} className="border border-gray-200 rounded-lg p-4">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                          {dimension.name} ({dimension.weight}% Weight)
+                        </h3>
+                        <p className="text-gray-600 mb-3">{dimension.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {dimension.criteria.map((criterion, idx) => (
+                            <span key={idx} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">
+                              {criterion}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
-                  </TabsContent>
-                </Tabs>
-
-                <div className="flex justify-between mt-6">
-                  <Button variant="outline" onClick={() => setCurrentStep(1)}>
-                    New Assessment
-                  </Button>
-                  <div className="space-x-2">
-                    <Button variant="outline">
-                      <Download className="mr-2 w-4 h-4" />
-                      Download Report
-                    </Button>
-                    <Button>
-                      <FileText className="mr-2 w-4 h-4" />
-                      Generate PDF
-                    </Button>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-6 mb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Risk Scoring Scale</h3>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">1</div>
+                    <div className="text-sm font-medium">Critical Risk</div>
+                    <div className="text-xs text-gray-500">Unacceptable</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">2</div>
+                    <div className="text-sm font-medium">High Risk</div>
+                    <div className="text-xs text-gray-500">Needs Mitigation</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">3</div>
+                    <div className="text-sm font-medium">Moderate Risk</div>
+                    <div className="text-xs text-gray-500">Acceptable</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">4</div>
+                    <div className="text-sm font-medium">Low Risk</div>
+                    <div className="text-xs text-gray-500">Good</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">5</div>
+                    <div className="text-sm font-medium">Minimal Risk</div>
+                    <div className="text-xs text-gray-500">Excellent</div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
+              </div>
+              
+              <div className="flex space-x-4">
+                <button
+                  onClick={() => setCurrentStep(1)}
+                  className="flex-1 bg-gray-500 text-white py-3 px-6 rounded-md font-medium hover:bg-gray-600 transition-colors"
+                >
+                  Back
+                </button>
+                <button
+                  onClick={() => setCurrentStep(3)}
+                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-md font-medium hover:bg-blue-700 transition-colors"
+                >
+                  Start Risk Scoring
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: Risk Scoring */}
+          {currentStep === 3 && (
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Risk Dimension Scoring</h2>
+              <p className="text-gray-600 mb-8">Rate each dimension from 1 (Critical Risk) to 5 (Minimal Risk) based on your assessment of <strong>{vendorData.name}</strong>.</p>
+              
+              <div className="space-y-8">
+                {riskDimensions.map((dimension, index) => (
+                  <div key={dimension.name} className="border border-gray-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {dimension.name} ({dimension.weight}% Weight)
+                    </h3>
+                    <p className="text-gray-600 mb-4">{dimension.description}</p>
+                    
+                    <div className="grid grid-cols-5 gap-2 mb-4">
+                      {[1, 2, 3, 4, 5].map((score) => (
+                        <button
+                          key={score}
+                          onClick={() => handleDimensionScore(dimension.name, score)}
+                          className={`p-3 text-center border-2 rounded-lg transition-all ${
+                            vendorData.dimensions[dimension.name] === score
+                              ? 'border-blue-500 bg-blue-50'
+                              : 'border-gray-200 hover:border-gray-300'
+                          }`}
+                        >
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold mx-auto mb-1 text-white ${
+                            score === 1 ? 'bg-red-500' :
+                            score === 2 ? 'bg-orange-500' :
+                            score === 3 ? 'bg-yellow-500' :
+                            score === 4 ? 'bg-blue-500' : 'bg-green-500'
+                          }`}>
+                            {score}
+                          </div>
+                          <div className="text-xs text-gray-600">
+                            {score === 1 ? 'Critical' :
+                             score === 2 ? 'High' :
+                             score === 3 ? 'Moderate' :
+                             score === 4 ? 'Low' : 'Minimal'}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-8 flex space-x-4">
+                <button
+                  onClick={() => setCurrentStep(2)}
+                  className="flex-1 bg-gray-500 text-white py-3 px-6 rounded-md font-medium hover:bg-gray-600 transition-colors"
+                >
+                  Back
+                </button>
+                <button
+                  onClick={calculateRiskAssessment}
+                  disabled={Object.keys(vendorData.dimensions).length < riskDimensions.length}
+                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-md font-medium hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                >
+                  Calculate Risk Assessment
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 4: Results */}
+          {currentStep === 4 && (
+            <div className="space-y-8">
+              {isCalculating ? (
+                <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+                  <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculating Risk Assessment...</h3>
+                  <p className="text-gray-600">Analyzing 8 risk dimensions and generating comprehensive report...</p>
+                </div>
+              ) : assessment && (
+                <div className="space-y-6">
+                  {/* Overall Risk Score */}
+                  <div className="bg-white rounded-lg shadow-lg p-8">
+                    <div className="text-center mb-6">
+                      <h2 className="text-3xl font-bold text-gray-900 mb-2">Risk Assessment Results</h2>
+                      <p className="text-gray-600">Vendor: <strong>{vendorData.name}</strong> | Category: <strong>{vendorData.category}</strong></p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="text-center">
+                        <div className={`text-4xl font-bold ${getScoreColor(assessment.overallScore)} mb-2`}>
+                          {assessment.overallScore}
+                        </div>
+                        <div className="text-sm text-gray-500">Overall Score</div>
+                        <div className="text-xs text-gray-400">(out of 5.0)</div>
+                      </div>
+                      
+                      <div className="text-center">
+                        <div className={`inline-block px-4 py-2 rounded-lg font-semibold ${getRiskColor(assessment.riskLevel)}`}>
+                          {assessment.riskLevel}
+                        </div>
+                        <div className="text-sm text-gray-500 mt-2">Risk Classification</div>
+                      </div>
+                      
+                      <div className="text-center">
+                        <div className="text-lg font-semibold text-gray-900 mb-2">
+                          {assessment.complianceStatus.split(' - ')[0]}
+                        </div>
+                        <div className="text-sm text-gray-500">Compliance Status</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Dimension Breakdown */}
+                  <div className="bg-white rounded-lg shadow-lg p-8">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6">Dimension Score Breakdown</h3>
+                    <div className="space-y-4">
+                      {riskDimensions.map((dimension) => {
+                        const score = vendorData.dimensions[dimension.name] || 0
+                        return (
+                          <div key={dimension.name} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <div className="flex-1">
+                              <div className="font-medium text-gray-900">{dimension.name}</div>
+                              <div className="text-sm text-gray-600">Weight: {dimension.weight}%</div>
+                            </div>
+                            <div className="text-center">
+                              <div className={`text-2xl font-bold ${getScoreColor(score)}`}>
+                                {score}
+                              </div>
+                              <div className="text-xs text-gray-500">/ 5</div>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Recommendations */}
+                  <div className="bg-white rounded-lg shadow-lg p-8">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6">Recommendations</h3>
+                    <ul className="space-y-3">
+                      {assessment.recommendations.map((rec, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                          <span className="text-gray-700">{rec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Critical Findings */}
+                  {assessment.criticalFindings.length > 0 && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-8">
+                      <h3 className="text-xl font-bold text-red-900 mb-6">Critical Findings</h3>
+                      <ul className="space-y-3">
+                        {assessment.criticalFindings.map((finding, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="flex-shrink-0 w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                            <span className="text-red-700">{finding}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Actions */}
+                  <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Next Steps</h3>
+                    <p className="text-gray-600 mb-6">
+                      Save this assessment for your vendor governance records and share with stakeholders as needed.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <button
+                        onClick={() => window.print()}
+                        className="bg-blue-600 text-white py-3 px-6 rounded-md font-medium hover:bg-blue-700 transition-colors"
+                      >
+                        Save/Print Report
+                      </button>
+                      <button
+                        onClick={resetAssessment}
+                        className="bg-gray-600 text-white py-3 px-6 rounded-md font-medium hover:bg-gray-700 transition-colors"
+                      >
+                        Assess Another Vendor
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
 }
+
+export default AIVendorRiskEvaluationTool2026

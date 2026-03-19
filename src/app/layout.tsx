@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased bg-white text-slate-900`}>
-        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'GA_MEASUREMENT_ID'} />
+        <GoogleAnalytics measurementId='G-ZEHW3WYWXL' />
         <Header />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
@@ -65,4 +65,4 @@ export default function RootLayout({
     </html>
   );
 }
-// Force deployment at Thu Mar  5 00:40:37 NZDT 2026
+// Force deployment at Thu Mar 19 20:56:00 NZDT 2026 - GA4 Fix

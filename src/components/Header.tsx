@@ -45,8 +45,8 @@ export default function Header() {
             <Link href="/website-builders" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all">
               Website Builders
             </Link>
-            <Link href="/best-ai-seo-tools-2026" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all">
-              AI SEO Tools
+            <Link href="/ai-tools" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all">
+              AI Tools
             </Link>
             <Link href="/best-ai-tools-small-business-2026" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all">
               AI for Business
@@ -100,11 +100,11 @@ export default function Header() {
                 🔨 Website Builders
               </Link>
               <Link 
-                href="/best-ai-seo-tools-2026" 
+                href="/ai-tools" 
                 className="px-3 py-3 text-base font-medium text-slate-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                🤖 AI SEO Tools
+                🤖 AI Tools
               </Link>
               <Link 
                 href="/best-ai-tools-small-business-2026" 

@@ -24,7 +24,7 @@ export default function AIToolsPage() {
         </p>
 
         {/* Quick Picks Section */}
-        <div className="bg-purple-50 p-6 rounded-lg mb-8">
+        <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg mb-8">
           <h2 className="text-2xl font-semibold mb-4">Quick Picks</h2>
           <div className="grid gap-4">
             <div className="flex items-center gap-3">
@@ -61,7 +61,7 @@ export default function AIToolsPage() {
         </div>
 
         {/* Jasper AI Section */}
-        <section className="mb-12 border border-gray-200 rounded-lg p-6">
+        <section className="card mb-12">
           <h2 className="text-3xl font-semibold mb-4">1. Jasper AI - Best Overall AI Writer</h2>
           
           <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full inline-block mb-4">

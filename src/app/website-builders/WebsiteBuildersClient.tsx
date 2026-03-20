@@ -409,26 +409,35 @@ export default function WebsiteBuildersClient() {
               {websiteBuilders.slice(0, 5).map((builder) => (
                 <div
                   key={builder.id}
-                  className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${builder.gradient} p-6 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300`}
+                  className="card hover-lift relative overflow-hidden"
                 >
-                  <div className="flex items-center mb-4">
-                    <span className="text-3xl mr-3">{builder.icon}</span>
-                    <div>
-                      <h3 className="font-bold text-lg">{builder.name}</h3>
-                      <div className="flex items-center">
-                        <span className="text-yellow-300 mr-1">⭐</span>
-                        <span className="text-sm font-medium">{builder.rating}/10</span>
-                      </div>
+                  {/* 统一的图标区域 */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 bg-purple-100 text-purple-600 rounded-xl">
+                      <span className="text-2xl">{builder.icon}</span>
+                    </div>
+                    <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-1 rounded-full uppercase tracking-wide">
+                      Website Builder
+                    </span>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{builder.name}</h3>
+                    <div className="flex items-center mb-2">
+                      <span className="text-yellow-500 mr-1">⭐</span>
+                      <span className="text-sm font-medium text-slate-600">{builder.rating}/10</span>
                     </div>
                   </div>
-                  <p className="text-sm opacity-90 mb-4">{builder.bestFor}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-semibold">{builder.price}</span>
+                  
+                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">{builder.bestFor}</p>
+                  
+                  <div className="flex items-center justify-between border-t border-slate-100 pt-4">
+                    <span className="text-lg font-semibold text-slate-900">{builder.price}</span>
                     <a
                       href={builder.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-white text-gray-800 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm"
+                      className="btn btn-primary text-sm"
                     >
                       Try Now →
                     </a>
@@ -440,17 +449,17 @@ export default function WebsiteBuildersClient() {
 
           {/* Active Filters Display */}
           {(selectedCategories.length > 0 || priceRange !== 'all') && (
-            <div className="mb-8 p-4 bg-blue-50 rounded-lg">
-              <h3 className="font-medium mb-2">Active Filters:</h3>
+            <div className="mb-8 p-4 bg-slate-50 border border-slate-200 rounded-lg">
+              <h3 className="font-medium mb-2 text-slate-900">Active Filters:</h3>
               <div className="flex flex-wrap gap-2">
                 {selectedCategories.map(categoryId => {
                   const category = categories.find(c => c.id === categoryId)
                   return (
-                    <span key={categoryId} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    <span key={categoryId} className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
                       {category?.icon} {category?.name}
                       <button
                         onClick={() => toggleCategory(categoryId)}
-                        className="ml-2 text-blue-600 hover:text-blue-800"
+                        className="ml-2 text-purple-600 hover:text-purple-800"
                       >
                         ×
                       </button>
@@ -458,11 +467,11 @@ export default function WebsiteBuildersClient() {
                   )
                 })}
                 {priceRange !== 'all' && (
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
                     {priceRanges.find(r => r.id === priceRange)?.name}
                     <button
                       onClick={() => setPriceRange('all')}
-                      className="ml-2 text-green-600 hover:text-green-800"
+                      className="ml-2 text-purple-600 hover:text-purple-800"
                     >
                       ×
                     </button>
@@ -479,7 +488,7 @@ export default function WebsiteBuildersClient() {
               {filteredBuilders.map((builder, index) => (
                 <div
                   key={builder.id}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+                  className="card hover-lift overflow-hidden"
                 >
                   <div className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">

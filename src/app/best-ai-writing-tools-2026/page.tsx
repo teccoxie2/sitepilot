@@ -43,7 +43,7 @@ export default function BestAIWritingTools2026() {
           </header>
 
           {/* Quick Picks */}
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 mb-12">
+          <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">🏆 Quick Picks</h2>
             <div className="grid gap-3 text-sm md:text-base">
               <div><span className="font-semibold">🏆 Best Overall:</span> Jasper AI - Most versatile, best templates</div>
@@ -132,7 +132,7 @@ export default function BestAIWritingTools2026() {
                   href="https://jasper.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                  className="btn btn-primary"
                 >
                   Try Jasper Free 7-Day Trial →
                 </a>
@@ -187,7 +187,7 @@ export default function BestAIWritingTools2026() {
                   href="https://copy.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
+                  className="btn btn-primary"
                 >
                   Try Copy.ai Free →
                 </a>
@@ -242,7 +242,7 @@ export default function BestAIWritingTools2026() {
                   href="https://writesonic.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+                  className="btn btn-primary"
                 >
                   Try Writesonic Free →
                 </a>

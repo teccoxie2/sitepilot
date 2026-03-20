@@ -294,15 +294,15 @@ export default function BestEmailMarketingTools2026() {
               15 Email Tools Tested with $12K Investment
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Best Email Marketing Tools
               <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent"> 2026</span>
             </h1>
             
-            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-800 mb-8 max-w-3xl mx-auto leading-relaxed">
               Discover the top 15 email marketing platforms that will transform your business communication. 
               Expert reviews, detailed comparisons, and real-world testing results.
-              <strong className="text-slate-700"> No sponsored rankings.</strong>
+              <strong className="text-gray-900"> No sponsored rankings.</strong>
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full">
@@ -325,7 +325,7 @@ export default function BestEmailMarketingTools2026() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Quick Navigation */}
         <div className="bg-white rounded-xl shadow-lg p-6 mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">Quick Navigation</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Quick Navigation</h2>
           <div className="grid md:grid-cols-4 gap-4">
             <a href="#editor-choices" className="flex items-center gap-2 p-3 bg-cyan-50 rounded-lg hover:bg-cyan-100 transition-colors">
               <Star className="w-5 h-5 text-cyan-600" />
@@ -350,7 +350,7 @@ export default function BestEmailMarketingTools2026() {
         <section id="editor-choices" className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Star className="w-8 h-8 text-cyan-600" />
-            <h2 className="text-3xl font-bold text-slate-900">Editor's Choice Awards 2026</h2>
+            <h2 className="text-3xl font-bold text-gray-900">Editor's Choice Awards 2026</h2>
           </div>
           <div className="grid lg:grid-cols-3 gap-8">
             {editorChoices.map((tool, index) => (
@@ -367,7 +367,7 @@ export default function BestEmailMarketingTools2026() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-bold text-slate-900">{tool.priceRange}</span>
+                    <span className="text-2xl font-bold text-gray-900">{tool.priceRange}</span>
                     <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
                       {tool.freeTrialDays} Days Free
                     </span>
@@ -377,19 +377,19 @@ export default function BestEmailMarketingTools2026() {
                     {tool.keyFeatures.slice(0, 3).map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center gap-2">
                         <CheckCircle className="w-5 h-5 text-cyan-600 flex-shrink-0" />
-                        <span className="text-slate-700">{feature}</span>
+                        <span className="text-gray-900">{feature}</span>
                       </div>
                     ))}
                   </div>
 
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="text-center p-3 bg-gray-50 rounded-lg">
-                      <div className="font-bold text-slate-900">{tool.integrations}+</div>
-                      <div className="text-sm text-slate-600">Integrations</div>
+                      <div className="font-bold text-gray-900">{tool.integrations}+</div>
+                      <div className="text-sm text-gray-800">Integrations</div>
                     </div>
                     <div className="text-center p-3 bg-gray-50 rounded-lg">
-                      <div className="font-bold text-slate-900">{tool.monthlyEmailLimit}</div>
-                      <div className="text-sm text-slate-600">Emails/Month</div>
+                      <div className="font-bold text-gray-900">{tool.monthlyEmailLimit}</div>
+                      <div className="text-sm text-gray-800">Emails/Month</div>
                     </div>
                   </div>
 
@@ -407,48 +407,48 @@ export default function BestEmailMarketingTools2026() {
 
         {/* Key Selection Criteria */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">How We Tested These Tools</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">How We Tested These Tools</h2>
           <div className="bg-white rounded-xl shadow-lg p-8">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Testing Methodology</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Testing Methodology</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-700">Real business email campaigns with 50,000+ subscribers</span>
+                    <span className="text-gray-900">Real business email campaigns with 50,000+ subscribers</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-700">6-month testing period per platform</span>
+                    <span className="text-gray-900">6-month testing period per platform</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-700">Deliverability tests across 25+ email providers</span>
+                    <span className="text-gray-900">Deliverability tests across 25+ email providers</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-700">Performance tracking and ROI analysis</span>
+                    <span className="text-gray-900">Performance tracking and ROI analysis</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Key Evaluation Criteria</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Key Evaluation Criteria</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <BarChart3 className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-700">Deliverability rates (inbox vs spam folder)</span>
+                    <span className="text-gray-900">Deliverability rates (inbox vs spam folder)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Zap className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-700">Automation capabilities and workflow builder</span>
+                    <span className="text-gray-900">Automation capabilities and workflow builder</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Smartphone className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-700">User interface and ease of use</span>
+                    <span className="text-gray-900">User interface and ease of use</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <DollarSign className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-700">Pricing value and feature-to-cost ratio</span>
+                    <span className="text-gray-900">Pricing value and feature-to-cost ratio</span>
                   </li>
                 </ul>
               </div>
@@ -458,7 +458,7 @@ export default function BestEmailMarketingTools2026() {
 
         {/* Complete Tool Reviews */}
         <section id="complete-reviews" className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Complete Email Marketing Tool Reviews</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Complete Email Marketing Tool Reviews</h2>
           <div className="space-y-8">
             {emailTools.map((tool, index) => (
               <div key={tool.name} id={tool.name.toLowerCase().replace(/\s+/g, '-')} className="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -466,7 +466,7 @@ export default function BestEmailMarketingTools2026() {
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-2xl font-bold text-slate-900">{tool.name}</h3>
+                        <h3 className="text-2xl font-bold text-gray-900">{tool.name}</h3>
                         {tool.editorChoice && (
                           <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
                             <Star className="w-4 h-4" />
@@ -474,13 +474,13 @@ export default function BestEmailMarketingTools2026() {
                           </span>
                         )}
                       </div>
-                      <p className="text-slate-600">{tool.bestFor}</p>
+                      <p className="text-gray-800">{tool.bestFor}</p>
                     </div>
                     <div className="text-right">
                       <div className="flex items-center gap-1 mb-1">
                         <Star className="w-5 h-5 text-cyan-600" />
-                        <span className="text-xl font-bold text-slate-900">{tool.rating}</span>
-                        <span className="text-slate-600">/10</span>
+                        <span className="text-xl font-bold text-gray-900">{tool.rating}</span>
+                        <span className="text-gray-800">/10</span>
                       </div>
                       <div className="text-lg font-bold text-blue-600">{tool.priceRange}</div>
                     </div>
@@ -491,12 +491,12 @@ export default function BestEmailMarketingTools2026() {
                   <div className="grid lg:grid-cols-3 gap-8">
                     {/* Key Features */}
                     <div>
-                      <h4 className="text-lg font-bold text-slate-900 mb-4">Key Features</h4>
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">Key Features</h4>
                       <ul className="space-y-2">
                         {tool.keyFeatures.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-cyan-600 flex-shrink-0" />
-                            <span className="text-slate-700 text-sm">{feature}</span>
+                            <span className="text-gray-900 text-sm">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -504,13 +504,13 @@ export default function BestEmailMarketingTools2026() {
 
                     {/* Pros & Cons */}
                     <div>
-                      <h4 className="text-lg font-bold text-slate-900 mb-4">Pros & Cons</h4>
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">Pros & Cons</h4>
                       <div className="space-y-3">
                         <div>
                           <h5 className="text-sm font-medium text-green-700 mb-2">Pros:</h5>
                           <ul className="space-y-1">
                             {tool.pros.slice(0, 2).map((pro, proIndex) => (
-                              <li key={proIndex} className="text-sm text-slate-700 flex items-start gap-2">
+                              <li key={proIndex} className="text-sm text-gray-900 flex items-start gap-2">
                                 <span className="text-cyan-600 mt-0.5">+</span>
                                 {pro}
                               </li>
@@ -521,7 +521,7 @@ export default function BestEmailMarketingTools2026() {
                           <h5 className="text-sm font-medium text-red-700 mb-2">Cons:</h5>
                           <ul className="space-y-1">
                             {tool.cons.slice(0, 2).map((con, conIndex) => (
-                              <li key={conIndex} className="text-sm text-slate-700 flex items-start gap-2">
+                              <li key={conIndex} className="text-sm text-gray-900 flex items-start gap-2">
                                 <span className="text-red-500 mt-0.5">-</span>
                                 {con}
                               </li>
@@ -533,30 +533,30 @@ export default function BestEmailMarketingTools2026() {
 
                     {/* Quick Stats */}
                     <div>
-                      <h4 className="text-lg font-bold text-slate-900 mb-4">Quick Stats</h4>
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">Quick Stats</h4>
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-slate-600">Free Trial</span>
+                          <span className="text-sm text-gray-800">Free Trial</span>
                           <span className="text-sm font-medium">{tool.freeTrialDays} days</span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-slate-600">Email Limit</span>
+                          <span className="text-sm text-gray-800">Email Limit</span>
                           <span className="text-sm font-medium">{tool.monthlyEmailLimit}</span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-slate-600">Automation</span>
+                          <span className="text-sm text-gray-800">Automation</span>
                           <span className={`text-sm font-medium ${tool.automation ? 'text-green-600' : 'text-red-600'}`}>
                             {tool.automation ? 'Yes' : 'No'}
                           </span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-slate-600">A/B Testing</span>
+                          <span className="text-sm text-gray-800">A/B Testing</span>
                           <span className={`text-sm font-medium ${tool.abtesting ? 'text-green-600' : 'text-red-600'}`}>
                             {tool.abtesting ? 'Yes' : 'No'}
                           </span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-slate-600">Integrations</span>
+                          <span className="text-sm text-gray-800">Integrations</span>
                           <span className="text-sm font-medium">{tool.integrations}+</span>
                         </div>
                       </div>
@@ -572,14 +572,14 @@ export default function BestEmailMarketingTools2026() {
         <section id="budget-friendly" className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <DollarSign className="w-8 h-8 text-cyan-600" />
-            <h2 className="text-3xl font-bold text-slate-900">Budget-Friendly Options</h2>
+            <h2 className="text-3xl font-bold text-gray-900">Budget-Friendly Options</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {budgetTools.map((tool) => (
               <div key={tool.name} className="bg-white rounded-lg shadow-lg border border-cyan-200 p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{tool.name}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{tool.name}</h3>
                 <p className="text-green-600 font-bold text-lg mb-2">{tool.priceRange}</p>
-                <p className="text-slate-600 text-sm mb-4">{tool.bestFor}</p>
+                <p className="text-gray-800 text-sm mb-4">{tool.bestFor}</p>
                 <div className="flex items-center gap-1 mb-4">
                   <Star className="w-4 h-4 text-cyan-600" />
                   <span className="font-medium">{tool.rating}/10</span>
@@ -588,7 +588,7 @@ export default function BestEmailMarketingTools2026() {
                   {tool.keyFeatures.slice(0, 2).map((feature, index) => (
                     <li key={index} className="flex items-center gap-2 text-sm">
                       <CheckCircle className="w-4 h-4 text-cyan-600 flex-shrink-0" />
-                      <span className="text-slate-700">{feature}</span>
+                      <span className="text-gray-900">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -601,15 +601,15 @@ export default function BestEmailMarketingTools2026() {
         <section id="enterprise" className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Users className="w-8 h-8 text-cyan-600" />
-            <h2 className="text-3xl font-bold text-slate-900">Enterprise Solutions</h2>
+            <h2 className="text-3xl font-bold text-gray-900">Enterprise Solutions</h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-8">
             {enterpriseTools.map((tool) => (
               <div key={tool.name} className="bg-white rounded-lg shadow-lg border border-cyan-200 p-8">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900">{tool.name}</h3>
-                    <p className="text-slate-600 mt-1">{tool.bestFor}</p>
+                    <h3 className="text-xl font-bold text-gray-900">{tool.name}</h3>
+                    <p className="text-gray-800 mt-1">{tool.bestFor}</p>
                   </div>
                   <div className="text-right">
                     <div className="flex items-center gap-1">
@@ -621,19 +621,19 @@ export default function BestEmailMarketingTools2026() {
                 </div>
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center p-3 bg-cyan-50 rounded-lg">
-                    <div className="font-bold text-slate-900">{tool.integrations}+</div>
-                    <div className="text-sm text-slate-600">Integrations</div>
+                    <div className="font-bold text-gray-900">{tool.integrations}+</div>
+                    <div className="text-sm text-gray-800">Integrations</div>
                   </div>
                   <div className="text-center p-3 bg-cyan-50 rounded-lg">
-                    <div className="font-bold text-slate-900">{tool.automation ? 'Advanced' : 'Basic'}</div>
-                    <div className="text-sm text-slate-600">Automation</div>
+                    <div className="font-bold text-gray-900">{tool.automation ? 'Advanced' : 'Basic'}</div>
+                    <div className="text-sm text-gray-800">Automation</div>
                   </div>
                 </div>
                 <ul className="space-y-2">
                   {tool.keyFeatures.slice(0, 3).map((feature, index) => (
                     <li key={index} className="flex items-center gap-2 text-sm">
                       <CheckCircle className="w-4 h-4 text-cyan-600 flex-shrink-0" />
-                      <span className="text-slate-700">{feature}</span>
+                      <span className="text-gray-900">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -644,19 +644,19 @@ export default function BestEmailMarketingTools2026() {
 
         {/* Feature Comparison Table */}
         <section id="comparison" className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Complete Feature Comparison</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Complete Feature Comparison</h2>
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="min-w-full">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-900">Platform</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-900">Rating</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-900">Price Range</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-900">Free Trial</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-900">Automation</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-900">A/B Testing</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium text-slate-900">Integrations</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Platform</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Rating</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Price Range</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Free Trial</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Automation</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">A/B Testing</th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Integrations</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -664,7 +664,7 @@ export default function BestEmailMarketingTools2026() {
                     <tr key={tool.name} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
-                          <span className="font-medium text-slate-900">{tool.name}</span>
+                          <span className="font-medium text-gray-900">{tool.name}</span>
                           {tool.editorChoice && <Star className="w-4 h-4 text-cyan-600" />}
                         </div>
                       </td>
@@ -674,8 +674,8 @@ export default function BestEmailMarketingTools2026() {
                           <span className="font-medium">{tool.rating}</span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-sm text-slate-700">{tool.priceRange}</td>
-                      <td className="px-6 py-4 text-sm text-slate-700">{tool.freeTrialDays} days</td>
+                      <td className="px-6 py-4 text-sm text-gray-900">{tool.priceRange}</td>
+                      <td className="px-6 py-4 text-sm text-gray-900">{tool.freeTrialDays} days</td>
                       <td className="px-6 py-4">
                         <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
                           tool.automation 
@@ -694,7 +694,7 @@ export default function BestEmailMarketingTools2026() {
                           {tool.abtesting ? 'Yes' : 'No'}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-sm text-slate-700">{tool.integrations}+</td>
+                      <td className="px-6 py-4 text-sm text-gray-900">{tool.integrations}+</td>
                     </tr>
                   ))}
                 </tbody>
@@ -705,10 +705,10 @@ export default function BestEmailMarketingTools2026() {
 
         {/* Email Marketing Best Practices */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Email Marketing Best Practices 2026</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Email Marketing Best Practices 2026</h2>
           <div className="grid lg:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <TrendingUp className="w-6 h-6 text-cyan-600" />
                 Maximizing Deliverability
               </h3>
@@ -716,36 +716,36 @@ export default function BestEmailMarketingTools2026() {
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900">Authenticate Your Domain</div>
-                    <p className="text-slate-600 text-sm">Set up DKIM, SPF, and DMARC records for better inbox placement</p>
+                    <div className="font-medium text-gray-900">Authenticate Your Domain</div>
+                    <p className="text-gray-800 text-sm">Set up DKIM, SPF, and DMARC records for better inbox placement</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900">Clean Your Email Lists</div>
-                    <p className="text-slate-600 text-sm">Remove inactive subscribers and invalid email addresses regularly</p>
+                    <div className="font-medium text-gray-900">Clean Your Email Lists</div>
+                    <p className="text-gray-800 text-sm">Remove inactive subscribers and invalid email addresses regularly</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900">Warm Up New IP Addresses</div>
-                    <p className="text-slate-600 text-sm">Gradually increase sending volume when using a new IP or domain</p>
+                    <div className="font-medium text-gray-900">Warm Up New IP Addresses</div>
+                    <p className="text-gray-800 text-sm">Gradually increase sending volume when using a new IP or domain</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900">Monitor Sender Reputation</div>
-                    <p className="text-slate-600 text-sm">Keep bounce rates under 2% and complaint rates under 0.1%</p>
+                    <div className="font-medium text-gray-900">Monitor Sender Reputation</div>
+                    <p className="text-gray-800 text-sm">Keep bounce rates under 2% and complaint rates under 0.1%</p>
                   </div>
                 </li>
               </ul>
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <Zap className="w-6 h-6 text-cyan-600" />
                 Automation Strategies
               </h3>
@@ -753,29 +753,29 @@ export default function BestEmailMarketingTools2026() {
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900">Welcome Series</div>
-                    <p className="text-slate-600 text-sm">Create 3-5 email welcome sequences for new subscribers</p>
+                    <div className="font-medium text-gray-900">Welcome Series</div>
+                    <p className="text-gray-800 text-sm">Create 3-5 email welcome sequences for new subscribers</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900">Behavioral Triggers</div>
-                    <p className="text-slate-600 text-sm">Send emails based on website behavior and engagement patterns</p>
+                    <div className="font-medium text-gray-900">Behavioral Triggers</div>
+                    <p className="text-gray-800 text-sm">Send emails based on website behavior and engagement patterns</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900">Re-engagement Campaigns</div>
-                    <p className="text-slate-600 text-sm">Win back inactive subscribers with targeted campaigns</p>
+                    <div className="font-medium text-gray-900">Re-engagement Campaigns</div>
+                    <p className="text-gray-800 text-sm">Win back inactive subscribers with targeted campaigns</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-cyan-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-medium text-slate-900">Segmentation Rules</div>
-                    <p className="text-slate-600 text-sm">Create dynamic segments based on demographics and behavior</p>
+                    <div className="font-medium text-gray-900">Segmentation Rules</div>
+                    <p className="text-gray-800 text-sm">Create dynamic segments based on demographics and behavior</p>
                   </div>
                 </li>
               </ul>
@@ -785,28 +785,28 @@ export default function BestEmailMarketingTools2026() {
 
         {/* ROI and Performance Metrics */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Performance Metrics That Matter</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Performance Metrics That Matter</h2>
           <div className="bg-white rounded-xl shadow-lg p-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center p-6 bg-cyan-50 rounded-lg">
                 <div className="text-3xl font-bold text-blue-600 mb-2">4,200%</div>
-                <div className="text-slate-700 font-medium">Average ROI</div>
-                <p className="text-sm text-slate-600 mt-1">For every $1 spent on email marketing</p>
+                <div className="text-gray-900 font-medium">Average ROI</div>
+                <p className="text-sm text-gray-800 mt-1">For every $1 spent on email marketing</p>
               </div>
               <div className="text-center p-6 bg-cyan-50 rounded-lg">
                 <div className="text-3xl font-bold text-green-600 mb-2">21%</div>
-                <div className="text-slate-700 font-medium">Average Open Rate</div>
-                <p className="text-sm text-slate-600 mt-1">Across all industries in 2026</p>
+                <div className="text-gray-900 font-medium">Average Open Rate</div>
+                <p className="text-sm text-gray-800 mt-1">Across all industries in 2026</p>
               </div>
               <div className="text-center p-6 bg-cyan-50 rounded-lg">
                 <div className="text-3xl font-bold text-purple-600 mb-2">2.6%</div>
-                <div className="text-slate-700 font-medium">Average Click Rate</div>
-                <p className="text-sm text-slate-600 mt-1">Industry benchmark for CTR</p>
+                <div className="text-gray-900 font-medium">Average Click Rate</div>
+                <p className="text-sm text-gray-800 mt-1">Industry benchmark for CTR</p>
               </div>
               <div className="text-center p-6 bg-cyan-50 rounded-lg">
                 <div className="text-3xl font-bold text-orange-600 mb-2">0.17%</div>
-                <div className="text-slate-700 font-medium">Unsubscribe Rate</div>
-                <p className="text-sm text-slate-600 mt-1">Keep below 0.5% for healthy lists</p>
+                <div className="text-gray-900 font-medium">Unsubscribe Rate</div>
+                <p className="text-sm text-gray-800 mt-1">Keep below 0.5% for healthy lists</p>
               </div>
             </div>
           </div>
@@ -814,11 +814,11 @@ export default function BestEmailMarketingTools2026() {
 
         {/* FAQ Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
           <div className="space-y-6">
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">What's the best email marketing tool for beginners?</h3>
-              <p className="text-slate-700 leading-relaxed">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">What's the best email marketing tool for beginners?</h3>
+              <p className="text-gray-900 leading-relaxed">
                 <strong>Mailchimp</strong> and <strong>MailerLite</strong> are excellent choices for beginners. Both offer intuitive interfaces, 
                 generous free plans, and extensive learning resources. Mailchimp has more templates and integrations, while MailerLite 
                 provides better automation features even on the free plan.
@@ -826,8 +826,8 @@ export default function BestEmailMarketingTools2026() {
             </div>
             
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Which email marketing tool has the best automation?</h3>
-              <p className="text-slate-700 leading-relaxed">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Which email marketing tool has the best automation?</h3>
+              <p className="text-gray-900 leading-relaxed">
                 <strong>ActiveCampaign</strong> leads in automation sophistication, followed by <strong>ConvertKit</strong> for creator-focused automation 
                 and <strong>Klaviyo</strong> for e-commerce automation. ActiveCampaign offers the most advanced conditional logic and 
                 machine learning features for complex automated campaigns.
@@ -835,8 +835,8 @@ export default function BestEmailMarketingTools2026() {
             </div>
             
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">How much should I expect to pay for email marketing?</h3>
-              <p className="text-slate-700 leading-relaxed">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">How much should I expect to pay for email marketing?</h3>
+              <p className="text-gray-900 leading-relaxed">
                 Email marketing costs vary widely based on list size and features needed. Budget options like <strong>MailerLite</strong> start at $0-20/month 
                 for basic needs, while professional tools like <strong>ConvertKit</strong> range from $15-79/month. Enterprise solutions can cost 
                 $100-3,000+ monthly depending on subscriber count and advanced features.
@@ -844,8 +844,8 @@ export default function BestEmailMarketingTools2026() {
             </div>
             
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">What's the difference between email marketing and marketing automation?</h3>
-              <p className="text-slate-700 leading-relaxed">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">What's the difference between email marketing and marketing automation?</h3>
+              <p className="text-gray-900 leading-relaxed">
                 Email marketing typically refers to sending newsletters and promotional emails, while marketing automation includes 
                 triggered emails based on user behavior, advanced segmentation, lead scoring, and multi-channel campaigns. Tools like 
                 <strong>ActiveCampaign</strong> and <strong>HubSpot</strong> offer full marketing automation suites beyond just email.
@@ -856,30 +856,30 @@ export default function BestEmailMarketingTools2026() {
 
         {/* Related Tools Links */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Related Marketing Tools</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Marketing Tools</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/best-ai-seo-tools-2026" className="block bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-3 mb-3">
                 <TrendingUp className="w-6 h-6 text-cyan-600" />
-                <h3 className="text-lg font-bold text-slate-900">AI SEO Tools</h3>
+                <h3 className="text-lg font-bold text-gray-900">AI SEO Tools</h3>
               </div>
-              <p className="text-slate-600 text-sm">Discover the best AI-powered SEO tools to complement your email marketing strategy.</p>
+              <p className="text-gray-800 text-sm">Discover the best AI-powered SEO tools to complement your email marketing strategy.</p>
             </Link>
             
             <Link href="/best-ai-content-generator-comparison" className="block bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-3 mb-3">
                 <Mail className="w-6 h-6 text-cyan-600" />
-                <h3 className="text-lg font-bold text-slate-900">AI Content Generators</h3>
+                <h3 className="text-lg font-bold text-gray-900">AI Content Generators</h3>
               </div>
-              <p className="text-slate-600 text-sm">Create compelling email content faster with AI-powered writing tools.</p>
+              <p className="text-gray-800 text-sm">Create compelling email content faster with AI-powered writing tools.</p>
             </Link>
             
             <Link href="/ai-content-workflow-automation-2026" className="block bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-3 mb-3">
                 <Zap className="w-6 h-6 text-cyan-600" />
-                <h3 className="text-lg font-bold text-slate-900">Marketing Automation</h3>
+                <h3 className="text-lg font-bold text-gray-900">Marketing Automation</h3>
               </div>
-              <p className="text-slate-600 text-sm">Complete guide to automating your entire content marketing workflow.</p>
+              <p className="text-gray-800 text-sm">Complete guide to automating your entire content marketing workflow.</p>
             </Link>
           </div>
         </section>

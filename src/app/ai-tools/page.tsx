@@ -10,51 +10,46 @@ export const metadata: Metadata = {
 export default function AIToolsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="prose prose-lg max-w-none">
-        <h1 className="text-4xl font-bold mb-6 text-gray-900">
+      <div className="prose prose-lg max-w-none prose-slate">
+        <h1 className="text-4xl font-bold mb-6 text-slate-900">
           Best AI Writing Tools 2026: Complete Comparison & Reviews
         </h1>
         
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-slate-500 mb-8">
           <em>Last updated: February 2026</em>
         </p>
 
-        <p className="text-lg leading-relaxed mb-8">
+        <p className="text-lg text-slate-700 leading-relaxed mb-8">
           AI writing tools have revolutionized content creation, helping millions of writers, marketers, and businesses produce high-quality content faster than ever. After testing 25+ AI writing platforms with real projects, here are our top recommendations for 2026.
         </p>
 
         {/* Quick Picks Section */}
         <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Quick Picks</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-slate-900">Quick Picks</h2>
           <div className="grid gap-4">
             <div className="flex items-center gap-3">
               <span className="text-2xl">🏆</span>
-              <div>
-                <strong>Best Overall:</strong> Jasper AI - Most versatile, best templates
+              <div class="text-slate-700"><strong>Best Overall:</strong> Jasper AI - Most versatile, best templates
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">✍️</span>
-              <div>
-                <strong>Best for Bloggers:</strong> Copy.ai - Great long-form content
+              <div class="text-slate-700"><strong>Best for Bloggers:</strong> Copy.ai - Great long-form content
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">💰</span>
-              <div>
-                <strong>Best Value:</strong> Writesonic - Powerful features, affordable
+              <div class="text-slate-700"><strong>Best Value:</strong> Writesonic - Powerful features, affordable
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">🎯</span>
-              <div>
-                <strong>Best for Marketing:</strong> Conversion.ai - High-converting copy
+              <div class="text-slate-700"><strong>Best for Marketing:</strong> Conversion.ai - High-converting copy
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">📚</span>
-              <div>
-                <strong>Best for Students:</strong> QuillBot - Academic writing focus
+              <div class="text-slate-700"><strong>Best for Students:</strong> QuillBot - Academic writing focus
               </div>
             </div>
           </div>
@@ -62,13 +57,13 @@ export default function AIToolsPage() {
 
         {/* Jasper AI Section */}
         <section className="card mb-12">
-          <h2 className="text-3xl font-semibold mb-4">1. Jasper AI - Best Overall AI Writer</h2>
+          <h2 className="text-3xl font-semibold mb-4 text-slate-900">1. Jasper AI - Best Overall AI Writer</h2>
           
           <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full inline-block mb-4">
             <strong>Rating: 9.7/10</strong>
           </div>
 
-          <p className="text-lg mb-6">
+          <p className="text-lg text-slate-700 mb-6">
             Jasper (formerly Jarvis) leads the AI writing space with 50+ templates and advanced language models. Our testing showed consistently high-quality output across all content types.
           </p>
 
@@ -76,41 +71,41 @@ export default function AIToolsPage() {
             <div>
               <h3 className="text-xl font-semibold mb-3 text-green-600">Pros:</h3>
               <ul className="space-y-2">
-                <li>• Excellent long-form content (3000+ words)</li>
-                <li>• 50+ templates for every content type</li>
-                <li>• Boss Mode for advanced users</li>
-                <li>• Supports 25+ languages</li>
-                <li>• Integration with Surfer SEO</li>
-                <li>• Chrome extension available</li>
-                <li>• Excellent customer support</li>
+                <li class="text-slate-700">• Excellent long-form content (3000+ words)</li>
+                <li class="text-slate-700">• 50+ templates for every content type</li>
+                <li class="text-slate-700">• Boss Mode for advanced users</li>
+                <li class="text-slate-700">• Supports 25+ languages</li>
+                <li class="text-slate-700">• Integration with Surfer SEO</li>
+                <li class="text-slate-700">• Chrome extension available</li>
+                <li class="text-slate-700">• Excellent customer support</li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-3 text-red-600">Cons:</h3>
               <ul className="space-y-2">
-                <li>• Higher price point</li>
-                <li>• Learning curve for advanced features</li>
-                <li>• Credits can run out quickly</li>
+                <li class="text-slate-700">• Higher price point</li>
+                <li class="text-slate-700">• Learning curve for advanced features</li>
+                <li class="text-slate-700">• Credits can run out quickly</li>
               </ul>
             </div>
           </div>
 
-          <div className="bg-gray-50 p-4 rounded-lg mb-6">
-            <h3 className="text-xl font-semibold mb-3">Pricing:</h3>
+          <div className="bg-slate-50 p-4 rounded-lg mb-6">
+            <h3 className="text-xl font-semibold mb-3 text-slate-900">Pricing:</h3>
             <div className="space-y-2">
-              <div>• Starter: $29/month (20K words)</div>
-              <div>• Boss Mode: $59/month (50K words)</div>
-              <div>• Business: Custom pricing</div>
+              <div class="text-slate-700">• Starter: $29/month (20K words)</div>
+              <div class="text-slate-700">• Boss Mode: $59/month (50K words)</div>
+              <div class="text-slate-700">• Business: Custom pricing</div>
             </div>
           </div>
 
-          <p className="mb-4">
+          <p className="mb-4 text-slate-700">
             <strong>Best For:</strong> Content agencies, professional marketers, businesses needing high-volume content
           </p>
 
           <a 
             href="https://sitepilot.co/go/jasper" 
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 inline-block transition-colors"
+            className="btn btn-primary inline-block transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -119,14 +114,14 @@ export default function AIToolsPage() {
         </section>
 
         {/* Copy.ai Section */}
-        <section className="mb-12 border border-gray-200 rounded-lg p-6">
-          <h2 className="text-3xl font-semibold mb-4">2. Copy.ai - Best for Long-Form Content</h2>
+        <section className="mb-12 card">
+          <h2 className="text-3xl font-semibold mb-4 text-slate-900">2. Copy.ai - Best for Long-Form Content</h2>
           
           <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full inline-block mb-4">
             <strong>Rating: 9.3/10</strong>
           </div>
 
-          <p className="text-lg mb-6">
+          <p className="text-lg text-slate-700 mb-6">
             Copy.ai excels at generating blog posts, articles, and long-form content with their advanced GPT-4 integration and intuitive workflow system.
           </p>
 
@@ -134,41 +129,41 @@ export default function AIToolsPage() {
             <div>
               <h3 className="text-xl font-semibold mb-3 text-green-600">Pros:</h3>
               <ul className="space-y-2">
-                <li>• Excellent blog post generator</li>
-                <li>• Workflow feature for multi-step content creation</li>
-                <li>• 90+ languages supported</li>
-                <li>• Strong social media tools</li>
-                <li>• Affordable pricing</li>
-                <li>• Good free plan</li>
-                <li>• Browser extension</li>
+                <li class="text-slate-700">• Excellent blog post generator</li>
+                <li class="text-slate-700">• Workflow feature for multi-step content creation</li>
+                <li class="text-slate-700">• 90+ languages supported</li>
+                <li class="text-slate-700">• Strong social media tools</li>
+                <li class="text-slate-700">• Affordable pricing</li>
+                <li class="text-slate-700">• Good free plan</li>
+                <li class="text-slate-700">• Browser extension</li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-3 text-red-600">Cons:</h3>
               <ul className="space-y-2">
-                <li>• Limited advanced customization</li>
-                <li>• Output can be repetitive sometimes</li>
-                <li>• Fewer business-focused templates</li>
+                <li class="text-slate-700">• Limited advanced customization</li>
+                <li class="text-slate-700">• Output can be repetitive sometimes</li>
+                <li class="text-slate-700">• Fewer business-focused templates</li>
               </ul>
             </div>
           </div>
 
-          <div className="bg-gray-50 p-4 rounded-lg mb-6">
-            <h3 className="text-xl font-semibold mb-3">Pricing:</h3>
+          <div className="bg-slate-50 p-4 rounded-lg mb-6">
+            <h3 className="text-xl font-semibold mb-3 text-slate-900">Pricing:</h3>
             <div className="space-y-2">
-              <div>• Free: 2,000 words/month</div>
-              <div>• Pro: $36/month (unlimited words)</div>
-              <div>• Team: $186/month (5 seats)</div>
+              <div class="text-slate-700">• Free: 2,000 words/month</div>
+              <div class="text-slate-700">• Pro: $36/month (unlimited words)</div>
+              <div class="text-slate-700">• Team: $186/month (5 seats)</div>
             </div>
           </div>
 
-          <p className="mb-4">
+          <p className="mb-4 text-slate-700">
             <strong>Best For:</strong> Bloggers, content creators, small businesses
           </p>
 
           <a 
             href="https://sitepilot.co/go/copyai" 
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 inline-block transition-colors"
+            className="btn btn-primary inline-block transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -201,7 +196,7 @@ export default function AIToolsPage() {
                   <td className="border border-gray-300 p-3">No</td>
                   <td className="border border-gray-300 p-3">Yes</td>
                 </tr>
-                <tr className="bg-gray-50">
+                <tr className="bg-slate-50">
                   <td className="border border-gray-300 p-3 font-medium">Copy.ai</td>
                   <td className="border border-gray-300 p-3">Blog posts</td>
                   <td className="border border-gray-300 p-3">$36</td>
@@ -217,7 +212,7 @@ export default function AIToolsPage() {
                   <td className="border border-gray-300 p-3">Yes</td>
                   <td className="border border-gray-300 p-3">Yes</td>
                 </tr>
-                <tr className="bg-gray-50">
+                <tr className="bg-slate-50">
                   <td className="border border-gray-300 p-3 font-medium">Conversion.ai</td>
                   <td className="border border-gray-300 p-3">Marketing copy</td>
                   <td className="border border-gray-300 p-3">$97</td>
@@ -244,25 +239,25 @@ export default function AIToolsPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-xl font-semibold mb-3">1. Provide Detailed Prompts</h3>
-              <p className="mb-4">The more specific your input, the better the AI output. Include:</p>
+              <h3 className="text-xl font-semibold mb-3 text-slate-900">1. Provide Detailed Prompts</h3>
+              <p className="mb-4 text-slate-700">The more specific your input, the better the AI output. Include:</p>
               <ul className="space-y-2">
-                <li>• Target audience</li>
-                <li>• Tone of voice</li>
-                <li>• Key points to cover</li>
-                <li>• Content length</li>
-                <li>• Call-to-action</li>
+                <li class="text-slate-700">• Target audience</li>
+                <li class="text-slate-700">• Tone of voice</li>
+                <li class="text-slate-700">• Key points to cover</li>
+                <li class="text-slate-700">• Content length</li>
+                <li class="text-slate-700">• Call-to-action</li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-3">2. Edit and Fact-Check</h3>
-              <p className="mb-4">Always review AI-generated content for:</p>
+              <h3 className="text-xl font-semibold mb-3 text-slate-900">2. Edit and Fact-Check</h3>
+              <p className="mb-4 text-slate-700">Always review AI-generated content for:</p>
               <ul className="space-y-2">
-                <li>• Factual accuracy</li>
-                <li>• Brand voice consistency</li>
-                <li>• Grammar and flow</li>
-                <li>• SEO optimization</li>
-                <li>• Plagiarism</li>
+                <li class="text-slate-700">• Factual accuracy</li>
+                <li class="text-slate-700">• Brand voice consistency</li>
+                <li class="text-slate-700">• Grammar and flow</li>
+                <li class="text-slate-700">• SEO optimization</li>
+                <li class="text-slate-700">• Plagiarism</li>
               </ul>
             </div>
           </div>
@@ -292,7 +287,7 @@ export default function AIToolsPage() {
 
         {/* Conclusion */}
         <section className="mb-12 bg-purple-50 p-6 rounded-lg">
-          <h2 className="text-3xl font-semibold mb-4">Our Final Recommendations</h2>
+          <h2 className="text-3xl font-semibold mb-4 text-slate-900">Our Final Recommendations</h2>
           <div className="space-y-4">
             <p>
               <strong>For Most Users</strong>: Start with <strong>Copy.ai</strong> - it offers excellent value, good free plan, and covers 90% of content needs.

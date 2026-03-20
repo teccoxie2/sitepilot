@@ -14,7 +14,7 @@ export default function WebHostingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             {/* 标签 */}
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
+            <div className="btn btn-primary">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -78,7 +78,7 @@ export default function WebHostingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                   </svg>
                 </div>
-                <span className="text-xs font-semibold text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-yellow-600 bg-slate-50 px-3 py-1 rounded-full">
                   BEST OVERALL
                 </span>
               </div>
@@ -99,7 +99,7 @@ export default function WebHostingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                   </svg>
                 </div>
-                <span className="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-green-600 bg-slate-50 px-3 py-1 rounded-full">
                   BEST VALUE
                 </span>
               </div>
@@ -120,7 +120,7 @@ export default function WebHostingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-purple-600 bg-slate-50 px-3 py-1 rounded-full">
                   FASTEST
                 </span>
               </div>
@@ -141,7 +141,7 @@ export default function WebHostingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-blue-600 bg-slate-50 px-3 py-1 rounded-full">
                   BEGINNER FRIENDLY
                 </span>
               </div>
@@ -158,7 +158,7 @@ export default function WebHostingPage() {
         </section>
 
         {/* SiteGround Section */}
-        <section className="mb-12 border border-gray-200 rounded-lg p-6">
+        <section className="mb-12 border border-slate-200 rounded-lg p-6">
           <h2 className="text-3xl font-semibold mb-4">1. SiteGround - Best Overall Choice</h2>
           
           <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full inline-block mb-4">
@@ -187,7 +187,7 @@ export default function WebHostingPage() {
             </div>
           </div>
 
-          <div className="bg-gray-50 p-4 rounded-lg mb-6">
+          <div className="bg-slate-50 p-4 rounded-lg mb-6">
             <h3 className="text-xl font-semibold mb-3">Pricing:</h3>
             <div className="space-y-2">
               <div>• StartUp: $3.99/month (1 website, 10GB storage)</div>
@@ -202,7 +202,7 @@ export default function WebHostingPage() {
 
           <a 
             href="https://sitepilot.co/go/siteground" 
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 inline-block transition-colors"
+            className="btn btn-primary"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -211,7 +211,7 @@ export default function WebHostingPage() {
         </section>
 
         {/* Hostinger Section */}
-        <section className="mb-12 border border-gray-200 rounded-lg p-6">
+        <section className="mb-12 border border-slate-200 rounded-lg p-6">
           <h2 className="text-3xl font-semibold mb-4">2. Hostinger - Best Budget Option</h2>
           
           <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full inline-block mb-4">
@@ -240,7 +240,7 @@ export default function WebHostingPage() {
             </div>
           </div>
 
-          <div className="bg-gray-50 p-4 rounded-lg mb-6">
+          <div className="bg-slate-50 p-4 rounded-lg mb-6">
             <h3 className="text-xl font-semibold mb-3">Pricing:</h3>
             <div className="space-y-2">
               <div>• Single: $2.99/month (1 website, 100GB storage)</div>
@@ -255,7 +255,7 @@ export default function WebHostingPage() {
 
           <a 
             href="https://sitepilot.co/go/hostinger" 
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 inline-block transition-colors"
+            className="btn btn-primary"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -268,44 +268,44 @@ export default function WebHostingPage() {
           <h2 className="text-3xl font-semibold mb-6">Our Testing Results Summary</h2>
           
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse border border-gray-300">
+            <table className="w-full border-collapse border border-slate-300">
               <thead>
-                <tr className="bg-gray-100">
-                  <th className="border border-gray-300 p-3 text-left">Provider</th>
-                  <th className="border border-gray-300 p-3 text-left">Uptime</th>
-                  <th className="border border-gray-300 p-3 text-left">Avg Load Time</th>
-                  <th className="border border-gray-300 p-3 text-left">Support Rating</th>
-                  <th className="border border-gray-300 p-3 text-left">Value Score</th>
+                <tr className="bg-slate-100">
+                  <th className="border border-slate-300 p-3 text-left">Provider</th>
+                  <th className="border border-slate-300 p-3 text-left">Uptime</th>
+                  <th className="border border-slate-300 p-3 text-left">Avg Load Time</th>
+                  <th className="border border-slate-300 p-3 text-left">Support Rating</th>
+                  <th className="border border-slate-300 p-3 text-left">Value Score</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 p-3 font-medium">SiteGround</td>
-                  <td className="border border-gray-300 p-3">99.98%</td>
-                  <td className="border border-gray-300 p-3">1.2s</td>
-                  <td className="border border-gray-300 p-3">9.5/10</td>
-                  <td className="border border-gray-300 p-3">9.2/10</td>
+                  <td className="border border-slate-300 p-3 font-medium">SiteGround</td>
+                  <td className="border border-slate-300 p-3">99.98%</td>
+                  <td className="border border-slate-300 p-3">1.2s</td>
+                  <td className="border border-slate-300 p-3">9.5/10</td>
+                  <td className="border border-slate-300 p-3">9.2/10</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 p-3 font-medium">Hostinger</td>
-                  <td className="border border-gray-300 p-3">99.9%</td>
-                  <td className="border border-gray-300 p-3">1.4s</td>
-                  <td className="border border-gray-300 p-3">8.5/10</td>
-                  <td className="border border-gray-300 p-3">9.8/10</td>
+                <tr className="bg-slate-50">
+                  <td className="border border-slate-300 p-3 font-medium">Hostinger</td>
+                  <td className="border border-slate-300 p-3">99.9%</td>
+                  <td className="border border-slate-300 p-3">1.4s</td>
+                  <td className="border border-slate-300 p-3">8.5/10</td>
+                  <td className="border border-slate-300 p-3">9.8/10</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 p-3 font-medium">WPX Hosting</td>
-                  <td className="border border-gray-300 p-3">99.99%</td>
-                  <td className="border border-gray-300 p-3">0.8s</td>
-                  <td className="border border-gray-300 p-3">9.8/10</td>
-                  <td className="border border-gray-300 p-3">8.5/10</td>
+                  <td className="border border-slate-300 p-3 font-medium">WPX Hosting</td>
+                  <td className="border border-slate-300 p-3">99.99%</td>
+                  <td className="border border-slate-300 p-3">0.8s</td>
+                  <td className="border border-slate-300 p-3">9.8/10</td>
+                  <td className="border border-slate-300 p-3">8.5/10</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 p-3 font-medium">Bluehost</td>
-                  <td className="border border-gray-300 p-3">99.7%</td>
-                  <td className="border border-gray-300 p-3">1.8s</td>
-                  <td className="border border-gray-300 p-3">8.0/10</td>
-                  <td className="border border-gray-300 p-3">8.8/10</td>
+                <tr className="bg-slate-50">
+                  <td className="border border-slate-300 p-3 font-medium">Bluehost</td>
+                  <td className="border border-slate-300 p-3">99.7%</td>
+                  <td className="border border-slate-300 p-3">1.8s</td>
+                  <td className="border border-slate-300 p-3">8.0/10</td>
+                  <td className="border border-slate-300 p-3">8.8/10</td>
                 </tr>
               </tbody>
             </table>
@@ -313,7 +313,7 @@ export default function WebHostingPage() {
         </section>
 
         {/* Conclusion */}
-        <section className="mb-12 bg-blue-50 p-6 rounded-lg">
+        <section className="mb-12 bg-slate-50 p-6 rounded-lg">
           <h2 className="text-3xl font-semibold mb-4">Conclusion</h2>
           <p className="text-lg mb-4">
             For most users, <strong>SiteGround</strong> offers the best balance of performance, features, and support. If budget is your primary concern, <strong>Hostinger</strong> delivers excellent value without sacrificing quality.
@@ -328,10 +328,10 @@ export default function WebHostingPage() {
 
         {/* Contact Section */}
         <section className="text-center border-t pt-8">
-          <p className="text-gray-600">
+          <p className="text-slate-600">
             <em>Need help choosing? Our hosting experts have tested these providers extensively. <a href="mailto:hello@sitepilot.co" className="text-blue-600 hover:underline">Contact us</a> for personalized recommendations.</em>
           </p>
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="text-sm text-slate-500 mt-4">
             <strong>Disclosure</strong>: We may earn affiliate commissions when you purchase through our links, but this never influences our ratings or recommendations. We only promote products we've thoroughly tested and genuinely recommend.
           </p>
         </section>

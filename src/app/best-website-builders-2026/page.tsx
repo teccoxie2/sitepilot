@@ -48,11 +48,11 @@ const BuilderCard = ({
   color?: 'blue' | 'purple' | 'green' | 'orange' | 'red'
 }) => {
   const colorClasses = {
-    blue: 'bg-blue-50 border-blue-200 text-blue-800',
-    purple: 'bg-purple-50 border-purple-200 text-purple-800',
-    green: 'bg-green-50 border-green-200 text-green-800',
-    orange: 'bg-orange-50 border-orange-200 text-orange-800',
-    red: 'bg-red-50 border-red-200 text-red-800'
+    blue: 'bg-slate-50 border-blue-200 text-blue-800',
+    purple: 'bg-slate-50 border-purple-200 text-purple-800',
+    green: 'bg-slate-50 border-green-200 text-green-800',
+    orange: 'bg-slate-50 border-orange-200 text-orange-800',
+    red: 'bg-slate-50 border-red-200 text-red-800'
   }
 
   const buttonColorClasses = {
@@ -64,20 +64,20 @@ const BuilderCard = ({
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200 mb-8 hover:shadow-xl transition-shadow">
+    <div className="bg-white rounded-xl shadow-lg p-8 border border-slate-200 mb-8 hover:shadow-xl transition-shadow">
       <div className="flex items-start justify-between mb-6">
         <div>
           <div className="flex items-center gap-3 mb-2">
-            <span className="text-3xl font-bold text-gray-900">#{rank}</span>
-            <h3 className="text-2xl font-bold text-gray-900">{name}</h3>
-            <span className="text-lg font-semibold text-gray-600">({rating})</span>
+            <span className="text-3xl font-bold text-slate-900">#{rank}</span>
+            <h3 className="text-2xl font-bold text-slate-900">{name}</h3>
+            <span className="text-lg font-semibold text-slate-600">({rating})</span>
             {badge && (
               <span className={`px-3 py-1 rounded-full text-sm font-semibold border ${colorClasses[color]}`}>
                 {badge}
               </span>
             )}
           </div>
-          <p className="text-gray-600 mb-4">{description}</p>
+          <p className="text-slate-600 mb-4">{description}</p>
           <div className={`inline-block px-3 py-2 rounded-lg text-sm font-medium ${colorClasses[color]}`}>
             <span className="font-semibold">Best For:</span> {bestFor}
           </div>
@@ -92,7 +92,7 @@ const BuilderCard = ({
           </h4>
           <ul className="space-y-2">
             {pros.map((pro, index) => (
-              <li key={index} className="text-gray-700 flex items-start">
+              <li key={index} className="text-slate-700 flex items-start">
                 <span className="text-green-500 mr-2 mt-1">•</span>
                 {pro}
               </li>
@@ -107,7 +107,7 @@ const BuilderCard = ({
           </h4>
           <ul className="space-y-2">
             {cons.map((con, index) => (
-              <li key={index} className="text-gray-700 flex items-start">
+              <li key={index} className="text-slate-700 flex items-start">
                 <span className="text-red-500 mr-2 mt-1">•</span>
                 {con}
               </li>
@@ -117,10 +117,10 @@ const BuilderCard = ({
       </div>
 
       <div className="mb-6">
-        <h4 className="font-bold text-gray-800 mb-3">💰 Pricing</h4>
+        <h4 className="font-bold text-slate-800 mb-3">💰 Pricing</h4>
         <ul className="space-y-1">
           {pricing.map((price, index) => (
-            <li key={index} className="text-gray-700">• {price}</li>
+            <li key={index} className="text-slate-700">• {price}</li>
           ))}
         </ul>
       </div>
@@ -174,54 +174,54 @@ export default function BestWebsiteBuilders2026() {
         <div className="max-w-4xl mx-auto">
           {/* Quick Picks Section */}
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">🎯 Quick Picks 2026</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">🎯 Quick Picks 2026</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="bg-white rounded-lg p-4 border">
                 <div className="text-2xl mb-2">🏆</div>
-                <div className="font-bold text-gray-900">Best Overall</div>
+                <div className="font-bold text-slate-900">Best Overall</div>
                 <div className="text-blue-600">Webflow</div>
-                <div className="text-sm text-gray-600">Most powerful & professional</div>
+                <div className="text-sm text-slate-600">Most powerful & professional</div>
               </div>
               <div className="bg-white rounded-lg p-4 border">
                 <div className="text-2xl mb-2">🎨</div>
-                <div className="font-bold text-gray-900">Best Design</div>
+                <div className="font-bold text-slate-900">Best Design</div>
                 <div className="text-purple-600">Wix</div>
-                <div className="text-sm text-gray-600">Stunning templates</div>
+                <div className="text-sm text-slate-600">Stunning templates</div>
               </div>
               <div className="bg-white rounded-lg p-4 border">
                 <div className="text-2xl mb-2">💰</div>
-                <div className="font-bold text-gray-900">Best Value</div>
+                <div className="font-bold text-slate-900">Best Value</div>
                 <div className="text-green-600">Hostinger</div>
-                <div className="text-sm text-gray-600">$2.99/month power</div>
+                <div className="text-sm text-slate-600">$2.99/month power</div>
               </div>
               <div className="bg-white rounded-lg p-4 border">
                 <div className="text-2xl mb-2">🛒</div>
-                <div className="font-bold text-gray-900">Best E-commerce</div>
+                <div className="font-bold text-slate-900">Best E-commerce</div>
                 <div className="text-orange-600">Shopify</div>
-                <div className="text-sm text-gray-600">Online store leader</div>
+                <div className="text-sm text-slate-600">Online store leader</div>
               </div>
               <div className="bg-white rounded-lg p-4 border">
                 <div className="text-2xl mb-2">📱</div>
-                <div className="font-bold text-gray-900">Best Mobile</div>
+                <div className="font-bold text-slate-900">Best Mobile</div>
                 <div className="text-red-600">Squarespace</div>
-                <div className="text-sm text-gray-600">Mobile-optimized</div>
+                <div className="text-sm text-slate-600">Mobile-optimized</div>
               </div>
               <div className="bg-white rounded-lg p-4 border">
                 <div className="text-2xl mb-2">⚡</div>
-                <div className="font-bold text-gray-900">Best Speed</div>
+                <div className="font-bold text-slate-900">Best Speed</div>
                 <div className="text-blue-600">Webflow</div>
-                <div className="text-sm text-gray-600">Performance leader</div>
+                <div className="text-sm text-slate-600">Performance leader</div>
               </div>
             </div>
           </div>
 
           {/* Testing Methodology */}
-          <div className="bg-gray-50 rounded-xl p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">🔬 Our Testing Methodology</h2>
+          <div className="bg-slate-50 rounded-xl p-8 mb-12">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">🔬 Our Testing Methodology</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-bold text-gray-800 mb-3">Performance Testing</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="font-bold text-slate-800 mb-3">Performance Testing</h3>
+                <ul className="space-y-2 text-slate-700">
                   <li>• Page load speed testing (5 global locations)</li>
                   <li>• Mobile responsiveness analysis</li>
                   <li>• SEO feature evaluation</li>
@@ -229,8 +229,8 @@ export default function BestWebsiteBuilders2026() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-800 mb-3">User Experience</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="font-bold text-slate-800 mb-3">User Experience</h3>
+                <ul className="space-y-2 text-slate-700">
                   <li>• Ease of use for beginners</li>
                   <li>• Template quality & customization</li>
                   <li>• E-commerce functionality</li>
@@ -242,7 +242,7 @@ export default function BestWebsiteBuilders2026() {
 
           {/* Website Builder Reviews */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Top Website Builders 2026 Rankings
             </h2>
             
@@ -403,11 +403,11 @@ export default function BestWebsiteBuilders2026() {
 
           {/* Comparison Table */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">📊 Quick Comparison Table</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">📊 Quick Comparison Table</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-gray-50">
+                  <tr className="bg-slate-50">
                     <th className="p-4 text-left font-bold">Builder</th>
                     <th className="p-4 text-center font-bold">Starting Price</th>
                     <th className="p-4 text-center font-bold">Free Plan</th>
@@ -454,16 +454,16 @@ export default function BestWebsiteBuilders2026() {
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-gray-600 mt-4">* Webflow free plan includes Webflow subdomain</p>
+            <p className="text-xs text-slate-600 mt-4">* Webflow free plan includes Webflow subdomain</p>
           </div>
 
           {/* Choosing Guide */}
           <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">🎯 How to Choose the Right Builder</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">🎯 How to Choose the Right Builder</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-bold text-gray-800 mb-4">Choose Webflow if you:</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="font-bold text-slate-800 mb-4">Choose Webflow if you:</h3>
+                <ul className="space-y-2 text-slate-700">
                   <li>• Want professional, pixel-perfect designs</li>
                   <li>• Need advanced animations and interactions</li>
                   <li>• Value clean, semantic code output</li>
@@ -471,8 +471,8 @@ export default function BestWebsiteBuilders2026() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-800 mb-4">Choose Wix if you:</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="font-bold text-slate-800 mb-4">Choose Wix if you:</h3>
+                <ul className="space-y-2 text-slate-700">
                   <li>• Want the easiest drag-and-drop experience</li>
                   <li>• Love having 800+ template options</li>
                   <li>• Need a comprehensive app marketplace</li>
@@ -480,8 +480,8 @@ export default function BestWebsiteBuilders2026() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-800 mb-4">Choose Hostinger if you:</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="font-bold text-slate-800 mb-4">Choose Hostinger if you:</h3>
+                <ul className="space-y-2 text-slate-700">
                   <li>• Want the best value for money</li>
                   <li>• Need AI assistance for quick setup</li>
                   <li>• Are budget-conscious but want quality</li>
@@ -489,8 +489,8 @@ export default function BestWebsiteBuilders2026() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-800 mb-4">Choose Shopify if you:</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="font-bold text-slate-800 mb-4">Choose Shopify if you:</h3>
+                <ul className="space-y-2 text-slate-700">
                   <li>• Are building an online store</li>
                   <li>• Need advanced e-commerce features</li>
                   <li>• Want multi-channel selling capabilities</li>
@@ -509,7 +509,7 @@ export default function BestWebsiteBuilders2026() {
             <div className="flex flex-wrap justify-center gap-4">
               <a 
                 href="https://webflow.com/?ref=sitepilot" 
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-colors"
                 target="_blank" 
                 rel="noopener noreferrer"
               >

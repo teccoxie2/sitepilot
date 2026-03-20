@@ -211,7 +211,7 @@ const ProjectManagementTools = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-purple-900 via-blue-800 to-indigo-900 text-white">
         <div className="max-w-6xl mx-auto px-4 py-16">
@@ -258,7 +258,7 @@ const ProjectManagementTools = () => {
         <section id="top-picks" className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">🏆 Editor's Choice Awards 2026</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <p className="text-slate-600 max-w-3xl mx-auto">
               Our top picks based on extensive testing, team feedback, and real-world performance across 
               different project types and organizational sizes.
             </p>
@@ -281,11 +281,11 @@ const ProjectManagementTools = () => {
                     </div>
                     <span className="font-semibold">{tool.rating}/10</span>
                   </div>
-                  <p className="text-gray-600 mt-1">{tool.bestFor}</p>
+                  <p className="text-slate-600 mt-1">{tool.bestFor}</p>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="bg-purple-50 p-3 rounded-lg">
+                  <div className="bg-slate-50 p-3 rounded-lg">
                     <div className="font-semibold text-lg text-center">{tool.price}</div>
                   </div>
 
@@ -327,7 +327,7 @@ const ProjectManagementTools = () => {
 
                   <a 
                     href={tool.affiliate}
-                    className="block w-full bg-purple-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+                    className="btn btn-primary"
                   >
                     Try {tool.name} Free
                   </a>
@@ -345,7 +345,7 @@ const ProjectManagementTools = () => {
             {methodology.map((method, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg p-6">
                 <h3 className="text-xl font-bold mb-4">{method.framework}</h3>
-                <p className="text-gray-600 mb-4">{method.description}</p>
+                <p className="text-slate-600 mb-4">{method.description}</p>
                 
                 <div className="mb-4">
                   <h4 className="font-semibold mb-2">Best Tools:</h4>
@@ -358,7 +358,7 @@ const ProjectManagementTools = () => {
                   </div>
                 </div>
                 
-                <div className="bg-green-50 p-3 rounded-lg">
+                <div className="bg-slate-50 p-3 rounded-lg">
                   <p className="text-sm"><strong>Benefits:</strong> {method.benefits}</p>
                 </div>
               </div>
@@ -373,7 +373,7 @@ const ProjectManagementTools = () => {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-slate-50">
                   <tr>
                     <th className="text-left p-4 font-semibold">Tool</th>
                     <th className="text-left p-4 font-semibold">Rating</th>
@@ -385,7 +385,7 @@ const ProjectManagementTools = () => {
                 </thead>
                 <tbody>
                   {allTools.map((tool, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                    <tr key={index} className={index % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
                       <td className="p-4 font-semibold">{tool.name}</td>
                       <td className="p-4">
                         <div className="flex items-center gap-1">
@@ -428,7 +428,7 @@ const ProjectManagementTools = () => {
                   <span className="font-semibold">{useCase.recommendation}</span>
                 </div>
                 
-                <p className="text-gray-600 mb-4">{useCase.reasoning}</p>
+                <p className="text-slate-600 mb-4">{useCase.reasoning}</p>
                 
                 <div className="space-y-2">
                   <h4 className="font-semibold">Essential Features:</h4>
@@ -454,7 +454,7 @@ const ProjectManagementTools = () => {
                 <h3 className="text-xl font-bold mb-4 text-center">{tier.category}</h3>
                 <div className="text-center mb-6">
                   <div className="text-2xl font-bold text-purple-600">{tier.range}</div>
-                  <p className="text-gray-600 mt-2">{tier.ideal}</p>
+                  <p className="text-slate-600 mt-2">{tier.ideal}</p>
                 </div>
                 
                 <div className="space-y-3">
@@ -478,7 +478,7 @@ const ProjectManagementTools = () => {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-slate-50">
                   <tr>
                     <th className="text-left p-4 font-semibold">Feature</th>
                     <th className="text-left p-4 font-semibold">Description</th>
@@ -487,9 +487,9 @@ const ProjectManagementTools = () => {
                 </thead>
                 <tbody>
                   {features.map((item, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                    <tr key={index} className={index % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
                       <td className="p-4 font-semibold">{item.feature}</td>
-                      <td className="p-4 text-gray-600">{item.description}</td>
+                      <td className="p-4 text-slate-600">{item.description}</td>
                       <td className="p-4">
                         <div className="flex flex-wrap gap-1">
                           {item.tools.map((tool, tIndex) => (
@@ -585,7 +585,7 @@ const ProjectManagementTools = () => {
                 <div>annual productivity gains</div>
               </div>
             </div>
-            <button className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
               Calculate Your Savings
             </button>
           </div>
@@ -601,7 +601,7 @@ const ProjectManagementTools = () => {
                 <Zap className="h-8 w-8 text-purple-500" />
                 <h3 className="text-lg font-semibold">Automation Tools</h3>
               </div>
-              <p className="text-gray-600 mb-4">Streamline workflows with AI-powered automation and integration tools</p>
+              <p className="text-slate-600 mb-4">Streamline workflows with AI-powered automation and integration tools</p>
               <div className="flex items-center text-purple-600 font-semibold">
                 Explore Automation <ArrowRight className="h-4 w-4 ml-1" />
               </div>
@@ -612,7 +612,7 @@ const ProjectManagementTools = () => {
                 <BarChart3 className="h-8 w-8 text-green-500" />
                 <h3 className="text-lg font-semibold">Analytics Tools</h3>
               </div>
-              <p className="text-gray-600 mb-4">Track team performance and project success with advanced analytics</p>
+              <p className="text-slate-600 mb-4">Track team performance and project success with advanced analytics</p>
               <div className="flex items-center text-purple-600 font-semibold">
                 View Analytics <ArrowRight className="h-4 w-4 ml-1" />
               </div>
@@ -623,7 +623,7 @@ const ProjectManagementTools = () => {
                 <Globe className="h-8 w-8 text-blue-500" />
                 <h3 className="text-lg font-semibold">Social Media Tools</h3>
               </div>
-              <p className="text-gray-600 mb-4">Manage marketing projects with specialized social media tools</p>
+              <p className="text-slate-600 mb-4">Manage marketing projects with specialized social media tools</p>
               <div className="flex items-center text-purple-600 font-semibold">
                 Social Tools <ArrowRight className="h-4 w-4 ml-1" />
               </div>
@@ -638,36 +638,36 @@ const ProjectManagementTools = () => {
           <div className="bg-white rounded-lg shadow-lg p-8 space-y-6">
             <div>
               <h3 className="font-semibold text-lg mb-2">What's the best project management tool for small teams?</h3>
-              <p className="text-gray-600">Asana and Trello are excellent for small teams due to their intuitive interfaces, generous free plans, and easy onboarding. Monday.com is also great if you need more visual customization.</p>
+              <p className="text-slate-600">Asana and Trello are excellent for small teams due to their intuitive interfaces, generous free plans, and easy onboarding. Monday.com is also great if you need more visual customization.</p>
             </div>
             
             <div>
               <h3 className="font-semibold text-lg mb-2">Can these tools handle multiple projects simultaneously?</h3>
-              <p className="text-gray-600">Yes, all major tools support multiple projects with portfolio views, cross-project reporting, and resource management features. Enterprise tools like Smartsheet excel at multi-project coordination.</p>
+              <p className="text-slate-600">Yes, all major tools support multiple projects with portfolio views, cross-project reporting, and resource management features. Enterprise tools like Smartsheet excel at multi-project coordination.</p>
             </div>
             
             <div>
               <h3 className="font-semibold text-lg mb-2">How do I migrate from one tool to another?</h3>
-              <p className="text-gray-600">Most tools offer import features for common formats (CSV, Excel) and provide migration guides. Some offer dedicated migration services for enterprise customers switching from competitors.</p>
+              <p className="text-slate-600">Most tools offer import features for common formats (CSV, Excel) and provide migration guides. Some offer dedicated migration services for enterprise customers switching from competitors.</p>
             </div>
             
             <div>
               <h3 className="font-semibold text-lg mb-2">What's the ROI of project management software?</h3>
-              <p className="text-gray-600">Organizations typically see 25-40% faster project delivery, 60% reduction in status meetings, and 15-25% improvement in resource utilization, leading to significant time and cost savings.</p>
+              <p className="text-slate-600">Organizations typically see 25-40% faster project delivery, 60% reduction in status meetings, and 15-25% improvement in resource utilization, leading to significant time and cost savings.</p>
             </div>
             
             <div>
               <h3 className="font-semibold text-lg mb-2">Do I need different tools for different project types?</h3>
-              <p className="text-gray-600">Not necessarily. Tools like ClickUp and Monday.com are flexible enough to handle various project types. However, specialized tools like Jira are better for software development, while Basecamp excels for client work.</p>
+              <p className="text-slate-600">Not necessarily. Tools like ClickUp and Monday.com are flexible enough to handle various project types. However, specialized tools like Jira are better for software development, while Basecamp excels for client work.</p>
             </div>
           </div>
         </section>
 
         {/* Conclusion */}
         <section className="text-center">
-          <div className="bg-gray-100 rounded-lg p-8">
+          <div className="bg-slate-100 rounded-lg p-8">
             <h2 className="text-3xl font-bold mb-4">Transform Your Team's Productivity</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto mb-6">
+            <p className="text-slate-600 max-w-3xl mx-auto mb-6">
               The right project management tool can revolutionize how your team works, delivering faster projects, 
               better collaboration, and reduced stress. Start with our top recommendations and scale as your needs grow.
             </p>

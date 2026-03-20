@@ -88,19 +88,19 @@ export default function BestAIToolsSmallBusiness() {
         {/* Executive Summary */}
         <section className="mb-16">
           <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-8 mb-12 border border-emerald-100">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Executive Summary: AI Tools That Actually Move the Needle</h2>
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">Executive Summary: AI Tools That Actually Move the Needle</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">🏆 Top 3 Game-Changers</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="text-lg font-semibold text-slate-900 mb-4">🏆 Top 3 Game-Changers</h3>
+                <ul className="space-y-2 text-slate-700">
                   <li><strong>ChatGPT Plus:</strong> $20/mo - 380% ROI in content & support</li>
                   <li><strong>Zapier:</strong> $29/mo - 290% ROI in automation</li>
                   <li><strong>Grammarly Business:</strong> $15/mo - 240% ROI in communication</li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">💰 Average Business Impact</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="text-lg font-semibold text-slate-900 mb-4">💰 Average Business Impact</h3>
+                <ul className="space-y-2 text-slate-700">
                   <li><strong>Time Saved:</strong> 15-25 hours/week</li>
                   <li><strong>Cost Reduction:</strong> $1,200-3,500/month</li>
                   <li><strong>Revenue Increase:</strong> $800-2,100/month</li>
@@ -113,39 +113,39 @@ export default function BestAIToolsSmallBusiness() {
 
         {/* Testing Methodology */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Small Business Testing Methodology</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">Our Small Business Testing Methodology</h2>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
               <div className="flex items-center mb-4">
                 <Users className="h-8 w-8 text-emerald-500 mr-3" />
                 <h3 className="text-lg font-semibold">25 Real Businesses</h3>
               </div>
-              <p className="text-gray-600">Restaurants, service providers, e-commerce, consultants, retail stores across different industries and revenue levels ($50K-$950K).</p>
+              <p className="text-slate-600">Restaurants, service providers, e-commerce, consultants, retail stores across different industries and revenue levels ($50K-$950K).</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
               <div className="flex items-center mb-4">
                 <Clock className="h-8 w-8 text-blue-500 mr-3" />
                 <h3 className="text-lg font-semibold">8-Month Testing</h3>
               </div>
-              <p className="text-gray-600">Each tool tested for minimum 60 days with full implementation, training, and performance tracking across multiple business functions.</p>
+              <p className="text-slate-600">Each tool tested for minimum 60 days with full implementation, training, and performance tracking across multiple business functions.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
               <div className="flex items-center mb-4">
                 <DollarSign className="h-8 w-8 text-purple-500 mr-3" />
                 <h3 className="text-lg font-semibold">ROI Tracking</h3>
               </div>
-              <p className="text-gray-600">Detailed cost-benefit analysis including tool cost, implementation time, training hours, and quantified business impact.</p>
+              <p className="text-slate-600">Detailed cost-benefit analysis including tool cost, implementation time, training hours, and quantified business impact.</p>
             </div>
           </div>
         </section>
 
         {/* AI Tools by Category */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Best AI Tools by Business Function</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">Best AI Tools by Business Function</h2>
           
           {/* Content Creation & Marketing */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
               <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm mr-3">Content & Marketing</span>
             </h3>
             
@@ -154,26 +154,26 @@ export default function BestAIToolsSmallBusiness() {
               <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900">ChatGPT Plus</h4>
+                    <h4 className="text-xl font-bold text-slate-900">ChatGPT Plus</h4>
                     <p className="text-emerald-600 font-semibold">$20/month · 380% ROI</p>
                   </div>
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
-                    <span className="ml-2 text-sm font-semibold text-gray-700">9.4/10</span>
+                    <span className="ml-2 text-sm font-semibold text-slate-700">9.4/10</span>
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-600 mb-4">
                   The Swiss Army knife of AI for small businesses. Handles content creation, customer support responses, 
                   email drafting, social media posts, and basic business strategy discussions.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Best For:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h5 className="font-semibold text-slate-900 mb-2">Best For:</h5>
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• Blog posts & website content</li>
                       <li>• Social media content creation</li>
                       <li>• Customer email responses</li>
@@ -181,8 +181,8 @@ export default function BestAIToolsSmallBusiness() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">ROI Breakdown:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h5 className="font-semibold text-slate-900 mb-2">ROI Breakdown:</h5>
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• Saves 12 hours/week content creation</li>
                       <li>• Reduces copywriting costs by $800/mo</li>
                       <li>• Improves response time by 65%</li>
@@ -192,7 +192,7 @@ export default function BestAIToolsSmallBusiness() {
                 </div>
                 
                 <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm text-gray-500">Implementation: 1 day • Learning curve: 1 week</span>
+                  <span className="text-sm text-slate-500">Implementation: 1 day • Learning curve: 1 week</span>
                   <Link 
                     href="https://chat.openai.com/plus" 
                     className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
@@ -208,26 +208,26 @@ export default function BestAIToolsSmallBusiness() {
               <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900">Copy.ai</h4>
+                    <h4 className="text-xl font-bold text-slate-900">Copy.ai</h4>
                     <p className="text-emerald-600 font-semibold">$36/month · 280% ROI</p>
                   </div>
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className={`h-5 w-5 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
                     ))}
-                    <span className="ml-2 text-sm font-semibold text-gray-700">8.8/10</span>
+                    <span className="ml-2 text-sm font-semibold text-slate-700">8.8/10</span>
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-600 mb-4">
                   Purpose-built for marketing copy with templates optimized for conversion. 
                   Excels at ad copy, email campaigns, and sales page content that actually converts.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Best For:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h5 className="font-semibold text-slate-900 mb-2">Best For:</h5>
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• Facebook & Google ads copy</li>
                       <li>• Email marketing campaigns</li>
                       <li>• Sales page headlines</li>
@@ -235,8 +235,8 @@ export default function BestAIToolsSmallBusiness() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Business Impact:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h5 className="font-semibold text-slate-900 mb-2">Business Impact:</h5>
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• 34% higher ad click-through rates</li>
                       <li>• 28% email open rate improvement</li>
                       <li>• 3.2x faster campaign creation</li>
@@ -246,10 +246,10 @@ export default function BestAIToolsSmallBusiness() {
                 </div>
                 
                 <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm text-gray-500">Implementation: 2 days • Learning curve: 1-2 weeks</span>
+                  <span className="text-sm text-slate-500">Implementation: 2 days • Learning curve: 1-2 weeks</span>
                   <Link 
                     href="https://copy.ai" 
-                    className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    className="btn btn-primary"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -262,7 +262,7 @@ export default function BestAIToolsSmallBusiness() {
 
           {/* Business Automation */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
               <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-3">Automation & Workflows</span>
             </h3>
             
@@ -271,26 +271,26 @@ export default function BestAIToolsSmallBusiness() {
               <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900">Zapier</h4>
+                    <h4 className="text-xl font-bold text-slate-900">Zapier</h4>
                     <p className="text-emerald-600 font-semibold">$29/month · 290% ROI</p>
                   </div>
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
-                    <span className="ml-2 text-sm font-semibold text-gray-700">9.2/10</span>
+                    <span className="ml-2 text-sm font-semibold text-slate-700">9.2/10</span>
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-600 mb-4">
                   Connects your apps and automates repetitive tasks without coding. 
                   The backbone of efficient small business operations that scales with your growth.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Top Automations:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h5 className="font-semibold text-slate-900 mb-2">Top Automations:</h5>
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• Lead capture → CRM → email sequence</li>
                       <li>• Invoice paid → customer notification</li>
                       <li>• New order → inventory update</li>
@@ -298,8 +298,8 @@ export default function BestAIToolsSmallBusiness() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Time & Cost Savings:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h5 className="font-semibold text-slate-900 mb-2">Time & Cost Savings:</h5>
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• Saves 8-15 hours/week manual work</li>
                       <li>• Reduces data entry errors by 94%</li>
                       <li>• Eliminates need for VA: $800/mo saved</li>
@@ -309,10 +309,10 @@ export default function BestAIToolsSmallBusiness() {
                 </div>
                 
                 <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm text-gray-500">Implementation: 3-7 days • Learning curve: 2-3 weeks</span>
+                  <span className="text-sm text-slate-500">Implementation: 3-7 days • Learning curve: 2-3 weeks</span>
                   <Link 
                     href="https://zapier.com" 
-                    className="bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+                    className="btn btn-primary"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -325,7 +325,7 @@ export default function BestAIToolsSmallBusiness() {
 
           {/* Customer Support */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
               <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm mr-3">Customer Support</span>
             </h3>
             
@@ -334,26 +334,26 @@ export default function BestAIToolsSmallBusiness() {
               <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900">Grammarly Business</h4>
+                    <h4 className="text-xl font-bold text-slate-900">Grammarly Business</h4>
                     <p className="text-emerald-600 font-semibold">$15/month · 240% ROI</p>
                   </div>
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className={`h-5 w-5 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
                     ))}
-                    <span className="ml-2 text-sm font-semibold text-gray-700">8.9/10</span>
+                    <span className="ml-2 text-sm font-semibold text-slate-700">8.9/10</span>
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-600 mb-4">
                   AI-powered writing assistant that ensures professional communication across all customer touchpoints. 
                   Catches errors, improves tone, and maintains brand voice consistency.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Perfect For:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h5 className="font-semibold text-slate-900 mb-2">Perfect For:</h5>
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• Customer emails & responses</li>
                       <li>• Proposals & contracts</li>
                       <li>• Marketing materials</li>
@@ -361,8 +361,8 @@ export default function BestAIToolsSmallBusiness() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Business Benefits:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h5 className="font-semibold text-slate-900 mb-2">Business Benefits:</h5>
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• 42% fewer communication errors</li>
                       <li>• 2.8x faster email composition</li>
                       <li>• Improved customer satisfaction</li>
@@ -372,7 +372,7 @@ export default function BestAIToolsSmallBusiness() {
                 </div>
                 
                 <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm text-gray-500">Implementation: Immediate • Learning curve: 1 week</span>
+                  <span className="text-sm text-slate-500">Implementation: Immediate • Learning curve: 1 week</span>
                   <Link 
                     href="https://grammarly.com/business" 
                     className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
@@ -389,7 +389,7 @@ export default function BestAIToolsSmallBusiness() {
 
         {/* Implementation Guide */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Smart AI Implementation Strategy for Small Business</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">Smart AI Implementation Strategy for Small Business</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* Phase 1 */}
@@ -399,15 +399,15 @@ export default function BestAIToolsSmallBusiness() {
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900">Start with ChatGPT Plus</p>
-                    <p className="text-sm text-gray-600">Low-risk, high-impact entry point</p>
+                    <p className="font-semibold text-slate-900">Start with ChatGPT Plus</p>
+                    <p className="text-sm text-slate-600">Low-risk, high-impact entry point</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900">Add Grammarly Business</p>
-                    <p className="text-sm text-gray-600">Immediate communication improvement</p>
+                    <p className="font-semibold text-slate-900">Add Grammarly Business</p>
+                    <p className="text-sm text-slate-600">Immediate communication improvement</p>
                   </div>
                 </div>
                 <p className="text-sm text-emerald-700 font-medium mt-4">Investment: $35/month · Expected ROI: 280%</p>
@@ -415,21 +415,21 @@ export default function BestAIToolsSmallBusiness() {
             </div>
 
             {/* Phase 2 */}
-            <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
+            <div className="bg-slate-50 rounded-xl p-6 border border-blue-200">
               <h3 className="text-lg font-bold text-blue-800 mb-4">Phase 2: Automation (Month 3-4)</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900">Implement Zapier</p>
-                    <p className="text-sm text-gray-600">Automate repetitive workflows</p>
+                    <p className="font-semibold text-slate-900">Implement Zapier</p>
+                    <p className="text-sm text-slate-600">Automate repetitive workflows</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900">Add specialized tools</p>
-                    <p className="text-sm text-gray-600">Based on your specific needs</p>
+                    <p className="font-semibold text-slate-900">Add specialized tools</p>
+                    <p className="text-sm text-slate-600">Based on your specific needs</p>
                   </div>
                 </div>
                 <p className="text-sm text-blue-700 font-medium mt-4">Investment: $64/month · Expected ROI: 320%</p>
@@ -437,21 +437,21 @@ export default function BestAIToolsSmallBusiness() {
             </div>
 
             {/* Phase 3 */}
-            <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
+            <div className="bg-slate-50 rounded-xl p-6 border border-purple-200">
               <h3 className="text-lg font-bold text-purple-800 mb-4">Phase 3: Optimization (Month 5+)</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-purple-600 mr-2 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900">Advanced integrations</p>
-                    <p className="text-sm text-gray-600">Custom workflows & AI training</p>
+                    <p className="font-semibold text-slate-900">Advanced integrations</p>
+                    <p className="text-sm text-slate-600">Custom workflows & AI training</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-purple-600 mr-2 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900">Scale what works</p>
-                    <p className="text-sm text-gray-600">Double down on highest ROI tools</p>
+                    <p className="font-semibold text-slate-900">Scale what works</p>
+                    <p className="text-sm text-slate-600">Double down on highest ROI tools</p>
                   </div>
                 </div>
                 <p className="text-sm text-purple-700 font-medium mt-4">Investment: $120+/month · Expected ROI: 400%+</p>
@@ -512,7 +512,7 @@ export default function BestAIToolsSmallBusiness() {
 
         {/* Common Mistakes */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">5 Costly AI Implementation Mistakes to Avoid</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">5 Costly AI Implementation Mistakes to Avoid</h2>
           <div className="grid gap-6">
             {[
               {
@@ -541,7 +541,7 @@ export default function BestAIToolsSmallBusiness() {
                 cost: "Continuing inefficient processes costing $200-500/month"
               }
             ].map((item, index) => (
-              <div key={index} className="bg-red-50 border border-red-200 rounded-lg p-6">
+              <div key={index} className="bg-slate-50 border border-red-200 rounded-lg p-6">
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
                     <h3 className="font-bold text-red-800 mb-2">❌ Mistake #{index + 1}</h3>
@@ -552,8 +552,8 @@ export default function BestAIToolsSmallBusiness() {
                     <p className="text-emerald-700">{item.solution}</p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-800 mb-2">💰 Typical Cost</h3>
-                    <p className="text-gray-700">{item.cost}</p>
+                    <h3 className="font-bold text-slate-800 mb-2">💰 Typical Cost</h3>
+                    <p className="text-slate-700">{item.cost}</p>
                   </div>
                 </div>
               </div>
@@ -575,7 +575,7 @@ export default function BestAIToolsSmallBusiness() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/best-ai-writing-tools-2026" 
-                className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+                className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-bold hover:bg-slate-100 transition-colors"
               >
                 Explore AI Writing Tools
               </Link>

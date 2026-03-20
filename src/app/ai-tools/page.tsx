@@ -29,27 +29,27 @@ export default function AIToolsPage() {
           <div className="grid gap-4">
             <div className="flex items-center gap-3">
               <span className="text-2xl">🏆</span>
-              <div class="text-gray-900"><strong>Best Overall:</strong> Jasper AI - Most versatile, best templates
+              <div className="text-gray-900"><strong>Best Overall:</strong> Jasper AI - Most versatile, best templates
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">✍️</span>
-              <div class="text-gray-900"><strong>Best for Bloggers:</strong> Copy.ai - Great long-form content
+              <div className="text-gray-900"><strong>Best for Bloggers:</strong> Copy.ai - Great long-form content
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">💰</span>
-              <div class="text-gray-900"><strong>Best Value:</strong> Writesonic - Powerful features, affordable
+              <div className="text-gray-900"><strong>Best Value:</strong> Writesonic - Powerful features, affordable
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">🎯</span>
-              <div class="text-gray-900"><strong>Best for Marketing:</strong> Conversion.ai - High-converting copy
+              <div className="text-gray-900"><strong>Best for Marketing:</strong> Conversion.ai - High-converting copy
               </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">📚</span>
-              <div class="text-gray-900"><strong>Best for Students:</strong> QuillBot - Academic writing focus
+              <div className="text-gray-900"><strong>Best for Students:</strong> QuillBot - Academic writing focus
               </div>
             </div>
           </div>
@@ -71,21 +71,21 @@ export default function AIToolsPage() {
             <div>
               <h3 className="text-xl font-semibold mb-3 text-green-600">Pros:</h3>
               <ul className="space-y-2">
-                <li class="text-gray-900">• Excellent long-form content (3000+ words)</li>
-                <li class="text-gray-900">• 50+ templates for every content type</li>
-                <li class="text-gray-900">• Boss Mode for advanced users</li>
-                <li class="text-gray-900">• Supports 25+ languages</li>
-                <li class="text-gray-900">• Integration with Surfer SEO</li>
-                <li class="text-gray-900">• Chrome extension available</li>
-                <li class="text-gray-900">• Excellent customer support</li>
+                <li className="text-gray-900">• Excellent long-form content (3000+ words)</li>
+                <li className="text-gray-900">• 50+ templates for every content type</li>
+                <li className="text-gray-900">• Boss Mode for advanced users</li>
+                <li className="text-gray-900">• Supports 25+ languages</li>
+                <li className="text-gray-900">• Integration with Surfer SEO</li>
+                <li className="text-gray-900">• Chrome extension available</li>
+                <li className="text-gray-900">• Excellent customer support</li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-3 text-red-600">Cons:</h3>
               <ul className="space-y-2">
-                <li class="text-gray-900">• Higher price point</li>
-                <li class="text-gray-900">• Learning curve for advanced features</li>
-                <li class="text-gray-900">• Credits can run out quickly</li>
+                <li className="text-gray-900">• Higher price point</li>
+                <li className="text-gray-900">• Learning curve for advanced features</li>
+                <li className="text-gray-900">• Credits can run out quickly</li>
               </ul>
             </div>
           </div>
@@ -93,9 +93,9 @@ export default function AIToolsPage() {
           <div className="bg-slate-50 p-4 rounded-lg mb-6">
             <h3 className="text-xl font-semibold mb-3 text-gray-900">Pricing:</h3>
             <div className="space-y-2">
-              <div class="text-gray-900">• Starter: $29/month (20K words)</div>
-              <div class="text-gray-900">• Boss Mode: $59/month (50K words)</div>
-              <div class="text-gray-900">• Business: Custom pricing</div>
+              <div className="text-gray-900">• Starter: $29/month (20K words)</div>
+              <div className="text-gray-900">• Boss Mode: $59/month (50K words)</div>
+              <div className="text-gray-900">• Business: Custom pricing</div>
             </div>
           </div>
 
@@ -129,21 +129,21 @@ export default function AIToolsPage() {
             <div>
               <h3 className="text-xl font-semibold mb-3 text-green-600">Pros:</h3>
               <ul className="space-y-2">
-                <li class="text-gray-900">• Excellent blog post generator</li>
-                <li class="text-gray-900">• Workflow feature for multi-step content creation</li>
-                <li class="text-gray-900">• 90+ languages supported</li>
-                <li class="text-gray-900">• Strong social media tools</li>
-                <li class="text-gray-900">• Affordable pricing</li>
-                <li class="text-gray-900">• Good free plan</li>
-                <li class="text-gray-900">• Browser extension</li>
+                <li className="text-gray-900">• Excellent blog post generator</li>
+                <li className="text-gray-900">• Workflow feature for multi-step content creation</li>
+                <li className="text-gray-900">• 90+ languages supported</li>
+                <li className="text-gray-900">• Strong social media tools</li>
+                <li className="text-gray-900">• Affordable pricing</li>
+                <li className="text-gray-900">• Good free plan</li>
+                <li className="text-gray-900">• Browser extension</li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-3 text-red-600">Cons:</h3>
               <ul className="space-y-2">
-                <li class="text-gray-900">• Limited advanced customization</li>
-                <li class="text-gray-900">• Output can be repetitive sometimes</li>
-                <li class="text-gray-900">• Fewer business-focused templates</li>
+                <li className="text-gray-900">• Limited advanced customization</li>
+                <li className="text-gray-900">• Output can be repetitive sometimes</li>
+                <li className="text-gray-900">• Fewer business-focused templates</li>
               </ul>
             </div>
           </div>
@@ -151,9 +151,9 @@ export default function AIToolsPage() {
           <div className="bg-slate-50 p-4 rounded-lg mb-6">
             <h3 className="text-xl font-semibold mb-3 text-gray-900">Pricing:</h3>
             <div className="space-y-2">
-              <div class="text-gray-900">• Free: 2,000 words/month</div>
-              <div class="text-gray-900">• Pro: $36/month (unlimited words)</div>
-              <div class="text-gray-900">• Team: $186/month (5 seats)</div>
+              <div className="text-gray-900">• Free: 2,000 words/month</div>
+              <div className="text-gray-900">• Pro: $36/month (unlimited words)</div>
+              <div className="text-gray-900">• Team: $186/month (5 seats)</div>
             </div>
           </div>
 
@@ -242,22 +242,22 @@ export default function AIToolsPage() {
               <h3 className="text-xl font-semibold mb-3 text-gray-900">1. Provide Detailed Prompts</h3>
               <p className="mb-4 text-gray-900">The more specific your input, the better the AI output. Include:</p>
               <ul className="space-y-2">
-                <li class="text-gray-900">• Target audience</li>
-                <li class="text-gray-900">• Tone of voice</li>
-                <li class="text-gray-900">• Key points to cover</li>
-                <li class="text-gray-900">• Content length</li>
-                <li class="text-gray-900">• Call-to-action</li>
+                <li className="text-gray-900">• Target audience</li>
+                <li className="text-gray-900">• Tone of voice</li>
+                <li className="text-gray-900">• Key points to cover</li>
+                <li className="text-gray-900">• Content length</li>
+                <li className="text-gray-900">• Call-to-action</li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">2. Edit and Fact-Check</h3>
               <p className="mb-4 text-gray-900">Always review AI-generated content for:</p>
               <ul className="space-y-2">
-                <li class="text-gray-900">• Factual accuracy</li>
-                <li class="text-gray-900">• Brand voice consistency</li>
-                <li class="text-gray-900">• Grammar and flow</li>
-                <li class="text-gray-900">• SEO optimization</li>
-                <li class="text-gray-900">• Plagiarism</li>
+                <li className="text-gray-900">• Factual accuracy</li>
+                <li className="text-gray-900">• Brand voice consistency</li>
+                <li className="text-gray-900">• Grammar and flow</li>
+                <li className="text-gray-900">• SEO optimization</li>
+                <li className="text-gray-900">• Plagiarism</li>
               </ul>
             </div>
           </div>

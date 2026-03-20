@@ -46,11 +46,11 @@ export default function BestAIWritingTools2026() {
           <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">🏆 Quick Picks</h2>
             <div className="grid gap-3 text-sm md:text-base">
-              <div class="text-gray-900"><span className="font-semibold">🏆 Best Overall:</span> Jasper AI - Most versatile, best templates</div>
-              <div class="text-gray-900"><span className="font-semibold">✍️ Best for Bloggers:</span> Copy.ai - Great long-form content</div>
-              <div class="text-gray-900"><span className="font-semibold">💰 Best Value:</span> Writesonic - Powerful features, affordable</div>
-              <div class="text-gray-900"><span className="font-semibold">🎯 Best for Marketing:</span> Conversion.ai - High-converting copy</div>
-              <div class="text-gray-900"><span className="font-semibold">📚 Best for Students:</span> QuillBot - Academic writing focus</div>
+              <div className="text-gray-900"><span className="font-semibold">🏆 Best Overall:</span> Jasper AI - Most versatile, best templates</div>
+              <div className="text-gray-900"><span className="font-semibold">✍️ Best for Bloggers:</span> Copy.ai - Great long-form content</div>
+              <div className="text-gray-900"><span className="font-semibold">💰 Best Value:</span> Writesonic - Powerful features, affordable</div>
+              <div className="text-gray-900"><span className="font-semibold">🎯 Best for Marketing:</span> Conversion.ai - High-converting copy</div>
+              <div className="text-gray-900"><span className="font-semibold">📚 Best for Students:</span> QuillBot - Academic writing focus</div>
             </div>
           </div>
 

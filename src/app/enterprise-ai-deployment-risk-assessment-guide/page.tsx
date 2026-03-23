@@ -305,7 +305,7 @@ export default function EnterpriseAIDeploymentRiskAssessmentGuidePage() {
 
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">< 5%</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">&lt;5%</div>
               <p className="text-gray-700 font-semibold">Project Failure Rate</p>
               <p className="text-sm text-gray-600">With comprehensive risk assessment</p>
             </div>

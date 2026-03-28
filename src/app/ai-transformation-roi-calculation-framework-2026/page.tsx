@@ -121,7 +121,7 @@ export default function AITransformationROICalculationFramework2026Page() {
                         NPV = 0 = Σ(Cash Flows / (1 + IRR)^t) - Investment
                       </div>
                       <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                        <li>• Target IRR: >20% for AI investments</li>
+                        <li>• Target IRR: &gt;20% for AI investments</li>
                         <li>• Compare vs. WACC + risk premium</li>
                         <li>• Account for implementation risks</li>
                         <li>• Include opportunity costs</li>
@@ -223,7 +223,7 @@ export default function AITransformationROICalculationFramework2026Page() {
                       <strong className="text-blue-600">First-Pass Yield</strong>
                       <p className="text-sm text-gray-600 mt-1">Percentage of processes completed correctly first time</p>
                       <div className="bg-blue-100 p-2 rounded mt-2 text-sm">
-                        Target: >95% first-pass rate
+                        Target: &gt;95% first-pass rate
                       </div>
                     </div>
                   </div>
@@ -250,7 +250,7 @@ export default function AITransformationROICalculationFramework2026Page() {
                       <strong className="text-blue-600">Service Level Achievement</strong>
                       <p className="text-sm text-gray-600 mt-1">SLA compliance rate improvement</p>
                       <div className="bg-blue-100 p-2 rounded mt-2 text-sm">
-                        Target: >99% SLA compliance
+                        Target: &gt;99% SLA compliance
                       </div>
                     </div>
                   </div>

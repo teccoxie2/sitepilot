@@ -444,9 +444,9 @@ export default function AIProjectRiskAssessmentFramework2026() {
                       <SelectValue placeholder="Select user base" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="small">Small (< 1,000 users)</SelectItem>
+                      <SelectItem value="small">Small (&lt; 1,000 users)</SelectItem>
                       <SelectItem value="medium">Medium (1,000-10,000 users)</SelectItem>
-                      <SelectItem value="large">Large (> 10,000 users)</SelectItem>
+                      <SelectItem value="large">Large (&gt; 10,000 users)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

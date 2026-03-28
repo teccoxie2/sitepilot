@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import { useState } from 'react'
 import { Shield, Users, FileText, CheckCircle, AlertTriangle, HelpCircle, BarChart3, Clock, DollarSign, Target } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -14,15 +13,12 @@ export const metadata: Metadata = {
 }
 
 function AIGovernanceFrameworkPage() {
-  const [showIntro, setShowIntro] = useState(true)
-  const [selectedPhase, setSelectedPhase] = useState(1)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       
       {/* GEO优化：介绍页面 */}
-      {showIntro && (
-        <>
+      <>
           {/* Hero Section */}
           <div className="bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-900 text-white">
             <div className="container mx-auto px-6 py-24">
@@ -245,20 +241,13 @@ function AIGovernanceFrameworkPage() {
           </div>
 
           <div className="text-center py-12">
-            <button 
-              onClick={() => setShowIntro(false)}
-              className="bg-blue-600 text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              查看完整AI治理框架
-            </button>
+            <div className="bg-blue-600 text-white px-12 py-4 rounded-lg text-lg font-semibold inline-block">
+              完整AI治理框架
+            </div>
             <p className="text-gray-500 text-sm mt-3">包含15+政策模板和12个月实施指南</p>
           </div>
-        </>
-      )}
 
       {/* 原有的框架详细内容 */}
-      {!showIntro && (
-        <>
           {/* Quick Stats */}
           <div className="bg-white border-b">
             <div className="container mx-auto px-6 py-8">
@@ -640,7 +629,6 @@ function AIGovernanceFrameworkPage() {
             </div>
           </div>
         </>
-      )}
     </div>
   )
 }

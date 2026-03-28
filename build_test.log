@@ -1,0 +1,116 @@
+
+> sitepilot@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 5.1s
+  Running TypeScript ...
+  Collecting page data using 5 workers ...
+  Generating static pages using 5 workers (0/93) ...
+  Generating static pages using 5 workers (23/93) 
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+  Generating static pages using 5 workers (46/93) 
+  Generating static pages using 5 workers (69/93) 
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+✓ Generating static pages using 5 workers (93/93) in 1001.9ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /ai-automation-roi-measurement-2026
+├ ○ /ai-automation-workflow-templates-2026
+├ ○ /ai-budget-template-enterprise-2026
+├ ○ /ai-content-audit-tool-2026
+├ ○ /ai-content-calendar-tools-2026
+├ ○ /ai-content-creation-automation-2026
+├ ○ /ai-content-generator-comparison
+├ ○ /ai-content-marketing-strategy-2026
+├ ○ /ai-content-optimization-framework-2026
+├ ○ /ai-content-performance-analytics-2026
+├ ○ /ai-content-workflow-automation-2026
+├ ○ /ai-data-privacy-impact-assessment-2026
+├ ○ /ai-digital-transformation-roadmap-2026
+├ ○ /ai-governance-compliance-framework-2026
+├ ○ /ai-governance-framework-enterprise-2026
+├ ○ /ai-governance-monitoring-dashboard-2026
+├ ○ /ai-implementation-checklist-enterprise-2026
+├ ○ /ai-implementation-cost-calculator-enterprise-2026
+├ ○ /ai-implementation-success-framework-2026
+├ ○ /ai-implementation-success-patterns-2026
+├ ○ /ai-integration-timeline-calculator-2026
+├ ○ /ai-investment-payback-period-calculator-2026
+├ ○ /ai-investment-portfolio-optimizer-2026
+├ ○ /ai-investment-roi-matrix-calculator-enterprise-2026
+├ ○ /ai-marketing-attribution-analysis-tool-2026
+├ ○ /ai-performance-monitoring-dashboard-2026
+├ ○ /ai-procurement-decision-matrix-tool-2026
+├ ○ /ai-productivity-tools-comparison-2026
+├ ○ /ai-project-risk-assessment-framework-2026
+├ ○ /ai-risk-management-dashboard-enterprise-2026
+├ ○ /ai-roi-calculator
+├ ○ /ai-security-framework-enterprise-2026
+├ ○ /ai-talent-optimization-calculator-2026
+├ ○ /ai-team-productivity-assessment-tool-2026
+├ ○ /ai-team-training-certification-2026
+├ ○ /ai-tool-implementation-strategy-2026
+├ ○ /ai-tools
+├ ○ /ai-tools-budget-planning-enterprise-2026
+├ ○ /ai-tools-cost-benefit-analysis-2026
+├ ○ /ai-tools-cost-optimization-enterprise-2026
+├ ○ /ai-tools-for-bloggers-2026
+├ ○ /ai-tools-integration-roadmap-2026
+├ ○ /ai-tools-risk-assessment-enterprise-2026
+├ ○ /ai-tools-security-compliance-checklist-2026
+├ ○ /ai-tools-usage-tracking-dashboard-2026
+├ ○ /ai-training-roi-calculator-2026
+├ ○ /ai-transformation-roi-calculation-framework-2026
+├ ○ /ai-vendor-risk-evaluation-tool-2026
+├ ○ /ai-vendor-selection-enterprise-decision-framework
+├ ○ /ai-workflow-automation-guide-2026
+├ ○ /best-ai-analytics-tools-bloggers-2026
+├ ○ /best-ai-automation-tools-bloggers-2026
+├ ○ /best-ai-image-tools-bloggers-2026
+├ ○ /best-ai-seo-tools-2026
+├ ○ /best-ai-tools-small-business-2026
+├ ○ /best-ai-video-tools-bloggers-2026
+├ ○ /best-ai-writing-tools-2026
+├ ○ /best-ecommerce-website-builders-2026
+├ ○ /best-email-marketing-tools-2026
+├ ○ /best-free-ssl-certificates-2026
+├ ○ /best-project-management-tools-2026
+├ ○ /best-social-media-management-tools-2026
+├ ○ /best-web-hosting-2026
+├ ○ /best-website-builders-2026
+├ ○ /best-wordpress-themes-2026
+├ ○ /cheap-hosting
+├ ○ /cloud-hosting-vs-traditional-hosting-2026
+├ ○ /enterprise-ai-deployment-risk-assessment-guide
+├ ○ /enterprise-ai-implementation-best-practices-2026
+├ ○ /enterprise-ai-implementation-budget-planning-guide-2026
+├ ○ /enterprise-ai-risk-assessment-tool-2026
+├ ○ /enterprise-ai-roi-calculation-model-2026
+├ ○ /enterprise-ai-roi-optimization-framework-2026
+├ ○ /enterprise-ai-security-risk-management-guide-2026
+├ ○ /enterprise-ai-success-patterns-analysis-2026
+├ ○ /enterprise-ai-transformation-roadmap-2026
+├ ○ /enterprise-ai-vendor-comparison-guide-2026
+├ ○ /free-website-builders-2026
+├ ○ /hosting
+├ ○ /manufacturing-ai-roi-calculator-2026
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /tools/ai-compliance-audit-2026
+├ ○ /web-hosting
+├ ○ /website-builder-vs-wordpress-2026
+├ ○ /website-builders
+└ ○ /website-security-checklist-2026
+
+Route (pages)
+─ ○ /tools/ai-risk-management-framework (328 ms)
+
+○  (Static)  prerendered as static content
+

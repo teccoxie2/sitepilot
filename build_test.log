@@ -6,16 +6,16 @@
 - Environments: .env.local
 
   Creating an optimized production build ...
-✓ Compiled successfully in 5.1s
+✓ Compiled successfully in 5.0s
   Running TypeScript ...
   Collecting page data using 5 workers ...
-  Generating static pages using 5 workers (0/93) ...
-  Generating static pages using 5 workers (23/93) 
+  Generating static pages using 5 workers (0/97) ...
 ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-  Generating static pages using 5 workers (46/93) 
-  Generating static pages using 5 workers (69/93) 
+  Generating static pages using 5 workers (24/97) 
 ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-✓ Generating static pages using 5 workers (93/93) in 1001.9ms
+  Generating static pages using 5 workers (48/97) 
+  Generating static pages using 5 workers (72/97) 
+✓ Generating static pages using 5 workers (97/97) in 998.9ms
   Finalizing page optimization ...
 
 Route (app)
@@ -34,6 +34,7 @@ Route (app)
 ├ ○ /ai-content-workflow-automation-2026
 ├ ○ /ai-data-privacy-impact-assessment-2026
 ├ ○ /ai-digital-transformation-roadmap-2026
+├ ○ /ai-digital-transformation-roadmap-enterprise-2026
 ├ ○ /ai-governance-compliance-framework-2026
 ├ ○ /ai-governance-framework-enterprise-2026
 ├ ○ /ai-governance-monitoring-dashboard-2026
@@ -44,6 +45,7 @@ Route (app)
 ├ ○ /ai-integration-timeline-calculator-2026
 ├ ○ /ai-investment-payback-period-calculator-2026
 ├ ○ /ai-investment-portfolio-optimizer-2026
+├ ○ /ai-investment-roi-calculator-enterprise-2026
 ├ ○ /ai-investment-roi-matrix-calculator-enterprise-2026
 ├ ○ /ai-marketing-attribution-analysis-tool-2026
 ├ ○ /ai-performance-monitoring-dashboard-2026
@@ -68,6 +70,7 @@ Route (app)
 ├ ○ /ai-tools-usage-tracking-dashboard-2026
 ├ ○ /ai-training-roi-calculator-2026
 ├ ○ /ai-transformation-roi-calculation-framework-2026
+├ ○ /ai-transformation-success-metrics-enterprise-2026
 ├ ○ /ai-vendor-risk-evaluation-tool-2026
 ├ ○ /ai-vendor-selection-enterprise-decision-framework
 ├ ○ /ai-workflow-automation-guide-2026
@@ -88,6 +91,7 @@ Route (app)
 ├ ○ /best-wordpress-themes-2026
 ├ ○ /cheap-hosting
 ├ ○ /cloud-hosting-vs-traditional-hosting-2026
+├ ○ /enterprise-ai-budget-optimization-calculator
 ├ ○ /enterprise-ai-deployment-risk-assessment-guide
 ├ ○ /enterprise-ai-implementation-best-practices-2026
 ├ ○ /enterprise-ai-implementation-budget-planning-guide-2026
@@ -110,7 +114,7 @@ Route (app)
 └ ○ /website-security-checklist-2026
 
 Route (pages)
-─ ○ /tools/ai-risk-management-framework (328 ms)
+─ ○ /tools/ai-risk-management-framework (341 ms)
 
 ○  (Static)  prerendered as static content
 

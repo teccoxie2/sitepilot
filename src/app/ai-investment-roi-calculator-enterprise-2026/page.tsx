@@ -428,8 +428,8 @@ export default function AIInvestmentROICalculatorPage() {
                 <h4 className="font-semibold text-blue-800 mb-2">🎯 蒙特卡洛模拟结果</h4>
                 <div className="text-sm text-blue-700 space-y-1">
                   <div>• 10,000次模拟分析</div>
-                  <div>• ROI >200% 概率: <strong>89%</strong></div>
-                  <div>• ROI >300% 概率: <strong>72%</strong></div>
+                  <div>• ROI {'>'}200% 概率: <strong>89%</strong></div>
+                  <div>• ROI {'>'}300% 概率: <strong>72%</strong></div>
                   <div>• 负ROI风险: <strong>3%</strong></div>
                   <div className="font-semibold mt-2">投资建议: <span className="text-green-600">强烈推荐</span></div>
                 </div>

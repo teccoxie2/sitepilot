@@ -6,16 +6,16 @@
 - Environments: .env.local
 
   Creating an optimized production build ...
-✓ Compiled successfully in 5.0s
+✓ Compiled successfully in 5.1s
   Running TypeScript ...
   Collecting page data using 5 workers ...
-  Generating static pages using 5 workers (0/97) ...
+  Generating static pages using 5 workers (0/98) ...
 ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-  Generating static pages using 5 workers (24/97) 
+  Generating static pages using 5 workers (24/98) 
 ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-  Generating static pages using 5 workers (48/97) 
-  Generating static pages using 5 workers (72/97) 
-✓ Generating static pages using 5 workers (97/97) in 998.9ms
+  Generating static pages using 5 workers (48/98) 
+  Generating static pages using 5 workers (73/98) 
+✓ Generating static pages using 5 workers (98/98) in 1083.7ms
   Finalizing page optimization ...
 
 Route (app)
@@ -35,6 +35,7 @@ Route (app)
 ├ ○ /ai-data-privacy-impact-assessment-2026
 ├ ○ /ai-digital-transformation-roadmap-2026
 ├ ○ /ai-digital-transformation-roadmap-enterprise-2026
+├ ○ /ai-enterprise-security-compliance
 ├ ○ /ai-governance-compliance-framework-2026
 ├ ○ /ai-governance-framework-enterprise-2026
 ├ ○ /ai-governance-monitoring-dashboard-2026
@@ -114,7 +115,7 @@ Route (app)
 └ ○ /website-security-checklist-2026
 
 Route (pages)
-─ ○ /tools/ai-risk-management-framework (341 ms)
+─ ○ /tools/ai-risk-management-framework (350 ms)
 
 ○  (Static)  prerendered as static content
 

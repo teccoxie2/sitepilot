@@ -1,13 +1,32 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import RelatedLinks from '@/components/RelatedLinks'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI Vendor RFP Template 2026 | SitePilot'
+const pageDescription =
+  'A practical enterprise AI vendor RFP template for procurement, security, architecture, legal, and business teams evaluating AI vendors in 2026.'
+const pageUrl = 'https://sitepilot.co/enterprise-ai-vendor-rfp-template-2026'
 
 export const metadata: Metadata = {
-  title: 'Enterprise AI Vendor RFP Template 2026 | SitePilot',
-  description:
-    'A practical enterprise AI vendor RFP template for procurement, security, architecture, legal, and business teams evaluating AI vendors in 2026.',
+  title: pageTitle,
+  description: pageDescription,
   keywords:
     'enterprise AI vendor RFP template, AI procurement template, AI vendor questionnaire, enterprise AI buying process, AI vendor selection',
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
 }
 
 const sections = [
@@ -91,6 +110,37 @@ const redFlags = [
   'Pushes “standard terms only” while asking for production access to sensitive workflows.',
 ]
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What should an enterprise AI vendor RFP include?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'An enterprise AI vendor RFP should cover vendor profile, supported use cases, security controls, data governance, model risk, architecture and integration, commercial terms, and decision scoring rules.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Who should review AI vendor RFP responses?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Procurement, security, legal, architecture, and business owners should review responses together. AI buying breaks when each team reviews in isolation and unresolved gaps are left vague.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are common red flags in AI vendor RFP responses?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Common red flags include vague answers about data retention, refusal to state training usage, weak identity controls, unclear audit logging, unsupported export or deletion paths, and pressure to skip formal control review.',
+      },
+    },
+  ],
+}
+
 export default function EnterpriseAIVendorRFPTemplatePage() {
   return (
     <div className="min-h-screen bg-slate-50">
@@ -118,6 +168,16 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
       </section>
 
       <section className="max-w-6xl mx-auto px-4 py-12">
+        <SchemaMarkup
+          type="article"
+          title={pageTitle}
+          description={pageDescription}
+          url={pageUrl}
+          publishedDate="2026-04-04"
+          modifiedDate="2026-04-04"
+          authorName="SitePilot Team"
+        />
+
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">How to use this template</h2>
@@ -126,7 +186,15 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
               The goal is not paperwork volume. The goal is eliminating expensive ambiguity before pilot and contract work.
             </p>
             <p className="text-slate-700 leading-relaxed">
-              Use this template for longlist filtering, then carry the highest-risk questions into technical validation and legal review.
+              Use this template for longlist filtering, then carry the highest-risk questions into technical validation and legal review. Pair it with the{' '}
+              <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="text-blue-700 font-medium hover:underline">
+                due diligence checklist
+              </Link>{' '}
+              and the{' '}
+              <Link href="/ai-procurement-decision-matrix-tool-2026" className="text-blue-700 font-medium hover:underline">
+                procurement decision matrix
+              </Link>{' '}
+              so the RFP feeds directly into selection instead of becoming dead paperwork.
             </p>
           </div>
 
@@ -209,6 +277,30 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
           </div>
         </section>
 
+        <section className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">Frequently asked questions</h2>
+          <div className="space-y-5 text-slate-700">
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-1">What should an enterprise AI vendor RFP include?</h3>
+              <p>
+                At minimum: vendor profile, supported use cases, security controls, data governance, model risk, architecture and integration, commercial terms, and decision scoring rules.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-1">Who should review AI vendor RFP responses?</h3>
+              <p>
+                Procurement, security, legal, architecture, and business owners should review responses together. Splitting review across silos is how weak vendors sneak through.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-1">What are the biggest red flags?</h3>
+              <p>
+                Vague training usage, weak identity controls, unclear deletion/export terms, marketing-only security answers, and pressure to move to production before controls are proven.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <RelatedLinks
           title="Related enterprise AI procurement resources"
           links={[
@@ -237,6 +329,11 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
               category: 'ai',
             },
           ]}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </section>
     </div>

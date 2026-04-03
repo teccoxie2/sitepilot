@@ -1,13 +1,32 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import RelatedLinks from '@/components/RelatedLinks'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI Vendor Due Diligence Checklist 2026 | SitePilot'
+const pageDescription =
+  'A practical enterprise AI vendor due diligence checklist covering security, legal, procurement, architecture, data governance, and rollout readiness.'
+const pageUrl = 'https://sitepilot.co/ai-vendor-due-diligence-checklist-enterprise-2026'
 
 export const metadata: Metadata = {
-  title: 'Enterprise AI Vendor Due Diligence Checklist 2026 | SitePilot',
-  description:
-    'A practical enterprise AI vendor due diligence checklist covering security, legal, procurement, architecture, data governance, and rollout readiness.',
+  title: pageTitle,
+  description: pageDescription,
   keywords:
     'AI vendor due diligence, enterprise AI procurement checklist, AI vendor security checklist, AI vendor assessment, enterprise AI risk review',
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
 }
 
 const workstreams = [
@@ -90,6 +109,37 @@ const deliverables = [
   'Executive recommendation: approve, approve with conditions, or reject',
 ]
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is AI vendor due diligence?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AI vendor due diligence is the structured review of a vendor’s security, privacy, commercial viability, model risk, integration capability, and compliance readiness before pilot approval or production rollout.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Who should be involved in AI vendor due diligence?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Procurement, security, legal, architecture, data governance, and the business owner should all be involved. A single-team review misses risks that show up later in rollout or contract negotiation.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are common AI vendor due diligence red flags?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Common red flags include vague answers on training usage, missing SSO or audit logging, unclear subprocessors, weak deletion/export terms, and pressure to launch before pilot evidence and control sign-off are complete.',
+      },
+    },
+  ],
+}
+
 export default function AIVendorDueDiligenceChecklistPage() {
   return (
     <div className="min-h-screen bg-slate-50">
@@ -117,6 +167,16 @@ export default function AIVendorDueDiligenceChecklistPage() {
       </section>
 
       <section className="max-w-6xl mx-auto px-4 py-12">
+        <SchemaMarkup
+          type="article"
+          title={pageTitle}
+          description={pageDescription}
+          url={pageUrl}
+          publishedDate="2026-04-04"
+          modifiedDate="2026-04-04"
+          authorName="SitePilot Team"
+        />
+
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">What this page is for</h2>
@@ -125,7 +185,15 @@ export default function AIVendorDueDiligenceChecklistPage() {
               Procurement sees pricing, security sees controls, legal sees clauses, and the business sees promised speed. If nobody ties that together, the mess shows up after signature.
             </p>
             <p className="text-slate-700 leading-relaxed">
-              Use this checklist during vendor shortlisting, pilot review, and final approval. It works best when every item gets an owner, an answer, and evidence.
+              Use this checklist during vendor shortlisting, pilot review, and final approval. It works best when every item gets an owner, an answer, and evidence. Pair it with the{' '}
+              <Link href="/enterprise-ai-vendor-rfp-template-2026" className="text-blue-700 font-medium hover:underline">
+                enterprise AI vendor RFP template
+              </Link>{' '}
+              and the{' '}
+              <Link href="/ai-vendor-risk-evaluation-tool-2026" className="text-blue-700 font-medium hover:underline">
+                vendor risk evaluation tool
+              </Link>{' '}
+              so diligence, scoring, and approval all use the same facts.
             </p>
           </div>
 
@@ -213,6 +281,30 @@ export default function AIVendorDueDiligenceChecklistPage() {
           </div>
         </section>
 
+        <section className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">Frequently asked questions</h2>
+          <div className="space-y-5 text-slate-700">
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-1">What is AI vendor due diligence?</h3>
+              <p>
+                It is the structured review of a vendor’s security, privacy, commercial viability, model risk, integration capability, and compliance readiness before pilot approval or production rollout.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-1">Who should be involved?</h3>
+              <p>
+                Procurement, security, legal, architecture, data governance, and the business owner. One-team diligence usually misses something expensive.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-1">What are the main red flags?</h3>
+              <p>
+                Weak identity controls, vague training usage, unclear subprocessors, poor deletion/export commitments, and pressure to move into production before pilot evidence is complete.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <RelatedLinks
           title="Related enterprise AI guides"
           links={[
@@ -247,6 +339,11 @@ export default function AIVendorDueDiligenceChecklistPage() {
               category: 'ai',
             },
           ]}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </section>
     </div>

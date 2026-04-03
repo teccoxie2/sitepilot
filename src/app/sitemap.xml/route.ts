@@ -90,6 +90,18 @@ export async function GET() {
       lastModified: currentDate,
       changeFreq: 'monthly',
       priority: '0.9'
+    },
+    {
+      url: `${baseUrl}/ai-vendor-due-diligence-checklist-enterprise-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/enterprise-ai-vendor-rfp-template-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
     }
   ]
 

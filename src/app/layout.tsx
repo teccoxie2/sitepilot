@@ -12,6 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sitepilot.co"),
   title: "SitePilot - Your Guide to Building Websites That Work",
   description: "Expert reviews and guides on web hosting, AI tools, and website builders. Launch your website with confidence.",
   keywords: ["web hosting", "website builder", "AI tools", "hosting reviews", "best web hosting", "website creation", "AI writing tools"],

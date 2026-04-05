@@ -102,6 +102,72 @@ export async function GET() {
       lastModified: currentDate,
       changeFreq: 'monthly',
       priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/enterprise-ai-vendor-shortlist-scorecard-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.3'
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.3'
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.5'
+    },
+    {
+      url: `${baseUrl}/methodology`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.6'
+    },
+    {
+      url: `${baseUrl}/hosting/best-web-hosting`,
+      lastModified: currentDate,
+      changeFreq: 'weekly',
+      priority: '0.9'
+    },
+    {
+      url: `${baseUrl}/hosting/wordpress-hosting`,
+      lastModified: currentDate,
+      changeFreq: 'weekly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/hosting/cheap-hosting`,
+      lastModified: currentDate,
+      changeFreq: 'weekly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/hosting/siteground-review`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.7'
+    },
+    {
+      url: `${baseUrl}/hosting/hostinger-review`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.7'
+    },
+    {
+      url: `${baseUrl}/hosting/hostinger-vs-bluehost`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.7'
     }
   ]
 

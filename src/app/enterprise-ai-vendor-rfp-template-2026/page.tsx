@@ -277,6 +277,29 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
           </div>
         </section>
 
+        <section className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 mb-12">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-bold text-slate-900 mb-3">Need a reusable version for your buying team?</h2>
+            <p className="text-slate-700 leading-relaxed mb-5">
+              If you want this RFP in a reusable working format instead of copying questions out of a web page, request the downloadable version and use it with your procurement, security, legal, and architecture reviewers.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="mailto:contact@sitepilot.co?subject=Downloadable%20AI%20Vendor%20RFP%20Template"
+                className="inline-flex items-center rounded-lg bg-emerald-600 text-white px-5 py-3 font-semibold hover:bg-emerald-700 transition-colors"
+              >
+                Request downloadable RFP template
+              </a>
+              <Link
+                href="/enterprise-ai-vendor-shortlist-scorecard-2026"
+                className="inline-flex items-center rounded-lg border border-emerald-300 text-emerald-900 px-5 py-3 font-semibold hover:bg-emerald-100 transition-colors"
+              >
+                Open shortlist scorecard
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm mb-12">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Frequently asked questions</h2>
           <div className="space-y-5 text-slate-700">
@@ -311,9 +334,9 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
               category: 'guide',
             },
             {
-              title: 'AI Procurement Decision Matrix Tool 2026',
-              href: '/ai-procurement-decision-matrix-tool-2026',
-              description: 'A weighted framework for comparing shortlisted AI vendors.',
+              title: 'Enterprise AI Vendor Shortlist Scorecard 2026',
+              href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
+              description: 'A practical scorecard for ranking shortlisted AI vendors after RFP and diligence review.',
               category: 'tools',
             },
             {

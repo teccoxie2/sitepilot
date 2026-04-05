@@ -266,16 +266,39 @@ export default function AIVendorDueDiligenceChecklistPage() {
             </ol>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link
-                href="/ai-procurement-decision-matrix-tool-2026"
+                href="/enterprise-ai-vendor-shortlist-scorecard-2026"
                 className="inline-flex items-center rounded-lg bg-white text-slate-900 px-5 py-3 font-semibold hover:bg-slate-100 transition-colors"
               >
-                Review procurement matrix
+                Review shortlist scorecard
               </Link>
               <Link
                 href="/ai-vendor-risk-evaluation-tool-2026"
                 className="inline-flex items-center rounded-lg border border-white/20 px-5 py-3 font-semibold hover:bg-white/10 transition-colors"
               >
                 Open vendor risk tool
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 mb-12">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-bold text-slate-900 mb-3">Need a reusable checklist for internal review?</h2>
+            <p className="text-slate-700 leading-relaxed mb-5">
+              If your team needs a version you can circulate in procurement, security, legal, and architecture review, request the downloadable checklist and use it alongside your RFP and pilot scoring pack.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="mailto:contact@sitepilot.co?subject=Downloadable%20AI%20Vendor%20Due%20Diligence%20Checklist"
+                className="inline-flex items-center rounded-lg bg-emerald-600 text-white px-5 py-3 font-semibold hover:bg-emerald-700 transition-colors"
+              >
+                Request downloadable checklist
+              </a>
+              <Link
+                href="/enterprise-ai-vendor-rfp-template-2026"
+                className="inline-flex items-center rounded-lg border border-emerald-300 text-emerald-900 px-5 py-3 font-semibold hover:bg-emerald-100 transition-colors"
+              >
+                Open RFP template
               </Link>
             </div>
           </div>
@@ -309,9 +332,9 @@ export default function AIVendorDueDiligenceChecklistPage() {
           title="Related enterprise AI guides"
           links={[
             {
-              title: 'AI Procurement Decision Matrix Tool 2026',
-              href: '/ai-procurement-decision-matrix-tool-2026',
-              description: 'A structured framework for comparing shortlisted AI vendors.',
+              title: 'Enterprise AI Vendor Shortlist Scorecard 2026',
+              href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
+              description: 'A practical scoring sheet for comparing shortlisted AI vendors after RFP and diligence review.',
               category: 'tools',
             },
             {

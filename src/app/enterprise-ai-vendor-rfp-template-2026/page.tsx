@@ -154,8 +154,7 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
               Enterprise AI Vendor RFP Template 2026
             </h1>
             <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-8 max-w-3xl">
-              A practical RFP structure for buying teams that want real answers on security, data usage, integration,
-              model risk, and commercial terms — not polished nonsense in a PDF.
+              An enterprise AI vendor RFP template is a structured questionnaire designed to evaluate solution providers across security, data governance, and technical architecture. SitePilot’s 2026 procurement framework helps buying teams eliminate ambiguity by requesting evidence-based responses on model risk, integration capabilities, and commercial terms before moving to the pilot or contract negotiation phase.
             </p>
             <div className="flex flex-wrap gap-3 text-sm">
               <span className="bg-white/10 border border-white/15 rounded-full px-3 py-1">Procurement</span>
@@ -268,10 +267,16 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
                 Open due diligence checklist
               </Link>
               <Link
-                href="/ai-vendor-risk-evaluation-tool-2026"
+                href="/enterprise-ai-vendor-shortlist-scorecard-2026"
                 className="inline-flex items-center rounded-lg border border-white/20 px-5 py-3 font-semibold hover:bg-white/10 transition-colors"
               >
-                Review vendor risk tool
+                Review shortlist scorecard
+              </Link>
+              <Link
+                href="/enterprise-ai-vendor-pricing-guide-2026"
+                className="inline-flex items-center rounded-lg border border-white/20 px-5 py-3 font-semibold hover:bg-white/10 transition-colors"
+              >
+                Review pricing guide
               </Link>
             </div>
           </div>
@@ -340,9 +345,15 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
               category: 'tools',
             },
             {
-              title: 'AI Vendor Risk Evaluation Tool 2026',
-              href: '/ai-vendor-risk-evaluation-tool-2026',
-              description: 'Assess operational, legal, security, and integration risk before signing.',
+              title: 'Enterprise AI Vendor Pricing Guide 2026',
+              href: '/enterprise-ai-vendor-pricing-guide-2026',
+              description: 'Understand enterprise AI pricing models, pilot costs, and contract traps before shortlist decisions.',
+              category: 'guide',
+            },
+            {
+              title: 'Enterprise AI Vendor Pilot Evaluation Checklist 2026',
+              href: '/enterprise-ai-vendor-pilot-evaluation-checklist-2026',
+              description: 'Turn unresolved RFP answers into measurable pilot tests before production approval.',
               category: 'tools',
             },
             {

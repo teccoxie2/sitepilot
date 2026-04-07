@@ -304,15 +304,15 @@ export default function AIAutomationROIMeasurement() {
       <div className="bg-card rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-4">Related Enterprise AI Resources</h2>
         <div className="grid md:grid-cols-3 gap-4">
-          <Link href="/enterprise-ai-implementation-roadmap-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
+          <Link href="/enterprise-ai-transformation-roadmap-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
             <h3 className="font-semibold mb-2">AI Implementation Roadmap</h3>
             <p className="text-sm text-muted-foreground">Complete enterprise AI deployment strategy</p>
           </Link>
-          <Link href="/ai-vendor-evaluation-checklist-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
+          <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
             <h3 className="font-semibold mb-2">AI Vendor Evaluation</h3>
             <p className="text-sm text-muted-foreground">Comprehensive vendor assessment framework</p>
           </Link>
-          <Link href="/enterprise-ai-cost-optimization-guide-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
+          <Link href="/ai-tools-cost-benefit-analysis-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
             <h3 className="font-semibold mb-2">Cost Optimization</h3>
             <p className="text-sm text-muted-foreground">Strategies for reducing AI implementation costs</p>
           </Link>

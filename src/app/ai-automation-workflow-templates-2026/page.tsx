@@ -136,7 +136,7 @@ export default function AIWorkflowTemplatesPage() {
                 25个真实企业的AI实施案例，包含详细的ROI分析和实施经验
               </p>
               <Link 
-                href="/ai-implementation-case-studies"
+                href="/enterprise-ai-implementation-best-practices-2026"
                 className="text-blue-600 hover:text-blue-800 font-semibold"
               >
                 阅读案例研究 →
@@ -160,7 +160,7 @@ export default function AIWorkflowTemplatesPage() {
                 基于真实测试数据的AI工具深度对比，帮您做出明智选择
               </p>
               <Link 
-                href="/ai-tools-roi-comparison-2026"
+                href="/ai-tools-cost-benefit-analysis-2026"
                 className="text-blue-600 hover:text-blue-800 font-semibold"
               >
                 查看对比分析 →

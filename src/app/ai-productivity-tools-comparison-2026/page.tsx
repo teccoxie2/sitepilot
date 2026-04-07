@@ -251,7 +251,7 @@ export default function AIProductivityToolsComparison() {
                     </a>
                   </li>
                   <li>
-                    <a href="/ai-tools-roi-comparison-2026" className="text-blue-600 hover:text-blue-800">
+                    <a href="/ai-tools-cost-benefit-analysis-2026" className="text-blue-600 hover:text-blue-800">
                       AI工具ROI对比分析
                     </a>
                   </li>

@@ -579,7 +579,7 @@ export default function AIImplementationCostCalculatorPage() {
                   Get Custom Cost Analysis
                 </a>
                 <a 
-                  href="/ai-implementation-cost-calculator-enterprise-2026/template" 
+                  href="/contact" 
                   className="bg-emerald-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-emerald-400 transition-colors border-2 border-emerald-400"
                 >
                   Download Budget Template

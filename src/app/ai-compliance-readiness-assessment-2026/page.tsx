@@ -616,16 +616,16 @@ export default function AIComplianceReadinessAssessment2026() {
           <div className="bg-gradient-to-r from-red-600 to-rose-700 rounded-lg p-8 text-white">
             <h2 className="text-2xl font-bold mb-6">🔗 Related Enterprise AI Compliance Tools</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Link href="/ai-risk-management-dashboard-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">Risk Management Dashboard</h3>
-                <p className="text-sm text-red-100">7-layer security and compliance monitoring system</p>
+              <Link href="/ai-governance-framework-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
+                <h3 className="font-semibold mb-2">Governance Framework</h3>
+                <p className="text-sm text-red-100">Enterprise AI governance and compliance operating model</p>
               </Link>
               <Link href="/ai-governance-framework-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
                 <h3 className="font-semibold mb-2">AI Governance Framework</h3>
                 <p className="text-sm text-red-100">Comprehensive organizational AI governance structure</p>
               </Link>
-              <Link href="/ai-vendor-selection-enterprise-decision-framework" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">Vendor Selection Framework</h3>
+              <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
+                <h3 className="font-semibold mb-2">Vendor Shortlist Scorecard</h3>
                 <p className="text-sm text-red-100">Supplier compliance evaluation and risk assessment</p>
               </Link>
             </div>

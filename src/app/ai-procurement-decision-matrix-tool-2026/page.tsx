@@ -659,22 +659,22 @@ export default function AIProcurementDecisionMatrixTool() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="/ai-vendor-assessment-tool-2026"
+                  href="/enterprise-ai-vendor-shortlist-scorecard-2026"
                   className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                 >
-                  🔧 使用在线评估工具
+                  🔧 使用在线评分卡
                 </a>
                 <a
-                  href="/enterprise-ai-consulting"
+                  href="/contact"
                   className="bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-900 transition-colors border border-blue-500"
                 >
-                  👥 咨询专家服务
+                  👥 联系顾问团队
                 </a>
                 <a
-                  href="/ai-procurement-framework-download"
+                  href="/enterprise-ai-vendor-rfp-template-2026"
                   className="bg-transparent text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors border border-white"
                 >
-                  📋 下载完整框架
+                  📋 打开RFP模板
                 </a>
               </div>
               

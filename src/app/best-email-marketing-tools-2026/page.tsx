@@ -866,7 +866,7 @@ export default function BestEmailMarketingTools2026() {
               <p className="text-gray-800 text-sm">Discover the best AI-powered SEO tools to complement your email marketing strategy.</p>
             </Link>
             
-            <Link href="/best-ai-content-generator-comparison" className="block bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <Link href="/ai-content-generator-comparison" className="block bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-3 mb-3">
                 <Mail className="w-6 h-6 text-cyan-600" />
                 <h3 className="text-lg font-bold text-gray-900">AI Content Generators</h3>

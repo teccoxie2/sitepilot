@@ -153,8 +153,7 @@ export default function AIVendorDueDiligenceChecklistPage() {
               Enterprise AI Vendor Due Diligence Checklist 2026
             </h1>
             <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-8 max-w-3xl">
-              A practical checklist for security, legal, procurement, and architecture teams evaluating AI vendors.
-              No fluff, no demo-theater worship — just the questions that stop expensive mistakes.
+              Enterprise AI vendor due diligence is the structured audit of an AI solution provider’s security posture, regulatory compliance, and operational reliability. This 2026 checklist provides procurement and architecture teams with a multi-workstream framework to verify data residency, training usage policies, and identity controls, ensuring AI implementation aligns with corporate governance standards before production rollout.
             </p>
             <div className="flex flex-wrap gap-3 text-sm">
               <span className="bg-white/10 border border-white/15 rounded-full px-3 py-1">Security review</span>
@@ -190,8 +189,8 @@ export default function AIVendorDueDiligenceChecklistPage() {
                 enterprise AI vendor RFP template
               </Link>{' '}
               and the{' '}
-              <Link href="/ai-vendor-risk-evaluation-tool-2026" className="text-blue-700 font-medium hover:underline">
-                vendor risk evaluation tool
+              <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-blue-700 font-medium hover:underline">
+                vendor shortlist scorecard
               </Link>{' '}
               so diligence, scoring, and approval all use the same facts.
             </p>
@@ -272,10 +271,10 @@ export default function AIVendorDueDiligenceChecklistPage() {
                 Review shortlist scorecard
               </Link>
               <Link
-                href="/ai-vendor-risk-evaluation-tool-2026"
+                href="/enterprise-ai-vendor-rfp-template-2026"
                 className="inline-flex items-center rounded-lg border border-white/20 px-5 py-3 font-semibold hover:bg-white/10 transition-colors"
               >
-                Open vendor risk tool
+                Open RFP template
               </Link>
             </div>
           </div>
@@ -299,6 +298,12 @@ export default function AIVendorDueDiligenceChecklistPage() {
                 className="inline-flex items-center rounded-lg border border-emerald-300 text-emerald-900 px-5 py-3 font-semibold hover:bg-emerald-100 transition-colors"
               >
                 Open RFP template
+              </Link>
+              <Link
+                href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026"
+                className="inline-flex items-center rounded-lg border border-emerald-300 text-emerald-900 px-5 py-3 font-semibold hover:bg-emerald-100 transition-colors"
+              >
+                Open pilot evaluation checklist
               </Link>
             </div>
           </div>
@@ -338,28 +343,22 @@ export default function AIVendorDueDiligenceChecklistPage() {
               category: 'tools',
             },
             {
-              title: 'AI Vendor Risk Evaluation Tool 2026',
-              href: '/ai-vendor-risk-evaluation-tool-2026',
-              description: 'Score technical, legal, operational, and compliance risk before signing.',
+              title: 'Enterprise AI Vendor RFP Template 2026',
+              href: '/enterprise-ai-vendor-rfp-template-2026',
+              description: 'Use an evidence-first RFP to collect clean answers before shortlist scoring and pilot review.',
+              category: 'guide',
+            },
+            {
+              title: 'Enterprise AI Vendor Pilot Evaluation Checklist 2026',
+              href: '/enterprise-ai-vendor-pilot-evaluation-checklist-2026',
+              description: 'Convert diligence concerns into pilot tests, acceptance criteria, and rollback conditions.',
               category: 'tools',
             },
             {
-              title: 'AI Compliance Readiness Assessment 2026',
-              href: '/ai-compliance-readiness-assessment-2026',
-              description: 'Review regulatory readiness before rollout into governed environments.',
+              title: 'AI Governance Framework Enterprise 2026',
+              href: '/ai-governance-framework-enterprise-2026',
+              description: 'Review governance and control requirements before rollout into regulated environments.',
               category: 'guide',
-            },
-            {
-              title: 'Enterprise AI Vendor RFP Template 2026',
-              href: '/enterprise-ai-vendor-rfp-template-2026',
-              description: 'Build a cleaner RFP process with mandatory requirements, scoring rules, and red-flag questions.',
-              category: 'guide',
-            },
-            {
-              title: 'Enterprise AI Security Risk Management Guide 2026',
-              href: '/enterprise-ai-security-risk-management-guide-2026',
-              description: 'Security architecture and control priorities for enterprise AI deployment.',
-              category: 'ai',
             },
           ]}
         />

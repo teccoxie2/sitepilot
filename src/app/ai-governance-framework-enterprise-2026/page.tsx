@@ -618,7 +618,7 @@ function AIGovernanceFrameworkPage() {
                       Schedule Implementation Consultation
                     </a>
                     <a 
-                      href="/ai-governance-framework-enterprise-2026/download" 
+                      href="/contact" 
                       className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 transition-colors border-2 border-blue-400"
                     >
                       Download Framework Overview

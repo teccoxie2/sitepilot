@@ -412,7 +412,7 @@ export default function EnterpriseAISuccessPatternsPage() {
               <h3 className="font-semibold mb-2">成本优化策略</h3>
               <p className="text-sm text-gray-600">企业AI工具成本优化和ROI最大化策略</p>
             </Link>
-            <Link href="/enterprise-ai-implementation-failure-analysis-2026" className="bg-white p-6 rounded-lg hover:shadow-md transition">
+            <Link href="/enterprise-ai-security-risk-management-guide-2026" className="bg-white p-6 rounded-lg hover:shadow-md transition">
               <AlertTriangle className="h-8 w-8 text-red-600 mb-3" />
               <h3 className="font-semibold mb-2">失败分析报告</h3>
               <p className="text-sm text-gray-600">企业AI实施失败案例和风险防范策略</p>

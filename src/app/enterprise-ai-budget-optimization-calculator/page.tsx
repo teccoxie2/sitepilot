@@ -708,21 +708,21 @@ export default function EnterpriseAIBudgetCalculatorPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Link 
-              href="/enterprise-ai-roi-matrix-calculator" 
+              href="/ai-investment-roi-matrix-calculator-enterprise-2026" 
               className="block bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
             >
               <h3 className="font-semibold text-gray-900 mb-2">AI ROI Matrix Calculator</h3>
               <p className="text-gray-600 text-sm">Calculate investment returns across AI initiatives</p>
             </Link>
             <Link 
-              href="/enterprise-ai-risk-management-dashboard" 
+              href="/ai-risk-management-dashboard-enterprise-2026" 
               className="block bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
             >
               <h3 className="font-semibold text-gray-900 mb-2">AI Risk Management Dashboard</h3>
               <p className="text-gray-600 text-sm">Monitor and mitigate AI implementation risks</p>
             </Link>
             <Link 
-              href="/enterprise-ai-transformation-roadmap" 
+              href="/enterprise-ai-transformation-roadmap-2026" 
               className="block bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
             >
               <h3 className="font-semibold text-gray-900 mb-2">AI Transformation Roadmap</h3>

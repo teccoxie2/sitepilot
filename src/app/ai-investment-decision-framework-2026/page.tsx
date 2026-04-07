@@ -405,12 +405,12 @@ export default function AIInvestmentDecisionFramework2026() {
                 <h3 className="font-semibold mb-2">ROI Matrix Calculator</h3>
                 <p className="text-sm text-blue-100">12-dimension ROI analysis with industry benchmarks</p>
               </Link>
-              <Link href="/ai-risk-management-dashboard-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">Risk Management Dashboard</h3>
-                <p className="text-sm text-blue-100">7-layer security and compliance monitoring</p>
+              <Link href="/ai-governance-framework-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
+                <h3 className="font-semibold mb-2">Governance Framework</h3>
+                <p className="text-sm text-blue-100">Enterprise AI governance and compliance operating model</p>
               </Link>
-              <Link href="/ai-vendor-selection-enterprise-decision-framework" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">Vendor Selection Framework</h3>
+              <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
+                <h3 className="font-semibold mb-2">Vendor Shortlist Scorecard</h3>
                 <p className="text-sm text-blue-100">8-dimension supplier evaluation matrix</p>
               </Link>
             </div>

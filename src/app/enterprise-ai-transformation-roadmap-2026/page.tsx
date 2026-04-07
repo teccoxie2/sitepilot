@@ -443,7 +443,7 @@ export default function EnterpriseAITransformationRoadmap() {
             <span className="text-blue-600 font-medium">Read Guide →</span>
           </Link>
           
-          <Link href="/enterprise-ai-security-framework-2026" className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <Link href="/ai-governance-framework-enterprise-2026" className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
             <h3 className="text-xl font-bold text-gray-900 mb-3">AI Security Framework</h3>
             <p className="text-gray-600 mb-4">8-layer security architecture for enterprise AI deployments.</p>
             <span className="text-blue-600 font-medium">Read Guide →</span>

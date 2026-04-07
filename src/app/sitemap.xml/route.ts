@@ -110,6 +110,18 @@ export async function GET() {
       priority: '0.8'
     },
     {
+      url: `${baseUrl}/enterprise-ai-vendor-pricing-guide-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/enterprise-ai-vendor-pilot-evaluation-checklist-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified: currentDate,
       changeFreq: 'monthly',

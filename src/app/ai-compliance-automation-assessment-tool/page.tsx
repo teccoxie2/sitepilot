@@ -660,8 +660,8 @@ export default function AIComplianceAutomationAssessmentPage() {
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
               <h3 className="text-xl font-bold text-gray-900 mb-3">AI Risk Management Dashboard</h3>
               <p className="text-gray-700 mb-4">Enterprise-wide AI risk monitoring and real-time threat detection across all deployments.</p>
-              <Link href="/ai-risk-management-dashboard-enterprise-2026" className="text-red-600 font-semibold hover:text-red-700">
-                Explore Tool →
+              <Link href="/ai-governance-framework-enterprise-2026" className="text-red-600 font-semibold hover:text-red-700">
+                Explore Framework →
               </Link>
             </div>
 

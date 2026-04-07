@@ -574,7 +574,7 @@ export default function AITalentOptimizationCalculator() {
                             <Calendar className="h-4 w-4 mr-2" />
                             Schedule Strategy Session
                           </Link>
-                          <Link href="/ai-tools-implementation-strategy-2026" className="inline-flex items-center justify-center border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                          <Link href="/ai-tool-implementation-strategy-2026" className="inline-flex items-center justify-center border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
                             <Download className="h-4 w-4 mr-2" />
                             Download Implementation Guide
                           </Link>

@@ -34,8 +34,7 @@ export default function ShortlistScorecardPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Enterprise AI Vendor Shortlist Scorecard 2026</h1>
           <p className="text-xl text-blue-100 max-w-3xl leading-relaxed">
-            Move beyond demo-day excitement. Use this weighted scoring sheet to rank your final candidates 
-            based on evidence, security, and business ROI.
+            An enterprise AI vendor shortlist scorecard is a weighted decision framework used to rank solution providers after the RFP and due diligence phases. SitePilot’s 2026 model evaluates final candidates across eight strategic dimensions, including strategic fit, security, and data governance, helping procurement teams prioritize documented evidence over marketing promises to ensure a high-ROI implementation.
           </p>
         </div>
       </section>
@@ -47,10 +46,27 @@ export default function ShortlistScorecardPage() {
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">How to use this scorecard</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Assign a score from 1-5 for each dimension based on vendor evidence, not promises. Apply weights to calculate the final weighted score. A result below 3.5 usually means the vendor still has unresolved issues that should block production rollout.
+              </p>
               <p className="text-slate-700 leading-relaxed mb-6">
-                Assign a score from 1-5 for each dimension based on vendor evidence (not promises). 
-                Apply weights to calculate the final weighted score. A score below 3.5 usually 
-                indicates significant remediation is required before a production rollout.
+                This scorecard works best after teams complete the{' '}
+                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="text-blue-700 font-medium hover:underline">
+                  enterprise AI vendor RFP template
+                </Link>{' '}
+                and the{' '}
+                <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="text-blue-700 font-medium hover:underline">
+                  due diligence checklist
+                </Link>{' '}
+                and then document assumptions in the{' '}
+                <Link href="/ai-procurement-decision-matrix-tool-2026" className="text-blue-700 font-medium hover:underline">
+                  AI procurement decision matrix
+                </Link>{' '}
+                and{' '}
+                <Link href="/methodology" className="text-blue-700 font-medium hover:underline">
+                  methodology
+                </Link>{' '}
+                page so shortlist decisions stay evidence-led from longlist to final approval.
               </p>
               
               <div className="space-y-8">
@@ -89,6 +105,10 @@ export default function ShortlistScorecardPage() {
               <div className="space-y-4">
                 <Link href="/enterprise-ai-vendor-rfp-template-2026" className="block text-blue-700 hover:underline">RFP Template →</Link>
                 <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="block text-blue-700 hover:underline">Due Diligence Checklist →</Link>
+                <Link href="/ai-procurement-decision-matrix-tool-2026" className="block text-blue-700 hover:underline">Procurement Decision Matrix →</Link>
+                <Link href="/enterprise-ai-vendor-pricing-guide-2026" className="block text-blue-700 hover:underline">Pricing Guide →</Link>
+                <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="block text-blue-700 hover:underline">Pilot Evaluation Checklist →</Link>
+                <Link href="/methodology" className="block text-blue-700 hover:underline">Methodology →</Link>
               </div>
             </div>
           </aside>
@@ -96,7 +116,11 @@ export default function ShortlistScorecardPage() {
 
         <RelatedLinks links={[
           { title: 'AI Vendor Due Diligence Checklist 2026', href: '/ai-vendor-due-diligence-checklist-enterprise-2026', description: 'Comprehensive checklist for procurement and legal review.', category: 'guide' },
-          { title: 'Enterprise AI Vendor RFP Template 2026', href: '/enterprise-ai-vendor-rfp-template-2026', description: 'Ready-to-use RFP questions for AI procurement.', category: 'guide' }
+          { title: 'Enterprise AI Vendor RFP Template 2026', href: '/enterprise-ai-vendor-rfp-template-2026', description: 'Ready-to-use RFP questions for AI procurement.', category: 'guide' },
+          { title: 'AI Procurement Decision Matrix Tool 2026', href: '/ai-procurement-decision-matrix-tool-2026', description: 'Quantify vendor trade-offs across risk, cost, and implementation fit.', category: 'tools' },
+          { title: 'Enterprise AI Vendor Pricing Guide 2026', href: '/enterprise-ai-vendor-pricing-guide-2026', description: 'Benchmark pilot, platform, and overage pricing before final shortlist scoring.', category: 'guide' },
+          { title: 'Enterprise AI Vendor Pilot Evaluation Checklist 2026', href: '/enterprise-ai-vendor-pilot-evaluation-checklist-2026', description: 'Convert shortlist decisions into evidence-backed pilot acceptance criteria.', category: 'tools' },
+          { title: 'SitePilot Methodology', href: '/methodology', description: 'See how SitePilot evaluates tools, controls, and evidence quality.', category: 'guide' }
         ]} />
       </main>
     </div>

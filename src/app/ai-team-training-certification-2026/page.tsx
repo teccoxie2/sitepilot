@@ -431,15 +431,15 @@ export default function AITeamTraining() {
       <div className="bg-card rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-4">Related Training Resources</h2>
         <div className="grid md:grid-cols-3 gap-4">
-          <Link href="/enterprise-ai-readiness-assessment-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
+          <Link href="/ai-implementation-checklist-enterprise-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
             <h3 className="font-semibold mb-2">AI Readiness Assessment</h3>
             <p className="text-sm text-muted-foreground">Evaluate organizational AI capabilities</p>
           </Link>
-          <Link href="/ai-change-management-strategy-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
+          <Link href="/ai-change-management-framework-enterprise-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
             <h3 className="font-semibold mb-2">Change Management</h3>
             <p className="text-sm text-muted-foreground">Navigate AI transformation challenges</p>
           </Link>
-          <Link href="/ai-skills-gap-analysis-tool-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
+          <Link href="/ai-team-productivity-assessment-tool-2026" className="block p-4 border rounded hover:border-blue-500 transition-colors">
             <h3 className="font-semibold mb-2">Skills Gap Analysis</h3>
             <p className="text-sm text-muted-foreground">Identify training needs and priorities</p>
           </Link>

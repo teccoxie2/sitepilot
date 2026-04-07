@@ -171,10 +171,10 @@ export default function AICostBenefitAnalysisPage() {
                     获得个性化的AI工具投资建议和实施指导
                   </p>
                   <a 
-                    href="/consultation" 
+                    href="/contact" 
                     className="block text-center bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-700 transition-colors"
                   >
-                    预约免费咨询
+                    联系顾问团队
                   </a>
                 </div>
 
@@ -212,10 +212,10 @@ export default function AICostBenefitAnalysisPage() {
               获取ROI计算器
             </a>
             <a 
-              href="/consultation" 
+              href="/contact" 
               className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
             >
-              预约专家咨询
+              联系专家团队
             </a>
           </div>
         </div>

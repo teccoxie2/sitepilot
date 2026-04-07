@@ -656,7 +656,7 @@ export default function AITrainingROICalculator() {
                           We'll help you create a detailed implementation roadmap and identify the highest-impact AI tools for your training programs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
-                          <Link href="/ai-tools-implementation-strategy-2026" className="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                          <Link href="/ai-tool-implementation-strategy-2026" className="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
                             <Calendar className="h-4 w-4 mr-2" />
                             Schedule Strategy Session
                           </Link>

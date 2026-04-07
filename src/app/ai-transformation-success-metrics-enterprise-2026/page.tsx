@@ -397,17 +397,17 @@ export default function AITransformationSuccessMetrics() {
       <section className="mb-12">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">Related Enterprise AI Resources</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Link href="/enterprise-ai-implementation-budget-planning-guide-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
-            <h3 className="font-semibold text-blue-600 mb-2">Budget Planning Guide</h3>
+          <Link href="/ai-tools-cost-benefit-analysis-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
+            <h3 className="font-semibold text-blue-600 mb-2">Cost-Benefit Analysis</h3>
             <p className="text-sm text-gray-600">Complete financial framework for AI transformation budgeting and cost management.</p>
           </Link>
-          <Link href="/ai-risk-management-dashboard-enterprise-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
-            <h3 className="font-semibold text-blue-600 mb-2">Risk Management Dashboard</h3>
-            <p className="text-sm text-gray-600">Enterprise-grade AI risk assessment and monitoring framework.</p>
+          <Link href="/ai-governance-framework-enterprise-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
+            <h3 className="font-semibold text-blue-600 mb-2">Governance Framework</h3>
+            <p className="text-sm text-gray-600">Enterprise-grade AI risk assessment and governance framework.</p>
           </Link>
-          <Link href="/enterprise-ai-security-risk-management-guide-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
-            <h3 className="font-semibold text-blue-600 mb-2">Security Risk Management</h3>
-            <p className="text-sm text-gray-600">Comprehensive security framework for AI transformation initiatives.</p>
+          <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
+            <h3 className="font-semibold text-blue-600 mb-2">Vendor Shortlist Scorecard</h3>
+            <p className="text-sm text-gray-600">A practical scoring framework for enterprise AI selection and transformation planning.</p>
           </Link>
         </div>
       </section>

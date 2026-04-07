@@ -375,7 +375,7 @@ export default function AIRiskAssessmentPage() {
                   </p>
                 </div>
               </Link>
-              <Link href="/comprehensive-ai-roi-implementation-guide-2026" className="group">
+              <Link href="/enterprise-ai-roi-optimization-framework-2026" className="group">
                 <div className="bg-white border rounded-lg p-6 hover:shadow-lg transition-shadow">
                   <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 mb-2">
                     AI ROI实施指南

@@ -12,7 +12,7 @@ export default function ProxyComparison() {
             Residential vs. Mobile Proxies: <span className="text-blue-400">2026 Comparison</span>
           </h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            The technical difference between residential and mobile proxies lies in their IP source and network reputation. Static residential IPs are sourced from ISPs via fixed-line broadband, while mobile proxies route traffic through 4G/5G cellular networks, offering the highest level of anonymity due to the inherent trust associated with real mobile device users.
+            The technical difference between residential and mobile proxies lies in their IP source and network reputation. Static residential IPs are sourced from ISPs via fixed-line broadband, while mobile proxies route traffic through 4G and 5G cellular networks, offering stronger rotation behavior and higher trust for workflows that face aggressive rate limits or anti-bot controls.
           </p>
         </div>
       </section>
@@ -80,6 +80,29 @@ export default function ProxyComparison() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Topic Cluster */}
+      <section className="py-16 bg-slate-900 border-t border-white/10 border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+            <Link href="/proxies/mobile-proxy-farm-setup-guide-2026" className="rounded-3xl border border-blue-500/20 bg-blue-500/5 p-6 hover:bg-blue-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-blue-300 font-bold mb-3">Next Step</div>
+              <h3 className="text-xl font-bold text-white mb-3">Mobile Proxy Farm Setup</h3>
+              <p className="text-slate-300 leading-relaxed">Use this after the comparison when you need a real deployment path for Android devices, SIM rotation, and management software.</p>
+            </Link>
+            <Link href="/proxies/proxy-farm-hardware-selection-guide" className="rounded-3xl border border-purple-500/20 bg-purple-500/5 p-6 hover:bg-purple-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-purple-300 font-bold mb-3">Validation</div>
+              <h3 className="text-xl font-bold text-white mb-3">Hardware Selection Guide</h3>
+              <p className="text-slate-300 leading-relaxed">Review device, hub, cable, and controller fit before you spend money on a cluster that cannot stay online.</p>
+            </Link>
+            <Link href="/proxies" className="rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6 hover:bg-cyan-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-cyan-300 font-bold mb-3">Hub</div>
+              <h3 className="text-xl font-bold text-white mb-3">Proxy Resource Center</h3>
+              <p className="text-slate-300 leading-relaxed">Return to the hub for the full topic cluster covering software, hardware, and deployment choices.</p>
+            </Link>
           </div>
         </div>
       </section>

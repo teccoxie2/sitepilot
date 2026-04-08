@@ -64,7 +64,7 @@ export default function WebsiteBuildersHub() {
                     <div className="flex items-center text-green-400 font-bold"><CheckCircle2 className="w-4 h-4 mr-2"/> Superior SEO API</div>
                     <div className="flex items-center text-green-400 font-bold"><CheckCircle2 className="w-4 h-4 mr-2"/> GCP Infrastructure</div>
                   </div>
-                  <Link href="/website-builders" className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl font-black hover:bg-blue-500 transition-all">
+                  <Link href="https://www.wix.com/studio" className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl font-black hover:bg-blue-500 transition-all">
                     VIEW WIX ANALYSIS <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </div>
@@ -92,7 +92,7 @@ export default function WebsiteBuildersHub() {
                   <p className="text-lg text-slate-400 font-medium mb-8 leading-relaxed">
                     Still the undisputed king of aesthetic excellence. Squarespace's 2026 Fluid Engine makes complex layouts accessible to non-designers without sacrificing performance.
                   </p>
-                  <Link href="/website-builders" className="text-purple-400 font-black flex items-center gap-2">
+                  <Link href="/best-website-builders-2026" className="text-purple-400 font-black flex items-center gap-2">
                     READ THE DESIGN AUDIT <ArrowRight className="w-5 h-5" />
                   </Link>
                 </div>
@@ -111,7 +111,7 @@ export default function WebsiteBuildersHub() {
                   <p className="text-lg text-slate-400 font-medium mb-8 leading-relaxed">
                     The backend for the world's fastest brands. Shopify's 2026 Hydrogen integration allows for headless performance with drag-and-drop ease.
                   </p>
-                  <Link href="/website-builders" className="text-green-400 font-black flex items-center gap-2">
+                  <Link href="/best-ecommerce-website-builders-2026" className="text-green-400 font-black flex items-center gap-2">
                     COMMERCE PERFORMANCE DATA <ArrowRight className="w-5 h-5" />
                   </Link>
                 </div>

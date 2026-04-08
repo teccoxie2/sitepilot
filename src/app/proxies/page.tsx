@@ -5,11 +5,6 @@ import { ArrowRight, Zap, Shield, Smartphone, Network, BarChart3, Lock, Cpu, Glo
 export default function ProxiesHub() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-blue-500/30">
-      {/* 
-        AEO Optimizer: Factual Definition Header
-        A mobile proxy hub is a centralized directory providing technical guidance on 4G/5G mobile proxy infrastructure, residential IP acquisition, and bot-mitigation bypass strategies. This 2026 resource center covers hardware selection for Android-based proxy farms, carrier plan optimization, and enterprise-grade proxy management software for secure web automation and global data collection.
-      */}
-
       {/* Cyber Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden">
         {/* Animated Background Grid */}
@@ -32,8 +27,11 @@ export default function ProxiesHub() {
               Master the <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent italic">Proxy</span> Landscape
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-400 leading-relaxed mb-12 max-w-3xl mx-auto font-medium">
-              From DIY mobile farms to global residential networks. We provide the <span className="text-white">unbiased technical blueprints</span> needed to bypass advanced bot detection.
+            <p className="text-xl md:text-2xl text-slate-400 leading-relaxed mb-6 max-w-3xl mx-auto font-medium">
+              From DIY mobile farms to global residential networks. We provide the <span className="text-white">technical blueprints</span> needed to compare infrastructure, software, and operating trade-offs.
+            </p>
+            <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-12 max-w-4xl mx-auto">
+              A mobile proxy hub is a structured resource center covering 4G and 5G proxy infrastructure, residential versus mobile IP selection, Android farm hardware, and control software used for web automation. This 2026 guide set helps operators compare deployment models, reliability constraints, and commercial tooling before investing in a scalable proxy stack.
             </p>
 
             {/* Quick Stats Grid */}
@@ -170,6 +168,33 @@ export default function ProxiesHub() {
                 </p>
                 <Link href="https://ltespace.com/sitepilot" className="inline-flex items-center px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-lg hover:bg-blue-50 transition-all w-full justify-center">
                   TRY LTESPACE NOW <ArrowRight className="ml-2 w-6 h-6" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Topic Cluster Navigation */}
+      <section className="py-16 border-t border-white/5 bg-[#0D0D0D]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto rounded-[2.5rem] border border-white/5 bg-[#161616] p-8 md:p-10 shadow-2xl">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+              <div className="max-w-2xl">
+                <h2 className="text-2xl md:text-3xl font-black mb-4">Proxy Authority Path</h2>
+                <p className="text-slate-400 leading-relaxed">
+                  Read the comparison first, move into the farm setup guide, then validate hardware before choosing an operating stack. That sequence keeps evaluation grounded in infrastructure fit instead of hype.
+                </p>
+              </div>
+              <div className="grid gap-3 min-w-[280px]">
+                <Link href="/proxies/residential-vs-mobile-proxies-comparison-2026" className="rounded-2xl border border-cyan-500/20 bg-cyan-500/5 px-4 py-3 text-cyan-300 hover:bg-cyan-500/10 transition-colors font-semibold">
+                  Compare residential vs mobile proxies
+                </Link>
+                <Link href="/proxies/mobile-proxy-farm-setup-guide-2026" className="rounded-2xl border border-blue-500/20 bg-blue-500/5 px-4 py-3 text-blue-300 hover:bg-blue-500/10 transition-colors font-semibold">
+                  Build a mobile proxy farm
+                </Link>
+                <Link href="/proxies/proxy-farm-hardware-selection-guide" className="rounded-2xl border border-purple-500/20 bg-purple-500/5 px-4 py-3 text-purple-300 hover:bg-purple-500/10 transition-colors font-semibold">
+                  Review the hardware matrix
                 </Link>
               </div>
             </div>

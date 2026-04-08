@@ -16,7 +16,7 @@ export default function HardwareGuide() {
             The Ultimate <span className="text-blue-500">Proxy Farm</span> Hardware Guide
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Proxy farm hardware is the physical infrastructure required to host mobile devices for web automation. Effective selection focuses on high-bandwidth USB controllers, stable power delivery for 24/7 operation, and compatible Android hardware that supports root-level IP rotation via AT commands or specialized OS kernels.
+            Proxy farm hardware is the physical infrastructure required to host mobile devices for web automation. Effective selection focuses on high-bandwidth USB controllers, stable power delivery for 24/7 operation, and compatible Android hardware that supports carrier switching, remote control, and repeatable IP rotation under load.
           </p>
         </div>
       </section>
@@ -71,6 +71,29 @@ export default function HardwareGuide() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Topic Cluster */}
+      <section className="py-16 bg-slate-900 border-t border-white/10 border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+            <Link href="/proxies/residential-vs-mobile-proxies-comparison-2026" className="rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6 hover:bg-cyan-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-cyan-300 font-bold mb-3">Decision</div>
+              <h3 className="text-xl font-bold text-white mb-3">Residential vs Mobile Comparison</h3>
+              <p className="text-slate-300 leading-relaxed">Start here if you still need to justify why a mobile stack is necessary for the workload.</p>
+            </Link>
+            <Link href="/proxies/mobile-proxy-farm-setup-guide-2026" className="rounded-3xl border border-blue-500/20 bg-blue-500/5 p-6 hover:bg-blue-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-blue-300 font-bold mb-3">Deployment</div>
+              <h3 className="text-xl font-bold text-white mb-3">Mobile Proxy Farm Setup</h3>
+              <p className="text-slate-300 leading-relaxed">Pair this hardware matrix with the deployment guide so infrastructure and software assumptions stay aligned.</p>
+            </Link>
+            <Link href="/proxies" className="rounded-3xl border border-purple-500/20 bg-purple-500/5 p-6 hover:bg-purple-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-purple-300 font-bold mb-3">Hub</div>
+              <h3 className="text-xl font-bold text-white mb-3">Proxy Resource Center</h3>
+              <p className="text-slate-300 leading-relaxed">Return to the hub for the full authority cluster and software recommendations.</p>
+            </Link>
           </div>
         </div>
       </section>

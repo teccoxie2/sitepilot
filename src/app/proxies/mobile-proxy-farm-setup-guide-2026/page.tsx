@@ -16,7 +16,7 @@ export default function MobileProxyFarmGuide() {
             How to Build a Professional <span className="text-blue-400">Mobile Proxy Farm</span>
           </h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-10">
-            A mobile proxy farm is a localized infrastructure that routes web traffic through real mobile devices and 4G/5G SIM cards to obtain high-authority residential IP addresses. This 2026 setup guide explains how to bypass anti-scraping systems using Android-based clusters, specialized management software, and enterprise IoT data plans for web automation and data collection.
+            A mobile proxy farm is a localized infrastructure that routes web traffic through real mobile devices and 4G or 5G SIM cards to obtain carrier-issued IP addresses for web automation. This 2026 setup guide explains how to assemble Android-based clusters, choose management software, and plan data connectivity for reliable rotation, session control, and large-scale collection workflows.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
@@ -128,6 +128,29 @@ export default function MobileProxyFarmGuide() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Topic Cluster */}
+      <section className="py-16 bg-slate-900 border-t border-white/10 border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+            <Link href="/proxies/residential-vs-mobile-proxies-comparison-2026" className="rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6 hover:bg-cyan-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-cyan-300 font-bold mb-3">Context</div>
+              <h3 className="text-xl font-bold text-white mb-3">Residential vs Mobile Comparison</h3>
+              <p className="text-slate-300 leading-relaxed">Use the comparison page to decide when a mobile deployment is justified instead of a residential pool.</p>
+            </Link>
+            <Link href="/proxies/proxy-farm-hardware-selection-guide" className="rounded-3xl border border-purple-500/20 bg-purple-500/5 p-6 hover:bg-purple-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-purple-300 font-bold mb-3">Hardware</div>
+              <h3 className="text-xl font-bold text-white mb-3">Hardware Selection Guide</h3>
+              <p className="text-slate-300 leading-relaxed">Validate phones, powered hubs, cables, and control nodes before you clone the architecture.</p>
+            </Link>
+            <Link href="/proxies" className="rounded-3xl border border-blue-500/20 bg-blue-500/5 p-6 hover:bg-blue-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-blue-300 font-bold mb-3">Hub</div>
+              <h3 className="text-xl font-bold text-white mb-3">Proxy Resource Center</h3>
+              <p className="text-slate-300 leading-relaxed">Return to the hub for the full proxy topic cluster and management software overview.</p>
+            </Link>
           </div>
         </div>
       </section>

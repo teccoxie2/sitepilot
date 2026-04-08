@@ -341,18 +341,33 @@ export default function EnterpriseAIVendorComparison() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
       
-      {/* GEO优化：介绍页面 */}
+      {/* AEO intro */}
       {showIntro && (
         <div className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="text-center mb-12">
               <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                企业AI供应商选择指南 2026
+                Enterprise AI Vendor Comparison Guide 2026
               </h1>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
-                基于8维度评估矩阵的全面AI供应商对比分析。帮助企业决策者从50+供应商中选择最适合的AI解决方案，
-                包含ROI分析、实施时间、风险评估和合规要求。
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-6 leading-relaxed">
+                An enterprise AI vendor comparison guide is a structured shortlist review used to compare leading platforms across architecture, security, deployment model, pricing mechanics, and operational fit. This 2026 SitePilot analysis helps buying teams filter enterprise AI vendors before moving into RFP, due diligence, scorecard weighting, and pilot approval.
               </p>
+              <p className="text-base text-gray-600 max-w-5xl mx-auto mb-8 leading-relaxed">
+                别拿厂商 demo 当采购依据。先看对比，再把候选名单推进到
+                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="text-blue-700 font-medium hover:underline"> RFP 模板</Link>、
+                <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="text-blue-700 font-medium hover:underline"> 尽调清单</Link>、
+                <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-blue-700 font-medium hover:underline"> Shortlist Scorecard</Link>、
+                <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="text-blue-700 font-medium hover:underline"> Pilot Checklist</Link>
+                ，这样 Methodology → Comparison → RFP → Scorecard → Pilot 的闭环才成立。
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-600 mb-8">
+                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 hover:bg-blue-100">RFP Template</Link>
+                <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 hover:bg-blue-100">Due Diligence</Link>
+                <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 hover:bg-blue-100">Shortlist Scorecard</Link>
+                <Link href="/enterprise-ai-vendor-pricing-guide-2026" className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 hover:bg-blue-100">Pricing Guide</Link>
+                <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 hover:bg-blue-100">Pilot Checklist</Link>
+                <Link href="/methodology" className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 hover:bg-slate-100">Methodology</Link>
+              </div>
               <div className="flex items-center justify-center space-x-8 text-sm text-gray-500 mb-8">
                 <div className="flex items-center">
                   <Award className="h-4 w-4 mr-1" />

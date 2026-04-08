@@ -48,6 +48,9 @@ export default function Header() {
             <Link href="/ai-tools" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all">
               AI Tools
             </Link>
+            <Link href="/proxies" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all font-bold">
+              Proxies
+            </Link>
             <Link href="/best-ai-tools-small-business-2026" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all">
               AI for Business
             </Link>
@@ -105,6 +108,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 🤖 AI Tools
+              </Link>
+              <Link 
+                href="/proxies" 
+                className="px-3 py-3 text-base font-bold text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                ⚡ Proxies
               </Link>
               <Link 
                 href="/best-ai-tools-small-business-2026" 

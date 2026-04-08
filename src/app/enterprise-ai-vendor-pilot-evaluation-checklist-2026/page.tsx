@@ -55,6 +55,13 @@ export default function PilotEvaluationChecklistPage() {
             </Link>{' '}
             so production approval reflects real evidence, actual cost behavior, and verified operational fit.
           </p>
+          <p className="text-slate-700 leading-relaxed mt-4">
+            Use the{' '}
+            <Link href="/methodology" className="text-blue-700 font-medium hover:underline">
+              SitePilot methodology
+            </Link>{' '}
+            to separate pass/fail controls from weighted differentiators before a pilot result is treated as procurement evidence.
+          </p>
         </div>
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 mb-8">

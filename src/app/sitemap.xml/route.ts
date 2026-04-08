@@ -36,6 +36,12 @@ export async function GET() {
       changeFreq: 'weekly',
       priority: '0.9'
     },
+    {
+      url: `${baseUrl}/proxies`,
+      lastModified: currentDate,
+      changeFreq: 'weekly',
+      priority: '0.9'
+    },
     // In-depth guides and reviews
     {
       url: `${baseUrl}/best-web-hosting-2026`,
@@ -122,7 +128,19 @@ export async function GET() {
       priority: '0.8'
     },
     {
-      url: `${baseUrl}/tools/mobile-proxy-farm-setup-guide-2026`,
+      url: `${baseUrl}/proxies/mobile-proxy-farm-setup-guide-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/proxies/residential-vs-mobile-proxies-comparison-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/proxies/proxy-farm-hardware-selection-guide`,
       lastModified: currentDate,
       changeFreq: 'monthly',
       priority: '0.8'

@@ -55,6 +55,13 @@ export default function PricingGuidePage() {
             </Link>{' '}
             so overages and lock-in risks are tested before production access.
           </p>
+          <p className="text-slate-700 leading-relaxed mt-4">
+            If stakeholders disagree on what to compare, use the{' '}
+            <Link href="/methodology" className="text-blue-700 font-medium hover:underline">
+              SitePilot methodology
+            </Link>{' '}
+            to keep pricing review tied to evidence, weighted trade-offs, and documented approval criteria.
+          </p>
         </div>
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 mb-8">

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { Zap, Menu, X, ArrowRight } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,130 +18,79 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: "Hosting", href: "/web-hosting", color: "hover:text-blue-400" },
+    { name: "Builders", href: "/website-builders", color: "hover:text-purple-400" },
+    { name: "AI Tools", href: "/ai-tools", color: "hover:text-green-400" }
+  ];
+
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm' 
-        : 'bg-white border-b border-slate-100'
+        ? 'bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 shadow-2xl' 
+        : 'bg-transparent border-b border-transparent'
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg mr-3 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl mr-3 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+              <Zap className="w-6 h-6 text-cyan-400" />
             </div>
-            <span className="text-xl font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
-              SitePilot
-            </span>
+            <span className="text-2xl font-black text-white tracking-tighter group-hover:text-cyan-400 transition-colors">SitePilot</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
-            <Link href="/web-hosting" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
-              Web Hosting
-            </Link>
-            <Link href="/website-builders" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all">
-              Website Builders
-            </Link>
-            <Link href="/ai-tools" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all">
-              AI Tools
-            </Link>
-            <Link href="/best-ai-tools-small-business-2026" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all">
-              AI for Business
-            </Link>
-            <Link href="/best-ai-writing-tools-2026" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
-              AI Writing
-            </Link>
-            <Link href="/best-email-marketing-tools-2026" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all">
-              Email Marketing
-            </Link>
-          </div>
-
-          {/* CTA Button + Mobile Menu */}
-          <div className="flex items-center gap-4">
-            <Link href="/web-hosting" className="hidden sm:inline-flex btn btn-primary">
-              Get Started
-            </Link>
-            
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-slate-500 hover:text-slate-700 hover:bg-slate-100 transition-all"
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name}
+                href={link.href} 
+                className={`text-sm font-black uppercase tracking-widest text-slate-400 ${link.color} transition-all`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link 
+              href="/web-hosting" 
+              className="px-6 py-2 bg-blue-600 text-white rounded-xl text-sm font-black hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/40 flex items-center gap-2"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+              GET STARTED <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-        </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-slate-100">
-            <div className="flex flex-col space-y-1">
-              <Link 
-                href="/web-hosting" 
-                className="px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                🌐 Web Hosting
-              </Link>
-              <Link 
-                href="/website-builders" 
-                className="px-3 py-3 text-base font-medium text-slate-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                🔨 Website Builders
-              </Link>
-              <Link 
-                href="/ai-tools" 
-                className="px-3 py-3 text-base font-medium text-slate-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                🤖 AI Tools
-              </Link>
-              <Link 
-                href="/best-ai-tools-small-business-2026" 
-                className="px-3 py-3 text-base font-medium text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                💼 AI for Business
-              </Link>
-              <Link 
-                href="/best-ai-writing-tools-2026" 
-                className="px-3 py-3 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                ✍️ AI Writing
-              </Link>
-              <Link 
-                href="/best-email-marketing-tools-2026" 
-                className="px-3 py-3 text-base font-medium text-slate-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                📧 Email Marketing
-              </Link>
-              
-              <div className="pt-4 mt-4 border-t border-slate-100">
-                <Link 
-                  href="/web-hosting" 
-                  className="btn btn-primary w-full"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
+          {/* Mobile Menu Button */}
+          <button 
+            className="lg:hidden p-2 text-slate-400 hover:text-white"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#0A0A0A] border-b border-white/10 p-8 space-y-6 animate-in slide-in-from-top duration-300">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name}
+              href={link.href} 
+              className="block text-xl font-black text-white uppercase tracking-tighter"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link 
+            href="/web-hosting" 
+            className="block w-full py-4 bg-blue-600 text-center text-white rounded-2xl font-black"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            GET STARTED
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

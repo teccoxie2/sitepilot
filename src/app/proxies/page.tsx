@@ -74,10 +74,10 @@ export default function ProxiesHub() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center bg-slate-50 p-12 rounded-[3rem] border border-slate-100">
+          <div className="grid md:grid-cols-2 gap-12 items-center bg-slate-50 p-12 rounded-[3rem] border border-slate-100 mb-12">
             <div>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-6">
-                BEST FOR MOBILE FARMS
+                BEST FOR DIY CLUSTERS
               </div>
               <h3 className="text-3xl font-bold mb-6">Coronium.io OS</h3>
               <p className="text-lg text-slate-600 mb-8">
@@ -99,6 +99,34 @@ export default function ProxiesHub() {
                   <div className="text-blue-600 font-bold text-xl">{stat.val}</div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center bg-slate-900 p-12 rounded-[3rem] text-white">
+            <div className="grid grid-cols-2 gap-4 order-2 md:order-1">
+              {[
+                { label: "Deployment", val: "Plug & Play" },
+                { label: "Global Nodes", val: "Managed" },
+                { label: "Stability", val: "Carrier-Grade" },
+                { label: "Dashboard", val: "Advanced" }
+              ].map((stat, i) => (
+                <div key={i} className="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10">
+                  <div className="text-slate-400 text-sm mb-1">{stat.label}</div>
+                  <div className="text-blue-400 font-bold text-xl">{stat.val}</div>
+                </div>
+              ))}
+            </div>
+            <div className="order-1 md:order-2">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-sm font-bold mb-6">
+                ENTERPRISE MANAGEMENT PANEL
+              </div>
+              <h3 className="text-3xl font-bold mb-6">LTESpace.com</h3>
+              <p className="text-lg text-slate-400 mb-8">
+                A high-performance cloud management panel specifically designed for 4G/5G mobile proxies. Ideal for users scaling rapidly with zero technical overhead.
+              </p>
+              <Link href="https://ltespace.com/sitepilot" className="inline-flex items-center px-8 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-blue-50 transition-all">
+                Try LTESpace Now <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
             </div>
           </div>
         </div>

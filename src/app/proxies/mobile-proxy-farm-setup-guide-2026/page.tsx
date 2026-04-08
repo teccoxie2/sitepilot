@@ -102,12 +102,20 @@ export default function MobileProxyFarmGuide() {
                   </li>
                 ))}
               </ul>
-              <Link 
-                href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
-                className="inline-flex items-center text-blue-600 font-bold text-lg hover:text-blue-700 transition-colors group"
-              >
-                Visit Coronium Official Website <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <div className="flex flex-wrap gap-4 mb-10">
+                <Link 
+                  href="https://ltespace.com/sitepilot" 
+                  className="inline-flex items-center text-blue-600 font-bold text-lg hover:text-blue-700 transition-colors group mr-8"
+                >
+                  Visit LTESpace <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link 
+                  href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
+                  className="inline-flex items-center text-slate-600 font-bold text-lg hover:text-slate-900 transition-colors group"
+                >
+                  Visit Coronium <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
             <div className="flex-1 bg-white p-4 rounded-3xl shadow-2xl border border-slate-100">
               <div className="aspect-video bg-slate-900 rounded-2xl flex items-center justify-center text-blue-400 font-mono text-sm overflow-hidden">

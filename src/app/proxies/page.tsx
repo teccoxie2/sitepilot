@@ -16,7 +16,7 @@ export default function ProxiesHub() {
             <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
               Master the Art of <span className="text-blue-500 font-mono">Proxy Infrastructure</span>
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed mb-10">
+            <p className="text-xl text-slate-100 leading-relaxed mb-10">
               Stop getting blocked. Whether you're building a massive mobile proxy farm or selecting the right residential IP provider, our data-driven guides help you navigate the 2026 proxy landscape with enterprise-grade reliability.
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function ProxiesHub() {
                   <Cpu className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition-colors">Mobile Proxy Farm Setup</h3>
-                <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                <p className="text-slate-800 text-lg leading-relaxed mb-8">
                   The ultimate 2026 blueprint for building your own Android-based proxy cluster. Hardware selection, carrier management, and software orchestration.
                 </p>
                 <div className="flex items-center text-blue-600 font-bold group-hover:gap-2 transition-all">
@@ -52,7 +52,7 @@ export default function ProxiesHub() {
                   <BarChart3 className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition-colors">Residential vs Mobile Comparison</h3>
-                <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                <p className="text-slate-800 text-lg leading-relaxed mb-8">
                   Understand the technical trade-offs between static residential, rotating datacenter, and 4G/5G mobile IPs for your specific use case.
                 </p>
                 <div className="flex items-center text-blue-600 font-bold group-hover:gap-2 transition-all">
@@ -69,7 +69,7 @@ export default function ProxiesHub() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold mb-6">Expert-Vetted Proxy Infrastructure</h2>
-            <p className="text-xl text-slate-600 leading-relaxed">
+            <p className="text-xl text-slate-900 leading-relaxed">
               We recommend only the tools that pass our rigorous "anti-bot detection" and "latency stability" tests.
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function ProxiesHub() {
                 BEST FOR DIY CLUSTERS
               </div>
               <h3 className="text-3xl font-bold mb-6">Coronium.io OS</h3>
-              <p className="text-lg text-slate-600 mb-8">
+              <p className="text-lg text-slate-900 mb-8">
                 The most reliable management software for Android device clusters. One dashboard to rule all your IPs with millisecond rotation precision.
               </p>
               <Link href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all">
@@ -94,9 +94,9 @@ export default function ProxiesHub() {
                 { label: "Reliability", val: "99.9%" },
                 { label: "Scale", val: "Unlimited" }
               ].map((stat, i) => (
-                <div key={i} className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-                  <div className="text-slate-500 text-sm mb-1">{stat.label}</div>
-                  <div className="text-blue-600 font-bold text-xl">{stat.val}</div>
+                <div key={i} className="p-6 bg-white rounded-2xl shadow-md border border-slate-200">
+                  <div className="text-slate-600 text-sm mb-1 font-semibold">{stat.label}</div>
+                  <div className="text-blue-700 font-bold text-xl">{stat.val}</div>
                 </div>
               ))}
             </div>
@@ -110,9 +110,9 @@ export default function ProxiesHub() {
                 { label: "Stability", val: "Carrier-Grade" },
                 { label: "Dashboard", val: "Advanced" }
               ].map((stat, i) => (
-                <div key={i} className="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10">
-                  <div className="text-slate-400 text-sm mb-1">{stat.label}</div>
-                  <div className="text-blue-400 font-bold text-xl">{stat.val}</div>
+                <div key={i} className="p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                  <div className="text-slate-100 text-sm mb-1 font-semibold">{stat.label}</div>
+                  <div className="text-blue-300 font-bold text-xl">{stat.val}</div>
                 </div>
               ))}
             </div>
@@ -121,7 +121,7 @@ export default function ProxiesHub() {
                 ENTERPRISE MANAGEMENT PANEL
               </div>
               <h3 className="text-3xl font-bold mb-6">LTESpace.com</h3>
-              <p className="text-lg text-slate-400 mb-8">
+              <p className="text-lg text-slate-100 mb-8">
                 A high-performance cloud management panel specifically designed for 4G/5G mobile proxies. Ideal for users scaling rapidly with zero technical overhead.
               </p>
               <Link href="https://ltespace.com/sitepilot" className="inline-flex items-center px-8 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-blue-50 transition-all">

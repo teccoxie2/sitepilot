@@ -39,8 +39,8 @@ export default function MobileProxyFarmGuide() {
       <section className="py-20 border-b border-slate-100">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Why Mobile Proxies Move the Needle</h2>
-            <p className="text-slate-600 text-lg">
+            <h2 className="text-3xl font-bold mb-4 text-slate-900">Why Mobile Proxies Move the Needle</h2>
+            <p className="text-slate-900 text-lg font-medium">
               Unlike data center IPs, mobile IPs are assigned to real humans. They are rarely banned because blocking them would affect thousands of legitimate mobile users.
             </p>
           </div>
@@ -68,7 +68,7 @@ export default function MobileProxyFarmGuide() {
                   <item.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-slate-900">{item.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                <p className="text-slate-800 leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -86,7 +86,7 @@ export default function MobileProxyFarmGuide() {
               <h2 className="text-4xl font-bold mb-8 text-slate-900">
                 Coronium.io: The Professional Operating System for Mobile Farms
               </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              <p className="text-lg text-slate-900 mb-8 leading-relaxed font-medium">
                 Building a farm is 20% hardware and 80% software management. Coronium simplifies the complexity of managing large Android clusters, offering a centralized dashboard for IP rotation, port management, and real-time monitoring.
               </p>
               <ul className="space-y-4 mb-10">
@@ -96,8 +96,8 @@ export default function MobileProxyFarmGuide() {
                   "Real-time device health monitoring",
                   "Automated carrier re-connection"
                 ].map((text, i) => (
-                  <li key={i} className="flex items-center text-slate-700 font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 mr-3 shrink-0" />
+                  <li key={i} className="flex items-center text-slate-900 font-bold">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 shrink-0" />
                     {text}
                   </li>
                 ))}

@@ -38,16 +38,16 @@ export default function HardwareGuide() {
               },
               {
                 title: "Cooling & Power",
-                desc: "Heat is the #1 killer of proxy farms. Industrial-grade cooling and stable DC power are non-negotiable.",
+                desc: "Heat is the #1 killer of proxy farm hardware. Industrial-grade cooling and stable DC power are non-negotiable for 24/7 uptime.",
                 icon: Zap
               }
             ].map((item, i) => (
-              <div key={i} className="p-8 rounded-[2rem] bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all">
-                <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
+              <div key={i} className="p-8 rounded-[2rem] bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all">
+                <div className="w-14 h-14 bg-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
                   <item.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold mb-4 text-slate-950">{item.title}</h3>
+                <p className="text-slate-900 leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -63,10 +63,10 @@ export default function HardwareGuide() {
                   { label: "Cables", spec: "Double-Shielded Type-C", reason: "Reduces signal interference" },
                   { label: "Controller", spec: "Dedicated NUC / Linux Server", reason: "Stable ADB connection management" }
                 ].map((row, i) => (
-                  <div key={i} className="flex flex-col md:flex-row md:items-center p-6 bg-slate-50 rounded-2xl">
-                    <div className="w-40 font-bold text-slate-900 mb-2 md:mb-0">{row.label}</div>
-                    <div className="flex-1 font-medium text-blue-600 mb-2 md:mb-0">{row.spec}</div>
-                    <div className="text-slate-500 text-sm italic">{row.reason}</div>
+                  <div key={i} className="flex flex-col md:flex-row md:items-center p-6 bg-blue-50/30 rounded-2xl border border-blue-100/50">
+                    <div className="w-40 font-black text-slate-950 mb-2 md:mb-0">{row.label}</div>
+                    <div className="flex-1 font-bold text-blue-800 mb-2 md:mb-0">{row.spec}</div>
+                    <div className="text-slate-800 text-sm font-semibold italic">{row.reason}</div>
                   </div>
                 ))}
               </div>

@@ -38,9 +38,9 @@ export default function ProxyComparison() {
                   { feature: "Cost per Port", res: "$$ (Affordable)", mob: "$$$ (Premium)" }
                 ].map((row, i) => (
                   <tr key={i} className="hover:bg-slate-50 transition-colors">
-                    <td className="p-6 border-b border-slate-100 font-medium text-slate-700">{row.feature}</td>
-                    <td className="p-6 border-b border-slate-100 text-slate-600">{row.res}</td>
-                    <td className="p-6 border-b border-slate-100 font-bold text-blue-700 bg-blue-50/20">{row.mob}</td>
+                    <td className="p-6 border-b border-slate-100 font-bold text-slate-950">{row.feature}</td>
+                    <td className="p-6 border-b border-slate-100 text-slate-900 font-medium">{row.res}</td>
+                    <td className="p-6 border-b border-slate-100 font-black text-blue-900 bg-blue-50/40">{row.mob}</td>
                   </tr>
                 ))}
               </tbody>
@@ -58,8 +58,8 @@ export default function ProxyComparison() {
               <p className="text-slate-600 mb-8">Ideal for high-bandwidth tasks that require stability but not the extreme evasion techniques needed for social platform algorithms.</p>
               <ul className="space-y-4">
                 {["Search Engine Monitoring", "Website Performance Testing", "Price Comparison", "Brand Protection"].map((item, i) => (
-                  <li key={i} className="flex items-center text-slate-700">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 mr-3" /> {item}
+                  <li key={i} className="flex items-center text-slate-900 font-bold">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mr-3" /> {item}
                   </li>
                 ))}
               </ul>
@@ -88,8 +88,8 @@ export default function ProxyComparison() {
       <section className="py-24">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8">Get the Right Software for Your Setup</h2>
-            <p className="text-xl text-slate-600 mb-10">Whether you are building or buying, professional management software is non-negotiable for 2026 automation.</p>
+            <h2 className="text-4xl font-bold mb-8 text-slate-950">Get the Right Software for Your Setup</h2>
+            <p className="text-xl text-slate-900 font-medium mb-10">Whether you are building or buying, professional management software is non-negotiable for 2026 automation.</p>
             <Link 
               href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
               className="px-10 py-5 bg-blue-600 text-white rounded-xl font-bold text-xl hover:bg-blue-700 shadow-xl inline-block"

@@ -20,7 +20,7 @@ export default function MobileProxyFarmGuide() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
-              href="https://www.coronium.io/cn/affiliate" 
+              href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
               className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold text-lg transition-all shadow-lg shadow-blue-900/20 flex items-center"
             >
               Get Coronium OS <ArrowRight className="ml-2 w-5 h-5" />
@@ -103,7 +103,7 @@ export default function MobileProxyFarmGuide() {
                 ))}
               </ul>
               <Link 
-                href="https://www.coronium.io/cn/affiliate" 
+                href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
                 className="inline-flex items-center text-blue-600 font-bold text-lg hover:text-blue-700 transition-colors group"
               >
                 Visit Coronium Official Website <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -135,7 +135,7 @@ export default function MobileProxyFarmGuide() {
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <Link 
-                  href="https://www.coronium.io/cn/affiliate" 
+                  href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
                   className="px-10 py-5 bg-white text-blue-600 rounded-xl font-bold text-xl hover:bg-blue-50 transition-all shadow-xl"
                 >
                   Start Building Now

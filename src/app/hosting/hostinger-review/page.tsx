@@ -94,7 +94,7 @@ export default function HostingerReview2026() {
               <p className="text-xs text-slate-500 italic mb-10 leading-relaxed">
                 *Prices reflect 48-month commitment. Renews at standard rates ($7.99 - $19.99). Free domain and SSL included for the first year.
               </p>
-              <Link href="https://hostinger.com?REFERRALCODE=SITEPIOT" className="inline-flex items-center justify-center w-full py-5 bg-cyan-600 text-white rounded-2xl font-black text-xl hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-900/40">
+              <Link href="https://hostinger.com?REFERRALCODE=RIWTECCOXIBF" className="inline-flex items-center justify-center w-full py-5 bg-cyan-600 text-white rounded-2xl font-black text-xl hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-900/40">
                 GET THE 2026 DEALS <ArrowRight className="ml-2 w-6 h-6" />
               </Link>
             </div>
@@ -152,7 +152,7 @@ export default function HostingerReview2026() {
             <p className="text-lg text-slate-400 font-medium leading-relaxed mb-10">
               Hostinger is our <span className="text-white italic">"Best Budget Performance"</span> choice for 2026. For beginners and growing blogs, it's impossible to beat their tech stack at this price point.
             </p>
-            <Link href="https://hostinger.com?REFERRALCODE=SITEPIOT" className="text-cyan-400 font-black hover:text-cyan-300 flex items-center justify-center gap-2">
+            <Link href="https://hostinger.com?REFERRALCODE=RIWTECCOXIBF" className="text-cyan-400 font-black hover:text-cyan-300 flex items-center justify-center gap-2">
               CLAIM HOSTINGER 2026 DISCOUNT <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

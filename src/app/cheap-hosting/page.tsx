@@ -242,7 +242,7 @@ export default function CheapHostingPage() {
             "Limited phone support",
             "Storage limits on entry plan"
           ]}
-          link="https://hostinger.com/?ref=sitepilot"
+          link="https://hostinger.com?REFERRALCODE=RIWTECCOXIBF"
         />
 
         <HostingProvider
@@ -380,7 +380,7 @@ export default function CheapHostingPage() {
             price, performance, and support for under $5.
           </p>
           <a
-            href="https://hostinger.com/?ref=sitepilot"
+            href="https://hostinger.com?REFERRALCODE=RIWTECCOXIBF"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-blue-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"

@@ -335,7 +335,7 @@ export default function BestWebsiteBuilders2026() {
                 "Premium: $3.99/month",
                 "Business: $7.99/month"
               ]}
-              link="https://hostinger.com/website-builder?ref=sitepilot"
+              link="https://hostinger.com?REFERRALCODE=RIWTECCOXIBF"
             />
 
             <BuilderCard

@@ -11,6 +11,17 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
 }
 
 export default function PricingGuidePage() {
@@ -66,6 +77,9 @@ export default function PricingGuidePage() {
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 mb-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Core Pricing Models</h2>
+          <p className="text-slate-700 leading-relaxed mb-4">
+            Enterprise AI pricing analysis should be BOFU by default: buyers need to know what changes budget, approval risk, and production viability, not just which SKU sounds cheaper on a sales call.
+          </p>
           <ul className="space-y-4 text-slate-700">
             <li><strong>Consumption-based (Token pricing):</strong> Charges based on input/output tokens. Great for variable workloads, dangerous for uncapped user-facing applications.</li>
             <li><strong>Seat-based licensing:</strong> Per-user monthly fee (e.g., Copilot models). Predictable but expensive if utilization remains low.</li>

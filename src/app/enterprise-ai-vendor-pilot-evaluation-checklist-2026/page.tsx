@@ -11,6 +11,17 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
 }
 
 export default function PilotEvaluationChecklistPage() {
@@ -66,6 +77,9 @@ export default function PilotEvaluationChecklistPage() {
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 mb-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Pilot Acceptance Criteria</h2>
+          <p className="text-slate-700 leading-relaxed mb-4">
+            A pilot only matters if it converts unresolved buying risk into measurable evidence. If the checklist cannot kill a weak vendor, it is not a real pilot checklist.
+          </p>
           <ul className="space-y-4 text-slate-700">
             <li><strong>Accuracy & Grounding:</strong> Output must meet predefined thresholds for factual accuracy without relying on synthetic demo data.</li>
             <li><strong>Latency & SLA:</strong> API response times under load must meet business SLAs.</li>

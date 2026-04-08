@@ -10,9 +10,12 @@ export default function Home() {
         description="Expert reviews and guides on web hosting, AI tools, and website builders. Launch your website with confidence."
         url="https://sitepilot.co"
       />
+
+      {/* Impact Site Verification */}
+      <div style={{ display: 'none' }}>Impact-Site-Verification: ebd73b69-ae33-44b8-bd16-7c33c5b521d9</div>
       
-      {/* Hero Section - Modern & Compelling */}
-      <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20 md:py-28 overflow-hidden">
+      {/* Hero Section - Professional & Technical */}
+      <section className="relative bg-[#0A0A0A] py-24 md:py-32 overflow-hidden border-b border-white/5">
         {/* 背景装饰元素 */}
         <div className="absolute inset-0 opacity-30">
           <div className="w-full h-full bg-gradient-to-br from-blue-50/30 to-transparent"></div>

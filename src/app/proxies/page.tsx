@@ -4,12 +4,12 @@ import { Network, Zap, Shield, Cpu, ArrowRight, BarChart3 } from 'lucide-react';
 
 export default function ProxiesHub() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[#212121]">
       {/* Hero Section */}
       <section className="pt-24 pb-20 bg-slate-900 text-white overflow-hidden relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm font-bold mb-6 border border-blue-500/20">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-9000/10 text-blue-400 text-sm font-bold mb-6 border border-blue-500/20">
               <Network className="w-4 h-4 mr-2" />
               Advanced Web Automation Hub
             </div>
@@ -30,12 +30,12 @@ export default function ProxiesHub() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Guide 1: Mobile Farm */}
-            <Link href="/proxies/mobile-proxy-farm-setup-guide-2026" className="group block p-10 rounded-[2rem] bg-white border border-slate-200 hover:border-blue-500/30 hover:shadow-2xl transition-all relative overflow-hidden">
+            <Link href="/proxies/mobile-proxy-farm-setup-guide-2026" className="group block p-10 rounded-[2rem] bg-slate-950 border border-slate-200 hover:border-blue-500/30 hover:shadow-2xl transition-all relative overflow-hidden">
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-200">
                   <Cpu className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition-colors">Mobile Proxy Farm Setup</h3>
+                <h3 className="text-3xl font-bold mb-4 text-white group-hover:text-blue-600 transition-colors">Mobile Proxy Farm Setup</h3>
                 <p className="text-slate-800 text-lg leading-relaxed mb-8">
                   The ultimate 2026 blueprint for building your own Android-based proxy cluster. Hardware selection, carrier management, and software orchestration.
                 </p>
@@ -46,12 +46,12 @@ export default function ProxiesHub() {
             </Link>
 
             {/* Guide 2: Residential vs Mobile */}
-            <Link href="/proxies/residential-vs-mobile-proxies-comparison-2026" className="group block p-10 rounded-[2rem] bg-white border border-slate-200 hover:border-blue-500/30 hover:shadow-2xl transition-all relative overflow-hidden">
+            <Link href="/proxies/residential-vs-mobile-proxies-comparison-2026" className="group block p-10 rounded-[2rem] bg-slate-950 border border-slate-200 hover:border-blue-500/30 hover:shadow-2xl transition-all relative overflow-hidden">
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-200">
                   <BarChart3 className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition-colors">Residential vs Mobile Comparison</h3>
+                <h3 className="text-3xl font-bold mb-4 text-white group-hover:text-blue-600 transition-colors">Residential vs Mobile Comparison</h3>
                 <p className="text-slate-800 text-lg leading-relaxed mb-8">
                   Understand the technical trade-offs between static residential, rotating datacenter, and 4G/5G mobile IPs for your specific use case.
                 </p>
@@ -65,22 +65,22 @@ export default function ProxiesHub() {
       </section>
 
       {/* Featured Tools */}
-      <section className="py-24 bg-white border-y border-slate-100">
+      <section className="py-24 bg-slate-950 border-y border-white/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold mb-6">Expert-Vetted Proxy Infrastructure</h2>
-            <p className="text-xl text-slate-900 leading-relaxed">
+            <p className="text-xl text-white leading-relaxed">
               We recommend only the tools that pass our rigorous "anti-bot detection" and "latency stability" tests.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center bg-slate-50 p-12 rounded-[3rem] border border-slate-100 mb-12">
+          <div className="grid md:grid-cols-2 gap-12 items-center bg-[#212121] p-12 rounded-[3rem] border border-white/10 mb-12 shadow-2xl">
             <div>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-6">
                 BEST FOR DIY CLUSTERS
               </div>
               <h3 className="text-3xl font-bold mb-6">Coronium.io OS</h3>
-              <p className="text-lg text-slate-900 mb-8">
+              <p className="text-lg text-white mb-8">
                 The most reliable management software for Android device clusters. One dashboard to rule all your IPs with millisecond rotation precision.
               </p>
               <Link href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all">
@@ -94,8 +94,8 @@ export default function ProxiesHub() {
                 { label: "Reliability", val: "99.9%" },
                 { label: "Scale", val: "Unlimited" }
               ].map((stat, i) => (
-                <div key={i} className="p-6 bg-white rounded-2xl shadow-md border border-slate-200">
-                  <div className="text-slate-600 text-sm mb-1 font-semibold">{stat.label}</div>
+                <div key={i} className="p-6 bg-slate-900 rounded-2xl shadow-md border border-white/5">
+                  <div className="text-slate-400 text-sm mb-1 font-semibold">{stat.label}</div>
                   <div className="text-blue-700 font-bold text-xl">{stat.val}</div>
                 </div>
               ))}
@@ -110,21 +110,21 @@ export default function ProxiesHub() {
                 { label: "Stability", val: "Carrier-Grade" },
                 { label: "Dashboard", val: "Advanced" }
               ].map((stat, i) => (
-                <div key={i} className="p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                <div key={i} className="p-6 bg-slate-950/10 rounded-2xl backdrop-blur-sm border border-white/20">
                   <div className="text-slate-100 text-sm mb-1 font-semibold">{stat.label}</div>
                   <div className="text-blue-300 font-bold text-xl">{stat.val}</div>
                 </div>
               ))}
             </div>
             <div className="order-1 md:order-2">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-sm font-bold mb-6">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-9000/20 text-blue-300 text-sm font-bold mb-6">
                 ENTERPRISE MANAGEMENT PANEL
               </div>
               <h3 className="text-3xl font-bold mb-6">LTESpace.com</h3>
               <p className="text-lg text-slate-100 mb-8">
                 A high-performance cloud management panel specifically designed for 4G/5G mobile proxies. Ideal for users scaling rapidly with zero technical overhead.
               </p>
-              <Link href="https://ltespace.com/sitepilot" className="inline-flex items-center px-8 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-blue-50 transition-all">
+              <Link href="https://ltespace.com/sitepilot" className="inline-flex items-center px-8 py-4 bg-slate-950 text-white rounded-xl font-bold hover:bg-slate-900 transition-all">
                 Try LTESpace Now <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </div>

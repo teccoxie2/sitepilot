@@ -4,11 +4,11 @@ import { Shield, Zap, Cpu, Network, ArrowRight, CheckCircle2 } from 'lucide-reac
 
 export default function MobileProxyFarmGuide() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-sm font-medium mb-6 border border-blue-500/30">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-9000/20 text-blue-300 text-sm font-medium mb-6 border border-blue-500/30">
             <Zap className="w-4 h-4 mr-2" />
             2026 Industry Guide
           </div>
@@ -21,13 +21,13 @@ export default function MobileProxyFarmGuide() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
               href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold text-lg transition-all shadow-lg shadow-blue-900/20 flex items-center"
+              className="px-8 py-4 bg-blue-600 hover:bg-slate-9000 text-white rounded-lg font-bold text-lg transition-all shadow-lg shadow-blue-900/20 flex items-center"
             >
               Get Coronium OS <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
             <Link 
               href="/contact" 
-              className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-lg font-bold text-lg transition-all backdrop-blur-sm border border-white/10"
+              className="px-8 py-4 bg-slate-950/10 hover:bg-slate-950/20 text-white rounded-lg font-bold text-lg transition-all backdrop-blur-sm border border-white/10"
             >
               Consult an Expert
             </Link>
@@ -36,11 +36,11 @@ export default function MobileProxyFarmGuide() {
       </section>
 
       {/* Why Mobile Proxies? */}
-      <section className="py-20 border-b border-slate-100">
+      <section className="py-20 border-b border-white/10">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-slate-900">Why Mobile Proxies Move the Needle</h2>
-            <p className="text-slate-900 text-lg font-medium">
+            <h2 className="text-3xl font-bold mb-4 text-white">Why Mobile Proxies Move the Needle</h2>
+            <p className="text-white text-lg font-medium">
               Unlike data center IPs, mobile IPs are assigned to real humans. They are rarely banned because blocking them would affect thousands of legitimate mobile users.
             </p>
           </div>
@@ -63,11 +63,11 @@ export default function MobileProxyFarmGuide() {
                 icon: Cpu
               }
             ].map((item, i) => (
-              <div key={i} className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all">
+              <div key={i} className="p-8 rounded-2xl bg-[#212121] border border-white/10 hover:shadow-xl transition-all">
                 <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
                   <item.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-900">{item.title}</h3>
+                <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
                 <p className="text-slate-800 leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
@@ -76,17 +76,17 @@ export default function MobileProxyFarmGuide() {
       </section>
 
       {/* Recommended Software: Coronium */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-[#212121]">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-6">
                 TOP RECOMMENDED SOLUTION
               </div>
-              <h2 className="text-4xl font-bold mb-8 text-slate-900">
+              <h2 className="text-4xl font-bold mb-8 text-white">
                 Coronium.io: The Professional Operating System for Mobile Farms
               </h2>
-              <p className="text-lg text-slate-900 mb-8 leading-relaxed font-medium">
+              <p className="text-lg text-white mb-8 leading-relaxed font-medium">
                 Building a farm is 20% hardware and 80% software management. Coronium simplifies the complexity of managing large Android clusters, offering a centralized dashboard for IP rotation, port management, and real-time monitoring.
               </p>
               <ul className="space-y-4 mb-10">
@@ -96,7 +96,7 @@ export default function MobileProxyFarmGuide() {
                   "Real-time device health monitoring",
                   "Automated carrier re-connection"
                 ].map((text, i) => (
-                  <li key={i} className="flex items-center text-slate-900 font-bold">
+                  <li key={i} className="flex items-center text-white font-bold">
                     <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 shrink-0" />
                     {text}
                   </li>
@@ -111,13 +111,13 @@ export default function MobileProxyFarmGuide() {
                 </Link>
                 <Link 
                   href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
-                  className="inline-flex items-center text-slate-600 font-bold text-lg hover:text-slate-900 transition-colors group"
+                  className="inline-flex items-center text-slate-400 font-bold text-lg hover:text-white transition-colors group"
                 >
                   Visit Coronium <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
-            <div className="flex-1 bg-white p-4 rounded-3xl shadow-2xl border border-slate-100">
+            <div className="flex-1 bg-slate-950 p-4 rounded-3xl shadow-2xl border border-white/10">
               <div className="aspect-video bg-slate-900 rounded-2xl flex items-center justify-center text-blue-400 font-mono text-sm overflow-hidden">
                 <div className="p-8 w-full h-full">
                   <div className="mb-4 text-slate-500">// Coronium Device Control API</div>
@@ -144,7 +144,7 @@ export default function MobileProxyFarmGuide() {
               <div className="flex flex-wrap justify-center gap-6">
                 <Link 
                   href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
-                  className="px-10 py-5 bg-white text-blue-600 rounded-xl font-bold text-xl hover:bg-blue-50 transition-all shadow-xl"
+                  className="px-10 py-5 bg-slate-950 text-blue-600 rounded-xl font-bold text-xl hover:bg-slate-900 transition-all shadow-xl"
                 >
                   Start Building Now
                 </Link>

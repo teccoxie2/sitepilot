@@ -4,11 +4,11 @@ import { Cpu, Smartphone, Usb, Zap, CheckCircle2, ArrowRight, ShieldCheck } from
 
 export default function HardwareGuide() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[#212121]">
       {/* Hero */}
       <section className="pt-24 pb-20 bg-slate-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold mb-6 border border-blue-500/20">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-9000/20 text-blue-400 text-sm font-bold mb-6 border border-blue-500/20">
             <Cpu className="w-4 h-4 mr-2" />
             2026 Technical Blueprint
           </div>
@@ -42,18 +42,18 @@ export default function HardwareGuide() {
                 icon: Zap
               }
             ].map((item, i) => (
-              <div key={i} className="p-8 rounded-[2rem] bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all">
+              <div key={i} className="p-8 rounded-[2rem] bg-slate-950 border border-slate-200 shadow-lg hover:shadow-2xl transition-all">
                 <div className="w-14 h-14 bg-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
                   <item.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-slate-950">{item.title}</h3>
-                <p className="text-slate-900 leading-relaxed font-medium">{item.desc}</p>
+                <p className="text-white leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
           </div>
 
           {/* Deep Dive Section */}
-          <div className="bg-white rounded-[3rem] p-8 md:p-16 border border-slate-200 shadow-sm overflow-hidden relative">
+          <div className="bg-slate-950 rounded-[3rem] p-8 md:p-16 border border-slate-200 shadow-sm overflow-hidden relative">
             <div className="max-w-3xl relative z-10">
               <h2 className="text-3xl font-bold mb-8">Hardware Compatibility Matrix</h2>
               <div className="space-y-6">
@@ -63,7 +63,7 @@ export default function HardwareGuide() {
                   { label: "Cables", spec: "Double-Shielded Type-C", reason: "Reduces signal interference" },
                   { label: "Controller", spec: "Dedicated NUC / Linux Server", reason: "Stable ADB connection management" }
                 ].map((row, i) => (
-                  <div key={i} className="flex flex-col md:flex-row md:items-center p-6 bg-blue-50/30 rounded-2xl border border-blue-100/50">
+                  <div key={i} className="flex flex-col md:flex-row md:items-center p-6 bg-slate-900/30 rounded-2xl border border-blue-100/50">
                     <div className="w-40 font-black text-slate-950 mb-2 md:mb-0">{row.label}</div>
                     <div className="flex-1 font-bold text-blue-800 mb-2 md:mb-0">{row.spec}</div>
                     <div className="text-slate-800 text-sm font-semibold italic">{row.reason}</div>
@@ -85,7 +85,7 @@ export default function HardwareGuide() {
           <div className="flex justify-center gap-6">
             <Link 
               href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
-              className="px-10 py-5 bg-white text-blue-600 rounded-xl font-bold text-xl hover:bg-blue-50 shadow-2xl"
+              className="px-10 py-5 bg-slate-950 text-blue-600 rounded-xl font-bold text-xl hover:bg-slate-900 shadow-2xl"
             >
               Get Coronium OS
             </Link>

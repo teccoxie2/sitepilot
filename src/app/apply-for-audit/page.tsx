@@ -57,12 +57,12 @@ export default function ApplyForAudit() {
                 ))}
               </ul>
 
-              {/* PAYMENT LINK PLACEHOLDER */}
+              {/* PRO PAYMENT LINK */}
               <Link 
-                href="https://buy.stripe.com/test_placeholder_link" 
+                href="https://wise.com/pay/me/haoyuanx7" 
                 className="inline-flex items-center justify-center w-full py-5 bg-blue-600 text-white rounded-2xl font-black text-xl hover:bg-blue-500 transition-all shadow-xl shadow-blue-900/40"
               >
-                PROCEED TO PAYMENT <ArrowRight className="ml-2 w-6 h-6" />
+                PROCEED TO AUDIT PAYMENT <ArrowRight className="ml-2 w-6 h-6" />
               </Link>
               <div className="mt-6 flex justify-center gap-4 opacity-50">
                  <CreditCard className="w-6 h-6" />

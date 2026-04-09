@@ -34,13 +34,12 @@ export default function ProxiesHub() {
               A mobile proxy hub is a structured resource center covering 4G and 5G proxy infrastructure, residential versus mobile IP selection, Android farm hardware, and control software used for web automation. This 2026 guide set helps operators compare deployment models, reliability constraints, and commercial tooling before investing in a scalable proxy stack.
             </p>
 
-            {/* Quick Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-16">
               {[
-                { label: "IP Quality", val: "99.9%", color: "text-green-400" },
-                { label: "Providers", val: "15+", color: "text-blue-400" },
-                { label: "Farm Cost", val: "-60%", color: "text-cyan-400" },
-                { label: "Success", val: "Elite", color: "text-purple-400" }
+                { label: "Decision Path", val: "Compare", color: "text-green-400" },
+                { label: "Build", val: "Setup", color: "text-blue-400" },
+                { label: "Validate", val: "Hardware", color: "text-cyan-400" },
+                { label: "Operate", val: "Software", color: "text-purple-400" }
               ].map((stat, i) => (
                 <div key={i} className="p-4 rounded-2xl bg-[#161616] border border-white/5 shadow-2xl">
                   <div className={`text-2xl font-black ${stat.color} mb-1`}>{stat.val}</div>
@@ -72,7 +71,7 @@ export default function ProxiesHub() {
                       Mobile Proxy Farm Setup
                     </h3>
                     <p className="text-lg text-slate-400 font-medium leading-relaxed mb-8">
-                      The definitive guide to building a localized 4G/5G proxy infrastructure using real Android devices. Learn how to manage SIM clusters and rotate IPs via API.
+                      A practical setup guide for Android-based mobile proxy infrastructure, including SIM planning, controller layout, and software choices for managed IP rotation.
                     </p>
                     <div className="flex items-center text-blue-400 font-black gap-2 group-hover:gap-4 transition-all">
                       EXPLORE ARCHITECTURE <ArrowRight className="w-5 h-5" />
@@ -100,7 +99,7 @@ export default function ProxiesHub() {
                     Residential vs. Mobile
                   </h3>
                   <p className="text-slate-400 font-medium mb-8 leading-relaxed">
-                    A technical deep-dive into reputation scores, packet headers, and the cost-to-reliability ratio of different proxy types.
+                    Compare where each proxy type fits, how rotation behavior differs, and when mobile infrastructure is justified over residential supply.
                   </p>
                   <div className="inline-flex items-center text-cyan-400 font-bold gap-2">
                     Compare Specs <ArrowRight className="w-4 h-4" />
@@ -117,7 +116,7 @@ export default function ProxiesHub() {
                     Hardware Selection Matrix
                   </h3>
                   <p className="text-slate-400 font-medium mb-8 leading-relaxed">
-                    Not all USB hubs are created equal. We review industrial-grade hardware for 24/7 device clusters and power management.
+                    Review device, hub, cable, and controller requirements before you spend on a cluster that cannot stay stable under load.
                   </p>
                   <div className="inline-flex items-center text-purple-400 font-bold gap-2">
                     View Specs <ArrowRight className="w-4 h-4" />
@@ -147,7 +146,7 @@ export default function ProxiesHub() {
                   <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-black tracking-widest uppercase border border-blue-500/30">DIY CHOICE</span>
                 </div>
                 <p className="text-lg text-slate-400 font-medium mb-10 leading-relaxed">
-                  The most reliable management software for Android device clusters. One dashboard to rule all your IPs with millisecond rotation precision.
+                  Coronium is positioned here as an operator-focused control layer for Android device clusters with centralized rotation workflows and fleet visibility.
                 </p>
                 <Link href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" className="inline-flex items-center px-10 py-5 bg-blue-600 text-white rounded-2xl font-black text-lg hover:bg-blue-500 shadow-xl shadow-blue-900/40 transition-all w-full justify-center">
                   ACCESS OFFICIAL LINK <ArrowRight className="ml-2 w-6 h-6" />
@@ -164,7 +163,7 @@ export default function ProxiesHub() {
                   <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-black tracking-widest uppercase border border-cyan-500/30">CLOUD CHOICE</span>
                 </div>
                 <p className="text-lg text-slate-400 font-medium mb-10 leading-relaxed">
-                  A high-performance cloud management panel specifically designed for 4G/5G mobile proxies. Ideal for users scaling rapidly with zero technical overhead.
+                  LTESpace is positioned here as a hosted control option for teams that want faster deployment and less custom infrastructure work.
                 </p>
                 <Link href="https://ltespace.com/sitepilot" className="inline-flex items-center px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-lg hover:bg-blue-50 transition-all w-full justify-center">
                   TRY LTESPACE NOW <ArrowRight className="ml-2 w-6 h-6" />
@@ -216,11 +215,11 @@ export default function ProxiesHub() {
               <div>
                 <h4 className="text-2xl font-black mb-4 tracking-tight">Independent Verification Statement</h4>
                 <p className="text-slate-400 font-medium leading-relaxed mb-6">
-                  Proxy infrastructure is critical for privacy and automation. Our engineers independently test hardware and software for latency, packet-level anonymity, and long-term stability. We only recommend solutions that meet our <span className="text-white italic">"Non-Detectable"</span> threshold.
+                  Proxy infrastructure should be evaluated on deployment fit, hardware stability, rotation control, and operator overhead. SitePilot positions this cluster as a technical decision path rather than a generic affiliate roundup.
                 </p>
                 <div className="flex items-center gap-6 text-sm text-slate-500 font-bold uppercase tracking-widest">
-                  <span className="flex items-center gap-2"><Globe className="w-4 h-4" /> Global Testing</span>
-                  <span className="flex items-center gap-2"><Cpu className="w-4 h-4" /> Hardware Verified</span>
+                  <span className="flex items-center gap-2"><Globe className="w-4 h-4" /> Infrastructure Focus</span>
+                  <span className="flex items-center gap-2"><Cpu className="w-4 h-4" /> Operator Fit</span>
                 </div>
               </div>
             </div>

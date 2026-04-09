@@ -31,11 +31,11 @@ export default function ProxyComparison() {
               </thead>
               <tbody>
                 {[
-                  { feature: "Anonymity Level", res: "High", mob: "Elite (Undetectable)" },
-                  { feature: "Bypass Capability", res: "Good for general SEO", mob: "Best for Social Media/Amazon" },
-                  { feature: "IP Rotation", res: "Limited to ISP lease", mob: "Instant via Software" },
-                  { feature: "Risk of Ban", res: "Moderate", mob: "Extremely Low" },
-                  { feature: "Cost per Port", res: "$$ (Affordable)", mob: "$$$ (Premium)" }
+                  { feature: "IP source", res: "Fixed-line broadband allocated by residential ISPs", mob: "Carrier-issued IPs from 4G and 5G mobile networks" },
+                  { feature: "Rotation behavior", res: "Often slower and provider-dependent", mob: "Usually stronger when device and software controls are set up correctly" },
+                  { feature: "Typical fit", res: "General web tasks and lower-friction collection", mob: "Workflows facing tighter anti-bot pressure or session sensitivity" },
+                  { feature: "Operational complexity", res: "Usually simpler to buy and use", mob: "Higher because devices, SIMs, power, and software all matter" },
+                  { feature: "Cost profile", res: "Often lower at entry level", mob: "Usually higher because infrastructure is heavier" }
                 ].map((row, i) => (
                   <tr key={i} className="hover:bg-[#212121] transition-colors">
                     <td className="p-6 border-b border-white/10 font-bold text-slate-950">{row.feature}</td>
@@ -55,9 +55,9 @@ export default function ProxyComparison() {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="p-10 rounded-3xl bg-slate-950 border border-slate-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-6 text-white">When to Choose Residential</h3>
-              <p className="text-slate-400 mb-8">Ideal for high-bandwidth tasks that require stability but not the extreme evasion techniques needed for social platform algorithms.</p>
+              <p className="text-slate-400 mb-8">Use residential supply when the workload needs lower operational complexity and does not justify managing Android devices, SIM inventory, or carrier rotation workflows.</p>
               <ul className="space-y-4">
-                {["Search Engine Monitoring", "Website Performance Testing", "Price Comparison", "Brand Protection"].map((item, i) => (
+                {["Search monitoring", "General web collection", "Market checks", "Lower-complexity automation"].map((item, i) => (
                   <li key={i} className="flex items-center text-white font-bold">
                     <CheckCircle2 className="w-5 h-5 text-green-600 mr-3" /> {item}
                   </li>
@@ -67,9 +67,9 @@ export default function ProxyComparison() {
             <div className="p-10 rounded-3xl bg-slate-900 text-white shadow-2xl relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-6">When to Choose Mobile</h3>
-                <p className="text-blue-100 mb-8">Essential for tasks targeting platforms with aggressive anti-bot measures like Instagram, TikTok, and Amazon.</p>
+                <p className="text-blue-100 mb-8">Use mobile infrastructure when network trust, rotation behavior, and session control matter enough to justify a heavier operating model.</p>
                 <ul className="space-y-4 mb-8">
-                  {["Social Media Management", "Ticket Scalping", "Sneaker Botting", "High-frequency Data Scraping"].map((item, i) => (
+                  {["Session-sensitive automation", "Higher-friction collection", "Carrier-based rotation workflows", "Teams operating their own device fleets"].map((item, i) => (
                     <li key={i} className="flex items-center text-blue-50">
                       <Zap className="w-5 h-5 text-blue-400 mr-3" /> {item}
                     </li>
@@ -111,8 +111,8 @@ export default function ProxyComparison() {
       <section className="py-24">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-slate-950">Get the Right Software for Your Setup</h2>
-            <p className="text-xl text-white font-medium mb-10">Whether you are building or buying, professional management software is non-negotiable for 2026 automation.</p>
+            <h2 className="text-4xl font-bold mb-8 text-slate-950">Choose software after the network model is clear</h2>
+            <p className="text-xl text-white font-medium mb-10">The cleaner path is simple: decide whether mobile infrastructure is justified, then map hardware and control software around that choice.</p>
             <Link 
               href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 
               className="px-10 py-5 bg-blue-600 text-white rounded-xl font-bold text-xl hover:bg-blue-700 shadow-xl inline-block"

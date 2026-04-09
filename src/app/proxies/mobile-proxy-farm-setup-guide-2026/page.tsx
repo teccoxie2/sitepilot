@@ -39,9 +39,9 @@ export default function MobileProxyFarmGuide() {
       <section className="py-20 border-b border-white/10">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-white">Why Mobile Proxies Move the Needle</h2>
+            <h2 className="text-3xl font-bold mb-4 text-white">Why teams choose mobile proxy infrastructure</h2>
             <p className="text-white text-lg font-medium">
-              Unlike data center IPs, mobile IPs are assigned to real humans. They are rarely banned because blocking them would affect thousands of legitimate mobile users.
+              Teams usually choose mobile infrastructure when they need carrier-issued IPs, stronger rotation behavior, and tighter session control than simpler proxy models can offer.
             </p>
           </div>
 
@@ -49,17 +49,17 @@ export default function MobileProxyFarmGuide() {
             {[
               {
                 title: "Undetectable Scraping",
-                desc: "High-trust IP scores ensure your bots look like real users to Amazon, Google, and social platforms.",
+                desc: "Carrier-issued IPs can fit workloads that face more network scrutiny than ordinary residential or datacenter traffic.",
                 icon: Shield
               },
               {
                 title: "Bypass Geo-Blocking",
-                desc: "Access localized content and search results by placing your devices in specific geographic regions.",
+                desc: "Device placement and SIM planning let operators map traffic to specific networks and local regions when that matters.",
                 icon: Network
               },
               {
                 title: "Unlimited IP Rotation",
-                desc: "Force IP changes on-demand via software, giving you a fresh identity for every session.",
+                desc: "Managed software can coordinate device control and rotation workflows when the operating model is designed correctly.",
                 icon: Cpu
               }
             ].map((item, i) => (
@@ -84,17 +84,17 @@ export default function MobileProxyFarmGuide() {
                 TOP RECOMMENDED SOLUTION
               </div>
               <h2 className="text-4xl font-bold mb-8 text-white">
-                Coronium.io: The Professional Operating System for Mobile Farms
+                Coronium.io: An operator-focused control layer for mobile farms
               </h2>
               <p className="text-lg text-white mb-8 leading-relaxed font-medium">
-                Building a farm is 20% hardware and 80% software management. Coronium simplifies the complexity of managing large Android clusters, offering a centralized dashboard for IP rotation, port management, and real-time monitoring.
+                In this cluster, Coronium is presented as a control layer for Android fleets that need centralized rotation workflows, port exposure, and device monitoring.
               </p>
               <ul className="space-y-4 mb-10">
                 {[
-                  "One-click IP rotation via SOCKS5/HTTP",
-                  "Support for huge Android device clusters",
-                  "Real-time device health monitoring",
-                  "Automated carrier re-connection"
+                  "Centralized device and port management",
+                  "Rotation workflows tied to Android devices",
+                  "Fleet monitoring and health visibility",
+                  "Useful when teams operate their own hardware"
                 ].map((text, i) => (
                   <li key={i} className="flex items-center text-white font-bold">
                     <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 shrink-0" />
@@ -162,7 +162,7 @@ export default function MobileProxyFarmGuide() {
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to Scale Your Scraping Infrastructure?</h2>
               <p className="text-xl text-blue-100 mb-10 leading-relaxed">
-                Don't waste months on DIY scripts. Start building your high-authority proxy farm today with professional-grade software.
+                If you are running your own device fleet, choose software only after the hardware, SIM plan, and controller model are clear.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <Link 

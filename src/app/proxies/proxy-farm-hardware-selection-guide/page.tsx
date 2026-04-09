@@ -28,17 +28,17 @@ export default function HardwareGuide() {
             {[
               {
                 title: "Android Devices",
-                desc: "Choose models with strong 4G/5G chipsets and easy root access. Used Pixel or Samsung devices are industry standards.",
+                desc: "Choose Android devices that match your carrier, remote-control method, and long-run stability requirements.",
                 icon: Smartphone
               },
               {
                 title: "Industrial USB Hubs",
-                desc: "Standard hubs fail under load. You need sync-enabled, high-power hubs with individual port control.",
+                desc: "Hub stability, power delivery, and controller compatibility matter more than cheap consumer accessories.",
                 icon: Usb
               },
               {
                 title: "Cooling & Power",
-                desc: "Heat is the #1 killer of proxy farm hardware. Industrial-grade cooling and stable DC power are non-negotiable for 24/7 uptime.",
+                desc: "Thermal control and stable power matter if the cluster is expected to stay online for long operating windows.",
                 icon: Zap
               }
             ].map((item, i) => (
@@ -58,10 +58,10 @@ export default function HardwareGuide() {
               <h2 className="text-3xl font-bold mb-8">Hardware Compatibility Matrix</h2>
               <div className="space-y-6">
                 {[
-                  { label: "Phone Model", spec: "Android 9+ (Pixel 4/5 Preferred)", reason: "Carrier compatibility & API support" },
-                  { label: "Hub Type", spec: "Powered Sync Hub (12V/10A)", reason: "Ensures phones don't disconnect" },
-                  { label: "Cables", spec: "Double-Shielded Type-C", reason: "Reduces signal interference" },
-                  { label: "Controller", spec: "Dedicated NUC / Linux Server", reason: "Stable ADB connection management" }
+                  { label: "Phone Model", spec: "Android 9+ with stable modem behavior", reason: "Carrier fit and remote-control compatibility" },
+                  { label: "Hub Type", spec: "Powered sync-capable hub with stable delivery", reason: "Reduces disconnects under multi-device load" },
+                  { label: "Cables", spec: "Reliable short USB cables", reason: "Helps reduce avoidable connection instability" },
+                  { label: "Controller", spec: "Dedicated mini PC or Linux host", reason: "Keeps device control workflows predictable" }
                 ].map((row, i) => (
                   <div key={i} className="flex flex-col md:flex-row md:items-center p-6 bg-slate-900/30 rounded-2xl border border-blue-100/50">
                     <div className="w-40 font-black text-slate-950 mb-2 md:mb-0">{row.label}</div>
@@ -101,9 +101,9 @@ export default function HardwareGuide() {
       {/* Software Recommendation */}
       <section className="py-24 bg-blue-600 text-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-4xl font-bold mb-8">Great Hardware Needs Great Software</h2>
+          <h2 className="text-4xl font-bold mb-8">Hardware and software should be chosen together</h2>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Even the best hardware cluster is useless without an operating system that can handle IP rotations and carrier handshakes flawlessly.
+            Hardware decisions only make sense when the control software, rotation workflow, and operator model are defined at the same time.
           </p>
           <div className="flex justify-center gap-6">
             <Link 

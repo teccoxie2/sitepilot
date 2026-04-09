@@ -146,10 +146,10 @@ export default function MobileProxyFarmGuide() {
               <h3 className="text-xl font-bold text-white mb-3">Hardware Selection Guide</h3>
               <p className="text-slate-300 leading-relaxed">Validate phones, powered hubs, cables, and control nodes before you clone the architecture.</p>
             </Link>
-            <Link href="/proxies" className="rounded-3xl border border-blue-500/20 bg-blue-500/5 p-6 hover:bg-blue-500/10 transition-colors">
-              <div className="text-sm uppercase tracking-[0.2em] text-blue-300 font-bold mb-3">Hub</div>
-              <h3 className="text-xl font-bold text-white mb-3">Proxy Resource Center</h3>
-              <p className="text-slate-300 leading-relaxed">Return to the hub for the full proxy topic cluster and management software overview.</p>
+            <Link href="/proxies/mobile-proxy-software-comparison-2026" className="rounded-3xl border border-emerald-500/20 bg-emerald-500/5 p-6 hover:bg-emerald-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-emerald-300 font-bold mb-3">Software</div>
+              <h3 className="text-xl font-bold text-white mb-3">Mobile Proxy Software Comparison</h3>
+              <p className="text-slate-300 leading-relaxed">Compare management layers after the farm architecture is clear, not before.</p>
             </Link>
           </div>
         </div>

@@ -98,10 +98,10 @@ export default function ProxyComparison() {
               <h3 className="text-xl font-bold text-white mb-3">Hardware Selection Guide</h3>
               <p className="text-slate-300 leading-relaxed">Review device, hub, cable, and controller fit before you spend money on a cluster that cannot stay online.</p>
             </Link>
-            <Link href="/proxies" className="rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6 hover:bg-cyan-500/10 transition-colors">
-              <div className="text-sm uppercase tracking-[0.2em] text-cyan-300 font-bold mb-3">Hub</div>
-              <h3 className="text-xl font-bold text-white mb-3">Proxy Resource Center</h3>
-              <p className="text-slate-300 leading-relaxed">Return to the hub for the full topic cluster covering software, hardware, and deployment choices.</p>
+            <Link href="/proxies/mobile-proxy-software-comparison-2026" className="rounded-3xl border border-emerald-500/20 bg-emerald-500/5 p-6 hover:bg-emerald-500/10 transition-colors">
+              <div className="text-sm uppercase tracking-[0.2em] text-emerald-300 font-bold mb-3">Software</div>
+              <h3 className="text-xl font-bold text-white mb-3">Mobile Proxy Software Comparison</h3>
+              <p className="text-slate-300 leading-relaxed">Use this after the network decision when you need to compare Coronium, LTESpace, and DIY control stacks.</p>
             </Link>
           </div>
         </div>

@@ -16,9 +16,11 @@ export default function Footer() {
               </div>
               <span className="text-2xl font-bold">SitePilot</span>
             </div>
-            <p className="text-slate-400 mb-6 max-w-md leading-relaxed">
-              Your trusted guide to building websites that work. Independent reviews, expert testing, 
-              and honest recommendations since 2026.
+            <p className="text-slate-400 mb-4 max-w-md leading-relaxed">
+              Independent technical audits, infrastructure benchmarks, and procurement frameworks for modern digital operators.
+            </p>
+            <p className="text-slate-500 text-sm max-w-md leading-relaxed">
+              SitePilot is a brand owned and operated by Xentech Limited.
             </p>
             <div className="flex items-center gap-4 text-sm text-slate-400">
               <div className="flex items-center">

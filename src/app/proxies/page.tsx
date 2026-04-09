@@ -196,6 +196,9 @@ export default function ProxiesHub() {
                 <Link href="/proxies/proxy-farm-hardware-selection-guide" className="rounded-2xl border border-purple-500/20 bg-purple-500/5 px-4 py-3 text-purple-300 hover:bg-purple-500/10 transition-colors font-semibold">
                   Review the hardware matrix
                 </Link>
+                <Link href="/proxies/mobile-proxy-software-comparison-2026" className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 px-4 py-3 text-emerald-300 hover:bg-emerald-500/10 transition-colors font-semibold">
+                  Compare proxy software stacks
+                </Link>
               </div>
             </div>
           </div>

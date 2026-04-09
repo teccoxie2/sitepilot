@@ -52,8 +52,8 @@ export default function HomePage() {
             </span>
           </h1>
           
-          <p className="text-slate-500 text-xl md:text-2xl max-w-2xl mx-auto mb-12 font-medium leading-relaxed animate-in fade-in slide-in-from-bottom-12 duration-1000">
-            Global Digital Infrastructure Authority. Data-driven audits for modern enterprises.
+          <p className="text-slate-500 text-xl md:text-2xl max-w-3xl mx-auto mb-12 font-medium leading-relaxed animate-in fade-in slide-in-from-bottom-12 duration-1000">
+            A digital infrastructure authority is a research platform that evaluates hosting, AI tooling, and automation systems using technical criteria such as uptime, latency, security controls, and deployment risk. SitePilot publishes 2026 buyer guides, scorecards, and setup frameworks so operators can make infrastructure decisions using evidence instead of vendor marketing.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-in fade-in slide-in-from-bottom-16 duration-1000">
@@ -106,13 +106,13 @@ export default function HomePage() {
           </p>
           <div className="inline-flex items-center gap-6 px-8 py-4 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl">
              <div className="text-left">
-               <div className="text-xs font-bold text-blue-500 uppercase tracking-widest">Active Audits</div>
-               <div className="text-2xl font-black text-white">127+ Reports</div>
+               <div className="text-xs font-bold text-blue-500 uppercase tracking-widest">Coverage</div>
+               <div className="text-2xl font-black text-white">Hosting • AI • Proxies</div>
              </div>
              <div className="w-px h-10 bg-white/10" />
              <div className="text-left">
-               <div className="text-xs font-bold text-cyan-400 uppercase tracking-widest">Global Traffic</div>
-               <div className="text-2xl font-black text-white">72 Regions</div>
+               <div className="text-xs font-bold text-cyan-400 uppercase tracking-widest">Focus</div>
+               <div className="text-2xl font-black text-white">Audits • Guides • Scorecards</div>
              </div>
           </div>
         </div>

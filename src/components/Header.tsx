@@ -21,7 +21,8 @@ export default function Header() {
   const navLinks = [
     { name: "Hosting", href: "/web-hosting", color: "hover:text-blue-400" },
     { name: "Builders", href: "/website-builders", color: "hover:text-purple-400" },
-    { name: "AI Tools", href: "/ai-tools", color: "hover:text-green-400" }
+    { name: "AI Tools", href: "/ai-tools", color: "hover:text-green-400" },
+    { name: "Proxies", href: "/proxies", color: "hover:text-cyan-400" }
   ];
 
   return (

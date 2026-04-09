@@ -110,6 +110,18 @@ export async function GET() {
       priority: '0.8'
     },
     {
+      url: `${baseUrl}/enterprise-ai-vendor-comparison-guide-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.9'
+    },
+    {
+      url: `${baseUrl}/ai-procurement-decision-matrix-tool-2026`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
       url: `${baseUrl}/enterprise-ai-vendor-shortlist-scorecard-2026`,
       lastModified: currentDate,
       changeFreq: 'monthly',
@@ -141,6 +153,12 @@ export async function GET() {
     },
     {
       url: `${baseUrl}/proxies/proxy-farm-hardware-selection-guide`,
+      lastModified: currentDate,
+      changeFreq: 'monthly',
+      priority: '0.8'
+    },
+    {
+      url: `${baseUrl}/proxies/mobile-proxy-software-comparison-2026`,
       lastModified: currentDate,
       changeFreq: 'monthly',
       priority: '0.8'

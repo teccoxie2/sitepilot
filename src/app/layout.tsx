@@ -1,53 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-const inter = Inter({ 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-inter',
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sitepilot.co"),
-  title: "SitePilot - Your Guide to Building Websites That Work",
-  description: "Expert reviews and guides on web hosting, AI tools, and website builders. Launch your website with confidence.",
-  keywords: ["web hosting", "website builder", "AI tools", "hosting reviews", "best web hosting", "website creation", "AI writing tools"],
-  authors: [{ name: "SitePilot Team" }],
-  creator: "SitePilot",
-  publisher: "SitePilot",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  openGraph: {
-    title: "SitePilot - Your Guide to Building Websites That Work",
-    description: "Expert reviews and guides on web hosting, AI tools, and website builders. Launch your website with confidence.",
-    url: "https://sitepilot.co",
-    siteName: "SitePilot",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "SitePilot - Your Guide to Building Websites That Work",
-    description: "Expert reviews and guides on web hosting, AI tools, and website builders. Launch your website with confidence.",
-    site: "@sitepilot_co",
-    creator: "@sitepilot_co",
-  },
-  verification: {
-    google: "google-verification-code-here", // To be updated with actual code
-  },
+  title: "SitePilot | Global Digital Infrastructure Authority",
+  description: "Independent technical audits, infrastructure benchmarks, and AI-driven procurement frameworks for modern enterprises.",
+  metadataBase: new URL('https://sitepilot.co'),
 };
 
 export default function RootLayout({
@@ -56,14 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased bg-white text-slate-900`}>
-        <GoogleAnalytics measurementId='G-ZEHW3WYWXL' />
+    <html lang="en" className="dark">
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-[#0A0A0A] text-[#EDEDED]`}>
         <Header />
-        <main className="min-h-screen pt-16">{children}</main>
+        <main className="min-h-screen">
+          {children}
+        </main>
         <Footer />
+        <GoogleAnalytics measurementId="G-ZEHW3WYWXL" />
       </body>
     </html>
   );
 }
-// Force deployment at Fri Mar 20 17:06:00 NZDT 2026 - Cache bust fix

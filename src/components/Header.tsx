@@ -37,7 +37,7 @@ export default function Header() {
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl mr-3 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(59,130,246,0.1)]">
               <Zap className="w-6 h-6 text-cyan-400" />
             </div>
-            <span className="text-2xl font-black text-white tracking-tighter group-hover:text-cyan-400 transition-colors">SitePilot</span>
+            <span className="text-2xl font-black text-white tracking-tighter uppercase italic group-hover:text-cyan-400 transition-colors">SITEPILOT</span>
           </Link>
 
           {/* Desktop Nav */}

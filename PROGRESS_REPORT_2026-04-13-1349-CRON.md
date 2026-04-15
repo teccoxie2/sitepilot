@@ -1,0 +1,66 @@
+# SitePilot Progress Report — 2026-04-13 13:49 NZST
+
+## 执行范围
+- SEO 轮换检查
+- GA4 静态接入复核
+- Ethan Smith AEO 审计
+- 代码断链与构建验证
+- 内容产出
+
+## 已验证结果
+- `https://sitepilot.co/robots.txt` → 200
+- `https://sitepilot.co/sitemap.xml` → 200
+- 内部路由扫描：`TOTAL_ROUTES 121`、`TOTAL_HREFS 316`、`TOTAL_MISSING 0`
+- `sitepilot/src/app/layout.tsx` 仍挂载 `GoogleAnalytics measurementId="G-ZEHW3WYWXL"`
+
+## 线上抽查
+### 标题正常
+- `/enterprise-ai-vendor-comparison-guide-2026` → `Enterprise AI Vendor Comparison Guide 2026 | SitePilot`
+- `/ai-procurement-decision-matrix-tool-2026` → `AI Procurement Decision Matrix Tool 2026 | SitePilot`
+- `/methodology` → `Enterprise AI Vendor Evaluation Methodology 2026 | SitePilot`
+- `/proxies/mobile-proxy-software-comparison-2026` → `Mobile Proxy Software Comparison 2026 | Coronium vs LTESpace | SitePilot`
+
+### 标题漂移仍在
+- `/proxies` → `SitePilot | Global Digital Infrastructure Authority`
+- `/proxies/mobile-proxy-farm-setup-guide-2026` → `SitePilot | Global Digital Infrastructure Authority`
+- `/proxies/proxy-farm-hardware-selection-guide` → `SitePilot | Global Digital Infrastructure Authority`
+- `/proxies/residential-vs-mobile-proxies-comparison-2026` → `SitePilot | Global Digital Infrastructure Authority`
+
+### H1 抽查
+- `/proxies` → `Master the Proxy Landscape`
+- `/proxies/mobile-proxy-farm-setup-guide-2026` → `How to Build a Professional Mobile Proxy Farm`
+- `/proxies/proxy-farm-hardware-selection-guide` → `The Ultimate Proxy Farm Hardware Guide`
+- `/proxies/residential-vs-mobile-proxies-comparison-2026` → `Residential vs. Mobile Proxies: 2026 Comparison`
+
+## AEO / Ethan Smith 审计
+### 40–60 词事实开头
+- proxy hub：51 词
+- setup：56 词
+- hardware：44 词
+- residential-vs-mobile：54 词
+- software：51 词
+- decision matrix：47 词
+- methodology：47 词
+
+### BOFU 聚焦
+- procurement cluster 线上 title 继续稳定
+- proxy software 页仍保持最强 BOFU 提取形态
+- proxy hub / setup / hardware / comparison 四页因 live title 漂移，答案引擎提取 specificity 继续受损
+
+### Topical Authority 闭环
+- hub → comparison → setup → hardware → software 路径仍在源码成立
+- 本轮未发现站内核心路径断裂
+
+## 代码修复判断
+- 本轮未发现真实源码内部断链，因此没有伪造“修复”
+- 当前证据继续指向**生产输出漂移**，不是本地 metadata 缺失，也不是源码路由断链
+- hardware 页 live H1 仍与现源码标题不一致，说明线上内容仍未完全同步
+
+## 新增内容
+- `content-marketing/linkedin-sitepilot-live-metadata-drift-keeps-killing-bofu-extraction-2026-04-13.md`
+
+## 结论
+- 没有 robots、sitemap、404、源码断链级事故
+- GA4 仅完成静态接入复核，**没有**拿到后台真实事件数据
+- 当前持续风险仍是 proxy cluster 的 live metadata / live content 漂移
+- 这会伤害 BOFU answer extraction，但暂未达到需主动打扰用户的重大业务阻塞级别

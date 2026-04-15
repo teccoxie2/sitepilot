@@ -13,7 +13,7 @@ export default function HardwareGuide() {
             2026 Technical Blueprint
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-8">
-            The Ultimate <span className="text-blue-500">Proxy Farm</span> Hardware Guide
+            Proxy Farm <span className="text-blue-500">Hardware</span> Selection Guide
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Proxy farm hardware is the physical infrastructure required to host mobile devices for web automation. Effective selection focuses on high-bandwidth USB controllers, stable power delivery for 24/7 operation, and compatible Android hardware that supports carrier switching, remote control, and repeatable IP rotation under load.
@@ -46,8 +46,8 @@ export default function HardwareGuide() {
                 <div className="w-14 h-14 bg-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
                   <item.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-950">{item.title}</h3>
-                <p className="text-white leading-relaxed font-medium">{item.desc}</p>
+                <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
+                <p className="text-slate-300 leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -64,9 +64,9 @@ export default function HardwareGuide() {
                   { label: "Controller", spec: "Dedicated mini PC or Linux host", reason: "Keeps device control workflows predictable" }
                 ].map((row, i) => (
                   <div key={i} className="flex flex-col md:flex-row md:items-center p-6 bg-slate-900/30 rounded-2xl border border-blue-100/50">
-                    <div className="w-40 font-black text-slate-950 mb-2 md:mb-0">{row.label}</div>
-                    <div className="flex-1 font-bold text-blue-800 mb-2 md:mb-0">{row.spec}</div>
-                    <div className="text-slate-800 text-sm font-semibold italic">{row.reason}</div>
+                    <div className="w-40 font-black text-white mb-2 md:mb-0">{row.label}</div>
+                    <div className="flex-1 font-bold text-blue-300 mb-2 md:mb-0">{row.spec}</div>
+                    <div className="text-slate-300 text-sm font-semibold italic">{row.reason}</div>
                   </div>
                 ))}
               </div>

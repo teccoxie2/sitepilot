@@ -353,12 +353,13 @@ export default function EnterpriseAIVendorComparison() {
                 An enterprise AI vendor comparison guide is a structured shortlist review used to compare leading platforms across architecture, security, deployment model, pricing mechanics, and operational fit. This 2026 SitePilot analysis helps buying teams filter enterprise AI vendors before moving into RFP, due diligence, scorecard weighting, and pilot approval.
               </p>
               <p className="text-base text-gray-600 max-w-5xl mx-auto mb-8 leading-relaxed">
-                别拿厂商 demo 当采购依据。先看对比，再把候选名单推进到
-                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="text-blue-700 font-medium hover:underline"> RFP 模板</Link>、
-                <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="text-blue-700 font-medium hover:underline"> 尽调清单</Link>、
-                <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-blue-700 font-medium hover:underline"> Shortlist Scorecard</Link>、
-                <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="text-blue-700 font-medium hover:underline"> Pilot Checklist</Link>
-                ，这样 Methodology → Comparison → RFP → Scorecard → Pilot 的闭环才成立。
+                Do not treat vendor demos as procurement evidence. Use this comparison to narrow the field, then move the shortlist through
+                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="text-blue-700 font-medium hover:underline"> the RFP template</Link>,
+                <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="text-blue-700 font-medium hover:underline"> due diligence</Link>,
+                <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-blue-700 font-medium hover:underline"> the shortlist scorecard</Link>,
+                <Link href="/enterprise-ai-vendor-pricing-guide-2026" className="text-blue-700 font-medium hover:underline"> pricing review</Link>, and
+                <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="text-blue-700 font-medium hover:underline"> the pilot checklist</Link>
+                so the path from methodology to approval stays evidence-led.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-600 mb-8">
                 <Link href="/enterprise-ai-vendor-rfp-template-2026" className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 hover:bg-blue-100">RFP Template</Link>
@@ -371,75 +372,74 @@ export default function EnterpriseAIVendorComparison() {
               <div className="flex items-center justify-center space-x-8 text-sm text-gray-500 mb-8">
                 <div className="flex items-center">
                   <Award className="h-4 w-4 mr-1" />
-                  50+ 供应商分析
+                  Structured vendor review
                 </div>
                 <div className="flex items-center">
                   <BarChart3 className="h-4 w-4 mr-1" />
-                  8维度评估框架
+                  Evidence-led comparison
                 </div>
                 <div className="flex items-center">
                   <Shield className="h-4 w-4 mr-1" />
-                  合规性验证
+                  Security and governance filters
                 </div>
                 <div className="flex items-center">
                   <DollarSign className="h-4 w-4 mr-1" />
-                  ROI基准测试
+                  Commercial fit assessment
                 </div>
               </div>
             </div>
 
-            {/* GEO优化：AI供应商选择框架 */}
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">8维度AI供应商评估框架</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Evidence-first evaluation framework</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {
-                    dimension: "技术能力",
-                    weight: "25%",
-                    criteria: ["模型准确性", "API稳定性", "扩展性", "创新速度"],
-                    scoreRange: "0-100分"
+                    dimension: 'Strategic fit',
+                    weight: '15%',
+                    criteria: ['Business use case', 'Executive sponsor', 'Roadmap relevance', 'Industry fit'],
+                    scoreRange: 'Weighted score'
                   },
                   {
-                    dimension: "成本效益",
-                    weight: "20%", 
-                    criteria: ["初始投入", "运营成本", "ROI周期", "隐性成本"],
-                    scoreRange: "$/用户/月"
+                    dimension: 'Technical architecture',
+                    weight: '15%',
+                    criteria: ['Deployment model', 'Integration effort', 'Latency and scale', 'Observability support'],
+                    scoreRange: 'Weighted score'
                   },
                   {
-                    dimension: "实施复杂度",
-                    weight: "15%",
-                    criteria: ["部署时间", "技术要求", "培训需求", "集成难度"],
-                    scoreRange: "1-10级"
+                    dimension: 'Data governance',
+                    weight: '20%',
+                    criteria: ['Training usage policy', 'Residency and retention', 'Deletion and export', 'Sensitive-data handling'],
+                    scoreRange: 'Weighted score'
                   },
                   {
-                    dimension: "供应商稳定性",
-                    weight: "15%",
-                    criteria: ["市场地位", "财务状况", "客户满意度", "技术路线"],
-                    scoreRange: "A-D等级"
+                    dimension: 'Security and access',
+                    weight: '15%',
+                    criteria: ['SSO and MFA', 'RBAC', 'Audit logs', 'Incident response'],
+                    scoreRange: 'Weighted score'
                   },
                   {
-                    dimension: "安全合规",
-                    weight: "10%",
-                    criteria: ["数据保护", "访问控制", "审计能力", "认证标准"],
-                    scoreRange: "合规项数量"
+                    dimension: 'Commercial model',
+                    weight: '10%',
+                    criteria: ['Pricing transparency', 'Pilot-to-production cost', 'Support minimums', 'Exit terms'],
+                    scoreRange: 'Weighted score'
                   },
                   {
-                    dimension: "支持服务",
-                    weight: "8%",
-                    criteria: ["响应时间", "专业水平", "文档质量", "社区活跃度"],
-                    scoreRange: "1-5星"
+                    dimension: 'Implementation speed',
+                    weight: '10%',
+                    criteria: ['Time to value', 'Internal staffing', 'Onboarding quality', 'Change management'],
+                    scoreRange: 'Weighted score'
                   },
                   {
-                    dimension: "生态集成",
-                    weight: "4%",
-                    criteria: ["API开放性", "第三方集成", "开发工具", "合作伙伴"],
-                    scoreRange: "集成数量"
+                    dimension: 'Compliance readiness',
+                    weight: '10%',
+                    criteria: ['Privacy obligations', 'Sector requirements', 'Reviewability', 'Governance evidence'],
+                    scoreRange: 'Weighted score'
                   },
                   {
-                    dimension: "未来发展",
-                    weight: "3%",
-                    criteria: ["技术路线图", "研发投入", "市场策略", "行业趋势"],
-                    scoreRange: "前瞻性评分"
+                    dimension: 'Risk profile',
+                    weight: '5%',
+                    criteria: ['Subprocessors', 'Vendor concentration', 'Lock-in exposure', 'Rollback feasibility'],
+                    scoreRange: 'Weighted score'
                   }
                 ].map((item, index) => (
                   <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-blue-100">
@@ -458,34 +458,33 @@ export default function EnterpriseAIVendorComparison() {
               </div>
             </div>
 
-            {/* GEO优化：AI供应商常见问题 */}
             <div className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">AI供应商选择常见问题</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Questions buying teams should answer before scoring</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {[
                   {
-                    q: "如何评估AI供应商的技术实力？",
-                    a: "关键指标：1) 模型性能基准测试结果 2) API响应时间和稳定性 3) 客户案例和参考架构 4) 技术文档质量 5) 开源贡献和研究论文发表数量 6) 行业认证和标准合规情况。建议要求POC演示和试用期验证。"
+                    q: 'What should eliminate a vendor before weighted scoring begins?',
+                    a: 'Unclear training usage, weak identity controls, missing auditability, no workable export path, or unresolved residency requirements should be treated as fail conditions before feature scoring starts.'
                   },
                   {
-                    q: "企业AI供应商的典型成本结构是什么？",
-                    a: "成本构成：1) 许可费用($10K-$500K年度) 2) 实施服务($50K-$200K) 3) 培训成本($10K-$50K) 4) 运营费用($5K-$100K/月) 5) 集成开发($20K-$100K) 6) 维护支持(年费的15-25%)。总体TCO通常为初始投资的3-5倍。"
+                    q: 'What makes pricing data decision-grade instead of sales-grade?',
+                    a: 'You need contract mechanics, usage assumptions, implementation scope, support minimums, and pilot-to-production cost behavior. List prices alone are not enough.'
                   },
                   {
-                    q: "AI供应商的实施周期通常是多长？",
-                    a: "实施时间线：1) 简单集成：2-4周 2) 中等复杂度：1-3个月 3) 企业级部署：3-9个月 4) 复杂定制：6-18个月。影响因素包括数据准备时间、系统集成复杂度、定制开发需求、用户培训规模、合规审核要求。"
+                    q: 'How should teams reduce lock-in risk during selection?',
+                    a: 'Check export rights, deletion workflows, API coverage, substitution options, and rollback practicality before approval. Migration pain discovered after signature is already too late.'
                   },
                   {
-                    q: "如何降低AI供应商锁定风险？",
-                    a: "风险缓解策略：1) 选择支持开放标准的供应商 2) 要求数据导出功能和API 3) 避免过度定制化 4) 建立多供应商策略 5) 保留核心IP和数据控制权 6) 制定供应商迁移预案 7) 定期评估替代方案。"
+                    q: 'When does a pilot count as procurement evidence?',
+                    a: 'When it tests a live workflow, validates security and governance controls in the target environment, and proves the commercial model still holds under real usage.'
                   },
                   {
-                    q: "AI供应商的安全合规要求有哪些？",
-                    a: "核心要求：1) SOC 2 Type II认证 2) ISO 27001信息安全 3) GDPR/CCPA数据保护 4) 行业特定认证(HIPAA/PCI等) 5) 数据加密和访问控制 6) 审计日志和监控 7) 事件响应流程 8) 数据本地化选项。"
+                    q: 'What should this comparison page do in the larger cluster?',
+                    a: 'It should narrow the shortlist, not close the deal. The actual buying decision still depends on RFP answers, due diligence findings, scorecard weighting, pricing review, and pilot evidence.'
                   },
                   {
-                    q: "如何比较不同AI供应商的ROI？",
-                    a: "ROI计算方法：1) 量化收益(效率提升、成本节省、收入增长) 2) 计算总投资(TCO) 3) 设定评估周期(通常3年) 4) 考虑风险因素 5) 进行敏感性分析 6) 对比基准情况。典型ROI范围：150%-400%，回收周期12-24个月。"
+                    q: 'Why keep the procurement path tightly linked?',
+                    a: 'Because comparison content without follow-through creates vanity research. Methodology, comparison, RFP, due diligence, scorecard, pricing, and pilot pages should operate as one decision system.'
                   }
                 ].map((faq, index) => (
                   <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
@@ -501,62 +500,55 @@ export default function EnterpriseAIVendorComparison() {
               </div>
             </div>
 
-            {/* GEO优化：2026年AI供应商市场趋势 */}
             <div className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">2026年AI供应商市场趋势</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Use BOFU logic, not feature theater</h2>
               <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
                 <div className="grid md:grid-cols-3 gap-8">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">市场整合加速</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">What comparison should do</h3>
                     <ul className="space-y-2 text-gray-600">
-                      <li>• 大型科技公司收购AI初创企业增加40%</li>
-                      <li>• 独立AI供应商从200+家减少至80家</li>
-                      <li>• 行业专用AI解决方案成为主流</li>
-                      <li>• 中小型供应商面临生存压力</li>
+                      <li>• Filter the field to realistic vendors</li>
+                      <li>• Surface architecture and governance differences</li>
+                      <li>• Expose commercial trade-offs early</li>
+                      <li>• Set up the next BOFU step</li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">技术标准化</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">What comparison should not do</h3>
                     <ul className="space-y-2 text-gray-600">
-                      <li>• 开放AI框架(OpenAI, Anthropic)普及</li>
-                      <li>• 模型互操作性标准制定</li>
-                      <li>• 企业级AI治理框架统一</li>
-                      <li>• 多模态AI成为标准配置</li>
+                      <li>• Replace due diligence</li>
+                      <li>• Pretend demos are proof</li>
+                      <li>• Hide lock-in behind feature lists</li>
+                      <li>• Ignore pilot validation</li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">成本优化</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Next decision steps</h3>
                     <ul className="space-y-2 text-gray-600">
-                      <li>• AI推理成本下降60-80%</li>
-                      <li>• 边缘计算减少云端依赖</li>
-                      <li>• 按需付费模式普及</li>
-                      <li>• ROI周期缩短至6-12个月</li>
+                      <li>• Collect comparable answers via RFP</li>
+                      <li>• Run legal, security, and data diligence</li>
+                      <li>• Weight the shortlist scorecard</li>
+                      <li>• Validate reality through pilot evidence</li>
                     </ul>
                   </div>
                 </div>
                 <div className="mt-8 p-6 bg-blue-50 rounded-lg">
-                  <h4 className="font-bold text-blue-900 mb-3">⚠️ 2026年供应商选择关键决策因素</h4>
-                  <div className="grid md:grid-cols-2 gap-4 text-sm text-blue-800">
-                    <div>• 多模态AI能力(文本+图像+语音)</div>
-                    <div>• 边缘计算部署支持</div>
-                    <div>• 自动化模型优化</div>
-                    <div>• 实时监控和可观测性</div>
-                    <div>• 低代码/无代码开发平台</div>
-                    <div>• 行业特定预训练模型</div>
-                  </div>
+                  <h4 className="font-bold text-blue-900 mb-3">Decision rule</h4>
+                  <p className="text-sm text-blue-800 leading-relaxed">
+                    If a vendor looks strong on feature breadth but weak on residency, export rights, RBAC, auditability, or rollback feasibility, the procurement system should make that failure obvious before contract approval.
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* 开始比较按钮 */}
             <div className="text-center">
               <button 
                 onClick={() => setShowIntro(false)}
                 className="bg-blue-600 text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                开始供应商比较分析
+                Start vendor comparison
               </button>
-              <p className="text-gray-500 text-sm mt-3">基于8维度评估框架，3分钟获得专业建议</p>
+              <p className="text-gray-500 text-sm mt-3">Use the filters below to narrow the shortlist before moving into diligence.</p>
             </div>
           </div>
         </div>
@@ -579,15 +571,15 @@ export default function EnterpriseAIVendorComparison() {
                 <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
                   <div className="flex items-center">
                     <Award className="h-4 w-4 mr-1" />
-                    50+ Vendors Analyzed
+                    Structured vendor comparisons
                   </div>
                   <div className="flex items-center">
                     <BarChart3 className="h-4 w-4 mr-1" />
-                    ROI Benchmarked
+                    Commercial review framing
                   </div>
                   <div className="flex items-center">
                     <Shield className="h-4 w-4 mr-1" />
-                    Security Audited
+                    Security review prompts
                   </div>
                 </div>
               </div>

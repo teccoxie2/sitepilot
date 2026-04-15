@@ -48,17 +48,17 @@ export default function MobileProxyFarmGuide() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Undetectable Scraping",
+                title: "Carrier-issued network access",
                 desc: "Carrier-issued IPs can fit workloads that face more network scrutiny than ordinary residential or datacenter traffic.",
                 icon: Shield
               },
               {
-                title: "Bypass Geo-Blocking",
+                title: "Region and carrier control",
                 desc: "Device placement and SIM planning let operators map traffic to specific networks and local regions when that matters.",
                 icon: Network
               },
               {
-                title: "Unlimited IP Rotation",
+                title: "Rotation workflow control",
                 desc: "Managed software can coordinate device control and rotation workflows when the operating model is designed correctly.",
                 icon: Cpu
               }
@@ -68,7 +68,7 @@ export default function MobileProxyFarmGuide() {
                   <item.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
-                <p className="text-slate-800 leading-relaxed font-medium">{item.desc}</p>
+                <p className="text-slate-300 leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -81,7 +81,7 @@ export default function MobileProxyFarmGuide() {
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-6">
-                TOP RECOMMENDED SOLUTION
+                CONTROL LAYER OPTION
               </div>
               <h2 className="text-4xl font-bold mb-8 text-white">
                 Coronium.io: An operator-focused control layer for mobile farms
@@ -124,7 +124,7 @@ export default function MobileProxyFarmGuide() {
                   <div className="text-blue-300">curl -X POST "https://api.coronium.io/rotate" \</div>
                   <div className="text-blue-300 ml-4">-H "Authorization: Bearer $TOKEN" \</div>
                   <div className="text-blue-300 ml-4">-d "device_id=phone_01"</div>
-                  <div className="mt-8 text-green-400">{"{ \"status\": \"success\", \"new_ip\": \"103.24.xx.xx\" }"}</div>
+                  <div className="mt-8 text-green-400">{"{ \"status\": \"ok\", \"rotation_requested\": true }"}</div>
                 </div>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function MobileProxyFarmGuide() {
         <div className="container mx-auto px-4">
           <div className="bg-blue-600 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to Scale Your Scraping Infrastructure?</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-8">Build the operating model before you scale</h2>
               <p className="text-xl text-blue-100 mb-10 leading-relaxed">
                 If you are running your own device fleet, choose software only after the hardware, SIM plan, and controller model are clear.
               </p>

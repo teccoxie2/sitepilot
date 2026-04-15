@@ -1,27 +1,5 @@
-import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
-
-const pageTitle = 'Mobile Proxy Software Comparison 2026 | Coronium vs LTESpace | SitePilot'
-const pageDescription = 'Compare mobile proxy software in 2026 across rotation control, device management, observability, and operator overhead. Use this guide to evaluate Coronium, LTESpace, and DIY control stacks before scaling a mobile proxy farm.'
-const pageUrl = 'https://sitepilot.co/proxies/mobile-proxy-software-comparison-2026'
-
-export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: { canonical: pageUrl },
-  openGraph: {
-    title: pageTitle,
-    description: pageDescription,
-    url: pageUrl,
-    type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: pageTitle,
-    description: pageDescription,
-  },
-}
 
 const rows = [
   {

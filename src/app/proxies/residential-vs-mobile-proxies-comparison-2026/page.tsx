@@ -111,7 +111,7 @@ export default function ProxyComparison() {
       <section className="py-24">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-slate-950">Choose software after the network model is clear</h2>
+            <h2 className="text-4xl font-bold mb-8 text-white">Choose software after the network model is clear</h2>
             <p className="text-xl text-white font-medium mb-10">The cleaner path is simple: decide whether mobile infrastructure is justified, then map hardware and control software around that choice.</p>
             <Link 
               href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" 

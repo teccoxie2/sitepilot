@@ -27,11 +27,11 @@ export default function ProxiesHub() {
               Master the <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent italic">Proxy</span> Landscape
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-400 leading-relaxed mb-6 max-w-3xl mx-auto font-medium">
-              From DIY mobile farms to global residential networks. We provide the <span className="text-white">technical blueprints</span> needed to compare infrastructure, software, and operating trade-offs.
-            </p>
-            <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-12 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed mb-6 max-w-4xl mx-auto font-medium">
               A mobile proxy hub is a structured resource center covering 4G and 5G proxy infrastructure, residential versus mobile IP selection, Android farm hardware, and control software used for web automation. This 2026 guide set helps operators compare deployment models, reliability constraints, and commercial tooling before investing in a scalable proxy stack.
+            </p>
+            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-12 max-w-3xl mx-auto">
+              Use it to move from network-model selection to setup planning, hardware validation, and software comparison without relying on vague vendor claims.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-16">
@@ -122,6 +122,56 @@ export default function ProxiesHub() {
                     View Specs <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
+              </Link>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
+              <Link href="/proxies/developer-hub" className="group">
+                <div className="p-10 h-full rounded-[2.5rem] bg-[#161616] border border-white/5 hover:border-emerald-500/30 transition-all duration-500 shadow-2xl">
+                  <div className="text-xs uppercase tracking-[0.2em] text-emerald-400 font-black mb-4">Integration</div>
+                  <h3 className="text-2xl font-black mb-4 group-hover:text-emerald-400 transition-colors">Developer Hub & Code Snippets</h3>
+                  <p className="text-slate-400 font-medium leading-relaxed mb-6">Integrate proxies into Puppeteer, Playwright, and modern AI agents. Stop leaking WebRTC IPs and fighting TLS fingerprints.</p>
+                  <div className="inline-flex items-center text-emerald-400 font-bold gap-2">View integration patterns <ArrowRight className="w-4 h-4" /></div>
+                </div>
+              </Link>
+
+              <Link href="/proxies/recommendation" className="group">
+                <div className="p-10 h-full rounded-[2.5rem] bg-[#161616] border border-white/5 hover:border-pink-500/30 transition-all duration-500 shadow-2xl">
+                  <div className="text-xs uppercase tracking-[0.2em] text-pink-400 font-black mb-4">Workflow match</div>
+                  <h3 className="text-2xl font-black mb-4 group-hover:text-pink-400 transition-colors">Interactive Recommendation Tool</h3>
+                  <p className="text-slate-400 font-medium leading-relaxed mb-6">Map your automation budget, scale, and exact use case to a specific proxy vendor and infrastructure type in 3 clicks.</p>
+                  <div className="inline-flex items-center text-pink-400 font-bold gap-2">Get your recommendation <ArrowRight className="w-4 h-4" /></div>
+                </div>
+              </Link>
+            </div>
+
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mt-8">
+              <Link href="/proxies/best-residential-proxies-2026" className="rounded-[2rem] bg-[#161616] border border-white/5 p-8 hover:border-blue-500/30 transition-all duration-500 shadow-2xl group">
+                <div className="text-xs uppercase tracking-[0.2em] text-blue-400 font-black mb-4">Buyer's Guide</div>
+                <h3 className="text-2xl font-black mb-4 group-hover:text-blue-400 transition-colors">Best Residential Proxies</h3>
+                <p className="text-slate-400 font-medium leading-relaxed mb-6">Compare the top residential proxy vendors for scraping, AI collection, ad verification, and geo-authentic browsing.</p>
+                <div className="inline-flex items-center text-blue-400 font-bold gap-2">Review vendors <ArrowRight className="w-4 h-4" /></div>
+              </Link>
+
+              <Link href="/proxies/best-datacenter-proxies-2026" className="rounded-[2rem] bg-[#161616] border border-white/5 p-8 hover:border-indigo-500/30 transition-all duration-500 shadow-2xl group">
+                <div className="text-xs uppercase tracking-[0.2em] text-indigo-400 font-black mb-4">Buyer's Guide</div>
+                <h3 className="text-2xl font-black mb-4 group-hover:text-indigo-400 transition-colors">Best Datacenter Proxies</h3>
+                <p className="text-slate-400 font-medium leading-relaxed mb-6">Review fast, cheap datacenter proxy options for bulk concurrency and lower-risk workloads where trust is not the main constraint.</p>
+                <div className="inline-flex items-center text-indigo-400 font-bold gap-2">Compare speed and cost <ArrowRight className="w-4 h-4" /></div>
+              </Link>
+
+              <Link href="/proxies/best-mobile-proxies-2026" className="rounded-[2rem] bg-[#161616] border border-white/5 p-8 hover:border-cyan-500/30 transition-all duration-500 shadow-2xl group">
+                <div className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-black mb-4">Buyer's Guide</div>
+                <h3 className="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors">Best Mobile Proxies</h3>
+                <p className="text-slate-400 font-medium leading-relaxed mb-6">Compare hosted mobile providers and DIY farm paths for high-trust sessions, carrier realism, and sensitive automation targets.</p>
+                <div className="inline-flex items-center text-cyan-400 font-bold gap-2">Compare mobile options <ArrowRight className="w-4 h-4" /></div>
+              </Link>
+
+              <Link href="/proxies/best-isp-proxies-2026" className="rounded-[2rem] bg-[#161616] border border-white/5 p-8 hover:border-violet-500/30 transition-all duration-500 shadow-2xl group">
+                <div className="text-xs uppercase tracking-[0.2em] text-violet-400 font-black mb-4">Buyer's Guide</div>
+                <h3 className="text-2xl font-black mb-4 group-hover:text-violet-400 transition-colors">Best ISP Proxies</h3>
+                <p className="text-slate-400 font-medium leading-relaxed mb-6">Evaluate static residential providers for account continuity, lower latency, and workloads that need persistence instead of constant rotation.</p>
+                <div className="inline-flex items-center text-violet-400 font-bold gap-2">Compare static residential <ArrowRight className="w-4 h-4" /></div>
               </Link>
             </div>
           </div>

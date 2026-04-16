@@ -1,6 +1,27 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, XCircle, Info, Zap, BarChart3 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Residential vs Mobile Proxies Comparison 2026 | SitePilot',
+  description:
+    'Compare residential proxies and mobile proxies in 2026 across IP source, rotation behavior, operating complexity, and workload fit. Use this SitePilot guide to decide when mobile infrastructure is justified over residential supply.',
+  alternates: { canonical: 'https://sitepilot.co/proxies/residential-vs-mobile-proxies-comparison-2026' },
+  openGraph: {
+    title: 'Residential vs Mobile Proxies Comparison 2026 | SitePilot',
+    description:
+      'Compare residential proxies and mobile proxies in 2026 across IP source, rotation behavior, operating complexity, and workload fit. Use this SitePilot guide to decide when mobile infrastructure is justified over residential supply.',
+    url: 'https://sitepilot.co/proxies/residential-vs-mobile-proxies-comparison-2026',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Residential vs Mobile Proxies Comparison 2026 | SitePilot',
+    description:
+      'Compare residential proxies and mobile proxies in 2026 across IP source, rotation behavior, operating complexity, and workload fit. Use this SitePilot guide to decide when mobile infrastructure is justified over residential supply.',
+  },
+};
 
 export default function ProxyComparison() {
   return (

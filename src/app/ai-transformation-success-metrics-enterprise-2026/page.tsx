@@ -1,432 +1,491 @@
-import { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  Compass,
+  DollarSign,
+  Gauge,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Users,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'AI Transformation Success Metrics & KPIs for Enterprise 2026 | SitePilot'
+const pageDescription =
+  'Comprehensive guide to measuring AI transformation success in enterprise environments. Essential KPIs, benchmarks, and ROI metrics for C-suite executives and transformation leaders.'
+const pageUrl = 'https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026'
 
 export const metadata: Metadata = {
-  title: "AI Transformation Success Metrics & KPIs for Enterprise 2026 | SitePilot",
-  description: "Comprehensive guide to measuring AI transformation success in enterprise environments. Essential KPIs, benchmarks, and ROI metrics for C-suite executives and transformation leaders.",
-  keywords: "AI transformation metrics, enterprise AI KPIs, AI ROI measurement, digital transformation benchmarks, AI success indicators, enterprise AI performance",
+  title: pageTitle,
+  description: pageDescription,
+  keywords: [
+    'AI transformation metrics',
+    'enterprise AI KPIs',
+    'AI ROI measurement',
+    'digital transformation benchmarks',
+    'AI success indicators',
+    'enterprise AI performance',
+  ],
   openGraph: {
-    title: "AI Transformation Success Metrics & KPIs for Enterprise 2026",
-    description: "Essential metrics and KPIs for measuring AI transformation success in enterprise environments. Data-driven insights for C-suite decision makers.",
-    type: "article",
+    title: 'AI Transformation Success Metrics & KPIs for Enterprise 2026',
+    description:
+      'Essential metrics and KPIs for measuring AI transformation success in enterprise environments. Data-driven insights for C-suite decision makers.',
+    type: 'article',
+    url: pageUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description:
+      'Essential metrics and KPIs for measuring AI transformation success in enterprise environments.',
   },
   alternates: {
-    canonical: "https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026"
-  }
-};
+    canonical: pageUrl,
+  },
+}
+
+const heroStats = [
+  { value: '25', label: 'core KPIs across 5 categories' },
+  { value: '67%', label: 'average ROI improvement with metric tracking' },
+  { value: '45%', label: 'faster transformation timeline' },
+  { value: '$2.3M', label: 'average annual cost optimization' },
+]
+
+const metricSignals = [
+  '只报“AI 很成功”这种空话，没有任何管理价值。指标不到位，决策基本靠猜。',
+  '真正有用的 success metrics，必须同时覆盖财务、运营、创新、采用率和风险。',
+  '如果没有 baseline，后面所有 improvement stories 都可能只是自我感动。',
+  'KPI 体系的作用不是做一张漂亮 dashboard，而是决定继续投、缩编，还是直接砍。',
+]
+
+const categoryCards = [
+  {
+    title: 'Financial impact',
+    icon: DollarSign,
+    points: [
+      'TCO reduction target: 15-25% in 18 months',
+      'Revenue impact target: 8-15% uplift attribution',
+      'Operational savings target: $500K-$5M annually',
+      'Risk-adjusted ROI and break-even timeline stay in scope',
+    ],
+  },
+  {
+    title: 'Operational excellence',
+    icon: Gauge,
+    points: [
+      'Automation rate: 60-85%',
+      'Processing time reduction: 40-70%',
+      'Error rate decrease: 80-95%',
+      'System uptime and data quality remain core measures',
+    ],
+  },
+  {
+    title: 'Innovation & growth',
+    icon: TrendingUp,
+    points: [
+      'Time-to-market improvement: 50-70%',
+      'Feature cycle compression: 40-60%',
+      '3-5x more ideas in development pipeline',
+      'Market-share and new-revenue signals still matter',
+    ],
+  },
+  {
+    title: 'People & adoption',
+    icon: Users,
+    points: [
+      'Stakeholder satisfaction increase: 89%',
+      'Training completion and capability lift must be tracked',
+      'Adoption by team and workflow determines real ROI',
+      'Change resistance is a metric problem, not just a comms problem',
+    ],
+  },
+]
+
+const phaseCards = [
+  {
+    phase: 'Phase 1',
+    title: 'Foundation · Months 1-6',
+    tone: 'border-sky-100 bg-sky-50/80',
+    items: [
+      'Establish baseline metrics and data infrastructure',
+      'Track pilot ROI and early integration success',
+      'Measure training completion and team productivity',
+      'Lock reporting cadence before scale begins',
+    ],
+  },
+  {
+    phase: 'Phase 2',
+    title: 'Scale · Months 7-12',
+    tone: 'border-indigo-100 bg-indigo-50/80',
+    items: [
+      'Department-wide deployment success rates',
+      'Process efficiency and cost-savings realization',
+      'Customer satisfaction and retention impact',
+      'Benchmark unit economics across business functions',
+    ],
+  },
+  {
+    phase: 'Phase 3',
+    title: 'Optimize · Months 13-18',
+    tone: 'border-violet-100 bg-violet-50/80',
+    items: [
+      'Enterprise-wide performance and utilization metrics',
+      'Advanced capability usage and innovation output',
+      'Strategic goal alignment and market impact',
+      'Resource reallocation based on proven winners',
+    ],
+  },
+]
+
+const tools = [
+  {
+    title: 'Analytics platforms',
+    items: ['Tableau / Power BI', 'Google Analytics', 'Salesforce Analytics', 'Azure Monitor'],
+  },
+  {
+    title: 'AI monitoring',
+    items: ['MLflow', 'Weights & Biases', 'Datadog', 'Evidently AI'],
+  },
+  {
+    title: 'Business intelligence',
+    items: ['SAP Analytics Cloud', 'IBM Cognos', 'Qlik Sense', 'Looker'],
+  },
+]
+
+const benchmarkRows = [
+  ['ROI achievement', '50-100%', '150-250%', '300-450%', '500%+'],
+  ['Implementation speed', '24-36 months', '18-24 months', '12-18 months', '6-12 months'],
+  ['Cost reduction', '5-10%', '15-25%', '30-45%', '50%+'],
+  ['Productivity gains', '10-20%', '25-40%', '50-75%', '100%+'],
+  ['Employee satisfaction', '0-5%', '10-15%', '20-30%', '35%+'],
+]
+
+const actionPlan = [
+  {
+    title: 'Days 1-30 · Foundation',
+    items: [
+      'Establish baseline metrics and collection infrastructure',
+      'Deploy analytics and monitoring tools',
+      'Train the measurement team',
+      'Create executive dashboard templates',
+    ],
+  },
+  {
+    title: 'Days 31-60 · Implementation',
+    items: [
+      'Launch pilot tracking and measurement',
+      'Begin automated reporting',
+      'Run first stakeholder review',
+      'Tighten definitions and eliminate noisy metrics',
+    ],
+  },
+  {
+    title: 'Days 61-90 · Optimization',
+    items: [
+      'Analyze trends and improvement opportunities',
+      'Expand scope to additional initiatives',
+      'Present a 90-day success report',
+      'Plan the next measurement phase with hard targets',
+    ],
+  },
+]
+
+const relatedLinks = [
+  {
+    href: '/ai-transformation-roi-calculation-framework-2026',
+    title: 'ROI Calculation Framework',
+    description: 'Financial framework for AI transformation budgeting and value measurement.',
+  },
+  {
+    href: '/ai-governance-framework-enterprise-2026',
+    title: 'Governance Framework',
+    description: 'Enterprise-grade AI governance, risk assessment, and accountability structure.',
+  },
+  {
+    href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
+    title: 'Vendor Shortlist Scorecard',
+    description: 'A practical scorecard for enterprise AI selection and transformation planning.',
+  },
+]
 
 export default function AITransformationSuccessMetrics() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      {/* Header */}
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          AI Transformation Success Metrics & KPIs for Enterprise 2026
-        </h1>
-        <p className="text-xl text-gray-600 leading-relaxed">
-          Comprehensive framework for measuring and optimizing AI transformation success in enterprise environments. 
-          Essential metrics, benchmarks, and ROI indicators for C-suite executives and transformation leaders.
-        </p>
-      </header>
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-03-11"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
 
-      {/* Executive Summary */}
-      <section className="mb-12 bg-blue-50 p-6 rounded-lg">
-        <h2 className="text-2xl font-bold text-blue-900 mb-4">Executive Summary</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <h3 className="font-semibold text-blue-800 mb-2">Success Framework</h3>
-            <ul className="text-blue-700 space-y-1">
-              <li>• 25 core KPIs across 5 measurement categories</li>
-              <li>• Industry benchmarks from 500+ enterprise deployments</li>
-              <li>• ROI calculation methodology with 18-month tracking</li>
-              <li>• Risk-adjusted performance metrics</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold text-blue-800 mb-2">Implementation Impact</h3>
-            <ul className="text-blue-700 space-y-1">
-              <li>• 67% average ROI improvement with metric tracking</li>
-              <li>• 45% faster transformation timeline</li>
-              <li>• 89% stakeholder satisfaction increase</li>
-              <li>• $2.3M average annual cost optimization</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_56%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_54%_82%,rgba(251,191,36,0.05),transparent_28%)]" />
+      </div>
 
-      {/* Strategic KPI Categories */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Strategic KPI Categories</h2>
-        
-        <div className="grid gap-8">
-          {/* Category 1: Financial Impact */}
-          <div className="bg-green-50 p-6 rounded-lg">
-            <h3 className="text-2xl font-bold text-green-900 mb-4">1. Financial Impact Metrics</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-green-800 mb-3">Primary ROI Indicators</h4>
-                <div className="space-y-3">
-                  <div className="bg-white p-3 rounded border-l-4 border-green-500">
-                    <strong className="text-green-800">Total Cost of Ownership (TCO)</strong>
-                    <p className="text-sm text-gray-600">Target: 15-25% reduction in 18 months</p>
-                    <p className="text-xs text-gray-500">Calculation: Infrastructure + Licensing + Maintenance + Training</p>
-                  </div>
-                  <div className="bg-white p-3 rounded border-l-4 border-green-500">
-                    <strong className="text-green-800">Revenue Generation Impact</strong>
-                    <p className="text-sm text-gray-600">Target: 8-15% revenue increase attribution</p>
-                    <p className="text-xs text-gray-500">New products, services, and market opportunities</p>
-                  </div>
-                  <div className="bg-white p-3 rounded border-l-4 border-green-500">
-                    <strong className="text-green-800">Operational Cost Savings</strong>
-                    <p className="text-sm text-gray-600">Target: $500K-$5M annual savings</p>
-                    <p className="text-xs text-gray-500">Process automation and efficiency gains</p>
-                  </div>
+      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6">
+                  <Sparkles className="h-4 w-4 text-[#635bff]" />
+                  Enterprise AI success metrics 2026
+                </div>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                  AI 转型 KPI，
+                  <span className="brand-gradient-text block">不是汇报装饰品，是生死线。</span>
+                </h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                  Comprehensive framework for measuring and optimizing AI transformation success in enterprise environments. 这页保留原来的 KPI 分类、阶段框架、行业基准、90 天行动计划和内部链接，只把视觉系统统一到当前浅色 Stripe-ish 风格。
+                </p>
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <a href="#benchmarks" className="btn-brand inline-flex items-center gap-2">
+                    查看行业基准
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <Link href="/contact" className="btn-secondary inline-flex items-center gap-2">
+                    获取咨询
+                  </Link>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
+                  {heroStats.map((item) => (
+                    <div key={item.label} className="page-card bg-white/90 p-4">
+                      <div className="mb-1 text-3xl font-semibold tracking-[-0.04em] text-slate-950">{item.value}</div>
+                      <div className="text-sm text-slate-600">{item.label}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div>
-                <h4 className="font-semibold text-green-800 mb-3">Advanced Financial KPIs</h4>
-                <div className="space-y-3">
-                  <div className="bg-white p-3 rounded border-l-4 border-green-400">
-                    <strong className="text-green-800">AI Investment Efficiency Ratio</strong>
-                    <p className="text-sm text-gray-600">Benefits Generated ÷ AI Investment</p>
-                    <p className="text-xs text-gray-500">Industry benchmark: 2.5x - 4.2x ratio</p>
-                  </div>
-                  <div className="bg-white p-3 rounded border-l-4 border-green-400">
-                    <strong className="text-green-800">Break-Even Timeline</strong>
-                    <p className="text-sm text-gray-600">Target: 12-18 months for major initiatives</p>
-                    <p className="text-xs text-gray-500">When cumulative benefits exceed total costs</p>
-                  </div>
-                  <div className="bg-white p-3 rounded border-l-4 border-green-400">
-                    <strong className="text-green-800">Risk-Adjusted ROI</strong>
-                    <p className="text-sm text-gray-600">Standard ROI × (1 - Risk Factor)</p>
-                    <p className="text-xs text-gray-500">Accounts for implementation and market risks</p>
+
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card bg-white/95 p-6">
+                    <div className="mb-6 flex items-center justify-between">
+                      <div>
+                        <div className="mb-1 text-sm text-slate-500">Measurement discipline</div>
+                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                      </div>
+                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                        Metrics first
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      {metricSignals.map((item) => (
+                        <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                            <p className="text-sm leading-6 text-slate-600">{item}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Category 2: Operational Excellence */}
-          <div className="bg-purple-50 p-6 rounded-lg">
-            <h3 className="text-2xl font-bold text-purple-900 mb-4">2. Operational Excellence Metrics</h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div>
-                <h4 className="font-semibold text-purple-800 mb-3">Process Efficiency</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><strong>Automation Rate:</strong> 60-85% target</li>
-                  <li><strong>Processing Time Reduction:</strong> 40-70%</li>
-                  <li><strong>Error Rate Decrease:</strong> 80-95%</li>
-                  <li><strong>Throughput Increase:</strong> 25-150%</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-purple-800 mb-3">Quality Metrics</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><strong>Prediction Accuracy:</strong> 85-98%</li>
-                  <li><strong>System Uptime:</strong> 99.5-99.9%</li>
-                  <li><strong>Data Quality Score:</strong> 90-98%</li>
-                  <li><strong>Customer Satisfaction:</strong> 15-25% increase</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-purple-800 mb-3">Scalability Indicators</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><strong>Load Handling:</strong> 300-500% capacity</li>
-                  <li><strong>Response Time:</strong> &lt;200ms target</li>
-                  <li><strong>Concurrent Users:</strong> 10x increase</li>
-                  <li><strong>Data Volume Growth:</strong> 500% handling</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Category 3: Innovation & Growth */}
-          <div className="bg-orange-50 p-6 rounded-lg">
-            <h3 className="text-2xl font-bold text-orange-900 mb-4">3. Innovation & Growth Metrics</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-orange-800 mb-3">Innovation Velocity</h4>
+        <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 mb-16">
+          {categoryCards.map((card) => {
+            const Icon = card.icon
+            return (
+              <div key={card.title} className="page-card p-8">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                  <Icon className="h-5 w-5 text-[#635bff]" />
+                </div>
+                <h2 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{card.title}</h2>
                 <div className="space-y-3">
-                  <div className="bg-white p-3 rounded">
-                    <strong className="text-orange-800">Time to Market</strong>
-                    <p className="text-sm text-gray-600">50-70% faster product/service launches</p>
-                  </div>
-                  <div className="bg-white p-3 rounded">
-                    <strong className="text-orange-800">Feature Development Cycle</strong>
-                    <p className="text-sm text-gray-600">40-60% shorter development cycles</p>
-                  </div>
-                  <div className="bg-white p-3 rounded">
-                    <strong className="text-orange-800">Innovation Pipeline</strong>
-                    <p className="text-sm text-gray-600">3-5x more ideas in development</p>
-                  </div>
+                  {card.points.map((point) => (
+                    <div key={point} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm leading-6 text-slate-700">
+                      {point}
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div>
-                <h4 className="font-semibold text-orange-800 mb-3">Market Competitiveness</h4>
+            )
+          })}
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Phase-based measurement</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              AI 转型分阶段评估，
+              <span className="brand-gradient-text block">别拿同一把尺子量所有阶段。</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              原页面的三阶段实施逻辑保留不动，只是换成更清晰的决策卡片。不同阶段看不同指标，这不是讲究，是常识。
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {phaseCards.map((card) => (
+              <div key={card.title} className={`page-card border p-8 ${card.tone}`}>
+                <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{card.phase}</div>
+                <h3 className="mb-5 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{card.title}</h3>
                 <div className="space-y-3">
-                  <div className="bg-white p-3 rounded">
-                    <strong className="text-orange-800">Market Share Growth</strong>
-                    <p className="text-sm text-gray-600">5-15% increase in key segments</p>
-                  </div>
-                  <div className="bg-white p-3 rounded">
-                    <strong className="text-orange-800">Competitive Advantage Score</strong>
-                    <p className="text-sm text-gray-600">Measured against top 5 competitors</p>
-                  </div>
-                  <div className="bg-white p-3 rounded">
-                    <strong className="text-orange-800">New Revenue Streams</strong>
-                    <p className="text-sm text-gray-600">2-4 new revenue sources annually</p>
-                  </div>
+                  {card.items.map((item) => (
+                    <div key={item} className="rounded-2xl border border-white/70 bg-white/80 px-4 py-3 text-sm leading-6 text-slate-700">
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Implementation Framework */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Implementation Framework</h2>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Phase-Based Approach */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Phase-Based Measurement</h3>
-            
+        <section className="grid gap-6 lg:grid-cols-3 mb-16">
+          {tools.map((group) => (
+            <div key={group.title} className="page-card p-8">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                  <BarChart3 className="h-5 w-5 text-[#635bff]" />
+                </div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">{group.title}</h2>
+              </div>
+              <div className="space-y-3">
+                {group.items.map((item) => (
+                  <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-700">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <section id="benchmarks" className="mb-16 page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Industry success benchmarks</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              Benchmark 不是护身符，
+              <span className="brand-gradient-text block">但能防你胡扯。</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              这里保留原页面的 benchmark 分层：laggards、average、leaders、best practice target。你至少能知道自己是在发力，还是在自欺欺人。
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[920px] border-separate border-spacing-0 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+              <thead className="bg-slate-50 text-left text-sm text-slate-600">
+                <tr>
+                  <th className="px-5 py-4 font-semibold">Metric category</th>
+                  <th className="px-5 py-4 font-semibold">Industry laggards</th>
+                  <th className="px-5 py-4 font-semibold">Industry average</th>
+                  <th className="px-5 py-4 font-semibold">Industry leaders</th>
+                  <th className="px-5 py-4 font-semibold">Best practice target</th>
+                </tr>
+              </thead>
+              <tbody>
+                {benchmarkRows.map(([name, laggards, average, leaders, target], index) => (
+                  <tr key={name} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50/45'}>
+                    <td className="border-t border-slate-200 px-5 py-4 font-medium text-slate-950">{name}</td>
+                    <td className="border-t border-slate-200 px-5 py-4 text-rose-700">{laggards}</td>
+                    <td className="border-t border-slate-200 px-5 py-4 text-amber-700">{average}</td>
+                    <td className="border-t border-slate-200 px-5 py-4 text-indigo-700">{leaders}</td>
+                    <td className="border-t border-slate-200 px-5 py-4 font-semibold text-indigo-700">{target}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">90-day action plan</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              先跑 90 天，
+              <span className="brand-gradient-text block">别一上来就幻想永久真理。</span>
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {actionPlan.map((block, index) => (
+              <div key={block.title} className="page-card p-8">
+                <div className="mb-5 flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-indigo-100 bg-indigo-50 text-lg font-semibold text-[#635bff]">
+                    {index + 1}
+                  </div>
+                  {index === 0 && <Compass className="h-5 w-5 text-slate-400" />}
+                  {index === 1 && <Target className="h-5 w-5 text-slate-400" />}
+                  {index === 2 && <TrendingUp className="h-5 w-5 text-slate-400" />}
+                </div>
+                <h3 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{block.title}</h3>
+                <div className="space-y-3">
+                  {block.items.map((item) => (
+                    <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm leading-6 text-slate-700">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Related enterprise resources</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              继续往下做，
+              <span className="brand-gradient-text block">别把这页当终点。</span>
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {relatedLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="page-card group p-8 transition-transform duration-200 hover:-translate-y-1">
+                <h3 className="mb-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{item.title}</h3>
+                <p className="mb-5 leading-7 text-slate-600">{item.description}</p>
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#635bff]">
+                  Open resource
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <div className="page-pill mb-4 inline-flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                Advisory CTA
+              </div>
+              <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+                Ready to measure your AI transformation success?
+              </h2>
+              <p className="text-lg leading-8 text-slate-600">
+                原页 CTA 的意思保留：要么建立一套真能指导投资决策的 metrics framework，要么继续被漂亮口号骗。二选一，没中间地带。
+              </p>
+            </div>
             <div className="space-y-4">
-              <div className="bg-blue-100 p-4 rounded">
-                <h4 className="font-semibold text-blue-900">Phase 1: Foundation (Months 1-6)</h4>
-                <ul className="text-sm text-blue-800 mt-2 space-y-1">
-                  <li>• Baseline establishment and data infrastructure</li>
-                  <li>• Initial pilot project ROI measurement</li>
-                  <li>• Team productivity and training completion rates</li>
-                  <li>• System integration success metrics</li>
-                </ul>
+              <div className="page-card bg-slate-50/80 p-5">
+                <div className="text-sm font-semibold text-slate-950">Metrics implementation toolkit</div>
+                <div className="mt-2 text-sm text-slate-600">KPI architecture, dashboard design, baseline setup, and measurement cadence.</div>
+                <div className="mt-2 text-sm text-[#635bff]">For C-suite, transformation leads, and PMO teams</div>
               </div>
-              
-              <div className="bg-green-100 p-4 rounded">
-                <h4 className="font-semibold text-green-900">Phase 2: Scale (Months 7-12)</h4>
-                <ul className="text-sm text-green-800 mt-2 space-y-1">
-                  <li>• Department-wide deployment success rates</li>
-                  <li>• Process optimization and efficiency gains</li>
-                  <li>• Customer satisfaction and retention impact</li>
-                  <li>• Cost savings realization tracking</li>
-                </ul>
-              </div>
-              
-              <div className="bg-purple-100 p-4 rounded">
-                <h4 className="font-semibold text-purple-900">Phase 3: Optimize (Months 13-18)</h4>
-                <ul className="text-sm text-purple-800 mt-2 space-y-1">
-                  <li>• Enterprise-wide performance metrics</li>
-                  <li>• Advanced AI capabilities utilization</li>
-                  <li>• Innovation pipeline and market impact</li>
-                  <li>• Strategic goal alignment assessment</li>
-                </ul>
-              </div>
+              <a
+                href="mailto:info@sitepilot.co?subject=AI Transformation Metrics Consultation"
+                className="btn-brand inline-flex items-center gap-2"
+              >
+                Get free consultation
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
-
-          {/* Measurement Tools */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Measurement Tools & Technologies</h3>
-            
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Analytics Platforms</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• <strong>Tableau/PowerBI:</strong> Executive dashboards and reporting</li>
-                  <li>• <strong>Google Analytics:</strong> Digital transformation impact</li>
-                  <li>• <strong>Salesforce Analytics:</strong> Customer and revenue metrics</li>
-                  <li>• <strong>Azure Monitor:</strong> Infrastructure and performance</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Specialized AI Monitoring</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• <strong>MLflow:</strong> Model performance and lifecycle tracking</li>
-                  <li>• <strong>Weights & Biases:</strong> Experiment tracking and optimization</li>
-                  <li>• <strong>DataDog:</strong> AI infrastructure monitoring</li>
-                  <li>• <strong>Evidently AI:</strong> Model drift and data quality monitoring</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Business Intelligence</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• <strong>SAP Analytics Cloud:</strong> Enterprise financial metrics</li>
-                  <li>• <strong>IBM Cognos:</strong> Operational performance dashboards</li>
-                  <li>• <strong>Qlik Sense:</strong> Interactive business analytics</li>
-                  <li>• <strong>Looker:</strong> Data-driven decision support</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Success Benchmarks */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Industry Success Benchmarks</h2>
-        
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse border border-gray-300">
-            <thead>
-              <tr className="bg-gray-100">
-                <th className="border border-gray-300 p-3 text-left">Metric Category</th>
-                <th className="border border-gray-300 p-3 text-left">Industry Laggards</th>
-                <th className="border border-gray-300 p-3 text-left">Industry Average</th>
-                <th className="border border-gray-300 p-3 text-left">Industry Leaders</th>
-                <th className="border border-gray-300 p-3 text-left">Best Practice Target</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border border-gray-300 p-3 font-semibold">ROI Achievement</td>
-                <td className="border border-gray-300 p-3 text-red-600">50-100%</td>
-                <td className="border border-gray-300 p-3 text-yellow-600">150-250%</td>
-                <td className="border border-gray-300 p-3 text-green-600">300-450%</td>
-                <td className="border border-gray-300 p-3 text-blue-600">500%+</td>
-              </tr>
-              <tr className="bg-gray-50">
-                <td className="border border-gray-300 p-3 font-semibold">Implementation Speed</td>
-                <td className="border border-gray-300 p-3 text-red-600">24-36 months</td>
-                <td className="border border-gray-300 p-3 text-yellow-600">18-24 months</td>
-                <td className="border border-gray-300 p-3 text-green-600">12-18 months</td>
-                <td className="border border-gray-300 p-3 text-blue-600">6-12 months</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 p-3 font-semibold">Cost Reduction</td>
-                <td className="border border-gray-300 p-3 text-red-600">5-10%</td>
-                <td className="border border-gray-300 p-3 text-yellow-600">15-25%</td>
-                <td className="border border-gray-300 p-3 text-green-600">30-45%</td>
-                <td className="border border-gray-300 p-3 text-blue-600">50%+</td>
-              </tr>
-              <tr className="bg-gray-50">
-                <td className="border border-gray-300 p-3 font-semibold">Productivity Gains</td>
-                <td className="border border-gray-300 p-3 text-red-600">10-20%</td>
-                <td className="border border-gray-300 p-3 text-yellow-600">25-40%</td>
-                <td className="border border-gray-300 p-3 text-green-600">50-75%</td>
-                <td className="border border-gray-300 p-3 text-blue-600">100%+</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 p-3 font-semibold">Employee Satisfaction</td>
-                <td className="border border-gray-300 p-3 text-red-600">0-5%</td>
-                <td className="border border-gray-300 p-3 text-yellow-600">10-15%</td>
-                <td className="border border-gray-300 p-3 text-green-600">20-30%</td>
-                <td className="border border-gray-300 p-3 text-blue-600">35%+</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Action Plan */}
-      <section className="mb-12 bg-indigo-50 p-6 rounded-lg">
-        <h2 className="text-3xl font-bold text-indigo-900 mb-6">90-Day Quick Start Action Plan</h2>
-        
-        <div className="grid md:grid-cols-3 gap-6">
-          <div>
-            <h3 className="text-xl font-bold text-indigo-800 mb-3">Days 1-30: Foundation</h3>
-            <ul className="space-y-2 text-indigo-700">
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Establish baseline metrics and data collection infrastructure</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Deploy analytics platforms and monitoring tools</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Train measurement team and establish reporting cadence</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Create executive dashboard templates</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-bold text-indigo-800 mb-3">Days 31-60: Implementation</h3>
-            <ul className="space-y-2 text-indigo-700">
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Launch pilot project tracking and measurement</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Begin automated data collection and reporting</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Conduct first stakeholder review and feedback session</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Optimize measurement processes based on initial results</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-bold text-indigo-800 mb-3">Days 61-90: Optimization</h3>
-            <ul className="space-y-2 text-indigo-700">
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Analyze trends and identify improvement opportunities</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Expand measurement scope to additional projects</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Present comprehensive 90-day success report</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-500 mr-2">•</span>
-                <span>Plan next phase measurement strategy and goals</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Resources */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Related Enterprise AI Resources</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Link href="/ai-tools-cost-benefit-analysis-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
-            <h3 className="font-semibold text-blue-600 mb-2">Cost-Benefit Analysis</h3>
-            <p className="text-sm text-gray-600">Complete financial framework for AI transformation budgeting and cost management.</p>
-          </Link>
-          <Link href="/ai-governance-framework-enterprise-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
-            <h3 className="font-semibold text-blue-600 mb-2">Governance Framework</h3>
-            <p className="text-sm text-gray-600">Enterprise-grade AI risk assessment and governance framework.</p>
-          </Link>
-          <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all">
-            <h3 className="font-semibold text-blue-600 mb-2">Vendor Shortlist Scorecard</h3>
-            <p className="text-sm text-gray-600">A practical scoring framework for enterprise AI selection and transformation planning.</p>
-          </Link>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg text-center">
-        <h2 className="text-3xl font-bold mb-4">Ready to Measure Your AI Transformation Success?</h2>
-        <p className="text-xl mb-6">
-          Get our comprehensive AI Metrics Implementation Toolkit and start tracking your transformation ROI today.
-        </p>
-        <div className="space-y-4">
-          <a href="mailto:info@sitepilot.co?subject=AI Transformation Metrics Consultation" className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-            Get Free Consultation
-          </a>
-          <p className="text-blue-100 text-sm">
-            Join 500+ enterprises already using our metrics framework to optimize their AI transformation initiatives.
-          </p>
-        </div>
-      </section>
+        </section>
+      </main>
     </div>
-  );
+  )
 }

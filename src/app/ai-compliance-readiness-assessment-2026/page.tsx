@@ -1,638 +1,537 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2, Shield, Sparkles } from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'AI Compliance Readiness Assessment 2026 | Enterprise AI Regulatory Framework'
+const pageDescription =
+  'Comprehensive AI compliance readiness assessment with regulatory framework evaluation, risk scoring, and remediation planning for enterprise AI governance.'
+const pageUrl = 'https://sitepilot.co/ai-compliance-readiness-assessment-2026'
 
 export const metadata: Metadata = {
-  title: 'AI Compliance Readiness Assessment 2026 | Enterprise AI Regulatory Framework',
-  description: 'Comprehensive AI compliance readiness assessment with regulatory framework evaluation, risk scoring, and remediation planning for enterprise AI governance.',
-};
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
+}
+
+const summaryCards = [
+  { value: '$4.2M', label: 'Average compliance cost', note: 'Per major violation event' },
+  { value: '73%', label: 'Non-compliance rate', note: 'Enterprise AI systems in the market' },
+  { value: '8', label: 'Major frameworks', note: 'Active compliance regimes in 2026' },
+  { value: '18 months', label: 'Typical timeline', note: 'Average path to stronger readiness' },
+]
+
+const frameworks = [
+  {
+    title: 'EU AI Act',
+    subtitle: '2026 enforcement focus',
+    risk: 'High',
+    penalty: 'Up to 7% of global turnover',
+    note: 'Comprehensive risk-based AI regulation.',
+    width: '100%',
+    tone: 'bg-rose-600',
+  },
+  {
+    title: 'GDPR Data Protection',
+    subtitle: 'Personal data processing',
+    risk: 'High',
+    penalty: 'Up to 4% of global turnover',
+    note: 'Controls for personal data inside AI systems.',
+    width: '83%',
+    tone: 'bg-orange-500',
+  },
+  {
+    title: 'SOX Compliance',
+    subtitle: 'US financial controls',
+    risk: 'Medium',
+    penalty: 'Criminal liability plus fines',
+    note: 'Financial reporting accuracy and AI decision transparency.',
+    width: '50%',
+    tone: 'bg-amber-500',
+  },
+  {
+    title: 'HIPAA Healthcare',
+    subtitle: 'Protected health information',
+    risk: 'High',
+    penalty: 'Up to $1.5M per incident',
+    note: 'Medical AI and health-data processing controls.',
+    width: '67%',
+    tone: 'bg-rose-600',
+  },
+]
+
+const scoringCards = [
+  { label: 'Overall compliance score', value: '67/100', note: 'Moderate risk level' },
+  { label: 'EU AI Act', value: '42/100', note: 'High risk' },
+  { label: 'GDPR', value: '74/100', note: 'Medium risk' },
+  { label: 'ISO27001', value: '85/100', note: 'Low risk' },
+]
+
+const priorityRisks = [
+  {
+    title: 'Critical gaps',
+    timing: 'Immediate action',
+    items: [
+      'AI system risk classification missing',
+      'Algorithmic impact assessments absent',
+      'Human oversight mechanisms inadequate',
+    ],
+  },
+  {
+    title: 'High priority',
+    timing: '90-day timeline',
+    items: [
+      'Data governance framework gaps',
+      'Documentation standards non-compliant',
+      'Bias testing protocols missing',
+    ],
+  },
+  {
+    title: 'Medium priority',
+    timing: '180-day timeline',
+    items: [
+      'Audit trail improvements needed',
+      'Staff training programs incomplete',
+      'Third-party vendor assessments',
+    ],
+  },
+]
+
+const riskTiers = [
+  {
+    title: 'High-risk AI systems',
+    status: '38/100',
+    note: 'Immediate remediation required',
+    items: [
+      'Credit scoring AI: prohibited/high-risk territory in the EU AI Act',
+      'Recruitment AI: bias exposure is critical',
+      'Healthcare diagnostics: HIPAA and medical-device pressure',
+    ],
+    tone: 'border-rose-100 bg-rose-50/70 text-rose-800',
+  },
+  {
+    title: 'Medium-risk AI systems',
+    status: '71/100',
+    note: 'Improvements needed within 90 days',
+    items: [
+      'Customer service AI: privacy and disclosure controls',
+      'Fraud detection AI: false positive and explainability pressure',
+      'Marketing AI: consent and personalization boundaries',
+    ],
+    tone: 'border-amber-100 bg-amber-50/70 text-amber-800',
+  },
+  {
+    title: 'Low-risk AI systems',
+    status: '89/100',
+    note: 'Mostly compliant, minor updates',
+    items: [
+      'Content generation AI: lighter regulatory burden',
+      'Process optimization AI: mostly internal controls',
+      'Analytics AI: lower privacy pressure when data is aggregated',
+    ],
+    tone: 'border-indigo-100 bg-indigo-50/80 text-indigo-800',
+  },
+]
+
+const gapAnalysis = [
+  { label: 'Critical gaps', value: '12', note: 'Immediate action' },
+  { label: 'High priority', value: '27', note: '90-day timeline' },
+  { label: 'Medium priority', value: '34', note: '180-day timeline' },
+  { label: 'Total cost', value: '$12.8M', note: 'Remediation budget' },
+]
+
+const roadmap = [
+  {
+    title: 'Critical remediation',
+    timing: 'Weeks 1-4',
+    investment: '$2.1M',
+    items: [
+      'AI system inventory and risk classification',
+      'High-risk AI impact assessments',
+      'Emergency compliance documentation',
+      'Legal risk mitigation measures',
+    ],
+  },
+  {
+    title: 'High-priority implementation',
+    timing: 'Months 2-4',
+    investment: '$5.4M',
+    items: [
+      'Data governance framework deployment',
+      'Bias testing and monitoring systems',
+      'Human oversight implementation',
+      'Audit-ready documentation systems',
+    ],
+  },
+  {
+    title: 'Optimization and continuous compliance',
+    timing: 'Months 5-12',
+    investment: '$5.3M',
+    items: [
+      'Advanced monitoring and alerting',
+      'Staff training and certification',
+      'Third-party vendor assessments',
+      'Continuous compliance automation',
+    ],
+  },
+]
+
+const investmentCards = [
+  {
+    title: 'Technology and infrastructure',
+    value: '$5.2M',
+    note: 'Compliance monitoring systems and data-governance platforms.',
+  },
+  {
+    title: 'Professional services and training',
+    value: '$4.1M',
+    note: 'Legal consultation, staff training, and process redesign.',
+  },
+  {
+    title: 'Documentation and processes',
+    value: '$2.3M',
+    note: 'Policy development, procedures, and audit preparation.',
+  },
+  {
+    title: 'Ongoing compliance operations',
+    value: '$1.2M annually',
+    note: 'Recurring monitoring, updates, and reassessments.',
+  },
+]
+
+const riskValueCards = [
+  {
+    title: 'Regulatory penalty avoidance',
+    value: '$127M',
+    note: 'Potential exposure across EU AI Act, GDPR, and sector regimes.',
+  },
+  {
+    title: 'Litigation risk reduction',
+    value: '$45M',
+    note: 'Bias claims, privacy violations, and discrimination exposure.',
+  },
+  {
+    title: 'Operational trust preservation',
+    value: 'Reputation',
+    note: 'Harder to quantify, but often more damaging than the fine itself.',
+  },
+]
 
 export default function AIComplianceReadinessAssessment2026() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-rose-100">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          
-          {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-              Enterprise AI Regulatory Compliance
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-04-19"
+        modifiedDate="2026-04-19"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(239,68,68,0.07),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_54%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[34rem] h-[28rem] bg-[radial-gradient(circle_at_20%_22%,rgba(239,68,68,0.05),transparent_24%),radial-gradient(circle_at_76%_16%,rgba(14,165,233,0.05),transparent_22%),radial-gradient(circle_at_52%_78%,rgba(244,114,182,0.04),transparent_28%)]" />
+      </div>
+
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
+          <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                Enterprise AI regulatory readiness
+              </div>
+
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                AI compliance readiness,
+                <span className="brand-gradient-text block">measured before enforcement hits.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                This assessment maps enterprise AI systems against the regulatory frameworks most likely to create serious exposure in
+                2026, then translates that exposure into risk scores, priority gaps, and a staged remediation plan.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/ai-compliance-automation-assessment-tool" className="btn-brand">
+                  Open automation assessment
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/ai-governance-compliance-framework-2026" className="btn-secondary">
+                  Review governance framework
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
+                {summaryCards.map((item) => (
+                  <div key={item.label} className="page-card p-4 bg-white/90">
+                    <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{item.value}</div>
+                    <div className="text-sm font-semibold text-slate-900">{item.label}</div>
+                    <div className="text-sm text-slate-500 mt-1">{item.note}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              AI Compliance Readiness <span className="text-red-600">Assessment</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive regulatory compliance evaluation for enterprise AI systems with risk scoring, gap analysis, and remediation roadmaps.
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-rose-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-6 bg-white/95">
+                  <div className="flex items-center justify-between mb-6">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Readiness score</div>
+                      <div className="text-xl font-semibold text-slate-950">Current posture snapshot</div>
+                    </div>
+                    <div className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
+                      Moderate risk
+                    </div>
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {scoringCards.map((item) => (
+                      <div key={item.label} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5">
+                        <div className="text-sm text-slate-500 mb-2">{item.label}</div>
+                        <div className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{item.value}</div>
+                        <div className="text-sm text-slate-500">{item.note}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+        <section className="grid lg:grid-cols-[1.04fr_0.96fr] gap-6 mb-16">
+          <div className="page-card p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+                <Shield className="w-5 h-5 text-[#635bff]" />
+              </div>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Multi-framework assessment</h2>
+            </div>
+            <div className="space-y-4">
+              {frameworks.map((framework) => (
+                <div key={framework.title} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-5">
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-950">{framework.title}</h3>
+                      <p className="text-sm text-slate-500">{framework.subtitle}</p>
+                    </div>
+                    <div className="text-sm font-semibold text-slate-900">{framework.risk} risk</div>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-3">{framework.note}</p>
+                  <div className="w-full bg-slate-200 rounded-full h-2.5 mb-3">
+                    <div className={`${framework.tone} h-2.5 rounded-full`} style={{ width: framework.width }} />
+                  </div>
+                  <div className="text-xs font-semibold text-slate-500">{framework.penalty}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="page-card p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-[#635bff]" />
+              </div>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Priority risk areas</h2>
+            </div>
+            <div className="space-y-4">
+              {priorityRisks.map((risk) => (
+                <div key={risk.title} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5">
+                  <div className="flex items-center justify-between gap-4 mb-3">
+                    <h3 className="font-semibold text-slate-950">{risk.title}</h3>
+                    <div className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+                      {risk.timing}
+                    </div>
+                  </div>
+                  <ul className="space-y-3">
+                    {risk.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-slate-600">
+                        <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="grid lg:grid-cols-3 gap-6 mb-16">
+          {riskTiers.map((tier) => (
+            <div key={tier.title} className={`rounded-[1.75rem] border p-7 ${tier.tone}`}>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] mb-3">{tier.title}</h2>
+              <div className="text-sm font-semibold mb-1">Compliance status: {tier.status}</div>
+              <div className="text-sm mb-5">{tier.note}</div>
+              <ul className="space-y-3">
+                {tier.items.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+
+        <section className="page-card-glow p-8 md:p-10 surface-muted mb-16">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Gap analysis</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              Readiness becomes actionable
+              <span className="block brand-gradient-text">when the gap count is explicit.</span>
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              This section turns general risk into a budgetable backlog: critical issues first, then the 90-day and 180-day layers.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-5">
+            {gapAnalysis.map((item) => (
+              <div key={item.label} className="page-card p-6 text-center">
+                <div className="text-sm font-semibold text-slate-900 mb-2">{item.label}</div>
+                <div className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{item.value}</div>
+                <div className="text-sm text-slate-500">{item.note}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="page-card p-8 mb-16">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Remediation roadmap</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              Compliance remediation needs
+              <span className="block brand-gradient-text">sequencing, not panic.</span>
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              The roadmap below stages enterprise work so the most dangerous regulatory exposure is reduced first, then operationalized.
             </p>
           </div>
 
-          {/* Compliance Overview Dashboard */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-red-600 mb-2">$4.2M</div>
-              <div className="text-gray-600">Avg Compliance Cost</div>
-              <div className="text-sm text-blue-600 mt-1">Per violation event</div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">73%</div>
-              <div className="text-gray-600">Non-Compliance Rate</div>
-              <div className="text-sm text-red-600 mt-1">Enterprise AI systems</div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">8</div>
-              <div className="text-gray-600">Major Frameworks</div>
-              <div className="text-sm text-green-600 mt-1">Active in 2026</div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">18</div>
-              <div className="text-gray-600">Months Average</div>
-              <div className="text-sm text-purple-600 mt-1">Compliance timeline</div>
+          <div className="grid gap-5">
+            {roadmap.map((phase, index) => (
+              <div key={phase.title} className="rounded-[1.75rem] border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-6">
+                <div className="flex flex-wrap items-center gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm font-semibold">
+                    {index + 1}
+                  </div>
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">{phase.title}</h3>
+                  <div className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                    {phase.timing}
+                  </div>
+                  <div className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+                    Investment: {phase.investment}
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {phase.items.map((item) => (
+                    <div key={item} className="page-card p-4 flex items-start gap-3">
+                      <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                      <span className="text-sm text-slate-600">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid lg:grid-cols-2 gap-6 mb-16">
+          <div className="page-card p-8">
+            <div className="text-sm uppercase tracking-[0.18em] text-indigo-600/80 mb-3">Investment</div>
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">Remediation spend</h2>
+            <div className="space-y-4">
+              {investmentCards.map((item) => (
+                <div key={item.title} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5">
+                  <h3 className="font-semibold text-slate-950 mb-2">{item.title}</h3>
+                  <div className="text-2xl font-semibold tracking-[-0.04em] text-indigo-700 mb-2">{item.value}</div>
+                  <p className="text-sm text-slate-600">{item.note}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Regulatory Framework Assessment */}
-          <div className="bg-white rounded-lg shadow-lg mb-12">
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                ⚖️ Multi-Framework Compliance Assessment
+          <div className="page-card p-8">
+            <div className="text-sm uppercase tracking-[0.18em] text-rose-600/80 mb-3">Risk value</div>
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">What the program is protecting against</h2>
+            <div className="space-y-4">
+              {riskValueCards.map((item) => (
+                <div key={item.title} className="rounded-[1.5rem] border border-rose-100 bg-rose-50/60 p-5">
+                  <h3 className="font-semibold text-rose-900 mb-2">{item.title}</h3>
+                  <div className="text-2xl font-semibold tracking-[-0.04em] text-rose-700 mb-2">{item.value}</div>
+                  <p className="text-sm text-slate-600">{item.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="page-card-glow p-8 md:p-12 surface-muted">
+          <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+            <div className="max-w-2xl">
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Next steps</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                Readiness scoring should lead
+                <span className="block brand-gradient-text">into governance and audit work.</span>
               </h2>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                {/* Major Regulatory Frameworks */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Core Regulatory Frameworks</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-blue-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-blue-800">EU AI Act (2026)</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-blue-600">Risk Level: High</span>
-                          <div className="w-20 h-2 bg-blue-200 rounded-full">
-                            <div className="w-full h-2 bg-red-500 rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Comprehensive AI regulation with risk-based approach
-                      </div>
-                      <div className="text-xs text-blue-700 font-medium">Penalty: Up to 7% of global turnover</div>
-                    </div>
-                    
-                    <div className="p-4 bg-green-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-green-800">GDPR Data Protection</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-green-600">Risk Level: High</span>
-                          <div className="w-20 h-2 bg-green-200 rounded-full">
-                            <div className="w-5/6 h-2 bg-orange-500 rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Personal data processing in AI systems
-                      </div>
-                      <div className="text-xs text-green-700 font-medium">Penalty: Up to 4% of global turnover</div>
-                    </div>
-                    
-                    <div className="p-4 bg-purple-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-purple-800">SOX Compliance (US)</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-purple-600">Risk Level: Medium</span>
-                          <div className="w-20 h-2 bg-purple-200 rounded-full">
-                            <div className="w-3/6 h-2 bg-yellow-500 rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Financial reporting accuracy and AI decision transparency
-                      </div>
-                      <div className="text-xs text-purple-700 font-medium">Penalty: Criminal liability + fines</div>
-                    </div>
-                    
-                    <div className="p-4 bg-orange-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-orange-800">HIPAA Healthcare (US)</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-orange-600">Risk Level: High</span>
-                          <div className="w-20 h-2 bg-orange-200 rounded-full">
-                            <div className="w-4/6 h-2 bg-red-500 rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Protected health information in AI/ML applications
-                      </div>
-                      <div className="text-xs text-orange-700 font-medium">Penalty: Up to $1.5M per incident</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Compliance Scoring Matrix */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Real-Time Compliance Scoring</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-gray-800 mb-2">Overall Compliance Score</div>
-                        <div className="text-4xl font-bold text-orange-600 mb-2">67/100</div>
-                        <div className="text-sm text-orange-600 font-semibold">Moderate Risk Level</div>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="p-3 bg-red-50 rounded text-center">
-                        <div className="text-sm font-medium text-red-800">EU AI Act</div>
-                        <div className="text-xl font-bold text-red-600">42/100</div>
-                        <div className="text-xs text-red-600">High Risk</div>
-                      </div>
-                      <div className="p-3 bg-orange-50 rounded text-center">
-                        <div className="text-sm font-medium text-orange-800">GDPR</div>
-                        <div className="text-xl font-bold text-orange-600">74/100</div>
-                        <div className="text-xs text-orange-600">Medium Risk</div>
-                      </div>
-                      <div className="p-3 bg-yellow-50 rounded text-center">
-                        <div className="text-sm font-medium text-yellow-800">SOX</div>
-                        <div className="text-xl font-bold text-yellow-600">68/100</div>
-                        <div className="text-xs text-yellow-600">Medium Risk</div>
-                      </div>
-                      <div className="p-3 bg-green-50 rounded text-center">
-                        <div className="text-sm font-medium text-green-800">ISO27001</div>
-                        <div className="text-xl font-bold text-green-600">85/100</div>
-                        <div className="text-xs text-green-600">Low Risk</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Priority Risk Areas */}
-              <div className="p-6 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">🚨 Priority Risk Areas</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div>
-                    <h4 className="font-medium text-red-800 mb-3">Critical Gaps (Immediate Action)</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li className="flex items-start gap-2">
-                        <span className="text-red-600">⚠️</span>
-                        <span>AI system risk classification missing</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-red-600">⚠️</span>
-                        <span>Algorithmic impact assessments absent</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-red-600">⚠️</span>
-                        <span>Human oversight mechanisms inadequate</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-orange-800 mb-3">High Priority (90 days)</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li className="flex items-start gap-2">
-                        <span className="text-orange-600">⚠️</span>
-                        <span>Data governance framework gaps</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-orange-600">⚠️</span>
-                        <span>Documentation standards non-compliant</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-orange-600">⚠️</span>
-                        <span>Bias testing protocols missing</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-yellow-800 mb-3">Medium Priority (180 days)</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li className="flex items-start gap-2">
-                        <span className="text-yellow-600">⚠️</span>
-                        <span>Audit trail improvements needed</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-yellow-600">⚠️</span>
-                        <span>Staff training programs incomplete</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-yellow-600">⚠️</span>
-                        <span>Third-party vendor assessments</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                Once the enterprise knows where the gaps are, the next move is formal governance design or a deeper compliance audit workflow.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/ai-compliance-automation-assessment-tool" className="btn-brand">
+                  Open automation tool
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/tools/ai-compliance-audit-2026" className="btn-secondary">
+                  Open audit workflow
+                </Link>
               </div>
             </div>
-          </div>
 
-          {/* Detailed Risk Assessment */}
-          <div className="bg-white rounded-lg shadow-lg mb-12">
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                🔍 Detailed Compliance Risk Assessment
-              </h2>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-                {/* High-Risk AI Systems */}
-                <div className="p-6 border-2 border-red-200 rounded-lg">
-                  <h3 className="text-lg font-semibold text-red-800 mb-4">
-                    🔴 High-Risk AI Systems
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="p-3 bg-red-50 rounded">
-                      <div className="font-medium text-red-800 mb-2">Credit Scoring AI</div>
-                      <div className="text-sm text-gray-600 mb-2">Financial decision automation</div>
-                      <div className="text-xs text-red-700">EU AI Act Category: Prohibited/High-Risk</div>
-                    </div>
-                    <div className="p-3 bg-red-50 rounded">
-                      <div className="font-medium text-red-800 mb-2">Recruitment AI</div>
-                      <div className="text-sm text-gray-600 mb-2">Automated hiring decisions</div>
-                      <div className="text-xs text-red-700">Bias risk: Critical</div>
-                    </div>
-                    <div className="p-3 bg-red-50 rounded">
-                      <div className="font-medium text-red-800 mb-2">Healthcare Diagnostics</div>
-                      <div className="text-sm text-gray-600 mb-2">Medical AI decision support</div>
-                      <div className="text-xs text-red-700">HIPAA + Medical Device Regulation</div>
-                    </div>
+            <div className="grid md:grid-cols-2 gap-5">
+              {[
+                {
+                  href: '/ai-governance-compliance-framework-2026',
+                  title: 'Governance compliance framework',
+                  description: 'Translate the assessment into policy, controls, and monitoring design.',
+                },
+                {
+                  href: '/tools/ai-compliance-audit-2026',
+                  title: 'AI compliance audit tool',
+                  description: 'Run a broader audit path after the initial readiness assessment.',
+                },
+              ].map((item) => (
+                <Link key={item.href} href={item.href} className="page-card p-6 hover:-translate-y-0.5 transition-transform">
+                  <h3 className="text-xl font-semibold text-slate-950 mb-2">{item.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-5">{item.description}</p>
+                  <div className="inline-flex items-center text-[#635bff] font-semibold">
+                    Open resource
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </div>
-                  <div className="mt-4 p-3 bg-red-100 rounded">
-                    <div className="text-sm font-medium text-red-800">Compliance Status: 38/100</div>
-                    <div className="text-xs text-red-600">Immediate remediation required</div>
-                  </div>
-                </div>
-
-                {/* Medium-Risk AI Systems */}
-                <div className="p-6 border-2 border-orange-200 rounded-lg">
-                  <h3 className="text-lg font-semibold text-orange-800 mb-4">
-                    🟡 Medium-Risk AI Systems
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="p-3 bg-orange-50 rounded">
-                      <div className="font-medium text-orange-800 mb-2">Customer Service AI</div>
-                      <div className="text-sm text-gray-600 mb-2">Chatbots and virtual assistants</div>
-                      <div className="text-xs text-orange-700">Data privacy compliance focus</div>
-                    </div>
-                    <div className="p-3 bg-orange-50 rounded">
-                      <div className="font-medium text-orange-800 mb-2">Fraud Detection AI</div>
-                      <div className="text-sm text-gray-600 mb-2">Financial transaction monitoring</div>
-                      <div className="text-xs text-orange-700">False positive impact assessment</div>
-                    </div>
-                    <div className="p-3 bg-orange-50 rounded">
-                      <div className="font-medium text-orange-800 mb-2">Marketing AI</div>
-                      <div className="text-sm text-gray-600 mb-2">Personalization and targeting</div>
-                      <div className="text-xs text-orange-700">GDPR consent mechanisms</div>
-                    </div>
-                  </div>
-                  <div className="mt-4 p-3 bg-orange-100 rounded">
-                    <div className="text-sm font-medium text-orange-800">Compliance Status: 71/100</div>
-                    <div className="text-xs text-orange-600">Improvements needed within 90 days</div>
-                  </div>
-                </div>
-
-                {/* Low-Risk AI Systems */}
-                <div className="p-6 border-2 border-green-200 rounded-lg">
-                  <h3 className="text-lg font-semibold text-green-800 mb-4">
-                    🟢 Low-Risk AI Systems
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="p-3 bg-green-50 rounded">
-                      <div className="font-medium text-green-800 mb-2">Content Generation AI</div>
-                      <div className="text-sm text-gray-600 mb-2">Creative and writing assistance</div>
-                      <div className="text-xs text-green-700">Minimal regulatory requirements</div>
-                    </div>
-                    <div className="p-3 bg-green-50 rounded">
-                      <div className="font-medium text-green-800 mb-2">Process Optimization AI</div>
-                      <div className="text-sm text-gray-600 mb-2">Internal workflow automation</div>
-                      <div className="text-xs text-green-700">Standard data protection only</div>
-                    </div>
-                    <div className="p-3 bg-green-50 rounded">
-                      <div className="font-medium text-green-800 mb-2">Analytics AI</div>
-                      <div className="text-sm text-gray-600 mb-2">Business intelligence and reporting</div>
-                      <div className="text-xs text-green-700">Aggregated data, low privacy risk</div>
-                    </div>
-                  </div>
-                  <div className="mt-4 p-3 bg-green-100 rounded">
-                    <div className="text-sm font-medium text-green-800">Compliance Status: 89/100</div>
-                    <div className="text-xs text-green-600">Mostly compliant, minor updates</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Compliance Gap Analysis */}
-              <div className="p-6 bg-gradient-to-r from-gray-50 to-slate-50 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">📊 Compliance Gap Analysis</h3>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Critical Gaps</div>
-                    <div className="text-3xl font-bold text-red-600 mb-1">12</div>
-                    <div className="text-sm text-gray-600">Immediate action</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">High Priority</div>
-                    <div className="text-3xl font-bold text-orange-600 mb-1">27</div>
-                    <div className="text-sm text-gray-600">90-day timeline</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Medium Priority</div>
-                    <div className="text-3xl font-bold text-yellow-600 mb-1">34</div>
-                    <div className="text-sm text-gray-600">180-day timeline</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Total Cost</div>
-                    <div className="text-3xl font-bold text-blue-600 mb-1">$12.8M</div>
-                    <div className="text-sm text-gray-600">Remediation budget</div>
-                  </div>
-                </div>
-              </div>
+                </Link>
+              ))}
             </div>
           </div>
-
-          {/* Remediation Roadmap */}
-          <div className="bg-white rounded-lg shadow-lg mb-12">
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                🛠️ Compliance Remediation Roadmap
-              </h2>
-
-              <div className="space-y-8">
-                {/* Phase 1 - Immediate Actions */}
-                <div className="relative">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">1</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">Critical Remediation (Weeks 1-4)</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <h4 className="font-medium text-gray-700 mb-2">Immediate Actions</h4>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• AI system inventory and risk classification</li>
-                            <li>• High-risk AI system impact assessments</li>
-                            <li>• Emergency compliance documentation</li>
-                            <li>• Legal risk mitigation measures</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-700 mb-2">Success Metrics</h4>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• 100% AI systems classified by risk</li>
-                            <li>• Critical gaps documented</li>
-                            <li>• Legal exposure assessment complete</li>
-                            <li>• Emergency protocols activated</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="mt-4 p-3 bg-red-50 rounded">
-                        <div className="text-sm font-medium text-red-800">Investment: $2.1M | Timeline: 4 weeks</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Phase 2 - High Priority Remediation */}
-                <div className="relative">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">2</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">High-Priority Implementation (Months 2-4)</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <h4 className="font-medium text-gray-700 mb-2">Implementation Focus</h4>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Data governance framework deployment</li>
-                            <li>• AI bias testing and monitoring systems</li>
-                            <li>• Human oversight mechanism implementation</li>
-                            <li>• Comprehensive documentation systems</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-700 mb-2">Success Metrics</h4>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Data governance: 90% compliance</li>
-                            <li>• Bias testing: 100% high-risk systems</li>
-                            <li>• Human oversight: operational</li>
-                            <li>• Documentation: audit-ready</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="mt-4 p-3 bg-orange-50 rounded">
-                        <div className="text-sm font-medium text-orange-800">Investment: $5.4M | Timeline: 3 months</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Phase 3 - Medium Priority & Optimization */}
-                <div className="relative">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">3</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">Optimization & Continuous Compliance (Months 5-12)</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <h4 className="font-medium text-gray-700 mb-2">Optimization Initiatives</h4>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Advanced monitoring and alerting</li>
-                            <li>• Staff training and certification</li>
-                            <li>• Third-party vendor assessments</li>
-                            <li>• Continuous compliance automation</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-700 mb-2">Success Metrics</h4>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Overall compliance score: 85+</li>
-                            <li>• Staff certification: 100%</li>
-                            <li>• Vendor compliance: 90%</li>
-                            <li>• Audit readiness: continuous</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="mt-4 p-3 bg-green-50 rounded">
-                        <div className="text-sm font-medium text-green-800">Investment: $5.3M | Timeline: 8 months</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Cost-Benefit Analysis */}
-          <div className="bg-white rounded-lg shadow-lg mb-12">
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                💰 Compliance Investment vs. Risk Analysis
-              </h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Investment Breakdown */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">📊 Remediation Investment</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-blue-50 rounded-lg">
-                      <div className="font-medium text-blue-800 mb-2">
-                        🏗️ Technology & Infrastructure
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Compliance monitoring systems, data governance platforms
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-blue-600 font-medium">Investment:</span>
-                        <span className="text-blue-700 font-bold">$5.2M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-green-50 rounded-lg">
-                      <div className="font-medium text-green-800 mb-2">
-                        👥 Professional Services & Training
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Legal consultation, staff training, process redesign
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-green-600 font-medium">Investment:</span>
-                        <span className="text-green-700 font-bold">$4.1M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-purple-50 rounded-lg">
-                      <div className="font-medium text-purple-800 mb-2">
-                        📋 Documentation & Processes
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Policy development, procedure documentation, audit prep
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-purple-600 font-medium">Investment:</span>
-                        <span className="text-purple-700 font-bold">$2.3M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-orange-50 rounded-lg">
-                      <div className="font-medium text-orange-800 mb-2">
-                        🔄 Ongoing Compliance Operations
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Annual compliance monitoring, updates, assessments
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-orange-600 font-medium">Annual Cost:</span>
-                        <span className="text-orange-700 font-bold">$1.2M</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Risk Mitigation Value */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">🛡️ Risk Mitigation Value</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-red-50 rounded-lg">
-                      <div className="font-medium text-red-800 mb-2">
-                        ⚠️ Regulatory Penalty Avoidance
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        EU AI Act, GDPR, industry-specific penalties
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-red-600 font-medium">Potential Exposure:</span>
-                        <span className="text-red-700 font-bold">$127M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-yellow-50 rounded-lg">
-                      <div className="font-medium text-yellow-800 mb-2">
-                        🏛️ Litigation Risk Reduction
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Bias-related lawsuits, privacy violations, discrimination claims
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-yellow-600 font-medium">Potential Exposure:</span>
-                        <span className="text-yellow-700 font-bold">$45M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-indigo-50 rounded-lg">
-                      <div className="font-medium text-indigo-800 mb-2">
-                        📈 Business Continuity Protection
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Operational disruption avoidance, market access preservation
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-indigo-600 font-medium">Value Protected:</span>
-                        <span className="text-indigo-700 font-bold">$89M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-green-50 rounded-lg">
-                      <div className="font-medium text-green-800 mb-2">
-                        🌟 Competitive Advantage
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Trust premium, market leadership, customer confidence
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-green-600 font-medium">Value Creation:</span>
-                        <span className="text-green-700 font-bold">$34M</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">📈 Net Value Analysis</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Total Investment</div>
-                    <div className="text-3xl font-bold text-red-600 mb-1">$12.8M</div>
-                    <div className="text-sm text-gray-600">18-month program</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Risk Mitigation</div>
-                    <div className="text-3xl font-bold text-green-600 mb-1">$295M</div>
-                    <div className="text-sm text-gray-600">Total protected value</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Net ROI</div>
-                    <div className="text-3xl font-bold text-blue-600 mb-1">2,205%</div>
-                    <div className="text-sm text-gray-600">Risk-adjusted return</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Related Tools Section */}
-          <div className="bg-gradient-to-r from-red-600 to-rose-700 rounded-lg p-8 text-white">
-            <h2 className="text-2xl font-bold mb-6">🔗 Related Enterprise AI Compliance Tools</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Link href="/ai-governance-framework-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">Governance Framework</h3>
-                <p className="text-sm text-red-100">Enterprise AI governance and compliance operating model</p>
-              </Link>
-              <Link href="/ai-governance-framework-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">AI Governance Framework</h3>
-                <p className="text-sm text-red-100">Comprehensive organizational AI governance structure</p>
-              </Link>
-              <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">Vendor Shortlist Scorecard</h3>
-                <p className="text-sm text-red-100">Supplier compliance evaluation and risk assessment</p>
-              </Link>
-            </div>
-          </div>
-
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
-  );
+  )
 }

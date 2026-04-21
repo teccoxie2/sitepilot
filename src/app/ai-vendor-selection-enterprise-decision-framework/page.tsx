@@ -1,543 +1,527 @@
-import { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  Compass,
+  FileSearch,
+  Handshake,
+  Shield,
+  Sparkles,
+  Target,
+  TrendingUp,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+import { pageDescription, pageTitle, pageUrl } from './metadata'
 
-export const metadata: Metadata = {
-  title: 'AI Vendor Selection: Enterprise Decision Framework 2026',
-  description: 'Comprehensive enterprise AI vendor evaluation framework. Compare 50+ AI providers with our multi-criteria decision matrix for optimal vendor selection.',
-  keywords: 'AI vendor selection, enterprise AI providers, AI vendor evaluation, AI procurement, AI vendor comparison, enterprise AI sourcing',
-}
+const heroStats = [
+  { value: '50+', label: 'AI vendors evaluated' },
+  { value: '8', label: 'decision criteria in the matrix' },
+  { value: '94%', label: 'selection success rate cited on the page' },
+  { value: '$2.1M', label: 'average switching cost per vendor' },
+]
+
+const marketCards = [
+  { value: '250+', label: 'Active enterprise AI vendors' },
+  { value: '$127B', label: 'Enterprise AI market size 2026' },
+  { value: '73%', label: 'Vendor selection decisions regretted' },
+  { value: '$2.1M', label: 'Average switching cost per vendor' },
+]
+
+const frameworkCards = [
+  {
+    title: 'Technical capabilities',
+    tone: 'border-violet-100 bg-violet-50/80',
+    points: [
+      'Foundation models, multimodal support, fine-tuning, edge and on-prem options.',
+      'APIs, SDKs, enterprise integrations, data pipeline readiness.',
+      'Performance guarantees, concurrency, scaling, and geographic footprint.',
+    ],
+  },
+  {
+    title: 'Business model & pricing',
+    tone: 'border-indigo-100 bg-indigo-50/80',
+    points: [
+      'Usage vs subscription pricing, discounts, hidden fees, predictability.',
+      'Contract flexibility, SLAs, exit clauses, IP terms.',
+      'Implementation, support, operating, and migration costs all count.',
+    ],
+  },
+  {
+    title: 'Security & compliance',
+    tone: 'border-rose-100 bg-rose-50/80',
+    points: [
+      'Encryption, access control, residency, vulnerability management.',
+      'Privacy, industry compliance, AI governance, auditability.',
+      'Continuity, insurance, liability, and incident response maturity.',
+    ],
+  },
+  {
+    title: 'Support & partnership',
+    tone: 'border-amber-100 bg-amber-50/80',
+    points: [
+      '24/7 support, TAM coverage, services, training, certification.',
+      'Roadmap influence, early access, co-innovation, executive alignment.',
+      'Community, ecosystem, integrations, and customer success depth.',
+    ],
+  },
+]
+
+const scoringRows = [
+  ['Technical Capabilities', '25%', '9.2', '8.8', '8.5', '8.7', '8.3'],
+  ['Business Model & Pricing', '20%', '7.8', '8.1', '8.4', '8.9', '8.6'],
+  ['Security & Compliance', '20%', '8.3', '8.7', '9.1', '9.3', '9.5'],
+  ['Support & Partnership', '15%', '7.9', '8.2', '8.6', '9.0', '9.1'],
+  ['Innovation & Roadmap', '10%', '9.5', '9.1', '8.8', '8.4', '8.1'],
+  ['Market Position & Stability', '5%', '9.3', '7.8', '9.7', '9.8', '9.6'],
+  ['User Experience & Usability', '3%', '9.1', '8.9', '8.2', '8.5', '7.8'],
+  ['Cultural & Strategic Fit', '2%', '8.4', '8.6', '8.1', '8.8', '8.3'],
+]
+
+const totalRow = ['Weighted Total Score', '100%', '8.65', '8.58', '8.69', '8.91', '8.78']
+
+const processCards = [
+  {
+    title: 'Phase 1: Requirements definition',
+    icon: FileSearch,
+    points: [
+      'Business use case definition',
+      'Technical requirements specification',
+      'Budget and timeline constraints',
+      'Security and compliance needs',
+      'Integration requirements analysis',
+      'Success criteria establishment',
+    ],
+  },
+  {
+    title: 'Phase 2: Vendor evaluation',
+    icon: Compass,
+    points: [
+      'Long-list vendor identification',
+      'RFI/RFP process execution',
+      'Proof of concept development',
+      'Reference customer interviews',
+      'Technical due diligence',
+      'Commercial terms negotiation',
+    ],
+  },
+  {
+    title: 'Phase 3: Selection & implementation',
+    icon: Handshake,
+    points: [
+      'Final vendor selection decision',
+      'Contract finalization and signing',
+      'Implementation planning',
+      'Change management preparation',
+      'Integration and testing',
+      'Go-live and success measurement',
+    ],
+  },
+]
+
+const analysisCards = [
+  {
+    title: 'Use case alignment',
+    points: [
+      'Generative AI: OpenAI and Anthropic lead in creative and reasoning-heavy tasks.',
+      'Enterprise integration: Microsoft and Google fit better when ecosystem alignment matters.',
+      'Infrastructure services: AWS and Azure cover broader infrastructure patterns.',
+    ],
+  },
+  {
+    title: 'Cost optimization strategies',
+    points: [
+      'Multi-vendor strategy can improve leverage, resilience, and use-case fit.',
+      'Cost control needs usage monitoring, scaling controls, and regular review.',
+      'Best-of-breed is fine until governance is too weak to manage it.',
+    ],
+  },
+  {
+    title: 'Common selection pitfalls',
+    points: [
+      'Over-weighting benchmark performance while ignoring integration complexity.',
+      'Thinking short-term price beats long-term value and switching risk.',
+      'Underestimating dependency, change management, and rollout friction.',
+    ],
+  },
+]
+
+const roiCards = [
+  {
+    title: 'Optimized vendor selection',
+    tone: 'border-indigo-100 bg-indigo-50/80',
+    rows: [
+      ['Implementation success rate', '94%'],
+      ['Time to value', '4.2 months'],
+      ['3-year TCO savings', '$1.8M'],
+      ['ROI achievement', '267%'],
+    ],
+  },
+  {
+    title: 'Poor vendor selection',
+    tone: 'border-rose-100 bg-rose-50/80',
+    rows: [
+      ['Implementation success rate', '27%'],
+      ['Time to value', '14.7 months'],
+      ['3-year additional costs', '$3.2M'],
+      ['ROI achievement', '-23%'],
+    ],
+  },
+]
+
+const executionCards = [
+  {
+    title: 'Week 1-2 actions',
+    points: [
+      'Download your evaluation template',
+      'Define AI use cases and requirements',
+      'Set the evaluation team and criteria',
+      'Create the preliminary vendor long-list',
+    ],
+  },
+  {
+    title: 'Week 3-8 execution',
+    points: [
+      'Run the RFI/RFP process',
+      'Conduct proof of concepts',
+      'Complete vendor due diligence',
+      'Make the final selection decision',
+    ],
+  },
+]
+
+const relatedLinks = [
+  {
+    href: '/ai-vendor-risk-evaluation-tool-2026',
+    title: 'AI Vendor Risk Evaluation Tool 2026',
+    note: '先看风险，再谈 shortlist。',
+  },
+  {
+    href: '/ai-vendor-due-diligence-checklist-enterprise-2026',
+    title: 'AI Vendor Due Diligence Checklist 2026',
+    note: '把该问的尽调问题问完。',
+  },
+  {
+    href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
+    title: 'Enterprise AI Vendor Shortlist Scorecard 2026',
+    note: '把长名单收成 shortlist。',
+  },
+  {
+    href: '/ai-procurement-decision-matrix-tool-2026',
+    title: 'AI Procurement Decision Matrix Tool 2026',
+    note: '需要更偏采购打法时继续看。',
+  },
+]
 
 export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
-            AI Vendor Selection: Enterprise Decision Framework 2026
-          </h1>
-          <p className="text-xl text-indigo-100 mb-8">
-            Systematic approach to evaluating and selecting AI vendors with our proven 8-dimension decision matrix
-          </p>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 inline-block">
-            <p className="text-lg text-white font-semibold">
-              🎯 50+ AI vendors evaluated • 8 decision criteria • 94% selection success rate
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-03-11"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_56%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_54%_82%,rgba(251,191,36,0.05),transparent_28%)]" />
+      </div>
+
+      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6">
+                  <Sparkles className="h-4 w-4 text-[#635bff]" />
+                  Enterprise vendor selection 2026
+                </div>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                  AI vendor 选型，
+                  <span className="brand-gradient-text block">别把采购做成抽盲盒。</span>
+                </h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                  这页保留原来的 8 维决策框架、市场数据、评分矩阵、流程、ROI 对比和执行步骤，只把视觉统一到当前浅色 Stripe-ish UI。内容还是那套：系统化选型，比事后返工便宜太多。
+                </p>
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <a href="#matrix" className="btn-brand inline-flex items-center gap-2">
+                    查看评分矩阵
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <Link href="/ai-vendor-risk-evaluation-tool-2026" className="btn-secondary inline-flex items-center gap-2">
+                    先做风险评估
+                  </Link>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
+                  {heroStats.map((item) => (
+                    <div key={item.label} className="page-card bg-white/90 p-4">
+                      <div className="mb-1 text-3xl font-semibold tracking-[-0.04em] text-slate-950">{item.value}</div>
+                      <div className="text-sm text-slate-600">{item.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card bg-white/95 p-6">
+                    <div className="mb-6 flex items-center justify-between">
+                      <div>
+                        <div className="mb-1 text-sm text-slate-500">What this page preserves</div>
+                        <div className="text-xl font-semibold text-slate-950">Same framework, cleaner shell</div>
+                      </div>
+                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                        8 criteria
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      {[
+                        'Market overview and switching-cost story stay intact.',
+                        'The comparison matrix still uses the original vendor scores.',
+                        'Process phases, ROI comparison, and execution steps remain.',
+                        'Canonical, metadata, schema, and internal links are now properly wired.',
+                      ].map((item) => (
+                        <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                            <p className="text-sm leading-6 text-slate-600">{item}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-5 rounded-2xl border border-sky-100 bg-sky-50/80 px-4 py-4 text-sm leading-6 text-slate-700">
+                      选型最大的坑不是“选错”，而是你根本说不清自己为什么选它。这个框架就是拿来防这个的。
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Market overview</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              市场很热闹，
+              <span className="brand-gradient-text block">但错误选型一样很贵。</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              原页面的市场数据和“选错代价”逻辑保留。现在只是把它摆得更像一个真正的决策页面，而不是一张长到想关掉的宣传页。
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Market Overview */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Enterprise AI Vendor Landscape 2026
-          </h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">250+</div>
-              <p className="text-gray-700">Active enterprise AI vendors</p>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {marketCards.map((card) => (
+              <div key={card.label} className="page-card p-8">
+                <div className="text-4xl font-semibold tracking-[-0.05em] text-slate-950">{card.value}</div>
+                <div className="mt-3 text-sm leading-6 text-slate-600">{card.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Framework</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              8 维决策框架，
+              <span className="brand-gradient-text block">不靠供应商 demo 冲昏头。</span>
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {frameworkCards.map((card) => (
+              <div key={card.title} className={`page-card border p-8 ${card.tone}`}>
+                <h3 className="mb-4 text-2xl font-semibold text-slate-950">{card.title}</h3>
+                <div className="space-y-3 text-sm leading-6 text-slate-700">
+                  {card.points.map((point) => (
+                    <div key={point} className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">
+                      {point}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="matrix" className="mb-16 page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Comparison matrix</div>
+              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+                评分矩阵不是圣旨，
+                <span className="brand-gradient-text block">但至少比拍脑袋强太多。</span>
+              </h2>
             </div>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">$127B</div>
-              <p className="text-gray-700">Enterprise AI market size 2026</p>
-            </div>
-            <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-cyan-600 mb-2">73%</div>
-              <p className="text-gray-700">Vendor selection decisions regretted</p>
-            </div>
-            <div className="bg-teal-50 border border-teal-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-teal-600 mb-2">$2.1M</div>
-              <p className="text-gray-700">Average switching cost per vendor</p>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4 text-sm leading-6 text-slate-600">
+              Scores based on the page’s original Q4 2026 evaluation snapshot.
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 8-Dimension Decision Framework */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            8-Dimension Enterprise AI Vendor Decision Framework
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {/* Technical Capabilities */}
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-purple-800 mb-6">🔧 Technical Capabilities</h3>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-700 mb-2">AI/ML Technology Stack</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Foundation models and custom model support</li>
-                    <li>• Multi-modal capabilities (text, vision, audio)</li>
-                    <li>• Fine-tuning and model customization options</li>
-                    <li>• Edge deployment and on-premise capabilities</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-700 mb-2">Integration & APIs</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• REST APIs, SDKs, and developer tools</li>
-                    <li>• Enterprise system integrations (CRM, ERP)</li>
-                    <li>• Data pipeline and ETL capabilities</li>
-                    <li>• Real-time and batch processing support</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-700 mb-2">Performance & Scalability</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Response time and throughput guarantees</li>
-                    <li>• Auto-scaling and load balancing</li>
-                    <li>• Geographic distribution and edge presence</li>
-                    <li>• Concurrent user and request limits</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Business Model & Pricing */}
-            <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-green-800 mb-6">💰 Business Model & Pricing</h3>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-green-700 mb-2">Pricing Structure</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Usage-based vs fixed subscription models</li>
-                    <li>• Volume discounts and enterprise tiers</li>
-                    <li>• Hidden costs and additional fees</li>
-                    <li>• Price transparency and predictability</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibent text-green-700 mb-2">Contract Terms</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Commitment periods and flexibility</li>
-                    <li>• SLA guarantees and penalties</li>
-                    <li>• Data portability and exit clauses</li>
-                    <li>• Intellectual property rights</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-green-700 mb-2">Total Cost of Ownership</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Implementation and integration costs</li>
-                    <li>• Training and support expenses</li>
-                    <li>• Ongoing operational costs</li>
-                    <li>• Migration and switching costs</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Security & Compliance */}
-            <div className="bg-gradient-to-br from-red-50 to-red-100 border border-red-200 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-red-800 mb-6">🔒 Security & Compliance</h3>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-red-700 mb-2">Data Security</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Encryption in transit and at rest</li>
-                    <li>• Access controls and authentication</li>
-                    <li>• Data residency and sovereignty</li>
-                    <li>• Vulnerability management and testing</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-red-700 mb-2">Regulatory Compliance</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• GDPR, CCPA, and privacy regulations</li>
-                    <li>• Industry-specific compliance (HIPAA, SOX)</li>
-                    <li>• AI governance and ethics frameworks</li>
-                    <li>• Audit trails and reporting capabilities</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-red-700 mb-2">Risk Management</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Business continuity and disaster recovery</li>
-                    <li>• Vendor risk assessment and monitoring</li>
-                    <li>• Insurance coverage and liability</li>
-                    <li>• Incident response and communication</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Support & Partnership */}
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-orange-800 mb-6">🤝 Support & Partnership</h3>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-orange-700 mb-2">Technical Support</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• 24/7 support availability and response times</li>
-                    <li>• Dedicated technical account management</li>
-                    <li>• Professional services and consulting</li>
-                    <li>• Training and certification programs</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-orange-700 mb-2">Strategic Partnership</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Product roadmap influence and collaboration</li>
-                    <li>• Early access to new features and models</li>
-                    <li>• Co-innovation and research partnerships</li>
-                    <li>• Executive relationship and escalation paths</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-orange-700 mb-2">Community & Ecosystem</h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Developer community and forums</li>
-                    <li>• Partner ecosystem and integrations</li>
-                    <li>• Documentation and learning resources</li>
-                    <li>• User conferences and networking events</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Vendor Evaluation Matrix */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Vendor Evaluation Scoring Matrix
-          </h2>
-
-          <div className="overflow-x-auto">
-            <table className="w-full bg-white rounded-lg shadow-lg">
-              <thead className="bg-indigo-600 text-white">
+          <div className="overflow-x-auto rounded-[1.5rem] border border-slate-200 bg-white">
+            <table className="min-w-full text-sm">
+              <thead className="bg-slate-950 text-white">
                 <tr>
-                  <th className="px-6 py-4 text-left">Evaluation Criteria</th>
-                  <th className="px-6 py-4 text-center">Weight</th>
-                  <th className="px-6 py-4 text-center">OpenAI</th>
-                  <th className="px-6 py-4 text-center">Anthropic</th>
-                  <th className="px-6 py-4 text-center">Google</th>
-                  <th className="px-6 py-4 text-center">Microsoft</th>
-                  <th className="px-6 py-4 text-center">AWS</th>
+                  <th className="px-5 py-4 text-left font-semibold">Evaluation criteria</th>
+                  <th className="px-5 py-4 text-center font-semibold">Weight</th>
+                  <th className="px-5 py-4 text-center font-semibold">OpenAI</th>
+                  <th className="px-5 py-4 text-center font-semibold">Anthropic</th>
+                  <th className="px-5 py-4 text-center font-semibold">Google</th>
+                  <th className="px-5 py-4 text-center font-semibold">Microsoft</th>
+                  <th className="px-5 py-4 text-center font-semibold">AWS</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-semibold text-gray-800">Technical Capabilities</td>
-                  <td className="px-6 py-4 text-center font-semibold text-indigo-600">25%</td>
-                  <td className="px-6 py-4 text-center">9.2</td>
-                  <td className="px-6 py-4 text-center">8.8</td>
-                  <td className="px-6 py-4 text-center">8.5</td>
-                  <td className="px-6 py-4 text-center">8.7</td>
-                  <td className="px-6 py-4 text-center">8.3</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-semibold text-gray-800">Business Model & Pricing</td>
-                  <td className="px-6 py-4 text-center font-semibold text-green-600">20%</td>
-                  <td className="px-6 py-4 text-center">7.8</td>
-                  <td className="px-6 py-4 text-center">8.1</td>
-                  <td className="px-6 py-4 text-center">8.4</td>
-                  <td className="px-6 py-4 text-center">8.9</td>
-                  <td className="px-6 py-4 text-center">8.6</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-semibold text-gray-800">Security & Compliance</td>
-                  <td className="px-6 py-4 text-center font-semibold text-red-600">20%</td>
-                  <td className="px-6 py-4 text-center">8.3</td>
-                  <td className="px-6 py-4 text-center">8.7</td>
-                  <td className="px-6 py-4 text-center">9.1</td>
-                  <td className="px-6 py-4 text-center">9.3</td>
-                  <td className="px-6 py-4 text-center">9.5</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-semibold text-gray-800">Support & Partnership</td>
-                  <td className="px-6 py-4 text-center font-semibold text-orange-600">15%</td>
-                  <td className="px-6 py-4 text-center">7.9</td>
-                  <td className="px-6 py-4 text-center">8.2</td>
-                  <td className="px-6 py-4 text-center">8.6</td>
-                  <td className="px-6 py-4 text-center">9.0</td>
-                  <td className="px-6 py-4 text-center">9.1</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-semibold text-gray-800">Innovation & Roadmap</td>
-                  <td className="px-6 py-4 text-center font-semibold text-purple-600">10%</td>
-                  <td className="px-6 py-4 text-center">9.5</td>
-                  <td className="px-6 py-4 text-center">9.1</td>
-                  <td className="px-6 py-4 text-center">8.8</td>
-                  <td className="px-6 py-4 text-center">8.4</td>
-                  <td className="px-6 py-4 text-center">8.1</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-semibold text-gray-800">Market Position & Stability</td>
-                  <td className="px-6 py-4 text-center font-semibold text-blue-600">5%</td>
-                  <td className="px-6 py-4 text-center">9.3</td>
-                  <td className="px-6 py-4 text-center">7.8</td>
-                  <td className="px-6 py-4 text-center">9.7</td>
-                  <td className="px-6 py-4 text-center">9.8</td>
-                  <td className="px-6 py-4 text-center">9.6</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-semibold text-gray-800">User Experience & Usability</td>
-                  <td className="px-6 py-4 text-center font-semibold text-cyan-600">3%</td>
-                  <td className="px-6 py-4 text-center">9.1</td>
-                  <td className="px-6 py-4 text-center">8.9</td>
-                  <td className="px-6 py-4 text-center">8.2</td>
-                  <td className="px-6 py-4 text-center">8.5</td>
-                  <td className="px-6 py-4 text-center">7.8</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-semibold text-gray-800">Cultural & Strategic Fit</td>
-                  <td className="px-6 py-4 text-center font-semibold text-teal-600">2%</td>
-                  <td className="px-6 py-4 text-center">8.4</td>
-                  <td className="px-6 py-4 text-center">8.6</td>
-                  <td className="px-6 py-4 text-center">8.1</td>
-                  <td className="px-6 py-4 text-center">8.8</td>
-                  <td className="px-6 py-4 text-center">8.3</td>
-                </tr>
-                <tr className="bg-indigo-50 font-bold">
-                  <td className="px-6 py-4 text-gray-800">Weighted Total Score</td>
-                  <td className="px-6 py-4 text-center text-gray-800">100%</td>
-                  <td className="px-6 py-4 text-center text-indigo-600">8.65</td>
-                  <td className="px-6 py-4 text-center text-indigo-600">8.58</td>
-                  <td className="px-6 py-4 text-center text-indigo-600">8.69</td>
-                  <td className="px-6 py-4 text-center text-green-600">8.91</td>
-                  <td className="px-6 py-4 text-center text-orange-600">8.78</td>
+              <tbody className="divide-y divide-slate-200 bg-white">
+                {scoringRows.map((row) => (
+                  <tr key={row[0]} className="hover:bg-slate-50">
+                    <td className="px-5 py-4 font-semibold text-slate-900">{row[0]}</td>
+                    <td className="px-5 py-4 text-center font-semibold text-indigo-600">{row[1]}</td>
+                    <td className="px-5 py-4 text-center text-slate-700">{row[2]}</td>
+                    <td className="px-5 py-4 text-center text-slate-700">{row[3]}</td>
+                    <td className="px-5 py-4 text-center text-slate-700">{row[4]}</td>
+                    <td className="px-5 py-4 text-center text-slate-700">{row[5]}</td>
+                    <td className="px-5 py-4 text-center text-slate-700">{row[6]}</td>
+                  </tr>
+                ))}
+                <tr className="bg-indigo-50 font-semibold">
+                  <td className="px-5 py-4 text-slate-950">{totalRow[0]}</td>
+                  <td className="px-5 py-4 text-center text-slate-950">{totalRow[1]}</td>
+                  <td className="px-5 py-4 text-center text-indigo-700">{totalRow[2]}</td>
+                  <td className="px-5 py-4 text-center text-indigo-700">{totalRow[3]}</td>
+                  <td className="px-5 py-4 text-center text-indigo-700">{totalRow[4]}</td>
+                  <td className="px-5 py-4 text-center text-indigo-700">{totalRow[5]}</td>
+                  <td className="px-5 py-4 text-center text-amber-700">{totalRow[6]}</td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </section>
 
-          <div className="mt-6 text-center text-sm text-gray-600">
-            * Scores based on Q4 2026 evaluation. Individual results may vary based on specific use cases and requirements.
-          </div>
-        </div>
-      </section>
-
-      {/* Selection Process */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Enterprise AI Vendor Selection Process
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-blue-600 mb-4">Phase 1: Requirements Definition</h3>
-              <ul className="text-gray-700 space-y-3">
-                <li>✓ Business use case definition</li>
-                <li>✓ Technical requirements specification</li>
-                <li>✓ Budget and timeline constraints</li>
-                <li>✓ Security and compliance needs</li>
-                <li>✓ Integration requirements analysis</li>
-                <li>✓ Success criteria establishment</li>
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-green-600 mb-4">Phase 2: Vendor Evaluation</h3>
-              <ul className="text-gray-700 space-y-3">
-                <li>✓ Long-list vendor identification</li>
-                <li>✓ RFI/RFP process execution</li>
-                <li>✓ Proof of concept development</li>
-                <li>✓ Reference customer interviews</li>
-                <li>✓ Technical due diligence</li>
-                <li>✓ Commercial terms negotiation</li>
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-purple-600 mb-4">Phase 3: Selection & Implementation</h3>
-              <ul className="text-gray-700 space-y-3">
-                <li>✓ Final vendor selection decision</li>
-                <li>✓ Contract finalization and signing</li>
-                <li>✓ Implementation planning</li>
-                <li>✓ Change management preparation</li>
-                <li>✓ Integration and testing</li>
-                <li>✓ Go-live and success measurement</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Decision Criteria Deep Dive */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Critical Decision Factors Analysis
-          </h2>
-
-          <div className="space-y-8">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-indigo-600 mb-4">🎯 Use Case Alignment</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Generative AI</h4>
-                  <p className="text-sm text-gray-600">OpenAI, Anthropic lead in creative and reasoning tasks</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Enterprise Integration</h4>
-                  <p className="text-sm text-gray-600">Microsoft, Google excel in enterprise ecosystem integration</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Infrastructure Services</h4>
-                  <p className="text-sm text-gray-600">AWS, Azure provide comprehensive AI infrastructure</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-green-600 mb-4">💡 Cost Optimization Strategies</h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Multi-Vendor Strategy</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Best-of-breed approach for different use cases</li>
-                    <li>• Negotiation leverage through competition</li>
-                    <li>• Risk mitigation through diversification</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Cost Control Mechanisms</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Usage monitoring and alerting systems</li>
-                    <li>• Automatic scaling and optimization</li>
-                    <li>• Regular cost review and optimization</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-red-600 mb-4">⚠️ Common Selection Pitfalls</h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Technical Pitfalls</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Overemphasis on benchmark performance</li>
-                    <li>• Ignoring integration complexity</li>
-                    <li>• Insufficient scalability planning</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Business Pitfalls</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Short-term cost focus over long-term value</li>
-                    <li>• Inadequate change management planning</li>
-                    <li>• Single vendor dependency risks</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ROI Calculator */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            AI Vendor Selection ROI Impact
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-8">
-              <h3 className="text-xl font-bold text-green-600 mb-6">✅ Optimized Vendor Selection</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-gray-700">Implementation Success Rate</span>
-                  <span className="font-semibold text-green-600">94%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">Time to Value</span>
-                  <span className="font-semibold text-green-600">4.2 months</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">3-Year TCO Savings</span>
-                  <span className="font-semibold text-green-600">$1.8M</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">ROI Achievement</span>
-                  <span className="font-semibold text-green-600">267%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-8">
-              <h3 className="text-xl font-bold text-red-600 mb-6">❌ Poor Vendor Selection</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-gray-700">Implementation Success Rate</span>
-                  <span className="font-semibold text-red-600">27%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">Time to Value</span>
-                  <span className="font-semibold text-red-600">14.7 months</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">3-Year Additional Costs</span>
-                  <span className="font-semibold text-red-600">$3.2M</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">ROI Achievement</span>
-                  <span className="font-semibold text-red-600">-23%</span>
-                </div>
-              </div>
-            </div>
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Process</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              选型流程要分阶段，
+              <span className="brand-gradient-text block">不然所有问题都会拖到最后一周。</span>
+            </h2>
           </div>
 
-          <div className="mt-8 text-center bg-indigo-50 rounded-lg p-6">
-            <p className="text-lg text-indigo-800 font-semibold">
-              💡 Impact: Systematic vendor selection increases success probability by 3.5x and reduces TCO by $5M over 3 years
+          <div className="grid gap-6 lg:grid-cols-3">
+            {processCards.map((card) => {
+              const Icon = card.icon
+              return (
+                <div key={card.title} className="page-card p-8">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50">
+                    <Icon className="h-5 w-5 text-[#635bff]" />
+                  </div>
+                  <h3 className="mb-4 text-2xl font-semibold text-slate-950">{card.title}</h3>
+                  <ul className="space-y-3 text-sm leading-6 text-slate-700">
+                    {card.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        <section className="mb-16 grid gap-6 lg:grid-cols-3">
+          {analysisCards.map((card, index) => {
+            const icons = [Target, BarChart3, Shield]
+            const Icon = icons[index]
+            return (
+              <div key={card.title} className="page-card p-8">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50">
+                  <Icon className="h-5 w-5 text-[#635bff]" />
+                </div>
+                <h3 className="mb-4 text-2xl font-semibold text-slate-950">{card.title}</h3>
+                <div className="space-y-3 text-sm leading-6 text-slate-700">
+                  {card.points.map((point) => (
+                    <div key={point} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">
+                      {point}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </section>
+
+        <section className="mb-16 grid gap-6 lg:grid-cols-2">
+          {roiCards.map((card) => (
+            <div key={card.title} className={`page-card border p-8 ${card.tone}`}>
+              <h3 className="mb-6 text-2xl font-semibold text-slate-950">{card.title}</h3>
+              <div className="space-y-3">
+                {card.rows.map(([label, value]) => (
+                  <div key={label} className="flex items-center justify-between rounded-2xl border border-white/80 bg-white/80 px-4 py-4 text-sm">
+                    <span className="text-slate-700">{label}</span>
+                    <span className="font-semibold text-slate-950">{value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <section className="mb-16 page-card border border-indigo-100 bg-indigo-50/80 p-8 md:p-10 text-center">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/80 px-4 py-2 text-sm font-medium text-indigo-700">
+              <TrendingUp className="h-4 w-4" />
+              ROI impact kept from the original page
+            </div>
+            <p className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 md:text-3xl">
+              Systematic vendor selection increases success probability by 3.5x and reduces TCO by $5M over 3 years.
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Action Steps */}
-      <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-600">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">
-            Start Your AI Vendor Selection Process Today
-          </h2>
-          <p className="text-xl text-indigo-100 mb-8">
-            Don't risk $3M+ in failed implementations. Use our proven framework to select the right AI vendor for your enterprise.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">🎯 Week 1-2 Actions</h3>
-              <ul className="text-left text-indigo-100 space-y-2">
-                <li>• Download our vendor evaluation template</li>
-                <li>• Define your AI use cases and requirements</li>
-                <li>• Establish evaluation team and criteria</li>
-                <li>• Create preliminary vendor long-list</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">🚀 Week 3-8 Execution</h3>
-              <ul className="text-left text-indigo-100 space-y-2">
-                <li>• Execute RFI/RFP process</li>
-                <li>• Conduct proof of concepts</li>
-                <li>• Complete vendor due diligence</li>
-                <li>• Make final selection decision</li>
-              </ul>
+        <section className="mb-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+            <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
+              <h2 className="text-3xl font-semibold tracking-[-0.04em] md:text-4xl">Start the selection process without the usual chaos.</h2>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-white/85">
+                原页面的行动步骤保留，只是现在放进更清楚的执行模块里。先定义需求，再做 shortlist，再验证，不要一上来就被 vendor 带着走。
+              </p>
+
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                {executionCards.map((card) => (
+                  <div key={card.title} className="rounded-[1.5rem] border border-white/15 bg-white/10 p-6 backdrop-blur-sm">
+                    <h3 className="mb-4 text-xl font-semibold">{card.title}</h3>
+                    <ul className="space-y-2 text-sm leading-6 text-white/85">
+                      {card.points.map((point) => (
+                        <li key={point}>• {point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+
+          <div className="page-card p-8">
+            <h2 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">Related internal resources</h2>
+            <div className="space-y-3">
+              {relatedLinks.map((item) => (
+                <Link key={item.href} href={item.href} className="block rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4 transition hover:border-indigo-200 hover:bg-indigo-50/60">
+                  <div className="font-semibold text-slate-950">{item.title}</div>
+                  <div className="mt-1 text-sm leading-6 text-slate-600">{item.note}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   )
 }

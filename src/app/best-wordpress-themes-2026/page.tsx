@@ -1,12 +1,14 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import SchemaMarkup from '../../components/SchemaMarkup';
-import RelatedLinks from '../../components/RelatedLinks';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
+import SchemaMarkup from '../../components/SchemaMarkup'
 
 export const metadata: Metadata = {
   title: 'Best WordPress Themes 2026: 25+ Tested Themes for Every Website Type | SitePilot',
-  description: 'Discover the best WordPress themes for 2026. Detailed reviews of 25+ premium and free themes tested for speed, SEO, and design quality.',
-  keywords: 'wordpress themes, best wordpress themes 2026, premium wordpress themes, free wordpress themes, responsive themes, SEO optimized themes'
+  description:
+    'Discover the best WordPress themes for 2026. Detailed reviews of 25+ premium and free themes tested for speed, SEO, and design quality.',
+  keywords:
+    'wordpress themes, best wordpress themes 2026, premium wordpress themes, free wordpress themes, responsive themes, SEO optimized themes',
 }
 
 const relatedArticles = [
@@ -14,26 +16,183 @@ const relatedArticles = [
     href: '/website-builder-vs-wordpress-2026',
     title: 'Website Builder vs WordPress 2026',
     description: 'Complete decision guide with real testing data',
-    category: 'guide' as const
   },
   {
     href: '/best-website-builders-2026',
     title: 'Best Website Builders 2026',
     description: 'Top website builders compared and tested',
-    category: 'tools' as const
   },
   {
     href: '/best-web-hosting-2026',
     title: 'Best Web Hosting 2026',
     description: 'Best hosting providers for WordPress sites',
-    category: 'hosting' as const
-  }
-];
+  },
+]
+
+const stats = [
+  { value: '25+', label: 'Themes tested' },
+  { value: '0.8s', label: 'Fastest load time' },
+  { value: '100+', label: 'Performance tests' },
+  { value: '6', label: 'Months testing' },
+]
+
+const winners = [
+  {
+    label: 'Overall winner',
+    name: 'Astra Pro',
+    note: '0.8s load time',
+    price: '$59/year',
+  },
+  {
+    label: 'Best free',
+    name: 'GeneratePress',
+    note: '0.9s load time',
+    price: '100% free',
+  },
+  {
+    label: 'Best design',
+    name: 'Divi',
+    note: 'Visual builder',
+    price: '$89/year',
+  },
+  {
+    label: 'Best e-commerce',
+    name: 'Flatsome',
+    note: 'WooCommerce focused',
+    price: '$59 one-time',
+  },
+]
+
+const performanceGroups = [
+  {
+    title: 'Speed champions',
+    items: [
+      { name: 'Astra Pro', score: '0.8s', width: '95%' },
+      { name: 'GeneratePress', score: '0.9s', width: '90%' },
+      { name: 'Neve', score: '1.0s', width: '85%' },
+    ],
+  },
+  {
+    title: 'SEO scores',
+    items: [
+      { name: 'Schema Pro', score: '98/100', width: '98%' },
+      { name: 'Astra Pro', score: '96/100', width: '96%' },
+      { name: 'GeneratePress', score: '94/100', width: '94%' },
+    ],
+  },
+  {
+    title: 'Mobile scores',
+    items: [
+      { name: 'OceanWP', score: '95/100', width: '95%' },
+      { name: 'Kadence', score: '93/100', width: '93%' },
+      { name: 'Blocksy', score: '91/100', width: '91%' },
+    ],
+  },
+]
+
+const themeCategories = [
+  {
+    title: 'Business websites',
+    themes: [
+      {
+        name: 'Astra Pro',
+        description: 'The ultimate business theme with 200+ starter templates.',
+        price: '$59/year',
+        rating: '4.9/5',
+        badges: ['Fast loading', 'WooCommerce ready', 'Page builder compatible'],
+      },
+      {
+        name: 'OceanWP',
+        description: 'Highly customizable with excellent header options.',
+        price: 'Free + $39/year Pro',
+        rating: '4.7/5',
+        badges: ['SEO optimized', 'Free + premium', 'Header builder'],
+      },
+      {
+        name: 'Kadence',
+        description: 'Modern design with advanced customization options.',
+        price: 'Free + $129/year Pro',
+        rating: '4.8/5',
+        badges: ['Gutenberg optimized', 'Mobile first', 'Typography control'],
+      },
+    ],
+  },
+  {
+    title: 'Blog and content',
+    themes: [
+      {
+        name: 'GeneratePress',
+        description: 'Lightweight, fast, and perfect for content-heavy sites.',
+        price: 'Free + $59/year Pro',
+        rating: '4.9/5',
+        badges: ['Fastest loading', 'Clean code', 'Accessibility ready'],
+      },
+      {
+        name: 'Neve',
+        description: 'AMP-ready theme perfect for speed-focused blogs.',
+        price: 'Free + $69/year Pro',
+        rating: '4.6/5',
+        badges: ['AMP ready', 'Schema markup', 'Gutenberg blocks'],
+      },
+      {
+        name: 'Blocksy',
+        description: 'Modern block-based theme with excellent typography.',
+        price: 'Free + $49/year Pro',
+        rating: '4.7/5',
+        badges: ['Block editor', 'Dynamic content', 'Custom post types'],
+      },
+    ],
+  },
+]
+
+const freeVsPremium = [
+  { feature: 'Design options', free: 'Limited', premium: 'Extensive' },
+  { feature: 'Support', free: 'Community only', premium: 'Priority support' },
+  { feature: 'Pre-built demos', free: '1-2', premium: '20-100+' },
+  { feature: 'Premium plugins', free: 'Not included', premium: 'Included' },
+]
+
+const chooseFree = [
+  'Personal blogs or hobby websites',
+  'Limited budget projects',
+  'Testing and learning WordPress',
+  'Simple content-focused sites',
+]
+
+const choosePremium = [
+  'Business or professional websites',
+  'E-commerce stores',
+  'Need advanced customization',
+  'Require dedicated support',
+]
+
+const faqs = [
+  {
+    question: "What's the difference between free and premium WordPress themes?",
+    answer:
+      'Free themes offer basic functionality and limited customization, while premium themes include advanced features, more demos, premium plugins, and dedicated support. Premium themes are usually the better fit for businesses that need a stronger design and broader functionality.',
+  },
+  {
+    question: 'Can I switch themes without losing content?',
+    answer:
+      'Posts, pages, and media remain intact when you switch themes, but you can lose theme-specific customizations, widgets, and custom post types. Backup the site first and expect to reconfigure parts of the design.',
+  },
+  {
+    question: 'Which themes are best for SEO?',
+    answer:
+      'GeneratePress, Astra Pro, and Schema Pro are among the strongest SEO choices because they are lightweight, responsive, cleanly coded, and fast. Page speed still matters, so performance should be part of the decision.',
+  },
+  {
+    question: 'How often should I update my theme?',
+    answer:
+      'Update whenever new versions are released, especially for security fixes and WordPress compatibility updates. Use backups and preferably test major updates on staging first.',
+  },
+]
 
 export default function BestWordPressThemes2026() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <SchemaMarkup 
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
         type="article"
         title="Best WordPress Themes 2026: 25+ Tested Themes for Every Website Type"
         description="Comprehensive review of the best WordPress themes based on 6 months of testing. Performance data, design analysis, and expert recommendations."
@@ -42,513 +201,334 @@ export default function BestWordPressThemes2026() {
         modifiedDate="2026-03-05"
       />
 
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-800 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              Best WordPress Themes 2026
-            </h1>
-            <p className="text-xl mb-8 max-w-4xl mx-auto leading-relaxed">
-              25+ tested themes for every website type. 6 months of performance testing, 
-              SEO analysis, and real-world usage data to help you choose the perfect theme.
-            </p>
-            
-            {/* Key Stats */}
-            <div className="grid md:grid-cols-4 gap-6 mt-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold">25+</div>
-                <div className="text-sm opacity-90">Themes Tested</div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_22%,#ffffff_50%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[30rem] h-[24rem] bg-[radial-gradient(circle_at_18%_22%,rgba(99,91,255,0.05),transparent_24%),radial-gradient(circle_at_78%_20%,rgba(14,165,233,0.05),transparent_22%),radial-gradient(circle_at_52%_80%,rgba(244,114,182,0.04),transparent_28%)]" />
+      </div>
+
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                2026 WordPress theme review
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold">0.8s</div>
-                <div className="text-sm opacity-90">Fastest Load Time</div>
+
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                Best WordPress themes 2026,
+                <span className="brand-gradient-text block">for speed, SEO, and design quality.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                This guide covers 25+ themes tested across speed, mobile performance, SEO quality, and real-world usability. The goal is not to list everything. It is to show which themes actually make sense for business sites, content sites, and e-commerce builds.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/website-builder-vs-wordpress-2026" className="btn-brand">
+                  WordPress vs website builders
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/best-web-hosting-2026" className="btn-secondary">
+                  Best hosting for WordPress
+                </Link>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold">100+</div>
-                <div className="text-sm opacity-90">Performance Tests</div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="page-card px-4 py-4">
+                    <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{stat.value}</div>
+                    <div className="text-sm text-slate-500">{stat.label}</div>
+                  </div>
+                ))}
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold">6</div>
-                <div className="text-sm opacity-90">Months Testing</div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-6 bg-white/95">
+                  <div className="flex items-center justify-between mb-6 gap-4">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Quick read</div>
+                      <div className="text-xl font-semibold text-slate-950">How to use this page</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Buy for fit
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    {[
+                      ['Overall pick', 'Astra Pro remains the best default when you want speed, flexibility, and broad template support.'],
+                      ['Best free option', 'GeneratePress is the strongest low-cost entry because performance stays excellent even without paying.'],
+                      ['Design-first choice', 'Divi still matters when visual editing and layout flexibility matter more than absolute speed.'],
+                      ['E-commerce fit', 'Flatsome remains the safer WooCommerce-first answer for stores that want a proven UI layer.'],
+                    ].map(([title, note]) => (
+                      <div
+                        key={title}
+                        className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4"
+                      >
+                        <div className="font-semibold text-slate-950 mb-1">{title}</div>
+                        <div className="text-sm text-slate-500">{note}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Executive Summary */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Top WordPress Theme Winners 2026</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-6 border border-blue-100">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                  👑
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Overall Winner</h3>
-                <p className="text-blue-600 font-bold text-xl mb-2">Astra Pro</p>
-                <div className="bg-white border border-blue-200 rounded-lg px-3 py-2">
-                  <div className="text-sm text-gray-700">⚡ 0.8s load time</div>
-                  <div className="text-sm text-gray-600">$59/year</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl shadow-lg p-6 border border-green-100">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                  💰
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Best Free</h3>
-                <p className="text-green-600 font-bold text-xl mb-2">GeneratePress</p>
-                <div className="bg-white border border-green-200 rounded-lg px-3 py-2">
-                  <div className="text-sm text-gray-700">🚀 0.9s load time</div>
-                  <div className="text-sm text-gray-600">100% Free</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl shadow-lg p-6 border border-pink-100">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                  🎨
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Best Design</h3>
-                <p className="text-pink-600 font-bold text-xl mb-2">Divi</p>
-                <div className="bg-white border border-pink-200 rounded-lg px-3 py-2">
-                  <div className="text-sm text-gray-700">🎨 Visual builder</div>
-                  <div className="text-sm text-gray-600">$89/year</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl shadow-lg p-6 border border-orange-100">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                  🛒
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Best E-commerce</h3>
-                <p className="text-orange-600 font-bold text-xl mb-2">Flatsome</p>
-                <div className="bg-white border border-orange-200 rounded-lg px-3 py-2">
-                  <div className="text-sm text-gray-700">🛍️ WooCommerce pro</div>
-                  <div className="text-sm text-gray-600">$59 one-time</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Performance Testing Results */}
-        <section className="mb-16">
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-            <h2 className="text-2xl font-bold mb-6 text-blue-900">📊 Performance Testing Results</h2>
-            <p className="text-blue-700 mb-6">
-              We tested 25+ popular WordPress themes using GTmetrix, Google PageSpeed Insights, and Pingdom. 
-              Here are the fastest themes of 2026:
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
-                <h3 className="font-semibold mb-4 text-blue-800">🥇 Speed Champions</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Astra Pro</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-green-600 font-bold">0.8s</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-green-600 h-2 rounded-full" style={{width: '95%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">GeneratePress</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-green-600 font-bold">0.9s</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-green-600 h-2 rounded-full" style={{width: '90%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Neve</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-green-600 font-bold">1.0s</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-green-600 h-2 rounded-full" style={{width: '85%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
-                <h3 className="font-semibold mb-4 text-blue-800">🔍 SEO Scores</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Schema Pro</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-blue-600 font-bold">98/100</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full" style={{width: '98%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Astra Pro</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-blue-600 font-bold">96/100</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full" style={{width: '96%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">GeneratePress</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-blue-600 font-bold">94/100</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full" style={{width: '94%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
-                <h3 className="font-semibold mb-4 text-blue-800">📱 Mobile Scores</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">OceanWP</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-purple-600 font-bold">95/100</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-purple-600 h-2 rounded-full" style={{width: '95%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Kadence</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-purple-600 font-bold">93/100</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-purple-600 h-2 rounded-full" style={{width: '93%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Blocksy</span>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-purple-600 font-bold">91/100</span>
-                      <div className="w-20 bg-gray-200 rounded-full h-2">
-                        <div className="bg-purple-600 h-2 rounded-full" style={{width: '91%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Category-based Recommendations */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">🎯 Best Themes by Website Type</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Business Websites */}
-            <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-              <h3 className="text-2xl font-semibold mb-6 flex items-center">
-                <span className="text-3xl mr-3">💼</span>
-                Business Websites
-              </h3>
-              <div className="space-y-6">
-                <div className="border-l-4 border-blue-500 pl-4">
-                  <h4 className="font-semibold text-lg text-blue-600 mb-2">1. Astra Pro</h4>
-                  <p className="text-gray-600 mb-3">The ultimate business theme with 200+ starter templates</p>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Fast Loading</span>
-                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">WooCommerce Ready</span>
-                    <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Page Builder Compatible</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-gray-700">
-                      <strong>Price:</strong> $59/year • <strong>Rating:</strong> ⭐⭐⭐⭐⭐ 4.9/5
-                    </div>
-                  </div>
-                </div>
-
-                <div className="border-l-4 border-green-500 pl-4">
-                  <h4 className="font-semibold text-lg text-green-600 mb-2">2. OceanWP</h4>
-                  <p className="text-gray-600 mb-3">Highly customizable with excellent header options</p>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">SEO Optimized</span>
-                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Free + Premium</span>
-                    <span className="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Header Builder</span>
-                  </div>
-                  <div className="text-sm text-gray-700">
-                    <strong>Price:</strong> Free + $39/year Pro • <strong>Rating:</strong> ⭐⭐⭐⭐⭐ 4.7/5
-                  </div>
-                </div>
-
-                <div className="border-l-4 border-purple-500 pl-4">
-                  <h4 className="font-semibold text-lg text-purple-600 mb-2">3. Kadence</h4>
-                  <p className="text-gray-600 mb-3">Modern design with advanced customization options</p>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Gutenberg Optimized</span>
-                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Mobile First</span>
-                    <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Typography Control</span>
-                  </div>
-                  <div className="text-sm text-gray-700">
-                    <strong>Price:</strong> Free + $129/year Pro • <strong>Rating:</strong> ⭐⭐⭐⭐⭐ 4.8/5
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Blog Themes */}
-            <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-              <h3 className="text-2xl font-semibold mb-6 flex items-center">
-                <span className="text-3xl mr-3">📝</span>
-                Blog & Content
-              </h3>
-              <div className="space-y-6">
-                <div className="border-l-4 border-indigo-500 pl-4">
-                  <h4 className="font-semibold text-lg text-indigo-600 mb-2">1. GeneratePress</h4>
-                  <p className="text-gray-600 mb-3">Lightweight, fast, and perfect for content-heavy sites</p>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Fastest Loading</span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Clean Code</span>
-                    <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Accessibility Ready</span>
-                  </div>
-                  <div className="text-sm text-gray-700">
-                    <strong>Price:</strong> Free + $59/year Pro • <strong>Rating:</strong> ⭐⭐⭐⭐⭐ 4.9/5
-                  </div>
-                </div>
-
-                <div className="border-l-4 border-rose-500 pl-4">
-                  <h4 className="font-semibold text-lg text-rose-600 mb-2">2. Neve</h4>
-                  <p className="text-gray-600 mb-3">AMP-ready theme perfect for speed-focused blogs</p>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">AMP Ready</span>
-                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Schema Markup</span>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Gutenberg Blocks</span>
-                  </div>
-                  <div className="text-sm text-gray-700">
-                    <strong>Price:</strong> Free + $69/year Pro • <strong>Rating:</strong> ⭐⭐⭐⭐ 4.6/5
-                  </div>
-                </div>
-
-                <div className="border-l-4 border-emerald-500 pl-4">
-                  <h4 className="font-semibold text-lg text-emerald-600 mb-2">3. Blocksy</h4>
-                  <p className="text-gray-600 mb-3">Modern block-based theme with excellent typography</p>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Block Editor</span>
-                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Dynamic Content</span>
-                    <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Custom Post Types</span>
-                  </div>
-                  <div className="text-sm text-gray-700">
-                    <strong>Price:</strong> Free + $49/year Pro • <strong>Rating:</strong> ⭐⭐⭐⭐⭐ 4.7/5
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Free vs Premium Comparison */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">💰 Free vs Premium: What You Get</h2>
-          
-          <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left font-semibold text-gray-900">Feature</th>
-                    <th className="px-6 py-4 text-center font-semibold text-gray-900">Free Themes</th>
-                    <th className="px-6 py-4 text-center font-semibold text-gray-900">Premium Themes</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  <tr>
-                    <td className="px-6 py-4 font-medium">Design Options</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-sm">Limited</span>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm">Extensive</span>
-                    </td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="px-6 py-4 font-medium">Support</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm">Community Only</span>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm">Priority Support</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 font-medium">Pre-built Demos</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm">1-2</span>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm">20-100+</span>
-                    </td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="px-6 py-4 font-medium">Premium Plugins</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm">❌</span>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm">✅ Included</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-green-50 border border-green-200 p-6 rounded-xl">
-              <h3 className="text-xl font-semibold text-green-800 mb-4">👍 When to Choose Free Themes</h3>
-              <ul className="space-y-2 text-green-700">
-                <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span>
-                  Personal blogs or hobby websites
-                </li>
-                <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span>
-                  Limited budget projects
-                </li>
-                <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span>
-                  Testing and learning WordPress
-                </li>
-                <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span>
-                  Simple content-focused sites
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-blue-50 border border-blue-200 p-6 rounded-xl">
-              <h3 className="text-xl font-semibold text-blue-800 mb-4">⭐ When to Choose Premium Themes</h3>
-              <ul className="space-y-2 text-blue-700">
-                <li className="flex items-center">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  Business or professional websites
-                </li>
-                <li className="flex items-center">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  E-commerce stores
-                </li>
-                <li className="flex items-center">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  Need advanced customization
-                </li>
-                <li className="flex items-center">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  Require dedicated support
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">❓ Frequently Asked Questions</h2>
-          
-          <div className="space-y-6">
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-xl font-semibold mb-3">What's the difference between free and premium WordPress themes?</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Free themes offer basic functionality and limited customization options, while premium themes include 
-                advanced features, extensive customization options, pre-built demos, premium plugins, and dedicated 
-                support. Premium themes are better for business websites that need professional appearance and functionality.
-              </p>
-            </div>
-
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-xl font-semibold mb-3">Can I switch themes without losing content?</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Your content (posts, pages, media) will remain intact when switching themes. However, you may lose 
-                theme-specific customizations, widgets, and custom post types. Always backup your site before switching 
-                and be prepared to reconfigure your design settings.
-              </p>
-            </div>
-
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-xl font-semibold mb-3">Which themes are best for SEO?</h3>
-              <p className="text-gray-600 leading-relaxed">
-                GeneratePress, Astra Pro, and Schema Pro are excellent for SEO. Look for themes that are lightweight, 
-                mobile-responsive, have clean code, support schema markup, and load quickly. Page speed is a crucial 
-                ranking factor, so prioritize fast-loading themes.
-              </p>
-            </div>
-
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-xl font-semibold mb-3">How often should I update my theme?</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Update your theme whenever new versions are released, especially for security updates. Premium themes 
-                typically receive regular updates for bug fixes, new features, and WordPress compatibility. Always 
-                backup your site before updating and test updates on a staging site first.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Conclusion */}
-        <section className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">🎯 Our Final Recommendation</h2>
-          <p className="text-lg text-gray-700 mb-6 max-w-4xl mx-auto">
-            For most websites, we recommend starting with <strong className="text-blue-600">Astra Pro</strong> for 
-            its perfect balance of speed, features, and customization. If budget is tight, 
-            <strong className="text-green-600"> GeneratePress</strong> offers excellent free options. 
-            For e-commerce, <strong className="text-orange-600">Flatsome</strong> remains the top choice.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-4xl mx-auto">
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-              <h3 className="font-bold text-blue-600 mb-2 flex items-center justify-center">
-                <span className="mr-2">🏆</span> Best Overall
-              </h3>
-              <p className="text-gray-700">Astra Pro - Fast, flexible, and feature-rich</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-              <h3 className="font-bold text-green-600 mb-2 flex items-center justify-center">
-                <span className="mr-2">💚</span> Best Free
-              </h3>
-              <p className="text-gray-700">GeneratePress - Lightweight and customizable</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-              <h3 className="font-bold text-orange-600 mb-2 flex items-center justify-center">
-                <span className="mr-2">🛒</span> Best E-commerce
-              </h3>
-              <p className="text-gray-700">Flatsome - WooCommerce integration leader</p>
-            </div>
-          </div>
-
-          <div className="mt-8">
-            <p className="text-gray-600">
-              Remember: The best theme is one that aligns with your specific needs, technical skills, and business goals. 
-              Start with our recommendations and customize to match your brand.
+      <section className="page-section surface-muted">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Top picks</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">The winners that matter most.</h2>
+            <p className="page-lead text-lg">
+              These are the shortest-path recommendations if you do not want to read the full matrix first.
             </p>
           </div>
-        </section>
 
-        {/* Related Articles */}
-        <RelatedLinks 
-          title="Explore More Website Building Resources"
-          links={relatedArticles}
-        />
-        
-      </div>
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {winners.map((winner) => (
+              <div key={winner.label} className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.6rem] p-6 h-full">
+                  <div className="text-xs uppercase tracking-[0.16em] text-indigo-500 mb-3">{winner.label}</div>
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-2">{winner.name}</h3>
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                    <div className="text-sm text-slate-700 mb-1">{winner.note}</div>
+                    <div className="text-sm text-slate-500">{winner.price}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Performance data</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">What the testing showed.</h2>
+            <p className="page-lead text-lg">
+              We checked load times, SEO posture, and mobile responsiveness to separate themes that look good in demos from themes that behave well in production.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {performanceGroups.map((group) => (
+              <div key={group.title} className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.6rem] p-6 h-full">
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">{group.title}</h3>
+                  <div className="space-y-4">
+                    {group.items.map((item) => (
+                      <div key={item.name}>
+                        <div className="flex items-center justify-between text-sm mb-2">
+                          <span className="text-slate-700">{item.name}</span>
+                          <span className="font-semibold text-slate-950">{item.score}</span>
+                        </div>
+                        <div className="w-full bg-slate-200 rounded-full h-2">
+                          <div className="bg-[#635bff] h-2 rounded-full" style={{ width: item.width }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section surface-muted">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Theme categories</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">Best themes by website type.</h2>
+            <p className="page-lead text-lg">
+              Not every site needs the same theme. These shortlists reflect the strongest fits for business sites and content-heavy sites.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            {themeCategories.map((category) => (
+              <div key={category.title} className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.8rem] p-7 md:p-8 h-full">
+                  <h3 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-6">{category.title}</h3>
+                  <div className="space-y-6">
+                    {category.themes.map((theme, index) => (
+                      <div key={theme.name} className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-5">
+                        <div className="text-sm uppercase tracking-[0.14em] text-indigo-500 mb-2">#{index + 1}</div>
+                        <h4 className="text-xl font-semibold text-slate-950 mb-2">{theme.name}</h4>
+                        <p className="text-slate-600 leading-7 mb-4">{theme.description}</p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {theme.badges.map((badge) => (
+                            <span key={badge} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600">
+                              {badge}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="text-sm text-slate-500">
+                          <span className="font-semibold text-slate-700">Price:</span> {theme.price}
+                          <span className="mx-2">•</span>
+                          <span className="font-semibold text-slate-700">Rating:</span> {theme.rating}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Pricing trade-off</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">Free vs premium: what actually changes.</h2>
+            <p className="page-lead text-lg">
+              The right decision here is mostly about support, customization depth, and commercial risk rather than features in the abstract.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6">
+            <div className="page-card-glow p-1.5">
+              <div className="page-card rounded-[1.8rem] overflow-x-auto">
+                <table className="w-full min-w-[620px] border-collapse">
+                  <thead>
+                    <tr className="bg-slate-50">
+                      <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Feature</th>
+                      <th className="px-6 py-4 text-center font-semibold text-slate-950 border-b border-slate-200">Free themes</th>
+                      <th className="px-6 py-4 text-center font-semibold text-indigo-700 border-b border-slate-200">Premium themes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {freeVsPremium.map((row) => (
+                      <tr key={row.feature}>
+                        <td className="px-6 py-4 font-medium border-b border-slate-200 text-slate-950">{row.feature}</td>
+                        <td className="px-6 py-4 text-center border-b border-slate-200 text-slate-600">{row.free}</td>
+                        <td className="px-6 py-4 text-center border-b border-slate-200 text-slate-700">{row.premium}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.6rem] p-6">
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">When to choose free themes</h3>
+                  <div className="space-y-4">
+                    {chooseFree.map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-indigo-500 mt-0.5 shrink-0" />
+                        <span className="text-slate-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.6rem] p-6 surface-muted">
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">When to choose premium themes</h3>
+                  <div className="space-y-4">
+                    {choosePremium.map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-indigo-500 mt-0.5 shrink-0" />
+                        <span className="text-slate-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section surface-muted">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">FAQ</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">Frequently asked questions.</h2>
+            <p className="page-lead text-lg">
+              These are the practical points that usually decide the purchase more than any demo gallery does.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="page-card p-6">
+                <h3 className="text-xl font-semibold text-slate-950 mb-3">{faq.question}</h3>
+                <p className="text-slate-600 leading-7">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="page-card-glow p-8 md:p-12 surface-muted">
+            <div className="max-w-3xl">
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Final recommendation</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                Most sites should start with Astra Pro.
+                <span className="block brand-gradient-text">GeneratePress is the best low-cost fallback, and Flatsome still leads for WooCommerce.</span>
+              </h2>
+              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                The best theme is the one that matches the site you are actually building, your technical comfort level, and the amount of support you expect to need. Start with the shortest-path recommendation, then refine from there instead of drowning in theme marketplace noise.
+              </p>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="page-card p-5 bg-white/90">
+                  <div className="text-sm uppercase tracking-[0.14em] text-slate-500 mb-2">Best overall</div>
+                  <div className="font-semibold text-slate-950">Astra Pro</div>
+                </div>
+                <div className="page-card p-5 bg-white/90">
+                  <div className="text-sm uppercase tracking-[0.14em] text-slate-500 mb-2">Best free</div>
+                  <div className="font-semibold text-slate-950">GeneratePress</div>
+                </div>
+                <div className="page-card p-5 bg-white/90">
+                  <div className="text-sm uppercase tracking-[0.14em] text-slate-500 mb-2">Best e-commerce</div>
+                  <div className="font-semibold text-slate-950">Flatsome</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Related reading</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">Keep the broader site decision in view.</h2>
+            <p className="page-lead text-lg">
+              Theme choice is only one part of the stack. These follow-up pages help frame the larger platform and hosting decision.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {relatedArticles.map((article) => (
+              <Link key={article.href} href={article.href} className="page-card p-7 hover:-translate-y-0.5 transition-transform block">
+                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{article.title}</h3>
+                <p className="text-slate-600 leading-7 mb-5">{article.description}</p>
+                <div className="inline-flex items-center font-semibold text-[#635bff]">
+                  Open article
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

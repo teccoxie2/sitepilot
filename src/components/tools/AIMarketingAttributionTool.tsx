@@ -257,7 +257,7 @@ export default function AIMarketingAttributionTool() {
               </div>
               <div>
                 <span className="text-gray-600">整体ROI:</span>
-                <span className={`float-right font-medium ${totalMetrics.roi > 100 ? 'text-green-600' : 'text-red-600'}`}>
+                <span className={`float-right font-medium ${totalMetrics.roi > 100 ? 'text-indigo-600' : 'text-red-600'}`}>
                   {totalMetrics.roi.toFixed(1)}%
                 </span>
               </div>
@@ -295,7 +295,7 @@ export default function AIMarketingAttributionTool() {
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-medium ${
                         result.priority === 'High'
-                          ? 'bg-green-100 text-green-800'
+                          ? 'bg-indigo-100 text-indigo-800'
                           : result.priority === 'Medium'
                           ? 'bg-yellow-100 text-yellow-800'
                           : 'bg-red-100 text-red-800'
@@ -336,7 +336,7 @@ export default function AIMarketingAttributionTool() {
                     
                     <div className="flex justify-between">
                       <span className="text-gray-600">ROI:</span>
-                      <span className={`font-medium ${result.roi > 100 ? 'text-green-600' : 'text-red-600'}`}>
+                      <span className={`font-medium ${result.roi > 100 ? 'text-indigo-600' : 'text-red-600'}`}>
                         {result.roi.toFixed(1)}%
                       </span>
                     </div>

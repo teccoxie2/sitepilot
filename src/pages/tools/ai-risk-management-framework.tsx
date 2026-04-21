@@ -165,8 +165,8 @@ export default function AIRiskManagementFramework() {
   const getRiskColor = (score: number): string => {
     if (score >= 8) return 'bg-red-100 text-red-800 border-red-200'
     if (score >= 6) return 'bg-orange-100 text-orange-800 border-orange-200'
-    if (score >= 4) return 'bg-yellow-100 text-yellow-800 border-yellow-200'
-    return 'bg-green-100 text-green-800 border-green-200'
+    if (score >= 4) return 'bg-amber-100 text-amber-800 border-amber-200'
+    return 'bg-indigo-50 text-indigo-700 border-indigo-200'
   }
 
   const getRiskLevel = (score: number): string => {
@@ -177,30 +177,36 @@ export default function AIRiskManagementFramework() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-12">
-      <div className="container mx-auto px-4">
+    <div className="relative min-h-screen overflow-x-hidden bg-white py-12 text-slate-900">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
+
+      <div className="container relative mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           
           {/* Header */}
-          <div className="text-center mb-12">
-            <div className="flex justify-center items-center gap-3 mb-4">
-              <span className="text-5xl">🛡️</span>
-              <h1 className="text-4xl font-bold text-gray-900">
+          <div className="mb-12 rounded-[2rem] border border-white/70 bg-white/78 px-6 py-10 text-center shadow-[0_30px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl md:px-10">
+            <div className="mb-4 flex items-center justify-center gap-3">
+              <span className="flex h-16 w-16 items-center justify-center rounded-[1.35rem] border border-[#635bff]/12 bg-gradient-to-br from-[#635bff]/8 to-sky-500/8 text-4xl shadow-[0_8px_18px_rgba(99,91,255,0.06)]">🛡️</span>
+              <h1 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
                 Enterprise AI Risk Management Framework
               </h1>
             </div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive risk assessment and mitigation planning for AI implementations. 
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
+              Comprehensive risk assessment and mitigation planning for AI implementations.
               Identify, quantify, and manage AI-related risks across your organization.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
-              <span className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+              <span className="inline-flex items-center rounded-full border border-sky-200 bg-sky-50/85 px-4 py-2 text-sm font-medium text-sky-800 shadow-sm">
                 ⚠️ Risk Assessment
               </span>
-              <span className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+              <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50/85 px-4 py-2 text-sm font-medium text-indigo-700 shadow-sm">
                 🎯 Compliance Planning
               </span>
-              <span className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+              <span className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50/85 px-4 py-2 text-sm font-medium text-violet-700 shadow-sm">
                 💰 Budget Optimization
               </span>
             </div>
@@ -238,7 +244,7 @@ export default function AIRiskManagementFramework() {
 
           {/* Step 1: Company Profile */}
           {currentStep === 1 && (
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div className="mb-8 rounded-[2rem] border border-slate-200/90 bg-white/92 p-8 shadow-[0_18px_44px_rgba(15,23,42,0.05)] backdrop-blur-xl">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
                   🎯 Company Profile & AI Maturity
@@ -364,7 +370,7 @@ export default function AIRiskManagementFramework() {
 
           {/* Step 2: Risk Assessment */}
           {currentStep === 2 && (
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div className="mb-8 rounded-[2rem] border border-slate-200/90 bg-white/92 p-8 shadow-[0_18px_44px_rgba(15,23,42,0.05)] backdrop-blur-xl">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
                   ⚠️ Risk Category Assessment
@@ -469,7 +475,7 @@ export default function AIRiskManagementFramework() {
 
           {/* Step 3: Compliance Review */}
           {currentStep === 3 && (
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div className="mb-8 rounded-[2rem] border border-slate-200/90 bg-white/92 p-8 shadow-[0_18px_44px_rgba(15,23,42,0.05)] backdrop-blur-xl">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
                   ✅ Compliance Framework Review
@@ -484,7 +490,7 @@ export default function AIRiskManagementFramework() {
                         req.criticality === 'critical' ? 'bg-red-100 text-red-800' :
                         req.criticality === 'high' ? 'bg-orange-100 text-orange-800' :
                         req.criticality === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-green-100 text-green-800'
+                        'bg-indigo-50 text-indigo-700'
                       }`}>
                         {req.criticality.toUpperCase()}
                       </span>
@@ -548,7 +554,7 @@ export default function AIRiskManagementFramework() {
             <div className="space-y-6">
               
               {/* Risk Overview */}
-              <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="rounded-[2rem] border border-slate-200/90 bg-white/92 p-8 shadow-[0_18px_44px_rgba(15,23,42,0.05)] backdrop-blur-xl">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                   📊 Risk Assessment Overview
                 </h2>
@@ -565,8 +571,8 @@ export default function AIRiskManagementFramework() {
                     <div className="text-2xl font-bold text-yellow-600">{assessment.mediumRisks}</div>
                     <div className="text-sm text-gray-600">Medium Risks</div>
                   </div>
-                  <div className="text-center p-4 bg-green-50 rounded-lg border border-green-200">
-                    <div className="text-2xl font-bold text-green-600">{assessment.lowRisks}</div>
+                  <div className="text-center p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+                    <div className="text-2xl font-bold text-indigo-600">{assessment.lowRisks}</div>
                     <div className="text-sm text-gray-600">Low Risks</div>
                   </div>
                 </div>
@@ -584,8 +590,8 @@ export default function AIRiskManagementFramework() {
                     </div>
                     <div className="text-sm text-gray-600">Total Investment</div>
                   </div>
-                  <div className="text-center p-4 bg-green-50 rounded-lg border border-green-200">
-                    <div className="text-xl font-bold text-green-600">
+                  <div className="text-center p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+                    <div className="text-xl font-bold text-indigo-600">
                       ${assessment.expectedROI.toLocaleString()}
                     </div>
                     <div className="text-sm text-gray-600">Expected ROI</div>
@@ -594,7 +600,7 @@ export default function AIRiskManagementFramework() {
               </div>
 
               {/* Budget Allocation */}
-              <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="rounded-[2rem] border border-slate-200/90 bg-white/92 p-8 shadow-[0_18px_44px_rgba(15,23,42,0.05)] backdrop-blur-xl">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                   💰 Recommended Budget Allocation
                 </h2>
@@ -635,14 +641,14 @@ export default function AIRiskManagementFramework() {
               </div>
 
               {/* Action Plan */}
-              <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="rounded-[2rem] border border-slate-200/90 bg-white/92 p-8 shadow-[0_18px_44px_rgba(15,23,42,0.05)] backdrop-blur-xl">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                   ✅ Recommended Action Plan
                 </h2>
                 <div className="space-y-3">
                   {assessment.recommendedActions.map((action, index) => (
-                    <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                      <span className="text-green-600 mt-0.5">✅</span>
+                    <div key={index} className="flex items-start gap-3 rounded-lg bg-slate-50 p-3">
+                      <span className="mt-0.5 text-indigo-600">✅</span>
                       <span className="text-gray-800">{action}</span>
                     </div>
                   ))}

@@ -122,7 +122,7 @@ const websiteBuilders: WebsiteBuilder[] = [
     mobileScore: 93,
     seoScore: 89,
     icon: '💰',
-    gradient: 'from-green-500 to-teal-500',
+    gradient: 'from-indigo-500 to-sky-500',
     description: 'Hostinger Website Builder provides exceptional value for budget-conscious users without compromising on essential features.',
     pros: [
       'Incredibly affordable pricing',
@@ -276,15 +276,15 @@ export default function WebsiteBuildersClient() {
   }
 
   const getScoreColor = (score: number) => {
-    if (score >= 90) return 'text-green-600'
-    if (score >= 80) return 'text-yellow-600'
-    return 'text-red-600'
+    if (score >= 90) return 'text-indigo-600'
+    if (score >= 80) return 'text-amber-600'
+    return 'text-rose-600'
   }
 
   const getProgressBarColor = (score: number) => {
-    if (score >= 90) return 'bg-green-500'
-    if (score >= 80) return 'bg-yellow-500'
-    return 'bg-red-500'
+    if (score >= 90) return 'bg-indigo-500'
+    if (score >= 80) return 'bg-amber-500'
+    return 'bg-rose-500'
   }
 
   return (
@@ -504,7 +504,7 @@ export default function WebsiteBuildersClient() {
                                 </span>
                               ))}
                             </div>
-                            <span className="ml-2 font-semibold text-green-600">
+                            <span className="ml-2 font-semibold text-indigo-600">
                               Rating: {builder.rating}/10
                             </span>
                           </div>
@@ -520,13 +520,13 @@ export default function WebsiteBuildersClient() {
 
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <h4 className="font-semibold text-green-600 mb-3 flex items-center">
+                        <h4 className="font-semibold text-indigo-600 mb-3 flex items-center">
                           <span className="mr-2">✅</span> Pros:
                         </h4>
                         <ul className="space-y-2">
                           {builder.pros.map((pro, i) => (
                             <li key={i} className="flex items-start">
-                              <span className="text-green-500 mr-2 mt-1">•</span>
+                              <span className="text-indigo-500 mr-2 mt-1">•</span>
                               <span className="text-gray-700">{pro}</span>
                             </li>
                           ))}
@@ -640,11 +640,11 @@ export default function WebsiteBuildersClient() {
                     <div>
                       <div className="flex justify-between mb-2">
                         <span className="text-sm font-medium">Uptime</span>
-                        <span className="text-sm font-bold text-green-600">{builder.uptime}</span>
+                        <span className="text-sm font-bold text-indigo-600">{builder.uptime}</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-3">
                         <div 
-                          className="h-3 rounded-full bg-green-500 transition-all duration-1000"
+                          className="h-3 rounded-full bg-indigo-500 transition-all duration-1000"
                           style={{width: `${parseFloat(builder.uptime)}%`}}
                         />
                       </div>
@@ -685,8 +685,8 @@ export default function WebsiteBuildersClient() {
                         <td className="px-6 py-4">{builder.templates}</td>
                         <td className="px-6 py-4">
                           <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            builder.ecommerce === 'Excellent' ? 'bg-green-100 text-green-800' :
-                            builder.ecommerce === 'Yes' ? 'bg-blue-100 text-blue-800' :
+                            builder.ecommerce === 'Excellent' ? 'bg-indigo-100 text-indigo-800' :
+                            builder.ecommerce === 'Yes' ? 'bg-sky-100 text-sky-800' :
                             'bg-gray-100 text-gray-800'
                           }`}>
                             {builder.ecommerce}
@@ -694,8 +694,8 @@ export default function WebsiteBuildersClient() {
                         </td>
                         <td className="px-6 py-4">
                           <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            builder.freePlan === 'Yes' ? 'bg-green-100 text-green-800' :
-                            builder.freePlan === 'Limited' ? 'bg-yellow-100 text-yellow-800' :
+                            builder.freePlan === 'Yes' ? 'bg-indigo-100 text-indigo-800' :
+                            builder.freePlan === 'Limited' ? 'bg-amber-100 text-amber-800' :
                             'bg-gray-100 text-gray-800'
                           }`}>
                             {builder.freePlan}
@@ -747,7 +747,7 @@ export default function WebsiteBuildersClient() {
             <p className="text-lg text-gray-700 mb-4">
               For most users, <strong className="text-blue-600">Webflow</strong> offers the best combination of power and ease-of-use. 
               <strong className="text-pink-600"> Wix</strong> excels for creative professionals, while 
-              <strong className="text-green-600"> Hostinger</strong> provides exceptional value.
+              <strong className="text-indigo-600"> Hostinger</strong> provides exceptional value.
             </p>
             <p className="text-gray-600">
               Remember: the best website builder matches your specific needs, technical comfort level, and budget.

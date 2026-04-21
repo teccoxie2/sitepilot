@@ -1,243 +1,449 @@
-import React from 'react';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowRight, Zap, Shield, ShoppingCart, BarChart3, Globe, Lock, Cpu, CheckCircle2, XCircle, Terminal } from 'lucide-react';
-import SchemaMarkup from '../../components/SchemaMarkup';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  Globe,
+  Layers3,
+  Lock,
+  ShoppingCart,
+  Sparkles,
+  Store,
+  Workflow,
+  XCircle,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+import RelatedLinks, { websiteBuilderRelatedLinks } from '@/components/RelatedLinks'
+
+const pageTitle = 'Best Ecommerce Website Builders 2026 | SitePilot'
+const pageDescription =
+  'A practical 2026 comparison of ecommerce website builders. Evaluate Shopify, BigCommerce, and WooCommerce on checkout maturity, scaling path, flexibility, and operational fit.'
+const pageUrl = 'https://sitepilot.co/best-ecommerce-website-builders-2026'
 
 export const metadata: Metadata = {
-  title: 'Best Ecommerce Website Builders 2026 | Technical Platform Audit',
-  description: 'A 2026 technical analysis of global ecommerce infrastructure. Evaluating Shopify, BigCommerce, and WooCommerce on scalability, TCO, and API performance.',
-  keywords: 'best ecommerce website builders 2026, online store builders, ecommerce platforms comparison, Shopify 2026 review, BigCommerce B2B',
-};
+  title: pageTitle,
+  description: pageDescription,
+  keywords:
+    'best ecommerce website builders 2026, online store builders, ecommerce platforms comparison, Shopify 2026 review, BigCommerce B2B',
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
+}
+
+const scorecard = [
+  {
+    label: 'Best default answer',
+    value: 'Shopify',
+    note: 'Strong checkout, strong ecosystem, less decision fatigue.',
+  },
+  {
+    label: 'Best for flexibility',
+    value: 'BigCommerce',
+    note: 'Better when catalog, B2B, or integration needs get messy.',
+  },
+  {
+    label: 'Best for ownership',
+    value: 'WooCommerce',
+    note: 'More control, more responsibility, and more maintenance.',
+  },
+  {
+    label: 'What matters most',
+    value: 'Operational fit',
+    note: 'Pretty storefronts are easy. Running commerce well is the hard part.',
+  },
+]
+
+const platforms = [
+  {
+    name: 'Shopify',
+    badge: 'Best for most serious sellers',
+    score: '9.6/10',
+    description:
+      'Shopify remains the cleanest answer when the site exists to sell. The platform removes a lot of self-inflicted complexity and gives teams a mature checkout, strong app ecosystem, and a path that scales without constant reinvention.',
+    wins: ['Best checkout maturity', 'Fastest time to revenue', 'Strong app and partner ecosystem'],
+    limits: ['Platform constraints remain real', 'Fees and app sprawl can add up'],
+    summary: 'Use Shopify when the business needs a reliable commerce engine more than architectural freedom.',
+    href: '/website-builders',
+    cta: 'See builder hub',
+  },
+  {
+    name: 'BigCommerce',
+    badge: 'Best for complexity without full custom pain',
+    score: '9.0/10',
+    description:
+      'BigCommerce makes more sense once the operation gets more layered: B2B requirements, multiple storefronts, more complicated catalogs, or stricter integration expectations. It gives teams more room without immediately forcing a full custom stack.',
+    wins: ['Good multi-store and B2B story', 'More open posture for integrations', 'No forced transaction-fee narrative'],
+    limits: ['Smaller ecosystem than Shopify', 'Less default momentum in the market'],
+    summary: 'Choose BigCommerce when operational flexibility matters more than mainstream simplicity.',
+    href: '/best-website-builders-2026',
+    cta: 'Compare broader builder options',
+  },
+  {
+    name: 'WooCommerce',
+    badge: 'Best for maximum ownership',
+    score: '8.2/10',
+    description:
+      'WooCommerce is not a builder-first answer so much as a WordPress commerce route. It can be powerful, especially for teams that want control over hosting, plugins, and implementation detail, but the maintenance burden is part of the deal.',
+    wins: ['Maximum ownership', 'Flexible hosting choices', 'Good if WordPress is already the center of gravity'],
+    limits: ['More maintenance', 'Performance depends on execution', 'Plugin debt is real'],
+    summary: 'Pick WooCommerce when you want control and accept the operational tax that comes with it.',
+    href: '/website-builder-vs-wordpress-2026',
+    cta: 'Read builder vs WordPress',
+  },
+]
+
+const buyingCriteria = [
+  {
+    title: 'Checkout maturity',
+    body: 'If checkout is shaky, nothing else matters. Abandonment eats pretty design for breakfast.',
+    icon: ShoppingCart,
+  },
+  {
+    title: 'Operational scale',
+    body: 'Catalog complexity, international sales, B2B logic, and team workflow matter more than launch-week cosmetics.',
+    icon: Workflow,
+  },
+  {
+    title: 'Platform control',
+    body: 'Some teams want guardrails. Others want ownership. The wrong choice creates friction for years.',
+    icon: Layers3,
+  },
+  {
+    title: 'Security baseline',
+    body: 'Commerce stacks should reduce risk by default, not require heroics to stay safe and compliant.',
+    icon: Lock,
+  },
+]
+
+const matrix = [
+  {
+    title: 'Checkout strength',
+    shopify: 'Excellent',
+    bc: 'Strong',
+    woo: 'Depends on stack',
+  },
+  {
+    title: 'B2B readiness',
+    shopify: 'Good on upper tiers',
+    bc: 'Strong default story',
+    woo: 'Plugin-led',
+  },
+  {
+    title: 'Ease of launch',
+    shopify: 'Fastest',
+    bc: 'Moderate',
+    woo: 'Slowest',
+  },
+  {
+    title: 'Ownership control',
+    shopify: 'Limited',
+    bc: 'Balanced',
+    woo: 'Highest',
+  },
+  {
+    title: 'Maintenance burden',
+    shopify: 'Low',
+    bc: 'Moderate',
+    woo: 'High',
+  },
+  {
+    title: 'Best fit',
+    shopify: 'Most sellers',
+    bc: 'Complex stores',
+    woo: 'Control-first teams',
+  },
+]
 
 export default function BestEcommerceWebsiteBuilders2026() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-blue-500/30">
-      <SchemaMarkup 
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
         type="article"
         title="Best Ecommerce Website Builders 2026: Technical Platform Audit"
         description="Comprehensive 2026 technical guide comparing ecommerce infrastructure on speed, scalability, and API capabilities."
-        url="https://sitepilot.co/best-ecommerce-website-builders-2026"
+        url={pageUrl}
         publishedDate="2026-04-08"
-        modifiedDate="2026-04-08"
+        modifiedDate="2026-04-17"
+        authorName="SitePilot Team"
       />
 
-      {/* 
-        AEO Optimizer: Factual Definition
-        An ecommerce website builder is a specialized software-as-a-service (SaaS) or open-source platform providing integrated inventory management, payment processing, and shopping cart functionality for online commercial transactions. This 2026 technical audit evaluates enterprise scalability, time-to-first-byte (TTFB) performance, and API-first headless capabilities of Shopify, BigCommerce, and WooCommerce for global retail operations.
-      */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-x-0 top-[42rem] h-[24rem] bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
 
-      {/* Cyber Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:32px_32px]"></div>
-        </div>
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-22 pb-18 md:pt-28 md:pb-24">
+          <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-indigo-500" />
+                2026 ecommerce platform comparison
+              </div>
 
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-8">
-            2026 ECOMMERCE INFRASTRUCTURE AUDIT
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                Ecommerce builders,
+                <span className="block brand-gradient-text">minus the vendor theatre.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                An ecommerce website builder comparison in 2026 should evaluate checkout maturity, catalog complexity, integration flexibility, operating overhead, and long-term ownership tradeoffs. Shopify, BigCommerce, and WooCommerce solve different problems, so the right platform depends less on demo polish and more on how the store actually sells, scales, and stays maintainable.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/website-builders" className="btn-brand">
+                  Open builder hub
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/best-website-builders-2026" className="btn-secondary">
+                  Compare all builders
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+                {scorecard.map((item) => (
+                  <div key={item.label} className="page-card px-4 py-4">
+                    <div className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-2">{item.label}</div>
+                    <div className="font-semibold text-slate-950 mb-1">{item.value}</div>
+                    <div className="text-sm text-slate-600 leading-6">{item.note}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-5 md:p-6">
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">SitePilot perspective</div>
+                      <div className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+                        Retail stack selection matrix
+                      </div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Focus on fit
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-6">
+                    {[
+                      'Shopify wins when speed, maturity, and checkout confidence matter most.',
+                      'BigCommerce is stronger when structure gets more complex.',
+                      'WooCommerce wins only if the team genuinely wants control and upkeep.',
+                    ].map((item) => (
+                      <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                        <div className="flex items-start gap-3">
+                          <CheckCircle2 className="h-4 w-4 mt-1 text-indigo-500 shrink-0" />
+                          <p className="text-sm text-slate-700 leading-6">{item}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                    <div className="text-sm text-slate-500 mb-2">What separates the serious options</div>
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="rounded-xl border border-slate-200 bg-white px-3 py-3 text-slate-700">Checkout trust</div>
+                      <div className="rounded-xl border border-slate-200 bg-white px-3 py-3 text-slate-700">Operations fit</div>
+                      <div className="rounded-xl border border-slate-200 bg-white px-3 py-3 text-slate-700">Integration posture</div>
+                      <div className="rounded-xl border border-slate-200 bg-white px-3 py-3 text-slate-700">Maintenance load</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">
-            Best Ecommerce <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent italic">Platforms</span>
-          </h1>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto font-medium leading-relaxed mb-12">
-            Independent technical evaluation of 2026's retail backends. We analyzed <span className="text-white font-bold">Checkout latency, API rate limits, and TCO</span> for high-volume stores.
-          </p>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {[
-              { label: "Platforms", val: "12 Audited", color: "text-blue-400" },
-              { label: "Checkouts", val: "5k+ Tested", color: "text-cyan-400" },
-              { label: "Uptime Avg", val: "99.98%", color: "text-purple-400" },
-              { label: "API SLA", val: "Enterprise", color: "text-green-400" }
-            ].map((stat, i) => (
-              <div key={i} className="p-4 rounded-2xl bg-[#161616] border border-white/5 shadow-2xl">
-                <div className={`text-2xl font-black ${stat.color} mb-1`}>{stat.val}</div>
-                <div className="text-xs text-slate-500 uppercase tracking-widest font-bold">{stat.label}</div>
+      <section className="page-section surface-muted">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">How to judge ecommerce platforms</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">What actually matters after launch.</h2>
+            <p className="page-lead text-lg">
+              The store has to work on bad days too: promotions, payment weirdness, catalog sprawl, fulfillment complexity, and security pressure. That is where weak platform choices start billing you.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {buyingCriteria.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.title} className="page-card-soft p-6">
+                  <div className="inline-flex rounded-2xl bg-indigo-50 p-3 mb-5">
+                    <Icon className="h-5 w-5 text-indigo-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{item.title}</h3>
+                  <p className="text-sm leading-6 text-slate-600">{item.body}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Top platform choices</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">Three serious routes, three different trade-offs.</h2>
+            <p className="page-lead text-lg">
+              There is no single universal winner. There is, however, a wrong choice for your actual operating model.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {platforms.map((platform) => (
+              <div key={platform.name} className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.6rem] p-7 md:p-8">
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+                    <div className="max-w-3xl">
+                      <div className="inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-indigo-700 mb-4">
+                        {platform.badge}
+                      </div>
+                      <div className="flex items-end gap-4 flex-wrap mb-4">
+                        <h3 className="text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-slate-950">{platform.name}</h3>
+                        <span className="text-sm font-semibold text-slate-500">{platform.score}</span>
+                      </div>
+                      <p className="text-base md:text-lg leading-8 text-slate-600 mb-6">{platform.description}</p>
+
+                      <div className="grid md:grid-cols-2 gap-5 mb-6">
+                        <div className="rounded-2xl border border-indigo-200 bg-indigo-50/70 px-5 py-5">
+                          <div className="text-sm font-semibold uppercase tracking-[0.14em] text-indigo-800 mb-3">Where it wins</div>
+                          <div className="space-y-3">
+                            {platform.wins.map((win) => (
+                              <div key={win} className="flex items-start gap-3 text-sm text-slate-900">
+                                <CheckCircle2 className="h-4 w-4 mt-0.5 text-indigo-600 shrink-0" />
+                                <span>{win}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="rounded-2xl border border-rose-200 bg-rose-50/70 px-5 py-5">
+                          <div className="text-sm font-semibold uppercase tracking-[0.14em] text-rose-800 mb-3">What to watch</div>
+                          <div className="space-y-3">
+                            {platform.limits.map((limit) => (
+                              <div key={limit} className="flex items-start gap-3 text-sm text-rose-950">
+                                <XCircle className="h-4 w-4 mt-0.5 text-rose-600 shrink-0" />
+                                <span>{limit}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-6 text-slate-700">
+                        <span className="font-semibold">Plain answer:</span> {platform.summary}
+                      </div>
+                    </div>
+
+                    <div className="lg:w-60 shrink-0">
+                      <div className="page-card-soft p-5 h-full flex flex-col justify-between">
+                        <div>
+                          <div className="text-sm text-slate-500 mb-2">Best fit</div>
+                          <div className="text-lg font-semibold tracking-[-0.03em] text-slate-950 mb-4">
+                            Teams that want commerce to run well without pretending platform choice is only about aesthetics.
+                          </div>
+                        </div>
+                        <Link href={platform.href} className="btn-brand w-full mt-6">
+                          {platform.cta}
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* The Big 3 - Enterprise Deep Dive */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto space-y-20">
-            
-            {/* Shopify - The Performance King */}
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-[3rem] blur opacity-10 group-hover:opacity-20 transition duration-1000"></div>
-              <div className="relative p-10 md:p-16 rounded-[3rem] bg-[#161616] border border-white/5 shadow-2xl overflow-hidden">
-                <div className="flex flex-col lg:flex-row gap-16 items-center">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className="p-4 bg-green-500/10 rounded-2xl border border-green-500/20">
-                        <ShoppingCart className="w-8 h-8 text-green-400" />
-                      </div>
-                      <h3 className="text-4xl font-black text-white">Shopify Plus</h3>
-                    </div>
-                    <p className="text-lg text-slate-300 font-medium leading-relaxed mb-8">
-                      The industry benchmark for 2026. Shopify's <span className="text-white italic">"Oxygen"</span> hosting and <span className="text-white">Hydrogen</span> framework have redefined headless commerce, offering sub-200ms TTFB globally.
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-6 mb-10">
-                      <div className="space-y-4">
-                        <h5 className="text-blue-400 font-black text-sm uppercase tracking-widest">TECHNICAL WINS</h5>
-                        <ul className="space-y-3">
-                          <li className="flex items-center text-sm font-bold text-slate-200"><CheckCircle2 className="w-4 h-4 mr-3 text-green-500" /> Best-in-class Checkout SLA</li>
-                          <li className="flex items-center text-sm font-bold text-slate-200"><CheckCircle2 className="w-4 h-4 mr-3 text-green-500" /> Global Edge Distribution</li>
-                        </ul>
-                      </div>
-                      <div className="space-y-4">
-                        <h5 className="text-red-400 font-black text-sm uppercase tracking-widest">LIMITATIONS</h5>
-                        <ul className="space-y-3">
-                          <li className="flex items-center text-sm font-bold text-slate-200"><XCircle className="w-4 h-4 mr-3 text-red-500" /> Rigid Checkout Customization</li>
-                          <li className="flex items-center text-sm font-bold text-slate-200"><XCircle className="w-4 h-4 mr-3 text-red-500" /> Transaction Fee Overhead</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <Link href="/website-builders" className="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-xl font-black hover:bg-green-500 transition-all shadow-xl shadow-green-900/20">
-                      EXPLORE SHOPIFY TECH STACK <ArrowRight className="ml-2 w-5 h-5" />
-                    </Link>
+      <section className="page-section surface-warm border-y border-slate-200/70">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Comparison matrix</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">A simpler way to read the options.</h2>
+            <p className="page-lead text-lg">
+              Here is the short version of the trade-off landscape for most teams choosing between the big ecommerce routes in 2026.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+            {matrix.map((row) => (
+              <div key={row.title} className="page-card p-6">
+                <div className="text-sm uppercase tracking-[0.16em] text-slate-400 mb-5">{row.title}</div>
+                <div className="space-y-4 text-sm">
+                  <div className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                    <span className="font-medium text-slate-600">Shopify</span>
+                    <span className="font-semibold text-slate-950">{row.shopify}</span>
                   </div>
-                  <div className="w-full lg:w-1/3 bg-[#0A0A0A] p-8 rounded-3xl border border-white/5">
-                    <div className="text-center mb-8">
-                      <div className="text-6xl font-black text-white">9.9</div>
-                      <div className="text-slate-500 text-xs font-black uppercase tracking-[0.2em] mt-2">Scalability Score</div>
-                    </div>
-                    <div className="space-y-6">
-                       {[
-                         { label: "Checkout Speed", val: "99%" },
-                         { label: "API Reliability", val: "99.9%" },
-                         { label: "SEO Structure", val: "97%" }
-                       ].map((item, i) => (
-                         <div key={i} className="space-y-2">
-                           <div className="flex justify-between text-xs font-black text-slate-500 uppercase">
-                             <span>{item.label}</span>
-                             <span>{item.val}</span>
-                           </div>
-                           <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                             <div className="h-full bg-green-500" style={{ width: item.val }}></div>
-                           </div>
-                         </div>
-                       ))}
-                    </div>
+                  <div className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                    <span className="font-medium text-slate-600">BigCommerce</span>
+                    <span className="font-semibold text-slate-950">{row.bc}</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                    <span className="font-medium text-slate-600">WooCommerce</span>
+                    <span className="font-semibold text-slate-950">{row.woo}</span>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* BigCommerce - Enterprise Flexibility */}
-            <div className="relative group">
-              <div className="relative p-10 md:p-16 rounded-[3rem] bg-[#161616] border border-white/5 shadow-2xl overflow-hidden">
-                <div className="flex flex-col lg:flex-row-reverse gap-16 items-center">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className="p-4 bg-blue-500/10 rounded-2xl border border-blue-500/20">
-                        <BarChart3 className="w-8 h-8 text-blue-400" />
-                      </div>
-                      <h3 className="text-4xl font-black text-white">BigCommerce</h3>
-                    </div>
-                    <p className="text-lg text-slate-300 font-medium leading-relaxed mb-8">
-                      The open-SaaS powerhouse. BigCommerce excels in <span className="text-white font-bold">Multi-Storefront</span> management and B2B requirements, offering a more flexible API ecosystem than Shopify for complex integrations.
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-6 mb-10">
-                       <div className="p-6 rounded-2xl bg-[#0A0A0A] border border-white/5">
-                          <div className="text-blue-400 font-black text-lg mb-2">0% FEE</div>
-                          <div className="text-slate-500 text-xs font-bold uppercase tracking-widest">TRANSACTION OVERHEAD</div>
-                       </div>
-                       <div className="p-6 rounded-2xl bg-[#0A0A0A] border border-white/5">
-                          <div className="text-purple-400 font-black text-lg mb-2">B2B NATIVE</div>
-                          <div className="text-slate-500 text-xs font-bold uppercase tracking-widest">ENTERPRISE FEATURES</div>
-                       </div>
-                    </div>
-                    <Link href="/website-builders" className="text-blue-400 font-black flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest text-sm">
-                      Full BigCommerce Audit <ArrowRight className="w-5 h-5" />
-                    </Link>
-                  </div>
-                  <div className="w-full lg:w-1/3">
-                     <div className="aspect-square bg-[#0A0A0A] rounded-3xl border border-white/5 flex items-center justify-center relative overflow-hidden">
-                        <div className="absolute inset-0 bg-blue-500/5 blur-[40px]"></div>
-                        <Cpu className="w-24 h-24 text-slate-800 relative z-10" />
-                     </div>
-                  </div>
-                </div>
+      <section className="page-section">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="page-card-glow p-1.5">
+            <div className="page-card rounded-[1.8rem] p-8 md:p-10 text-center">
+              <div className="inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700 mb-5">
+                Final selection logic
+              </div>
+              <h2 className="page-title text-3xl md:text-5xl mb-5">Pick the platform that matches your operating model, not your launch mood.</h2>
+              <p className="page-lead text-lg max-w-3xl mx-auto mb-8">
+                Shopify is still the strongest default answer for most serious sellers. BigCommerce gets more interesting as complexity rises. WooCommerce is valid when the team truly wants control and can absorb the maintenance load.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/website-builders" className="btn-brand">
+                  Return to builder hub
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/website-builder-vs-wordpress-2026" className="btn-secondary">
+                  Compare with WordPress
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Comparison Grid - The Data Matrix */}
-      <section className="py-24 bg-[#0F0F0F] relative">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-black mb-6">2026 Technical Matrix</h2>
-            <p className="text-slate-500 text-sm font-black uppercase tracking-[0.3em]">Platform Architecture Comparison</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-             {[
-               { title: "Checkout Latency", shopify: "120ms", bc: "160ms", woo: "Variable" },
-               { title: "Native B2B Support", shopify: "Plus Only", bc: "All Plans", woo: "Plugin Based" },
-               { title: "Global CDN", shopify: "Shopify Edge", bc: "Akamai/Cloudflare", woo: "User Managed" },
-               { title: "API Rate Limits", shopify: "Dynamic", bc: "Unlimited", woo: "Server Bound" },
-               { title: "Headless Ready", shopify: "Hydrogen/Remix", bc: "GraphQL First", woo: "REST API Only" },
-               { title: "0% Fees Availability", shopify: "No", bc: "Yes", woo: "Yes" }
-             ].map((row, i) => (
-               <div key={i} className="p-8 rounded-[2rem] bg-[#161616] border border-white/5 shadow-2xl hover:border-blue-500/20 transition-all">
-                 <h4 className="text-slate-500 text-xs font-black uppercase tracking-widest mb-6">{row.title}</h4>
-                 <div className="space-y-4 font-bold">
-                   <div className="flex justify-between items-center text-sm"><span className="text-green-400">SHOPIFY</span> <span className="text-white">{row.shopify}</span></div>
-                   <div className="flex justify-between items-center text-sm"><span className="text-blue-400">BIGCOMMERCE</span> <span className="text-white">{row.bc}</span></div>
-                   <div className="flex justify-between items-center text-sm"><span className="text-slate-500">WOOCOMMERCE</span> <span className="text-white">{row.woo}</span></div>
-                 </div>
-               </div>
-             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Security & Compliance Block */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="p-12 md:p-16 rounded-[4rem] bg-gradient-to-br from-[#161616] to-[#0A0A0A] border border-white/10 shadow-2xl text-center relative overflow-hidden">
-             <div className="absolute top-0 right-0 p-12 opacity-5">
-                <Lock className="w-64 h-64" />
-             </div>
-             <div className="relative z-10">
-                <Shield className="w-16 h-16 text-blue-500 mx-auto mb-8" />
-                <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter">PCI-DSS Level 1 Infrastructure</h2>
-                <p className="text-xl text-slate-400 leading-relaxed font-medium mb-12">
-                   Don't compromise on security. We only recommend platforms that provide <span className="text-white">enterprise-grade compliance</span> and integrated fraud protection out of the box.
-                </p>
-                <div className="flex flex-wrap justify-center gap-8 text-xs font-black uppercase tracking-[0.2em] text-slate-500">
-                   <span className="flex items-center gap-2 text-blue-400"><CheckCircle2 className="w-4 h-4"/> SOC2 COMPLIANT</span>
-                   <span className="flex items-center gap-2 text-blue-400"><CheckCircle2 className="w-4 h-4"/> GDPR READY</span>
-                   <span className="flex items-center gap-2 text-blue-400"><CheckCircle2 className="w-4 h-4"/> ISO 27001</span>
-                </div>
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Expert Verdict Footer */}
-      <section className="py-24 border-t border-white/5 bg-[#0F0F0F]">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-2xl mx-auto">
-             <div className="p-4 bg-white/5 rounded-2xl inline-block mb-8">
-                <Terminal className="w-8 h-8 text-cyan-400" />
-             </div>
-             <h3 className="text-2xl font-black mb-6">Final Selection Logic</h3>
-             <p className="text-slate-400 font-medium leading-relaxed mb-10">
-                Choosing an ecommerce backend is a 5-year decision. For most serious sellers, <span className="text-white italic">Shopify Plus</span> is the modern standard, while <span className="text-white italic">BigCommerce</span> remains the king of flexibility and zero-fee scaling.
-             </p>
-             <Link href="/website-builders" className="inline-flex items-center text-blue-400 font-black hover:text-blue-300 gap-2 uppercase tracking-widest text-sm">
-                Return to Master Ranking <ArrowRight className="w-5 h-5" />
-             </Link>
-          </div>
+      <section className="page-section pt-0">
+        <div className="max-w-6xl mx-auto px-4">
+          <RelatedLinks
+            title="More platform and website guides"
+            links={websiteBuilderRelatedLinks.filter((link) => link.href !== '/best-ecommerce-website-builders-2026')}
+          />
         </div>
       </section>
     </div>
-  );
+  )
 }

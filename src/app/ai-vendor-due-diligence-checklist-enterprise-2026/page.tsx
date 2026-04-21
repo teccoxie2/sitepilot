@@ -1,7 +1,15 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import RelatedLinks from '@/components/RelatedLinks'
 import SchemaMarkup from '@/components/SchemaMarkup'
+import {
+  AlertTriangle,
+  ArrowRight,
+  CheckCircle2,
+  ClipboardCheck,
+  Shield,
+  Sparkles,
+} from 'lucide-react'
 
 const pageTitle = 'Enterprise AI Vendor Due Diligence Checklist 2026 | SitePilot'
 const pageDescription =
@@ -109,6 +117,12 @@ const deliverables = [
   'Executive recommendation: approve, approve with conditions, or reject',
 ]
 
+const outcomeStates = [
+  'Approve: controls and contracts are acceptable for planned use.',
+  'Approve with conditions: gaps exist but have owners and deadlines.',
+  'Reject: unresolved issues create unacceptable security, legal, or delivery risk.',
+]
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -142,137 +156,220 @@ const faqSchema = {
 
 export default function AIVendorDueDiligenceChecklistPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-medium mb-6 border border-white/20">
-              Enterprise procurement playbook
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-04-04"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_56%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_54%_82%,rgba(251,191,36,0.05),transparent_28%)]" />
+      </div>
+
+      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6">
+                  <Sparkles className="h-4 w-4 text-[#635bff]" />
+                  Enterprise procurement playbook
+                </div>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                  AI vendor due diligence，
+                  <span className="brand-gradient-text block">别把 demo 当审计报告。</span>
+                </h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                  A practical enterprise AI vendor due diligence checklist covering security, legal, procurement, architecture, data governance, and rollout readiness. 这页保留原来的 checklist、FAQ schema、RelatedLinks、canonical 和内部链接，只统一到当前浅色 Stripe-ish UI。
+                </p>
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <a href="#checklist" className="btn-brand inline-flex items-center gap-2">
+                    查看尽调清单
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="btn-secondary inline-flex items-center gap-2">
+                    打开 shortlist scorecard
+                  </Link>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-3 max-w-3xl">
+                  <div className="page-card bg-white/90 p-4">
+                    <div className="mb-1 text-3xl font-semibold tracking-[-0.04em] text-slate-950">6</div>
+                    <div className="text-sm text-slate-600">workstreams to verify</div>
+                  </div>
+                  <div className="page-card bg-white/90 p-4">
+                    <div className="mb-1 text-3xl font-semibold tracking-[-0.04em] text-slate-950">3</div>
+                    <div className="text-sm text-slate-600">recommended outcome states</div>
+                  </div>
+                  <div className="page-card bg-white/90 p-4">
+                    <div className="mb-1 text-3xl font-semibold tracking-[-0.04em] text-slate-950">5</div>
+                    <div className="text-sm text-slate-600">minimum decision-pack outputs</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card bg-white/95 p-6">
+                    <div className="mb-6 flex items-center justify-between">
+                      <div>
+                        <div className="mb-1 text-sm text-slate-500">Review discipline</div>
+                        <div className="text-xl font-semibold text-slate-950">三种结果，别装糊涂</div>
+                      </div>
+                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                        Evidence first
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      {outcomeStates.map((item) => (
+                        <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                            <p className="text-sm leading-6 text-slate-600">{item}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-              Enterprise AI Vendor Due Diligence Checklist 2026
-            </h1>
-            <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-8 max-w-3xl">
-              Enterprise AI vendor due diligence is the structured audit of an AI solution provider’s security posture, regulatory compliance, and operational reliability. This 2026 checklist provides procurement and architecture teams with a multi-workstream framework to verify data residency, training usage policies, and identity controls, ensuring AI implementation aligns with corporate governance standards before production rollout.
-            </p>
-            <div className="flex flex-wrap gap-3 text-sm">
-              <span className="bg-white/10 border border-white/15 rounded-full px-3 py-1">Security review</span>
-              <span className="bg-white/10 border border-white/15 rounded-full px-3 py-1">Data governance</span>
-              <span className="bg-white/10 border border-white/15 rounded-full px-3 py-1">Procurement readiness</span>
-              <span className="bg-white/10 border border-white/15 rounded-full px-3 py-1">Go-live controls</span>
+          </div>
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-[2fr_1fr] mb-16">
+          <div className="page-card p-8 md:p-10">
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">What this page is for</h2>
+            <div className="space-y-4 text-lg leading-8 text-slate-600">
+              <p>
+                Most AI vendor evaluations fail for a boring reason: teams over-focus on the demo and under-focus on operations. Procurement sees pricing, security sees controls, legal sees clauses, and the business sees promised speed. If nobody ties that together, the mess shows up after signature.
+              </p>
+              <p>
+                Use this checklist during vendor shortlisting, pilot review, and final approval. It works best when every item gets an owner, an answer, and evidence. Pair it with the{' '}
+                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="font-medium text-[#635bff] hover:underline">
+                  enterprise AI vendor RFP template
+                </Link>{' '}
+                and the{' '}
+                <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="font-medium text-[#635bff] hover:underline">
+                  vendor shortlist scorecard
+                </Link>{' '}
+                so diligence, scoring, and approval all use the same facts.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <SchemaMarkup
-          type="article"
-          title={pageTitle}
-          description={pageDescription}
-          url={pageUrl}
-          publishedDate="2026-04-04"
-          modifiedDate="2026-04-04"
-          authorName="SitePilot Team"
-        />
-
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">What this page is for</h2>
-            <p className="text-slate-700 leading-relaxed mb-4">
-              Most AI vendor evaluations fail for a boring reason: teams over-focus on the demo and under-focus on operations.
-              Procurement sees pricing, security sees controls, legal sees clauses, and the business sees promised speed. If nobody ties that together, the mess shows up after signature.
-            </p>
-            <p className="text-slate-700 leading-relaxed">
-              Use this checklist during vendor shortlisting, pilot review, and final approval. It works best when every item gets an owner, an answer, and evidence. Pair it with the{' '}
-              <Link href="/enterprise-ai-vendor-rfp-template-2026" className="text-blue-700 font-medium hover:underline">
-                enterprise AI vendor RFP template
-              </Link>{' '}
-              and the{' '}
-              <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-blue-700 font-medium hover:underline">
-                vendor shortlist scorecard
-              </Link>{' '}
-              so diligence, scoring, and approval all use the same facts.
-            </p>
+          <div className="page-card border border-sky-100 bg-sky-50/80 p-8">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-100 bg-white/80">
+              <ClipboardCheck className="h-5 w-5 text-[#635bff]" />
+            </div>
+            <h2 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">Recommended outcome states</h2>
+            <div className="space-y-3">
+              {outcomeStates.map((item) => (
+                <div key={item} className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4 text-sm leading-6 text-slate-700">
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="bg-blue-50 rounded-xl border border-blue-200 p-6">
-            <h2 className="text-xl font-bold text-slate-900 mb-4">Recommended outcome states</h2>
-            <ul className="space-y-3 text-sm text-slate-700">
-              <li><strong>Approve:</strong> controls and contracts are acceptable for planned use.</li>
-              <li><strong>Approve with conditions:</strong> gaps exist but have owners and deadlines.</li>
-              <li><strong>Reject:</strong> unresolved issues create unacceptable security, legal, or delivery risk.</li>
-            </ul>
+        <section id="checklist" className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Core due diligence checklist</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              尽调不是打钩游戏，
+              <span className="brand-gradient-text block">是把风险逼出水面。</span>
+            </h2>
           </div>
-        </div>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Core due diligence checklist</h2>
           <div className="space-y-6">
-            {workstreams.map((group) => (
-              <div key={group.title} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-                <h3 className="text-xl font-semibold text-slate-900 mb-4">{group.title}</h3>
-                <ul className="space-y-3">
+            {workstreams.map((group, index) => (
+              <div key={group.title} className="page-card p-8 md:p-10">
+                <div className="mb-6 flex items-start justify-between gap-4">
+                  <div>
+                    <div className="mb-2 text-sm uppercase tracking-[0.2em] text-slate-500">Workstream {index + 1}</div>
+                    <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">{group.title}</h3>
+                  </div>
+                  <div className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                    Evidence required
+                  </div>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {group.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-slate-700">
-                      <span className="mt-1 h-5 w-5 rounded border border-slate-300 bg-slate-50 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
+                    <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4 text-sm leading-6 text-slate-700">
+                      {item}
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="grid lg:grid-cols-2 gap-8 mb-12">
-          <div className="bg-red-50 rounded-xl border border-red-200 p-6">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Red flags</h2>
-            <ul className="space-y-3 text-slate-700">
+        <section className="grid gap-6 lg:grid-cols-2 mb-16">
+          <div className="page-card border border-rose-100 bg-rose-50/80 p-8">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-rose-100 bg-white/80">
+              <AlertTriangle className="h-5 w-5 text-rose-600" />
+            </div>
+            <h2 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">Red flags</h2>
+            <div className="space-y-3">
               {redFlags.map((flag) => (
-                <li key={flag} className="flex items-start gap-3">
-                  <span className="text-red-600 font-bold">⚠</span>
-                  <span>{flag}</span>
-                </li>
+                <div key={flag} className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4 text-sm leading-6 text-slate-700">
+                  {flag}
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Minimum decision pack</h2>
-            <ul className="space-y-3 text-slate-700 mb-6">
+          <div className="page-card p-8">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+              <Shield className="h-5 w-5 text-[#635bff]" />
+            </div>
+            <h2 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">Minimum decision pack</h2>
+            <div className="space-y-3 mb-6">
               {deliverables.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="text-green-600 font-bold">✓</span>
-                  <span>{item}</span>
-                </li>
+                <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4 text-sm leading-6 text-slate-700">
+                  {item}
+                </div>
               ))}
-            </ul>
-            <div className="rounded-lg bg-slate-50 p-4 border border-slate-200 text-sm text-slate-700">
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-gradient-to-r from-slate-50 to-white px-5 py-5 text-sm leading-6 text-slate-700">
               If the vendor cannot support a clean pilot, clean audit trail, and clean exit path, the problem is not your checklist. The vendor is the checklist result.
             </div>
           </div>
         </section>
 
-        <section className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl text-white p-8 mb-12">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-bold mb-4">How to use this in a real buying process</h2>
-            <ol className="space-y-3 text-blue-100 list-decimal list-inside">
-              <li>Use it to filter longlist vendors before wasting pilot time.</li>
-              <li>Re-run it after the pilot using actual technical and operational evidence.</li>
-              <li>Turn unresolved gaps into contract conditions, not hopeful Slack messages.</li>
-              <li>Get one final cross-functional sign-off before production access is granted.</li>
-            </ol>
-            <div className="mt-6 flex flex-wrap gap-4">
+        <section className="mb-16 page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Buying process</div>
+              <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+                真正的采购流程里，
+                <span className="brand-gradient-text block">这张表该怎么用。</span>
+              </h2>
+              <div className="space-y-3 text-lg leading-8 text-slate-600">
+                <p>Use it to filter longlist vendors before wasting pilot time.</p>
+                <p>Re-run it after the pilot using actual technical and operational evidence.</p>
+                <p>Turn unresolved gaps into contract conditions, not hopeful Slack messages.</p>
+                <p>Get one final cross-functional sign-off before production access is granted.</p>
+              </div>
+            </div>
+            <div className="space-y-4">
               <Link
                 href="/enterprise-ai-vendor-shortlist-scorecard-2026"
-                className="inline-flex items-center rounded-lg bg-white text-slate-900 px-5 py-3 font-semibold hover:bg-slate-100 transition-colors"
+                className="btn-brand inline-flex items-center gap-2"
               >
                 Review shortlist scorecard
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/enterprise-ai-vendor-rfp-template-2026"
-                className="inline-flex items-center rounded-lg border border-white/20 px-5 py-3 font-semibold hover:bg-white/10 transition-colors"
+                className="btn-secondary inline-flex items-center gap-2"
               >
                 Open RFP template
               </Link>
@@ -280,52 +377,46 @@ export default function AIVendorDueDiligenceChecklistPage() {
           </div>
         </section>
 
-        <section className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 mb-12">
+        <section className="mb-16 page-card border border-indigo-100 bg-indigo-50/80 p-8 md:p-10">
           <div className="max-w-3xl">
-            <h2 className="text-2xl font-bold text-slate-900 mb-3">Need a reusable checklist for internal review?</h2>
-            <p className="text-slate-700 leading-relaxed mb-5">
+            <h2 className="mb-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">Need a reusable checklist for internal review?</h2>
+            <p className="mb-5 text-lg leading-8 text-slate-600">
               If your team needs a version you can circulate in procurement, security, legal, and architecture review, request the downloadable checklist and use it alongside your RFP and pilot scoring pack.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
                 href="mailto:contact@sitepilot.co?subject=Downloadable%20AI%20Vendor%20Due%20Diligence%20Checklist"
-                className="inline-flex items-center rounded-lg bg-emerald-600 text-white px-5 py-3 font-semibold hover:bg-emerald-700 transition-colors"
+                className="btn-brand inline-flex items-center gap-2"
               >
                 Request downloadable checklist
               </a>
-              <Link
-                href="/enterprise-ai-vendor-rfp-template-2026"
-                className="inline-flex items-center rounded-lg border border-emerald-300 text-emerald-900 px-5 py-3 font-semibold hover:bg-emerald-100 transition-colors"
-              >
+              <Link href="/enterprise-ai-vendor-rfp-template-2026" className="btn-secondary inline-flex items-center gap-2">
                 Open RFP template
               </Link>
-              <Link
-                href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026"
-                className="inline-flex items-center rounded-lg border border-emerald-300 text-emerald-900 px-5 py-3 font-semibold hover:bg-emerald-100 transition-colors"
-              >
+              <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="btn-secondary inline-flex items-center gap-2">
                 Open pilot evaluation checklist
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">Frequently asked questions</h2>
+        <section className="mb-16 page-card p-8 md:p-10">
+          <h2 className="mb-6 text-3xl font-semibold tracking-[-0.04em] text-slate-950">Frequently asked questions</h2>
           <div className="space-y-5 text-slate-700">
-            <div>
-              <h3 className="font-semibold text-slate-900 mb-1">What is AI vendor due diligence?</h3>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+              <h3 className="mb-2 font-semibold text-slate-950">What is AI vendor due diligence?</h3>
               <p>
                 It is the structured review of a vendor’s security, privacy, commercial viability, model risk, integration capability, and compliance readiness before pilot approval or production rollout.
               </p>
             </div>
-            <div>
-              <h3 className="font-semibold text-slate-900 mb-1">Who should be involved?</h3>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+              <h3 className="mb-2 font-semibold text-slate-950">Who should be involved?</h3>
               <p>
                 Procurement, security, legal, architecture, data governance, and the business owner. One-team diligence usually misses something expensive.
               </p>
             </div>
-            <div>
-              <h3 className="font-semibold text-slate-900 mb-1">What are the main red flags?</h3>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+              <h3 className="mb-2 font-semibold text-slate-950">What are the main red flags?</h3>
               <p>
                 Weak identity controls, vague training usage, unclear subprocessors, poor deletion/export commitments, and pressure to move into production before pilot evidence is complete.
               </p>
@@ -363,11 +454,8 @@ export default function AIVendorDueDiligenceChecklistPage() {
           ]}
         />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      </section>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      </main>
     </div>
   )
 }

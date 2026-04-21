@@ -1,10 +1,32 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { Calendar, DollarSign, TrendingUp, AlertCircle, CheckCircle, Users, BarChart3, Calculator, Download, RefreshCw, Target } from 'lucide-react';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  AlertCircle,
+  ArrowRight,
+  BarChart3,
+  Calendar,
+  CheckCircle,
+  ChevronRight,
+  Coins,
+  Download,
+  Gauge,
+  RefreshCw,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Users,
+} from 'lucide-react'
+import RelatedLinks from '@/components/RelatedLinks'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI Budget Optimization Calculator 2026 | SitePilot'
+const pageDescription =
+  'Plan enterprise AI budgets with 12-month allocation guidance, ROI tracking, industry benchmarks, and implementation checkpoints.'
+const pageUrl = 'https://sitepilot.co/enterprise-ai-budget-optimization-calculator'
 
 export const metadata: Metadata = {
-  title: 'Enterprise AI Budget Optimization Calculator 2026 | Strategic Budget Planning Tool',
-  description: 'Master enterprise AI budget optimization with our comprehensive calculator. Features 12-month financial planning, ROI tracking, cost allocation frameworks, and vendor budget analysis for Fortune 500 companies.',
+  title: pageTitle,
+  description: pageDescription,
   keywords: [
     'enterprise AI budget calculator',
     'AI budget optimization',
@@ -13,724 +35,482 @@ export const metadata: Metadata = {
     'corporate AI spending',
     'AI budget allocation',
     'enterprise AI ROI calculator',
-    'AI budget planning tool',
-    'enterprise AI cost management',
-    'AI budget framework 2026'
   ],
   openGraph: {
-    title: 'Enterprise AI Budget Optimization Calculator 2026',
-    description: 'Strategic AI budget planning tool for Fortune 500 enterprises. 12-month financial planning with ROI tracking and cost optimization.',
+    title: pageTitle,
+    description: pageDescription,
     type: 'website',
+    url: pageUrl,
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
+  alternates: { canonical: pageUrl },
+}
+
+const highlights = [
+  {
+    title: '12-month financial planning',
+    body: 'Quarterly allocations, monthly cash flow tracking, and seasonal budget smoothing for enterprise AI work.',
+    icon: Calendar,
+  },
+  {
+    title: 'ROI tracking and analytics',
+    body: 'Measure payback, cost savings, and performance impact across initiatives without fantasy math.',
+    icon: TrendingUp,
+  },
+  {
+    title: 'Cost allocation framework',
+    body: 'Break spending down by department, program, and project so the budget has actual ownership.',
+    icon: BarChart3,
+  },
+]
+
+const allocation = [
+  { label: 'Infrastructure & platform', amount: '$2,000,000', pct: '40%', color: 'bg-sky-500' },
+  { label: 'Talent & training', amount: '$1,500,000', pct: '30%', color: 'bg-indigo-500' },
+  { label: 'Data & security', amount: '$1,000,000', pct: '20%', color: 'bg-violet-500' },
+  { label: 'Innovation & R&D', amount: '$500,000', pct: '10%', color: 'bg-orange-500' },
+]
+
+const budgetCategories = [
+  {
+    title: 'Infrastructure & Platform',
+    icon: Target,
+    items: [
+      ['Cloud computing resources', '15-20% of total budget'],
+      ['AI platform licensing', '10-15% of total budget'],
+      ['Hardware & infrastructure', '10-15% of total budget'],
+    ],
+  },
+  {
+    title: 'Talent & Training',
+    icon: Users,
+    items: [
+      ['AI talent acquisition', '15-20% of total budget'],
+      ['Training & development', '5-8% of total budget'],
+      ['External consulting', '5-7% of total budget'],
+    ],
+  },
+  {
+    title: 'Data & Security',
+    icon: AlertCircle,
+    items: [
+      ['Data management', '8-12% of total budget'],
+      ['AI security & compliance', '5-8% of total budget'],
+      ['Privacy & risk management', '3-5% of total budget'],
+    ],
+  },
+  {
+    title: 'Innovation & R&D',
+    icon: RefreshCw,
+    items: [
+      ['Emerging technologies', '4-6% of total budget'],
+      ['Innovation labs', '3-4% of total budget'],
+      ['Strategic partnerships', '1-3% of total budget'],
+    ],
+  },
+]
+
+const industryBenchmarks = [
+  ['Financial Services', '3.2%', '$12.5M', 'Risk & compliance', '+285%'],
+  ['Healthcare', '2.8%', '$8.7M', 'Clinical AI', '+245%'],
+  ['Manufacturing', '4.1%', '$15.3M', 'Operations AI', '+310%'],
+]
+
+const phases = [
+  ['Q1', 'Foundation', '25% deployment'],
+  ['Q2', 'Scale', '30% deployment'],
+  ['Q3', 'Expand', '30% deployment'],
+  ['Q4', 'Optimize', '15% deployment'],
+]
 
 export default function EnterpriseAIBudgetCalculatorPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="text-center">
-            <div className="flex justify-center mb-6">
-              <div className="p-4 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
-                <Calculator className="h-12 w-12 text-blue-300" />
-              </div>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-200">
-              Enterprise AI Budget Optimization Calculator
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              Strategic financial planning tool for Fortune 500 enterprises. Optimize AI investments with 12-month budget planning, ROI tracking, and cost allocation frameworks.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-900 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-colors shadow-lg">
-                Launch Calculator Tool
-              </button>
-              <button className="border border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-colors backdrop-blur-sm">
-                Download Framework
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
+        type="article"
+        title="Enterprise AI Budget Optimization Calculator 2026"
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-02-15T00:00:00.000Z"
+        modifiedDate="2026-04-18T00:00:00.000Z"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_22%,#ffffff_50%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[30rem] h-[24rem] bg-[radial-gradient(circle_at_22%_22%,rgba(99,91,255,0.05),transparent_24%),radial-gradient(circle_at_76%_26%,rgba(14,165,233,0.05),transparent_22%),radial-gradient(circle_at_50%_82%,rgba(244,114,182,0.04),transparent_28%)]" />
       </div>
 
-      {/* Key Features Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Comprehensive AI Budget Planning Features
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Complete financial planning toolkit designed specifically for enterprise AI initiatives and strategic investments.
-          </p>
-        </div>
+      <main className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-16 pt-10 md:pb-24 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6 inline-flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-indigo-500" />
+                  2026 budget planning tool
+                </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-            <div className="flex items-center mb-4">
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <DollarSign className="h-6 w-6 text-blue-600" />
+                <h1 className="page-title mb-6 text-5xl font-semibold tracking-[-0.05em] text-slate-950 md:text-7xl">
+                  Enterprise AI Budget
+                  <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
+                    optimization calculator.
+                  </span>
+                </h1>
+
+                <p className="page-lead mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+                  Plan enterprise AI spending with actual structure: 12-month allocation guidance, ROI tracking, industry benchmarks,
+                  and a phased implementation framework that does not insult the CFO.
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  <a href="#calculator" className="btn-brand inline-flex items-center gap-2">
+                    Launch calculator
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a href="#framework" className="btn-secondary inline-flex items-center gap-2">
+                    View framework
+                    <ChevronRight className="h-4 w-4" />
+                  </a>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href="/ai-investment-roi-matrix-calculator-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
+                    ROI matrix calculator
+                  </Link>
+                  <Link href="/ai-risk-management-dashboard-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
+                    Risk dashboard
+                  </Link>
+                  <Link href="/enterprise-ai-transformation-roadmap-2026" className="btn-secondary inline-flex items-center gap-2">
+                    Transformation roadmap
+                  </Link>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 ml-3">12-Month Financial Planning</h3>
+
+              <div className="relative">
+                <div className="page-card-glow absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card space-y-5 rounded-[2rem] p-5 md:p-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-sm text-slate-500">Executive summary</div>
+                      <div className="text-xl font-semibold text-slate-950">What the model prioritizes</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Budget first
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    {highlights.map((item) => {
+                      const Icon = item.icon
+                      return (
+                        <div key={item.title} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                          <div className="flex items-start gap-3">
+                            <Icon className="mt-1 h-4 w-4 shrink-0 text-indigo-500" />
+                            <div>
+                              <div className="font-semibold text-slate-950">{item.title}</div>
+                              <p className="mt-1 text-sm leading-6 text-slate-600">{item.body}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="text-gray-600 mb-4">
-              Complete annual budget planning with quarterly milestones, cash flow projections, and seasonal adjustments for enterprise AI investments.
-            </p>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Quarterly budget allocation
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Monthly cash flow tracking
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Seasonal spending optimization
-              </li>
-            </ul>
           </div>
+        </section>
 
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-            <div className="flex items-center mb-4">
-              <div className="p-3 bg-green-100 rounded-lg">
-                <TrendingUp className="h-6 w-6 text-green-600" />
+        <section className="mb-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ['Planning discipline', 'The calculator forces budget ownership instead of vague enthusiasm.'],
+            ['ROI realism', 'Numbers should be tethered to operating costs, not fantasy.'],
+            ['Allocation clarity', 'Every dollar needs a visible lane and a visible owner.'],
+            ['Executive reporting', 'Use the model to explain decisions, not just to decorate slides.'],
+          ].map(([title, body]) => (
+            <div key={title} className="page-card p-5">
+              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900">
+                <Coins className="h-4 w-4 text-indigo-500" />
+                {title}
               </div>
-              <h3 className="text-xl font-bold text-gray-900 ml-3">ROI Tracking & Analytics</h3>
+              <p className="text-sm leading-6 text-slate-600">{body}</p>
             </div>
-            <p className="text-gray-600 mb-4">
-              Advanced ROI measurement with performance benchmarks, cost-benefit analysis, and investment impact tracking across all AI initiatives.
-            </p>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Real-time ROI calculations
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Performance benchmarking
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Impact measurement metrics
-              </li>
-            </ul>
-          </div>
+          ))}
+        </section>
 
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-            <div className="flex items-center mb-4">
-              <div className="p-3 bg-purple-100 rounded-lg">
-                <BarChart3 className="h-6 w-6 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 ml-3">Cost Allocation Framework</h3>
+        <section id="calculator" className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <Gauge className="h-4 w-4 text-indigo-500" />
+              Budget calculator
             </div>
-            <p className="text-gray-600 mb-4">
-              Strategic cost allocation across departments, projects, and initiatives with detailed expense categorization and accountability tracking.
-            </p>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Department-wise allocation
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Project cost tracking
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Expense categorization
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Interactive Calculator Tool */}
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Interactive Budget Optimization Calculator
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Plan and optimize your enterprise AI budget with our comprehensive calculation tool designed for Fortune 500 financial planning.
+            <h2 className="page-title text-3xl md:text-4xl">Interactive budget optimization calculator</h2>
+            <p className="page-lead mt-3 text-lg">
+              A practical planning layout for enterprise AI budgeting. No fake interactivity, no nonsense sliders pretending to be strategy.
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Input Section */}
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Budget Parameters</h3>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Total Annual AI Budget ($)
-                  </label>
-                  <input 
-                    type="number" 
-                    placeholder="5,000,000"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
+          <div className="page-card overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <div className="grid gap-8 lg:grid-cols-2">
+              <div>
+                <h3 className="mb-6 text-2xl font-semibold text-slate-950">Budget parameters</h3>
+                <div className="space-y-5">
+                  {['Total annual AI budget', 'Company size', 'Industry vertical', 'AI maturity level'].map((label, index) => (
+                    <div key={label}>
+                      <label className="mb-2 block text-sm font-medium text-slate-700">{label}</label>
+                      {index === 0 || index === 1 ? (
+                        <input className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100" placeholder={index === 0 ? '5,000,000' : '10,000-50,000'} />
+                      ) : (
+                        <select className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+                          {index === 2 ? (
+                            <>
+                              <option>Financial Services</option>
+                              <option>Healthcare</option>
+                              <option>Manufacturing</option>
+                              <option>Technology</option>
+                              <option>Retail</option>
+                              <option>Energy</option>
+                            </>
+                          ) : (
+                            <>
+                              <option>Initial Implementation</option>
+                              <option>Pilot Programs</option>
+                              <option>Scaled Deployment</option>
+                              <option>Enterprise-wide Integration</option>
+                            </>
+                          )}
+                        </select>
+                      )}
+                    </div>
+                  ))}
+                  <button className="btn-brand w-full inline-flex items-center justify-center gap-2">
+                    Calculate optimal allocation
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Company Size (Employees)
-                  </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <option>1,000-5,000</option>
-                    <option>5,000-10,000</option>
-                    <option>10,000-50,000</option>
-                    <option>50,000+</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Primary Industry Vertical
-                  </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <option>Financial Services</option>
-                    <option>Healthcare</option>
-                    <option>Manufacturing</option>
-                    <option>Technology</option>
-                    <option>Retail</option>
-                    <option>Energy</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    AI Maturity Level
-                  </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <option>Initial Implementation</option>
-                    <option>Pilot Programs</option>
-                    <option>Scaled Deployment</option>
-                    <option>Enterprise-wide Integration</option>
-                  </select>
-                </div>
-
-                <button className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                  Calculate Optimal Budget Allocation
-                </button>
               </div>
 
-              {/* Results Section */}
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Recommended Allocation</h3>
-                
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">Infrastructure & Platform</span>
-                      <div className="text-right">
-                        <span className="font-semibold text-gray-900">$2,000,000</span>
-                        <div className="text-sm text-gray-500">40%</div>
+              <div>
+                <h3 className="mb-6 text-2xl font-semibold text-slate-950">Recommended allocation</h3>
+                <div className="space-y-4">
+                  {allocation.map((item) => (
+                    <div key={item.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                      <div className="mb-3 flex items-center justify-between gap-4">
+                        <div className="font-medium text-slate-900">{item.label}</div>
+                        <div className="text-right">
+                          <div className="font-semibold text-slate-950">{item.amount}</div>
+                          <div className="text-xs text-slate-500">{item.pct}</div>
+                        </div>
+                      </div>
+                      <div className="h-2 w-full rounded-full bg-slate-200">
+                        <div className={`${item.color} h-2 rounded-full`} style={{ width: item.pct }} />
                       </div>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-600 h-2 rounded-full" style={{width: '40%'}}></div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">Talent & Training</span>
-                      <div className="text-right">
-                        <span className="font-semibold text-gray-900">$1,500,000</span>
-                        <div className="text-sm text-gray-500">30%</div>
+        <section className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <BarChart3 className="h-4 w-4 text-indigo-500" />
+              Budget categories
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">Enterprise AI budget categories framework</h2>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {budgetCategories.map((category) => {
+              const Icon = category.icon
+              return (
+                <div key={category.title} className="page-card p-6 md:p-7">
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="rounded-2xl bg-indigo-50 p-3">
+                      <Icon className="h-5 w-5 text-indigo-600" />
+                    </div>
+                    <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">{category.title}</h3>
+                  </div>
+                  <div className="space-y-3">
+                    {category.items.map(([name, pct]) => (
+                      <div key={name} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <div className="font-medium text-slate-900">{name}</div>
+                            <div className="mt-1 text-sm text-slate-600">{pct}</div>
+                          </div>
+                          <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo-500" />
+                        </div>
                       </div>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-green-600 h-2 rounded-full" style={{width: '30%'}}></div>
-                    </div>
+                    ))}
                   </div>
                 </div>
+              )
+            })}
+          </div>
+        </section>
 
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">Data & Security</span>
-                      <div className="text-right">
-                        <span className="font-semibold text-gray-900">$1,000,000</span>
-                        <div className="text-sm text-gray-500">20%</div>
-                      </div>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-purple-600 h-2 rounded-full" style={{width: '20%'}}></div>
-                    </div>
+        <section className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <TrendingUp className="h-4 w-4 text-indigo-500" />
+              Benchmarks
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">2026 enterprise AI budget benchmarks by industry</h2>
+          </div>
+
+          <div className="page-card overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[720px] text-sm">
+                <thead>
+                  <tr className="border-b border-slate-200 text-left text-slate-500">
+                    <th className="px-3 py-3 font-medium">Industry</th>
+                    <th className="px-3 py-3 font-medium">AI budget %</th>
+                    <th className="px-3 py-3 font-medium">Median investment</th>
+                    <th className="px-3 py-3 font-medium">Focus</th>
+                    <th className="px-3 py-3 font-medium">Growth</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {industryBenchmarks.map(([industry, pct, investment, focus, growth]) => (
+                    <tr key={industry} className="border-b border-slate-100 last:border-b-0">
+                      <td className="px-3 py-4 font-medium text-slate-950">{industry}</td>
+                      <td className="px-3 py-4 text-slate-600">{pct}</td>
+                      <td className="px-3 py-4 text-slate-600">{investment}</td>
+                      <td className="px-3 py-4 text-slate-600">{focus}</td>
+                      <td className="px-3 py-4 text-indigo-600">{growth}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="framework" className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-indigo-500" />
+              Implementation framework
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">12-month budget implementation framework</h2>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-4">
+            {phases.map(([quarter, title, deployment]) => (
+              <div key={quarter} className="page-card p-6 md:p-7">
+                <div className="inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-indigo-700 mb-4">
+                  {quarter}
+                </div>
+                <h3 className="mb-3 text-xl font-semibold text-slate-950">{title}</h3>
+                <p className="text-sm leading-6 text-slate-600">{deployment}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <TrendingUp className="h-4 w-4 text-indigo-500" />
+              ROI snapshot
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">AI budget ROI calculator</h2>
+          </div>
+
+          <div className="page-card-glow rounded-[2rem] p-1.5">
+            <div className="page-card-soft rounded-[1.6rem] p-6 md:p-8">
+              <div className="grid gap-6 lg:grid-cols-2">
+                <div className="page-card p-6">
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">Investment parameters</h3>
+                  <div className="space-y-4 text-sm text-slate-600">
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">Total AI investment: $5,000,000</div>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">Expected efficiency gains: 25%</div>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">Current annual operating costs: $50,000,000</div>
                   </div>
                 </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">Innovation & R&D</span>
-                      <div className="text-right">
-                        <span className="font-semibold text-gray-900">$500,000</span>
-                        <div className="text-sm text-gray-500">10%</div>
-                      </div>
+                <div className="page-card p-6">
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">Projected ROI analysis</h3>
+                  <div className="space-y-4 text-sm text-slate-600">
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 flex items-center justify-between">
+                      <span>3-year ROI</span>
+                      <span className="font-semibold text-indigo-600">285%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-orange-600 h-2 rounded-full" style={{width: '10%'}}></div>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 flex items-center justify-between">
+                      <span>Break-even period</span>
+                      <span className="font-semibold text-slate-950">14 months</span>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Budget Categories Deep Dive */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Enterprise AI Budget Categories Framework
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive breakdown of AI budget allocation across critical enterprise functions with industry-specific recommendations.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-blue-100 rounded-lg">
-                  <Target className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 ml-3">Infrastructure & Platform (40%)</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="border-l-4 border-blue-500 pl-4">
-                  <h4 className="font-semibold text-gray-900">Cloud Computing Resources</h4>
-                  <p className="text-gray-600 text-sm mt-1">AWS/Azure/GCP compute, storage, and AI services allocation</p>
-                  <div className="text-blue-600 font-medium">15-20% of total budget</div>
-                </div>
-                <div className="border-l-4 border-blue-400 pl-4">
-                  <h4 className="font-semibold text-gray-900">AI Platform Licensing</h4>
-                  <p className="text-gray-600 text-sm mt-1">Enterprise AI platforms, MLOps tools, and analytics software</p>
-                  <div className="text-blue-600 font-medium">10-15% of total budget</div>
-                </div>
-                <div className="border-l-4 border-blue-300 pl-4">
-                  <h4 className="font-semibold text-gray-900">Hardware & Infrastructure</h4>
-                  <p className="text-gray-600 text-sm mt-1">GPU clusters, edge computing, and specialized AI hardware</p>
-                  <div className="text-blue-600 font-medium">10-15% of total budget</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-green-100 rounded-lg">
-                  <Users className="h-6 w-6 text-green-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 ml-3">Talent & Training (30%)</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="border-l-4 border-green-500 pl-4">
-                  <h4 className="font-semibold text-gray-900">AI Talent Acquisition</h4>
-                  <p className="text-gray-600 text-sm mt-1">Data scientists, ML engineers, AI architects recruitment</p>
-                  <div className="text-green-600 font-medium">15-20% of total budget</div>
-                </div>
-                <div className="border-l-4 border-green-400 pl-4">
-                  <h4 className="font-semibold text-gray-900">Training & Development</h4>
-                  <p className="text-gray-600 text-sm mt-1">Employee upskilling, certification programs, workshops</p>
-                  <div className="text-green-600 font-medium">5-8% of total budget</div>
-                </div>
-                <div className="border-l-4 border-green-300 pl-4">
-                  <h4 className="font-semibold text-gray-900">External Consulting</h4>
-                  <p className="text-gray-600 text-sm mt-1">AI strategy consulting, implementation support</p>
-                  <div className="text-green-600 font-medium">5-7% of total budget</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-purple-100 rounded-lg">
-                  <AlertCircle className="h-6 w-6 text-purple-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 ml-3">Data & Security (20%)</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="border-l-4 border-purple-500 pl-4">
-                  <h4 className="font-semibold text-gray-900">Data Management</h4>
-                  <p className="text-gray-600 text-sm mt-1">Data quality, governance, and integration infrastructure</p>
-                  <div className="text-purple-600 font-medium">8-12% of total budget</div>
-                </div>
-                <div className="border-l-4 border-purple-400 pl-4">
-                  <h4 className="font-semibold text-gray-900">AI Security & Compliance</h4>
-                  <p className="text-gray-600 text-sm mt-1">AI governance, bias detection, regulatory compliance</p>
-                  <div className="text-purple-600 font-medium">5-8% of total budget</div>
-                </div>
-                <div className="border-l-4 border-purple-300 pl-4">
-                  <h4 className="font-semibold text-gray-900">Privacy & Risk Management</h4>
-                  <p className="text-gray-600 text-sm mt-1">Data privacy tools, risk assessment, audit systems</p>
-                  <div className="text-purple-600 font-medium">3-5% of total budget</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-orange-100 rounded-lg">
-                  <RefreshCw className="h-6 w-6 text-orange-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 ml-3">Innovation & R&D (10%)</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="border-l-4 border-orange-500 pl-4">
-                  <h4 className="font-semibold text-gray-900">Emerging Technologies</h4>
-                  <p className="text-gray-600 text-sm mt-1">Quantum AI, advanced neural networks, experimental tech</p>
-                  <div className="text-orange-600 font-medium">4-6% of total budget</div>
-                </div>
-                <div className="border-l-4 border-orange-400 pl-4">
-                  <h4 className="font-semibold text-gray-900">Innovation Labs</h4>
-                  <p className="text-gray-600 text-sm mt-1">Internal innovation projects, proof of concepts</p>
-                  <div className="text-orange-600 font-medium">3-4% of total budget</div>
-                </div>
-                <div className="border-l-4 border-orange-300 pl-4">
-                  <h4 className="font-semibold text-gray-900">Strategic Partnerships</h4>
-                  <p className="text-gray-600 text-sm mt-1">University collaborations, startup investments</p>
-                  <div className="text-orange-600 font-medium">1-3% of total budget</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Industry Benchmarks */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              2026 Enterprise AI Budget Benchmarks by Industry
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comparative analysis of AI investment patterns across major industry verticals based on Fortune 500 budget data.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-green-100 rounded-lg">
-                  <TrendingUp className="h-6 w-6 text-green-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 ml-3">Financial Services</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Avg. AI Budget % of Revenue</span>
-                  <span className="font-semibold text-gray-900">3.2%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Median Investment</span>
-                  <span className="font-semibold text-gray-900">$12.5M</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Primary Focus</span>
-                  <span className="font-semibold text-gray-900">Risk & Compliance</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Growth Rate (YoY)</span>
-                  <span className="font-semibold text-green-600">+285%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-blue-100 rounded-lg">
-                  <BarChart3 className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 ml-3">Healthcare</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Avg. AI Budget % of Revenue</span>
-                  <span className="font-semibold text-gray-900">2.8%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Median Investment</span>
-                  <span className="font-semibold text-gray-900">$8.7M</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Primary Focus</span>
-                  <span className="font-semibold text-gray-900">Clinical AI</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Growth Rate (YoY)</span>
-                  <span className="font-semibold text-green-600">+245%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-purple-100 rounded-lg">
-                  <Calculator className="h-6 w-6 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 ml-3">Manufacturing</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Avg. AI Budget % of Revenue</span>
-                  <span className="font-semibold text-gray-900">4.1%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Median Investment</span>
-                  <span className="font-semibold text-gray-900">$15.3M</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Primary Focus</span>
-                  <span className="font-semibold text-gray-900">Operations AI</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Growth Rate (YoY)</span>
-                  <span className="font-semibold text-green-600">+310%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Implementation Framework */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            12-Month Budget Implementation Framework
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Strategic phased approach to AI budget deployment with quarterly milestones and performance checkpoints.
-          </p>
-        </div>
-
-        <div className="space-y-8">
-          <div className="grid lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500">
-              <div className="flex items-center mb-4">
-                <Calendar className="h-5 w-5 text-blue-600 mr-2" />
-                <h3 className="font-bold text-gray-900">Q1: Foundation</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Infrastructure setup (40% allocation)</li>
-                <li>• Core team hiring</li>
-                <li>• Data governance framework</li>
-                <li>• Initial platform licensing</li>
-              </ul>
-              <div className="mt-4 text-lg font-semibold text-blue-600">
-                25% Budget Deployment
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-green-500">
-              <div className="flex items-center mb-4">
-                <Calendar className="h-5 w-5 text-green-600 mr-2" />
-                <h3 className="font-bold text-gray-900">Q2: Scale</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Pilot project execution</li>
-                <li>• Training program launch</li>
-                <li>• Vendor partnerships</li>
-                <li>• Security implementation</li>
-              </ul>
-              <div className="mt-4 text-lg font-semibold text-green-600">
-                30% Budget Deployment
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
-              <div className="flex items-center mb-4">
-                <Calendar className="h-5 w-5 text-purple-600 mr-2" />
-                <h3 className="font-bold text-gray-900">Q3: Expand</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Production deployment</li>
-                <li>• Advanced analytics setup</li>
-                <li>• Integration projects</li>
-                <li>• Performance optimization</li>
-              </ul>
-              <div className="mt-4 text-lg font-semibold text-purple-600">
-                30% Budget Deployment
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-orange-500">
-              <div className="flex items-center mb-4">
-                <Calendar className="h-5 w-5 text-orange-600 mr-2" />
-                <h3 className="font-bold text-gray-900">Q4: Optimize</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Innovation initiatives</li>
-                <li>• Advanced R&D projects</li>
-                <li>• Next-year planning</li>
-                <li>• ROI assessment</li>
-              </ul>
-              <div className="mt-4 text-lg font-semibold text-orange-600">
-                15% Budget Deployment
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ROI Calculator Section */}
-      <div className="bg-gradient-to-br from-gray-900 to-blue-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              AI Budget ROI Calculator
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Calculate expected returns on your AI investments with our comprehensive ROI modeling tool.
-            </p>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold mb-6">Investment Parameters</h3>
-                
-                <div>
-                  <label className="block text-sm font-medium text-blue-100 mb-2">
-                    Total AI Investment ($)
-                  </label>
-                  <input 
-                    type="number" 
-                    placeholder="5,000,000"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-blue-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent backdrop-blur-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-blue-100 mb-2">
-                    Expected Efficiency Gains (%)
-                  </label>
-                  <input 
-                    type="number" 
-                    placeholder="25"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-blue-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent backdrop-blur-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-blue-100 mb-2">
-                    Current Annual Operating Costs ($)
-                  </label>
-                  <input 
-                    type="number" 
-                    placeholder="50,000,000"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-blue-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent backdrop-blur-sm"
-                  />
-                </div>
-
-                <button className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                  Calculate AI Investment ROI
-                </button>
-              </div>
-
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold mb-6">Projected ROI Analysis</h3>
-                
-                <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-blue-100">3-Year ROI</span>
-                      <span className="text-2xl font-bold text-green-300">285%</span>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 flex items-center justify-between">
+                      <span>Annual cost savings</span>
+                      <span className="font-semibold text-slate-950">$12.5M</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-blue-100">Break-even Period</span>
-                      <span className="text-xl font-semibold text-blue-200">14 months</span>
+                    <div className="rounded-2xl border border-indigo-200 bg-indigo-50/70 px-4 py-3 flex items-center gap-3 text-indigo-900">
+                      <CheckCircle className="h-4 w-4 text-indigo-600" />
+                      Strong ROI projection - recommended for implementation
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-blue-100">Annual Cost Savings</span>
-                      <span className="text-xl font-semibold text-blue-200">$12.5M</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-blue-100">Productivity Increase</span>
-                      <span className="text-xl font-semibold text-blue-200">+25%</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 p-4 rounded-lg border border-green-400/30">
-                  <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-300 mr-2" />
-                    <span className="text-green-200 font-medium">
-                      Strong ROI projection - Recommended for implementation
-                    </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      {/* CTA Section */}
-      <div className="bg-white py-16">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to Optimize Your Enterprise AI Budget?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Get personalized budget optimization recommendations based on your specific enterprise requirements and industry benchmarks.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg">
-              Schedule Free Consultation
-            </button>
-            <button className="border border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-colors">
-              <Download className="h-5 w-5 inline mr-2" />
-              Download Budget Framework
-            </button>
+        <section className="page-section pt-0">
+          <div className="max-w-6xl mx-auto">
+            <RelatedLinks
+              title="Related enterprise AI tools"
+              links={[
+                {
+                  href: '/ai-investment-roi-matrix-calculator-enterprise-2026',
+                  title: 'AI ROI Matrix Calculator',
+                  description: 'Calculate investment returns across AI initiatives.',
+                },
+                {
+                  href: '/ai-risk-management-dashboard-enterprise-2026',
+                  title: 'AI Risk Management Dashboard',
+                  description: 'Monitor and mitigate AI implementation risks.',
+                },
+                {
+                  href: '/enterprise-ai-transformation-roadmap-2026',
+                  title: 'AI Transformation Roadmap',
+                  description: '18-month strategic implementation guide.',
+                },
+              ]}
+            />
           </div>
-        </div>
-      </div>
+        </section>
 
-      {/* Related Tools */}
-      <div className="bg-gray-50 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Related Enterprise AI Tools
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link 
-              href="/ai-investment-roi-matrix-calculator-enterprise-2026" 
-              className="block bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
-            >
-              <h3 className="font-semibold text-gray-900 mb-2">AI ROI Matrix Calculator</h3>
-              <p className="text-gray-600 text-sm">Calculate investment returns across AI initiatives</p>
-            </Link>
-            <Link 
-              href="/ai-risk-management-dashboard-enterprise-2026" 
-              className="block bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
-            >
-              <h3 className="font-semibold text-gray-900 mb-2">AI Risk Management Dashboard</h3>
-              <p className="text-gray-600 text-sm">Monitor and mitigate AI implementation risks</p>
-            </Link>
-            <Link 
-              href="/enterprise-ai-transformation-roadmap-2026" 
-              className="block bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
-            >
-              <h3 className="font-semibold text-gray-900 mb-2">AI Transformation Roadmap</h3>
-              <p className="text-gray-600 text-sm">18-month strategic implementation guide</p>
-            </Link>
+        <section className="page-section">
+          <div className="max-w-5xl mx-auto">
+            <div className="page-card-glow p-1.5">
+              <div className="page-card rounded-[1.8rem] p-8 md:p-10 text-center">
+                <div className="inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700 mb-5">
+                  Final answer
+                </div>
+                <h2 className="page-title text-3xl md:text-5xl mb-5">Budget like you expect to be audited.</h2>
+                <p className="page-lead text-lg max-w-3xl mx-auto mb-8">
+                  If the investment is real, the budget needs structure: allocation, ownership, milestones, and a return model that can survive a room full of skeptics.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Link href="/ai-investment-roi-matrix-calculator-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
+                    Download budget framework
+                    <Download className="h-4 w-4" />
+                  </Link>
+                  <Link href="/enterprise-ai-transformation-roadmap-2026" className="btn-secondary inline-flex items-center gap-2">
+                    See roadmap
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
-  );
+  )
 }

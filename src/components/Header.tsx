@@ -19,26 +19,37 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Hosting", href: "/web-hosting", color: "hover:text-blue-400" },
-    { name: "Builders", href: "/website-builders", color: "hover:text-purple-400" },
-    { name: "AI Tools", href: "/ai-tools", color: "hover:text-green-400" },
-    { name: "Proxies", href: "/proxies", color: "hover:text-cyan-400" }
+    { name: "Hosting", href: "/web-hosting" },
+    { name: "Builders", href: "/website-builders" },
+    { name: "AI Tools", href: "/ai-tools" },
+    { name: "Proxies", href: "/proxies" }
   ];
 
+  const navHoverClasses = 'hover:text-[#635bff] hover:bg-indigo-50/40 rounded-full px-3 py-2 -mx-3';
+
+  const headerClasses = scrolled
+    ? 'bg-white/88 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_12px_28px_rgba(15,23,42,0.05)]'
+    : 'bg-white/80 backdrop-blur-xl border-b border-slate-200/70';
+
+  const logoTextClasses = 'text-slate-950 group-hover:text-[#635bff]';
+  const logoBoxClasses = 'bg-gradient-to-br from-[#635bff]/8 to-sky-500/8 border border-[#635bff]/12 shadow-[0_8px_18px_rgba(99,91,255,0.06)]';
+  const logoIconClasses = 'text-[#635bff]';
+  const desktopNavBase = 'text-slate-600';
+  const mobileButtonClasses = 'text-slate-500 hover:text-[#635bff]';
+  const mobileMenuClasses = 'border-b border-slate-200/80 bg-white/82 backdrop-blur-xl shadow-[0_18px_36px_rgba(15,23,42,0.06)]';
+  const mobileLinkClasses = 'text-slate-900';
+  const ctaClasses = 'bg-[#635bff] text-white hover:bg-[#564ee8] shadow-[0_12px_24px_rgba(99,91,255,0.18)]';
+
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 shadow-2xl' 
-        : 'bg-transparent border-b border-transparent'
-    }`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerClasses}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl mr-3 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-              <Zap className="w-6 h-6 text-cyan-400" />
+            <div className={`w-10 h-10 rounded-xl mr-3 flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${logoBoxClasses}`}>
+              <Zap className={`w-6 h-6 ${logoIconClasses}`} />
             </div>
-            <span className="text-2xl font-black text-white tracking-tighter uppercase italic group-hover:text-cyan-400 transition-colors">SITEPILOT</span>
+            <span className={`text-2xl font-black tracking-tighter uppercase italic transition-colors ${logoTextClasses}`}>SITEPILOT</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -47,14 +58,14 @@ export default function Header() {
               <Link 
                 key={link.name}
                 href={link.href} 
-                className={`text-sm font-black uppercase tracking-widest text-slate-400 ${link.color} transition-all`}
+                className={`text-sm font-semibold tracking-[0.14em] ${desktopNavBase} ${navHoverClasses} transition-colors`}
               >
                 {link.name}
               </Link>
             ))}
             <Link 
               href="/web-hosting" 
-              className="px-6 py-2 bg-blue-600 text-white rounded-xl text-sm font-black hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/40 flex items-center gap-2"
+              className={`px-6 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 ${ctaClasses}`}
             >
               GET STARTED <ArrowRight className="w-4 h-4" />
             </Link>
@@ -62,7 +73,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden p-2 text-slate-400 hover:text-white"
+            className={`lg:hidden p-2 transition-colors ${mobileButtonClasses}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
@@ -72,12 +83,12 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0A0A0A] border-b border-white/10 p-8 space-y-6 animate-in slide-in-from-top duration-300">
+        <div className={`lg:hidden p-8 space-y-4 animate-in slide-in-from-top duration-300 ${mobileMenuClasses}`}>
           {navLinks.map((link) => (
             <Link 
               key={link.name}
               href={link.href} 
-              className="block text-xl font-black text-white uppercase tracking-tighter"
+              className={`block rounded-2xl px-4 py-3 text-xl font-semibold tracking-tight transition-colors ${mobileLinkClasses} ${navHoverClasses}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}
@@ -85,7 +96,7 @@ export default function Header() {
           ))}
           <Link 
             href="/web-hosting" 
-            className="block w-full py-4 bg-blue-600 text-center text-white rounded-2xl font-black"
+            className={`block w-full py-4 text-center rounded-2xl font-semibold ${ctaClasses}`}
             onClick={() => setMobileMenuOpen(false)}
           >
             GET STARTED

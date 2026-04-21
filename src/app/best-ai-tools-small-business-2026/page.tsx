@@ -1,46 +1,248 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Star, TrendingUp, DollarSign, Users, Clock, CheckCircle } from 'lucide-react';
-import SchemaMarkup from '../../components/SchemaMarkup';
-import RelatedLinks, { aiToolsRelatedLinks } from '../../components/RelatedLinks';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, Bot, CheckCircle2, Clock, DollarSign, Shield, Sparkles, Users, Workflow } from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
   title: 'Best AI Tools for Small Business 2026: ROI-Tested Solutions That Actually Work',
-  description: 'Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data for businesses under $1M revenue.',
-  keywords: 'best AI tools small business, AI for small business, small business automation, affordable AI tools, AI productivity tools, business AI software',
+  description:
+    'Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data for businesses under $1M revenue.',
+  keywords:
+    'best AI tools small business, AI for small business, small business automation, affordable AI tools, AI productivity tools, business AI software',
   openGraph: {
     title: 'Best AI Tools for Small Business 2026: ROI-Tested Solutions That Actually Work',
-    description: 'Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data.',
+    description:
+      'Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data.',
     url: 'https://sitepilot.co/best-ai-tools-small-business-2026',
     type: 'article',
   },
-};
+  alternates: {
+    canonical: 'https://sitepilot.co/best-ai-tools-small-business-2026',
+  },
+}
+
+const stats = [
+  { value: '50+', label: 'AI tools tested' },
+  { value: '25', label: 'Small businesses involved' },
+  { value: '450%', label: 'Best ROI achieved' },
+  { value: '$18K', label: 'Average annual savings' },
+]
+
+const summaryCards = [
+  {
+    label: 'Top 3 game-changers',
+    note: 'ChatGPT Plus, Zapier, and Grammarly Business produced the clearest repeatable ROI.',
+  },
+  {
+    label: 'Typical impact',
+    note: '15-25 hours saved per week, with $1,200-3,500/month in total cost reduction.',
+  },
+  {
+    label: 'Typical payback',
+    note: 'Most successful implementations reached payback in roughly 1.8 to 3.2 months.',
+  },
+  {
+    label: 'Implementation rule',
+    note: 'Start with two tools, prove adoption, then automate and expand from there.',
+  },
+]
+
+const methodology = [
+  {
+    title: '25 real businesses',
+    description:
+      'Restaurants, service businesses, e-commerce operators, consultants, and retailers between $50K and $950K in annual revenue.',
+    icon: Users,
+  },
+  {
+    title: '8-month testing window',
+    description:
+      'Each tool ran for at least 60 days with actual implementation, training, and usage tracking across core functions.',
+    icon: Clock,
+  },
+  {
+    title: 'ROI-first scoring',
+    description:
+      'Cost, setup time, training burden, and measurable business impact all counted in the final recommendation.',
+    icon: DollarSign,
+  },
+]
+
+const toolCategories = [
+  {
+    title: 'Content and marketing',
+    badge: 'Content',
+    tools: [
+      {
+        name: 'ChatGPT Plus',
+        price: '$20/month',
+        roi: '380% ROI',
+        score: '9.4/10',
+        summary:
+          'The strongest default AI layer for small businesses because it covers content, support responses, drafting, and lightweight strategy work in one place.',
+        bullets: [
+          'Saves 12 hours/week on content creation',
+          'Cuts copywriting costs by about $800/month',
+          'Improves response time by roughly 65%',
+          'Short onboarding and low implementation risk',
+        ],
+        href: 'https://chat.openai.com/plus',
+        cta: 'Try ChatGPT Plus',
+      },
+      {
+        name: 'Copy.ai',
+        price: '$36/month',
+        roi: '280% ROI',
+        score: '8.8/10',
+        summary:
+          'A stronger fit when marketing copy, ad creative, launch messaging, and campaign speed are more important than broad general-purpose AI usage.',
+        bullets: [
+          '34% higher ad click-through in testing',
+          '28% lift in email open rates',
+          '3.2x faster campaign creation',
+          'Lower dependence on freelance copy support',
+        ],
+        href: 'https://copy.ai',
+        cta: 'Try Copy.ai',
+      },
+    ],
+  },
+  {
+    title: 'Automation and workflows',
+    badge: 'Automation',
+    tools: [
+      {
+        name: 'Zapier',
+        price: '$29/month',
+        roi: '290% ROI',
+        score: '9.2/10',
+        summary:
+          'Zapier remains the practical automation backbone for small businesses that need better process reliability without hiring developers.',
+        bullets: [
+          'Saves 8-15 hours/week of manual work',
+          'Cuts data entry errors by 94%',
+          'Replaces a meaningful chunk of VA workload',
+          'Improves customer response time by 78%',
+        ],
+        href: 'https://zapier.com',
+        cta: 'Try Zapier',
+      },
+    ],
+  },
+  {
+    title: 'Customer communication',
+    badge: 'Support',
+    tools: [
+      {
+        name: 'Grammarly Business',
+        price: '$15/month',
+        roi: '240% ROI',
+        score: '8.9/10',
+        summary:
+          'This is the easiest way to improve email quality, proposal clarity, and customer-facing writing consistency across a small team.',
+        bullets: [
+          '42% fewer communication errors',
+          '2.8x faster email composition',
+          'Improved customer-facing professionalism',
+          'Useful across proposals, marketing, and support',
+        ],
+        href: 'https://grammarly.com/business',
+        cta: 'Try Grammarly Business',
+      },
+    ],
+  },
+]
+
+const phases = [
+  {
+    title: 'Phase 1: Foundation',
+    timing: 'Month 1-2',
+    investment: '$35/month',
+    roi: 'Expected ROI: 280%',
+    steps: [
+      'Start with ChatGPT Plus as the low-risk, high-impact entry point',
+      'Add Grammarly Business for immediate communication quality gains',
+    ],
+  },
+  {
+    title: 'Phase 2: Automation',
+    timing: 'Month 3-4',
+    investment: '$64/month',
+    roi: 'Expected ROI: 320%',
+    steps: [
+      'Implement Zapier to remove repetitive manual workflows',
+      'Add specialized tools only where measurable gaps exist',
+    ],
+  },
+  {
+    title: 'Phase 3: Optimization',
+    timing: 'Month 5+',
+    investment: '$120+/month',
+    roi: 'Expected ROI: 400%+',
+    steps: [
+      'Layer in more advanced integrations and operating routines',
+      'Scale only the tools already proving adoption and savings',
+    ],
+  },
+]
+
+const roiRows = [
+  { label: 'Content creation', value: '$900/month', note: '15 hours/week saved' },
+  { label: 'Administrative tasks', value: '$480/month', note: '8 hours/week saved' },
+  { label: 'Customer support', value: '$360/month', note: '6 hours/week saved' },
+  { label: 'AI tool investment', value: '$120/month', note: 'Essential tool stack' },
+]
+
+const mistakes = [
+  {
+    title: 'Trying too many tools at once',
+    solution: 'Start with one or two high-impact tools, prove usage, then expand.',
+    cost: 'Poor adoption and $800-2,000 of avoidable subscription waste.',
+  },
+  {
+    title: 'Skipping employee training',
+    solution: 'Reserve 2-4 hours of actual onboarding time for each core tool.',
+    cost: 'Roughly 50% lower ROI from underutilization.',
+  },
+  {
+    title: 'Choosing complex tools first',
+    solution: 'Begin with shorter-path tools before moving into more complex automation.',
+    cost: '$400-600 in cleanup or consultant time.',
+  },
+  {
+    title: 'Ignoring data security',
+    solution: 'Validate business-grade security and compliance before rollout.',
+    cost: 'Meaningful legal and operational downside if sensitive data leaks.',
+  },
+  {
+    title: 'Not measuring outcomes',
+    solution: 'Track time saved, costs reduced, and quality gains from day one.',
+    cost: '$200-500/month of hidden process waste continuing unnoticed.',
+  },
+]
 
 const relatedArticles = [
   {
     href: '/best-ai-writing-tools-2026',
     title: 'Best AI Writing Tools 2026',
-    description: 'Top AI content creation tools for businesses',
-    category: 'tools' as const
+    description: 'See the writing layer that supports the broader small-business AI stack.',
   },
   {
     href: '/best-project-management-tools-2026',
-    title: 'Best Project Management Tools 2026', 
-    description: 'Essential project management software comparison',
-    category: 'tools' as const
+    title: 'Best Project Management Tools 2026',
+    description: 'Pair AI with workflow software that can absorb the gains.',
   },
   {
     href: '/ai-content-workflow-automation-2026',
     title: 'AI Content Workflow Automation 2026',
-    description: 'Streamline your content process with AI automation',
-    category: 'automation' as const
-  }
-];
+    description: 'Turn AI output into repeatable editorial and marketing systems.',
+  },
+]
 
 export default function BestAIToolsSmallBusiness() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <SchemaMarkup 
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
         type="article"
         title="Best AI Tools for Small Business 2026: ROI-Tested Solutions That Actually Work"
         description="Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data."
@@ -49,546 +251,325 @@ export default function BestAIToolsSmallBusiness() {
         modifiedDate="2026-03-07"
       />
 
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-800 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              Best AI Tools for Small Business 2026
-            </h1>
-            <p className="text-xl mb-8 max-w-4xl mx-auto leading-relaxed">
-              Real small business owners tested 50+ AI tools over 8 months. 
-              Complete cost-benefit analysis, implementation guides, and ROI data for businesses under $1M revenue.
-            </p>
-            
-            {/* Key Stats */}
-            <div className="grid md:grid-cols-4 gap-6 mt-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold">50+</div>
-                <div className="text-sm opacity-90">AI Tools Tested</div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_54%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
+
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                2026 small-business AI review
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold">25</div>
-                <div className="text-sm opacity-90">Small Businesses</div>
+
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                Best AI tools for small business,
+                <span className="brand-gradient-text block">ranked by real ROI, not hype.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                Testing across 25 small businesses showed a consistent pattern: ChatGPT Plus, Zapier, and Grammarly Business form the highest-signal starting stack, and most teams should phase adoption instead of buying everything at once.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/best-ai-writing-tools-2026" className="btn-brand">
+                  See AI writing tools
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/ai-content-workflow-automation-2026" className="btn-secondary">
+                  Learn AI automation
+                </Link>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold">450%</div>
-                <div className="text-sm opacity-90">Best ROI Achieved</div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="page-card px-4 py-4">
+                    <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{stat.value}</div>
+                    <div className="text-sm text-slate-500">{stat.label}</div>
+                  </div>
+                ))}
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold">$18K</div>
-                <div className="text-sm opacity-90">Average Annual Savings</div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-6 bg-white/95">
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Executive summary</div>
+                      <div className="text-xl font-semibold text-slate-950">What actually moved the needle</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      ROI tested
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    {summaryCards.map((card) => (
+                      <div
+                        key={card.label}
+                        className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4"
+                      >
+                        <div className="text-xs uppercase tracking-[0.16em] text-indigo-500 mb-2">{card.label}</div>
+                        <div className="text-sm text-slate-600">{card.note}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Executive Summary */}
-        <section className="mb-16">
-          <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-8 mb-12 border border-emerald-100">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Executive Summary: AI Tools That Actually Move the Needle</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-4">🏆 Top 3 Game-Changers</h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li><strong>ChatGPT Plus:</strong> $20/mo - 380% ROI in content & support</li>
-                  <li><strong>Zapier:</strong> $29/mo - 290% ROI in automation</li>
-                  <li><strong>Grammarly Business:</strong> $15/mo - 240% ROI in communication</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-4">💰 Average Business Impact</h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li><strong>Time Saved:</strong> 15-25 hours/week</li>
-                  <li><strong>Cost Reduction:</strong> $1,200-3,500/month</li>
-                  <li><strong>Revenue Increase:</strong> $800-2,100/month</li>
-                  <li><strong>Payback Period:</strong> 1.8-3.2 months</li>
-                </ul>
-              </div>
-            </div>
+      <section className="page-section surface-muted">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Methodology</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">How the testing was structured.</h2>
+            <p className="page-lead text-lg">
+              Recommendations came from live small-business use, not feature list speculation.
+            </p>
           </div>
-        </section>
 
-        {/* Testing Methodology */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Our Small Business Testing Methodology</h2>
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                <Users className="h-8 w-8 text-emerald-500 mr-3" />
-                <h3 className="text-lg font-semibold">25 Real Businesses</h3>
-              </div>
-              <p className="text-slate-600">Restaurants, service providers, e-commerce, consultants, retail stores across different industries and revenue levels ($50K-$950K).</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                <Clock className="h-8 w-8 text-blue-500 mr-3" />
-                <h3 className="text-lg font-semibold">8-Month Testing</h3>
-              </div>
-              <p className="text-slate-600">Each tool tested for minimum 60 days with full implementation, training, and performance tracking across multiple business functions.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                <DollarSign className="h-8 w-8 text-purple-500 mr-3" />
-                <h3 className="text-lg font-semibold">ROI Tracking</h3>
-              </div>
-              <p className="text-slate-600">Detailed cost-benefit analysis including tool cost, implementation time, training hours, and quantified business impact.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* AI Tools by Category */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Best AI Tools by Business Function</h2>
-          
-          {/* Content Creation & Marketing */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
-              <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm mr-3">Content & Marketing</span>
-            </h3>
-            
-            <div className="grid gap-6">
-              {/* ChatGPT Plus */}
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900">ChatGPT Plus</h4>
-                    <p className="text-emerald-600 font-semibold">$20/month · 380% ROI</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {methodology.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.title} className="page-card-glow p-1.5">
+                  <div className="page-card rounded-[1.8rem] p-7 h-full">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 mb-5">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{item.title}</h3>
+                    <p className="text-slate-600 leading-7">{item.description}</p>
                   </div>
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Top tools</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">The categories that matter most.</h2>
+            <p className="page-lead text-lg">
+              Small businesses usually get the fastest gains from better writing, better automation, and clearer customer communication.
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            {toolCategories.map((category) => (
+              <div key={category.title}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="page-pill">
+                    {category.badge === 'Content' ? <Bot className="h-4 w-4 text-[#635bff]" /> : category.badge === 'Automation' ? <Workflow className="h-4 w-4 text-[#635bff]" /> : <Shield className="h-4 w-4 text-[#635bff]" />}
+                    {category.badge}
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-slate-950">{category.title}</h3>
+                </div>
+
+                <div className="grid gap-6 lg:grid-cols-2">
+                  {category.tools.map((tool) => (
+                    <div key={tool.name} className="page-card-glow p-1.5">
+                      <div className="page-card rounded-[1.8rem] p-7 h-full">
+                        <div className="flex items-start justify-between gap-4 mb-5">
+                          <div>
+                            <h4 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-2">{tool.name}</h4>
+                            <div className="text-slate-500">{tool.price}</div>
+                          </div>
+                          <div className="text-right">
+                            <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700 mb-2">
+                              {tool.roi}
+                            </div>
+                            <div className="text-sm font-semibold text-slate-700">{tool.score}</div>
+                          </div>
+                        </div>
+
+                        <p className="text-slate-600 leading-7 mb-6">{tool.summary}</p>
+
+                        <div className="space-y-3 mb-6">
+                          {tool.bullets.map((bullet) => (
+                            <div key={bullet} className="flex items-start gap-3">
+                              <CheckCircle2 className="h-5 w-5 text-indigo-500 mt-0.5 shrink-0" />
+                              <span className="text-sm text-slate-700">{bullet}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <a
+                          href={tool.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-brand"
+                        >
+                          {tool.cta}
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section surface-muted">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Implementation plan</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">A safer three-phase rollout.</h2>
+            <p className="page-lead text-lg">
+              Small businesses usually win by sequencing adoption, not by buying the largest stack on day one.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6">
+            {phases.map((phase) => (
+              <div key={phase.title} className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.8rem] p-7 h-full">
+                  <div className="text-sm uppercase tracking-[0.16em] text-indigo-500 mb-2">{phase.timing}</div>
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">{phase.title}</h3>
+                  <div className="space-y-4 mb-5">
+                    {phase.steps.map((step) => (
+                      <div key={step} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-indigo-500 mt-0.5 shrink-0" />
+                        <span className="text-slate-700">{step}</span>
+                      </div>
                     ))}
-                    <span className="ml-2 text-sm font-semibold text-slate-700">9.4/10</span>
                   </div>
-                </div>
-                
-                <p className="text-slate-600 mb-4">
-                  The Swiss Army knife of AI for small businesses. Handles content creation, customer support responses, 
-                  email drafting, social media posts, and basic business strategy discussions.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <h5 className="font-semibold text-slate-900 mb-2">Best For:</h5>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Blog posts & website content</li>
-                      <li>• Social media content creation</li>
-                      <li>• Customer email responses</li>
-                      <li>• Product descriptions</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-slate-900 mb-2">ROI Breakdown:</h5>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Saves 12 hours/week content creation</li>
-                      <li>• Reduces copywriting costs by $800/mo</li>
-                      <li>• Improves response time by 65%</li>
-                      <li>• 2.3x faster campaign development</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm text-slate-500">Implementation: 1 day • Learning curve: 1 week</span>
-                  <Link 
-                    href="https://chat.openai.com/plus" 
-                    className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Try ChatGPT Plus →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Copy.ai */}
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900">Copy.ai</h4>
-                    <p className="text-emerald-600 font-semibold">$36/month · 280% ROI</p>
-                  </div>
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className={`h-5 w-5 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
-                    ))}
-                    <span className="ml-2 text-sm font-semibold text-slate-700">8.8/10</span>
-                  </div>
-                </div>
-                
-                <p className="text-slate-600 mb-4">
-                  Purpose-built for marketing copy with templates optimized for conversion. 
-                  Excels at ad copy, email campaigns, and sales page content that actually converts.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <h5 className="font-semibold text-slate-900 mb-2">Best For:</h5>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Facebook & Google ads copy</li>
-                      <li>• Email marketing campaigns</li>
-                      <li>• Sales page headlines</li>
-                      <li>• Product launch content</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-slate-900 mb-2">Business Impact:</h5>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• 34% higher ad click-through rates</li>
-                      <li>• 28% email open rate improvement</li>
-                      <li>• 3.2x faster campaign creation</li>
-                      <li>• $1,200/mo reduced freelancer costs</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm text-slate-500">Implementation: 2 days • Learning curve: 1-2 weeks</span>
-                  <Link 
-                    href="https://copy.ai" 
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Try Copy.ai →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Business Automation */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-3">Automation & Workflows</span>
-            </h3>
-            
-            <div className="grid gap-6">
-              {/* Zapier */}
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900">Zapier</h4>
-                    <p className="text-emerald-600 font-semibold">$29/month · 290% ROI</p>
-                  </div>
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                    <span className="ml-2 text-sm font-semibold text-slate-700">9.2/10</span>
-                  </div>
-                </div>
-                
-                <p className="text-slate-600 mb-4">
-                  Connects your apps and automates repetitive tasks without coding. 
-                  The backbone of efficient small business operations that scales with your growth.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <h5 className="font-semibold text-slate-900 mb-2">Top Automations:</h5>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Lead capture → CRM → email sequence</li>
-                      <li>• Invoice paid → customer notification</li>
-                      <li>• New order → inventory update</li>
-                      <li>• Form submission → Slack notification</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-slate-900 mb-2">Time & Cost Savings:</h5>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Saves 8-15 hours/week manual work</li>
-                      <li>• Reduces data entry errors by 94%</li>
-                      <li>• Eliminates need for VA: $800/mo saved</li>
-                      <li>• Improves customer response time by 78%</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm text-slate-500">Implementation: 3-7 days • Learning curve: 2-3 weeks</span>
-                  <Link 
-                    href="https://zapier.com" 
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Try Zapier →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Customer Support */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
-              <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm mr-3">Customer Support</span>
-            </h3>
-            
-            <div className="grid gap-6">
-              {/* Grammarly Business */}
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900">Grammarly Business</h4>
-                    <p className="text-emerald-600 font-semibold">$15/month · 240% ROI</p>
-                  </div>
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className={`h-5 w-5 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
-                    ))}
-                    <span className="ml-2 text-sm font-semibold text-slate-700">8.9/10</span>
-                  </div>
-                </div>
-                
-                <p className="text-slate-600 mb-4">
-                  AI-powered writing assistant that ensures professional communication across all customer touchpoints. 
-                  Catches errors, improves tone, and maintains brand voice consistency.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <h5 className="font-semibold text-slate-900 mb-2">Perfect For:</h5>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Customer emails & responses</li>
-                      <li>• Proposals & contracts</li>
-                      <li>• Marketing materials</li>
-                      <li>• Social media posts</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-slate-900 mb-2">Business Benefits:</h5>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• 42% fewer communication errors</li>
-                      <li>• 2.8x faster email composition</li>
-                      <li>• Improved customer satisfaction</li>
-                      <li>• More professional brand image</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm text-slate-500">Implementation: Immediate • Learning curve: 1 week</span>
-                  <Link 
-                    href="https://grammarly.com/business" 
-                    className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Try Grammarly Business →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Implementation Guide */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Smart AI Implementation Strategy for Small Business</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Phase 1 */}
-            <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
-              <h3 className="text-lg font-bold text-emerald-800 mb-4">Phase 1: Foundation (Month 1-2)</h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-slate-900">Start with ChatGPT Plus</p>
-                    <p className="text-sm text-slate-600">Low-risk, high-impact entry point</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-slate-900">Add Grammarly Business</p>
-                    <p className="text-sm text-slate-600">Immediate communication improvement</p>
-                  </div>
-                </div>
-                <p className="text-sm text-emerald-700 font-medium mt-4">Investment: $35/month · Expected ROI: 280%</p>
-              </div>
-            </div>
-
-            {/* Phase 2 */}
-            <div className="bg-slate-50 rounded-xl p-6 border border-blue-200">
-              <h3 className="text-lg font-bold text-blue-800 mb-4">Phase 2: Automation (Month 3-4)</h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-slate-900">Implement Zapier</p>
-                    <p className="text-sm text-slate-600">Automate repetitive workflows</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-slate-900">Add specialized tools</p>
-                    <p className="text-sm text-slate-600">Based on your specific needs</p>
-                  </div>
-                </div>
-                <p className="text-sm text-blue-700 font-medium mt-4">Investment: $64/month · Expected ROI: 320%</p>
-              </div>
-            </div>
-
-            {/* Phase 3 */}
-            <div className="bg-slate-50 rounded-xl p-6 border border-purple-200">
-              <h3 className="text-lg font-bold text-purple-800 mb-4">Phase 3: Optimization (Month 5+)</h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-purple-600 mr-2 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-slate-900">Advanced integrations</p>
-                    <p className="text-sm text-slate-600">Custom workflows & AI training</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-purple-600 mr-2 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-slate-900">Scale what works</p>
-                    <p className="text-sm text-slate-600">Double down on highest ROI tools</p>
-                  </div>
-                </div>
-                <p className="text-sm text-purple-700 font-medium mt-4">Investment: $120+/month · Expected ROI: 400%+</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ROI Calculator */}
-        <section className="mb-16">
-          <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-2xl p-8 text-white">
-            <h2 className="text-3xl font-bold mb-6">Calculate Your AI ROI</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Average Small Business Savings</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center bg-white/10 p-3 rounded-lg">
-                    <span>Content creation (15 hrs/week)</span>
-                    <span className="font-bold">$900/month</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-white/10 p-3 rounded-lg">
-                    <span>Administrative tasks (8 hrs/week)</span>
-                    <span className="font-bold">$480/month</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-white/10 p-3 rounded-lg">
-                    <span>Customer support (6 hrs/week)</span>
-                    <span className="font-bold">$360/month</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-emerald-700 p-3 rounded-lg font-bold">
-                    <span>Total Monthly Savings:</span>
-                    <span>$1,740</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">AI Tool Investment</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center bg-white/10 p-3 rounded-lg">
-                    <span>Essential AI tools</span>
-                    <span className="font-bold">$120/month</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-white/10 p-3 rounded-lg">
-                    <span>Implementation & training</span>
-                    <span className="font-bold">$200 (one-time)</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-emerald-700 p-3 rounded-lg font-bold">
-                    <span>Net Monthly ROI:</span>
-                    <span>$1,620</span>
-                  </div>
-                  <div className="text-center mt-4">
-                    <p className="text-lg font-bold">1,350% ROI in Year 1</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Common Mistakes */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">5 Costly AI Implementation Mistakes to Avoid</h2>
-          <div className="grid gap-6">
-            {[
-              {
-                mistake: "Trying too many tools at once",
-                solution: "Start with 1-2 high-impact tools and master them before expanding",
-                cost: "Wasted $800-2,000 in subscriptions with poor adoption"
-              },
-              {
-                mistake: "Skipping employee training",
-                solution: "Invest 2-4 hours in proper training for each tool",
-                cost: "50% lower ROI due to underutilization"
-              },
-              {
-                mistake: "Choosing complex tools first",
-                solution: "Begin with user-friendly options before advanced platforms",
-                cost: "$400-600 in consultant fees to fix poor implementations"
-              },
-              {
-                mistake: "Ignoring data security",
-                solution: "Verify business-grade security features and compliance",
-                cost: "Potential data breach costs averaging $4.45M"
-              },
-              {
-                mistake: "No performance measurement",
-                solution: "Track time saved, costs reduced, and quality improvements",
-                cost: "Continuing inefficient processes costing $200-500/month"
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-slate-50 border border-red-200 rounded-lg p-6">
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div>
-                    <h3 className="font-bold text-red-800 mb-2">❌ Mistake #{index + 1}</h3>
-                    <p className="text-red-700">{item.mistake}</p>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-emerald-800 mb-2">✅ Solution</h3>
-                    <p className="text-emerald-700">{item.solution}</p>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-800 mb-2">💰 Typical Cost</h3>
-                    <p className="text-slate-700">{item.cost}</p>
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-600">
+                    <div className="mb-1">
+                      <span className="font-semibold text-slate-900">Investment:</span> {phase.investment}
+                    </div>
+                    <div>
+                      <span className="font-semibold text-slate-900">{phase.roi}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Related Articles */}
-        <RelatedLinks links={relatedArticles} />
+      <section className="page-section">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-6">
+            <div className="page-card-glow p-1.5">
+              <div className="page-card rounded-[1.8rem] p-7 md:p-8 h-full">
+                <div className="page-pill mb-4">ROI snapshot</div>
+                <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                  A realistic savings picture.
+                </h2>
+                <p className="text-slate-600 text-lg leading-7 mb-6">
+                  The test cohort showed that even a relatively small stack could produce meaningful labor savings when paired with actual usage discipline.
+                </p>
+                <div className="space-y-3">
+                  {roiRows.map((row) => (
+                    <div key={row.label} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                      <div className="flex items-center justify-between gap-4 mb-1">
+                        <span className="font-semibold text-slate-950">{row.label}</span>
+                        <span className="font-semibold text-indigo-600">{row.value}</span>
+                      </div>
+                      <div className="text-sm text-slate-500">{row.note}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-        {/* Call to Action */}
-        <section className="mt-16">
-          <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-2xl p-8 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business with AI?</h2>
-            <p className="text-lg mb-8 max-w-3xl mx-auto">
-              Start with our proven 3-phase implementation guide. 
-              Over 500 small businesses have successfully used this approach to achieve 200-450% ROI.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/best-ai-writing-tools-2026" 
-                className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-bold hover:bg-slate-100 transition-colors"
-              >
-                Explore AI Writing Tools
-              </Link>
-              <Link 
-                href="/ai-content-workflow-automation-2026" 
-                className="bg-emerald-700 text-white px-8 py-3 rounded-lg font-bold hover:bg-emerald-800 transition-colors"
-              >
-                Learn About AI Automation
-              </Link>
+            <div className="page-card-glow p-8 md:p-10 surface-muted">
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Year-one view</div>
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                The example stack still shows strong headroom.
+              </h2>
+              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                The model here is intentionally simple: modest software spend, practical time savings, and staged rollout instead of forcing a large transformation budget too early.
+              </p>
+              <div className="grid gap-4">
+                <div className="page-card p-5 bg-white/90">
+                  <div className="text-sm uppercase tracking-[0.14em] text-slate-500 mb-2">Monthly savings</div>
+                  <div className="font-semibold text-slate-950">$1,740</div>
+                </div>
+                <div className="page-card p-5 bg-white/90">
+                  <div className="text-sm uppercase tracking-[0.14em] text-slate-500 mb-2">Monthly tool spend</div>
+                  <div className="font-semibold text-slate-950">$120</div>
+                </div>
+                <div className="page-card p-5 bg-white/90">
+                  <div className="text-sm uppercase tracking-[0.14em] text-slate-500 mb-2">Illustrative year-one ROI</div>
+                  <div className="font-semibold text-slate-950">1,350%</div>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      <section className="page-section surface-muted">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Common mistakes</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">The avoidable ways teams burn budget.</h2>
+            <p className="page-lead text-lg">
+              These failure patterns showed up repeatedly in lower-performing implementations.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {mistakes.map((item, index) => (
+              <div key={item.title} className="page-card p-6">
+                <div className="grid lg:grid-cols-3 gap-4">
+                  <div>
+                    <div className="text-sm uppercase tracking-[0.16em] text-rose-500 mb-2">Mistake #{index + 1}</div>
+                    <div className="font-semibold text-slate-950">{item.title}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm uppercase tracking-[0.16em] text-indigo-500 mb-2">Safer move</div>
+                    <div className="text-slate-600">{item.solution}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm uppercase tracking-[0.16em] text-slate-500 mb-2">Typical cost</div>
+                    <div className="text-slate-600">{item.cost}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Related reading</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">Keep the stack connected.</h2>
+            <p className="page-lead text-lg">
+              These follow-up pages help move from tool selection into execution and adjacent systems.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {relatedArticles.map((article) => (
+              <Link key={article.href} href={article.href} className="page-card p-7 hover:-translate-y-0.5 transition-transform block">
+                <div className="text-sm uppercase tracking-[0.16em] text-indigo-500 mb-3">Internal link</div>
+                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{article.title}</h3>
+                <p className="text-slate-600 leading-7">{article.description}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }

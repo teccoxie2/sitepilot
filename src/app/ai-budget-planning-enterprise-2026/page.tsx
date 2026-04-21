@@ -1,553 +1,561 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  BarChart3,
+  Calculator,
+  CheckCircle2,
+  Clock3,
+  DollarSign,
+  Shield,
+  Sparkles,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI Budget Planning 2026 | AI Investment Calculator & Cost Framework'
+const pageDescription =
+  'Comprehensive enterprise AI budget planning framework with cost modeling, resource allocation, contingency planning, and ROI forecasting for 2026 investments.'
+const pageUrl = 'https://sitepilot.co/ai-budget-planning-enterprise-2026'
 
 export const metadata: Metadata = {
-  title: 'Enterprise AI Budget Planning 2026 | AI Investment Calculator & Cost Framework',
-  description: 'Comprehensive enterprise AI budget planning tool with cost modeling, resource allocation, and financial forecasting for 2026 AI investments.',
-};
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
+}
+
+const overviewStats = [
+  { value: '$47M', label: 'Typical AI budget', note: 'Fortune 500 annual baseline' },
+  { value: '38%', label: 'Budget growth', note: 'Year-over-year increase in 2026' },
+  { value: '24', label: 'Months to ROI', note: 'Average payback window' },
+  { value: '67%', label: 'Budget utilization', note: 'Industry average' },
+]
+
+const costCategories = [
+  {
+    title: 'Infrastructure and platform',
+    share: '25-35%',
+    range: '$11.8M - $16.5M annually',
+    note: 'Cloud compute, data storage, ML platforms, and security infrastructure.',
+  },
+  {
+    title: 'Talent and human resources',
+    share: '40-50%',
+    range: '$18.8M - $23.5M annually',
+    note: 'Data scientists, ML engineers, AI specialists, and training programs.',
+  },
+  {
+    title: 'Software and licensing',
+    share: '10-15%',
+    range: '$4.7M - $7.1M annually',
+    note: 'AI software licenses, development tools, and third-party APIs.',
+  },
+  {
+    title: 'Professional services',
+    share: '8-12%',
+    range: '$3.8M - $5.6M annually',
+    note: 'Consulting, implementation, training, and audit services.',
+  },
+]
+
+const calculatorBreakdown = [
+  { label: 'Infrastructure', value: '$14.1M', share: '30%' },
+  { label: 'Talent', value: '$21.2M', share: '45%' },
+  { label: 'Software', value: '$5.9M', share: '12.5%' },
+  { label: 'Services', value: '$5.8M', share: '12.5%' },
+]
+
+const optimizationGroups = [
+  {
+    title: 'Infrastructure optimization',
+    items: [
+      'Auto-scaling compute resources (15-25% savings)',
+      'Reserved instance pricing (20-35% savings)',
+      'Multi-cloud cost optimization (10-20% savings)',
+    ],
+  },
+  {
+    title: 'Operational efficiency',
+    items: [
+      'Shared ML platform adoption (30-40% savings)',
+      'Open source tool integration (25-45% savings)',
+      'Internal talent development (35-50% versus external)',
+    ],
+  },
+]
+
+const forecastYears = [
+  {
+    title: 'Year 1',
+    strap: 'Foundation',
+    investment: '$47.0M',
+    revenue: '+$12.5M',
+    savings: '+$8.2M',
+    roi: '-55.8%',
+    note: 'Investment phase',
+  },
+  {
+    title: 'Year 2',
+    strap: 'Growth',
+    investment: '$52.3M',
+    revenue: '+$45.8M',
+    savings: '+$23.4M',
+    roi: '+32.4%',
+    note: 'Breakeven achieved',
+  },
+  {
+    title: 'Year 3',
+    strap: 'Maturity',
+    investment: '$49.1M',
+    revenue: '+$78.3M',
+    savings: '+$41.7M',
+    roi: '+144.6%',
+    note: 'Full value realization',
+  },
+]
+
+const cumulativeStats = [
+  { label: 'Total investment', value: '$148.4M', note: 'Three-year period' },
+  { label: 'Total returns', value: '$209.9M', note: 'Revenue plus savings' },
+  { label: 'Net ROI', value: '141.4%', note: 'Three-year cumulative' },
+  { label: 'Payback period', value: '22 months', note: 'Modeled enterprise average' },
+]
+
+const riskFactors = [
+  {
+    title: 'Technical complexity risk',
+    note: 'Integration challenges and technical debt.',
+    impact: 'High',
+    probability: '35%',
+  },
+  {
+    title: 'Talent acquisition risk',
+    note: 'Competitive market for AI specialists.',
+    impact: 'Medium',
+    probability: '45%',
+  },
+  {
+    title: 'Regulatory changes',
+    note: 'New AI compliance requirements.',
+    impact: 'Medium',
+    probability: '60%',
+  },
+  {
+    title: 'Technology evolution',
+    note: 'Rapid AI technology advancement.',
+    impact: 'Low',
+    probability: '80%',
+  },
+]
+
+const contingencyCards = [
+  {
+    title: 'Base contingency reserve',
+    value: '15%',
+    note: '$7.1M additional budget',
+    subnote: 'Standard industry practice',
+  },
+  {
+    title: 'Innovation buffer',
+    value: '8%',
+    note: '$3.8M for opportunities',
+    subnote: 'Emerging technology adoption',
+  },
+  {
+    title: 'Total recommended budget',
+    value: '$57.9M',
+    note: 'Including contingencies',
+    subnote: '23% buffer for risks and opportunities',
+  },
+]
+
+const timeline = [
+  { quarter: 'Q1 2026', value: '$18.5M', note: 'Infrastructure + Talent' },
+  { quarter: 'Q2 2026', value: '$15.2M', note: 'Platform + Tools' },
+  { quarter: 'Q3 2026', value: '$12.8M', note: 'Applications + Services' },
+  { quarter: 'Q4 2026', value: '$11.4M', note: 'Innovation + Scale' },
+]
+
+const recommendations = {
+  costReduction: [
+    {
+      title: 'Shared infrastructure platform',
+      note: 'Centralized ML platform serving multiple use cases.',
+      value: '$8.5M - $12.3M',
+    },
+    {
+      title: 'Internal talent development',
+      note: 'Upskill existing staff versus pure external hiring.',
+      value: '$5.2M - $8.9M',
+    },
+    {
+      title: 'Open source integration',
+      note: 'Use open models and tooling strategically where enterprise controls allow it.',
+      value: '$3.1M - $5.7M',
+    },
+  ],
+  acceleration: [
+    {
+      title: 'Quick win projects',
+      note: 'High-impact, low-complexity AI implementations.',
+      value: '+$12.4M - $18.7M',
+    },
+    {
+      title: 'Strategic partnerships',
+      note: 'Joint ventures and technology partnerships that spread cost.',
+      value: '$7.3M - $15.2M',
+    },
+    {
+      title: 'Data monetization',
+      note: 'Revenue streams from AI-enhanced data products.',
+      value: '$15.8M - $28.4M',
+    },
+  ],
+}
+
+const relatedTools = [
+  {
+    href: '/ai-investment-decision-framework-2026',
+    title: 'Investment decision framework',
+    description: 'Strategic AI investment evaluation and prioritization.',
+  },
+  {
+    href: '/ai-investment-roi-matrix-calculator-enterprise-2026',
+    title: 'ROI matrix calculator',
+    description: '12-dimension ROI analysis with financial modeling.',
+  },
+  {
+    href: '/ai-implementation-cost-calculator-enterprise-2026',
+    title: 'Implementation cost calculator',
+    description: 'Detailed cost estimation for enterprise AI programs.',
+  },
+]
 
 export default function AIBudgetPlanningEnterprise2026() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          
-          {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-              Enterprise AI Financial Planning
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-04-19"
+        modifiedDate="2026-04-19"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
+
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
+          <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                Enterprise AI financial planning
+              </div>
+
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                AI budget planning,
+                <span className="brand-gradient-text block">without fantasy math.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                This framework helps enterprise teams plan AI budgets across infrastructure, talent, software, and services while
+                modeling payback, contingency reserves, and value realization over a three-year horizon. It is meant to support
+                actual capital allocation, not just present a glossy “innovation” number.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/ai-investment-decision-framework-2026" className="btn-brand">
+                  Open investment framework
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/ai-implementation-cost-calculator-enterprise-2026" className="btn-secondary">
+                  Review implementation cost model
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
+                {overviewStats.map((item) => (
+                  <div key={item.label} className="page-card p-4 bg-white/90">
+                    <div className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{item.value}</div>
+                    <div className="text-sm font-semibold text-slate-900">{item.label}</div>
+                    <div className="text-sm text-slate-500 mt-1">{item.note}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              AI Budget Planning <span className="text-green-600">Framework</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Strategic financial framework for planning, allocating, and managing enterprise AI investments with accurate cost modeling and ROI forecasting.
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-6 bg-white/95">
+                  <div className="flex items-center justify-between mb-6">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Budget model</div>
+                      <div className="text-xl font-semibold text-slate-950">Typical allocation split</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      2026 planning
+                    </div>
+                  </div>
+
+                  <div className="rounded-[1.5rem] border-2 border-dashed border-slate-200 bg-slate-50 px-5 py-6 text-center mb-4">
+                    <div className="text-sm text-slate-500 mb-2">Total AI budget</div>
+                    <div className="text-4xl font-semibold tracking-[-0.05em] text-slate-950 mb-2">$47.0M</div>
+                    <div className="text-sm text-slate-500">Annual allocation baseline</div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {calculatorBreakdown.map((item) => (
+                      <div key={item.label} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                        <div className="text-sm font-semibold text-slate-900">{item.label}</div>
+                        <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mt-1">{item.value}</div>
+                        <div className="text-xs text-slate-500 mt-1">{item.share}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+        <section className="grid lg:grid-cols-[1.05fr_0.95fr] gap-6 mb-16">
+          <div className="page-card p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+                <DollarSign className="w-5 h-5 text-[#635bff]" />
+              </div>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">AI budget allocation framework</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {costCategories.map((item) => (
+                <div key={item.title} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <h3 className="text-lg font-semibold text-slate-950">{item.title}</h3>
+                    <div className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      {item.share}
+                    </div>
+                  </div>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">{item.note}</p>
+                  <div className="text-sm font-semibold text-slate-900">{item.range}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="page-card p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+                <Calculator className="w-5 h-5 text-[#635bff]" />
+              </div>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Cost optimization strategies</h2>
+            </div>
+            <div className="space-y-4">
+              {optimizationGroups.map((group) => (
+                <div key={group.title} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-5">
+                  <h3 className="text-lg font-semibold text-slate-950 mb-4">{group.title}</h3>
+                  <ul className="space-y-3">
+                    {group.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-slate-600">
+                        <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">ROI forecasting</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              Enterprise AI value shows up
+              <span className="block brand-gradient-text">on a multi-year curve.</span>
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              Budget planning is incomplete without a time-phased ROI model. These forecast cards keep the investment, revenue lift,
+              operating savings, and payback assumptions visible from foundation year through maturity.
             </p>
           </div>
 
-          {/* Budget Overview Dashboard */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">$47M</div>
-              <div className="text-gray-600">Typical AI Budget</div>
-              <div className="text-sm text-blue-600 mt-1">Fortune 500 Annual</div>
+          <div className="grid lg:grid-cols-3 gap-5 mb-6">
+            {forecastYears.map((year) => (
+              <div key={year.title} className="page-card p-7">
+                <div className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 mb-4">
+                  <Clock3 className="h-3.5 w-3.5 mr-2" />
+                  {year.title} · {year.strap}
+                </div>
+                <div className="space-y-4">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-slate-500">Investment</span>
+                    <span className="font-semibold text-slate-950">{year.investment}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-slate-500">Revenue impact</span>
+                    <span className="font-semibold text-indigo-600">{year.revenue}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-slate-500">Cost savings</span>
+                    <span className="font-semibold text-sky-600">{year.savings}</span>
+                  </div>
+                  <div className="border-t border-slate-200 pt-4">
+                    <div className="flex justify-between">
+                      <span className="font-medium text-slate-900">Net ROI</span>
+                      <span className="font-semibold text-indigo-700">{year.roi}</span>
+                    </div>
+                    <div className="text-xs text-slate-500 mt-1">{year.note}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="page-card-glow p-8 surface-muted">
+            <div className="grid md:grid-cols-4 gap-4">
+              {cumulativeStats.map((item) => (
+                <div key={item.label} className="page-card p-5 text-center">
+                  <div className="text-sm font-semibold text-slate-900 mb-2">{item.label}</div>
+                  <div className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{item.value}</div>
+                  <div className="text-sm text-slate-500">{item.note}</div>
+                </div>
+              ))}
             </div>
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">38%</div>
-              <div className="text-gray-600">Budget Growth</div>
-              <div className="text-sm text-green-600 mt-1">YoY Increase 2026</div>
+          </div>
+        </section>
+
+        <section className="grid lg:grid-cols-[1.02fr_0.98fr] gap-6 mb-16">
+          <div className="page-card p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+                <Shield className="w-5 h-5 text-[#635bff]" />
+              </div>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Risk assessment and contingency</h2>
             </div>
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">24</div>
-              <div className="text-gray-600">Months ROI</div>
-              <div className="text-sm text-orange-600 mt-1">Average Payback</div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">67%</div>
-              <div className="text-gray-600">Budget Utilization</div>
-              <div className="text-sm text-purple-600 mt-1">Industry Average</div>
+            <div className="space-y-4">
+              {riskFactors.map((risk) => (
+                <div key={risk.title} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-5">
+                  <h3 className="text-lg font-semibold text-slate-950 mb-2">{risk.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">{risk.note}</p>
+                  <div className="flex gap-4 text-xs font-semibold text-slate-500">
+                    <span>Impact: {risk.impact}</span>
+                    <span>Probability: {risk.probability}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Budget Allocation Framework */}
-          <div className="bg-white rounded-lg shadow-lg mb-12">
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                💰 AI Budget Allocation Framework
-              </h2>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                {/* Cost Categories */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Primary Cost Categories</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-blue-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-gray-700">Infrastructure & Platform</span>
-                        <span className="text-blue-600 font-bold">25-35%</span>
-                      </div>
-                      <div className="text-sm text-gray-600 mb-2">
-                        Cloud compute, data storage, ML platforms, security infrastructure
-                      </div>
-                      <div className="text-xs text-blue-700 font-medium">$11.8M - $16.5M annually</div>
-                    </div>
-                    
-                    <div className="p-4 bg-green-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-gray-700">Talent & Human Resources</span>
-                        <span className="text-green-600 font-bold">40-50%</span>
-                      </div>
-                      <div className="text-sm text-gray-600 mb-2">
-                        Data scientists, ML engineers, AI specialists, training programs
-                      </div>
-                      <div className="text-xs text-green-700 font-medium">$18.8M - $23.5M annually</div>
-                    </div>
-                    
-                    <div className="p-4 bg-purple-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-gray-700">Software & Licensing</span>
-                        <span className="text-purple-600 font-bold">10-15%</span>
-                      </div>
-                      <div className="text-sm text-gray-600 mb-2">
-                        AI software licenses, development tools, third-party APIs
-                      </div>
-                      <div className="text-xs text-purple-700 font-medium">$4.7M - $7.1M annually</div>
-                    </div>
-                    
-                    <div className="p-4 bg-orange-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-gray-700">Professional Services</span>
-                        <span className="text-orange-600 font-bold">8-12%</span>
-                      </div>
-                      <div className="text-sm text-gray-600 mb-2">
-                        Consulting, implementation, training, audit services
-                      </div>
-                      <div className="text-xs text-orange-700 font-medium">$3.8M - $5.6M annually</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Budget Planning Calculator */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Interactive Budget Calculator</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-gray-800 mb-2">Total AI Budget</div>
-                        <div className="text-4xl font-bold text-green-600 mb-2">$47.0M</div>
-                        <div className="text-sm text-gray-600">Annual allocation</div>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="p-3 bg-blue-50 rounded text-center">
-                        <div className="text-sm font-medium text-blue-800">Infrastructure</div>
-                        <div className="text-xl font-bold text-blue-600">$14.1M</div>
-                        <div className="text-xs text-blue-600">30%</div>
-                      </div>
-                      <div className="p-3 bg-green-50 rounded text-center">
-                        <div className="text-sm font-medium text-green-800">Talent</div>
-                        <div className="text-xl font-bold text-green-600">$21.2M</div>
-                        <div className="text-xs text-green-600">45%</div>
-                      </div>
-                      <div className="p-3 bg-purple-50 rounded text-center">
-                        <div className="text-sm font-medium text-purple-800">Software</div>
-                        <div className="text-xl font-bold text-purple-600">$5.9M</div>
-                        <div className="text-xs text-purple-600">12.5%</div>
-                      </div>
-                      <div className="p-3 bg-orange-50 rounded text-center">
-                        <div className="text-sm font-medium text-orange-800">Services</div>
-                        <div className="text-xl font-bold text-orange-600">$5.8M</div>
-                        <div className="text-xs text-orange-600">12.5%</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div className="page-card p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+                <BarChart3 className="w-5 h-5 text-[#635bff]" />
               </div>
-
-              {/* Cost Optimization Strategies */}
-              <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">💡 Cost Optimization Strategies</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-medium text-green-800 mb-3">Infrastructure Optimization</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>Auto-scaling compute resources (15-25% savings)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>Reserved instance pricing (20-35% savings)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>Multi-cloud cost optimization (10-20% savings)</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-green-800 mb-3">Operational Efficiency</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>Shared ML platform adoption (30-40% savings)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>Open source tool integration (25-45% savings)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>Internal talent development (35-50% vs external)</span>
-                      </li>
-                    </ul>
-                  </div>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Contingency budget framework</h2>
+            </div>
+            <div className="space-y-4 mb-6">
+              {contingencyCards.map((item) => (
+                <div key={item.title} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5">
+                  <div className="text-sm font-semibold text-slate-900 mb-2">{item.title}</div>
+                  <div className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{item.value}</div>
+                  <div className="text-sm text-slate-600">{item.note}</div>
+                  <div className="text-xs text-slate-500 mt-1">{item.subnote}</div>
                 </div>
+              ))}
+            </div>
+
+            <div className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-5">
+              <div className="text-sm font-semibold text-slate-900 mb-4">Budget deployment timeline</div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {timeline.map((item) => (
+                  <div key={item.quarter} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
+                    <div className="text-sm font-semibold text-slate-900">{item.quarter}</div>
+                    <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mt-1">{item.value}</div>
+                    <div className="text-xs text-slate-500 mt-1">{item.note}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+        </section>
 
-          {/* ROI Forecasting Model */}
-          <div className="bg-white rounded-lg shadow-lg mb-12">
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                📈 AI Investment ROI Forecasting
-              </h2>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-                {/* Year 1 Projections */}
-                <div className="p-6 border-2 border-blue-200 rounded-lg">
-                  <h3 className="text-lg font-semibold text-blue-800 mb-4">
-                    🚀 Year 1 (Foundation)
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Investment:</span>
-                      <span className="font-bold text-gray-800">$47.0M</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Revenue Impact:</span>
-                      <span className="font-bold text-green-600">+$12.5M</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Cost Savings:</span>
-                      <span className="font-bold text-blue-600">+$8.2M</span>
-                    </div>
-                    <div className="border-t pt-2">
-                      <div className="flex justify-between">
-                        <span className="font-medium">Net ROI:</span>
-                        <span className="font-bold text-orange-600">-55.8%</span>
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1">Investment phase</div>
-                    </div>
-                  </div>
+        <section className="grid lg:grid-cols-2 gap-6 mb-16">
+          <div className="page-card p-8">
+            <div className="text-sm uppercase tracking-[0.18em] text-indigo-600/80 mb-3">Cost reduction</div>
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">Budget optimization recommendations</h2>
+            <div className="space-y-4">
+              {recommendations.costReduction.map((item) => (
+                <div key={item.title} className="rounded-[1.5rem] border border-indigo-100 bg-indigo-50/60 p-5">
+                  <h3 className="font-semibold text-indigo-800 mb-2">{item.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">{item.note}</p>
+                  <div className="text-sm font-semibold text-indigo-700">Potential savings: {item.value}</div>
                 </div>
-
-                {/* Year 2 Projections */}
-                <div className="p-6 border-2 border-green-200 rounded-lg">
-                  <h3 className="text-lg font-semibold text-green-800 mb-4">
-                    📊 Year 2 (Growth)
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Investment:</span>
-                      <span className="font-bold text-gray-800">$52.3M</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Revenue Impact:</span>
-                      <span className="font-bold text-green-600">+$45.8M</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Cost Savings:</span>
-                      <span className="font-bold text-blue-600">+$23.4M</span>
-                    </div>
-                    <div className="border-t pt-2">
-                      <div className="flex justify-between">
-                        <span className="font-medium">Net ROI:</span>
-                        <span className="font-bold text-green-600">+32.4%</span>
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1">Breakeven achieved</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Year 3 Projections */}
-                <div className="p-6 border-2 border-purple-200 rounded-lg">
-                  <h3 className="text-lg font-semibold text-purple-800 mb-4">
-                    🏆 Year 3 (Maturity)
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Investment:</span>
-                      <span className="font-bold text-gray-800">$49.1M</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Revenue Impact:</span>
-                      <span className="font-bold text-green-600">+$78.3M</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Cost Savings:</span>
-                      <span className="font-bold text-blue-600">+$41.7M</span>
-                    </div>
-                    <div className="border-t pt-2">
-                      <div className="flex justify-between">
-                        <span className="font-medium">Net ROI:</span>
-                        <span className="font-bold text-purple-600">+144.6%</span>
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1">Full value realization</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Cumulative ROI Chart */}
-              <div className="p-6 bg-gradient-to-r from-gray-50 to-slate-50 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">🎯 3-Year Cumulative Performance</h3>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Total Investment</div>
-                    <div className="text-3xl font-bold text-blue-600 mb-1">$148.4M</div>
-                    <div className="text-sm text-gray-600">3-year period</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Total Returns</div>
-                    <div className="text-3xl font-bold text-green-600 mb-1">$209.9M</div>
-                    <div className="text-sm text-gray-600">Revenue + Savings</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Net ROI</div>
-                    <div className="text-3xl font-bold text-purple-600 mb-1">141.4%</div>
-                    <div className="text-sm text-gray-600">3-year cumulative</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800 mb-2">Payback Period</div>
-                    <div className="text-3xl font-bold text-orange-600 mb-1">22</div>
-                    <div className="text-sm text-gray-600">Months</div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Risk & Contingency Planning */}
-          <div className="bg-white rounded-lg shadow-lg mb-12">
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                ⚠️ Risk Assessment & Contingency Budget
-              </h2>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                {/* Risk Factors */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Budget Risk Factors</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 border-l-4 border-red-500 bg-red-50">
-                      <div className="font-medium text-red-800 mb-2">Technical Complexity Risk</div>
-                      <div className="text-sm text-red-700 mb-2">
-                        Integration challenges and technical debt
-                      </div>
-                      <div className="flex justify-between text-xs">
-                        <span className="text-red-600">Impact: High</span>
-                        <span className="text-red-600">Probability: 35%</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 border-l-4 border-orange-500 bg-orange-50">
-                      <div className="font-medium text-orange-800 mb-2">Talent Acquisition Risk</div>
-                      <div className="text-sm text-orange-700 mb-2">
-                        Competitive market for AI specialists
-                      </div>
-                      <div className="flex justify-between text-xs">
-                        <span className="text-orange-600">Impact: Medium</span>
-                        <span className="text-orange-600">Probability: 45%</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 border-l-4 border-yellow-500 bg-yellow-50">
-                      <div className="font-medium text-yellow-800 mb-2">Regulatory Changes</div>
-                      <div className="text-sm text-yellow-700 mb-2">
-                        New AI compliance requirements
-                      </div>
-                      <div className="flex justify-between text-xs">
-                        <span className="text-yellow-600">Impact: Medium</span>
-                        <span className="text-yellow-600">Probability: 60%</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 border-l-4 border-blue-500 bg-blue-50">
-                      <div className="font-medium text-blue-800 mb-2">Technology Evolution</div>
-                      <div className="text-sm text-blue-700 mb-2">
-                        Rapid AI technology advancement
-                      </div>
-                      <div className="flex justify-between text-xs">
-                        <span className="text-blue-600">Impact: Low</span>
-                        <span className="text-blue-600">Probability: 80%</span>
-                      </div>
-                    </div>
-                  </div>
+          <div className="page-card p-8">
+            <div className="text-sm uppercase tracking-[0.18em] text-indigo-600/80 mb-3">Value acceleration</div>
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">Where upside can arrive faster</h2>
+            <div className="space-y-4">
+              {recommendations.acceleration.map((item) => (
+                <div key={item.title} className="rounded-[1.5rem] border border-indigo-100 bg-indigo-50/60 p-5">
+                  <h3 className="font-semibold text-indigo-800 mb-2">{item.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">{item.note}</p>
+                  <div className="text-sm font-semibold text-indigo-700">{item.value}</div>
                 </div>
-
-                {/* Contingency Framework */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Contingency Budget Framework</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-gray-50 rounded-lg">
-                      <div className="font-medium text-gray-800 mb-2">Base Contingency Reserve</div>
-                      <div className="text-2xl font-bold text-blue-600 mb-2">15%</div>
-                      <div className="text-sm text-gray-600 mb-1">$7.1M additional budget</div>
-                      <div className="text-xs text-blue-700">Standard industry practice</div>
-                    </div>
-                    
-                    <div className="p-4 bg-green-50 rounded-lg">
-                      <div className="font-medium text-green-800 mb-2">Innovation Buffer</div>
-                      <div className="text-2xl font-bold text-green-600 mb-2">8%</div>
-                      <div className="text-sm text-gray-600 mb-1">$3.8M for opportunities</div>
-                      <div className="text-xs text-green-700">Emerging technology adoption</div>
-                    </div>
-                    
-                    <div className="p-4 bg-purple-50 rounded-lg">
-                      <div className="font-medium text-purple-800 mb-2">Total Recommended Budget</div>
-                      <div className="text-2xl font-bold text-purple-600 mb-2">$57.9M</div>
-                      <div className="text-sm text-gray-600 mb-1">Including contingencies</div>
-                      <div className="text-xs text-purple-700">23% buffer for risks & opportunities</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Budget Timeline */}
-              <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">📅 Budget Deployment Timeline</h3>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className="text-center p-3 bg-white rounded-lg">
-                    <div className="text-sm font-medium text-blue-800">Q1 2026</div>
-                    <div className="text-xl font-bold text-blue-600">$18.5M</div>
-                    <div className="text-xs text-gray-600">Infrastructure + Talent</div>
-                  </div>
-                  <div className="text-center p-3 bg-white rounded-lg">
-                    <div className="text-sm font-medium text-green-800">Q2 2026</div>
-                    <div className="text-xl font-bold text-green-600">$15.2M</div>
-                    <div className="text-xs text-gray-600">Platform + Tools</div>
-                  </div>
-                  <div className="text-center p-3 bg-white rounded-lg">
-                    <div className="text-sm font-medium text-purple-800">Q3 2026</div>
-                    <div className="text-xl font-bold text-purple-600">$12.8M</div>
-                    <div className="text-xs text-gray-600">Applications + Services</div>
-                  </div>
-                  <div className="text-center p-3 bg-white rounded-lg">
-                    <div className="text-sm font-medium text-orange-800">Q4 2026</div>
-                    <div className="text-xl font-bold text-orange-600">$11.4M</div>
-                    <div className="text-xs text-gray-600">Innovation + Scale</div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
+        </section>
 
-          {/* Budget Optimization Recommendations */}
-          <div className="bg-white rounded-lg shadow-lg mb-12">
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                🎯 Budget Optimization Recommendations
-              </h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Cost Reduction Strategies */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">💡 Cost Reduction Strategies</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-green-50 rounded-lg">
-                      <div className="font-medium text-green-800 mb-2">
-                        🏗️ Shared Infrastructure Platform
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Centralized ML platform serving multiple use cases
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-green-600 font-medium">Potential Savings:</span>
-                        <span className="text-green-700 font-bold">$8.5M - $12.3M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-blue-50 rounded-lg">
-                      <div className="font-medium text-blue-800 mb-2">
-                        👥 Internal Talent Development
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Upskill existing staff vs. external hiring
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-blue-600 font-medium">Potential Savings:</span>
-                        <span className="text-blue-700 font-bold">$5.2M - $8.9M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-purple-50 rounded-lg">
-                      <div className="font-medium text-purple-800 mb-2">
-                        🔧 Open Source Integration
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Strategic use of open source AI tools
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-purple-600 font-medium">Potential Savings:</span>
-                        <span className="text-purple-700 font-bold">$3.1M - $5.7M</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Value Acceleration Opportunities */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">🚀 Value Acceleration Opportunities</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-yellow-50 rounded-lg">
-                      <div className="font-medium text-yellow-800 mb-2">
-                        ⚡ Quick Win Projects
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        High-impact, low-complexity AI implementations
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-yellow-600 font-medium">Additional ROI:</span>
-                        <span className="text-yellow-700 font-bold">+$12.4M - $18.7M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-orange-50 rounded-lg">
-                      <div className="font-medium text-orange-800 mb-2">
-                        🤝 Strategic Partnerships
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Joint ventures and technology partnerships
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-orange-600 font-medium">Cost Sharing:</span>
-                        <span className="text-orange-700 font-bold">$7.3M - $15.2M</span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-indigo-50 rounded-lg">
-                      <div className="font-medium text-indigo-800 mb-2">
-                        📊 Data Monetization
-                      </div>
-                      <div className="text-sm text-gray-700 mb-2">
-                        Revenue streams from AI-enhanced data products
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-indigo-600 font-medium">Revenue Potential:</span>
-                        <span className="text-indigo-700 font-bold">$15.8M - $28.4M</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <section className="page-card-glow p-8 md:p-12 surface-muted">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Related enterprise tools</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              Budget planning gets sharper
+              <span className="block brand-gradient-text">when it connects to the rest of the stack.</span>
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              These supporting pages help teams move from budget sizing into prioritization, ROI scoring, and detailed implementation cost work.
+            </p>
           </div>
 
-          {/* Related Tools Section */}
-          <div className="bg-gradient-to-r from-green-600 to-emerald-700 rounded-lg p-8 text-white">
-            <h2 className="text-2xl font-bold mb-6">🔗 Related Enterprise AI Tools</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Link href="/ai-investment-decision-framework-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">Investment Decision Framework</h3>
-                <p className="text-sm text-green-100">Strategic AI investment evaluation and prioritization</p>
+          <div className="grid md:grid-cols-3 gap-5">
+            {relatedTools.map((tool) => (
+              <Link key={tool.href} href={tool.href} className="page-card p-6 hover:-translate-y-0.5 transition-transform">
+                <h3 className="text-xl font-semibold text-slate-950 mb-2">{tool.title}</h3>
+                <p className="text-slate-600 leading-relaxed mb-5">{tool.description}</p>
+                <div className="inline-flex items-center text-[#635bff] font-semibold">
+                  Open tool
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
               </Link>
-              <Link href="/ai-investment-roi-matrix-calculator-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">ROI Matrix Calculator</h3>
-                <p className="text-sm text-green-100">12-dimension ROI analysis with financial modeling</p>
-              </Link>
-              <Link href="/ai-implementation-cost-calculator-enterprise-2026" className="block p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-200">
-                <h3 className="font-semibold mb-2">Implementation Cost Calculator</h3>
-                <p className="text-sm text-green-100">Detailed cost estimation for AI projects</p>
-              </Link>
-            </div>
+            ))}
           </div>
-
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
-  );
+  )
 }

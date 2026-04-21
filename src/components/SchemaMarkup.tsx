@@ -1,5 +1,5 @@
 interface SchemaMarkupProps {
-  type?: 'website' | 'article' | 'review'
+  type?: 'website' | 'article' | 'review' | 'custom'
   title?: string
   description?: string
   url?: string
@@ -9,6 +9,7 @@ interface SchemaMarkupProps {
   authorName?: string
   reviewRating?: number
   reviewCount?: number
+  data?: Record<string, unknown>
 }
 
 export default function SchemaMarkup({
@@ -21,10 +22,15 @@ export default function SchemaMarkup({
   modifiedDate,
   authorName = 'SitePilot Team',
   reviewRating,
-  reviewCount
+  reviewCount,
+  data,
 }: SchemaMarkupProps) {
   
   const getSchemaData = () => {
+    if (type === 'custom' && data) {
+      return data
+    }
+
     const baseSchema = {
       '@context': 'https://schema.org',
       '@type': type === 'website' ? 'WebSite' : type === 'article' ? 'Article' : 'Review',

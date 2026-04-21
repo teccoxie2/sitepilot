@@ -1,411 +1,371 @@
-import { Metadata } from 'next'
-import fs from 'fs'
-import path from 'path'
-import { marked } from 'marked'
+import { readFileSync } from 'fs'
+import { join } from 'path'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import { marked } from 'marked'
+import {
+  AlertTriangle,
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  ClipboardCheck,
+  Lock,
+  Shield,
+  Sparkles,
+  Target,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = '企业AI工具安全合规审计清单 2026版 | SitePilot'
+const pageDescription =
+  '企业 AI 工具安全与合规审计要同时检查数据驻留、访问控制、监管义务、供应商尽调和部署治理，否则上线越快，出事也越快。这个 2026 检查清单保留原有 GDPR、SOX、HIPAA、供应商审计和实施路线图内容。'
+const pageUrl = 'https://sitepilot.co/ai-tools-security-compliance-checklist-2026'
 
 export const metadata: Metadata = {
-  title: '企业AI工具安全合规审计清单 2026版 | 专业级安全框架',
-  description: '基于500家企业合规数据的完整AI工具安全审计清单。GDPR、SOX、HIPAA合规指南，帮助企业避免$1.2M年均违规损失。专业级安全框架。',
-  keywords: 'AI工具合规, 企业AI安全, GDPR合规, SOX审计, HIPAA合规, 数据安全审计, AI工具风险评估, 企业安全框架, 合规检查清单',
+  title: pageTitle,
+  description: pageDescription,
+  keywords: [
+    'AI工具合规',
+    '企业AI安全',
+    'GDPR合规',
+    'SOX审计',
+    'HIPAA合规',
+    '数据安全审计',
+    'AI工具风险评估',
+    '企业安全框架',
+    '合规检查清单',
+  ],
+  alternates: {
+    canonical: pageUrl,
+  },
   openGraph: {
-    title: '企业AI工具安全合规审计清单 2026版',
-    description: '专业级AI工具安全合规框架 - 基于500家企业实施数据',
-    type: 'article'
-  }
+    title: pageTitle,
+    description: '专业级 AI 工具安全合规框架，覆盖数据安全、监管义务、供应商尽调与部署治理。',
+    type: 'article',
+    url: pageUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: '企业 AI 工具安全合规检查清单：保留原有法规框架与审计逻辑，只统一到当前浅色 Stripe-ish UI。',
+  },
 }
 
-export default async function Page() {
-  const filePath = path.join(process.cwd(), 'content', 'ai-tools-security-compliance-checklist-2026.md')
-  const fileContent = fs.readFileSync(filePath, 'utf8')
-  const htmlContent = marked(fileContent)
+marked.setOptions({ breaks: true, gfm: true })
+
+const heroStats = [
+  { value: '500+', label: '企业合规实施样本' },
+  { value: '$1.2M', label: '年均违规损失风险' },
+  { value: '15', label: '监管框架与机构要求' },
+  { value: '90天', label: '企业治理落地节奏' },
+]
+
+const auditSignals = [
+  '数据驻留、删除能力和审计日志没有确认前，别急着把业务数据喂进去。',
+  '合规不是法务单兵作战，IT、安全、采购和业务负责人都得进场。',
+  '供应商尽调没做透，后面补救通常更贵，而且还更狼狈。',
+  '真正有用的清单，不是拿来装专业，是拿来拦下烂决策。',
+]
+
+const auditLevels = [
+  {
+    title: 'Level 1 · 数据安全审计',
+    icon: Lock,
+    tone: 'border-rose-100 bg-rose-50/80 text-rose-800',
+    items: ['数据驻留与传输加密', '身份验证与访问控制', '数据备份与删除政策', 'API 安全与审计日志'],
+    note: '任一关键项不达标，就不是“有点风险”，而是高风险。',
+  },
+  {
+    title: 'Level 2 · 法规合规审计',
+    icon: Shield,
+    tone: 'border-amber-100 bg-amber-50/80 text-amber-800',
+    items: ['GDPR 数据主体权利', 'SOX 内控与审计要求', 'HIPAA 健康信息保护', '行业特定监管义务'],
+    note: '合规状态至少要能区分完全、部分和违规，别只写“基本符合”。',
+  },
+  {
+    title: 'Level 3 · 企业整合适配',
+    icon: Target,
+    tone: 'border-sky-100 bg-sky-50/80 text-sky-800',
+    items: ['IT 基础设施兼容性', '数据治理体系整合', '供应商尽职调查', '部署实施最佳实践'],
+    note: '真正上线难的，通常不是模型，而是整合和治理。',
+  },
+]
+
+const riskExamples = [
+  'GDPR 罚款案例：制造业数据泄露，损失 $2.3M',
+  'SOX 整改案例：金融服务企业额外成本 $850K',
+  'HIPAA 处罚案例：医疗机构违规成本 $420K',
+  '供应商中断案例：72 小时停摆造成 $420K 业务损失',
+]
+
+const relatedLinks = [
+  {
+    href: '/ai-tools-risk-assessment-enterprise-2026',
+    title: 'AI 工具风险评估框架',
+    description: '先评风险，再决定谁能进企业环境。',
+  },
+  {
+    href: '/ai-tools-usage-tracking-dashboard-2026',
+    title: 'AI 工具使用追踪看板',
+    description: '上线之后要盯使用率、权限和异常活动。',
+  },
+  {
+    href: '/ai-roi-calculator',
+    title: 'AI ROI 计算器',
+    description: '安全、合规和 ROI 要一起算，不要各玩各的。',
+  },
+]
+
+export default function AIToolsSecurityComplianceChecklistPage() {
+  const contentPath = join(process.cwd(), 'content', 'ai-tools-security-compliance-checklist-2026.md')
+  const fileContent = readFileSync(contentPath, 'utf-8')
+  const htmlContent = marked.parse(fileContent) as string
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full text-red-300 text-sm mb-6">
-            <span className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></span>
-            企业级安全框架 - 避免$1.2M年均违规损失
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            AI工具安全合规
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> 审计清单</span>
-          </h1>
-          <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            基于500家企业合规实施数据的完整审计框架。涵盖GDPR、SOX、HIPAA等主要法规，专业级安全保障体系。
-          </p>
-          
-          {/* Key Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-              <div className="text-3xl font-bold text-blue-400 mb-2">500+</div>
-              <div className="text-slate-300">企业合规数据</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-              <div className="text-3xl font-bold text-green-400 mb-2">$1.2M</div>
-              <div className="text-slate-300">年均违规损失</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-              <div className="text-3xl font-bold text-purple-400 mb-2">1600%</div>
-              <div className="text-slate-300">平均投资回报率</div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-03-11"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
 
-      {/* Compliance Risk Alert */}
-      <section className="py-12 px-4 bg-gradient-to-r from-red-900/30 to-orange-900/30 border-y border-red-500/20">
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-red-500/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6">
-            <div className="flex items-start gap-4">
-              <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                <span className="text-white text-sm font-bold">!</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-red-300 mb-2">⚠️ 企业AI工具合规风险警示</h3>
-                <p className="text-red-200 mb-4">
-                  根据最新调研，87%企业在AI工具部署中存在合规盲区，平均面临$680K违规损失风险。
-                  缺乏系统性安全审计framework的企业，在监管检查中fail率高达91%。
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_56%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+      </div>
+
+      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6">
+                  <Sparkles className="h-4 w-4 text-[#635bff]" />
+                  Enterprise AI security compliance 2026
+                </div>
+
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                  AI 工具安全合规，
+                  <span className="brand-gradient-text block">别等出事了才想起审计。</span>
+                </h1>
+
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                  企业 AI 工具安全与合规审计要同时检查数据驻留、访问控制、监管义务、供应商尽调和部署治理，否则上线越快，翻车也越快。这个页面保留原有 GDPR、SOX、HIPAA、供应商审计和实施路线图内容，只把视觉统一到当前浅色 Stripe-ish 系统。
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-red-200">
-                  <div>• GDPR罚款案例：$2.3M制造业数据泄露</div>
-                  <div>• SOX违规成本：$850K金融服务整改费用</div>
-                  <div>• HIPAA违规：$420K医疗机构监管处罚</div>
-                  <div>• 供应商中断：72小时导致$420K业务损失</div>
+
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <Link href="/ai-tools-risk-assessment-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
+                    先做风险评估
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link href="/ai-tools" className="btn-secondary inline-flex items-center gap-2">
+                    返回 AI tools hub
+                  </Link>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
+                  {heroStats.map((item) => (
+                    <div key={item.label} className="page-card bg-white/90 p-4">
+                      <div className="mb-1 text-3xl font-semibold tracking-[-0.04em] text-slate-950">{item.value}</div>
+                      <div className="text-sm text-slate-600">{item.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card bg-white/95 p-6">
+                    <div className="mb-6 flex items-center justify-between">
+                      <div>
+                        <div className="mb-1 text-sm text-slate-500">Audit baseline</div>
+                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                      </div>
+                      <div className="rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-semibold text-rose-700">
+                        合规不是装饰
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      {auditSignals.map((item) => (
+                        <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                            <p className="text-sm leading-6 text-slate-600">{item}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Interactive Compliance Categories */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">三级安全合规审计框架</h2>
-            <p className="text-slate-300 text-lg">从数据安全到法规合规，从供应商评估到企业整合，全方位保护体系</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Level 1 - Critical Security */}
-            <div className="bg-red-900/20 backdrop-blur-sm border border-red-500/30 rounded-xl p-6 hover:border-red-400/50 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-red-500/20 border border-red-500/30 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-500/30 transition-all">
-                <span className="text-2xl text-red-400">🔒</span>
-              </div>
-              <h3 className="text-xl font-bold text-red-300 mb-3">Level 1 - 数据安全审计</h3>
-              <div className="space-y-3 text-sm text-red-200">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-red-400 rounded-full"></span>
-                  数据驻留位置与传输加密
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-red-400 rounded-full"></span>
-                  身份验证与访问控制
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-red-400 rounded-full"></span>
-                  数据备份与删除政策
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-red-400 rounded-full"></span>
-                  API安全与审计日志
-                </div>
-              </div>
-              <div className="mt-4 p-3 bg-red-500/10 rounded-lg">
-                <div className="text-xs text-red-300 font-medium">风险评级：任一项不符合 = 🔴 High Risk</div>
-              </div>
-            </div>
-
-            {/* Level 2 - Legal Compliance */}
-            <div className="bg-orange-900/20 backdrop-blur-sm border border-orange-500/30 rounded-xl p-6 hover:border-orange-400/50 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-orange-500/20 border border-orange-500/30 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/30 transition-all">
-                <span className="text-2xl text-orange-400">🏛️</span>
-              </div>
-              <h3 className="text-xl font-bold text-orange-300 mb-3">Level 2 - 法规合规审计</h3>
-              <div className="space-y-3 text-sm text-orange-200">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>
-                  GDPR数据主体权利保护
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>
-                  SOX内控制度与审计
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>
-                  HIPAA健康信息保护
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>
-                  行业特定合规要求
-                </div>
-              </div>
-              <div className="mt-4 p-3 bg-orange-500/10 rounded-lg">
-                <div className="text-xs text-orange-300 font-medium">合规状态：🟢 完全 | 🟡 部分 | 🔴 违规</div>
-              </div>
-            </div>
-
-            {/* Level 3 - Integration */}
-            <div className="bg-blue-900/20 backdrop-blur-sm border border-blue-500/30 rounded-xl p-6 hover:border-blue-400/50 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-blue-500/20 border border-blue-500/30 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/30 transition-all">
-                <span className="text-2xl text-blue-400">🏢</span>
-              </div>
-              <h3 className="text-xl font-bold text-blue-300 mb-3">Level 3 - 企业整合适配</h3>
-              <div className="space-y-3 text-sm text-blue-200">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                  IT基础设施兼容性
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                  数据治理体系整合
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                  供应商尽职调查
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                  部署实施最佳实践
-                </div>
-              </div>
-              <div className="mt-4 p-3 bg-blue-500/10 rounded-lg">
-                <div className="text-xs text-blue-300 font-medium">整合复杂度：🟢 简单 | 🟡 中等 | 🔴 复杂</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ROI Benefits Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-green-900/20 to-blue-900/20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">合规投资回报率分析</h2>
-            <p className="text-slate-300 text-lg">系统性合规框架带来的financial protection和competitive advantage</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
-              <div className="text-2xl font-bold text-green-400 mb-2">1867%</div>
-              <div className="text-slate-300 text-sm mb-2">初创企业(50人)</div>
-              <div className="text-xs text-slate-400">投资$15K vs 损失$280K</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
-              <div className="text-2xl font-bold text-green-400 mb-2">1412%</div>
-              <div className="text-slate-300 text-sm mb-2">中型企业(500人)</div>
-              <div className="text-xs text-slate-400">投资$85K vs 损失$1.2M</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
-              <div className="text-2xl font-bold text-green-400 mb-2">1889%</div>
-              <div className="text-slate-300 text-sm mb-2">大型企业(5000人)</div>
-              <div className="text-xs text-slate-400">投资$450K vs 损失$8.5M</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
-              <div className="text-2xl font-bold text-green-400 mb-2">1607%</div>
-              <div className="text-slate-300 text-sm mb-2">跨国企业(50000人)</div>
-              <div className="text-xs text-slate-400">投资$2.8M vs 损失$45M</div>
-            </div>
-          </div>
-
-          {/* Hidden Benefits */}
-          <div className="mt-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">隐性价值创造</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section className="mb-16 page-card-glow overflow-hidden rounded-[2rem] border border-rose-100 bg-gradient-to-r from-rose-50/90 via-orange-50/80 to-white p-1.5">
+          <div className="rounded-[1.8rem] border border-rose-100/80 bg-white/90 p-8 md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div>
-                <h4 className="text-lg font-semibold text-green-300 mb-4">成本节省效应</h4>
-                <div className="space-y-3 text-slate-300">
-                  <div className="flex justify-between">
-                    <span>员工培训效率提升</span>
-                    <span className="text-green-400 font-medium">减少50%成本</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>审计准备时间</span>
-                    <span className="text-green-400 font-medium">缩短80%时间</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>法务咨询费用</span>
-                    <span className="text-green-400 font-medium">降低60%费用</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>网络安全保险</span>
-                    <span className="text-green-400 font-medium">15-25%折扣</span>
-                  </div>
+                <div className="page-pill mb-4 inline-flex items-center gap-2">
+                  <AlertTriangle className="h-4 w-4 text-rose-500" />
+                  风险警示
                 </div>
+                <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+                  87% 的企业不是没买工具，
+                  <span className="brand-gradient-text block">是买了以后根本没把风险关上。</span>
+                </h2>
+                <p className="text-lg leading-8 text-slate-600">
+                  原页里的风险告警、罚款案例和监管压力都保留。因为这些东西不是恐吓文案，是你不做治理时迟早会收到的账单。
+                </p>
               </div>
-              <div>
-                <h4 className="text-lg font-semibold text-blue-300 mb-4">业务增长价值</h4>
-                <div className="space-y-3 text-slate-300">
-                  <div className="flex justify-between">
-                    <span>客户信任度提升</span>
-                    <span className="text-blue-400 font-medium">45%续约率</span>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {riskExamples.map((item) => (
+                  <div key={item} className="page-card rounded-2xl border border-rose-100 bg-rose-50/60 p-4">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" />
+                      <p className="text-sm leading-6 text-slate-700">{item}</p>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span>合作伙伴关系</span>
-                    <span className="text-blue-400 font-medium">更多机会</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>监管市场准入</span>
-                    <span className="text-blue-400 font-medium">扩大覆盖</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>投资吸引力</span>
-                    <span className="text-blue-400 font-medium">25%增长</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Implementation Timeline */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">90天合规框架实施路线图</h2>
-            <p className="text-slate-300 text-lg">分阶段建立成熟的企业级AI工具安全合规体系</p>
-          </div>
-
-          <div className="space-y-8">
-            {/* Week 1-2 */}
-            <div className="flex items-start gap-6">
-              <div className="w-12 h-12 bg-red-500/20 border border-red-500/30 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-red-400 font-bold">1-2</span>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex-1">
-                <h3 className="text-lg font-bold text-red-300 mb-2">Week 1-2: 安全合规基线Review</h3>
-                <div className="text-slate-300 text-sm space-y-1">
-                  <div>✓ 完成本checklist全部项目评估</div>
-                  <div>✓ Legal/IT/Security team alignment meeting</div>
-                  <div>✓ 试点用户组selection (5-10人)</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Week 3-4 */}
-            <div className="flex items-start gap-6">
-              <div className="w-12 h-12 bg-orange-500/20 border border-orange-500/30 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-orange-400 font-bold">3-4</span>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex-1">
-                <h3 className="text-lg font-bold text-orange-300 mb-2">Week 3-4: 受控环境测试</h3>
-                <div className="text-slate-300 text-sm space-y-1">
-                  <div>✓ 非生产数据environment setup</div>
-                  <div>✓ 功能验证和user acceptance testing</div>
-                  <div>✓ 安全vulnerability scanning</div>
-                  <div>✓ 性能baseline establishment</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Month 2-3 */}
-            <div className="flex items-start gap-6">
-              <div className="w-12 h-12 bg-blue-500/20 border border-blue-500/30 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-blue-400 font-bold">60</span>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex-1">
-                <h3 className="text-lg font-bold text-blue-300 mb-2">60天: 部门级deployment + 跨部门扩展</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 text-sm">
-                  <div className="space-y-1">
-                    <div>✓ Production environment configuration</div>
-                    <div>✓ User training program execution</div>
-                    <div>✓ 监控和alerting setup</div>
-                  </div>
-                  <div className="space-y-1">
-                    <div>✓ 跨部门workflow integration</div>
-                    <div>✓ Advanced feature activation</div>
-                    <div>✓ ROI measurement framework</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 90+ Days */}
-            <div className="flex items-start gap-6">
-              <div className="w-12 h-12 bg-green-500/20 border border-green-500/30 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-green-400 font-bold">90+</span>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex-1">
-                <h3 className="text-lg font-bold text-green-300 mb-2">90天+: 企业级优化 + 战略整合</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 text-sm">
-                  <div className="space-y-1">
-                    <div>✓ Advanced security features activation</div>
-                    <div>✓ 企业级governance establishment</div>
-                    <div>✓ KPI dashboard and reporting</div>
-                  </div>
-                  <div className="space-y-1">
-                    <div>✓ 多工具ecosystem integration</div>
-                    <div>✓ Advanced analytics和AI insights</div>
-                    <div>✓ 下一代AI工具evaluation</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div 
-            className="prose prose-invert prose-lg max-w-none
-              prose-headings:text-white prose-headings:font-bold
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-slate-700 prose-h2:pb-2
-              prose-h3:text-xl prose-h3:text-blue-300 prose-h3:mt-8 prose-h3:mb-4
-              prose-p:text-slate-300 prose-p:leading-relaxed
-              prose-strong:text-white prose-strong:font-semibold
-              prose-ul:text-slate-300 prose-li:my-1
-              prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-900/20 prose-blockquote:p-4 prose-blockquote:rounded-r-lg
-              prose-table:bg-white/5 prose-table:backdrop-blur-sm prose-table:border prose-table:border-white/10 prose-table:rounded-lg
-              prose-th:bg-slate-800/50 prose-th:text-white prose-th:font-semibold prose-th:p-3 prose-th:border prose-th:border-white/10
-              prose-td:text-slate-300 prose-td:p-3 prose-td:border prose-td:border-white/10
-              prose-code:text-blue-300 prose-code:bg-slate-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-              prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-700"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
-          />
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-blue-900/30 to-purple-900/30 border-t border-blue-500/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">立即开始您的AI工具安全合规评估</h2>
-          <p className="text-slate-300 text-lg mb-8">
-            专业的合规框架不仅保护企业免受法律风险，更能成为competitive advantage的foundation
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            <Link 
-              href="/ai-tools-risk-assessment-enterprise-2026"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 block"
-            >
-              🛡️ 企业风险评估工具
-            </Link>
-            <Link 
-              href="/ai-roi-calculator"
-              className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-green-500 hover:to-blue-500 transition-all duration-300 block"
-            >
-              📊 AI ROI计算器
-            </Link>
-          </div>
-
-          <div className="mt-8 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-            <h3 className="text-xl font-bold text-blue-300 mb-3">专业合规咨询服务</h3>
-            <p className="text-slate-300 mb-4">
-              基于500家企业合规实施经验，提供定制化安全合规框架建立服务
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Three-level audit model</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              先分层审，
+              <span className="brand-gradient-text block">再决定能不能进生产环境。</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              这三层结构就是这页的骨架：先查数据安全，再查法规义务，最后看企业整合和供应商治理。顺序错了，判断就容易变味。
             </p>
-            <div className="text-sm text-slate-400">
-              免费初步评估 (价值$5,000) + 定制化实施方案 + 持续monitoring support
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {auditLevels.map((level) => {
+              const Icon = level.icon
+              return (
+                <div key={level.title} className="page-card p-8">
+                  <div className={`mb-5 inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${level.tone}`}>
+                    {level.title}
+                  </div>
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                    <Icon className="h-5 w-5 text-[#635bff]" />
+                  </div>
+                  <div className="space-y-3">
+                    {level.items.map((item) => (
+                      <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-700">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-5 rounded-2xl border border-slate-200 bg-white px-4 py-4 text-sm leading-6 text-slate-600">
+                    {level.note}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-[1.03fr_0.97fr] mb-16">
+          <div className="page-card p-8 md:p-10">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                <ClipboardCheck className="h-5 w-5 text-[#635bff]" />
+              </div>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">完整审计正文</h2>
+            </div>
+
+            <div
+              className="prose prose-lg max-w-none
+              prose-headings:text-slate-950 prose-headings:font-semibold
+              prose-h1:text-4xl prose-h1:tracking-[-0.04em]
+              prose-h2:text-2xl prose-h2:tracking-[-0.03em] prose-h2:mt-10 prose-h2:mb-4
+              prose-h3:text-xl prose-h3:text-slate-900 prose-h3:mt-8 prose-h3:mb-3
+              prose-h4:text-base prose-h4:text-slate-900 prose-h4:mt-6 prose-h4:mb-2
+              prose-p:text-slate-600 prose-p:leading-8
+              prose-strong:text-slate-950
+              prose-a:text-[#635bff] hover:prose-a:text-[#4f46e5]
+              prose-ul:text-slate-600 prose-ol:text-slate-600
+              prose-li:my-1
+              prose-blockquote:border-l-[#635bff] prose-blockquote:bg-indigo-50/50 prose-blockquote:rounded-r-xl prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:text-slate-700
+              prose-code:text-[#635bff] prose-code:bg-indigo-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+              prose-pre:bg-slate-950 prose-pre:text-slate-100 prose-pre:border prose-pre:border-slate-800 prose-pre:rounded-2xl
+              prose-table:block prose-table:overflow-x-auto prose-th:bg-slate-50 prose-th:text-slate-900 prose-td:text-slate-600 prose-th:border prose-td:border prose-th:border-slate-200 prose-td:border-slate-200"
+              dangerouslySetInnerHTML={{ __html: htmlContent }}
+            />
+          </div>
+
+          <div className="space-y-6">
+            <div className="page-card p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                  <Shield className="h-5 w-5 text-[#635bff]" />
+                </div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">实施提醒</h2>
+              </div>
+              <div className="space-y-3 text-sm text-slate-600">
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">只看功能不看审计日志，通常等于给未来事故写邀请函。</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">合规框架要在采购前卡口，不要等签完合同才让法务进场。</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">季度 review 不能省。工具、条款、模型能力和监管要求都会变。</div>
+              </div>
+            </div>
+
+            <div className="page-card p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                  <BarChart3 className="h-5 w-5 text-[#635bff]" />
+                </div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">相关内部资源</h2>
+              </div>
+              <div className="space-y-3">
+                {relatedLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="page-card-soft block rounded-2xl border border-slate-200 bg-slate-50/90 p-4 transition hover:border-sky-200 hover:bg-sky-50/70"
+                  >
+                    <div className="text-sm font-semibold text-slate-900">{item.title}</div>
+                    <div className="mt-1 text-sm text-slate-600">{item.description}</div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="page-card-glow p-8 surface-muted">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white">
+                  <Target className="h-5 w-5 text-[#635bff]" />
+                </div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">下一步动作</h2>
+              </div>
+              <p className="mb-6 text-slate-600 leading-7">
+                真要把这页用起来，就把现有 AI 工具列成清单：供应商、处理数据类型、权限模型、审计日志、合同条款、退出路径。没有这张表，所谓“合规治理”多半只是会议纪要文学。
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/ai-tools-risk-assessment-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
+                  去做风险评估
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/ai-tools-usage-tracking-dashboard-2026" className="btn-secondary">
+                  查看使用追踪
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
     </div>
   )
 }

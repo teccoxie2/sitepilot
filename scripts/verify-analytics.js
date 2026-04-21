@@ -63,8 +63,13 @@ function checkLayoutIntegration() {
     console.log('❌ GoogleAnalytics not imported in layout');
     return false;
   }
+
+  if (!layoutContent.includes('NEXT_PUBLIC_GA_MEASUREMENT_ID')) {
+    console.log('❌ Layout does not read NEXT_PUBLIC_GA_MEASUREMENT_ID');
+    return false;
+  }
   
-  console.log('✅ GoogleAnalytics integrated in layout');
+  console.log('✅ GoogleAnalytics integrated in layout and wired to env');
   return true;
 }
 
@@ -98,10 +103,9 @@ function runVerification() {
   if (passed === total) {
     console.log('\n🎉 Google Analytics is properly configured!');
     console.log('Next steps:');
-    console.log('1. Get your GA4 Measurement ID from https://analytics.google.com/');
-    console.log('2. Replace GA_MEASUREMENT_ID_PLACEHOLDER in .env.local');
-    console.log('3. Restart your dev server: npm run dev');
-    console.log('4. Test tracking in GA4 Real-time reports');
+    console.log('1. Confirm NEXT_PUBLIC_GA_MEASUREMENT_ID matches the production GA4 property');
+    console.log('2. Restart your dev server if you changed .env.local');
+    console.log('3. Test tracking in GA4 Real-time reports');
   } else {
     console.log('\n⚠️  Some issues found. Please fix them before proceeding.');
   }

@@ -1,628 +1,645 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'AI Digital Transformation Roadmap 2026: Enterprise Implementation Guide | SitePilot'
+const pageDescription =
+  'Complete 12-month AI digital transformation roadmap for enterprises in 2026, including phased implementation, budget planning, risk mitigation, and ROI benchmarks.'
+const pageUrl = 'https://sitepilot.co/ai-digital-transformation-roadmap-2026'
 
 export const metadata: Metadata = {
-  title: 'AI Digital Transformation Roadmap 2026: Enterprise Implementation Guide',
-  description: 'Complete 12-month AI digital transformation roadmap for enterprises in 2026. Includes phased implementation strategy, budget planning, risk mitigation, and success metrics for digital transformation initiatives.',
-  keywords: 'ai digital transformation, digital transformation roadmap 2026, enterprise digital transformation, ai implementation strategy, digital transformation consultant, enterprise modernization, ai transformation roadmap',
+  title: pageTitle,
+  description: pageDescription,
+  keywords: [
+    'ai digital transformation roadmap',
+    'digital transformation roadmap 2026',
+    'enterprise digital transformation',
+    'ai implementation strategy',
+    'enterprise modernization',
+    'ai transformation roadmap',
+  ],
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
 }
+
+const quickNav = [
+  { href: '#overview', title: 'Executive summary', note: 'Imperative, scope, and value framing' },
+  { href: '#phases', title: 'Four-phase roadmap', note: 'Assessment to scale' },
+  { href: '#investment', title: 'Investment and ROI', note: 'Budget timing and payback' },
+  { href: '#risk', title: 'Risk management', note: 'Technical, organizational, and business controls' },
+  { href: '#resources', title: 'Support resources', note: 'Tools, guides, and adjacent assets' },
+]
+
+const summaryStats = [
+  { value: '12 months', label: 'Core roadmap duration' },
+  { value: '$1.9M-$2.9M', label: 'Typical total investment range' },
+  { value: '267%-394%', label: '18-month ROI range' },
+  { value: '89%', label: 'Enterprise adoption momentum' },
+]
+
+const executiveHighlights = [
+  '89% of enterprises are accelerating AI adoption as digital-first operating models become permanent.',
+  'The roadmap is phased: Assessment (months 1-2), Foundation (months 3-5), Implementation (months 6-9), and Scale (months 10-12).',
+  'Organizations usually need coordinated changes across infrastructure, data, governance, training, and operating metrics to realize ROI.',
+  'The fastest failures come from trying to deploy AI before cleaning up process ownership, data quality, and change management.',
+]
+
+const phaseCards = [
+  {
+    phase: 'Phase 1',
+    title: 'Digital maturity assessment',
+    duration: 'Months 1-2',
+    accent: 'text-blue-600',
+    deliverable: 'Current-state analysis, transformation charter, and investment plan.',
+    items: [
+      'Infrastructure audit and capacity review',
+      'Process mapping and inefficiency identification',
+      'Data architecture and quality assessment',
+      'Risk tolerance, compliance, and skills evaluation',
+    ],
+  },
+  {
+    phase: 'Phase 2',
+    title: 'Foundation building',
+    duration: 'Months 3-5',
+    accent: 'text-indigo-600',
+    deliverable: 'Modernized platforms, team design, and workflow foundations.',
+    items: [
+      'Cloud and platform modernization',
+      'AI/ML platform setup and data pipeline design',
+      'Digital transformation office and team structure',
+      'Workflow automation and governance baselines',
+    ],
+  },
+  {
+    phase: 'Phase 3',
+    title: 'AI implementation and automation',
+    duration: 'Months 6-9',
+    accent: 'text-violet-600',
+    deliverable: 'AI-enabled customer, operations, and decision-support systems.',
+    items: [
+      'Customer experience automation',
+      'Operations intelligence and process automation',
+      'Decision-support dashboards and risk monitoring',
+      'Value tracking against the roadmap business case',
+    ],
+  },
+  {
+    phase: 'Phase 4',
+    title: 'Scale and optimize',
+    duration: 'Months 10-12',
+    accent: 'text-amber-600',
+    deliverable: 'Advanced capabilities, ecosystem integration, and operating maturity.',
+    items: [
+      'Predictive and autonomous capabilities',
+      'Partner, vendor, and customer ecosystem integration',
+      'Continuous learning and model-improvement loops',
+      'Innovation lab and future-state evaluation pipeline',
+    ],
+  },
+]
+
+const phaseDetails = [
+  {
+    title: 'Phase 1 deliverables',
+    tone: 'bg-blue-50 border-blue-200',
+    items: [
+      'Digital maturity scorecard',
+      'Strategic transformation plan',
+      '12-month implementation roadmap',
+      'Budget and resource plan',
+      'Risk assessment report',
+      'Executive presentation package',
+    ],
+  },
+  {
+    title: 'Phase 2 investment breakdown',
+    tone: 'bg-indigo-50 border-indigo-200',
+    items: [
+      'Infrastructure: $680K-$920K',
+      'Platform licenses: $340K-$580K',
+      'Team and training: $290K-$450K',
+      'Consulting services: $180K-$280K',
+    ],
+  },
+  {
+    title: 'Phase 3 expected results',
+    tone: 'bg-violet-50 border-violet-200',
+    items: [
+      '35-50% process automation',
+      '25-40% cost reduction',
+      '45-70% faster customer response',
+      '15-25% revenue increase',
+    ],
+  },
+  {
+    title: 'Phase 4 target achievements',
+    tone: 'bg-amber-50 border-amber-200',
+    items: [
+      '85-95% process automation',
+      '50-70% cost optimization',
+      '24/7 intelligent operations',
+      'Ecosystem-level AI connectivity',
+    ],
+  },
+]
+
+const investmentBreakdown = [
+  ['Infrastructure & cloud', '$680K-$920K'],
+  ['AI/ML platforms & tools', '$340K-$580K'],
+  ['Team & training', '$450K-$680K'],
+  ['Consulting & services', '$280K-$420K'],
+  ['Change management', '$180K-$280K'],
+]
+
+const roiTimeline = [
+  {
+    title: 'Months 1-6',
+    subtitle: 'Foundation ROI',
+    items: [
+      '15-25% operational efficiency gains',
+      '20-30% decision-making acceleration',
+      '$180K-$340K in early savings',
+    ],
+  },
+  {
+    title: 'Months 7-12',
+    subtitle: 'Implementation ROI',
+    items: [
+      '35-50% process automation',
+      '40-60% productivity improvement',
+      '$580K-$920K in additional savings',
+    ],
+  },
+  {
+    title: 'Months 13-18',
+    subtitle: 'Scale ROI',
+    items: [
+      '60-80% automation maturity',
+      '25-40% revenue growth',
+      '$1.2M-$2.1M in total value creation',
+    ],
+  },
+]
+
+const riskGroups = [
+  {
+    title: 'Technical risks',
+    accent: 'text-rose-600',
+    items: [
+      ['Integration complexity', 'Phase integration through APIs, compatibility testing, and staged releases.'],
+      ['Data quality issues', 'Run audits, cleansing pipelines, and data-quality monitoring before scale.'],
+    ],
+  },
+  {
+    title: 'Organizational risks',
+    accent: 'text-amber-600',
+    items: [
+      ['Change resistance', 'Use a structured change-management program with clear communications and training.'],
+      ['Skills gap', 'Balance training, hiring, and specialist partners to reduce delivery risk.'],
+    ],
+  },
+  {
+    title: 'Business risks',
+    accent: 'text-blue-600',
+    items: [
+      ['ROI delays', 'Sequence quick wins and KPI reviews so value is visible before full-scale rollout.'],
+      ['Compliance challenges', 'Embed compliance-by-design and audit readiness from phase one.'],
+    ],
+  },
+]
+
+const kpiCards = [
+  ['47%', 'Cost reduction'],
+  ['156%', 'Productivity gain'],
+  ['89%', 'Process automation'],
+  ['73%', 'Error reduction'],
+  ['267%', 'ROI over 18 months'],
+  ['32%', 'Revenue growth'],
+  ['78%', 'Customer satisfaction improvement'],
+  ['12 months', 'Typical payback'],
+]
+
+const supportCards = [
+  {
+    title: 'Strategic consulting',
+    note: 'C-level advisory services for roadmap validation, executive alignment, and industry-specific sequencing.',
+  },
+  {
+    title: 'Technical implementation',
+    note: 'Architecture design, platform integration, AI model delivery, and deployment automation support.',
+  },
+  {
+    title: 'Change management',
+    note: 'Training programs, communication plans, and organizational-adoption support for cross-functional teams.',
+  },
+]
+
+const toolGroups = [
+  {
+    title: 'Cloud platforms',
+    items: [
+      'AWS, Azure, or GCP enterprise services',
+      'Serverless computing frameworks',
+      'Container orchestration and Kubernetes',
+      'Edge computing solutions',
+    ],
+  },
+  {
+    title: 'AI/ML platforms',
+    items: [
+      'TensorFlow and PyTorch ecosystems',
+      'AutoML and no-code AI platforms',
+      'MLOps and model-management tooling',
+      'Computer vision and NLP APIs',
+    ],
+  },
+  {
+    title: 'Automation tools',
+    items: [
+      'RPA platforms such as UiPath or Automation Anywhere',
+      'Workflow orchestration tools',
+      'Document processing automation',
+      'Business process management layers',
+    ],
+  },
+]
+
+const relatedResources = [
+  {
+    href: '/ai-roi-calculator',
+    title: 'AI ROI Calculator',
+    description: 'Quantify the business case before the transformation program gets approved.',
+  },
+  {
+    href: '/ai-governance-compliance-framework-2026',
+    title: 'AI Governance & Compliance Framework',
+    description: 'Tie roadmap ambition to governance, controls, and regulatory readiness.',
+  },
+  {
+    href: '/ai-team-training-certification-2026',
+    title: 'AI Team Training Program',
+    description: 'Build the operating capability required to sustain transformation after launch.',
+  },
+  {
+    href: '/enterprise-ai-implementation-best-practices-2026',
+    title: 'Enterprise AI Best Practices',
+    description: 'Translate the roadmap into delivery patterns that reduce rollout risk.',
+  },
+  {
+    href: '/ai-tools-cost-benefit-analysis-2026',
+    title: 'AI Tools Cost-Benefit Analysis',
+    description: 'Pressure-test vendor and tooling choices against the expected payoff.',
+  },
+  {
+    href: '/manufacturing-ai-roi-calculator-2026',
+    title: 'Industry-Specific ROI Calculators',
+    description: 'Use adjacent models when stakeholders want a more verticalized business case.',
+  },
+]
 
 export default function AIDigitalTransformationRoadmap2026() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          AI Digital Transformation Roadmap 2026
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Complete enterprise guide for AI-powered digital transformation. Strategic 12-month roadmap 
-          with proven implementation frameworks, budget optimization, and measurable success metrics.
-        </p>
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-03-06"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_54%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[34rem] h-[30rem] bg-[radial-gradient(circle_at_22%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_80%_14%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_55%_82%,rgba(244,114,182,0.04),transparent_28%)]" />
       </div>
 
-      {/* Executive Summary */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Executive Summary</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">2026 Digital Transformation Imperative</h3>
-            <p className="text-gray-600 mb-4">
-              89% of enterprises accelerating AI adoption. New EU AI Act compliance requirements. 
-              Post-pandemic digital-first business models now permanent. Average 3.2x revenue growth for AI-first companies.
-            </p>
-            <h3 className="font-semibold text-gray-900 mb-2">Roadmap Overview</h3>
-            <p className="text-gray-600">
-              12-month phased approach: Assessment (Month 1-2) → Foundation (Month 3-5) → 
-              Implementation (Month 6-9) → Scale (Month 10-12). $2.4M average investment, 
-              267% ROI within 18 months.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">Success Metrics Preview</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li>• 47% operational cost reduction (months 6-12)</li>
-              <li>• 156% employee productivity increase</li>
-              <li>• 89% customer satisfaction improvement</li>
-              <li>• 12-18 month full ROI achievement</li>
-              <li>• 95% process automation coverage</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                2026 enterprise transformation roadmap
+              </div>
 
-      {/* Phase 1: Digital Maturity Assessment */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Phase 1: Digital Maturity Assessment (Months 1-2)</h2>
-        
-        <div className="grid md:grid-cols-3 gap-6 mb-6">
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Current State Analysis</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• Infrastructure audit & capacity assessment</li>
-              <li>• Process mapping & inefficiency identification</li>
-              <li>• Data architecture & quality evaluation</li>
-              <li>• Security posture & compliance gaps</li>
-              <li>• Skills assessment & training needs</li>
-              <li>• Cultural readiness evaluation</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Strategic Alignment</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• Business objectives & KPI mapping</li>
-              <li>• Competitive landscape analysis</li>
-              <li>• Customer journey transformation opportunities</li>
-              <li>• Revenue stream digitization potential</li>
-              <li>• Partnership & ecosystem requirements</li>
-              <li>• Risk tolerance & mitigation strategies</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Investment Planning</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• Budget allocation & funding sources</li>
-              <li>• ROI projections & timeline expectations</li>
-              <li>• Technology stack recommendations</li>
-              <li>• Vendor evaluation & selection criteria</li>
-              <li>• Resource allocation planning</li>
-              <li>• Success metrics & measurement framework</li>
-            </ul>
-          </div>
-        </div>
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                AI digital transformation roadmap,
+                <span className="brand-gradient-text block">for enterprises building more than a pilot.</span>
+              </h1>
 
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-          <h4 className="font-semibold text-yellow-800 mb-2">Phase 1 Deliverables</h4>
-          <p className="text-yellow-700 text-sm">
-            Digital Maturity Scorecard • Strategic Transformation Plan • 12-Month Implementation Roadmap • 
-            Budget & Resource Plan • Risk Assessment Report • Executive Presentation Package
-          </p>
-        </div>
-      </div>
-
-      {/* Phase 2: Foundation Building */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Phase 2: Foundation Building (Months 3-5)</h2>
-        
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Infrastructure Modernization</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Cloud Migration Strategy</h4>
-                <ul className="space-y-1 text-gray-600 text-sm">
-                  <li>• Hybrid/multi-cloud architecture design</li>
-                  <li>• Legacy system integration planning</li>
-                  <li>• Data migration & synchronization</li>
-                  <li>• Security & compliance framework</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">AI/ML Platform Setup</h4>
-                <ul className="space-y-1 text-gray-600 text-sm">
-                  <li>• MLOps infrastructure deployment</li>
-                  <li>• Data lake/warehouse optimization</li>
-                  <li>• Model training & deployment pipelines</li>
-                  <li>• API gateway & microservices architecture</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Organizational Readiness</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Team Structure & Skills</h4>
-                <ul className="space-y-1 text-gray-600 text-sm">
-                  <li>• Digital transformation office establishment</li>
-                  <li>• AI/Data science team building</li>
-                  <li>• Cross-functional collaboration models</li>
-                  <li>• Change management program launch</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Process Optimization</h4>
-                <ul className="space-y-1 text-gray-600 text-sm">
-                  <li>• Workflow automation design</li>
-                  <li>• Customer journey digitization</li>
-                  <li>• Data governance framework</li>
-                  <li>• Performance monitoring setup</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <h4 className="font-semibold text-blue-800 mb-2">Phase 2 Investment Breakdown</h4>
-          <div className="grid md:grid-cols-4 gap-4 text-blue-700 text-sm">
-            <div>Infrastructure: $680K-920K</div>
-            <div>Platform Licenses: $340K-580K</div>
-            <div>Team & Training: $290K-450K</div>
-            <div>Consulting Services: $180K-280K</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Phase 3: AI Implementation & Automation */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Phase 3: AI Implementation & Automation (Months 6-9)</h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Customer Experience AI</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• Intelligent chatbots & virtual assistants</li>
-              <li>• Personalization & recommendation engines</li>
-              <li>• Predictive customer service</li>
-              <li>• Omnichannel experience optimization</li>
-              <li>• Real-time sentiment analysis</li>
-              <li>• Dynamic pricing & offer management</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Operations AI</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• Intelligent document processing</li>
-              <li>• Predictive maintenance systems</li>
-              <li>• Supply chain optimization</li>
-              <li>• Quality assurance automation</li>
-              <li>• Inventory forecasting & management</li>
-              <li>• Financial planning & analysis AI</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Decision Support AI</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• Executive dashboards & analytics</li>
-              <li>• Risk assessment & mitigation</li>
-              <li>• Strategic scenario planning</li>
-              <li>• Market intelligence & insights</li>
-              <li>• Performance optimization algorithms</li>
-              <li>• Compliance monitoring & reporting</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
-          <h4 className="font-semibold text-green-800 mb-3">Expected Phase 3 Results</h4>
-          <div className="grid md:grid-cols-3 gap-4">
-            <div>
-              <h5 className="font-medium text-green-800 mb-2">Operational Efficiency</h5>
-              <ul className="space-y-1 text-green-700 text-sm">
-                <li>• 35-50% process automation</li>
-                <li>• 25-40% cost reduction</li>
-                <li>• 60-80% faster decision-making</li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-medium text-green-800 mb-2">Customer Experience</h5>
-              <ul className="space-y-1 text-green-700 text-sm">
-                <li>• 45-70% faster response times</li>
-                <li>• 30-50% satisfaction increase</li>
-                <li>• 20-35% conversion improvement</li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-medium text-green-800 mb-2">Business Growth</h5>
-              <ul className="space-y-1 text-green-700 text-sm">
-                <li>• 15-25% revenue increase</li>
-                <li>• 40-60% productivity gains</li>
-                <li>• 80-120% ROI achievement</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Phase 4: Scale & Optimize */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Phase 4: Scale & Optimize (Months 10-12)</h2>
-        
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Advanced AI Capabilities</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• Computer vision & image analysis deployment</li>
-              <li>• Natural language processing integration</li>
-              <li>• Predictive analytics & forecasting models</li>
-              <li>• Autonomous decision-making systems</li>
-              <li>• Edge AI & real-time processing</li>
-              <li>• Federated learning & privacy-preserving AI</li>
-              <li>• Advanced robotics process automation (RPA)</li>
-              <li>• Cognitive automation & intelligent workflows</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">Ecosystem Integration</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• Partner ecosystem AI connectivity</li>
-              <li>• Supplier/vendor intelligent integration</li>
-              <li>• Customer API & data sharing platforms</li>
-              <li>• Industry consortium participation</li>
-              <li>• Regulatory compliance automation</li>
-              <li>• Continuous learning & model improvement</li>
-              <li>• Innovation labs & experimentation frameworks</li>
-              <li>• Future technology evaluation pipeline</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-          <h4 className="font-semibold text-purple-800 mb-2">Phase 4 Target Achievements</h4>
-          <div className="grid md:grid-cols-2 gap-4 text-purple-700 text-sm">
-            <div>
-              <strong>Operational Excellence:</strong> 85-95% process automation, 50-70% cost optimization, 
-              24/7 intelligent operations, predictive issue resolution
-            </div>
-            <div>
-              <strong>Market Leadership:</strong> Industry-leading customer experience, data-driven innovation, 
-              competitive AI advantages, ecosystem transformation leadership
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Budget & ROI Planning */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Investment Planning & ROI Projections</h2>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">12-Month Investment Breakdown</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
-                <span className="font-medium">Infrastructure & Cloud</span>
-                <span className="text-gray-900 font-semibold">$680K - $920K</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
-                <span className="font-medium">AI/ML Platforms & Tools</span>
-                <span className="text-gray-900 font-semibold">$340K - $580K</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
-                <span className="font-medium">Team & Training</span>
-                <span className="text-gray-900 font-semibold">$450K - $680K</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
-                <span className="font-medium">Consulting & Services</span>
-                <span className="text-gray-900 font-semibold">$280K - $420K</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
-                <span className="font-medium">Change Management</span>
-                <span className="text-gray-900 font-semibold">$180K - $280K</span>
-              </div>
-              <div className="border-t pt-3 flex justify-between items-center">
-                <span className="font-bold text-lg">Total Investment</span>
-                <span className="text-xl font-bold text-blue-600">$1.9M - $2.9M</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">ROI Timeline & Benefits</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Months 1-6: Foundation ROI</h4>
-                <ul className="space-y-1 text-gray-600 text-sm">
-                  <li>• 15-25% operational efficiency gains</li>
-                  <li>• 20-30% decision-making acceleration</li>
-                  <li>• $180K-340K cost savings</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Months 7-12: Implementation ROI</h4>
-                <ul className="space-y-1 text-gray-600 text-sm">
-                  <li>• 35-50% process automation</li>
-                  <li>• 40-60% productivity improvement</li>
-                  <li>• $580K-920K additional savings</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Months 13-18: Scale ROI</h4>
-                <ul className="space-y-1 text-gray-600 text-sm">
-                  <li>• 60-80% full automation achievement</li>
-                  <li>• 25-40% revenue growth</li>
-                  <li>• $1.2M-2.1M total value creation</li>
-                </ul>
-              </div>
-              <div className="bg-green-50 p-3 rounded border border-green-200">
-                <div className="flex justify-between items-center">
-                  <span className="font-bold text-green-800">18-Month Total ROI</span>
-                  <span className="text-xl font-bold text-green-600">267% - 394%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Risk Management */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Risk Management & Mitigation Strategies</h2>
-        
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-red-600 mb-3">Technical Risks</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-gray-900 mb-1">Integration Complexity</h4>
-                <p className="text-gray-600 text-sm mb-2">Legacy system compatibility challenges</p>
-                <p className="text-green-600 text-sm"><strong>Mitigation:</strong> Phased integration, API-first approach, comprehensive testing</p>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 mb-1">Data Quality Issues</h4>
-                <p className="text-gray-600 text-sm mb-2">Inconsistent or incomplete data sources</p>
-                <p className="text-green-600 text-sm"><strong>Mitigation:</strong> Data audit, cleansing pipelines, quality monitoring</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-orange-600 mb-3">Organizational Risks</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-gray-900 mb-1">Change Resistance</h4>
-                <p className="text-gray-600 text-sm mb-2">Employee adoption and cultural barriers</p>
-                <p className="text-green-600 text-sm"><strong>Mitigation:</strong> Change management program, training, clear communication</p>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 mb-1">Skills Gap</h4>
-                <p className="text-gray-600 text-sm mb-2">Lack of AI/digital expertise</p>
-                <p className="text-green-600 text-sm"><strong>Mitigation:</strong> Training programs, hiring strategy, external partnerships</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-blue-600 mb-3">Business Risks</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-gray-900 mb-1">ROI Delays</h4>
-                <p className="text-gray-600 text-sm mb-2">Slower than expected value realization</p>
-                <p className="text-green-600 text-sm"><strong>Mitigation:</strong> Quick wins identification, phased value delivery, KPI monitoring</p>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 mb-1">Compliance Challenges</h4>
-                <p className="text-gray-600 text-sm mb-2">Regulatory and security requirements</p>
-                <p className="text-green-600 text-sm"><strong>Mitigation:</strong> Compliance-by-design, regulatory monitoring, audit preparation</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Success Metrics & KPIs */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Success Metrics & Performance KPIs</h2>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">Operational Excellence Metrics</h3>
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">47%</div>
-                  <div className="text-sm text-gray-600">Cost Reduction</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">156%</div>
-                  <div className="text-sm text-gray-600">Productivity Gain</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">89%</div>
-                  <div className="text-sm text-gray-600">Process Automation</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">73%</div>
-                  <div className="text-sm text-gray-600">Error Reduction</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">Business Growth Metrics</h3>
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">267%</div>
-                  <div className="text-sm text-gray-600">ROI (18 months)</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">32%</div>
-                  <div className="text-sm text-gray-600">Revenue Growth</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">78%</div>
-                  <div className="text-sm text-gray-600">Customer Satisfaction</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">12</div>
-                  <div className="text-sm text-gray-600">Months to Payback</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Implementation Support */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Expert Implementation Support</h2>
-        
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-6">
-          <div className="grid md:grid-cols-3 gap-6">
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Strategic Consulting</h3>
-              <p className="text-gray-600 text-sm">
-                C-level advisory services for digital transformation strategy, roadmap validation, 
-                and executive alignment. Industry-specific expertise and best practice frameworks.
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                This guide maps a practical 12-month enterprise transformation program across assessment, foundation work,
+                implementation, and scale. The goal is not to launch AI faster at any cost. It is to sequence investment,
+                governance, and operating change so the business case survives contact with reality.
               </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <a href="#phases" className="btn-brand">
+                  See the roadmap
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+                <Link href="/ai-roi-calculator" className="btn-secondary">
+                  Calculate AI ROI
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+                {summaryStats.map((stat) => (
+                  <div key={stat.label} className="page-card p-4 bg-white/90">
+                    <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{stat.value}</div>
+                    <div className="text-sm text-slate-500">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-6 bg-white/95">
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Guide map</div>
+                      <div className="text-xl font-semibold text-slate-950">How to use this roadmap</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Board-level summary
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    {quickNav.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="block rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4"
+                      >
+                        <div className="font-semibold text-slate-950 mb-1">{item.title}</div>
+                        <div className="text-sm text-slate-500">{item.note}</div>
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 rounded-2xl border border-indigo-100 bg-indigo-50/80 px-4 py-4">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        Start with the investment and risk sections if you are pressure-testing an existing plan. Start with the phase view if the roadmap is still being designed.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+        <section id="overview" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Technical Implementation</h3>
-              <p className="text-gray-600 text-sm">
-                End-to-end technical delivery including architecture design, platform integration, 
-                AI model development, and deployment automation.
-              </p>
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Executive Summary</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                Transformation succeeds when the roadmap
+                <span className="block brand-gradient-text">is operational, not inspirational.</span>
+              </h2>
+              <div className="space-y-4">
+                {executiveHighlights.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-indigo-500 mt-0.5 shrink-0" />
+                    <span className="text-slate-700">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Change Management</h3>
-              <p className="text-gray-600 text-sm">
-                Organizational transformation support including training programs, communication strategies, 
-                and cultural adaptation frameworks.
-              </p>
+
+            <div className="page-card-soft p-7">
+              <h3 className="text-2xl font-semibold text-slate-950 mb-5">Success metrics preview</h3>
+              <div className="space-y-4">
+                {[
+                  ['Operational cost reduction', '47%'],
+                  ['Employee productivity increase', '156%'],
+                  ['Customer satisfaction improvement', '89%'],
+                  ['Payback timing', '12-18 months'],
+                ].map(([label, value]) => (
+                  <div key={label} className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-4">
+                    <span className="text-slate-600">{label}</span>
+                    <span className="font-semibold text-indigo-600">{value}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="text-center bg-white rounded-lg border p-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Ready to Start Your AI Transformation?</h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Get your personalized AI digital transformation roadmap with detailed implementation plans, 
-            budget optimization, and success metrics tailored to your industry and business objectives.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="/ai-roi-calculator"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-            >
-              Calculate Your AI ROI
-            </a>
-            <a
-              href="/ai-tools"
-              className="bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors"
-            >
-              Explore AI Tools
-            </a>
-          </div>
-        </div>
-      </div>
+        <section id="phases" className="page-card-glow p-1.5 mb-16 scroll-mt-28">
+          <div className="page-card rounded-[2rem] p-8 md:p-10">
+            <div className="max-w-3xl mb-8">
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Roadmap Phases</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                The four phases,
+                <span className="block brand-gradient-text">from assessment to scaled operations.</span>
+              </h2>
+            </div>
 
-      {/* Recommended Tools */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Recommended Digital Transformation Tools</h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-2">Cloud Platforms</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• AWS/Azure/GCP enterprise services</li>
-              <li>• Serverless computing frameworks</li>
-              <li>• Container orchestration (Kubernetes)</li>
-              <li>• Edge computing solutions</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-2">AI/ML Platforms</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• TensorFlow/PyTorch ecosystems</li>
-              <li>• AutoML and no-code platforms</li>
-              <li>• MLOps and model management</li>
-              <li>• Computer vision APIs</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg border p-6">
-            <h3 className="font-semibold text-gray-900 mb-2">Automation Tools</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li>• RPA platforms (UiPath, Automation Anywhere)</li>
-              <li>• Workflow orchestration tools</li>
-              <li>• Document processing automation</li>
-              <li>• Business process management</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+              {phaseCards.map((phase) => (
+                <div key={phase.title} className="page-card-soft p-6">
+                  <div className={`text-sm font-semibold uppercase tracking-[0.2em] mb-3 ${phase.accent}`}>{phase.phase}</div>
+                  <h3 className="text-2xl font-semibold text-slate-950 mb-2">{phase.title}</h3>
+                  <div className="text-sm text-slate-500 mb-4">{phase.duration}</div>
+                  <p className="text-sm text-slate-600 mb-5">{phase.deliverable}</p>
+                  <div className="space-y-3">
+                    {phase.items.map((item) => (
+                      <div key={item} className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-sm text-slate-600">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
 
-      {/* Related Resources */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Related AI Transformation Resources</h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <a href="/ai-roi-calculator" className="block bg-white rounded-lg border hover:shadow-lg transition-shadow p-6">
-            <h3 className="font-semibold text-blue-600 mb-2">AI ROI Calculator</h3>
-            <p className="text-gray-600 text-sm">
-              Calculate expected returns on AI investments with industry-specific benchmarks and customizable parameters.
-            </p>
-          </a>
-          
-          <a href="/ai-governance-compliance-framework-2026" className="block bg-white rounded-lg border hover:shadow-lg transition-shadow p-6">
-            <h3 className="font-semibold text-blue-600 mb-2">AI Governance & Compliance</h3>
-            <p className="text-gray-600 text-sm">
-              Comprehensive framework for AI governance, regulatory compliance, and risk management in 2026.
-            </p>
-          </a>
-          
-          <a href="/ai-team-training-certification-2026" className="block bg-white rounded-lg border hover:shadow-lg transition-shadow p-6">
-            <h3 className="font-semibold text-blue-600 mb-2">AI Team Training Program</h3>
-            <p className="text-gray-600 text-sm">
-              Complete certification program for building AI-ready teams across all organizational levels.
-            </p>
-          </a>
-          
-          <a href="/enterprise-ai-implementation-best-practices-2026" className="block bg-white rounded-lg border hover:shadow-lg transition-shadow p-6">
-            <h3 className="font-semibold text-blue-600 mb-2">Enterprise AI Best Practices</h3>
-            <p className="text-gray-600 text-sm">
-              Proven methodologies and best practices for successful enterprise AI implementation projects.
-            </p>
-          </a>
-          
-          <a href="/ai-tools-cost-benefit-analysis-2026" className="block bg-white rounded-lg border hover:shadow-lg transition-shadow p-6">
-            <h3 className="font-semibold text-blue-600 mb-2">AI Tools Cost-Benefit Analysis</h3>
-            <p className="text-gray-600 text-sm">
-              Detailed cost-benefit analysis framework for evaluating and selecting AI tools and platforms.
-            </p>
-          </a>
-          
-          <a href="/manufacturing-ai-roi-calculator-2026" className="block bg-white rounded-lg border hover:shadow-lg transition-shadow p-6">
-            <h3 className="font-semibold text-blue-600 mb-2">Industry-Specific ROI Calculators</h3>
-            <p className="text-gray-600 text-sm">
-              Specialized ROI calculators for manufacturing, healthcare, finance, and other key industries.
-            </p>
-          </a>
-        </div>
-      </div>
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+              {phaseDetails.map((detail) => (
+                <div key={detail.title} className={`rounded-[1.75rem] border p-5 ${detail.tone}`}>
+                  <h3 className="text-lg font-semibold text-slate-950 mb-4">{detail.title}</h3>
+                  <div className="space-y-2 text-sm text-slate-700">
+                    {detail.items.map((item) => (
+                      <div key={item}>{item}</div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      {/* Footer CTA */}
-      <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl p-8">
-        <h2 className="text-2xl font-bold mb-4">Transform Your Enterprise with AI in 2026</h2>
-        <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-          Join thousands of enterprises achieving 267% ROI through strategic AI digital transformation. 
-          Get your customized roadmap and start building competitive advantages today.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="/ai-roi-calculator"
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
-          >
-            Start ROI Analysis
-          </a>
-          <a
-            href="/ai-tools"
-            className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors"
-          >
-            Explore AI Tools
-          </a>
-        </div>
-      </div>
+        <section id="investment" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Investment & ROI</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              Budget discipline matters,
+              <span className="block brand-gradient-text">but sequencing matters more.</span>
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div className="page-card-soft p-6">
+              <h3 className="text-2xl font-semibold text-slate-950 mb-5">12-month investment breakdown</h3>
+              <div className="space-y-4">
+                {investmentBreakdown.map(([label, value]) => (
+                  <div key={label} className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-4">
+                    <span className="text-slate-600">{label}</span>
+                    <span className="font-semibold text-slate-950">{value}</span>
+                  </div>
+                ))}
+                <div className="flex items-center justify-between gap-4 border-t border-slate-200 pt-4">
+                  <span className="text-lg font-semibold text-slate-950">Total investment</span>
+                  <span className="text-xl font-semibold text-[#635bff]">$1.9M-$2.9M</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="page-card-soft p-6">
+              <h3 className="text-2xl font-semibold text-slate-950 mb-5">ROI timeline</h3>
+              <div className="space-y-4">
+                {roiTimeline.map((period) => (
+                  <div key={period.title} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
+                    <div className="font-semibold text-slate-950 mb-1">
+                      {period.title} · {period.subtitle}
+                    </div>
+                    <div className="space-y-2 mt-3 text-sm text-slate-600">
+                      {period.items.map((item) => (
+                        <div key={item}>{item}</div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+                <div className="rounded-2xl border border-indigo-200 bg-indigo-50 px-4 py-4">
+                  <div className="text-sm text-indigo-700 mb-1">18-month total ROI</div>
+                  <div className="text-2xl font-semibold text-indigo-700">267%-394%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="risk" className="page-card-glow p-1.5 mb-16 scroll-mt-28">
+          <div className="page-card rounded-[2rem] p-8 md:p-10">
+            <div className="max-w-3xl mb-8">
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Risk Management</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                The usual failure points,
+                <span className="block brand-gradient-text">grouped by what actually breaks programs.</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-10">
+              {riskGroups.map((group) => (
+                <div key={group.title} className="page-card-soft p-6">
+                  <h3 className={`text-2xl font-semibold mb-5 ${group.accent}`}>{group.title}</h3>
+                  <div className="space-y-4">
+                    {group.items.map(([title, note]) => (
+                      <div key={title}>
+                        <div className="font-semibold text-slate-950 mb-1">{title}</div>
+                        <div className="text-sm text-slate-600">{note}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
+              {kpiCards.map(([value, label]) => (
+                <div key={label} className="page-card px-5 py-5">
+                  <div className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-2">{value}</div>
+                  <div className="text-sm text-slate-500">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="resources" className="page-card p-8 md:p-10 scroll-mt-28">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Resources</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              Delivery support and internal links,
+              <span className="block brand-gradient-text">so the roadmap can turn into execution.</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {supportCards.map((card) => (
+              <div key={card.title} className="page-card-soft p-6">
+                <h3 className="text-xl font-semibold text-slate-950 mb-3">{card.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{card.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {toolGroups.map((group) => (
+              <div key={group.title} className="page-card-soft p-6">
+                <h3 className="text-xl font-semibold text-slate-950 mb-4">{group.title}</h3>
+                <div className="space-y-3 text-sm text-slate-600">
+                  {group.items.map((item) => (
+                    <div key={item}>{item}</div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mb-10">
+            {relatedResources.map((resource) => (
+              <Link key={resource.href} href={resource.href} className="page-card-soft p-6 hover:border-slate-300 transition">
+                <h3 className="text-xl font-semibold text-slate-950 mb-3">{resource.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{resource.description}</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="page-card-glow p-1.5">
+            <div className="page-card rounded-[2rem] p-8 md:p-10 text-center">
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                Ready to turn the roadmap into
+                <span className="block brand-gradient-text">an investment decision?</span>
+              </h2>
+              <p className="text-slate-600 text-lg max-w-3xl mx-auto mb-8">
+                Use the ROI calculator to model payback, then review AI tools and governance resources to pressure-test how the rollout should actually happen.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/ai-roi-calculator" className="btn-brand">
+                  Start ROI analysis
+                </Link>
+                <Link href="/ai-tools" className="btn-secondary">
+                  Explore AI tools
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   )
 }

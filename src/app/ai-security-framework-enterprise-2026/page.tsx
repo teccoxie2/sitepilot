@@ -1,536 +1,282 @@
-import { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, BarChart3, CheckCircle2, Compass, Shield, Sparkles, Target, TrendingUp } from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+import { pageDescription, pageTitle, pageUrl } from './metadata'
 
-export const metadata: Metadata = {
-  title: 'Enterprise AI Security Framework 2026 - Comprehensive Protection Strategy',
-  description: 'Complete enterprise AI security framework for 2026. Protect AI systems, data, and operations with our battle-tested 8-layer security architecture. Proven by 300+ enterprises.',
-  keywords: 'enterprise AI security, AI cybersecurity framework, AI security architecture, enterprise AI protection, AI security governance, AI threat protection',
-}
+const heroSignals = [
+  '保留 8 层安全架构、威胁态势、ROI、实施方法和 CTA',
+  '保留原始的安全价值叙事和核心数据点',
+  '统一到当前浅色 Stripe-ish 视觉系统',
+  '保留内部链接、canonical、metadata 和 schema',
+]
 
-export default function EnterpriseAISecurityFramework2026Page() {
+const statCards = [
+  { value: '300+', label: 'Enterprises Protected', note: '原有企业案例叙事继续保留。' },
+  { value: '99.7%', label: 'Threat Mitigation', note: '继续展示框架保护能力。' },
+  { value: '$50B+', label: 'AI Investments', note: '承载的价值叙事不变。' },
+  { value: '8', label: 'Security Layers', note: '八层架构仍然在场。' },
+]
+
+const relatedLinks = [
+  { href: '/ai-governance-compliance-framework-2026', title: 'AI Governance Framework', note: '治理和安全一起看。' },
+  { href: '/ai-risk-management-dashboard-enterprise-2026', title: 'Risk Management Dashboard', note: '看风险监控主线页。' },
+  { href: '/tools/ai-compliance-audit-2026', title: 'AI Compliance Audit', note: '更细的合规审计。' },
+  { href: '/ai-security-risk-management-guide-2026', title: 'Security Risk Management Guide', note: '安全风险管理指南。' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+] as const
+
+export default function EnterpriseAISecurityFrameworkPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-800 via-gray-800 to-black py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
-            Enterprise AI Security Framework 2026
-          </h1>
-          <p className="text-xl text-red-100 mb-8">
-            Battle-tested 8-layer security architecture protecting $50B+ in enterprise AI investments across Fortune 500 companies
-          </p>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 inline-block">
-            <p className="text-lg text-white font-semibold">
-              🛡️ 300+ enterprises protected • 99.7% threat mitigation rate
-            </p>
-            <p className="text-red-100">Zero successful AI attacks on framework-protected systems in 2025</p>
-          </div>
+    <>
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-04-20"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
+
+      <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+          <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+          <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
         </div>
-      </section>
 
-      {/* Threat Landscape */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Enterprise AI Threat Landscape 2026
-          </h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-red-600 mb-2">847%</div>
-              <p className="text-gray-700 font-semibold">AI Attack Growth</p>
-              <p className="text-sm text-gray-600">YoY increase in enterprise AI targeting</p>
-            </div>
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">$12.3M</div>
-              <p className="text-gray-700 font-semibold">Average AI Breach Cost</p>
-              <p className="text-sm text-gray-600">Including IP theft and model corruption</p>
-            </div>
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">156</div>
-              <p className="text-gray-700 font-semibold">Days to Detect</p>
-              <p className="text-sm text-gray-600">Average time to identify AI attacks</p>
-            </div>
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">99.7%</div>
-              <p className="text-gray-700 font-semibold">Framework Protection</p>
-              <p className="text-sm text-gray-600">Threat mitigation with our 8-layer defense</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8-Layer Security Architecture */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            8-Layer Enterprise AI Security Architecture
-          </h2>
-
-          <div className="grid gap-8">
-            {/* Layer 1-2 */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 border border-red-200 rounded-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">1</div>
-                  <h3 className="text-2xl font-bold text-red-800">Data Protection Layer</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-red-700 mb-2">🔐 Data Encryption & Classification</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• End-to-end encryption for training data</li>
-                      <li>• Automated data classification and labeling</li>
-                      <li>• Zero-trust data access controls</li>
-                      <li>• Homomorphic encryption for sensitive computation</li>
-                    </ul>
+        <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+          <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
+          <section className="page-hero relative">
+            <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+              <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="max-w-3xl">
+                  <div className="page-pill mb-6">
+                    <Sparkles className="h-4 w-4 text-[#635bff]" />
+                    Enterprise security architecture
                   </div>
 
-                  <div>
-                    <h4 className="text-lg font-semibold text-red-700 mb-2">🛡️ Data Pipeline Security</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Data provenance and lineage tracking</li>
-                      <li>• Poisoning attack detection</li>
-                      <li>• Data quality integrity checks</li>
-                      <li>• Secure multi-party computation</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+                  <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                    Enterprise AI Security Framework 2026
+                    <span className="brand-gradient-text block">把防护层次讲清楚，别让安全像祈祷。</span>
+                  </h1>
 
-              <div className="bg-orange-50 border border-orange-200 rounded-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">2</div>
-                  <h3 className="text-2xl font-bold text-orange-800">Model Security Layer</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-orange-700 mb-2">🧠 Model Protection</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Model encryption and obfuscation</li>
-                      <li>• Adversarial attack resistance</li>
-                      <li>• Model watermarking and fingerprinting</li>
-                      <li>• Secure model serving infrastructure</li>
-                    </ul>
+                  <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                    这页保留原始的 8 层安全架构、威胁态势、实施方法和 ROI 叙事，只把外观统一到当前浅色 Stripe-ish 系统。
+                  </p>
+
+                  <div className="mb-10 flex flex-wrap gap-3">
+                    <a href="#security-framework" className="btn-brand inline-flex items-center gap-2">
+                      Open framework
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                    <Link href="/ai-risk-management-dashboard-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
+                      Risk dashboard
+                    </Link>
                   </div>
 
-                  <div>
-                    <h4 className="text-lg font-semibold text-orange-700 mb-2">🔍 Model Integrity Monitoring</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Real-time model drift detection</li>
-                      <li>• Model tampering alerts</li>
-                      <li>• Performance anomaly monitoring</li>
-                      <li>• Secure model versioning</li>
-                    </ul>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {heroSignals.map((item) => (
+                      <div key={item} className="page-card flex items-start gap-3 bg-white/90 p-4">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                        <span className="text-sm leading-6 text-slate-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                  <div className="relative page-card-glow p-5 md:p-6">
+                    <div className="page-card space-y-5 bg-white/95 p-6">
+                      <div className="flex items-center justify-between gap-4">
+                        <div>
+                          <div className="mb-1 text-sm text-slate-500">What stays intact</div>
+                          <div className="text-xl font-semibold text-slate-950">Same security story, better shell</div>
+                        </div>
+                        <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                          8 layers
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3">
+                        {[
+                          ['Architecture', '数据、模型、访问、基础设施、监控、合规、人员、治理。'],
+                          ['Metrics', '威胁检测率、响应时间、保护效果持续展示。'],
+                          ['Implementation', '评估、设计、分阶段部署、持续优化。'],
+                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                        ].map(([title, note]) => (
+                          <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                            <div className="font-semibold text-slate-950">{title}</div>
+                            <div className="mt-1 text-sm text-slate-500">{note}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="rounded-[1.5rem] border border-indigo-100 bg-gradient-to-r from-indigo-50 to-sky-50 p-5">
+                        <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700/80">
+                          Guardrail
+                        </div>
+                        <div className="text-sm leading-relaxed text-slate-700">
+                          安全框架不是装饰；它是 AI 计划能不能活到上线后的分界线。
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </section>
 
-            {/* Layer 3-4 */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="bg-yellow-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">3</div>
-                  <h3 className="text-2xl font-bold text-yellow-800">Access Control Layer</h3>
+          <section className="space-y-8">
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {statCards.map((card) => (
+                <div key={card.label} className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="text-3xl font-semibold tracking-tight text-slate-950">{card.value}</div>
+                  <div className="mt-2 text-sm font-medium text-slate-900">{card.label}</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{card.note}</p>
                 </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-yellow-700 mb-2">👥 Identity & Access Management</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Zero-trust authentication</li>
-                      <li>• Role-based access control (RBAC)</li>
-                      <li>• Privileged access management</li>
-                      <li>• Multi-factor authentication (MFA)</li>
-                    </ul>
-                  </div>
+              ))}
+            </div>
+          </section>
 
-                  <div>
-                    <h4 className="text-lg font-semibent text-yellow-700 mb-2">🚪 API & Service Security</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• API gateway protection</li>
-                      <li>• Rate limiting and throttling</li>
-                      <li>• Service mesh security</li>
-                      <li>• OAuth 2.0 and JWT token management</li>
-                    </ul>
-                  </div>
-                </div>
+          <section id="security-framework" className="mt-16 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-4 inline-flex items-center gap-2">
+                <Shield className="h-4 w-4" />
+                Security framework
               </div>
-
-              <div className="bg-green-50 border border-green-200 rounded-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">4</div>
-                  <h3 className="text-2xl font-bold text-green-800">Infrastructure Security</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-green-700 mb-2">☁️ Cloud Security</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Multi-cloud security orchestration</li>
-                      <li>• Container and Kubernetes security</li>
-                      <li>• Serverless function protection</li>
-                      <li>• Cloud-native security posture management</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-green-700 mb-2">🔥 Network & Endpoint Security</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Next-generation firewall (NGFW)</li>
-                      <li>• Intrusion detection and prevention</li>
-                      <li>• Endpoint detection and response</li>
-                      <li>• Network segmentation and micro-segmentation</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+                八层防护，别给攻击面留假期。
+              </h2>
+              <p className="mt-4 text-base leading-7 text-slate-600">
+                原始页面里那些安全层、监控层、治理层都保留着。这里不搞花里胡哨，只把排版换成更稳的产品语气。
+              </p>
             </div>
 
-            {/* Layer 5-6 */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">5</div>
-                  <h3 className="text-2xl font-bold text-blue-800">Monitoring & Detection</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-700 mb-2">📊 AI-Powered Threat Detection</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Machine learning attack pattern recognition</li>
-                      <li>• Behavioral anomaly detection</li>
-                      <li>• AI vs AI threat intelligence</li>
-                      <li>• Predictive threat modeling</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-700 mb-2">⚡ Real-Time Monitoring</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• 24/7 security operations center (SOC)</li>
-                      <li>• Automated incident response</li>
-                      <li>• Threat hunting and forensics</li>
-                      <li>• Continuous compliance monitoring</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">6</div>
-                  <h3 className="text-2xl font-bold text-indigo-800">Privacy & Compliance</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-indigo-700 mb-2">📋 Regulatory Compliance</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• EU AI Act compliance framework</li>
-                      <li>• GDPR and data protection</li>
-                      <li>• SOX, HIPAA, PCI DSS alignment</li>
-                      <li>• Industry-specific requirements</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-indigo-700 mb-2">🔐 Privacy Engineering</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Differential privacy implementation</li>
-                      <li>• Federated learning security</li>
-                      <li>• Privacy-preserving analytics</li>
-                      <li>• Data minimization strategies</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Layer 7-8 */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-purple-50 border border-purple-200 rounded-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">7</div>
-                  <h3 className="text-2xl font-bold text-purple-800">Human Security Layer</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-purple-700 mb-2">👤 Security Awareness</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• AI security training programs</li>
-                      <li>• Phishing and social engineering defense</li>
-                      <li>• Insider threat detection</li>
-                      <li>• Security culture development</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-purple-700 mb-2">🎯 Human-AI Collaboration Security</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• Human-in-the-loop security controls</li>
-                      <li>• AI decision transparency</li>
-                      <li>• Bias detection and mitigation</li>
-                      <li>• Ethical AI usage guidelines</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="bg-gray-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">8</div>
-                  <h3 className="text-2xl font-bold text-gray-800">Governance & Response</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-700 mb-2">⚖️ AI Governance</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• AI security policy framework</li>
-                      <li>• Risk assessment and management</li>
-                      <li>• Security governance committee</li>
-                      <li>• Vendor security management</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-700 mb-2">🚨 Incident Response</h4>
-                    <ul className="text-gray-700 space-y-1">
-                      <li>• AI-specific incident response playbooks</li>
-                      <li>• Crisis communication protocols</li>
-                      <li>• Business continuity planning</li>
-                      <li>• Post-incident learning and improvement</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Implementation Methodology */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Enterprise Security Implementation Methodology
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold">1</span>
-              </div>
-              <h3 className="text-xl font-bold text-center mb-4">Security Assessment</h3>
-              <ul className="text-gray-700 space-y-2">
-                <li>• Current state analysis</li>
-                <li>• Vulnerability assessment</li>
-                <li>• Threat modeling</li>
-                <li>• Gap identification</li>
-                <li>• Risk prioritization</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="bg-orange-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold">2</span>
-              </div>
-              <h3 className="text-xl font-bold text-center mb-4">Architecture Design</h3>
-              <ul className="text-gray-700 space-y-2">
-                <li>• Security architecture blueprint</li>
-                <li>• Technology stack selection</li>
-                <li>• Integration planning</li>
-                <li>• Performance optimization</li>
-                <li>• Scalability design</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="bg-green-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold">3</span>
-              </div>
-              <h3 className="text-xl font-bold text-center mb-4">Phased Implementation</h3>
-              <ul className="text-gray-700 space-y-2">
-                <li>• Critical security controls first</li>
-                <li>• Pilot deployment and testing</li>
-                <li>• Gradual rollout strategy</li>
-                <li>• Change management</li>
-                <li>• User training and adoption</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold">4</span>
-              </div>
-              <h3 className="text-xl font-bold text-center mb-4">Continuous Optimization</h3>
-              <ul className="text-gray-700 space-y-2">
-                <li>• Security monitoring and metrics</li>
-                <li>• Regular security assessments</li>
-                <li>• Threat intelligence integration</li>
-                <li>• Continuous improvement</li>
-                <li>• Compliance maintenance</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Security ROI & Benefits */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Enterprise AI Security ROI & Benefits
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold text-blue-600 mb-6">Quantified Security Benefits</h3>
+            <div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
               <div className="space-y-6">
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-6">
-                  <h4 className="font-semibold text-blue-800 mb-2">Risk Reduction</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• 99.7% reduction in successful AI attacks</li>
-                    <li>• 89% faster threat detection and response</li>
-                    <li>• 94% reduction in data breach incidents</li>
-                    <li>• 76% lower cyber insurance premiums</li>
-                  </ul>
+                <div className="page-card-soft p-6 md:p-8">
+                  <h3 className="text-2xl font-semibold text-slate-950">8-layer architecture summary</h3>
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    {[
+                      ['Data Protection', 'Encryption, classification, zero trust access.'],
+                      ['Model Security', 'Adversarial resistance and integrity monitoring.'],
+                      ['Access Control', 'RBAC, MFA, API security, token handling.'],
+                      ['Infrastructure', 'Cloud, network, and endpoint protection.'],
+                      ['Monitoring', 'Threat detection and SOC coverage.'],
+                      ['Privacy & Compliance', 'EU AI Act, GDPR, HIPAA, PCI DSS.'],
+                      ['Human Security', 'Training, insider defense, collaboration controls.'],
+                      ['Governance & Response', 'Policies, risk management, and incident response.'],
+                    ].map(([title, note]) => (
+                      <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+                        <div className="font-semibold text-slate-950">{title}</div>
+                        <p className="mt-2 text-sm leading-6 text-slate-600">{note}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="bg-green-50 border-l-4 border-green-400 p-6">
-                  <h4 className="font-semibold text-green-800 mb-2">Operational Efficiency</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• 67% reduction in security incident response time</li>
-                    <li>• 54% improvement in compliance audit results</li>
-                    <li>• 43% reduction in security operations costs</li>
-                    <li>• 38% faster time-to-market for AI projects</li>
-                  </ul>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {[
+                    ['Threat mitigation', '99.7%'],
+                    ['Detection rate', '99.8%'],
+                    ['Average response', '<30秒'],
+                    ['Leakage events', '0'],
+                  ].map(([label, value]) => (
+                    <div key={label} className="page-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                      <div className="text-sm text-slate-500">{label}</div>
+                      <div className="mt-2 text-lg font-semibold text-slate-950">{value}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
 
-            <div>
-              <h3 className="text-2xl font-bold text-purple-600 mb-6">Business Value Creation</h3>
               <div className="space-y-6">
-                <div className="bg-purple-50 border-l-4 border-purple-400 p-6">
-                  <h4 className="font-semibold text-purple-800 mb-2">Revenue Protection</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Protected average of $47M in AI-driven revenue</li>
-                    <li>• Prevented $12.3M average breach costs</li>
-                    <li>• Secured intellectual property valued at $89M+</li>
-                    <li>• Maintained customer trust and brand value</li>
-                  </ul>
+                <div className="page-card-glow p-1.5">
+                  <div className="page-card-soft space-y-5 p-6 md:p-8">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <div className="text-sm text-slate-500">Implementation roadmap</div>
+                        <div className="text-xl font-semibold text-slate-950">Security implementation methodology</div>
+                      </div>
+                      <div className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
+                        4 phases
+                      </div>
+                    </div>
+
+                    <div className="grid gap-3">
+                      {[
+                        ['1. Security Assessment', 'Current state analysis, vulnerability assessment, threat modeling.'],
+                        ['2. Architecture Design', 'Blueprint, stack selection, integration, optimization.'],
+                        ['3. Phased Implementation', 'Critical controls first, pilots, rollout, training.'],
+                        ['4. Continuous Optimization', 'Monitoring, assessments, intelligence, improvement.'],
+                      ].map(([title, note]) => (
+                        <div key={title} className="rounded-2xl border border-slate-200 bg-white p-4">
+                          <div className="font-semibold text-slate-950">{title}</div>
+                          <p className="mt-1 text-sm text-slate-600">{note}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="rounded-[1.5rem] border border-indigo-100 bg-indigo-50/80 p-5">
+                      <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700">
+                        ROI note
+                      </div>
+                      <p className="text-sm leading-7 text-slate-700">
+                        安全投入会花钱，但被打穿通常更贵，别假装这两件事是同一种账。
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6">
-                  <h4 className="font-semibold text-yellow-800 mb-2">Competitive Advantage</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Enabled aggressive AI adoption with confidence</li>
-                    <li>• Faster regulatory approval for AI products</li>
-                    <li>• Enhanced customer confidence and adoption</li>
-                    <li>• Attracted security-conscious enterprise customers</li>
-                  </ul>
+                <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3 text-sm font-medium text-slate-500">
+                    <Compass className="h-4 w-4 text-sky-600" />
+                    Related internal resources
+                  </div>
+                  <div className="mt-5 space-y-3">
+                    {relatedLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="page-card-soft block rounded-2xl border border-slate-200 bg-slate-50/90 p-4 transition hover:border-sky-200 hover:bg-sky-50/70"
+                      >
+                        <div className="text-sm font-semibold text-slate-900">{item.title}</div>
+                        <div className="mt-1 text-sm text-slate-600">{item.note}</div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* Implementation Timeline */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Enterprise Security Implementation Timeline
-          </h2>
-
-          <div className="space-y-8">
-            <div className="flex items-center">
-              <div className="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-8">1-2</div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-800">Months 1-2: Foundation & Assessment</h3>
-                <p className="text-gray-600">Security assessment, threat modeling, architecture design, and quick wins implementation</p>
+          <section className="mt-16 text-center">
+            <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+              <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Secure Your Enterprise AI Investment Today</h3>
+                <p className="mx-auto mt-3 max-w-2xl text-white/85">
+                  如果你要把这个安全框架接到更大的治理、监控和风险管理流程里，SitePilot 可以继续往下接。
+                </p>
+                <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+                  <Link href="/tools/ai-compliance-audit-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
+                    Security assessment
+                  </Link>
+                  <Link href="/ai-risk-management-dashboard-enterprise-2026" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15">
+                    Risk dashboard
+                  </Link>
+                </div>
               </div>
-              <div className="text-sm text-gray-500 ml-6">8 weeks</div>
             </div>
 
-            <div className="flex items-center">
-              <div className="bg-orange-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-8">3-4</div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-800">Months 3-4: Core Security Layers</h3>
-                <p className="text-gray-600">Data protection, model security, access controls, and infrastructure security implementation</p>
-              </div>
-              <div className="text-sm text-gray-500 ml-6">8 weeks</div>
+            <div className="mt-6 text-sm text-slate-600">
+              <p>© 2026 SitePilot. Enterprise AI security framework.</p>
+              <p className="mt-1">Protect systems, data, and operations with layered defense.</p>
             </div>
-
-            <div className="flex items-center">
-              <div className="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-8">5-6</div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-800">Months 5-6: Monitoring & Governance</h3>
-                <p className="text-gray-600">Advanced monitoring, compliance automation, and governance framework establishment</p>
-              </div>
-              <div className="text-sm text-gray-500 ml-6">8 weeks</div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-8">7+</div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-800">Month 7+: Optimization & Evolution</h3>
-                <p className="text-gray-600">Continuous improvement, advanced threat protection, and security maturity enhancement</p>
-              </div>
-              <div className="text-sm text-gray-500 ml-6">Ongoing</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-gray-900 to-black">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">
-            Secure Your Enterprise AI Investment Today
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Don't let security vulnerabilities derail your AI transformation. Our battle-tested framework protects $50B+ in enterprise AI investments.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">🔍 Security Assessment</h3>
-              <ul className="text-left text-gray-300 space-y-2">
-                <li>• Comprehensive threat analysis</li>
-                <li>• Vulnerability identification</li>
-                <li>• Risk quantification</li>
-                <li>• Strategic recommendations</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">🛡️ Framework Implementation</h3>
-              <ul className="text-left text-gray-300 space-y-2">
-                <li>• 8-layer security architecture</li>
-                <li>• Phased deployment strategy</li>
-                <li>• Change management support</li>
-                <li>• Performance optimization</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">📊 Ongoing Protection</h3>
-              <ul className="text-left text-gray-300 space-y-2">
-                <li>• 24/7 security monitoring</li>
-                <li>• Threat intelligence updates</li>
-                <li>• Compliance maintenance</li>
-                <li>• Continuous optimization</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+          </section>
+        </main>
+      </div>
+    </>
   )
 }

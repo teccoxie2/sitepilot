@@ -25,7 +25,7 @@ export default function Header() {
     { name: "Proxies", href: "/proxies" }
   ];
 
-  const navHoverClasses = 'hover:text-[#635bff] hover:bg-indigo-50/40 rounded-full px-3 py-2 -mx-3';
+  const navHoverClasses = 'hover:text-[#635bff] hover:bg-indigo-50/55 rounded-full px-4 py-2.5';
 
   const headerClasses = scrolled
     ? 'bg-white/88 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_12px_28px_rgba(15,23,42,0.05)]'
@@ -34,7 +34,7 @@ export default function Header() {
   const logoTextClasses = 'text-slate-950 group-hover:text-[#635bff]';
   const logoBoxClasses = 'bg-gradient-to-br from-[#635bff]/8 to-sky-500/8 border border-[#635bff]/12 shadow-[0_8px_18px_rgba(99,91,255,0.06)]';
   const logoIconClasses = 'text-[#635bff]';
-  const desktopNavBase = 'text-slate-600';
+  const desktopNavBase = 'text-[15px] font-medium tracking-[0.01em] text-slate-600';
   const mobileButtonClasses = 'text-slate-500 hover:text-[#635bff]';
   const mobileMenuClasses = 'border-b border-slate-200/80 bg-white/82 backdrop-blur-xl shadow-[0_18px_36px_rgba(15,23,42,0.06)]';
   const mobileLinkClasses = 'text-slate-900';
@@ -53,19 +53,19 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
             {navLinks.map((link) => (
               <Link 
                 key={link.name}
                 href={link.href} 
-                className={`text-sm font-semibold tracking-[0.14em] ${desktopNavBase} ${navHoverClasses} transition-colors`}
+                className={`${desktopNavBase} ${navHoverClasses} transition-all duration-200`}
               >
                 {link.name}
               </Link>
             ))}
             <Link 
               href="/web-hosting" 
-              className={`px-6 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 ${ctaClasses}`}
+              className={`ml-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 ${ctaClasses}`}
             >
               GET STARTED <ArrowRight className="w-4 h-4" />
             </Link>

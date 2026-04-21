@@ -1,143 +1,319 @@
-import React from 'react';
-import Link from 'next/link';
-import { CheckCircle2, XCircle, Zap, Shield, BarChart3, ArrowRight, Globe, Lock, Cpu, Rocket, DollarSign } from 'lucide-react';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  AlertTriangle,
+  ArrowRight,
+  CheckCircle2,
+  Coins,
+  Gauge,
+  Headphones,
+  ShieldCheck,
+  Sparkles,
+  Wallet,
+  XCircle,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+import RelatedLinks from '@/components/RelatedLinks'
+
+const pageTitle = 'Best Cheap Hosting 2026 | SitePilot'
+const pageDescription =
+  'A practical 2026 guide to cheap hosting options, with a focus on total cost of ownership, renewal pricing, security baseline, and real-world value.'
+const pageUrl = 'https://sitepilot.co/hosting/cheap-hosting'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+}
+
+const quickPicks = [
+  {
+    label: 'Best value overall',
+    value: 'Hostinger',
+    note: 'The cheapest option that still feels like a real hosting service rather than a compromise stack with a login screen.',
+  },
+  {
+    label: 'Best TCO profile',
+    value: 'Namecheap',
+    note: 'Less flashy, but often the calmer answer when renewal pain matters more than marketing copy.',
+  },
+  {
+    label: 'Best performance pick',
+    value: 'Hostinger Business',
+    note: 'The strongest budget-tier performance profile when LiteSpeed + NVMe matter more than the absolute lowest invoice.',
+  },
+  {
+    label: 'Main trap',
+    value: '3-year cost reality',
+    note: 'Budget hosting stops being “cheap” fast if you ignore renewal pricing and missing features.',
+  },
+]
+
+const criteria = [
+  {
+    title: 'Total cost of ownership',
+    body: 'The real budget question is not the first invoice. It is what the stack costs once renewals, upsells, and feature gaps start showing up.',
+    icon: Coins,
+  },
+  {
+    title: 'Security baseline',
+    body: 'Cheap hosting still needs account isolation, SSL, backups, and basic malware posture. Low price does not excuse weak fundamentals.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Support usefulness',
+    body: 'Budget hosting becomes expensive the moment support turns a 20-minute issue into a 2-day problem.',
+    icon: Headphones,
+  },
+  {
+    title: 'Performance realism',
+    body: 'At this price point we are not chasing perfection. We are filtering out the options that are too slow or too unstable to defend.',
+    icon: Gauge,
+  },
+]
+
+const tcoRows = [
+  {
+    provider: 'Hostinger Premium',
+    intro: '$2.99/mo',
+    renewal: '$7.99/mo',
+    tco: '$143.64',
+    note: 'Best value/performance balance',
+  },
+  {
+    provider: 'DreamHost',
+    intro: '$2.59/mo',
+    renewal: '$5.99/mo',
+    tco: '$136.44',
+    note: 'More moderate long-term profile',
+  },
+  {
+    provider: 'Namecheap Stellar',
+    intro: '$1.98/mo',
+    renewal: '$4.48/mo',
+    tco: '$107.52',
+    note: 'Cheapest 3-year total cost',
+  },
+]
+
+const decisionGuide = [
+  {
+    title: 'Choose Hostinger if…',
+    points: [
+      'You want the strongest mix of speed and budget value',
+      'You need cheap hosting that still feels usable',
+      'You are willing to accept higher renewals for better overall performance',
+    ],
+  },
+  {
+    title: 'Choose Namecheap if…',
+    points: [
+      'You care more about pricing honesty than raw speed',
+      'You want the lowest 3-year total cost',
+      'You are okay with a more modest performance profile',
+    ],
+  },
+  {
+    title: 'Avoid budget junk if…',
+    points: [
+      'The site matters commercially',
+      'You cannot tolerate weak support or downtime',
+      'You want “cheap” to stay cheap after the promo period ends',
+    ],
+  },
+]
+
+const related = [
+  {
+    title: 'Best Web Hosting 2026',
+    href: '/hosting/best-web-hosting',
+    description: 'The main shortlist of hosting providers worth serious consideration.',
+    category: 'hosting',
+  },
+  {
+    title: 'WordPress Hosting',
+    href: '/hosting/wordpress-hosting',
+    description: 'Best hosting choices for WordPress-focused sites.',
+    category: 'hosting',
+  },
+]
 
 export default function CheapHosting2026() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white">
-      {/* 
-        AEO Optimizer: Factual Definition
-        Cheap web hosting refers to entry-level shared server environments priced under $5 USD per month, typically utilizing LiteSpeed or Apache infrastructure for personal blogs and small business portfolios. This 2026 technical audit compares the performance metrics, renewal price escalation, and included security features of budget providers such as Hostinger, Namecheap, and DreamHost.
-      */}
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup type="article" title={pageTitle} description={pageDescription} url={pageUrl} />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute inset-0 bg-[radial-gradient(#22c55e_1px,transparent_1px)] [background-size:32px_32px]"></div>
-        </div>
-        
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-black mb-8 tracking-widest uppercase">
-            2026 VALUE-FOR-MONEY AUDIT
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_22%,#ffffff_50%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+      </div>
+
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-22 pb-18 md:pt-28 md:pb-24">
+          <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-indigo-500" />
+                2026 value-for-money audit
+              </div>
+
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                Cheap hosting,
+                <span className="block brand-gradient-text">without the $0.99 delusion.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                Cheap hosting should be judged on total cost of ownership, not on a temporary intro price designed to make bad decisions feel smart for five minutes.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/hosting/hostinger-review" className="btn-brand">
+                  Review a budget winner
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/cheap-hosting" className="btn-secondary">
+                  Open full cheap-hosting guide
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+                {quickPicks.map((item) => (
+                  <div key={item.label} className="page-card px-4 py-4">
+                    <div className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-2">{item.label}</div>
+                    <div className="font-semibold text-slate-950 mb-1">{item.value}</div>
+                    <div className="text-sm text-slate-600 leading-6">{item.note}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-5 md:p-6">
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Budget-hosting reality</div>
+                      <div className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">What actually matters</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      TCO &gt; intro price
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-6">
+                    {[
+                      'The cheapest intro plan is rarely the smartest long-term choice.',
+                      'Renewal pricing matters more than banner pricing.',
+                      'Cheap hosting must still clear a minimum support and security threshold.',
+                    ].map((item) => (
+                      <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                        <div className="flex items-start gap-3">
+                          <CheckCircle2 className="h-4 w-4 mt-1 text-indigo-500 shrink-0" />
+                          <p className="text-sm text-slate-700 leading-6">{item}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-4">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
+                      <p className="text-sm text-amber-900 leading-6">
+                        If the site makes money or carries operational risk, “cheap” should be a starting filter, not the final decision criterion.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">
-            Best <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">Cheap</span> Hosting
-          </h1>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto font-medium leading-relaxed mb-12">
-            Don't get trapped by $0.99 marketing. We audited 12 providers for <span className="text-white">Total Cost of Ownership (TCO)</span> over 3 years to find the real budget winners.
-          </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {[
-              { label: "Price Range", val: "<$5/mo", color: "text-green-400" },
-              { label: "Providers", val: "12 Audited", color: "text-blue-400" },
-              { label: "Real TTFB", val: "<400ms", color: "text-cyan-400" },
-              { label: "Trust Score", val: "Data-Driven", color: "text-purple-400" }
-            ].map((stat, i) => (
-              <div key={i} className="p-6 rounded-3xl bg-[#161616] border border-white/5 shadow-2xl">
-                <div className={`text-2xl font-black ${stat.color} mb-1`}>{stat.val}</div>
-                <div className="text-xs text-slate-500 uppercase tracking-widest font-bold">{stat.label}</div>
+        </div>
+      </section>
+
+      <section className="page-section surface-muted">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Selection criteria</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">How to judge cheap hosting without lying to yourself.</h2>
+            <p className="page-lead text-lg">
+              Budget hosting looks attractive precisely because the sales pitch is simple. The actual evaluation should not be.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {criteria.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.title} className="page-card-soft p-6">
+                  <div className="inline-flex rounded-2xl bg-indigo-50 p-3 mb-5">
+                    <Icon className="h-5 w-5 text-indigo-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{item.title}</h3>
+                  <p className="text-sm leading-6 text-slate-600">{item.body}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">3-year TCO view</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">The numbers that matter more than the first invoice.</h2>
+            <p className="page-lead text-lg">
+              This is the simplest way to stop getting manipulated by fake entry pricing: compare what the stack costs after renewal reality shows up.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {tcoRows.map((row) => (
+              <div key={row.provider} className="page-card p-6">
+                <div className="text-lg font-semibold tracking-[-0.03em] text-slate-950 mb-3">{row.provider}</div>
+                <div className="space-y-3 text-sm mb-4">
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700">Intro: {row.intro}</div>
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700">Renewal: {row.renewal}</div>
+                  <div className="rounded-2xl border border-indigo-200 bg-indigo-50/70 px-4 py-3 font-semibold text-indigo-950">3-year TCO: {row.tco}</div>
+                </div>
+                <div className="text-sm text-slate-600">{row.note}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TCO Matrix - The Truth About Pricing */}
-      <section className="py-24 bg-[#0F0F0F]">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-black mb-4">Total Cost of Ownership (3-Year)</h2>
-            <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">Intro Price vs. Renewal Reality</p>
-          </div>
-          
-          <div className="overflow-hidden rounded-3xl border border-white/5 bg-[#161616] shadow-2xl font-bold">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-white/10">
-                  <th className="p-8 text-slate-500 text-xs font-black uppercase tracking-widest">Provider</th>
-                  <th className="p-8 text-white">Intro Rate</th>
-                  <th className="p-8 text-red-400">Renewal Rate</th>
-                  <th className="p-8 text-green-400">3-Year TCO</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                  <td className="p-8 text-blue-400">Hostinger Premium</td>
-                  <td className="p-8">$2.99/mo</td>
-                  <td className="p-8">$7.99/mo</td>
-                  <td className="p-8 font-black text-xl">$143.64</td>
-                </tr>
-                <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                  <td className="p-8 text-blue-400">DreamHost</td>
-                  <td className="p-8">$2.59/mo</td>
-                  <td className="p-8">$5.99/mo</td>
-                  <td className="p-8 font-black text-xl">$136.44</td>
-                </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="p-8 text-blue-400">Namecheap Stellar</td>
-                  <td className="p-8">$1.98/mo</td>
-                  <td className="p-8">$4.48/mo</td>
-                  <td className="p-8 font-black text-xl text-green-400">$107.52</td>
-                </tr>
-              </tbody>
-            </table>
+      <section className="page-section border-y border-slate-200/70 surface-warm">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-5">
+            {decisionGuide.map((item) => (
+              <div key={item.title} className="page-card p-7">
+                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">{item.title}</h3>
+                <div className="space-y-3">
+                  {item.points.map((point) => (
+                    <div key={point} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                      {point}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Top Value Card */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 max-w-6xl">
-           <div className="relative p-10 md:p-16 rounded-[3rem] bg-[#161616] border border-green-500/20 shadow-2xl overflow-hidden group">
-              <div className="absolute top-0 right-0 p-10">
-                <div className="px-6 py-3 bg-green-600 rounded-full text-white text-sm font-black tracking-widest">TOP PERFORMANCE PICK</div>
-              </div>
-              
-              <div className="flex flex-col md:flex-row gap-12 items-center">
-                 <div className="flex-1">
-                    <h3 className="text-4xl font-black mb-6 text-white group-hover:text-green-400 transition-colors">Hostinger Business</h3>
-                    <p className="text-lg text-slate-400 font-medium leading-relaxed mb-8">
-                       While Namecheap is cheaper, Hostinger is the only budget host in 2026 offering <span className="text-white italic">LiteSpeed + NVMe</span> on their basic plans. For an extra $1/mo, you get a performance tier that rivals $30/mo managed hosts.
-                    </p>
-                    <div className="flex flex-wrap gap-4 mb-10">
-                       <span className="px-4 py-2 bg-green-500/10 rounded-xl text-green-400 font-bold border border-green-500/20">99.9% Uptime</span>
-                       <span className="px-4 py-2 bg-green-500/10 rounded-xl text-green-400 font-bold border border-green-500/20">Free Domain</span>
-                       <span className="px-4 py-2 bg-green-500/10 rounded-xl text-green-400 font-bold border border-green-500/20">Weekly Backups</span>
-                    </div>
-                    <Link href="/hosting/hostinger-review" className="inline-flex items-center px-10 py-5 bg-green-600 text-white rounded-2xl font-black text-xl hover:bg-green-500 transition-all shadow-xl shadow-green-900/40">
-                      VIEW FULL AUDIT DATA <ArrowRight className="ml-2 w-6 h-6" />
-                    </Link>
-                 </div>
-                 <div className="w-full md:w-1/3 bg-[#0A0A0A] p-10 rounded-3xl border border-white/5 text-center">
-                    <div className="text-5xl font-black text-white mb-2">A+</div>
-                    <div className="text-slate-500 text-xs font-black uppercase tracking-widest mb-8">Value Grade</div>
-                    <div className="p-6 bg-green-500/5 rounded-2xl border border-green-500/10">
-                       <div className="text-green-400 font-black text-2xl">$3.99/mo</div>
-                       <div className="text-slate-600 text-xs uppercase font-bold tracking-widest mt-1">Introductory Rate</div>
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </div>
-      </section>
-
-      {/* Critical Buying Advice */}
-      <section className="py-24 bg-[#0F0F0F]">
-        <div className="container mx-auto px-4 max-w-4xl">
-           <div className="p-12 md:p-16 rounded-[4rem] bg-gradient-to-br from-[#161616] to-[#0A0A0A] border border-white/10 shadow-2xl text-center">
-              <Lock className="w-16 h-16 text-green-500 mx-auto mb-8" />
-              <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter">The "Cheap" Filter</h2>
-              <p className="text-xl text-slate-400 leading-relaxed font-medium mb-12">
-                 At this price point, you are sharing resources with thousands of other sites. We only recommend hosts that provide <span className="text-white">Account Isolation</span> and <span className="text-white">Malware Scanning</span> as standard, protecting you from "noisy neighbors."
-              </p>
-              <div className="flex justify-center gap-12 text-sm text-slate-500 font-black uppercase tracking-[0.2em]">
-                 <span className="flex items-center gap-2 text-green-400"><CheckCircle2 className="w-5 h-5"/> NVMe Enabled</span>
-                 <span className="flex items-center gap-2 text-green-400"><CheckCircle2 className="w-5 h-5"/> SSL Included</span>
-              </div>
-           </div>
+      <section className="page-section pt-0">
+        <div className="max-w-6xl mx-auto px-4">
+          <RelatedLinks links={related} />
         </div>
       </section>
     </div>
-  );
+  )
 }

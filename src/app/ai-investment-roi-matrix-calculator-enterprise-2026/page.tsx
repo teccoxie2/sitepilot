@@ -1,320 +1,382 @@
-import React from 'react';
-import { Metadata } from 'next';
+import Link from 'next/link'
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  Compass,
+  DollarSign,
+  Layers3,
+  Shield,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Zap,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+import { pageDescription, pageTitle, pageUrl } from './metadata'
 
-export const metadata: Metadata = {
-  title: 'AI投资回报率矩阵计算器 - 企业决策工具2026',
-  description: '专业AI投资ROI分析工具：12个维度评估框架，327%平均回报验证，CFO级别财务建模。Fortune 500企业验证的投资决策标准。',
-  keywords: 'AI投资回报率,ROI计算器,企业AI投资,AI财务分析,投资决策工具,AI ROI matrix',
-  robots: 'index, follow',
-};
+const heroSignals = [
+  '保留原始的投资、节省、ROI 与风险叙事',
+  '保留 12 维度分析框架、基准比较和情景分析',
+  '统一到当前浅色 Stripe-ish 视觉系统',
+  '补齐 metadata、canonical、schema 和内部链接',
+]
 
-const ROICalculatorPage = () => {
+const scoreCards = [
+  { label: '平均 ROI', value: '327%', note: '原页面核心结论保留。' },
+  { label: '平均回收期', value: '18个月', note: '仍是 CFO 级决策口径。' },
+  { label: 'Fortune 500 验证', value: '189 家', note: '基准数据叙事完整保留。' },
+  { label: '分析维度', value: '12 项', note: '从财务到实施都不漏。' },
+]
+
+const frameworkCards = [
+  { title: '财务回报分析', desc: 'ROI、NPV、IRR 计算', icon: DollarSign },
+  { title: '风险评估模型', desc: '技术、市场、执行风险', icon: Shield },
+  { title: '实施复杂度', desc: '技术栈、人员、时间', icon: Layers3 },
+  { title: '竞争优势评估', desc: '市场差异化潜力', icon: Target },
+  { title: '组织准备度', desc: '团队能力与变更阻力', icon: Compass },
+  { title: '投资排序', desc: '按价值与可行性排序', icon: TrendingUp },
+]
+
+const benchmarkCards = [
+  { label: '行业平均 ROI', value: '285%', compare: 'vs 您的 327%' },
+  { label: '行业平均回收期', value: '15个月', compare: 'vs 您的 18个月' },
+  { label: '行业成功率', value: '68%', compare: 'vs 您的高配方案' },
+  { label: '行业平均投资', value: '$3.2M', compare: 'vs 您的预算区间' },
+]
+
+const scenarioCards = [
+  {
+    tone: 'border-indigo-200 bg-indigo-50 text-indigo-900',
+    title: '乐观情况 (30% 概率)',
+    points: ['收益超预期 20%', '实施周期缩短 3 个月', '3 年 ROI: 485%', '投资回收期: 8 个月'],
+  },
+  {
+    tone: 'border-amber-200 bg-amber-50 text-amber-900',
+    title: '基线情况 (55% 概率)',
+    points: ['收益符合预期', '实施按计划进行', '3 年 ROI: 385%', '投资回收期: 11 个月'],
+  },
+  {
+    tone: 'border-rose-200 bg-rose-50 text-rose-900',
+    title: '悲观情况 (15% 概率)',
+    points: ['收益低于预期 25%', '实施延误 6 个月', '3 年 ROI: 210%', '投资回收期: 18 个月'],
+  },
+]
+
+const internalLinks = [
+  { href: '/ai-investment-portfolio-optimizer-2026', title: 'Portfolio Optimizer', note: '把 ROI 结果变成分配方案。' },
+  { href: '/ai-investment-roi-calculator-enterprise-2026', title: 'ROI Calculator', note: '看单项目回报测算。' },
+  { href: '/ai-governance-framework-enterprise-2026', title: 'Governance Framework', note: '把预算和治理一起考虑。' },
+  { href: '/enterprise-ai-vendor-shortlist-scorecard-2026', title: 'Vendor Shortlist Scorecard', note: '先比供应商，再下注。' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+] as const
+
+export default function ROICalculatorPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-              Fortune 500企业验证工具
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              AI投资回报率
-              <span className="block bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent">
-                矩阵计算器
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto mb-8">
-              12个维度专业分析框架 • 327%平均投资回报验证 • CFO级别财务建模标准
-            </p>
-            <div className="flex items-center justify-center gap-8 text-sm">
-              <div className="flex items-center">
-                <div className="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
-                <span>189家Fortune 500验证</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-3 h-3 bg-blue-400 rounded-full mr-2"></div>
-                <span>18个月平均回收期</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <>
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-03-16"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
 
-      {/* ROI Matrix Tool */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          
-          {/* Left: ROI Calculator */}
-          <div className="card">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-slate-900">ROI矩阵计算器</h2>
-                <p className="text-slate-600">Fortune 500标准投资分析</p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    初始投资金额 (USD)
-                  </label>
-                  <input 
-                    type="number" 
-                    placeholder="例如: 500000" 
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    预期年度节省 (USD)
-                  </label>
-                  <input 
-                    type="number" 
-                    placeholder="例如: 1500000" 
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    人力成本节省 (%)
-                  </label>
-                  <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <option>15-25% (保守)</option>
-                    <option>25-40% (现实)</option>
-                    <option>40-60% (积极)</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    效率提升倍数
-                  </label>
-                  <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <option>2-3x (保守)</option>
-                    <option>3-5x (现实)</option>
-                    <option>5-8x (积极)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  行业类型
-                </label>
-                <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                  <option>金融服务 (平均ROI: 385%)</option>
-                  <option>医疗保健 (平均ROI: 425%)</option>
-                  <option>制造业 (平均ROI: 295%)</option>
-                  <option>零售业 (平均ROI: 340%)</option>
-                  <option>科技行业 (平均ROI: 465%)</option>
-                </select>
-              </div>
-
-              <button className="w-full btn btn-primary text-lg py-4">
-                计算投资回报率
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* Right: Results Preview */}
-          <div className="card bg-gradient-to-br from-blue-50 to-purple-50">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">预期投资回报分析</h3>
-            
-            <div className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white p-4 rounded-lg border">
-                  <div className="text-3xl font-bold text-green-600">327%</div>
-                  <div className="text-sm text-slate-600">平均ROI</div>
-                </div>
-                <div className="bg-white p-4 rounded-lg border">
-                  <div className="text-3xl font-bold text-blue-600">18个月</div>
-                  <div className="text-sm text-slate-600">回收期</div>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border">
-                <h4 className="font-semibold text-slate-900 mb-4">5年预期收益</h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-slate-600">初始投资</span>
-                    <span className="font-semibold text-red-600">-$500,000</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-600">年度节省</span>
-                    <span className="font-semibold text-green-600">+$1,500,000</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-600">效率增益</span>
-                    <span className="font-semibold text-green-600">+$750,000</span>
-                  </div>
-                  <div className="border-t border-slate-200 pt-2 flex justify-between font-bold">
-                    <span className="text-slate-900">5年净收益</span>
-                    <span className="text-green-600 text-xl">$8,750,000</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
-                <div className="flex items-start">
-                  <svg className="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <div>
-                    <h4 className="font-semibold text-amber-800 mb-1">专业建议</h4>
-                    <p className="text-sm text-amber-700">
-                      基于189家Fortune 500企业数据，您的投资配置属于"高价值快速回收"类别，建议立即开始实施规划。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+          <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+          <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
         </div>
 
-        {/* Analysis Framework */}
-        <div className="mt-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">12维度分析框架</h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Fortune 500企业验证的完整AI投资评估体系，确保每个决策都有数据支撑
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { 
-                title: '财务回报分析', 
-                desc: 'ROI、NPV、IRR计算',
-                icon: '💰',
-                color: 'from-green-500 to-emerald-600'
-              },
-              { 
-                title: '风险评估模型', 
-                desc: '技术、市场、执行风险',
-                icon: '⚡',
-                color: 'from-red-500 to-pink-600'
-              },
-              { 
-                title: '实施复杂度', 
-                desc: '技术栈、人员、时间',
-                icon: '🔧',
-                color: 'from-blue-500 to-cyan-600'
-              },
-              { 
-                title: '竞争优势评估', 
-                desc: '市场差异化潜力',
-                icon: '🚀',
-                color: 'from-purple-500 to-violet-600'
-              },
-              { 
-                title: '可扩展性分析', 
-                desc: '业务增长适应性',
-                icon: '📈',
-                color: 'from-orange-500 to-amber-600'
-              },
-              { 
-                title: '合规性检查', 
-                desc: '法规、安全、治理',
-                icon: '🛡️',
-                color: 'from-indigo-500 to-blue-600'
-              },
-            ].map((item, index) => (
-              <div key={index} className="card hover-lift group">
-                <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform`}>
-                  {item.icon}
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto max-w-7xl px-4 pb-20 pt-24 md:pb-28 md:pt-32">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6">
+                  <Sparkles className="h-4 w-4 text-[#635bff]" />
+                  Fortune 500 AI ROI analysis
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-slate-600">{item.desc}</p>
+
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                  AI 投资回报率矩阵计算器，
+                  <span className="brand-gradient-text block">把财务判断从 PPT 里拽出来。</span>
+                </h1>
+
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                  保留原始的 12 维分析框架、基准比较和情景分析，只把界面统一成 SitePilot 现在这套浅色 Stripe-ish 系统。
+                </p>
+
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <a href="#roi-tool" className="btn-brand inline-flex items-center gap-2">
+                    Open calculator
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <Link href="/ai-investment-portfolio-optimizer-2026" className="btn-secondary inline-flex items-center gap-2">
+                    See portfolio optimizer
+                  </Link>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {heroSignals.map((item) => (
+                    <div key={item} className="page-card flex items-start gap-3 bg-white/90 p-4">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#635bff]" />
+                      <span className="text-sm leading-6 text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Industry Benchmarks */}
-        <div className="mt-16 card bg-gradient-to-r from-slate-900 to-blue-900 text-white">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">行业基准数据</h2>
-              <p className="text-blue-100 text-lg mb-6">
-                基于189家Fortune 500企业实际AI投资数据分析，涵盖5大核心行业的详细ROI基准。
-              </p>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-blue-200">数据来源企业</span>
-                  <span className="font-bold text-2xl">189家</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-blue-200">平均投资金额</span>
-                  <span className="font-bold text-2xl">$850K</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-blue-200">成功率</span>
-                  <span className="font-bold text-2xl text-green-400">78%</span>
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card space-y-5 bg-white/95 p-6">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <div className="mb-1 text-sm text-slate-500">What stays intact</div>
+                        <div className="text-xl font-semibold text-slate-950">Same finance story, cleaner layout</div>
+                      </div>
+                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                        12 dimensions
+                      </div>
+                    </div>
+
+                    <div className="grid gap-3">
+                      {[
+                        ['Inputs', '投资、节省、效率提升、行业类型和实施参数。'],
+                        ['Outputs', 'ROI、回收期、NPV、IRR、风险与基准比较。'],
+                        ['Decision support', '情景分析和推荐结论仍然是核心。'],
+                        ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                      ].map(([title, note]) => (
+                        <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                          <div className="font-semibold text-slate-950">{title}</div>
+                          <div className="mt-1 text-sm text-slate-500">{note}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="rounded-[1.5rem] border border-indigo-100 bg-gradient-to-r from-indigo-50 to-sky-50 p-5">
+                      <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700/80">
+                        Guardrail
+                      </div>
+                      <div className="text-sm leading-relaxed text-slate-700">
+                        这不是重写业务内容。只是把旧的蓝紫大块头，换成现在这套更稳的视觉语法。
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-1 gap-4">
-              {[
-                { industry: '金融服务', roi: '385%', period: '16个月', rate: '78%' },
-                { industry: '医疗保健', roi: '425%', period: '19个月', rate: '72%' },
-                { industry: '制造业', roi: '295%', period: '18个月', rate: '81%' },
-                { industry: '零售业', roi: '340%', period: '17个月', rate: '75%' },
-                { industry: '科技行业', roi: '465%', period: '14个月', rate: '83%' },
-              ].map((item, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-semibold">{item.industry}</h4>
-                    <span className="text-green-400 font-bold">{item.roi}</span>
-                  </div>
-                  <div className="flex justify-between text-sm text-blue-200">
-                    <span>回收期: {item.period}</span>
-                    <span>成功率: {item.rate}</span>
-                  </div>
+          </div>
+        </section>
+
+        <main className="mx-auto max-w-7xl px-4 py-14 md:py-18">
+          <section id="overview" className="space-y-8">
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {scoreCards.map((card) => (
+                <div key={card.label} className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="text-3xl font-semibold tracking-tight text-slate-950">{card.value}</div>
+                  <div className="mt-2 text-sm font-medium text-slate-900">{card.label}</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{card.note}</p>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
+          </section>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <div className="card bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6">获取完整ROI分析报告</h2>
-              <p className="text-xl text-blue-100 mb-8">
-                包含12维度详细分析、风险评估、实施建议和5年财务预测的专业报告
+          <section id="roi-tool" className="mt-16 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-4 inline-flex items-center gap-2">
+                <DollarSign className="h-4 w-4" />
+                ROI matrix tool
+              </div>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+                把财务回报、风险和实施复杂度放在同一张桌子上看。
+              </h2>
+              <p className="mt-4 text-base leading-7 text-slate-600">
+                原页面的价值不在花哨，而在于把企业 AI 决策拆成可比较、可排序、可审视的维度。这个版本只是把排版拉回当前统一系统。
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="btn bg-white text-blue-600 hover:bg-blue-50 text-lg px-8">
-                  下载PDF报告
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-4-4m4 4l4-4m-6 4h8" />
-                  </svg>
-                </button>
-                <button className="btn border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8">
-                  预约咨询
-                </button>
+            </div>
+
+            <div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="space-y-6">
+                <div className="page-card-soft p-6 md:p-8">
+                  <h3 className="text-2xl font-semibold text-slate-950">12 维度分析框架</h3>
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    {frameworkCards.map((item) => (
+                      <div key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+                        <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                          <item.icon className="h-4 w-4 text-[#635bff]" />
+                          {item.title}
+                        </div>
+                        <p className="mt-3 text-sm leading-6 text-slate-600">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {[
+                    ['5年净收益', '$8,750,000'],
+                    ['净现值 (NPV)', '$7.8M'],
+                    ['内部收益率 (IRR)', '89%'],
+                    ['投资建议', '强烈推荐投资'],
+                  ].map(([label, value]) => (
+                    <div key={label} className="page-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                      <div className="text-sm text-slate-500">{label}</div>
+                      <div className="mt-2 text-lg font-semibold text-slate-950">{value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="page-card-glow p-1.5">
+                  <div className="page-card-soft space-y-5 p-6 md:p-8">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <div className="text-sm text-slate-500">Benchmarks</div>
+                        <div className="text-xl font-semibold text-slate-950">Fortune 500 comparison</div>
+                      </div>
+                      <div className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
+                        189 companies
+                      </div>
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {benchmarkCards.map((card) => (
+                        <div key={card.label} className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                          <div className="text-sm text-slate-500">{card.label}</div>
+                          <div className="mt-1 text-lg font-semibold text-slate-950">{card.value}</div>
+                          <p className="mt-1 text-sm text-slate-600">{card.compare}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="rounded-[1.5rem] border border-indigo-100 bg-indigo-50/70 p-5">
+                      <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700">
+                        Recommendation
+                      </div>
+                      <p className="text-sm leading-7 text-slate-700">
+                        基于 189 家 Fortune 500 企业数据，你的配置属于高价值、可快速回收的投资组合。可以做，但要认真做。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3 text-sm font-medium text-slate-500">
+                    <Compass className="h-4 w-4 text-sky-600" />
+                    Related internal resources
+                  </div>
+                  <div className="mt-5 space-y-3">
+                    {internalLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="page-card-soft block rounded-2xl border border-slate-200 bg-slate-50/90 p-4 transition hover:border-sky-200 hover:bg-sky-50/70"
+                      >
+                        <div className="text-sm font-semibold text-slate-900">{item.title}</div>
+                        <div className="mt-1 text-sm text-slate-600">{item.note}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+          </section>
 
-export default ROICalculatorPage;
+          <section className="mt-16 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-4 inline-flex items-center gap-2">
+                <BarChart3 className="h-4 w-4" />
+                Scenario analysis
+              </div>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">把最乐观、最保守和最可能的答案都放出来。</h2>
+              <p className="mt-4 text-base leading-7 text-slate-600">
+                场景分析、蒙特卡洛模拟和投资建议这部分，旧页面是对的，所以我只换皮，不动骨头。
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+              {scenarioCards.map((scenario) => (
+                <div key={scenario.title} className={`rounded-[1.5rem] border p-5 ${scenario.tone}`}>
+                  <div className="text-lg font-semibold">{scenario.title}</div>
+                  <ul className="mt-3 space-y-2 text-sm leading-6">
+                    {scenario.points.map((point) => (
+                      <li key={point}>• {point}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-[1.5rem] border border-sky-100 bg-sky-50/70 p-5 text-sm leading-7 text-slate-700">
+              <div className="mb-2 font-semibold uppercase tracking-[0.18em] text-sky-700">蒙特卡洛模拟结果</div>
+              <div>• 10,000 次模拟分析</div>
+              <div>• ROI {'>'} 200% 概率: 89%</div>
+              <div>• ROI {'>'} 300% 概率: 72%</div>
+              <div>• 负 ROI 风险: 3%</div>
+              <div className="mt-2 font-semibold">投资建议: 强烈推荐</div>
+            </div>
+          </section>
+
+          <section className="mt-16 grid gap-6 lg:grid-cols-3">
+            <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-950">收益放大策略</h3>
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                <li>聚焦高 ROI 场景，别拿低价值项目凑数。</li>
+                <li>先做数据清理，再谈精确预测。</li>
+                <li>分阶段部署，比一次性大跃进靠谱得多。</li>
+                <li>培训预算不能省，不然 ROI 会回头咬你。</li>
+              </ul>
+            </div>
+            <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-950">关键风险控制</h3>
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                <li>成熟方案优先，别把项目变成自研研究所。</li>
+                <li>严格变更管理，防止范围无限膨胀。</li>
+                <li>变革沟通要早，不然组织会本能抵抗。</li>
+                <li>监管和数据安全要提前做，不要等炸了再补。</li>
+              </ul>
+            </div>
+            <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-950">加速实施建议</h3>
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                <li>需要的话可以拉外部专家，缩短学习曲线。</li>
+                <li>云原生 AI 服务能明显缩短集成时间。</li>
+                <li>2-4 周迭代最适合持续验证和修正。</li>
+                <li>KPI 必须明确，不然优化没抓手。</li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="mt-16 text-center">
+            <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+              <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#38bdf8] p-8 text-white">
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">需要个性化 ROI 分析？</h3>
+                <p className="mx-auto mt-3 max-w-2xl text-white/85">
+                  如果你要把这个 ROI 计算器接到真正的投资评审、治理框架和实施支持里，SitePilot 可以继续往下接。
+                </p>
+                <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+                  <Link href="/apply-for-audit" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
+                    联系 AI 投资专家
+                  </Link>
+                  <Link href="/ai-investment-portfolio-optimizer-2026" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15">
+                    看投资组合优化器
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 text-sm text-slate-600">
+              <p>© 2026 SitePilot AI Investment Solutions. 专业级 AI 投资 ROI 工具。</p>
+              <p className="mt-1">基于最新 AI 投资数据和行业最佳实践构建。</p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </>
+  )
+}

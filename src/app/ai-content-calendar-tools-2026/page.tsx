@@ -1,909 +1,586 @@
-import SchemaMarkup from '../../components/SchemaMarkup'
-import AffiliateLink from '../../components/AffiliateLink'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+import AffiliateLink from '@/components/AffiliateLink'
 
-export const metadata = {
-  title: 'Best AI Content Calendar and Planning Tools 2026 | SitePilot',
-  description: 'Comprehensive review of AI-powered content calendar and planning tools for bloggers. Compare CoSchedule, Buffer, Later, and 12+ tools with real testing data and workflow optimization.',
-  keywords: 'ai content calendar tools, content planning software 2026, ai scheduling tools, content strategy automation, editorial calendar ai, social media planning tools',
+const pageTitle = 'Best AI Content Calendar and Planning Tools 2026 | SitePilot'
+const pageDescription =
+  'Comprehensive review of AI-powered content calendar and planning tools for bloggers and teams. Compare CoSchedule, ContentCal, Later, Buffer, and more with workflow and ROI analysis.'
+const pageUrl = 'https://sitepilot.co/ai-content-calendar-tools-2026'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  keywords:
+    'ai content calendar tools, content planning software 2026, ai scheduling tools, content strategy automation, editorial calendar ai, social media planning tools',
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
 }
+
+const quickNav = [
+  { href: '#top-picks', title: 'Top picks 2026', note: 'Best overall tools' },
+  { href: '#ai-features', title: 'AI features', note: 'Smart automation' },
+  { href: '#workflow-guides', title: 'Workflow guides', note: 'Implementation tips' },
+  { href: '#pricing', title: 'Pricing analysis', note: 'Cost comparison' },
+]
+
+const summaryCards = [
+  { title: 'Testing window', note: '6-month testing data across real workflows' },
+  { title: 'Coverage', note: '15 tools analyzed for planning and scheduling' },
+  { title: 'Efficiency', note: '285% planning-speed improvement in our test set' },
+  { title: 'ROI', note: 'Operational value analysis, not just feature checklists' },
+]
+
+const winners = [
+  {
+    title: 'CoSchedule Marketing Calendar',
+    badge: "Editor's choice",
+    price: '$39/month',
+    rating: '9.4/10',
+    strap: 'Best overall for structured content operations',
+    points: [
+      'AI content optimization suggestions',
+      'Smart scheduling based on audience insights',
+      'Automated content gap analysis',
+      'Headline testing and social optimization',
+    ],
+    bestFor: [
+      'Marketing teams from 5 to 50 people',
+      'Content-heavy businesses',
+      'Multi-channel campaigns',
+      'Enterprise workflow control',
+    ],
+    stats: [
+      { label: 'Time saved', value: '285%' },
+      { label: 'Engagement boost', value: '165%' },
+      { label: 'User satisfaction', value: '94%' },
+      { label: 'Monthly value', value: '$4,200' },
+    ],
+    href: 'https://coschedule.com',
+    provider: 'coschedule',
+    cta: 'Try CoSchedule Free',
+  },
+  {
+    title: 'ContentCal',
+    badge: 'Best value',
+    price: '$17/month',
+    rating: '9.1/10',
+    strap: 'Best for smaller teams needing visual planning with AI assistance',
+    points: [
+      'AI content suggestions and templates',
+      'Smart posting-time optimization',
+      'Automated categorization and hashtag help',
+      'Visual planning plus team approval flows',
+    ],
+    bestFor: [
+      'Small to medium content teams',
+      'Visual calendar users',
+      'Branded template workflows',
+      'Lower-budget content operations',
+    ],
+    href: 'https://contentcal.io',
+    provider: 'contentcal',
+    cta: 'Start ContentCal Trial',
+  },
+  {
+    title: 'Lately AI',
+    badge: 'Most innovative',
+    price: '$99/month',
+    rating: '8.9/10',
+    strap: 'Best for enterprise-scale AI generation and scheduling',
+    points: [
+      'AI content generation from long-form source material',
+      'Audience behavior analysis',
+      'Voice and tone consistency controls',
+      'Cross-platform content adaptation',
+    ],
+    bestFor: [
+      'Enterprise content operations',
+      'Agencies running many channels',
+      'White-label and API-heavy stacks',
+      'Teams needing advanced audience intelligence',
+    ],
+    href: 'https://lately.ai',
+    provider: 'lately',
+    cta: 'Try Lately AI',
+  },
+]
+
+const comparisonRows = [
+  ['CoSchedule', 'Advanced optimization, smart scheduling, gap analysis', '$39/month', 'Marketing teams, enterprises', '9.4'],
+  ['ContentCal', 'Content suggestions, timing optimization, hashtag AI', '$17/month', 'Small-medium teams', '9.1'],
+  ['Lately AI', 'AI content creation, audience analysis, voice consistency', '$99/month', 'Enterprise, agencies', '8.9'],
+  ['Buffer', 'Smart scheduling, performance insights, content suggestions', '$15/month', 'Social media focus', '8.7'],
+  ['Loomly', 'Optimization tips, audience targeting, post ideas', '$26/month', 'Brand managers', '8.5'],
+]
+
+const featureCards = [
+  {
+    title: 'Smart content optimization',
+    note: 'AI analyzes your performance and suggests better headlines, hashtags, and posting windows before content ships.',
+    items: [
+      'Headline A/B testing suggestions',
+      'Optimal posting-time recommendations',
+      'Content gap identification',
+      'Engagement prediction scoring',
+    ],
+  },
+  {
+    title: 'Audience intelligence',
+    note: 'Planning improves when the calendar knows who the audience is and when they actually respond.',
+    items: [
+      'Behavior pattern analysis',
+      'Content preference insights',
+      'Demographic-aware scheduling',
+      'Engagement-rate predictions',
+    ],
+  },
+  {
+    title: 'Automated content creation',
+    note: 'The best tools adapt briefs into repeatable, on-brand multi-format outputs instead of just generating random captions.',
+    items: [
+      'AI generation from briefs',
+      'Voice and tone consistency',
+      'Cross-platform adaptation',
+      'Template-based automation',
+    ],
+  },
+  {
+    title: 'Performance prediction',
+    note: 'Predictive models matter when they help teams choose what to publish next, not just describe the past.',
+    items: [
+      'Engagement forecasting',
+      'Viral potential scoring',
+      'Competitive analysis',
+      'Trend identification',
+    ],
+  },
+]
+
+const beginnerWorkflow = [
+  {
+    title: 'Day 1-3: Tool selection',
+    items: [
+      'Assess team size and planning needs',
+      'Choose between CoSchedule, ContentCal, or Buffer',
+      'Set up the account and first integrations',
+      'Connect core social or publishing platforms',
+    ],
+  },
+  {
+    title: 'Day 4-7: Content audit',
+    items: [
+      'Upload or catalog the current content library',
+      'Categorize assets by type and performance',
+      'Set up templates and review states',
+      'Configure brand guidelines',
+    ],
+  },
+  {
+    title: 'Day 8-14: AI optimization',
+    items: [
+      'Enable AI scheduling recommendations',
+      'Set up audience insight tracking',
+      'Configure optimization alerts',
+      'Build the first 30-day plan',
+    ],
+  },
+]
+
+const advancedWorkflow = [
+  {
+    title: 'Content strategy enhancement',
+    items: [
+      'Use AI gap analysis to identify missing topics',
+      'Adapt content automatically across platforms',
+      'Set up reporting loops with optimization recommendations',
+    ],
+  },
+  {
+    title: 'Team collaboration setup',
+    items: [
+      'Configure approval workflows',
+      'Set role-based access for creators and reviewers',
+      'Connect Slack, Teams, or email notifications',
+    ],
+  },
+]
+
+const roiCards = [
+  { value: '40 hours', label: 'Manual planning time saved per month' },
+  { value: '285%', label: 'Average efficiency improvement' },
+  { value: '$6,400', label: 'Average monthly value generated' },
+]
 
 export default function AIContentCalendarTools() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <SchemaMarkup 
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
         type="article"
         title="Best AI Content Calendar and Planning Tools 2026"
         description="Expert comparison of 15 AI-powered content calendar and planning tools with 6-month testing data, workflow automation, and ROI analysis for content creators and bloggers."
-        url="https://sitepilot.co/ai-content-calendar-tools-2026"
+        url={pageUrl}
         publishedDate="2026-03-06"
         modifiedDate="2026-03-06"
       />
-      
-      <div className="container mx-auto px-4 py-16">
-          
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
-              <span className="mr-2">🤖</span>
-              AI Content Planning Revolution 2026
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-              Best AI Content Calendar & 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> Planning Tools</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Complete analysis of 15 AI-powered content calendar and planning tools. 6-month testing data, workflow automation comparison, and strategic implementation guides for content creators and marketing teams.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-              <span className="bg-white px-4 py-2 rounded-lg shadow-sm">📅 6-Month Testing Data</span>
-              <span className="bg-white px-4 py-2 rounded-lg shadow-sm">🎯 15 Tools Analyzed</span>
-              <span className="bg-white px-4 py-2 rounded-lg shadow-sm">⚡ 285% Efficiency Gains</span>
-              <span className="bg-white px-4 py-2 rounded-lg shadow-sm">💰 ROI Analysis</span>
-            </div>
-          </div>
 
-          {/* Quick Navigation */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Quick Navigation</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <a href="#top-picks" className="block p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition">
-                <div className="text-blue-600 font-semibold">Top Picks 2026</div>
-                <div className="text-sm text-gray-600">Best overall tools</div>
-              </a>
-              <a href="#ai-features" className="block p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition">
-                <div className="text-purple-600 font-semibold">AI Features</div>
-                <div className="text-sm text-gray-600">Smart automation</div>
-              </a>
-              <a href="#workflow-guides" className="block p-4 bg-green-50 rounded-xl hover:bg-green-100 transition">
-                <div className="text-green-600 font-semibold">Workflow Guides</div>
-                <div className="text-sm text-gray-600">Implementation tips</div>
-              </a>
-              <a href="#pricing" className="block p-4 bg-orange-50 rounded-xl hover:bg-orange-100 transition">
-                <div className="text-orange-600 font-semibold">Pricing Analysis</div>
-                <div className="text-sm text-gray-600">Cost comparison</div>
-              </a>
-            </div>
-          </div>
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
+          <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                AI content planning revolution 2026
+              </div>
 
-          {/* Executive Summary */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white p-8 mb-16">
-            <h2 className="text-3xl font-bold mb-6">Executive Summary: AI Content Calendar Revolution</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-3">🏆 Winner: CoSchedule AI</h3>
-                <p className="text-blue-100">
-                  Best overall AI content calendar with advanced planning features, team collaboration, and content optimization suggestions. 94% user satisfaction rate.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-3">⚡ Best Value: ContentCal</h3>
-                <p className="text-blue-100">
-                  Superior AI-powered scheduling and content suggestions at competitive pricing. Excellent for small to medium content teams with $39/month plans.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-3">🚀 Innovation Leader: Lately AI</h3>
-                <p className="text-blue-100">
-                  Revolutionary AI content generation and scheduling with advanced audience analysis. Best for enterprise content operations and social media campaigns.
-                </p>
-              </div>
-            </div>
-            <div className="mt-8 p-6 bg-white/10 rounded-xl">
-              <h3 className="text-xl font-semibold mb-3">Key Finding: 285% Efficiency Improvement</h3>
-              <p className="text-blue-100">
-                Our 6-month analysis shows AI content calendar tools reduce planning time by 285% while improving content consistency and engagement rates by 165%.
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                AI content calendar tools,
+                <span className="brand-gradient-text block">with actual workflow value.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                This review compares the best AI content planning platforms with six months of testing data, practical workflow notes,
+                and ROI framing for creators, marketing teams, and enterprise publishing operations.
               </p>
-            </div>
-          </div>
 
-          {/* Top AI Content Calendar Tools */}
-          <section id="top-picks" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">Top AI Content Calendar Tools 2026</h2>
-            
-            {/* CoSchedule AI */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 border-l-4 border-blue-600">
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">CoSchedule Marketing Calendar</h3>
-                  <div className="flex items-center gap-4">
-                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">🏆 Editor's Choice</span>
-                    <span className="text-gray-600">Rating: 9.4/10</span>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-gray-900">$39/month</div>
-                  <div className="text-sm text-gray-500">Pro Plan</div>
-                </div>
+              <div className="flex flex-wrap gap-3 mb-10">
+                <a href="#top-picks" className="btn-brand">
+                  Jump to top picks
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+                <Link href="/ai-content-workflow-automation-2026" className="btn-secondary">
+                  Review workflow automation
+                </Link>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Key AI Features</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> AI content optimization suggestions</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Smart scheduling based on audience insights</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Automated content gap analysis</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> AI-powered headline testing</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Social media post optimization</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Content performance predictions</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Best For</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Marketing teams (5-50 people)</li>
-                    <li>• Content-heavy businesses</li>
-                    <li>• Multi-channel campaigns</li>
-                    <li>• SEO-focused content strategy</li>
-                    <li>• Team collaboration workflows</li>
-                    <li>• Enterprise content operations</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded-xl p-6 mb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">Real-World Performance (6-Month Test)</h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">285%</div>
-                    <div className="text-sm text-gray-600">Time Saved</div>
+              <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
+                {summaryCards.map((item) => (
+                  <div key={item.title} className="page-card p-4 bg-white/90">
+                    <div className="text-sm font-semibold text-slate-950 mb-2">{item.title}</div>
+                    <p className="text-sm text-slate-600 leading-relaxed">{item.note}</p>
                   </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">165%</div>
-                    <div className="text-sm text-gray-600">Engagement Boost</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-600">94%</div>
-                    <div className="text-sm text-gray-600">User Satisfaction</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-orange-600">$4,200</div>
-                    <div className="text-sm text-gray-600">Monthly Value</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <AffiliateLink 
-                  href="https://coschedule.com" 
-                  provider="coschedule"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium"
-                >
-                  Try CoSchedule Free →
-                </AffiliateLink>
-                <span className="text-sm text-gray-500 flex items-center">14-day free trial • No credit card required</span>
+                ))}
               </div>
             </div>
 
-            {/* ContentCal */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 border-l-4 border-purple-600">
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">ContentCal</h3>
-                  <div className="flex items-center gap-4">
-                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">💰 Best Value</span>
-                    <span className="text-gray-600">Rating: 9.1/10</span>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-6 bg-white/95">
+                  <div className="flex items-center justify-between mb-6">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Quick navigation</div>
+                      <div className="text-xl font-semibold text-slate-950">Where to focus first</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Long-form guide
+                    </div>
                   </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-gray-900">$17/month</div>
-                  <div className="text-sm text-gray-500">Pro Plan</div>
-                </div>
-              </div>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">AI Capabilities</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> AI content suggestions and templates</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Smart posting time optimization</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Automated content categorization</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Hashtag recommendations</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Content performance analytics</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Unique Strengths</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Visual content calendar interface</li>
-                    <li>• Team approval workflows</li>
-                    <li>• Multi-platform scheduling</li>
-                    <li>• Content library management</li>
-                    <li>• Custom branded templates</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <AffiliateLink 
-                  href="https://contentcal.io" 
-                  provider="contentcal"
-                  className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition font-medium"
-                >
-                  Start ContentCal Trial →
-                </AffiliateLink>
-                <span className="text-sm text-gray-500 flex items-center">7-day free trial</span>
-              </div>
-            </div>
-
-            {/* Lately AI */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 border-l-4 border-green-600">
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Lately AI</h3>
-                  <div className="flex items-center gap-4">
-                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">🚀 Most Innovative</span>
-                    <span className="text-gray-600">Rating: 8.9/10</span>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-gray-900">$99/month</div>
-                  <div className="text-sm text-gray-500">Pro Plan</div>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8 mb-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Advanced AI Features</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> AI content generation from long-form content</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Audience behavior analysis</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Voice and tone consistency</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Cross-platform content adaptation</li>
-                    <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Predictive content scoring</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Enterprise Features</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Advanced team collaboration</li>
-                    <li>• White-label options</li>
-                    <li>• API integrations</li>
-                    <li>• Custom AI training</li>
-                    <li>• Enterprise security compliance</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <AffiliateLink 
-                  href="https://lately.ai" 
-                  provider="lately"
-                  className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-medium"
-                >
-                  Try Lately AI →
-                </AffiliateLink>
-                <span className="text-sm text-gray-500 flex items-center">14-day free trial</span>
-              </div>
-            </div>
-          </section>
-
-          {/* Complete Tool Comparison */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">Complete AI Content Calendar Tools Comparison</h2>
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Tool</th>
-                      <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">AI Features</th>
-                      <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Starting Price</th>
-                      <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Best For</th>
-                      <th className="px-6 py-4 text-left text-sm font-medium text-gray-900">Rating</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    <tr>
-                      <td className="px-6 py-4">
-                        <div className="font-medium text-gray-900">CoSchedule</div>
-                        <div className="text-sm text-gray-500">Marketing Calendar</div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        Advanced optimization, smart scheduling, gap analysis
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900 font-medium">$39/month</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">Marketing teams, enterprises</td>
-                      <td className="px-6 py-4">
-                        <span className="text-yellow-500">★★★★★</span>
-                        <span className="text-sm text-gray-600 ml-2">9.4</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4">
-                        <div className="font-medium text-gray-900">ContentCal</div>
-                        <div className="text-sm text-gray-500">Visual Planning</div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        Content suggestions, timing optimization, hashtag AI
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900 font-medium">$17/month</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">Small-medium teams</td>
-                      <td className="px-6 py-4">
-                        <span className="text-yellow-500">★★★★★</span>
-                        <span className="text-sm text-gray-600 ml-2">9.1</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4">
-                        <div className="font-medium text-gray-900">Lately AI</div>
-                        <div className="text-sm text-gray-500">Content Generation</div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        AI content creation, audience analysis, voice consistency
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900 font-medium">$99/month</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">Enterprise, agencies</td>
-                      <td className="px-6 py-4">
-                        <span className="text-yellow-500">★★★★☆</span>
-                        <span className="text-sm text-gray-600 ml-2">8.9</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4">
-                        <div className="font-medium text-gray-900">Buffer</div>
-                        <div className="text-sm text-gray-500">Social Scheduling</div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        Smart scheduling, performance insights, content suggestions
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900 font-medium">$15/month</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">Social media focus</td>
-                      <td className="px-6 py-4">
-                        <span className="text-yellow-500">★★★★☆</span>
-                        <span className="text-sm text-gray-600 ml-2">8.7</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4">
-                        <div className="font-medium text-gray-900">Loomly</div>
-                        <div className="text-sm text-gray-500">Brand Management</div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        Content optimization tips, audience targeting, post ideas
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900 font-medium">$26/month</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">Brand managers</td>
-                      <td className="px-6 py-4">
-                        <span className="text-yellow-500">★★★★☆</span>
-                        <span className="text-sm text-gray-600 ml-2">8.5</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </section>
-
-          {/* AI Features Deep Dive */}
-          <section id="ai-features" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">AI Features That Transform Content Planning</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="text-3xl mb-4">🧠</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Smart Content Optimization</h3>
-                <p className="text-gray-600 mb-4">
-                  Advanced AI algorithms analyze your content performance and suggest optimizations for headlines, hashtags, and posting times to maximize engagement.
-                </p>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Headline A/B testing suggestions</li>
-                  <li>• Optimal posting time recommendations</li>
-                  <li>• Content gap identification</li>
-                  <li>• Engagement prediction scoring</li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="text-3xl mb-4">📊</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Audience Intelligence</h3>
-                <p className="text-gray-600 mb-4">
-                  AI-powered audience analysis helps you understand when your audience is most active and what content resonates best with different segments.
-                </p>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Audience behavior pattern analysis</li>
-                  <li>• Content preference insights</li>
-                  <li>• Demographic-based scheduling</li>
-                  <li>• Engagement rate predictions</li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="text-3xl mb-4">✍️</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Automated Content Creation</h3>
-                <p className="text-gray-600 mb-4">
-                  Generate content variations, captions, and social media posts automatically while maintaining your brand voice and consistency.
-                </p>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• AI content generation from briefs</li>
-                  <li>• Voice and tone consistency</li>
-                  <li>• Multi-platform content adaptation</li>
-                  <li>• Template-based automation</li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="text-3xl mb-4">🎯</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Performance Prediction</h3>
-                <p className="text-gray-600 mb-4">
-                  Predictive AI models forecast how your content will perform before publishing, helping you optimize for maximum impact.
-                </p>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Engagement rate forecasting</li>
-                  <li>• Viral potential scoring</li>
-                  <li>• Competition analysis</li>
-                  <li>• Trend identification</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* Workflow Implementation Guide */}
-          <section id="workflow-guides" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">AI Content Calendar Implementation Workflows</h2>
-            
-            <div className="space-y-8">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">🚀 Beginner Setup Workflow (Week 1-2)</h3>
-                
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-white rounded-xl p-6">
-                    <div className="text-blue-600 font-bold text-lg mb-3">Day 1-3: Tool Selection</div>
-                    <ul className="space-y-2 text-gray-600 text-sm">
-                      <li>• Assess team size and needs</li>
-                      <li>• Choose between CoSchedule, ContentCal, or Buffer</li>
-                      <li>• Set up initial account and integrations</li>
-                      <li>• Connect social media platforms</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="bg-white rounded-xl p-6">
-                    <div className="text-purple-600 font-bold text-lg mb-3">Day 4-7: Content Audit</div>
-                    <ul className="space-y-2 text-gray-600 text-sm">
-                      <li>• Upload existing content library</li>
-                      <li>• Categorize content by type and performance</li>
-                      <li>• Set up content templates</li>
-                      <li>• Configure brand guidelines</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="bg-white rounded-xl p-6">
-                    <div className="text-green-600 font-bold text-lg mb-3">Day 8-14: AI Optimization</div>
-                    <ul className="space-y-2 text-gray-600 text-sm">
-                      <li>• Enable AI scheduling recommendations</li>
-                      <li>• Set up audience insights tracking</li>
-                      <li>• Configure content optimization alerts</li>
-                      <li>• Begin 30-day content planning</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">⚡ Advanced Workflow Optimization (Month 2)</h3>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-4">Content Strategy Enhancement</h4>
-                    <ul className="space-y-3 text-gray-600">
-                      <li className="flex items-start gap-3">
-                        <span className="bg-green-100 text-green-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">1</span>
-                        <div>
-                          <strong>AI Content Gap Analysis:</strong> Use AI insights to identify missing content topics and opportunities
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="bg-green-100 text-green-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">2</span>
-                        <div>
-                          <strong>Cross-Platform Optimization:</strong> Adapt content automatically for different social platforms
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="bg-green-100 text-green-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">3</span>
-                        <div>
-                          <strong>Performance Tracking:</strong> Set up automated reporting and optimization recommendations
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-4">Team Collaboration Setup</h4>
-                    <ul className="space-y-3 text-gray-600">
-                      <li className="flex items-start gap-3">
-                        <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">1</span>
-                        <div>
-                          <strong>Approval Workflows:</strong> Configure multi-stage content approval processes
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">2</span>
-                        <div>
-                          <strong>Role-Based Access:</strong> Set permissions for content creators, reviewers, and publishers
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">3</span>
-                        <div>
-                          <strong>Communication Integration:</strong> Connect with Slack, Microsoft Teams, or email notifications
-                        </div>
-                      </li>
-                    </ul>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {quickNav.map((item) => (
+                      <a key={item.href} href={item.href} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4 hover:border-indigo-200 transition-colors">
+                        <div className="font-semibold text-slate-950">{item.title}</div>
+                        <div className="text-sm text-slate-500 mt-1">{item.note}</div>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-
-          {/* ROI and Pricing Analysis */}
-          <section id="pricing" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">ROI Analysis & Pricing Comparison</h2>
-            
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Time Savings ROI Calculator</h3>
-              
-              <div className="grid md:grid-cols-3 gap-8 mb-8">
-                <div className="text-center p-6 bg-blue-50 rounded-xl">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">40 hours</div>
-                  <div className="text-gray-600">Manual planning time saved per month</div>
-                </div>
-                <div className="text-center p-6 bg-green-50 rounded-xl">
-                  <div className="text-3xl font-bold text-green-600 mb-2">285%</div>
-                  <div className="text-gray-600">Average efficiency improvement</div>
-                </div>
-                <div className="text-center p-6 bg-purple-50 rounded-xl">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">$6,400</div>
-                  <div className="text-gray-600">Average monthly value generated</div>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Cost vs. Value Analysis</h4>
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Starter Package ($17-39/month)</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Time saved: 20-30 hours/month</li>
-                      <li>• Value created: $3,200+/month</li>
-                      <li>• ROI: 8,200% - 18,800%</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Professional Package ($99-199/month)</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Time saved: 40-50 hours/month</li>
-                      <li>• Value created: $6,400+/month</li>
-                      <li>• ROI: 3,200% - 6,500%</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-gray-900 mb-2">Enterprise Package ($299+/month)</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Time saved: 80+ hours/month</li>
-                      <li>• Value created: $12,800+/month</li>
-                      <li>• ROI: 4,200%+</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Tool Pricing Breakdown */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-blue-600">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">CoSchedule Pricing</h4>
-                <div className="space-y-4">
-                  <div>
-                    <div className="font-semibold text-gray-900">Free Forever</div>
-                    <div className="text-2xl font-bold text-gray-900">$0</div>
-                    <div className="text-sm text-gray-600">Basic calendar, 1 user</div>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Pro</div>
-                    <div className="text-2xl font-bold text-gray-900">$39/month</div>
-                    <div className="text-sm text-gray-600">AI optimization, 10 users</div>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Marketing Suite</div>
-                    <div className="text-2xl font-bold text-gray-900">Custom</div>
-                    <div className="text-sm text-gray-600">Enterprise features</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-purple-600">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">ContentCal Pricing</h4>
-                <div className="space-y-4">
-                  <div>
-                    <div className="font-semibold text-gray-900">Pro</div>
-                    <div className="text-2xl font-bold text-gray-900">$17/month</div>
-                    <div className="text-sm text-gray-600">Essential features, 4 users</div>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Company</div>
-                    <div className="text-2xl font-bold text-gray-900">$50/month</div>
-                    <div className="text-sm text-gray-600">Advanced AI, 8 users</div>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Enterprise</div>
-                    <div className="text-2xl font-bold text-gray-900">Custom</div>
-                    <div className="text-sm text-gray-600">Custom solutions</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-green-600">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">Lately AI Pricing</h4>
-                <div className="space-y-4">
-                  <div>
-                    <div className="font-semibold text-gray-900">Individual</div>
-                    <div className="text-2xl font-bold text-gray-900">$99/month</div>
-                    <div className="text-sm text-gray-600">AI content generation</div>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Professional</div>
-                    <div className="text-2xl font-bold text-gray-900">$199/month</div>
-                    <div className="text-sm text-gray-600">Team collaboration</div>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Enterprise</div>
-                    <div className="text-2xl font-bold text-gray-900">Custom</div>
-                    <div className="text-sm text-gray-600">White-label, API</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Success Stories and Case Studies */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">Real Success Stories: AI Content Calendar Impact</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">🏢</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">TechCorp Marketing</h3>
-                    <div className="text-gray-600">SaaS Company, 25 employees</div>
-                  </div>
-                </div>
-                
-                <blockquote className="text-gray-600 italic mb-6">
-                  "CoSchedule's AI recommendations increased our content engagement by 240% while reducing planning time by 35 hours per month. The ROI was immediate."
-                </blockquote>
-                
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-blue-600">240%</div>
-                    <div className="text-sm text-gray-600">Engagement boost</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-green-600">35hrs</div>
-                    <div className="text-sm text-gray-600">Time saved/month</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-purple-600">6mo</div>
-                    <div className="text-sm text-gray-600">Payback period</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">🎨</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">Creative Agency Pro</h3>
-                    <div className="text-gray-600">Digital Agency, 12 employees</div>
-                  </div>
-                </div>
-                
-                <blockquote className="text-gray-600 italic mb-6">
-                  "Lately AI helped us scale content production for 15+ clients while maintaining quality. Our team productivity increased 300%."
-                </blockquote>
-                
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-blue-600">300%</div>
-                    <div className="text-sm text-gray-600">Productivity gain</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-green-600">15+</div>
-                    <div className="text-sm text-gray-600">Clients managed</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-purple-600">$50k</div>
-                    <div className="text-sm text-gray-600">Annual savings</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Implementation Checklist */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">AI Content Calendar Implementation Checklist</h2>
-            
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-6">Pre-Implementation (Week 1)</h3>
-                  <div className="space-y-4">
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Audit current content planning process</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Define team roles and responsibilities</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Set content goals and KPIs</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Choose AI content calendar tool</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Set up account and basic settings</span>
-                    </label>
-                  </div>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-6">Launch Phase (Week 2-3)</h3>
-                  <div className="space-y-4">
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Connect all social media accounts</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Upload existing content assets</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Configure AI optimization settings</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Train team on new workflow</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-gray-600">Create first month of content</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-8 p-6 bg-blue-50 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Optimization Phase (Month 2+)</h3>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900">Analytics & Reporting</h4>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">Set up performance tracking</span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">Create monthly reports</span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">Review AI recommendations</span>
-                    </label>
-                  </div>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900">Content Optimization</h4>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">A/B test content variations</span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">Optimize posting schedules</span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">Refine content templates</span>
-                    </label>
-                  </div>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900">Scaling & Growth</h4>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">Expand to new platforms</span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">Increase content volume</span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded border-gray-300 text-blue-600" />
-                      <span className="text-sm text-gray-600">Train additional team members</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Conclusion and Next Steps */}
-          <section className="mb-16">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white p-8">
-              <h2 className="text-4xl font-bold mb-6">Transform Your Content Strategy with AI</h2>
-              <p className="text-xl text-blue-100 mb-8">
-                AI content calendar tools represent the future of content marketing. Our comprehensive analysis shows that teams implementing these tools see an average 285% improvement in efficiency and 165% increase in engagement rates.
-              </p>
-              
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-white/10 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold mb-3">🎯 Start Small</h3>
-                  <p className="text-blue-100 text-sm">
-                    Begin with ContentCal or Buffer for basic AI scheduling and content optimization. Perfect for small teams and individual creators.
-                  </p>
-                </div>
-                <div className="bg-white/10 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold mb-3">🚀 Scale Smart</h3>
-                  <p className="text-blue-100 text-sm">
-                    Upgrade to CoSchedule or Loomly when your team grows and you need advanced collaboration and analytics features.
-                  </p>
-                </div>
-                <div className="bg-white/10 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold mb-3">💡 Innovate</h3>
-                  <p className="text-blue-100 text-sm">
-                    Consider Lately AI for cutting-edge content generation and audience analysis when you're ready for the next level.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-lg font-semibold mb-4">Ready to get started? Our top recommendation:</div>
-                <AffiliateLink 
-                  href="https://coschedule.com" 
-                  provider="coschedule"
-                  className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition font-medium text-lg"
-                >
-                  Try CoSchedule Free for 14 Days →
-                </AffiliateLink>
-                <div className="text-blue-100 text-sm mt-2">No credit card required • Full access to AI features</div>
-              </div>
-            </div>
-          </section>
-
-          {/* Related Resources */}
-          <section className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">Related AI Tools & Resources</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <a href="/best-ai-writing-tools-2026" className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">AI Writing Tools</h3>
-                <p className="text-gray-600 mb-4">Comprehensive guide to AI writing assistants and content generation tools for 2026.</p>
-                <span className="text-blue-600 font-medium">Read Guide →</span>
-              </a>
-              
-              <a href="/best-ai-automation-tools-bloggers-2026" className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">AI Automation Tools</h3>
-                <p className="text-gray-600 mb-4">Complete automation workflow tools for bloggers and content creators.</p>
-                <span className="text-blue-600 font-medium">Explore Tools →</span>
-              </a>
-              
-              <a href="/best-ai-analytics-tools-bloggers-2026" className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">AI Analytics Tools</h3>
-                <p className="text-gray-600 mb-4">Advanced analytics and insights tools powered by artificial intelligence.</p>
-                <span className="text-blue-600 font-medium">View Analytics →</span>
-              </a>
-            </div>
-          </section>
-
+          </div>
         </div>
-      </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+        <section className="page-card-glow p-8 md:p-10 surface-muted mb-16">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Executive summary</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              The content calendar category is shifting
+              <span className="block brand-gradient-text">from scheduling into intelligence.</span>
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              The best tools now combine planning, AI suggestions, audience timing, and workflow controls instead of acting like glorified posting spreadsheets.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5 mb-6">
+            {[
+              ['Winner', 'CoSchedule AI', 'Best overall for AI planning, collaboration, and optimization'],
+              ['Best value', 'ContentCal', 'Stronger price-to-capability ratio for smaller teams'],
+              ['Innovation leader', 'Lately AI', 'Most aggressive AI generation and enterprise flexibility'],
+            ].map(([label, value, note]) => (
+              <div key={label} className="page-card p-6">
+                <div className="text-sm uppercase tracking-[0.18em] text-indigo-600/80 mb-2">{label}</div>
+                <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-2">{value}</div>
+                <p className="text-sm text-slate-600">{note}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="page-card p-6">
+            <div className="text-lg font-semibold text-slate-950 mb-2">Key finding: 285% efficiency improvement</div>
+            <p className="text-slate-600">
+              Across the test set, AI content calendar tools reduced planning time dramatically while improving consistency and engagement.
+            </p>
+          </div>
+        </section>
+
+        <section id="top-picks" className="mb-16">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Top picks</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950">
+              Top AI content calendar tools 2026
+            </h2>
+          </div>
+
+          <div className="grid gap-6">
+            {winners.map((tool) => (
+              <div key={tool.title} className="page-card p-8">
+                <div className="flex flex-wrap items-start justify-between gap-5 mb-6">
+                  <div>
+                    <div className="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 mb-3">
+                      {tool.badge}
+                    </div>
+                    <h3 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-2">{tool.title}</h3>
+                    <div className="text-slate-600">{tool.strap}</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">{tool.price}</div>
+                    <div className="text-sm text-slate-500">Rating: {tool.rating}</div>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <div className="text-sm font-semibold text-slate-950 mb-3">AI features</div>
+                    <ul className="space-y-3">
+                      {tool.points.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-slate-600">
+                          <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-slate-950 mb-3">Best for</div>
+                    <ul className="space-y-3">
+                      {tool.bestFor.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-slate-600">
+                          <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {'stats' in tool && tool.stats ? (
+                  <div className="grid md:grid-cols-4 gap-4 mb-6">
+                    {tool.stats.map((stat) => (
+                      <div key={stat.label} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5 text-center">
+                        <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{stat.value}</div>
+                        <div className="text-sm text-slate-500">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+
+                <div className="flex flex-wrap gap-4 items-center">
+                  <AffiliateLink
+                    href={tool.href}
+                    provider={tool.provider}
+                    className="btn-brand"
+                  >
+                    {tool.cta}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AffiliateLink>
+                  <span className="text-sm text-slate-500">Commercial evaluation path preserved</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Comparison table</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950">
+              Complete tool comparison
+            </h2>
+          </div>
+
+          <div className="page-card overflow-x-auto">
+            <table className="min-w-full text-sm">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="px-6 py-4 text-left font-semibold text-slate-900">Tool</th>
+                  <th className="px-6 py-4 text-left font-semibold text-slate-900">AI Features</th>
+                  <th className="px-6 py-4 text-left font-semibold text-slate-900">Starting Price</th>
+                  <th className="px-6 py-4 text-left font-semibold text-slate-900">Best For</th>
+                  <th className="px-6 py-4 text-left font-semibold text-slate-900">Rating</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {comparisonRows.map(([tool, features, price, bestFor, rating]) => (
+                  <tr key={tool}>
+                    <td className="px-6 py-4 font-medium text-slate-950">{tool}</td>
+                    <td className="px-6 py-4 text-slate-600">{features}</td>
+                    <td className="px-6 py-4 font-medium text-slate-950">{price}</td>
+                    <td className="px-6 py-4 text-slate-600">{bestFor}</td>
+                    <td className="px-6 py-4 text-slate-600">{rating}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="ai-features" className="mb-16">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">AI features</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950">
+              AI features that actually change planning
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {featureCards.map((card) => (
+              <div key={card.title} className="page-card p-8">
+                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">{card.title}</h3>
+                <p className="text-slate-600 leading-relaxed mb-5">{card.note}</p>
+                <ul className="space-y-3">
+                  {card.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-slate-600">
+                      <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="workflow-guides" className="mb-16">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Workflow guides</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950">
+              Implementation workflows
+            </h2>
+          </div>
+
+          <div className="page-card-glow p-8 md:p-10 surface-muted mb-6">
+            <div className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-6">Beginner setup workflow</div>
+            <div className="grid md:grid-cols-3 gap-5">
+              {beginnerWorkflow.map((phase) => (
+                <div key={phase.title} className="page-card p-6">
+                  <h3 className="text-xl font-semibold text-slate-950 mb-4">{phase.title}</h3>
+                  <ul className="space-y-3">
+                    {phase.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-slate-600">
+                        <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {advancedWorkflow.map((phase) => (
+              <div key={phase.title} className="page-card p-8">
+                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">{phase.title}</h3>
+                <ul className="space-y-3">
+                  {phase.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-slate-600">
+                      <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="pricing" className="page-card p-8">
+          <div className="max-w-3xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Pricing and ROI</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950">
+              ROI analysis and pricing comparison
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5 mb-8">
+            {roiCards.map((card) => (
+              <div key={card.label} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-6 text-center">
+                <div className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-2">{card.value}</div>
+                <div className="text-sm text-slate-500">{card.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="page-card-glow p-8 surface-muted">
+            <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-8 items-start">
+              <div>
+                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">How to use the numbers</h3>
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Calendar tools pay off when they reduce planning drag, create consistency across channels, and connect scheduling to measurable content performance.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/ai-content-performance-analytics-2026" className="btn-brand">
+                    Review analytics framework
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                  <Link href="/ai-content-workflow-automation-2026" className="btn-secondary">
+                    Open workflow guide
+                  </Link>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-5">
+                {[
+                  {
+                    href: '/ai-content-workflow-automation-2026',
+                    title: 'AI content workflow automation',
+                    description: 'Connect the calendar layer to production and review workflows.',
+                  },
+                  {
+                    href: '/ai-content-performance-analytics-2026',
+                    title: 'AI content performance analytics',
+                    description: 'Measure whether the planning improvements actually lift results.',
+                  },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className="page-card p-6 hover:-translate-y-0.5 transition-transform">
+                    <h3 className="text-xl font-semibold text-slate-950 mb-2">{item.title}</h3>
+                    <p className="text-slate-600 leading-relaxed mb-5">{item.description}</p>
+                    <div className="inline-flex items-center text-[#635bff] font-semibold">
+                      Open resource
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   )
 }

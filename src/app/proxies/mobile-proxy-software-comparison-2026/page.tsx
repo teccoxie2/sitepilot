@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
   title: 'Mobile Proxy Software Comparison 2026 | Coronium vs LTESpace | SitePilot',
@@ -55,121 +56,257 @@ const rows = [
   },
 ]
 
+const decisionCards = [
+  {
+    title: 'When Coronium wins',
+    points: [
+      'You own the devices and need repeatable rotation control.',
+      'You care about fleet visibility more than zero-touch onboarding.',
+      'You want an operator-facing system, not raw scripts.',
+    ],
+  },
+  {
+    title: 'When LTESpace wins',
+    points: [
+      'You need faster deployment with less internal tooling work.',
+      'Your team prefers hosted workflows over custom infrastructure.',
+      'You want lower operational drag during early scale-up.',
+    ],
+  },
+  {
+    title: 'When DIY wins',
+    points: [
+      'You have unusual control requirements vendor panels cannot satisfy.',
+      'You already operate internal ADB, modem, and monitoring expertise.',
+      'You accept higher maintenance cost in exchange for flexibility.',
+    ],
+  },
+]
+
+const relatedLinks = [
+  {
+    eyebrow: 'Hub',
+    title: 'Proxy resource center',
+    description: 'Return to the full proxy topic cluster.',
+    href: '/proxies',
+  },
+  {
+    eyebrow: 'Decision',
+    title: 'Residential vs mobile',
+    description: 'Pick the right IP model before software selection.',
+    href: '/proxies/residential-vs-mobile-proxies-comparison-2026',
+  },
+  {
+    eyebrow: 'Deployment',
+    title: 'Farm setup guide',
+    description: 'Map software decisions to an actual device architecture.',
+    href: '/proxies/mobile-proxy-farm-setup-guide-2026',
+  },
+  {
+    eyebrow: 'Hardware',
+    title: 'Hardware matrix',
+    description: 'Validate phones, hubs, power, and controller fit.',
+    href: '/proxies/proxy-farm-hardware-selection-guide',
+  },
+]
+
 export default function MobileProxySoftwareComparisonPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <section className="pt-24 pb-20 bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-medium mb-6 border border-cyan-500/20 text-cyan-300">
-            BOFU software guide
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-8">
-            Mobile Proxy Software Comparison 2026
-          </h1>
-          <p className="text-xl text-cyan-100 max-w-4xl mx-auto leading-relaxed">
-            Mobile proxy software is the control layer used to manage Android devices, trigger IP rotation, monitor health, and expose usable proxy endpoints for automation workflows. This 2026 comparison evaluates Coronium, LTESpace, and DIY control stacks by operator overhead, rotation control, observability, and deployment fit for teams scaling a mobile proxy farm.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
+        type="article"
+        title="Mobile Proxy Software Comparison 2026 | Coronium vs LTESpace | SitePilot"
+        description="Compare mobile proxy software in 2026 across rotation control, device management, observability, and operator overhead."
+        url="https://sitepilot.co/proxies/mobile-proxy-software-comparison-2026"
+      />
 
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto overflow-x-auto rounded-3xl border border-white/10 bg-slate-900/60 shadow-2xl">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-slate-900 text-left">
-                  <th className="p-5 border-b border-white/10 text-slate-200">Decision factor</th>
-                  <th className="p-5 border-b border-white/10 text-cyan-300">Coronium</th>
-                  <th className="p-5 border-b border-white/10 text-blue-300">LTESpace</th>
-                  <th className="p-5 border-b border-white/10 text-purple-300">DIY stack</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr key={row.feature} className="align-top hover:bg-white/5 transition-colors">
-                    <td className="p-5 border-b border-white/10 font-semibold text-white">{row.feature}</td>
-                    <td className="p-5 border-b border-white/10 text-slate-300">{row.coronium}</td>
-                    <td className="p-5 border-b border-white/10 text-slate-300">{row.ltespace}</td>
-                    <td className="p-5 border-b border-white/10 text-slate-300">{row.diy}</td>
-                  </tr>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
+
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                2026 mobile proxy software guide
+              </div>
+
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                Mobile proxy software comparison 2026,
+                <span className="brand-gradient-text block">for control, observability, and operator fit.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                Mobile proxy software is the control layer that manages Android devices, triggers IP rotation, monitors health, and exposes usable proxy endpoints for automation. This comparison evaluates Coronium, LTESpace, and DIY stacks by operator overhead, rotation control, and deployment fit for teams scaling a real farm.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/proxies/mobile-proxy-farm-setup-guide-2026" className="btn-brand">
+                  Start with the setup guide
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/proxies/residential-vs-mobile-proxies-comparison-2026" className="btn-secondary">
+                  Pick the right proxy model
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+                {[
+                  'Compare control layers after the farm model is clear.',
+                  'Treat rotation workflows and observability as first-class software requirements.',
+                  'Lower setup friction is not the same thing as lower long-term cost.',
+                  'DIY only wins when engineering capacity is genuinely part of the operating model.',
+                ].map((item) => (
+                  <div key={item} className="page-card px-4 py-4">
+                    <div className="text-sm text-slate-700 leading-6">{item}</div>
+                  </div>
                 ))}
-              </tbody>
-            </table>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-6 bg-white/95">
+                  <div className="flex items-center justify-between mb-6 gap-4">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Evaluation path</div>
+                      <div className="text-xl font-semibold text-slate-950">What the software decision really changes</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      After infrastructure
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    {[
+                      ['Control depth', 'How tightly the panel maps to device-level rotation and session behavior.'],
+                      ['Operator drag', 'How much internal effort is required to deploy, maintain, and debug the stack.'],
+                      ['Monitoring posture', 'Whether fleet health, port mapping, and failure visibility are built in or self-managed.'],
+                      ['Scale path', 'Whether the software fits owned hardware, hosted workflows, or a custom engineering-heavy model.'],
+                    ].map(([title, note]) => (
+                      <div
+                        key={title}
+                        className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4"
+                      >
+                        <div className="font-semibold text-slate-950 mb-1">{title}</div>
+                        <div className="text-sm text-slate-500">{note}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-900/70 border-y border-white/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-            <div className="rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6">
-              <h2 className="text-xl font-bold text-cyan-300 mb-4">When Coronium wins</h2>
-              <ul className="space-y-3 text-slate-200">
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />You own the devices and need repeatable rotation control.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />You care about fleet visibility more than zero-touch onboarding.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />You want an operator-facing system, not raw scripts.</li>
-              </ul>
-            </div>
-            <div className="rounded-3xl border border-blue-500/20 bg-blue-500/5 p-6">
-              <h2 className="text-xl font-bold text-blue-300 mb-4">When LTESpace wins</h2>
-              <ul className="space-y-3 text-slate-200">
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />You need faster deployment with less internal tooling work.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />Your team prefers hosted workflows over custom infrastructure.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />You want lower operational drag during early scale-up.</li>
-              </ul>
-            </div>
-            <div className="rounded-3xl border border-purple-500/20 bg-purple-500/5 p-6">
-              <h2 className="text-xl font-bold text-purple-300 mb-4">When DIY wins</h2>
-              <ul className="space-y-3 text-slate-200">
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />You have unusual control requirements vendor panels cannot satisfy.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />You already operate internal ADB, modem, and monitoring expertise.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />You accept higher maintenance cost in exchange for flexibility.</li>
-              </ul>
+      <section className="page-section surface-muted">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Comparison matrix</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">Which software model fits the farm you actually want to run.</h2>
+            <p className="page-lead text-lg">
+              Software selection only makes sense when you compare it against the real operating model: owned hardware, hosted convenience, or a fully custom stack.
+            </p>
+          </div>
+
+          <div className="page-card-glow p-1.5 overflow-hidden">
+            <div className="page-card rounded-[1.8rem] overflow-x-auto">
+              <table className="w-full min-w-[760px] border-collapse">
+                <thead>
+                  <tr className="bg-slate-50">
+                    <th className="p-5 border-b border-slate-200 text-left text-slate-500 font-semibold">Decision factor</th>
+                    <th className="p-5 border-b border-slate-200 text-left text-indigo-700 font-semibold">Coronium</th>
+                    <th className="p-5 border-b border-slate-200 text-left text-sky-700 font-semibold">LTESpace</th>
+                    <th className="p-5 border-b border-slate-200 text-left text-violet-700 font-semibold">DIY stack</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row) => (
+                    <tr key={row.feature} className="align-top">
+                      <td className="p-5 border-b border-slate-200 font-semibold text-slate-950">{row.feature}</td>
+                      <td className="p-5 border-b border-slate-200 text-slate-600">{row.coronium}</td>
+                      <td className="p-5 border-b border-slate-200 text-slate-600">{row.ltespace}</td>
+                      <td className="p-5 border-b border-slate-200 text-slate-600">{row.diy}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-slate-950">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-4 gap-6">
-            <Link href="/proxies" className="rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition-colors">
-              <div className="text-sm uppercase tracking-[0.2em] text-slate-400 font-bold mb-3">Hub</div>
-              <h3 className="text-lg font-bold text-white mb-2">Proxy Resource Center</h3>
-              <p className="text-slate-300">Return to the full proxy topic cluster.</p>
-            </Link>
-            <Link href="/proxies/residential-vs-mobile-proxies-comparison-2026" className="rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-6 hover:bg-cyan-500/10 transition-colors">
-              <div className="text-sm uppercase tracking-[0.2em] text-cyan-300 font-bold mb-3">Decision</div>
-              <h3 className="text-lg font-bold text-white mb-2">Residential vs Mobile</h3>
-              <p className="text-slate-300">Pick the right IP model before software selection.</p>
-            </Link>
-            <Link href="/proxies/mobile-proxy-farm-setup-guide-2026" className="rounded-3xl border border-blue-500/20 bg-blue-500/5 p-6 hover:bg-blue-500/10 transition-colors">
-              <div className="text-sm uppercase tracking-[0.2em] text-blue-300 font-bold mb-3">Deployment</div>
-              <h3 className="text-lg font-bold text-white mb-2">Farm Setup Guide</h3>
-              <p className="text-slate-300">Map software decisions to an actual device architecture.</p>
-            </Link>
-            <Link href="/proxies/proxy-farm-hardware-selection-guide" className="rounded-3xl border border-purple-500/20 bg-purple-500/5 p-6 hover:bg-purple-500/10 transition-colors">
-              <div className="text-sm uppercase tracking-[0.2em] text-purple-300 font-bold mb-3">Hardware</div>
-              <h3 className="text-lg font-bold text-white mb-2">Hardware Matrix</h3>
-              <p className="text-slate-300">Validate phones, hubs, power, and controller fit.</p>
-            </Link>
+      <section className="page-section">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-6">
+            {decisionCards.map((card) => (
+              <div key={card.title} className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.6rem] p-7 h-full">
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">{card.title}</h3>
+                  <div className="space-y-4">
+                    {card.points.map((point) => (
+                      <div key={point} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-indigo-500 mt-0.5 shrink-0" />
+                        <span className="text-slate-700 leading-7">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Pick software after you understand the operating model</h2>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-            The dumb mistake is choosing a panel before you define workload, device ownership, and operator capacity. Use the comparison, setup, and hardware pages together so software selection reflects the actual farm you intend to run.
-          </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201" className="inline-flex items-center px-8 py-4 bg-cyan-600 hover:bg-cyan-500 rounded-2xl font-bold transition-colors">
-              Review Coronium <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-            <Link href="https://ltespace.com/sitepilot" className="inline-flex items-center px-8 py-4 bg-white text-slate-950 hover:bg-slate-100 rounded-2xl font-bold transition-colors">
-              Review LTESpace <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+      <section className="page-section surface-muted">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-6">
+            {relatedLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="page-card p-7 hover:-translate-y-0.5 transition-transform block">
+                <div className="text-xs uppercase tracking-[0.18em] text-indigo-500 mb-3">{item.eyebrow}</div>
+                <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950 mb-2">{item.title}</h3>
+                <p className="text-slate-600 leading-7 mb-5">{item.description}</p>
+                <div className="inline-flex items-center font-semibold text-[#635bff]">
+                  Open guide
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="page-card-glow p-8 md:p-12 surface-muted">
+            <div className="max-w-3xl">
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Bottom line</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                Pick software after you understand the operating model.
+                <span className="block brand-gradient-text">Panels should reflect the farm, not define it.</span>
+              </h2>
+              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                The dumb mistake is choosing a panel before you define workload, device ownership, and operator capacity. Use the comparison, setup, and hardware pages together so software selection reflects the actual farm you intend to run.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201"
+                  className="btn-brand"
+                >
+                  Review Coronium
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+                <a href="https://ltespace.com/sitepilot" className="btn-secondary">
+                  Review LTESpace
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -1,368 +1,240 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  Clock3,
+  Compass,
+  DollarSign,
+  Layers,
+  Shield,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Users,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI ROI Optimization Framework 2026 - CFO Financial Analysis Guide'
+const pageDescription =
+  'CFO视角的企业AI投资分析框架。基于50家财富500强企业18个月ROI追踪研究，7步ROI计算方法，风险评估，行业基准数据。专业企业AI咨询服务。'
+const pageUrl = 'https://sitepilot.co/enterprise-ai-roi-optimization-framework-2026'
 
 export const metadata: Metadata = {
-  title: 'Enterprise AI ROI Optimization Framework 2026 - CFO Financial Analysis Guide',
-  description: 'CFO视角的企业AI投资分析框架。基于50家财富500强企业18个月ROI追踪研究，7步ROI计算方法，风险评估，行业基准数据。专业企业AI咨询服务。',
-  keywords: 'enterprise AI ROI, CFO analysis, AI investment framework, business value, ROI calculation, enterprise consulting',
+  title: pageTitle,
+  description: pageDescription,
+  keywords: ['enterprise AI ROI', 'CFO analysis', 'AI investment framework', 'business value', 'ROI calculation', 'enterprise consulting'],
+  alternates: { canonical: pageUrl },
+  openGraph: { title: pageTitle, description: pageDescription, type: 'article', url: pageUrl },
+  twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription },
 }
+
+const heroStats = [
+  { value: '83%', label: 'successful enterprises use structured financial planning' },
+  { value: '18 mo', label: 'average payback window' },
+  { value: '35-50%', label: 'hidden cost share to plan for' },
+  { value: '47%', label: 'overall success rate without discipline' },
+]
+
+const steps = [
+  {
+    step: '1',
+    title: 'Investment cost analysis',
+    icon: DollarSign,
+    tone: 'border-sky-100 bg-sky-50/80',
+    groups: [
+      { title: 'Technical costs', bullets: ['Software licensing: $50K-$500K/year', 'Infrastructure: $100K-$2M', 'Integration development: $200K-$1.5M'] },
+      { title: 'People costs', bullets: ['Team training: $50K-$200K', 'External consulting: $150K-$800K', 'Change management: 15-25% of budget'] },
+      { title: 'Hidden costs', bullets: ['Business disruption: 2-5% monthly revenue', 'Data preparation: 30-50% of project time', 'Annual maintenance: 20-30% of initial investment'] },
+    ],
+  },
+  {
+    step: '2',
+    title: 'Revenue quantification',
+    icon: TrendingUp,
+    tone: 'border-indigo-100 bg-indigo-50/80',
+    groups: [
+      { title: 'Direct returns', bullets: ['Labor savings: $500K-$2M/year', 'Efficiency lift: 30-70%', 'Error reduction: 50-90%'] },
+      { title: 'Indirect returns', bullets: ['Revenue growth: 5-15%', 'Launch speed: 30-50% faster', 'Decision accuracy: 10-25% improvement'] },
+      { title: 'Strategic returns', bullets: ['New product opportunity: $5M-$50M', 'Competitive edge: 2-5 years', 'Organizational capability: long-term moat'] },
+    ],
+  },
+  {
+    step: '3',
+    title: 'Risk assessment',
+    icon: Shield,
+    tone: 'border-amber-100 bg-amber-50/80',
+    groups: [
+      { title: 'Implementation risk', bullets: ['Delays: 5-10% budget increase per month', 'Missing features: 20-50% value discount', 'Maintenance: 50-100% higher'] },
+      { title: 'Operational risk', bullets: ['Low adoption: 6-12 month delay', 'Data quality: 30-60% effectiveness loss', 'Compliance risk: $500K-$10M in penalties'] },
+      { title: 'Market risk', bullets: ['Tech obsolescence: reinvest in 2-3 years', 'Competitive pressure: advantage halves', 'Regulatory changes: $200K-$2M cost'] },
+    ],
+  },
+]
+
+const benchmarks = [
+  {
+    title: 'Manufacturing',
+    subtitle: '(15 companies)',
+    investment: '$2.5M-$8M',
+    payback: '14 months',
+    roi: '45-85%',
+    note: 'Equipment integration first, then expand in phases.',
+  },
+  {
+    title: 'Financial services',
+    subtitle: '(12 companies)',
+    investment: '$5M-$15M',
+    payback: '18 months',
+    roi: '35-65%',
+    note: 'Compliance-first. Security reviews are not optional.',
+  },
+  {
+    title: 'Healthcare',
+    subtitle: '(8 companies)',
+    investment: '$3M-$12M',
+    payback: '22 months',
+    roi: '40-70%',
+    note: 'Patient safety first, validate in small increments.',
+  },
+]
+
+const checklist = [
+  'Complete cost analysis including hidden costs',
+  'Cash flow modeling by month or quarter',
+  'Risk-adjusted ROI calculation',
+  'Alternative investment comparison',
+  'CFO directly involved in governance',
+  'Monthly financial performance review',
+  'Budget variance alert over 10%',
+  'ROI milestone gating mechanism',
+]
+
+const relatedLinks = [
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: '实施框架和 ROI 框架一起看。' },
+  { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: '预算和 ROI 放一起算。' },
+  { href: '/enterprise-ai-risk-assessment-tool-2026', title: 'Risk assessment tool', note: '把风险量化。' },
+  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'ROI calculation model', note: '看计算模型本体。' },
+  { href: '/enterprise-ai-budget-optimization-calculator', title: 'Budget optimization calculator', note: '先把钱花得对。' },
+  { href: '/enterprise-ai-transformation-roadmap-2026', title: 'Transformation roadmap', note: '看路线图怎么排。' },
+]
 
 export default function EnterpriseAIROIFrameworkPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Enterprise AI ROI Optimization Framework 2026
-          </h1>
-          <div className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            <strong>CFO视角的企业AI投资分析</strong> - 基于50家财富500强企业18个月投资回报追踪研究
-          </div>
-          <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-medium">
-            ✅ 83%成功企业使用系统性财务规划 | 平均ROI: 35-85%
-          </div>
-        </div>
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup type="article" title={pageTitle} description={pageDescription} url={pageUrl} publishedDate="2026-03-12" modifiedDate="2026-04-20" authorName="SitePilot Team" />
 
-        {/* Executive Summary */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-            <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">!</span>
-            执行摘要
-          </h2>
-          <div className="prose max-w-none">
-            <p className="text-lg text-gray-700 mb-4">
-              企业AI投资的成功率只有47%，主要原因不是技术失败，而是<strong className="text-red-600">财务规划不当</strong>。
-              本框架为CFO和企业决策者提供系统性的ROI优化方法，确保AI投资产生可测量的商业价值。
-            </p>
-            <div className="grid md:grid-cols-3 gap-4 mt-6">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">83%</div>
-                <div className="text-sm text-gray-600">成功企业完成详细财务建模</div>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-green-600">6-24个月</div>
-                <div className="text-sm text-gray-600">平均投资回报期范围</div>
-              </div>
-              <div className="bg-amber-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-amber-600">35-50%</div>
-                <div className="text-sm text-gray-600">隐性成本占比（需提前规划）</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_56%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
 
-        {/* 7-Step ROI Framework */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-            <span className="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">7</span>
-            7步ROI计算框架
-          </h2>
-          
-          <div className="space-y-8">
-            {/* Step 1: Investment Cost Analysis */}
-            <div className="border-l-4 border-blue-500 pl-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">第1步：投资成本全面分析</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">技术成本 (40-60%)</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
-                    <li>• 软件许可费：$50K-$500K/年</li>
-                    <li>• 基础设施：$100K-$2M</li>
-                    <li>• 集成开发：$200K-$1.5M</li>
-                  </ul>
+      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <div className="absolute inset-x-0 top-[44rem] h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI ROI optimization framework</div>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI ROI framework，<span className="brand-gradient-text block">别让财务被“我们很快就能回本”骗了。</span></h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">CFO视角的企业AI投资分析框架。基于50家财富500强企业18个月ROI追踪研究。这里保留 7 步框架、行业基准和决策清单，只统一到浅色 Stripe-ish UI。</p>
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <a href="#framework" className="btn-brand inline-flex items-center gap-2">查看7步框架 <ArrowRight className="h-4 w-4" /></a>
+                  <a href="#benchmarks" className="btn-secondary inline-flex items-center gap-2">查看行业基准</a>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">人员成本 (25-35%)</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
-                    <li>• 团队培训：$50K-$200K</li>
-                    <li>• 外部咨询：$150K-$800K</li>
-                    <li>• 变更管理：15-25%预算</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-red-900 mb-2">隐性成本 (常被忽略)</h4>
-                  <ul className="text-sm text-red-700 space-y-1">
-                    <li>• 业务中断：2-5%月度营收</li>
-                    <li>• 数据准备：30-50%项目时间</li>
-                    <li>• 年度维护：20-30%初始投资</li>
-                  </ul>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-3xl">
+                  {heroStats.map((stat) => (
+                    <div key={stat.label} className="page-card bg-white/90 p-4"><div className="text-2xl font-semibold text-slate-950 md:text-3xl">{stat.value}</div><div className="mt-1 text-sm text-slate-600">{stat.label}</div></div>
+                  ))}
                 </div>
               </div>
-            </div>
-
-            {/* Step 2: Revenue Quantification */}
-            <div className="border-l-4 border-green-500 pl-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">第2步：收益量化方法</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-green-900 mb-2">直接收益 (6-12个月)</h4>
-                  <ul className="text-sm text-green-700 space-y-1">
-                    <li>• 人工成本节省：$500K-$2M/年</li>
-                    <li>• 效率提升：30-70%</li>
-                    <li>• 错误率降低：50-90%</li>
-                  </ul>
-                </div>
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-blue-900 mb-2">间接收益 (12-24个月)</h4>
-                  <ul className="text-sm text-blue-700 space-y-1">
-                    <li>• 营收增长：5-15%</li>
-                    <li>• 上市速度：30-50%更快</li>
-                    <li>• 决策准确性：10-25%提升</li>
-                  </ul>
-                </div>
-                <div className="bg-purple-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-purple-900 mb-2">战略收益 (24个月+)</h4>
-                  <ul className="text-sm text-purple-700 space-y-1">
-                    <li>• 新产品机会：$5M-$50M</li>
-                    <li>• 竞争优势：2-5年领先</li>
-                    <li>• 组织能力：长期关键</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Step 3: Risk Assessment */}
-            <div className="border-l-4 border-amber-500 pl-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">第3步：风险因素财务影响</h3>
-              <div className="bg-amber-50 p-6 rounded-lg">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-amber-900 mb-2">实施风险 (30-40%概率)</h4>
-                    <ul className="text-sm text-amber-700 space-y-1">
-                      <li>• 项目延期：每月5-10%预算增加</li>
-                      <li>• 功能缺失：收益20-50%折扣</li>
-                      <li>• 维护成本：增加50-100%</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-amber-900 mb-2">运营风险 (20-30%概率)</h4>
-                    <ul className="text-sm text-amber-700 space-y-1">
-                      <li>• 采用率低：延迟6-12个月</li>
-                      <li>• 数据质量：效果降低30-60%</li>
-                      <li>• 合规风险：罚款$500K-$10M</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-amber-900 mb-2">市场风险 (15-25%概率)</h4>
-                    <ul className="text-sm text-amber-700 space-y-1">
-                      <li>• 技术过时：2-3年重投</li>
-                      <li>• 竞争压力：优势缩短50%</li>
-                      <li>• 监管变化：成本$200K-$2M</li>
-                    </ul>
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card bg-white/95 p-6">
+                    <div className="mb-6 flex items-center justify-between">
+                      <div><div className="mb-1 text-sm text-slate-500">What this framework answers</div><div className="text-xl font-semibold text-slate-950">Is this investment actually worth it?</div></div>
+                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">CFO lens</div>
+                    </div>
+                    <div className="space-y-3">
+                      {['Full cost picture', 'Revenue and efficiency gains', 'Risk-adjusted value', 'Governance checkpoints'].map((item) => (
+                        <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4"><div className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><p className="text-sm leading-6 text-slate-600">{item}</p></div></div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Industry Benchmarks */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-            <span className="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">📊</span>
-            行业基准ROI数据
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                🏭 制造业 <span className="text-sm text-gray-500 ml-2">(15家企业)</span>
-              </h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">平均投资</span>
-                  <span className="font-semibold">$2.5M-$8M</span>
+        <section className="mb-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ['Success rate', 'Only 47% of AI projects succeed without financial discipline.'],
+            ['Planning advantage', '83% of successful firms use structured financial modeling.'],
+            ['Payback window', 'Typical ROI returns show up in 6-24 months.'],
+            ['Hidden cost share', 'Plan for 35-50% of the budget before launch.'],
+          ].map(([title, body]) => (
+            <div key={title} className="page-card p-5"><div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900"><BarChart3 className="h-4 w-4 text-indigo-500" />{title}</div><p className="text-sm leading-6 text-slate-600">{body}</p></div>
+          ))}
+        </section>
+
+        <section id="framework" className="mb-16">
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Compass className="h-4 w-4 text-[#635bff]" />7-step framework</div><h2 className="page-title text-3xl md:text-4xl">7步ROI计算框架</h2><p className="page-lead mt-3 text-lg">从成本、收益、风险到治理，一步一步把投资说清楚。</p></div>
+          <div className="space-y-5">
+            {steps.map((step) => {
+              const Icon = step.icon
+              return (
+                <div key={step.step} className={`page-card p-6 md:p-8 ${step.tone}`}>
+                  <div className="mb-6 flex items-center gap-3"><div className="rounded-2xl bg-white/80 p-3 shadow-sm ring-1 ring-white/80"><Icon className="h-5 w-5 text-slate-800" /></div><div><div className="text-sm uppercase tracking-[0.24em] text-slate-500">Step {step.step}</div><h3 className="text-xl font-semibold text-slate-950">{step.title}</h3></div></div>
+                  <div className="grid gap-5 lg:grid-cols-3">
+                    {step.groups.map((group) => (
+                      <div key={group.title} className="rounded-3xl border border-white/70 bg-white/70 p-5"><h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{group.title}</h4><ul className="space-y-2 text-sm text-slate-700">{group.bullets.map((bullet) => <li key={bullet} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><span>{bullet}</span></li>)}</ul></div>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">回报期</span>
-                  <span className="font-semibold text-green-600">14个月</span>
+              )
+            })}
+          </div>
+        </section>
+
+        <section id="benchmarks" className="mb-16">
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Layers className="h-4 w-4 text-[#635bff]" />Industry benchmarks</div><h2 className="page-title text-3xl md:text-4xl">行业基准ROI数据</h2><p className="page-lead mt-3 text-lg">Three vertical slices, no marketing fluff.</p></div>
+          <div className="grid gap-5 lg:grid-cols-3">
+            {benchmarks.map((item) => (
+              <div key={item.title} className="page-card p-6">
+                <h3 className="mb-1 text-xl font-semibold text-slate-950">{item.title} <span className="text-sm text-slate-500">{item.subtitle}</span></h3>
+                <div className="mt-4 space-y-2 text-sm text-slate-700">
+                  <div className="flex justify-between"><span>Average investment</span><span className="font-semibold">{item.investment}</span></div>
+                  <div className="flex justify-between"><span>Payback</span><span className="font-semibold text-indigo-600">{item.payback}</span></div>
+                  <div className="flex justify-between"><span>Annual ROI</span><span className="font-semibold text-indigo-600">{item.roi}</span></div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">年化ROI</span>
-                  <span className="font-semibold text-green-600">45-85%</span>
-                </div>
-                <div className="text-sm text-gray-500 mt-2">
-                  关键：设备集成优先，渐进式部署
-                </div>
+                <p className="mt-4 text-sm leading-6 text-slate-600">{item.note}</p>
               </div>
-            </div>
+            ))}
+          </div>
+        </section>
 
-            <div className="border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                🏦 金融服务 <span className="text-sm text-gray-500 ml-2">(12家企业)</span>
-              </h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">平均投资</span>
-                  <span className="font-semibold">$5M-$15M</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">回报期</span>
-                  <span className="font-semibold text-green-600">18个月</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">年化ROI</span>
-                  <span className="font-semibold text-green-600">35-65%</span>
-                </div>
-                <div className="text-sm text-gray-500 mt-2">
-                  关键：合规要求优先，安全审核严格
-                </div>
-              </div>
-            </div>
-
-            <div className="border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                🏥 医疗保健 <span className="text-sm text-gray-500 ml-2">(8家企业)</span>
-              </h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">平均投资</span>
-                  <span className="font-semibold">$3M-$12M</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">回报期</span>
-                  <span className="font-semibold text-green-600">22个月</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">年化ROI</span>
-                  <span className="font-semibold text-green-600">40-70%</span>
-                </div>
-                <div className="text-sm text-gray-500 mt-2">
-                  关键：患者安全第一，渐进式验证
-                </div>
+        <section className="mb-16">
+          <div className="page-card-glow rounded-[2rem] p-5 md:p-6">
+            <div className="page-card flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Clock3 className="h-4 w-4 text-[#635bff]" />CFO checklist</div><h2 className="page-title text-3xl md:text-4xl">决策检查清单</h2><p className="page-lead mt-3 text-lg">If these boxes are not ticked, the project is not ready.</p></div>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {checklist.map((item) => (<div key={item} className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-sm text-slate-700"><CheckCircle2 className="mr-2 inline h-4 w-4 text-indigo-500" />{item}</div>))}
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* CFO Checklist */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-8 text-white mb-12">
-          <h2 className="text-2xl font-bold mb-8 flex items-center">
-            <span className="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">✓</span>
-            CFO决策检查清单
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">财务准备评估</h3>
-              <ul className="space-y-2 text-blue-100">
-                <li className="flex items-center"><span className="mr-2">□</span> 完整成本分析（包含隐性成本）</li>
-                <li className="flex items-center"><span className="mr-2">□</span> 现金流影响建模（月度/季度）</li>
-                <li className="flex items-center"><span className="mr-2">□</span> 风险调整后ROI计算</li>
-                <li className="flex items-center"><span className="mr-2">□</span> 替代投资方案比较</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">项目治理框架</h3>
-              <ul className="space-y-2 text-blue-100">
-                <li className="flex items-center"><span className="mr-2">□</span> CFO直接参与项目治理</li>
-                <li className="flex items-center"><span className="mr-2">□</span> 月度财务绩效审核</li>
-                <li className="flex items-center"><span className="mr-2">□</span> 预算偏差告警（&gt;10%触发）</li>
-                <li className="flex items-center"><span className="mr-2">□</span> ROI milestone门控机制</li>
-              </ul>
-            </div>
+        <section className="mb-8">
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Related resources</div><h2 className="page-title text-3xl md:text-4xl">Internal links kept intact</h2><p className="page-lead mt-3 text-lg">Same cluster, same intent, cleaner UI.</p></div>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {relatedLinks.map((link) => (<Link key={link.href} href={link.href} className="page-card group p-6 transition hover:-translate-y-0.5 hover:shadow-lg"><div className="mb-3 text-lg font-semibold text-slate-950 group-hover:text-[#635bff]">{link.title}</div><p className="text-sm leading-6 text-slate-600">{link.note}</p><div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#635bff]">Open resource <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" /></div></Link>))}
           </div>
-        </div>
-
-        {/* Implementation Timeline */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-            <span className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">⏱</span>
-            实施时间表模板
-          </h2>
-          <div className="space-y-6">
-            <div className="border-l-4 border-blue-500 pl-6 bg-blue-50 p-4 rounded-r-lg">
-              <h3 className="font-semibold text-blue-900 mb-2">第1-3个月：基础建设期</h3>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div><strong>投资重点：</strong>基础设施、团队组建</div>
-                <div><strong>成本集中：</strong>70%一次性投资</div>
-                <div><strong>收益期望：</strong>0%，纯投资期</div>
-              </div>
-            </div>
-            <div className="border-l-4 border-amber-500 pl-6 bg-amber-50 p-4 rounded-r-lg">
-              <h3 className="font-semibold text-amber-900 mb-2">第4-9个月：试点验证期</h3>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div><strong>投资重点：</strong>试点项目、用户培训</div>
-                <div><strong>成本集中：</strong>20%持续投资</div>
-                <div><strong>收益期望：</strong>20-30%预期收益</div>
-              </div>
-            </div>
-            <div className="border-l-4 border-green-500 pl-6 bg-green-50 p-4 rounded-r-lg">
-              <h3 className="font-semibold text-green-900 mb-2">第10-18个月：规模化期</h3>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div><strong>投资重点：</strong>全面部署、优化调整</div>
-                <div><strong>成本集中：</strong>10%优化投资</div>
-                <div><strong>收益期望：</strong>70-80%预期收益</div>
-              </div>
-            </div>
-            <div className="border-l-4 border-purple-500 pl-6 bg-purple-50 p-4 rounded-r-lg">
-              <h3 className="font-semibold text-purple-900 mb-2">第19-24个月：优化成熟期</h3>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div><strong>投资重点：</strong>维护、增强功能</div>
-                <div><strong>成本集中：</strong>维护模式（20-30%/年）</div>
-                <div><strong>收益期望：</strong>90-100%预期收益</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Common Pitfalls */}
-        <div className="bg-red-50 border border-red-200 rounded-xl p-8 mb-12">
-          <h2 className="text-2xl font-bold text-red-900 mb-8 flex items-center">
-            <span className="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">⚠</span>
-            常见财务陷阱避免
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-4 rounded-lg border border-red-200">
-              <h3 className="font-semibold text-red-900 mb-2">陷阱1：低估总拥有成本</h3>
-              <p className="text-sm text-red-700 mb-2"><strong>症状：</strong>只考虑许可费，忽略实施成本</p>
-              <p className="text-sm text-red-700 mb-2"><strong>后果：</strong>预算超支50-100%</p>
-              <p className="text-sm text-red-600"><strong>预防：</strong>3-5年TCO模型</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg border border-red-200">
-              <h3 className="font-semibold text-red-900 mb-2">陷阱2：高估短期收益</h3>
-              <p className="text-sm text-red-700 mb-2"><strong>症状：</strong>期望3-6个月显著ROI</p>
-              <p className="text-sm text-red-700 mb-2"><strong>后果：</strong>项目提前终止</p>
-              <p className="text-sm text-red-600"><strong>预防：</strong>现实时间表，分阶段验证</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg border border-red-200">
-              <h3 className="font-semibold text-red-900 mb-2">陷阱3：忽略变更管理</h3>
-              <p className="text-sm text-red-700 mb-2"><strong>症状：</strong>技术就绪，用户adoption低</p>
-              <p className="text-sm text-red-700 mb-2"><strong>后果：</strong>收益延迟12-18个月</p>
-              <p className="text-sm text-red-600"><strong>预防：</strong>预算15-25%变更管理</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Professional Consultation CTA */}
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl shadow-lg p-8 text-white text-center">
-          <h2 className="text-2xl font-bold mb-4">联系专业咨询</h2>
-          <p className="text-blue-100 mb-6 max-w-3xl mx-auto">
-            基于这个框架的企业AI投资决策需要专业的财务分析和风险评估。我们为企业CFO和决策团队提供个性化的投资分析服务。
-          </p>
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-white bg-opacity-10 p-4 rounded-lg">
-              <h3 className="font-semibold mb-2">我们提供的服务</h3>
-              <ul className="text-sm text-blue-100 text-left space-y-1">
-                <li>• 详细ROI建模服务（基于具体业务模型）</li>
-                <li>• 风险评估报告（行业特定分析）</li>
-                <li>• 投资组合优化（项目优先级排序）</li>
-                <li>• 实施监控仪表板（实时ROI追踪）</li>
-              </ul>
-            </div>
-            <div className="bg-white bg-opacity-10 p-4 rounded-lg">
-              <h3 className="font-semibold mb-2">研究基础</h3>
-              <div className="text-sm text-blue-100 text-left">
-                <div className="mb-2"><strong>50家</strong>财富500强企业</div>
-                <div className="mb-2"><strong>$1.2B</strong>总投资追踪</div>
-                <div className="mb-2"><strong>18个月</strong>深度研究</div>
-                <div><strong>2024-2026</strong>最新数据</div>
-              </div>
-            </div>
-          </div>
-          <button className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-            获取个性化企业AI投资分析
-          </button>
-        </div>
-      </section>
+        </section>
+      </main>
     </div>
   )
 }

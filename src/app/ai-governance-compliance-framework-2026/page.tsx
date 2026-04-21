@@ -1,670 +1,926 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  AlertTriangle,
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  FileText,
+  Scale,
+  Shield,
+  Sparkles,
+  Target,
+  Users,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'AI Governance and Compliance Framework for Enterprises 2026 | SitePilot'
+const pageDescription =
+  'Complete enterprise AI governance framework covering EU AI Act, NIST AI RMF, global standards, operating models, risk controls, and responsible AI implementation.'
+const pageUrl = 'https://sitepilot.co/ai-governance-compliance-framework-2026'
 
 export const metadata: Metadata = {
-  title: 'AI Governance and Compliance Framework for Enterprises 2026',
-  description: 'Complete enterprise AI governance framework ensuring regulatory compliance, ethical AI deployment, and risk mitigation. Updated for EU AI Act, NIST AI RMF, and global regulations.',
-  keywords: 'AI governance framework, AI compliance, EU AI Act compliance, NIST AI RMF, AI ethics framework, enterprise AI governance, AI regulatory compliance',
+  title: pageTitle,
+  description: pageDescription,
+  keywords: [
+    'AI governance framework',
+    'AI compliance',
+    'EU AI Act compliance',
+    'NIST AI RMF',
+    'AI ethics framework',
+    'enterprise AI governance',
+    'AI regulatory compliance',
+    'responsible AI framework',
+  ],
+  authors: [{ name: 'SitePilot Team' }],
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+    siteName: 'SitePilot',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
+
+const quickNav = [
+  { href: '#landscape', title: 'Regulatory landscape', note: 'EU AI Act, NIST, and standards' },
+  { href: '#framework', title: 'Framework pillars', note: 'Governance, compliance, risk, ethics' },
+  { href: '#roadmap', title: '12-week roadmap', note: 'Foundation through optimization' },
+  { href: '#resources', title: 'Operational assets', note: 'Templates, policies, monitoring' },
+  { href: '#value', title: 'Business value', note: 'Cost avoidance and ROI framing' },
+] as const
+
+const summaryCards = [
+  { value: '4', label: 'Core governance pillars' },
+  { value: '12', label: 'Weeks to first operating model' },
+  { value: '€35M', label: 'Maximum EU AI Act fine cited on the page' },
+  { value: '$5M-$50M+', label: 'Typical annual governance value range' },
+] as const
+
+const regulations = [
+  {
+    title: 'EU AI Act',
+    accent: 'text-blue-600',
+    metric: '€35M',
+    note: 'Maximum penalty or 7% of global revenue for the most serious non-compliance scenarios.',
+    items: [
+      'High-risk AI system requirements',
+      'Prohibited AI practices',
+      'Foundation model obligations',
+      'CE marking and conformity expectations',
+    ],
+  },
+  {
+    title: 'NIST AI RMF',
+    accent: 'text-indigo-600',
+    metric: '4 functions',
+    note: 'Govern, Map, Measure, and Manage create the operating rhythm for AI risk management.',
+    items: [
+      'Risk-based governance model',
+      'Continuous monitoring expectations',
+      'Stakeholder engagement',
+      'Impact assessment discipline',
+    ],
+  },
+  {
+    title: 'Global standards',
+    accent: 'text-violet-600',
+    metric: '15+',
+    note: 'National and cross-border AI rules continue to expand across sectors and regions.',
+    items: [
+      'ISO/IEC 23053:2022',
+      'UK AI policy guidance',
+      'Singapore model governance references',
+      'Additional national AI laws in motion',
+    ],
+  },
+] as const
+
+const frameworkPillars = [
+  {
+    title: 'Governance',
+    description: 'Leadership, ownership, decision rights, and escalation structure.',
+    points: ['AI charter and strategy', 'Steering committee model', 'Decision authority matrix'],
+    icon: Shield,
+  },
+  {
+    title: 'Compliance',
+    description: 'Regulatory interpretation, evidence collection, and audit readiness.',
+    points: ['Control mapping', 'Documentation standards', 'Multi-jurisdiction alignment'],
+    icon: FileText,
+  },
+  {
+    title: 'Risk management',
+    description: 'Continuous identification, scoring, and mitigation of AI-specific failure modes.',
+    points: ['Technical risk tracking', 'Operational response', 'Business risk tolerance'],
+    icon: AlertTriangle,
+  },
+  {
+    title: 'Ethics',
+    description: 'Responsible AI principles translated into reviews, training, and incident handling.',
+    points: ['Human oversight', 'Fairness controls', 'Transparency expectations'],
+    icon: Scale,
+  },
+] as const
+
+const governanceBlocks = [
+  {
+    title: 'Executive leadership',
+    items: [
+      'Chief AI Officer for strategic oversight',
+      'AI steering committee for cross-functional governance',
+      'AI ethics board for responsible-AI decisions',
+      'Data protection officer for privacy alignment',
+    ],
+  },
+  {
+    title: 'Operational teams',
+    items: [
+      'AI risk management team for daily oversight',
+      'Model validation team for testing and assurance',
+      'AI compliance team for regulatory monitoring',
+      'AI operations team for deployment and monitoring',
+    ],
+  },
+  {
+    title: 'Governance artifacts',
+    items: [
+      'AI charter and strategy',
+      'AI risk appetite statement',
+      'AI governance policy',
+      'Decision authority matrix',
+    ],
+  },
+] as const
+
+const complianceBlocks = [
+  {
+    title: 'EU AI Act implementation',
+    items: [
+      'Risk classification from unacceptable to minimal risk',
+      'Risk management system for high-risk use cases',
+      'Data governance measures and record keeping',
+      'Transparency, human oversight, robustness, and cybersecurity controls',
+    ],
+  },
+  {
+    title: 'NIST AI RMF implementation',
+    items: [
+      'Govern: strategy, roles, and risk appetite',
+      'Map: context, impacts, and stakeholder analysis',
+      'Measure: performance, risk, and effectiveness assessment',
+      'Manage: response planning, incidents, and continuous improvement',
+    ],
+  },
+  {
+    title: 'Additional standards',
+    items: [
+      'ISO/IEC 23053 use-case guidance',
+      'ISO/IEC 23094 risk management references',
+      'ISO/IEC 25059 quality expectations',
+      'ISO/IEC 27001 security control alignment',
+    ],
+  },
+] as const
+
+const riskCategories = [
+  {
+    title: 'Technical risks',
+    items: ['Model bias and fairness', 'Performance degradation', 'Adversarial attacks', 'Data quality issues', 'Explainability gaps'],
+  },
+  {
+    title: 'Operational risks',
+    items: [
+      'Availability and reliability failures',
+      'Integration breakdowns',
+      'Scalability limitations',
+      'Maintenance and update drift',
+      'Human-AI interaction errors',
+    ],
+  },
+  {
+    title: 'Business risks',
+    items: [
+      'ROI and value-realization failure',
+      'Strategic misalignment',
+      'Competitive disadvantage',
+      'Customer trust erosion',
+      'Brand reputation damage',
+    ],
+  },
+] as const
+
+const riskMatrix = [
+  ['High', 'Medium', 'High', 'Critical'],
+  ['Medium', 'Low', 'Medium', 'High'],
+  ['Low', 'Low', 'Low', 'Medium'],
+] as const
+
+const responseStrategies = [
+  { title: 'Accept', note: 'Low-impact risks within stated tolerance.', className: 'border-indigo-200 bg-indigo-50 text-indigo-800' },
+  { title: 'Mitigate', note: 'Add controls to reduce likelihood or impact.', className: 'border-amber-200 bg-amber-50 text-amber-800' },
+  { title: 'Transfer', note: 'Use contracts, insurance, or third-party coverage.', className: 'border-orange-200 bg-orange-50 text-orange-800' },
+  { title: 'Avoid', note: 'Redesign or stop activities that stay intolerable.', className: 'border-rose-200 bg-rose-50 text-rose-800' },
+] as const
+
+const ethicsBlocks = [
+  {
+    title: 'Human-centric AI',
+    items: ['Human agency and oversight', 'Meaningful human control', 'Human-in-the-loop design', 'User empowerment and choice'],
+  },
+  {
+    title: 'Fairness and non-discrimination',
+    items: ['Algorithmic bias prevention', 'Inclusive design practices', 'Equal treatment assurance', 'Diverse representation in data'],
+  },
+  {
+    title: 'Transparency and explainability',
+    items: ['Clear decision explanations', 'Model interpretability', 'Open communication about AI use', 'Accessible documentation'],
+  },
+  {
+    title: 'Privacy and data protection',
+    items: ['Data minimization', 'Consent management', 'Privacy by design', 'Secure data processing'],
+  },
+] as const
+
+const ethicsImplementation = [
+  {
+    title: 'Ethics impact assessment',
+    items: ['Stakeholder impact analysis', 'Ethical risk identification', 'Mitigation strategy design', 'Ongoing monitoring plan'],
+  },
+  {
+    title: 'Review process',
+    items: [
+      'Initial ethics screening',
+      'Detailed impact assessment',
+      'Ethics board review',
+      'Stakeholder consultation',
+      'Mitigation implementation',
+      'Approval and documentation',
+      'Ongoing monitoring',
+    ],
+  },
+  {
+    title: 'Training and awareness',
+    items: ['AI ethics training program', 'Role-specific guidance', 'Regular awareness sessions', 'Decision-support tools'],
+  },
+  {
+    title: 'Incident response',
+    items: ['Ethics violation reporting', 'Investigation procedures', 'Remediation actions', 'Lessons learned integration'],
+  },
+] as const
+
+const roadmapPhases = [
+  {
+    title: 'Weeks 1-3: Foundation',
+    items: [
+      'Establish the AI governance team',
+      'Define AI strategy and charter',
+      'Conduct regulatory assessment',
+      'Develop governance policies',
+      'Create the decision authority matrix',
+    ],
+  },
+  {
+    title: 'Weeks 4-6: Assessment',
+    items: [
+      'Inventory and map AI systems',
+      'Execute risk assessments',
+      'Run compliance gap analysis',
+      'Complete ethics impact assessments',
+      'Engage key stakeholders',
+    ],
+  },
+  {
+    title: 'Weeks 7-9: Implementation',
+    items: [
+      'Deploy priority risk controls',
+      'Implement monitoring systems',
+      'Establish compliance processes',
+      'Launch the ethics review board',
+      'Begin training programs',
+    ],
+  },
+  {
+    title: 'Weeks 10-12: Optimization',
+    items: [
+      'Test incident response procedures',
+      'Validate compliance readiness',
+      'Optimize governance workflows',
+      'Prepare for audit review',
+      'Set continuous-improvement cadence',
+    ],
+  },
+] as const
+
+const resources = [
+  {
+    title: 'Assessment templates',
+    items: [
+      'AI risk assessment questionnaire',
+      'EU AI Act compliance checklist',
+      'Ethics impact assessment template',
+      'NIST AI RMF implementation guide',
+      'Data governance assessment matrix',
+    ],
+  },
+  {
+    title: 'Policy documents',
+    items: [
+      'AI governance policy template',
+      'AI ethics code of conduct',
+      'AI risk management procedures',
+      'AI incident response plan',
+      'Training and awareness program',
+    ],
+  },
+  {
+    title: 'Monitoring tools',
+    items: [
+      'AI model performance dashboard',
+      'Bias detection and monitoring',
+      'Compliance status tracker',
+      'Risk heat-map visualization',
+      'Ethics review workflow system',
+    ],
+  },
+] as const
+
+const valueCards = [
+  {
+    title: 'Regulatory fines avoided',
+    value: 'Up to €35M',
+    note: 'Potential EU AI Act exposure for severe non-compliance.',
+  },
+  {
+    title: 'Reputation risk mitigation',
+    value: '$2M-$10M',
+    note: 'Typical brand-damage range cited for major AI incidents.',
+  },
+  {
+    title: 'Failed AI project costs',
+    value: '$500K-$5M',
+    note: 'Governance gaps often push projects into expensive rework or shutdown.',
+  },
+  {
+    title: 'Faster deployment',
+    value: '30-50%',
+    note: 'Clear governance often reduces time-to-launch by standardizing approvals.',
+  },
+  {
+    title: 'Improved AI ROI',
+    value: '25-40%',
+    note: 'Better alignment and risk control typically improve realized value.',
+  },
+  {
+    title: 'Annual business value',
+    value: '$5M-$50M+',
+    note: 'Typical total value range for mature enterprise governance programs.',
+  },
+] as const
+
+const relatedResources = [
+  {
+    href: '/ai-ethics-compliance-checklist-enterprise-2026',
+    title: 'AI Ethics & Compliance Checklist',
+    description: 'Use a control-by-control checklist after the governance model is defined.',
+  },
+  {
+    href: '/ai-governance-framework-enterprise-2026',
+    title: 'Enterprise AI Governance Framework',
+    description: 'Go deeper on policy structure, templates, and Chinese-language implementation guidance.',
+  },
+  {
+    href: '/ai-governance-monitoring-dashboard-2026',
+    title: 'AI Governance Monitoring Dashboard',
+    description: 'Operationalize the framework with reporting and monitoring workflows.',
+  },
+  {
+    href: '/ai-compliance-readiness-assessment-2026',
+    title: 'AI Compliance Readiness Assessment',
+    description: 'Assess how close the current program is to audit and regulatory readiness.',
+  },
+] as const
 
 export default function AIGovernanceComplianceFramework2026Page() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-700 via-indigo-700 to-purple-800 py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
-            AI Governance & Compliance Framework 2026
-          </h1>
-          <p className="text-xl text-blue-100 mb-8">
-            Enterprise-grade AI governance ensuring regulatory compliance with EU AI Act, NIST AI RMF, and emerging global standards
-          </p>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 inline-block">
-            <p className="text-lg text-white font-semibold">
-              🏛️ New: EU AI Act enforcement begins February 2026
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-03-10"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
+
+      <section className="page-hero relative">
+        <div className="page-hero-inner mx-auto max-w-7xl px-4 pb-20 pt-24 md:pb-28 md:pt-32">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                Enterprise AI governance
+              </div>
+
+              <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                AI governance and compliance,
+                <span className="brand-gradient-text block">for enterprises that need a real operating model.</span>
+              </h1>
+
+              <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                This framework translates regulatory pressure, ethical expectations, and risk-management work into a
+                structure teams can run across leadership, policy, monitoring, and incident response.
+              </p>
+
+              <div className="mb-10 flex flex-wrap gap-3">
+                <a href="#framework" className="btn-brand">
+                  View framework
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+                <a href="#roadmap" className="btn-secondary">
+                  12-week roadmap
+                </a>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {summaryCards.map((card) => (
+                  <div key={card.label} className="page-card p-4 bg-white/90">
+                    <div className="mb-1 text-2xl font-semibold tracking-[-0.04em] text-slate-950">{card.value}</div>
+                    <div className="text-sm text-slate-500">{card.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card space-y-6 bg-white/95 p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <div className="mb-1 text-sm text-slate-500">Framework map</div>
+                      <div className="text-xl font-semibold text-slate-950">Where to start</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Board to ops
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    {quickNav.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="flex items-start justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 transition hover:border-indigo-200 hover:bg-indigo-50/50"
+                      >
+                        <div>
+                          <div className="font-semibold text-slate-950">{item.title}</div>
+                          <div className="text-sm text-slate-500">{item.note}</div>
+                        </div>
+                        <ArrowRight className="mt-1 h-4 w-4 text-slate-400" />
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="rounded-[1.5rem] border border-amber-200 bg-amber-50/80 p-5">
+                    <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
+                      <AlertTriangle className="h-4 w-4" />
+                      Regulatory reality
+                    </div>
+                    <p className="text-sm leading-6 text-amber-900">
+                      The page keeps the original framing that non-compliance can be material to both revenue and
+                      program credibility, especially once governance work lags behind deployment scale.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="landscape" className="page-section relative">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 max-w-3xl">
+            <div className="page-pill mb-4">
+              <Shield className="h-4 w-4 text-[#635bff]" />
+              Regulatory landscape
+            </div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              The framework starts with the regulatory systems most enterprise teams are already mapping.
+            </h2>
+            <p className="page-lead text-base md:text-lg">
+              This section preserves the original regulatory overview while aligning it to the shared comparison-card
+              system used across the migrated SitePilot AI cluster.
             </p>
-            <p className="text-blue-100">Non-compliance fines up to 7% of global annual revenue</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Regulatory Landscape */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Global AI Regulatory Environment 2026
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <div className="text-2xl font-bold text-blue-700 mb-3">EU AI Act</div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">€35M</div>
-              <p className="text-gray-700 mb-4">Maximum penalty or 7% global revenue</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• High-risk AI system requirements</li>
-                <li>• Prohibited AI practices</li>
-                <li>• Foundation model obligations</li>
-                <li>• CE marking compliance</li>
-              </ul>
-            </div>
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-              <div className="text-2xl font-bold text-green-700 mb-3">NIST AI RMF</div>
-              <div className="text-3xl font-bold text-green-600 mb-2">4 Functions</div>
-              <p className="text-gray-700 mb-4">Govern, Map, Measure, Manage</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Risk-based approach</li>
-                <li>• Continuous monitoring</li>
-                <li>• Stakeholder engagement</li>
-                <li>• Impact assessment</li>
-              </ul>
-            </div>
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-              <div className="text-2xl font-bold text-purple-700 mb-3">Global Standards</div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">15+</div>
-              <p className="text-gray-700 mb-4">National AI regulations active</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• ISO/IEC 23053:2022</li>
-                <li>• UK AI White Paper</li>
-                <li>• Singapore Model AI Governance</li>
-                <li>• Canada AIDA (pending)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Framework Overview */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Comprehensive AI Governance Framework
-          </h2>
-          
-          {/* Framework Pillars */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="text-center p-6 border border-gray-200 rounded-lg">
-              <div className="text-4xl mb-3">🏛️</div>
-              <h3 className="font-bold text-lg mb-2">Governance</h3>
-              <p className="text-gray-600 text-sm">Leadership, oversight, and accountability structures</p>
-            </div>
-            <div className="text-center p-6 border border-gray-200 rounded-lg">
-              <div className="text-4xl mb-3">📋</div>
-              <h3 className="font-bold text-lg mb-2">Compliance</h3>
-              <p className="text-gray-600 text-sm">Regulatory alignment and audit readiness</p>
-            </div>
-            <div className="text-center p-6 border border-gray-200 rounded-lg">
-              <div className="text-4xl mb-3">🔍</div>
-              <h3 className="font-bold text-lg mb-2">Risk Management</h3>
-              <p className="text-gray-600 text-sm">Continuous monitoring and mitigation</p>
-            </div>
-            <div className="text-center p-6 border border-gray-200 rounded-lg">
-              <div className="text-4xl mb-3">⚖️</div>
-              <h3 className="font-bold text-lg mb-2">Ethics</h3>
-              <p className="text-gray-600 text-sm">Responsible AI principles and practices</p>
-            </div>
           </div>
 
-          {/* Detailed Framework */}
-          <div className="space-y-12">
-            {/* Pillar 1: Governance Structure */}
-            <div className="bg-blue-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-blue-800 mb-6">
-                1. AI Governance Structure & Leadership
-              </h3>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-blue-700">Executive Leadership</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• <strong>Chief AI Officer (CAIO)</strong> - Strategic AI oversight</li>
-                    <li>• <strong>AI Steering Committee</strong> - Cross-functional governance</li>
-                    <li>• <strong>AI Ethics Board</strong> - Ethical oversight and guidance</li>
-                    <li>• <strong>Data Protection Officer</strong> - Privacy and data governance</li>
-                  </ul>
-                  
-                  <h4 className="font-bold text-lg mb-3 mt-6 text-blue-700">Operational Teams</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• <strong>AI Risk Management Team</strong> - Day-to-day risk oversight</li>
-                    <li>• <strong>Model Validation Team</strong> - AI system testing and validation</li>
-                    <li>• <strong>AI Compliance Team</strong> - Regulatory alignment monitoring</li>
-                    <li>• <strong>AI Operations Team</strong> - Deployment and monitoring</li>
-                  </ul>
+          <div className="grid gap-6 md:grid-cols-3">
+            {regulations.map((regulation) => (
+              <div key={regulation.title} className="page-card-soft p-6">
+                <div className={`mb-2 text-sm font-semibold uppercase tracking-[0.18em] ${regulation.accent}`}>
+                  {regulation.title}
                 </div>
-                
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-blue-700">Governance Artifacts</h4>
+                <div className="mb-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">{regulation.metric}</div>
+                <p className="mb-5 text-sm leading-6 text-slate-600">{regulation.note}</p>
+                <div className="space-y-3">
+                  {regulation.items.map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-indigo-600" />
+                      <span className="text-sm text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="framework" className="page-section relative border-t border-slate-200/70 bg-white/85">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 max-w-3xl">
+            <div className="page-pill mb-4">
+              <Scale className="h-4 w-4 text-[#635bff]" />
+              Framework pillars
+            </div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              Four pillars organize the model: governance, compliance, risk, and ethics.
+            </h2>
+            <p className="page-lead text-base md:text-lg">
+              These cards preserve the original framework overview but bring it into the same light editorial system as
+              the other completed enterprise AI pages.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {frameworkPillars.map((pillar) => {
+              const Icon = pillar.icon
+
+              return (
+                <div key={pillar.title} className="page-card p-6">
+                  <div className="mb-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-3 w-fit">
+                    <Icon className="h-5 w-5 text-indigo-600" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-semibold text-slate-950">{pillar.title}</h3>
+                  <p className="mb-5 text-sm leading-6 text-slate-600">{pillar.description}</p>
                   <div className="space-y-3">
-                    <div className="bg-white p-3 rounded border">
-                      <strong>AI Charter & Strategy</strong>
-                      <p className="text-sm text-gray-600 mt-1">High-level AI vision, principles, and strategic objectives</p>
-                    </div>
-                    <div className="bg-white p-3 rounded border">
-                      <strong>AI Risk Appetite Statement</strong>
-                      <p className="text-sm text-gray-600 mt-1">Acceptable risk levels and tolerance thresholds</p>
-                    </div>
-                    <div className="bg-white p-3 rounded border">
-                      <strong>AI Governance Policy</strong>
-                      <p className="text-sm text-gray-600 mt-1">Comprehensive governance procedures and standards</p>
-                    </div>
-                    <div className="bg-white p-3 rounded border">
-                      <strong>Decision Authority Matrix</strong>
-                      <p className="text-sm text-gray-600 mt-1">Clear decision rights and escalation paths</p>
-                    </div>
+                    {pillar.points.map((point) => (
+                      <div key={point} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-700">
+                        {point}
+                      </div>
+                    ))}
                   </div>
                 </div>
+              )
+            })}
+          </div>
+
+          <div className="mt-8 grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
+            <div className="page-card-soft p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <Users className="h-6 w-6 text-indigo-600" />
+                <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Governance structure and compliance model</h3>
+              </div>
+              <div className="grid gap-5 md:grid-cols-3">
+                {governanceBlocks.map((block) => (
+                  <div key={block.title} className="rounded-[1.5rem] border border-slate-200 bg-white p-5">
+                    <h4 className="mb-4 font-semibold text-slate-950">{block.title}</h4>
+                    <div className="space-y-3">
+                      {block.items.map((item) => (
+                        <div key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-indigo-600" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Pillar 2: Regulatory Compliance */}
-            <div className="bg-green-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-green-800 mb-6">
-                2. Multi-Jurisdiction Regulatory Compliance
-              </h3>
-              
-              <div className="grid md:grid-cols-3 gap-6">
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-green-700">EU AI Act Compliance</h4>
-                  <div className="space-y-3">
-                    <div className="bg-white p-3 rounded border">
-                      <strong>Risk Classification</strong>
-                      <ul className="text-sm text-gray-600 mt-1 ml-4">
-                        <li>• Unacceptable risk (prohibited)</li>
-                        <li>• High-risk AI systems</li>
-                        <li>• Limited risk AI</li>
-                        <li>• Minimal risk AI</li>
-                      </ul>
-                    </div>
-                    <div className="bg-white p-3 rounded border">
-                      <strong>High-Risk Requirements</strong>
-                      <ul className="text-sm text-gray-600 mt-1 ml-4">
-                        <li>• Risk management system</li>
-                        <li>• Data governance measures</li>
-                        <li>• Technical documentation</li>
-                        <li>• Record-keeping obligations</li>
-                        <li>• Transparency and user info</li>
-                        <li>• Human oversight measures</li>
-                        <li>• Accuracy and robustness</li>
-                        <li>• Cybersecurity measures</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-green-700">NIST AI RMF Implementation</h4>
-                  <div className="space-y-3">
-                    <div className="bg-white p-3 rounded border">
-                      <strong>GOVERN Function</strong>
-                      <ul className="text-sm text-gray-600 mt-1 ml-4">
-                        <li>• Organizational AI strategy</li>
-                        <li>• Risk tolerance and appetite</li>
-                        <li>• Roles and responsibilities</li>
-                        <li>• Policy and procedures</li>
-                      </ul>
-                    </div>
-                    <div className="bg-white p-3 rounded border">
-                      <strong>MAP Function</strong>
-                      <ul className="text-sm text-gray-600 mt-1 ml-4">
-                        <li>• AI system context mapping</li>
-                        <li>• Risk identification</li>
-                        <li>• Impact assessment</li>
-                        <li>• Stakeholder analysis</li>
-                      </ul>
-                    </div>
-                    <div className="bg-white p-3 rounded border">
-                      <strong>MEASURE Function</strong>
-                      <ul className="text-sm text-gray-600 mt-1 ml-4">
-                        <li>• Performance monitoring</li>
-                        <li>• Risk measurement</li>
-                        <li>• Impact tracking</li>
-                        <li>• Effectiveness assessment</li>
-                      </ul>
-                    </div>
-                    <div className="bg-white p-3 rounded border">
-                      <strong>MANAGE Function</strong>
-                      <ul className="text-sm text-gray-600 mt-1 ml-4">
-                        <li>• Risk response planning</li>
-                        <li>• Incident management</li>
-                        <li>• Continuous improvement</li>
-                        <li>• Change management</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-green-700">Additional Standards</h4>
-                  <div className="space-y-3">
-                    <div className="bg-white p-3 rounded border">
-                      <strong>ISO/IEC Standards</strong>
-                      <ul className="text-sm text-gray-600 mt-1 ml-4">
-                        <li>• ISO/IEC 23053: AI use cases</li>
-                        <li>• ISO/IEC 23094: AI risk management</li>
-                        <li>• ISO/IEC 25059: AI quality</li>
-                        <li>• ISO/IEC 27001: Security</li>
-                      </ul>
-                    </div>
-                    <div className="bg-white p-3 rounded border">
-                      <strong>Industry Frameworks</strong>
-                      <ul className="text-sm text-gray-600 mt-1 ml-4">
-                        <li>• IEEE Ethical AI Standards</li>
-                        <li>• Partnership on AI Guidelines</li>
-                        <li>• AI Ethics Guidelines Global Inventory</li>
-                        <li>• Responsible AI Practices</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+            <div className="page-card p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <FileText className="h-6 w-6 text-indigo-600" />
+                <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Multi-jurisdiction implementation</h3>
               </div>
-            </div>
-
-            {/* Pillar 3: Risk Management Framework */}
-            <div className="bg-orange-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-orange-800 mb-6">
-                3. Comprehensive AI Risk Management
-              </h3>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-orange-700">Risk Categories & Assessment</h4>
-                  
-                  <div className="space-y-4">
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-orange-600 mb-2">Technical Risks</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Model bias and fairness</li>
-                        <li>• Performance degradation</li>
-                        <li>• Adversarial attacks</li>
-                        <li>• Data quality issues</li>
-                        <li>• Model explainability</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-orange-600 mb-2">Operational Risks</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• System availability and reliability</li>
-                        <li>• Integration failures</li>
-                        <li>• Scalability limitations</li>
-                        <li>• Maintenance and updates</li>
-                        <li>• Human-AI interaction errors</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-orange-600 mb-2">Business Risks</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• ROI and value realization</li>
-                        <li>• Strategic misalignment</li>
-                        <li>• Competitive disadvantage</li>
-                        <li>• Customer trust impact</li>
-                        <li>• Brand reputation damage</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-orange-700">Risk Assessment Matrix</h4>
-                  
-                  <div className="bg-white p-4 rounded border mb-4">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="border-b">
-                          <th className="text-left py-2">Likelihood</th>
-                          <th className="text-center py-2">Low Impact</th>
-                          <th className="text-center py-2">Medium Impact</th>
-                          <th className="text-center py-2">High Impact</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td className="py-1 font-medium">High</td>
-                          <td className="text-center py-1 bg-yellow-100">Medium</td>
-                          <td className="text-center py-1 bg-orange-100">High</td>
-                          <td className="text-center py-1 bg-red-100">Critical</td>
-                        </tr>
-                        <tr>
-                          <td className="py-1 font-medium">Medium</td>
-                          <td className="text-center py-1 bg-green-100">Low</td>
-                          <td className="text-center py-1 bg-yellow-100">Medium</td>
-                          <td className="text-center py-1 bg-orange-100">High</td>
-                        </tr>
-                        <tr>
-                          <td className="py-1 font-medium">Low</td>
-                          <td className="text-center py-1 bg-green-100">Low</td>
-                          <td className="text-center py-1 bg-green-100">Low</td>
-                          <td className="text-center py-1 bg-yellow-100">Medium</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <h5 className="font-semibold text-orange-600 mb-3">Risk Response Strategies</h5>
-                  <div className="space-y-3">
-                    <div className="bg-green-100 p-3 rounded border">
-                      <strong className="text-green-800">Accept</strong>
-                      <p className="text-sm text-green-700 mt-1">Low-impact risks within tolerance</p>
-                    </div>
-                    <div className="bg-yellow-100 p-3 rounded border">
-                      <strong className="text-yellow-800">Mitigate</strong>
-                      <p className="text-sm text-yellow-700 mt-1">Implement controls to reduce likelihood/impact</p>
-                    </div>
-                    <div className="bg-orange-100 p-3 rounded border">
-                      <strong className="text-orange-800">Transfer</strong>
-                      <p className="text-sm text-orange-700 mt-1">Insurance, third-party services, contracts</p>
-                    </div>
-                    <div className="bg-red-100 p-3 rounded border">
-                      <strong className="text-red-800">Avoid</strong>
-                      <p className="text-sm text-red-700 mt-1">Discontinue or redesign high-risk activities</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar 4: AI Ethics Framework */}
-            <div className="bg-purple-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-purple-800 mb-6">
-                4. AI Ethics & Responsible AI Framework
-              </h3>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-purple-700">Core Ethical Principles</h4>
-                  
-                  <div className="space-y-4">
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-purple-600 mb-2">🎯 Human-Centric AI</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Human agency and oversight</li>
-                        <li>• Meaningful human control</li>
-                        <li>• Human-in-the-loop design</li>
-                        <li>• User empowerment and choice</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-purple-600 mb-2">⚖️ Fairness & Non-Discrimination</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Algorithmic bias prevention</li>
-                        <li>• Inclusive design practices</li>
-                        <li>• Equal treatment assurance</li>
-                        <li>• Diverse representation in data</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-purple-600 mb-2">🔍 Transparency & Explainability</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Clear AI decision explanations</li>
-                        <li>• Model interpretability</li>
-                        <li>• Open communication about AI use</li>
-                        <li>• Accessible documentation</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-purple-600 mb-2">🔒 Privacy & Data Protection</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Data minimization principles</li>
-                        <li>• Consent management</li>
-                        <li>• Privacy by design</li>
-                        <li>• Secure data processing</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-bold text-lg mb-3 text-purple-700">Implementation Framework</h4>
-                  
-                  <div className="space-y-4">
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-purple-600 mb-2">Ethics Impact Assessment</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Stakeholder impact analysis</li>
-                        <li>• Ethical risk identification</li>
-                        <li>• Mitigation strategy development</li>
-                        <li>• Ongoing monitoring plan</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-purple-600 mb-2">AI Ethics Review Process</h5>
-                      <ol className="text-sm text-gray-600 space-y-1 ml-4 list-decimal">
-                        <li>Initial ethics screening</li>
-                        <li>Detailed impact assessment</li>
-                        <li>Ethics board review</li>
-                        <li>Stakeholder consultation</li>
-                        <li>Mitigation implementation</li>
-                        <li>Approval and documentation</li>
-                        <li>Ongoing monitoring</li>
-                      </ol>
-                    </div>
-                    
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-purple-600 mb-2">Training & Awareness</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• AI ethics training program</li>
-                        <li>• Role-specific guidance</li>
-                        <li>• Regular awareness sessions</li>
-                        <li>• Ethical decision-making tools</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white p-4 rounded border">
-                      <h5 className="font-semibold text-purple-600 mb-2">Incident Response</h5>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Ethics violation reporting</li>
-                        <li>• Investigation procedures</li>
-                        <li>• Remediation actions</li>
-                        <li>• Lessons learned integration</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Implementation Roadmap */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            12-Week AI Governance Implementation Roadmap
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="font-bold text-lg mb-3 text-blue-600">Weeks 1-3: Foundation</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Establish AI governance team</li>
-                <li>• Define AI strategy and charter</li>
-                <li>• Conduct regulatory assessment</li>
-                <li>• Develop governance policies</li>
-                <li>• Create decision authority matrix</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="font-bold text-lg mb-3 text-green-600">Weeks 4-6: Assessment</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• AI system inventory and mapping</li>
-                <li>• Risk assessment execution</li>
-                <li>• Compliance gap analysis</li>
-                <li>• Ethics impact assessments</li>
-                <li>• Stakeholder engagement</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="font-bold text-lg mb-3 text-orange-600">Weeks 7-9: Implementation</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Deploy risk controls</li>
-                <li>• Implement monitoring systems</li>
-                <li>• Establish compliance processes</li>
-                <li>• Launch ethics review board</li>
-                <li>• Begin training programs</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="font-bold text-lg mb-3 text-purple-600">Weeks 10-12: Optimization</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Test incident response procedures</li>
-                <li>• Validate compliance readiness</li>
-                <li>• Optimize governance processes</li>
-                <li>• Conduct audit preparation</li>
-                <li>• Plan continuous improvement</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tools and Resources */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            AI Governance Tools & Resources
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6 border border-gray-200">
-              <h3 className="font-bold text-lg mb-4 text-blue-600">Assessment Templates</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• AI Risk Assessment Questionnaire</li>
-                <li>• EU AI Act Compliance Checklist</li>
-                <li>• Ethics Impact Assessment Template</li>
-                <li>• NIST AI RMF Implementation Guide</li>
-                <li>• Data Governance Assessment Matrix</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 border border-gray-200">
-              <h3 className="font-bold text-lg mb-4 text-green-600">Policy Documents</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• AI Governance Policy Template</li>
-                <li>• AI Ethics Code of Conduct</li>
-                <li>• AI Risk Management Procedures</li>
-                <li>• AI Incident Response Plan</li>
-                <li>• AI Training and Awareness Program</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 border border-gray-200">
-              <h3 className="font-bold text-lg mb-4 text-purple-600">Monitoring Tools</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• AI Model Performance Dashboard</li>
-                <li>• Bias Detection and Monitoring</li>
-                <li>• Compliance Status Tracker</li>
-                <li>• Risk Heat Map Visualization</li>
-                <li>• Ethics Review Workflow System</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ROI and Business Value */}
-      <section className="py-16 bg-blue-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            AI Governance ROI & Business Value
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-blue-700">Cost Avoidance</h3>
               <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg border">
-                  <div className="flex justify-between items-center">
-                    <strong>Regulatory Fines Avoided</strong>
-                    <span className="text-red-600 font-bold">Up to €35M</span>
+                {complianceBlocks.map((block) => (
+                  <div key={block.title} className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-5">
+                    <h4 className="mb-3 font-semibold text-slate-950">{block.title}</h4>
+                    <div className="space-y-3">
+                      {block.items.map((item) => (
+                        <div key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-indigo-600" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <p className="text-sm text-gray-600 mt-1">EU AI Act non-compliance penalties</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg border">
-                  <div className="flex justify-between items-center">
-                    <strong>Reputation Risk Mitigation</strong>
-                    <span className="text-orange-600 font-bold">$2-10M</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-1">Brand damage from AI incidents</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg border">
-                  <div className="flex justify-between items-center">
-                    <strong>Failed AI Project Costs</strong>
-                    <span className="text-yellow-600 font-bold">$500K-5M</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-1">Poor governance leading to project failure</p>
-                </div>
+                ))}
               </div>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-green-700">Value Creation</h3>
-              <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg border">
-                  <div className="flex justify-between items-center">
-                    <strong>Faster AI Deployment</strong>
-                    <span className="text-green-600 font-bold">30-50%</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-1">Reduced time-to-market through clear processes</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg border">
-                  <div className="flex justify-between items-center">
-                    <strong>Improved AI ROI</strong>
-                    <span className="text-blue-600 font-bold">25-40%</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-1">Better alignment and risk management</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg border">
-                  <div className="flex justify-between items-center">
-                    <strong>Competitive Advantage</strong>
-                    <span className="text-purple-600 font-bold">$1-5M</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-1">Responsible AI as market differentiator</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-12 text-center">
-            <div className="bg-white rounded-lg p-8 inline-block shadow-sm">
-              <h4 className="text-xl font-bold mb-4">Total Annual Business Value</h4>
-              <div className="text-4xl font-bold text-green-600 mb-2">$5-50M+</div>
-              <p className="text-gray-600">Typical enterprise AI governance program ROI</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-700">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Implement World-Class AI Governance?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Our enterprise AI governance experts help you build compliant, ethical, and high-performing AI programs
-          </p>
-          <div className="space-y-4">
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-white">
-              <h3 className="text-lg font-semibold mb-2">🎯 AI Governance Assessment</h3>
-              <p className="text-blue-100">Complete governance maturity assessment and gap analysis</p>
-              <p className="text-sm text-blue-200 mt-2">Starting at $25,000 • 2-week delivery</p>
+      <section className="page-section relative">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
+            <div className="page-card p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <AlertTriangle className="h-6 w-6 text-indigo-600" />
+                <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Comprehensive AI risk management</h2>
+              </div>
+              <div className="grid gap-4 md:grid-cols-3">
+                {riskCategories.map((category) => (
+                  <div key={category.title} className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-5">
+                    <h3 className="mb-4 font-semibold text-slate-950">{category.title}</h3>
+                    <div className="space-y-3">
+                      {category.items.map((item) => (
+                        <div key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-amber-600" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-white">
-              <h3 className="text-lg font-semibold mb-2">🚀 Full Framework Implementation</h3>
-              <p className="text-blue-100">End-to-end AI governance program design and deployment</p>
-              <p className="text-sm text-blue-200 mt-2">$75,000-250,000 • 12-week implementation</p>
+
+            <div className="page-card-soft p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <BarChart3 className="h-6 w-6 text-indigo-600" />
+                <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Risk matrix and responses</h2>
+              </div>
+              <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+                <div className="grid grid-cols-4 border-b border-slate-200 bg-slate-50/80 px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  <div>Likelihood</div>
+                  <div className="text-center">Low impact</div>
+                  <div className="text-center">Medium impact</div>
+                  <div className="text-center">High impact</div>
+                </div>
+                {riskMatrix.map((row, index) => (
+                  <div key={row[0]} className="grid grid-cols-4 border-b border-slate-200 last:border-b-0 px-4 py-4 text-sm text-slate-700">
+                    <div className="font-semibold text-slate-950">{row[0]}</div>
+                    {row.slice(1).map((cell) => (
+                      <div key={`${row[0]}-${cell}-${index}`} className="text-center">
+                        <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-700">
+                          {cell}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                {responseStrategies.map((strategy) => (
+                  <div key={strategy.title} className={`rounded-[1.5rem] border p-4 ${strategy.className}`}>
+                    <div className="mb-1 font-semibold">{strategy.title}</div>
+                    <div className="text-sm leading-6">{strategy.note}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="mt-8">
-            <a href="/contact" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors">
-              Schedule AI Governance Consultation
-            </a>
+        </div>
+      </section>
+
+      <section className="page-section relative border-t border-slate-200/70 bg-[linear-gradient(180deg,rgba(248,250,255,0.75),rgba(255,255,255,0.92))]">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 max-w-3xl">
+            <div className="page-pill mb-4">
+              <Scale className="h-4 w-4 text-[#635bff]" />
+              Responsible AI layer
+            </div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              Ethics still needs formal implementation, not just principles on a slide.
+            </h2>
+            <p className="page-lead text-base md:text-lg">
+              The page continues to cover the original ethics framework and turns it into the same card-and-checklist
+              system used across the rest of the migrated governance cluster.
+            </p>
+          </div>
+
+          <div className="grid gap-6 xl:grid-cols-[1fr_1fr]">
+            <div className="grid gap-4 md:grid-cols-2">
+              {ethicsBlocks.map((block) => (
+                <div key={block.title} className="page-card p-6">
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">{block.title}</h3>
+                  <div className="space-y-3">
+                    {block.items.map((item) => (
+                      <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 text-violet-600" />
+                        <span className="text-sm text-slate-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="page-card-soft p-8">
+              <h3 className="mb-5 text-2xl font-semibold tracking-[-0.04em] text-slate-950">Implementation framework</h3>
+              <div className="space-y-4">
+                {ethicsImplementation.map((block) => (
+                  <div key={block.title} className="rounded-[1.5rem] border border-slate-200 bg-white p-5">
+                    <h4 className="mb-4 font-semibold text-slate-950">{block.title}</h4>
+                    <div className="space-y-3">
+                      {block.items.map((item) => (
+                        <div key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-indigo-600" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap" className="page-section relative">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 max-w-3xl">
+            <div className="page-pill mb-4">
+              <Target className="h-4 w-4 text-[#635bff]" />
+              12-week roadmap
+            </div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              The first operating version of governance can be built in four phases.
+            </h2>
+            <p className="page-lead text-base md:text-lg">
+              This preserves the original 12-week sequence and adapts it to the shared roadmap card format.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {roadmapPhases.map((phase) => (
+              <div key={phase.title} className="page-card p-6">
+                <div className="mb-4 inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-indigo-700">
+                  Roadmap
+                </div>
+                <h3 className="mb-4 text-xl font-semibold text-slate-950">{phase.title}</h3>
+                <div className="space-y-3">
+                  {phase.items.map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-indigo-600" />
+                      <span className="text-sm text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="resources" className="page-section relative border-t border-slate-200/70 bg-white/85">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 max-w-3xl">
+            <div className="page-pill mb-4">
+              <FileText className="h-4 w-4 text-[#635bff]" />
+              Tools and resources
+            </div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              Governance work only sticks when teams have templates, policies, and monitoring assets.
+            </h2>
+            <p className="page-lead text-base md:text-lg">
+              The original resource lists remain intact here, organized into the current SitePilot resource-card system.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {resources.map((resource) => (
+              <div key={resource.title} className="page-card-soft p-6">
+                <h3 className="mb-4 text-xl font-semibold text-slate-950">{resource.title}</h3>
+                <div className="space-y-3">
+                  {resource.items.map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-indigo-600" />
+                      <span className="text-sm text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="value" className="page-section relative">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 max-w-3xl">
+            <div className="page-pill mb-4">
+              <BarChart3 className="h-4 w-4 text-[#635bff]" />
+              ROI and business value
+            </div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              Governance should be justified as both risk reduction and value creation.
+            </h2>
+            <p className="page-lead text-base md:text-lg">
+              These figures preserve the original cost-avoidance and value-creation framing in a cleaner comparison layout.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {valueCards.map((card) => (
+              <div key={card.title} className="page-card p-6">
+                <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">{card.title}</div>
+                <div className="mb-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">{card.value}</div>
+                <p className="text-sm leading-6 text-slate-600">{card.note}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section relative border-t border-slate-200/70 bg-white/85">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="page-card-glow p-6 md:p-8">
+            <div className="mb-8 max-w-3xl">
+              <div className="page-pill mb-4">
+                <ArrowRight className="h-4 w-4 text-[#635bff]" />
+                Related resources
+              </div>
+              <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+                Keep the governance cluster connected.
+              </h2>
+              <p className="page-lead text-base md:text-lg">
+                Internal navigation stays intact so this page still routes readers into adjacent governance,
+                compliance, and monitoring resources.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {relatedResources.map((resource) => (
+                <Link
+                  key={resource.href}
+                  href={resource.href}
+                  className="page-card flex h-full items-start gap-4 p-5 transition hover:-translate-y-0.5 hover:border-indigo-200"
+                >
+                  <div className="rounded-2xl border border-indigo-200 bg-indigo-50 p-3">
+                    <Shield className="h-5 w-5 text-indigo-600" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-lg font-semibold text-slate-950">{resource.title}</h3>
+                    <p className="text-sm leading-6 text-slate-600">{resource.description}</p>
+                  </div>
+                  <ArrowRight className="mt-1 h-4 w-4 text-slate-400" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section relative pt-0">
+        <div className="mx-auto max-w-7xl px-4 pb-16">
+          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-[linear-gradient(135deg,#1e293b_0%,#312e81_48%,#0f172a_100%)] px-6 py-10 text-white shadow-[0_30px_80px_rgba(15,23,42,0.18)] md:px-10">
+            <div className="max-w-3xl">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-100">
+                Advisory support
+              </div>
+              <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
+                Governance is easier to scale when approvals, evidence, and risk decisions are designed together.
+              </h2>
+              <p className="mb-8 max-w-2xl text-base leading-7 text-slate-200 md:text-lg">
+                Teams can use this framework alongside SitePilot governance and assessment pages to scope maturity work,
+                close policy gaps, and prepare for enterprise rollout or audit review.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-brand">
+                  Schedule governance consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/ai-compliance-readiness-assessment-2026" className="btn-secondary">
+                  Check readiness
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

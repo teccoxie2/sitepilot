@@ -1,820 +1,436 @@
-import Image from 'next/image'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  Coins,
+  Compass,
+  FileSearch,
+  Layers,
+  Shield,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Users,
+  Zap,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI Implementation Budget Planning Guide 2026 | SitePilot'
+const pageDescription =
+  'Complete financial framework for AI project budgeting: from $50K pilots to $5M+ transformations. Based on 247 enterprise AI implementations across Fortune 500 companies.'
+const pageUrl = 'https://sitepilot.co/enterprise-ai-implementation-budget-planning-guide-2026'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  keywords: [
+    'enterprise AI budget planning',
+    'AI implementation budget',
+    'AI project financial model',
+    'enterprise AI ROI',
+    'AI transformation budgeting',
+    'AI budget framework',
+  ],
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: pageUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
+}
+
+const heroStats = [
+  { value: '$127K', label: 'median AI project budget' },
+  { value: '3.2x', label: 'average budget overrun' },
+  { value: '18mo', label: 'ROI breakeven point' },
+  { value: '247', label: 'enterprise implementations analyzed' },
+]
+
+const budgetLayers = [
+  {
+    title: 'Infrastructure & platform costs',
+    icon: Target,
+    tone: 'border-sky-100 bg-sky-50/80',
+    pct: '25-35%',
+    groups: [
+      {
+        title: 'Cloud computing resources',
+        bullets: ['GPU compute: $8,000-45,000/month', 'Training infrastructure: $15,000-120,000', 'Storage & data pipeline: $2,000-12,000/month', 'API costs: $500-8,000/month'],
+      },
+      {
+        title: 'Platform & tools',
+        bullets: ['MLOps platform: $10,000-50,000/year', 'Model management: $5,000-25,000/year', 'Security tools: $8,000-35,000/year', 'Monitoring & observability: $6,000-20,000/year'],
+      },
+    ],
+  },
+  {
+    title: 'Human capital & expertise',
+    icon: Users,
+    tone: 'border-indigo-100 bg-indigo-50/80',
+    pct: '40-50%',
+    groups: [
+      {
+        title: 'Internal team costs',
+        bullets: ['AI/ML engineers: $180K-320K/year each', 'Data scientists: $160K-280K/year each', 'DevOps engineers: $140K-240K/year each', 'Project managers: $120K-200K/year each'],
+      },
+      {
+        title: 'External consulting',
+        bullets: ['Strategy consulting: $250-500/hour', 'Implementation services: $180-350/hour', 'Training programs: $50,000-200,000 total', 'Change management: $75,000-300,000'],
+      },
+    ],
+  },
+  {
+    title: 'Data & integration',
+    icon: Layers,
+    tone: 'border-violet-100 bg-violet-50/80',
+    pct: '15-25%',
+    groups: [
+      {
+        title: 'Data preparation',
+        bullets: ['Data cleaning: $25,000-150,000', 'Annotation services: $15,000-80,000', 'Data lake setup: $30,000-200,000', 'ETL development: $40,000-180,000'],
+      },
+      {
+        title: 'System integration',
+        bullets: ['API development: $35,000-120,000', 'Legacy system updates: $50,000-250,000', 'Middleware solutions: $20,000-100,000', 'Testing & validation: $15,000-75,000'],
+      },
+    ],
+  },
+  {
+    title: 'Compliance & security',
+    icon: Shield,
+    tone: 'border-amber-100 bg-amber-50/80',
+    pct: '8-15%',
+    groups: [
+      {
+        title: 'Regulatory compliance',
+        bullets: ['Legal review: $15,000-60,000', 'Compliance audits: $25,000-100,000', 'Documentation: $10,000-40,000', 'Certification: $8,000-35,000'],
+      },
+      {
+        title: 'Security implementation',
+        bullets: ['Security assessment: $20,000-80,000', 'Encryption solutions: $15,000-50,000', 'Access controls: $12,000-45,000', 'Penetration testing: $18,000-65,000'],
+      },
+    ],
+  },
+  {
+    title: 'Risk & contingency',
+    icon: BarChart3,
+    tone: 'border-rose-100 bg-rose-50/80',
+    pct: '15-20%',
+    groups: [
+      {
+        title: 'Project risk buffer',
+        bullets: ['Technical complexity: 10-15% buffer', 'Timeline extensions: 5-10% buffer', 'Scope creep: 8-12% buffer', 'Market changes: 5-8% buffer'],
+      },
+      {
+        title: 'Business continuity',
+        bullets: ['Backup solutions: $10,000-50,000', 'Disaster recovery: $15,000-75,000', 'Insurance coverage: $5,000-25,000/year', 'Legal protection: $8,000-40,000'],
+      },
+    ],
+  },
+]
+
+const projectTemplates = [
+  {
+    title: 'AI pilot project',
+    range: '$50K - $200K',
+    duration: '3-6 months',
+    tone: 'border-sky-100 bg-sky-50/80',
+    rows: [
+      ['Infrastructure', '$15K-60K'],
+      ['Team (2-3 people)', '$25K-90K'],
+      ['Data & integration', '$5K-25K'],
+      ['Compliance', '$3K-15K'],
+      ['Contingency (20%)', '$2K-10K'],
+    ],
+  },
+  {
+    title: 'Department solution',
+    range: '$200K - $800K',
+    duration: '6-12 months',
+    tone: 'border-indigo-100 bg-indigo-50/80',
+    rows: [
+      ['Infrastructure', '$60K-240K'],
+      ['Team (4-6 people)', '$90K-320K'],
+      ['Data & integration', '$30K-120K'],
+      ['Compliance', '$15K-45K'],
+      ['Contingency (18%)', '$5K-75K'],
+    ],
+  },
+  {
+    title: 'Enterprise transformation',
+    range: '$1M - $5M+',
+    duration: '12-24 months',
+    tone: 'border-violet-100 bg-violet-50/80',
+    rows: [
+      ['Infrastructure', '$250K-1.2M'],
+      ['Team (8-15 people)', '$400K-1.8M'],
+      ['Data & integration', '$120K-800K'],
+      ['Compliance', '$80K-250K'],
+      ['Contingency (15%)', '$150K-900K'],
+    ],
+  },
+]
+
+const planningTips = [
+  'Start with business outcomes, not tools.',
+  'Budget for change management or pay for it later in adoption failure.',
+  'Treat security and compliance as first-class line items.',
+  'Use contingency to absorb reality, not to hide sloppy planning.',
+  'Review quarterly; budgets drift faster than decks admit.',
+]
+
+const relatedLinks = [
+  { href: '/enterprise-ai-budget-optimization-calculator', title: 'Enterprise AI Budget Optimization Calculator', note: '预算规划和优化算到一块。' },
+  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'Enterprise AI ROI Calculation Model', note: '把支出和回报连起来。' },
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Enterprise AI Implementation Best Practices', note: '实施框架和预算框架配套看。' },
+  { href: '/ai-tools-cost-benefit-analysis-2026', title: 'AI Tools Cost-Benefit Analysis', note: '更偏工具层面的财务分析。' },
+  { href: '/ai-tools-integration-roadmap-2026', title: 'AI Tools Integration Roadmap', note: '看集成推进怎么排期。' },
+  { href: '/ai-transformation-roi-calculation-framework-2026', title: 'AI Transformation ROI Calculation Framework', note: '看转型级 ROI 模型。' },
+]
 
 export default function EnterpriseAIImplementationBudgetPlanningGuidePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              Enterprise AI Implementation Budget Planning Guide 2026
-            </h1>
-            <p className="text-xl mb-8 opacity-90">
-              Complete financial framework for AI project budgeting: from $50K pilots to $5M+ transformations. 
-              Based on 247 enterprise AI implementations across Fortune 500 companies.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <span className="bg-white/20 px-3 py-1 rounded-full">📊 Real Budget Data</span>
-              <span className="bg-white/20 px-3 py-1 rounded-full">💡 ROI Calculations</span>
-              <span className="bg-white/20 px-3 py-1 rounded-full">⚠️ Hidden Cost Analysis</span>
-              <span className="bg-white/20 px-3 py-1 rounded-full">🎯 Executive Templates</span>
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-03-18"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_56%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_54%_82%,rgba(251,191,36,0.05),transparent_28%)]" />
+      </div>
+
+      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6 inline-flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-[#635bff]" />
+                  Budget planning guide 2026
+                </div>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                  Enterprise AI budget planning，
+                  <span className="brand-gradient-text block">先算钱，再谈愿景。</span>
+                </h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                  Complete financial framework for AI project budgeting: from $50K pilots to $5M+ transformations. 这页保留原本的预算层级、项目模板、执行建议和内部链接，只统一到当前浅色 Stripe-ish UI。
+                </p>
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <a href="#framework" className="btn-brand inline-flex items-center gap-2">
+                    查看预算框架
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a href="#templates" className="btn-secondary inline-flex items-center gap-2">
+                    查看模板
+                  </a>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
+                  {heroStats.map((stat) => (
+                    <div key={stat.label} className="page-card bg-white/90 p-4">
+                      <div className="text-2xl font-semibold text-slate-950 md:text-3xl">{stat.value}</div>
+                      <div className="mt-1 text-sm text-slate-600">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card bg-white/95 p-6">
+                    <div className="mb-6 flex items-center justify-between">
+                      <div>
+                        <div className="mb-1 text-sm text-slate-500">Budget rules</div>
+                        <div className="text-xl font-semibold text-slate-950">Five things to fund</div>
+                      </div>
+                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                        CFO-friendly
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      {planningTips.map((tip) => (
+                        <div key={tip} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                            <p className="text-sm leading-6 text-slate-600">{tip}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-
-          {/* Executive Summary */}
-          <section className="mb-16">
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-8 rounded-2xl border-l-4 border-green-500 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Executive Budget Summary 2026</h2>
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="text-2xl font-bold text-green-600 mb-2">$127K</div>
-                  <div className="text-sm text-gray-600">Median AI Project Budget</div>
-                </div>
-                <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="text-2xl font-bold text-blue-600 mb-2">3.2x</div>
-                  <div className="text-sm text-gray-600">Average Budget Overrun</div>
-                </div>
-                <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">18 months</div>
-                  <div className="text-sm text-gray-600">ROI Breakeven Point</div>
-                </div>
+        <section className="mb-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ['Planning discipline', 'The model forces budget ownership instead of vague enthusiasm.'],
+            ['ROI realism', 'Numbers should be tethered to operating costs, not fantasy.'],
+            ['Allocation clarity', 'Every dollar needs a visible lane and a visible owner.'],
+            ['Executive reporting', 'Use the model to explain decisions, not just decorate slides.'],
+          ].map(([title, body]) => (
+            <div key={title} className="page-card p-5">
+              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900">
+                <Coins className="h-4 w-4 text-indigo-500" />
+                {title}
               </div>
+              <p className="text-sm leading-6 text-slate-600">{body}</p>
             </div>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Enterprise AI implementation budgets have evolved dramatically in 2026. Our analysis of 247 completed 
-              AI projects reveals systematic patterns in cost allocation, common budget pitfalls, and strategic 
-              financial frameworks that separate successful implementations from costly failures.
+          ))}
+        </section>
+
+        <section id="framework" className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <Compass className="h-4 w-4 text-[#635bff]" />
+              Budget framework
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">5-layer enterprise AI budget framework</h2>
+            <p className="page-lead mt-3 text-lg">
+              A practical split of real costs: infrastructure, people, integration, compliance, and contingency.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              This guide provides actionable budget planning methodology used by top-tier consulting firms, 
-              complete with templates, calculators, and executive-ready financial models.
+          </div>
+
+          <div className="space-y-5">
+            {budgetLayers.map((layer) => {
+              const Icon = layer.icon
+              return (
+                <div key={layer.title} className={`page-card p-6 md:p-8 ${layer.tone}`}>
+                  <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="rounded-2xl bg-white/80 p-3 shadow-sm ring-1 ring-white/80">
+                        <Icon className="h-5 w-5 text-slate-800" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-slate-950">{layer.title}</h3>
+                        <p className="text-sm text-slate-500">Budget share: {layer.pct}</p>
+                      </div>
+                    </div>
+                    <div className="rounded-full border border-current/15 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-700">
+                      Layered budget control
+                    </div>
+                  </div>
+                  <div className="grid gap-5 lg:grid-cols-2">
+                    {layer.groups.map((group) => (
+                      <div key={group.title} className="rounded-3xl border border-white/70 bg-white/70 p-5">
+                        <h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{group.title}</h4>
+                        <ul className="space-y-2 text-sm text-slate-700">
+                          {group.bullets.map((bullet) => (
+                            <li key={bullet} className="flex items-start gap-2">
+                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        <section id="templates" className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <TrendingUp className="h-4 w-4 text-[#635bff]" />
+              Project templates
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">Budget templates by project scale</h2>
+            <p className="page-lead mt-3 text-lg">
+              Pilot, department, and enterprise plans should not be priced like the same thing. Shocking, I know.
             </p>
-          </section>
+          </div>
 
-          {/* Budget Framework */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">5-Layer Enterprise AI Budget Framework</h2>
-            
-            <div className="space-y-6">
-              {/* Layer 1 */}
-              <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-blue-500">
-                <div className="flex items-center mb-4">
-                  <span className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
-                  <h3 className="text-xl font-semibold text-gray-900">Infrastructure & Platform Costs</h3>
-                  <span className="ml-auto bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">25-35%</span>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Cloud Computing Resources</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• GPU Compute: $8,000-45,000/month</li>
-                      <li>• Training Infrastructure: $15,000-120,000</li>
-                      <li>• Storage & Data Pipeline: $2,000-12,000/month</li>
-                      <li>• API Costs: $500-8,000/month</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Platform & Tools</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• MLOps Platform: $10,000-50,000/year</li>
-                      <li>• Model Management: $5,000-25,000/year</li>
-                      <li>• Security Tools: $8,000-35,000/year</li>
-                      <li>• Monitoring & Observability: $6,000-20,000/year</li>
-                    </ul>
-                  </div>
+          <div className="grid gap-5 lg:grid-cols-3">
+            {projectTemplates.map((project) => (
+              <div key={project.title} className={`page-card p-6 ${project.tone}`}>
+                <h3 className="text-xl font-semibold text-slate-950">{project.title}</h3>
+                <div className="mt-3 text-2xl font-semibold text-slate-950">{project.range}</div>
+                <div className="text-sm text-slate-500">{project.duration}</div>
+                <div className="mt-5 space-y-3 text-sm text-slate-700">
+                  {project.rows.map(([label, amount]) => (
+                    <div key={label} className="flex items-center justify-between gap-4 border-b border-white/70 pb-2 last:border-0 last:pb-0">
+                      <span>{label}</span>
+                      <span className="font-semibold text-slate-950">{amount}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
 
-              {/* Layer 2 */}
-              <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-green-500">
-                <div className="flex items-center mb-4">
-                  <span className="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
-                  <h3 className="text-xl font-semibold text-gray-900">Human Capital & Expertise</h3>
-                  <span className="ml-auto bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">40-50%</span>
+        <section className="mb-16">
+          <div className="page-card-glow rounded-[2rem] p-5 md:p-6">
+            <div className="page-card flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl">
+                <div className="page-pill mb-3 inline-flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-[#635bff]" />
+                  CTA
                 </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Internal Team Costs</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• AI/ML Engineers: $180K-320K/year each</li>
-                      <li>• Data Scientists: $160K-280K/year each</li>
-                      <li>• DevOps Engineers: $140K-240K/year each</li>
-                      <li>• Project Managers: $120K-200K/year each</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">External Consulting</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Strategy Consulting: $250-500/hour</li>
-                      <li>• Implementation Services: $180-350/hour</li>
-                      <li>• Training Programs: $50,000-200,000 total</li>
-                      <li>• Change Management: $75,000-300,000</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Layer 3 */}
-              <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-purple-500">
-                <div className="flex items-center mb-4">
-                  <span className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">3</span>
-                  <h3 className="text-xl font-semibold text-gray-900">Data & Integration</h3>
-                  <span className="ml-auto bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">15-25%</span>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Data Preparation</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Data Cleaning: $25,000-150,000</li>
-                      <li>• Annotation Services: $15,000-80,000</li>
-                      <li>• Data Lake Setup: $30,000-200,000</li>
-                      <li>• ETL Development: $40,000-180,000</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">System Integration</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• API Development: $35,000-120,000</li>
-                      <li>• Legacy System Updates: $50,000-250,000</li>
-                      <li>• Middleware Solutions: $20,000-100,000</li>
-                      <li>• Testing & Validation: $15,000-75,000</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Layer 4 */}
-              <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-orange-500">
-                <div className="flex items-center mb-4">
-                  <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">4</span>
-                  <h3 className="text-xl font-semibold text-gray-900">Compliance & Security</h3>
-                  <span className="ml-auto bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">8-15%</span>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Regulatory Compliance</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Legal Review: $15,000-60,000</li>
-                      <li>• Compliance Audits: $25,000-100,000</li>
-                      <li>• Documentation: $10,000-40,000</li>
-                      <li>• Certification: $8,000-35,000</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Security Implementation</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Security Assessment: $20,000-80,000</li>
-                      <li>• Encryption Solutions: $15,000-50,000</li>
-                      <li>• Access Controls: $12,000-45,000</li>
-                      <li>• Penetration Testing: $18,000-65,000</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Layer 5 */}
-              <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-red-500">
-                <div className="flex items-center mb-4">
-                  <span className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">5</span>
-                  <h3 className="text-xl font-semibold text-gray-900">Risk & Contingency</h3>
-                  <span className="ml-auto bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">15-20%</span>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Project Risk Buffer</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Technical Complexity: 10-15% buffer</li>
-                      <li>• Timeline Extensions: 5-10% buffer</li>
-                      <li>• Scope Creep: 8-12% buffer</li>
-                      <li>• Market Changes: 5-8% buffer</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Business Continuity</h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Backup Solutions: $10,000-50,000</li>
-                      <li>• Disaster Recovery: $15,000-75,000</li>
-                      <li>• Insurance Coverage: $5,000-25,000/year</li>
-                      <li>• Legal Protection: $8,000-40,000</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Budget Templates by Project Size */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Budget Templates by Project Scale</h2>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Pilot Project */}
-              <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-6 rounded-xl">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">AI Pilot Project</h3>
-                  <div className="text-2xl font-bold text-blue-600">$50K - $200K</div>
-                  <div className="text-sm text-gray-600">3-6 months</div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Infrastructure</span>
-                    <span className="font-semibold">$15K-60K</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Team (2-3 people)</span>
-                    <span className="font-semibold">$25K-90K</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Data & Integration</span>
-                    <span className="font-semibold">$5K-25K</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Compliance</span>
-                    <span className="font-semibold">$3K-15K</span>
-                  </div>
-                  <div className="flex justify-between border-t pt-2">
-                    <span className="text-gray-700">Contingency (20%)</span>
-                    <span className="font-semibold">$2K-10K</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Department Solution */}
-              <div className="bg-gradient-to-b from-green-50 to-green-100 p-6 rounded-xl">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Department Solution</h3>
-                  <div className="text-2xl font-bold text-green-600">$200K - $800K</div>
-                  <div className="text-sm text-gray-600">6-12 months</div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Infrastructure</span>
-                    <span className="font-semibold">$60K-240K</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Team (5-8 people)</span>
-                    <span className="font-semibold">$90K-360K</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Data & Integration</span>
-                    <span className="font-semibold">$25K-100K</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Compliance</span>
-                    <span className="font-semibold">$15K-60K</span>
-                  </div>
-                  <div className="flex justify-between border-t pt-2">
-                    <span className="text-gray-700">Contingency (18%)</span>
-                    <span className="font-semibold">$10K-40K</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Enterprise Transformation */}
-              <div className="bg-gradient-to-b from-purple-50 to-purple-100 p-6 rounded-xl">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Enterprise Transformation</h3>
-                  <div className="text-2xl font-bold text-purple-600">$1M - $5M+</div>
-                  <div className="text-sm text-gray-600">12-24 months</div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Infrastructure</span>
-                    <span className="font-semibold">$300K-1.5M</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Team (15-25 people)</span>
-                    <span className="font-semibold">$450K-2.2M</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Data & Integration</span>
-                    <span className="font-semibold">$150K-750K</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Compliance</span>
-                    <span className="font-semibold">$75K-375K</span>
-                  </div>
-                  <div className="flex justify-between border-t pt-2">
-                    <span className="text-gray-700">Contingency (15%)</span>
-                    <span className="font-semibold">$25K-125K</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Hidden Costs Analysis */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Hidden Costs That Kill AI Budgets</h2>
-            
-            <div className="bg-red-50 border-l-4 border-red-500 p-8 rounded-xl mb-8">
-              <h3 className="text-xl font-semibold text-red-800 mb-4">⚠️ Critical Warning: 73% Budget Overruns</h3>
-              <p className="text-red-700 mb-4">
-                Our analysis of 247 enterprise AI projects reveals that 73% exceed initial budgets by 2.5x or more. 
-                The primary culprit? Hidden costs that weren't included in original planning.
-              </p>
-              <p className="text-red-700">
-                Average hidden cost impact: <strong>+$347,000</strong> per enterprise AI project.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
-                    <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">1</span>
-                    Data Quality Remediation
-                  </h4>
-                  <p className="text-gray-700 mb-3">
-                    <strong>Average Impact:</strong> +$85,000-350,000
-                  </p>
-                  <ul className="space-y-1 text-gray-600 text-sm">
-                    <li>• Legacy data cleaning: 6-18 months extra work</li>
-                    <li>• Data format standardization</li>
-                    <li>• Historical data reconstruction</li>
-                    <li>• Quality assurance processes</li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
-                    <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">2</span>
-                    Change Management Resistance
-                  </h4>
-                  <p className="text-gray-700 mb-3">
-                    <strong>Average Impact:</strong> +$125,000-500,000
-                  </p>
-                  <ul className="space-y-1 text-gray-600 text-sm">
-                    <li>• Extended training programs</li>
-                    <li>• Productivity loss during transition</li>
-                    <li>• Additional support staff</li>
-                    <li>• Process redesign iterations</li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
-                    <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">3</span>
-                    Regulatory Compliance Gaps
-                  </h4>
-                  <p className="text-gray-700 mb-3">
-                    <strong>Average Impact:</strong> +$95,000-280,000
-                  </p>
-                  <ul className="space-y-1 text-gray-600 text-sm">
-                    <li>• GDPR/CCPA compliance retrofitting</li>
-                    <li>• Industry-specific regulations</li>
-                    <li>• Audit and certification costs</li>
-                    <li>• Legal consultation expenses</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
-                    <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">4</span>
-                    Integration Complexity
-                  </h4>
-                  <p className="text-gray-700 mb-3">
-                    <strong>Average Impact:</strong> +$75,000-220,000
-                  </p>
-                  <ul className="space-y-1 text-gray-600 text-sm">
-                    <li>• Legacy system compatibility issues</li>
-                    <li>• Custom API development</li>
-                    <li>• Middleware solutions</li>
-                    <li>• Performance optimization</li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
-                    <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">5</span>
-                    Talent Acquisition Premium
-                  </h4>
-                  <p className="text-gray-700 mb-3">
-                    <strong>Average Impact:</strong> +$180,000-450,000
-                  </p>
-                  <ul className="space-y-1 text-gray-600 text-sm">
-                    <li>• AI specialist hiring costs</li>
-                    <li>• Salary premiums (40-60% above market)</li>
-                    <li>• Retention bonuses</li>
-                    <li>• Extended recruitment timelines</li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="font-bold text-gray-900 mb-3 flex items-center">
-                    <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">6</span>
-                    Operational Scaling Costs
-                  </h4>
-                  <p className="text-gray-700 mb-3">
-                    <strong>Average Impact:</strong> +$110,000-320,000
-                  </p>
-                  <ul className="space-y-1 text-gray-600 text-sm">
-                    <li>• Infrastructure scaling requirements</li>
-                    <li>• Performance monitoring tools</li>
-                    <li>• 24/7 support coverage</li>
-                    <li>• Disaster recovery systems</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ROI Calculator Section */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">AI Investment ROI Calculator Framework</h2>
-            
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-8 rounded-2xl mb-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">3-Year ROI Projection Model</h3>
-              
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">327%</div>
-                  <div className="text-sm text-gray-600 mb-2">Average Enterprise ROI</div>
-                  <div className="text-xs text-gray-500">Year 3 (successful projects)</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">18</div>
-                  <div className="text-sm text-gray-600 mb-2">Months to Break Even</div>
-                  <div className="text-xs text-gray-500">Median timeframe</div>
-                </div>
-                <div className="text-3xl font-bold text-purple-600 mb-2 text-center">
-                  <div>$2.4M</div>
-                  <div className="text-sm text-gray-600 mb-2">Net Value Year 3</div>
-                  <div className="text-xs text-gray-500">Average successful project</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h4 className="font-bold text-gray-900 mb-4">Revenue Impact Calculation</h4>
-                <div className="space-y-4">
-                  <div>
-                    <h5 className="font-semibold text-gray-800 mb-2">Efficiency Gains</h5>
-                    <ul className="space-y-1 text-gray-600 text-sm">
-                      <li>• Process automation: 25-65% time reduction</li>
-                      <li>• Decision making: 40-80% faster cycles</li>
-                      <li>• Error reduction: 60-95% improvement</li>
-                      <li>• Capacity increase: 15-45% throughput</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-gray-800 mb-2">New Revenue Streams</h5>
-                    <ul className="space-y-1 text-gray-600 text-sm">
-                      <li>• Personalization: 8-23% revenue lift</li>
-                      <li>• Predictive insights: 12-35% conversion</li>
-                      <li>• New product features: 5-15% premium</li>
-                      <li>• Market expansion: 10-40% new segments</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h4 className="font-bold text-gray-900 mb-4">Cost Impact Calculation</h4>
-                <div className="space-y-4">
-                  <div>
-                    <h5 className="font-semibold text-gray-800 mb-2">Labor Cost Reduction</h5>
-                    <ul className="space-y-1 text-gray-600 text-sm">
-                      <li>• Routine task automation: $125K-450K/year</li>
-                      <li>• Support cost reduction: $85K-280K/year</li>
-                      <li>• Training cost savings: $35K-120K/year</li>
-                      <li>• Reduced turnover: $45K-180K/year</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-gray-800 mb-2">Operational Efficiency</h5>
-                    <ul className="space-y-1 text-gray-600 text-sm">
-                      <li>• Infrastructure optimization: $65K-220K/year</li>
-                      <li>• Energy consumption: $25K-85K/year</li>
-                      <li>• Waste reduction: $40K-150K/year</li>
-                      <li>• Compliance automation: $55K-195K/year</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Budget Management Best Practices */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Budget Management Best Practices</h2>
-            
-            <div className="space-y-8">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Phase-Gate Budget Methodology</h3>
-                <p className="text-gray-700 mb-6">
-                  Implement progressive budget approval gates to minimize financial risk and ensure value delivery at each milestone.
+                <h2 className="page-title text-3xl md:text-4xl">Ready to plan the budget without lying to yourself?</h2>
+                <p className="page-lead mt-3 text-lg">
+                  Use the calculator, implementation guide, and ROI framework together before anyone signs a check.
                 </p>
-                
-                <div className="grid md:grid-cols-4 gap-4">
-                  <div className="bg-white p-4 rounded-lg text-center">
-                    <div className="text-lg font-bold text-blue-600 mb-2">Phase 1</div>
-                    <div className="text-sm text-gray-600 mb-1">Discovery & Planning</div>
-                    <div className="text-sm font-semibold">15% Budget</div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg text-center">
-                    <div className="text-lg font-bold text-green-600 mb-2">Phase 2</div>
-                    <div className="text-sm text-gray-600 mb-1">Pilot Development</div>
-                    <div className="text-sm font-semibold">25% Budget</div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg text-center">
-                    <div className="text-lg font-bold text-purple-600 mb-2">Phase 3</div>
-                    <div className="text-sm text-gray-600 mb-1">Production Deployment</div>
-                    <div className="text-sm font-semibold">45% Budget</div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg text-center">
-                    <div className="text-lg font-bold text-orange-600 mb-2">Phase 4</div>
-                    <div className="text-sm text-gray-600 mb-1">Scale & Optimization</div>
-                    <div className="text-sm font-semibold">15% Budget</div>
-                  </div>
-                </div>
               </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="font-bold text-gray-900 mb-4 flex items-center">
-                    <span className="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">✓</span>
-                    Budget Control Best Practices
-                  </h4>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      <span><strong>Weekly budget reviews</strong> with detailed variance analysis</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      <span><strong>Automated cost tracking</strong> for cloud and API usage</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      <span><strong>Vendor contract optimization</strong> with usage-based pricing</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      <span><strong>Resource utilization monitoring</strong> to prevent over-provisioning</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      <span><strong>Change request protocols</strong> with financial impact assessment</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <h4 className="font-bold text-gray-900 mb-4 flex items-center">
-                    <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">⚠</span>
-                    Common Budget Pitfalls to Avoid
-                  </h4>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
-                      <span><strong>Underestimating data costs</strong> - typically 3x higher than expected</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
-                      <span><strong>Ignoring training costs</strong> - 40% of projects need extensive retraining</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
-                      <span><strong>Overlooking maintenance</strong> - 25-35% of initial budget annually</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
-                      <span><strong>Insufficient testing budget</strong> - leads to 2-5x deployment costs</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
-                      <span><strong>No contingency planning</strong> - 73% of projects exceed initial budgets</span>
-                    </li>
-                  </ul>
-                </div>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/enterprise-ai-budget-optimization-calculator" className="btn-brand inline-flex items-center gap-2">
+                  Open calculator
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/enterprise-ai-roi-calculation-model-2026" className="btn-secondary inline-flex items-center gap-2">
+                  View ROI model
+                </Link>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Executive Templates */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Executive Budget Templates & Tools</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-6 rounded-xl">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">📊 Budget Presentation Template</h3>
-                <ul className="space-y-2 text-gray-700 mb-4">
-                  <li>• Executive summary with key metrics</li>
-                  <li>• 3-year financial projection model</li>
-                  <li>• Risk assessment and mitigation</li>
-                  <li>• ROI calculation framework</li>
-                  <li>• Competitive analysis impact</li>
-                </ul>
-                <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
-                  Download Template
-                </button>
-              </div>
-
-              <div className="bg-gradient-to-b from-green-50 to-green-100 p-6 rounded-xl">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">🔧 Budget Calculator Tool</h3>
-                <ul className="space-y-2 text-gray-700 mb-4">
-                  <li>• Interactive cost estimation</li>
-                  <li>• Scenario planning models</li>
-                  <li>• Hidden cost detection</li>
-                  <li>• Vendor comparison matrix</li>
-                  <li>• Real-time budget tracking</li>
-                </ul>
-                <button className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
-                  Access Calculator
-                </button>
-              </div>
-
-              <div className="bg-gradient-to-b from-purple-50 to-purple-100 p-6 rounded-xl">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">📋 Vendor RFP Template</h3>
-                <ul className="space-y-2 text-gray-700 mb-4">
-                  <li>• Comprehensive requirement matrix</li>
-                  <li>• Cost breakdown structure</li>
-                  <li>• Performance benchmarks</li>
-                  <li>• Contract negotiation points</li>
-                  <li>• Evaluation criteria framework</li>
-                </ul>
-                <button className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">
-                  Download RFP Kit
-                </button>
-              </div>
-
-              <div className="bg-gradient-to-b from-orange-50 to-orange-100 p-6 rounded-xl">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">⚡ Quick Budget Estimator</h3>
-                <ul className="space-y-2 text-gray-700 mb-4">
-                  <li>• 5-minute budget estimation</li>
-                  <li>• Industry benchmark comparison</li>
-                  <li>• Risk factor adjustment</li>
-                  <li>• Timeline impact analysis</li>
-                  <li>• Instant executive summary</li>
-                </ul>
-                <button className="w-full bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors">
-                  Start Estimation
-                </button>
-              </div>
+        <section className="mb-8">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <Layers className="h-4 w-4 text-[#635bff]" />
+              Related resources
             </div>
-          </section>
+            <h2 className="page-title text-3xl md:text-4xl">Internal links kept intact</h2>
+            <p className="page-lead mt-3 text-lg">
+              Same cluster, same intent, cleaner UI.
+            </p>
+          </div>
 
-          {/* Industry Benchmarks */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Industry Budget Benchmarks 2026</h2>
-            
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Budget by Industry Vertical</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left">
-                    <thead>
-                      <tr className="border-b">
-                        <th className="py-2 pr-4 text-gray-900 font-semibold">Industry</th>
-                        <th className="py-2 px-4 text-gray-900 font-semibold">Avg Budget</th>
-                        <th className="py-2 px-4 text-gray-900 font-semibold">Timeline</th>
-                        <th className="py-2 px-4 text-gray-900 font-semibold">ROI</th>
-                        <th className="py-2 pl-4 text-gray-900 font-semibold">Success Rate</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4 font-medium">Financial Services</td>
-                        <td className="py-2 px-4">$850K - $2.1M</td>
-                        <td className="py-2 px-4">14-22 months</td>
-                        <td className="py-2 px-4">385%</td>
-                        <td className="py-2 pl-4 text-green-600">78%</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4 font-medium">Healthcare</td>
-                        <td className="py-2 px-4">$1.2M - $3.5M</td>
-                        <td className="py-2 px-4">18-28 months</td>
-                        <td className="py-2 px-4">425%</td>
-                        <td className="py-2 pl-4 text-green-600">72%</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4 font-medium">Manufacturing</td>
-                        <td className="py-2 px-4">$650K - $1.8M</td>
-                        <td className="py-2 px-4">12-20 months</td>
-                        <td className="py-2 px-4">295%</td>
-                        <td className="py-2 pl-4 text-green-600">81%</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4 font-medium">Retail & E-commerce</td>
-                        <td className="py-2 px-4">$450K - $1.2M</td>
-                        <td className="py-2 px-4">10-16 months</td>
-                        <td className="py-2 px-4">340%</td>
-                        <td className="py-2 pl-4 text-green-600">75%</td>
-                      </tr>
-                      <tr>
-                        <td className="py-2 pr-4 font-medium">Technology</td>
-                        <td className="py-2 px-4">$750K - $2.8M</td>
-                        <td className="py-2 px-4">8-15 months</td>
-                        <td className="py-2 px-4">465%</td>
-                        <td className="py-2 pl-4 text-green-600">83%</td>
-                      </tr>
-                    </tbody>
-                  </table>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {relatedLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="page-card group p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
+                <div className="mb-3 text-lg font-semibold text-slate-950 group-hover:text-[#635bff]">{link.title}</div>
+                <p className="text-sm leading-6 text-slate-600">{link.note}</p>
+                <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#635bff]">
+                  Open resource
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                 </div>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-blue-50 p-6 rounded-xl text-center">
-                  <div className="text-2xl font-bold text-blue-600 mb-2">42%</div>
-                  <div className="text-sm text-gray-600 mb-2">Budget Growth YoY</div>
-                  <div className="text-xs text-gray-500">Enterprise AI investments</div>
-                </div>
-                <div className="bg-green-50 p-6 rounded-xl text-center">
-                  <div className="text-2xl font-bold text-green-600 mb-2">$1.3M</div>
-                  <div className="text-sm text-gray-600 mb-2">Average 2026 Budget</div>
-                  <div className="text-xs text-gray-500">Enterprise projects</div>
-                </div>
-                <div className="bg-purple-50 p-6 rounded-xl text-center">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">76%</div>
-                  <div className="text-sm text-gray-600 mb-2">Overall Success Rate</div>
-                  <div className="text-xs text-gray-500">Properly budgeted projects</div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Action Steps */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Your Next Steps: Budget Planning Roadmap</h2>
-            
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-8 rounded-2xl">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Week 1-2: Foundation</h3>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-start">
-                      <span className="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 font-bold">1</span>
-                      <span><strong>Stakeholder alignment</strong> on budget methodology and approval process</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 font-bold">2</span>
-                      <span><strong>Requirements gathering</strong> using our framework templates</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 font-bold">3</span>
-                      <span><strong>Industry benchmark research</strong> and competitive analysis</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 font-bold">4</span>
-                      <span><strong>Initial budget estimation</strong> using our calculator tools</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Week 3-4: Validation</h3>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-start">
-                      <span className="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 font-bold">5</span>
-                      <span><strong>Vendor consultations</strong> for accurate pricing and timeline validation</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 font-bold">6</span>
-                      <span><strong>Hidden cost analysis</strong> using our checklist and risk framework</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 font-bold">7</span>
-                      <span><strong>ROI modeling</strong> with conservative and optimistic scenarios</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 font-bold">8</span>
-                      <span><strong>Executive presentation</strong> preparation with our proven template</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div className="mt-8 p-6 bg-white rounded-xl">
-                <h4 className="font-semibold text-gray-900 mb-3">🚀 Ready to Start Your AI Budget Planning?</h4>
-                <p className="text-gray-700 mb-4">
-                  Our enterprise AI consulting team has guided 200+ companies through successful budget planning 
-                  and implementation. We can accelerate your planning process and help avoid costly mistakes.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                    Schedule Strategy Session
-                  </button>
-                  <button className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                    Download Complete Toolkit
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </main>
     </div>
   )
 }

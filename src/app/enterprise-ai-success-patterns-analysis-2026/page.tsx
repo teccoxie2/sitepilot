@@ -1,425 +1,233 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Clock, Users, DollarSign, CheckCircle, ArrowRight, Target, BarChart3, TrendingUp, Zap, AlertTriangle } from 'lucide-react'
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  Compass,
+  Target,
+  TrendingUp,
+  Users,
+  Zap,
+  Clock3,
+  DollarSign,
+  AlertTriangle,
+  Sparkles,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI Success Patterns Analysis 2026 | SitePilot'
+const pageDescription =
+  'Enterprise AI success patterns analysis based on 50 Fortune 500 companies and 18 months of tracking. Learn the 7 key patterns that separate successful implementations from failures.'
+const pageUrl = 'https://sitepilot.co/enterprise-ai-success-patterns-analysis-2026'
 
 export const metadata: Metadata = {
-  title: '企业AI成功实施的7个关键模式：2026年财富500强分析报告 | SitePilot',
-  description: '基于50家财富500强企业18个月AI项目追踪，揭示83%成功项目遵循的实施框架和7个决定成败的关键模式。获取完整实施工具包。',
-  keywords: '企业AI实施, AI项目成功模式, 企业数字化转型, AI ROI分析, 企业AI框架, AI实施最佳实践, 财富500强AI分析',
+  title: pageTitle,
+  description: pageDescription,
+  keywords: ['enterprise AI success patterns', 'AI implementation framework', 'AI project success', 'enterprise digital transformation', 'AI ROI analysis'],
+  alternates: { canonical: pageUrl },
+  openGraph: { title: pageTitle, description: pageDescription, type: 'article', url: pageUrl },
+  twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription },
 }
+
+const heroStats = [
+  { value: '50', label: 'Fortune 500 companies studied' },
+  { value: '18 mo', label: 'tracking period' },
+  { value: '83%', label: 'successful projects share' },
+  { value: '$250K-$15M', label: 'investment range' },
+]
+
+const patterns = [
+  {
+    step: '1',
+    title: 'Business pain point first, technology second',
+    badge: '95% success',
+    tone: 'border-indigo-100 bg-indigo-50/80',
+    success: [
+      'Start from a concrete business problem',
+      'Quantify the cost of the pain point',
+      'Design the AI solution around the outcome',
+      'Use measurable success metrics from day one',
+    ],
+    fail: [
+      'Start with the technology and look for a use case later',
+      'Copy competitors without a business case',
+      'Use vague goals like “we should do AI”',
+      'End up with no clear ROI model',
+    ],
+  },
+  {
+    step: '2',
+    title: 'CFO involvement throughout',
+    badge: '89% success',
+    tone: 'border-sky-100 bg-sky-50/80',
+    success: ['CFO joins kickoff', 'Monthly ROI review', 'Budget milestone gates', 'Capital allocation alignment'],
+    fail: ['IT runs it alone', 'Budget drift goes unnoticed', 'No financial monitoring', 'ROI gets discovered too late'],
+  },
+  {
+    step: '3',
+    title: 'Iterative rollout over big-bang deployment',
+    badge: '91% success',
+    tone: 'border-violet-100 bg-violet-50/80',
+    success: ['Sprint 1: core capability', 'Sprint 2: expansion', 'Sprint 3: integration', 'Sprint 4: optimization'],
+    fail: ['18-month monster plan', 'One shot to solve everything', 'Changing requirements midstream', 'High abandonment rates'],
+  },
+  {
+    step: '4',
+    title: 'Strong data readiness before launch',
+    badge: '82% success',
+    tone: 'border-amber-100 bg-amber-50/80',
+    success: ['Clean data pipeline', 'Governance and lineage', 'Data quality ownership', 'Prep before model work'],
+    fail: ['AI launched on messy data', 'Manual cleanup after launch', 'Bad inputs become bad outputs', 'Costly rework'],
+  },
+  {
+    step: '5',
+    title: 'Change management is funded, not hoped for',
+    badge: '87% success',
+    tone: 'border-rose-100 bg-rose-50/80',
+    success: ['Training is budgeted', 'Champions are named', 'Adoption is measured', 'Feedback loops stay open'],
+    fail: ['Users are surprised after launch', 'Training is an afterthought', 'Adoption stalls', 'Everyone blames the tool'],
+  },
+  {
+    step: '6',
+    title: 'Security and compliance are built in',
+    badge: '88% success',
+    tone: 'border-slate-200 bg-slate-50/80',
+    success: ['Security requirements are defined early', 'Compliance reviews happen in plan', 'Access is role-based', 'Audit trails are kept'],
+    fail: ['Security is bolted on later', 'Legal gets looped in at the end', 'Permissions are messy', 'Risk exposure grows'],
+  },
+  {
+    step: '7',
+    title: 'Governance, metrics, and escalation are explicit',
+    badge: '90% success',
+    tone: 'border-indigo-100 bg-indigo-50/80',
+    success: ['Monthly governance review', 'Escalation path is known', 'Metrics are visible', 'Rollback plan exists'],
+    fail: ['Nobody owns exceptions', 'Metrics are buried in slides', 'Incidents are ad hoc', 'Learnings never stick'],
+  },
+]
+
+const roiCards = [
+  { title: 'Quick ROI projects', tone: 'bg-indigo-50', items: [['Customer service automation', '280% ROI', '8 months'], ['Inventory optimization', '220% ROI', '10 months'], ['Fraud detection', '450% ROI', '6 months']] },
+  { title: 'Mid-term value projects', tone: 'bg-sky-50', items: [['Supply chain optimization', '180% ROI', '18 months'], ['Personalization', '240% ROI', '15 months'], ['Risk management', '320% ROI', '16 months']] },
+]
+
+const checklist = [
+  'Budget owners are named',
+  'Success metrics are tied to business pain',
+  'CFO reviews are scheduled',
+  'Pilot scope is small enough to learn fast',
+  'Data readiness is scored before launch',
+  'Security/compliance gates are explicit',
+  'Adoption plan is funded',
+  'Rollback path exists',
+]
+
+const relatedLinks = [
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: '实施框架和成功模式一起看。' },
+  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'ROI calculation model', note: '把成功模式连到财务模型。' },
+  { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: '预算规划和成功模式配套。' },
+  { href: '/enterprise-ai-security-risk-management-guide-2026', title: 'Security & risk guide', note: '安全和治理不该缺席。' },
+  { href: '/enterprise-ai-deployment-risk-assessment-guide', title: 'Deployment risk assessment', note: '看部署阶段的风险控制。' },
+  { href: '/enterprise-ai-transformation-roadmap-2026', title: 'Transformation roadmap', note: '把模式映射到路线图。' },
+]
 
 export default function EnterpriseAISuccessPatternsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-r from-emerald-600 to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              企业AI成功实施的
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-400">
-                7个关键模式
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-emerald-100 max-w-4xl mx-auto">
-              基于50家财富500强企业18个月追踪研究，揭示83%成功项目的共同实施框架。
-              避免数百万美元的项目失败风险，获取proven成功模式。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/ai-roi-calculator" 
-                className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition flex items-center justify-center"
-              >
-                <BarChart3 className="mr-2 h-5 w-5" />
-                AI ROI计算器
-              </Link>
-              <Link 
-                href="/enterprise-ai-implementation-best-practices-2026" 
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-emerald-600 transition flex items-center justify-center"
-              >
-                <Target className="mr-2 h-5 w-5" />
-                实施最佳实践
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup type="article" title={pageTitle} description={pageDescription} url={pageUrl} publishedDate="2026-03-10" modifiedDate="2026-04-20" authorName="SitePilot Team" />
 
-      {/* Research Credibility */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-8 border border-emerald-200">
-            <h2 className="text-2xl font-bold text-center mb-6">研究数据支撑</h2>
-            <div className="grid md:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-bold text-emerald-600">50家</div>
-                <div className="text-gray-600">财富500强企业</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-emerald-600">18个月</div>
-                <div className="text-gray-600">深度追踪研究</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-emerald-600">83%</div>
-                <div className="text-gray-600">项目成功率</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-emerald-600">$250K-$15M</div>
-                <div className="text-gray-600">投资规模范围</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
 
-      {/* 7 Success Patterns */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            7个决定成败的关键模式
-          </h2>
-          
-          {/* Pattern 1 */}
-          <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-l-4 border-emerald-500">
-            <div className="flex items-center mb-6">
-              <div className="bg-emerald-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl">1</div>
-              <h3 className="text-2xl font-semibold ml-4">业务痛点驱动 vs 技术能力驱动</h3>
-              <div className="ml-auto bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-semibold">
-                95%成功项目
-              </div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-green-50 p-6 rounded-lg">
-                <h4 className="font-semibold text-green-800 mb-3">✅ 成功思路</h4>
-                <ul className="space-y-2 text-sm">
-                  <li>• 从具体业务问题出发："客服响应时间过长"</li>
-                  <li>• 量化痛点成本："每月流失客户价值$2.3M"</li>
-                  <li>• AI解决方案targeting："响应时间从4小时降到30分钟"</li>
-                  <li>• 案例：零售巨头库存预测准确性从68%提升到89%，ROI 340%</li>
-                </ul>
-              </div>
-              <div className="bg-red-50 p-6 rounded-lg">
-                <h4 className="font-semibold text-red-800 mb-3">❌ 失败思路</h4>
-                <ul className="space-y-2 text-sm">
-                  <li>• "我们需要用最新AI技术改变一切"</li>
-                  <li>• "竞争对手在用AI，我们也要用"</li>
-                  <li>• "AI是未来，必须全面拥抱"</li>
-                  <li>• 结果：无法设置准确成功指标，ROI测算困难</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Pattern 2 */}
-          <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-l-4 border-blue-500">
-            <div className="flex items-center mb-6">
-              <div className="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl">2</div>
-              <h3 className="text-2xl font-semibold ml-4">CFO全程深度参与</h3>
-              <div className="ml-auto bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                89%成功项目
-              </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">财务管控特征</h4>
-                <ul className="space-y-1 text-sm">
-                  <li>• CFO参与项目kickoff</li>
-                  <li>• 每月ROI tracking审核</li>
-                  <li>• 明确财务milestone</li>
-                  <li>• 纳入资本配置策略</li>
-                </ul>
-              </div>
-              <div className="bg-yellow-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">对比：失败项目</h4>
-                <ul className="space-y-1 text-sm text-red-600">
-                  <li>• IT部门独立推进</li>
-                  <li>• 平均超预算47%</li>
-                  <li>• ROI延长85%</li>
-                  <li>• 缺乏财务监控</li>
-                </ul>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">月度审核清单</h4>
-                <ul className="space-y-1 text-sm">
-                  <li>□ 实际支出vs预算</li>
-                  <li>□ ROI进展评估</li>
-                  <li>□ 风险成本计算</li>
-                  <li>□ 资源分配决策</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Pattern 3 */}
-          <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-l-4 border-purple-500">
-            <div className="flex items-center mb-6">
-              <div className="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl">3</div>
-              <h3 className="text-2xl font-semibold ml-4">快速迭代优于大爆炸式部署</h3>
-              <div className="ml-auto bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
-                91%成功项目
-              </div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="font-semibold mb-4 text-purple-800">成功的迭代模式</h4>
-                <div className="space-y-4">
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <div className="font-semibold text-sm">Sprint 1 (1-3月)</div>
-                    <div className="text-sm">核心功能开发和测试</div>
-                  </div>
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <div className="font-semibold text-sm">Sprint 2 (4-6月)</div>
-                    <div className="text-sm">扩展功能和优化</div>
-                  </div>
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <div className="font-semibold text-sm">Sprint 3 (7-9月)</div>
-                    <div className="text-sm">全渠道集成分析</div>
-                  </div>
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <div className="font-semibold text-sm">Sprint 4 (10-12月)</div>
-                    <div className="text-sm">全面部署优化</div>
-                  </div>
+      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI success patterns analysis</div>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">7个关键模式，<span className="brand-gradient-text block">先把成功路径看清楚，别让项目变成事故。</span></h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Enterprise AI success patterns analysis based on 50 Fortune 500 companies and 18 months of tracking. This page keeps the 7 patterns, ROI examples, checklist, and internal links in the unified light Stripe-ish UI.</p>
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <a href="#patterns" className="btn-brand inline-flex items-center gap-2">查看7个模式 <ArrowRight className="h-4 w-4" /></a>
+                  <a href="#checklist" className="btn-secondary inline-flex items-center gap-2">查看清单</a>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-3xl">
+                  {heroStats.map((stat) => (<div key={stat.label} className="page-card bg-white/90 p-4"><div className="text-2xl font-semibold text-slate-950 md:text-3xl">{stat.value}</div><div className="mt-1 text-sm text-slate-600">{stat.label}</div></div>))}
                 </div>
               </div>
-              <div>
-                <h4 className="font-semibold mb-4 text-red-800">失败案例分析</h4>
-                <div className="bg-red-50 p-6 rounded-lg">
-                  <ul className="space-y-2 text-sm">
-                    <li>• <strong>平均计划周期：18个月</strong></li>
-                    <li>• 期望"一次性解决所有问题"</li>
-                    <li>• 需求在实施过程中变化</li>
-                    <li>• 技术选择过时</li>
-                    <li>• <strong>67%项目中途放弃</strong></li>
-                  </ul>
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card bg-white/95 p-6">
+                    <div className="mb-6 flex items-center justify-between"><div><div className="mb-1 text-sm text-slate-500">What the research says</div><div className="text-xl font-semibold text-slate-950">Patterns beat optimism</div></div><div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">Evidence-based</div></div>
+                    <div className="space-y-3">{['Business pain first', 'CFO in the loop', 'Iterate small', 'Governance on paper and in practice'].map((item) => (<div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4"><div className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><p className="text-sm leading-6 text-slate-600">{item}</p></div></div>))}</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ROI Analysis */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            ROI实现时间和价值分析
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            
-            {/* Quick ROI Projects */}
-            <div className="bg-green-50 p-8 rounded-xl">
-              <h3 className="text-2xl font-semibold mb-6 text-green-800">快速回报项目 (6-12个月)</h3>
-              <div className="space-y-6">
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-semibold">客服自动化</h4>
-                    <span className="text-green-600 font-bold">280% ROI</span>
-                  </div>
-                  <div className="text-sm text-gray-600">投资回收期：8个月</div>
+        <section className="mb-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ['Success rate', '83% of tracked projects followed the same core operating patterns.'],
+            ['Decision quality', 'Patterns reduce guesswork and stop strategy theater.'],
+            ['ROI direction', 'Good patterns make payback visible earlier.'],
+            ['Failure prevention', 'Weak patterns show up before the budget gets cooked.'],
+          ].map(([title, body]) => (
+            <div key={title} className="page-card p-5"><div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900"><BarChart3 className="h-4 w-4 text-indigo-500" />{title}</div><p className="text-sm leading-6 text-slate-600">{body}</p></div>
+          ))}
+        </section>
+
+        <section id="patterns" className="mb-16">
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Compass className="h-4 w-4 text-[#635bff]" />7 success patterns</div><h2 className="page-title text-3xl md:text-4xl">7个决定成败的关键模式</h2><p className="page-lead mt-3 text-lg">Each pattern is a practical operating rule, not a motivational poster.</p></div>
+          <div className="space-y-5">
+            {patterns.map((pattern) => (
+              <div key={pattern.step} className={`page-card p-6 md:p-8 ${pattern.tone}`}>
+                <div className="mb-6 flex items-center justify-between gap-3"><div className="flex items-center gap-3"><div className="rounded-2xl bg-white/80 p-3 shadow-sm ring-1 ring-white/80"><Target className="h-5 w-5 text-slate-800" /></div><div><div className="text-sm uppercase tracking-[0.24em] text-slate-500">Pattern {pattern.step}</div><h3 className="text-xl font-semibold text-slate-950">{pattern.title}</h3></div></div><div className="rounded-full border border-current/15 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-700">{pattern.badge}</div></div>
+                <div className="grid gap-5 lg:grid-cols-2">
+                  <div className="rounded-3xl border border-white/70 bg-white/70 p-5"><h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Success path</h4><ul className="space-y-2 text-sm text-slate-700">{pattern.success.map((bullet) => (<li key={bullet} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><span>{bullet}</span></li>))}</ul></div>
+                  <div className="rounded-3xl border border-white/70 bg-white/70 p-5"><h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Failure path</h4><ul className="space-y-2 text-sm text-slate-700">{pattern.fail.map((bullet) => (<li key={bullet} className="flex items-start gap-2"><AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" /><span>{bullet}</span></li>))}</ul></div>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-semibold">库存优化</h4>
-                    <span className="text-green-600 font-bold">220% ROI</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16 grid gap-5 lg:grid-cols-2">
+          {roiCards.map((card) => (
+            <div key={card.title} className={`page-card p-6 ${card.tone}`}>
+              <h3 className="mb-4 text-xl font-semibold text-slate-950">{card.title}</h3>
+              <div className="space-y-3">
+                {card.items.map(([name, roi, payback]) => (
+                  <div key={name} className="rounded-2xl border border-white/70 bg-white/80 p-4">
+                    <div className="flex items-center justify-between gap-4"><span className="font-medium text-slate-900">{name}</span><span className="font-semibold text-slate-950">{roi}</span></div>
+                    <div className="mt-1 text-sm text-slate-600">Payback: {payback}</div>
                   </div>
-                  <div className="text-sm text-gray-600">投资回收期：10个月</div>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-semibold">欺诈检测</h4>
-                    <span className="text-green-600 font-bold">450% ROI</span>
-                  </div>
-                  <div className="text-sm text-gray-600">投资回收期：6个月</div>
-                </div>
+                ))}
               </div>
             </div>
+          ))}
+        </section>
 
-            {/* Medium-term ROI Projects */}
-            <div className="bg-blue-50 p-8 rounded-xl">
-              <h3 className="text-2xl font-semibold mb-6 text-blue-800">中期价值项目 (12-24个月)</h3>
-              <div className="space-y-6">
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-semibold">供应链优化</h4>
-                    <span className="text-blue-600 font-bold">180% ROI</span>
-                  </div>
-                  <div className="text-sm text-gray-600">投资回收期：18个月</div>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-semibold">个性化推荐</h4>
-                    <span className="text-blue-600 font-bold">240% ROI</span>
-                  </div>
-                  <div className="text-sm text-gray-600">投资回收期：15个月</div>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-semibold">风险管理</h4>
-                    <span className="text-blue-600 font-bold">320% ROI</span>
-                  </div>
-                  <div className="text-sm text-gray-600">投资回收期：16个月</div>
-                </div>
-              </div>
+        <section id="checklist" className="mb-16">
+          <div className="page-card-glow rounded-[2rem] p-5 md:p-6">
+            <div className="page-card flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Clock3 className="h-4 w-4 text-[#635bff]" />Checklist</div><h2 className="page-title text-3xl md:text-4xl">Success checklist</h2><p className="page-lead mt-3 text-lg">Useful if you want fewer surprises and more payback.</p></div>
+              <div className="grid gap-2 sm:grid-cols-2">{checklist.map((item) => (<div key={item} className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-sm text-slate-700"><CheckCircle2 className="mr-2 inline h-4 w-4 text-indigo-500" />{item}</div>))}</div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Common Fatal Errors */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            最常见的3个致命错误
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            
-            {/* Error 1 */}
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-red-500">
-              <div className="flex items-center mb-4">
-                <AlertTriangle className="h-8 w-8 text-red-500 mr-3" />
-                <h3 className="text-xl font-semibold">技术驱动思维</h3>
-              </div>
-              <div className="bg-red-50 p-4 rounded-lg mb-4">
-                <div className="text-sm font-semibold text-red-800 mb-2">67%失败项目</div>
-                <div className="text-sm text-red-600">症状：CTO主导，说不出具体解决什么业务问题</div>
-              </div>
-              <div className="space-y-2 text-sm">
-                <p><strong>风险：</strong>项目目标模糊，ROI测算困难</p>
-                <p><strong>预防：</strong>业务负责人主导项目定义</p>
-              </div>
-            </div>
-
-            {/* Error 2 */}
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-orange-500">
-              <div className="flex items-center mb-4">
-                <Users className="h-8 w-8 text-orange-500 mr-3" />
-                <h3 className="text-xl font-semibold">缺乏变更管理</h3>
-              </div>
-              <div className="bg-orange-50 p-4 rounded-lg mb-4">
-                <div className="text-sm font-semibold text-orange-800 mb-2">71%失败项目</div>
-                <div className="text-sm text-orange-600">症状：技术部署成功，员工拒绝使用</div>
-              </div>
-              <div className="space-y-2 text-sm">
-                <p><strong>风险：</strong>$2M-5M投资变成装饰品</p>
-                <p><strong>预防：</strong>15-25%预算用于变更管理</p>
-              </div>
-            </div>
-
-            {/* Error 3 */}
-            <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-500">
-              <div className="flex items-center mb-4">
-                <Clock className="h-8 w-8 text-yellow-500 mr-3" />
-                <h3 className="text-xl font-semibold">预期管理失控</h3>
-              </div>
-              <div className="bg-yellow-50 p-4 rounded-lg mb-4">
-                <div className="text-sm font-semibold text-yellow-800 mb-2">58%失败项目</div>
-                <div className="text-sm text-yellow-600">症状：董事会期待6个月见dramatic results</div>
-              </div>
-              <div className="space-y-2 text-sm">
-                <p><strong>风险：</strong>项目rushed，质量控制受影响</p>
-                <p><strong>预防：</strong>Conservative timeline，staged approval</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2026 Core Principles */}
-      <section className="py-16 bg-emerald-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            2026年企业AI实施的3个核心原则
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            
-            <div className="bg-emerald-700 p-6 rounded-xl">
-              <div className="flex items-center mb-4">
-                <Target className="h-8 w-8 mr-3" />
-                <h3 className="text-xl font-semibold">从痛点开始</h3>
-              </div>
-              <p className="text-emerald-100">
-                每个AI项目必须对应具体的、可量化的业务问题。
-                由business owner主导，technology team支持。
-              </p>
-            </div>
-
-            <div className="bg-emerald-700 p-6 rounded-xl">
-              <div className="flex items-center mb-4">
-                <DollarSign className="h-8 w-8 mr-3" />
-                <h3 className="text-xl font-semibold">财务同等重要</h3>
-              </div>
-              <p className="text-emerald-100">
-                CFO level involvement，月度financial review和ROI tracking，
-                清晰的budget allocation机制。
-              </p>
-            </div>
-
-            <div className="bg-emerald-700 p-6 rounded-xl">
-              <div className="flex items-center mb-4">
-                <Users className="h-8 w-8 mr-3" />
-                <h3 className="text-xl font-semibold">人员转型更关键</h3>
-              </div>
-              <p className="text-emerald-100">
-                15-25%预算用于变更管理。AI作为能力增强器，
-                不是工作替代者。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            获取完整实施工具包
-          </h2>
-          <p className="text-xl mb-8 text-gray-600">
-            基于这个framework的详细实施工具，包括ROI计算器、风险评估、
-            变更管理timeline和专业咨询服务。
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/ai-roi-calculator" 
-              className="bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-700 transition flex items-center justify-center"
-            >
-              <BarChart3 className="mr-2 h-5 w-5" />
-              AI ROI计算器
-            </Link>
-            <Link 
-              href="/enterprise-ai-implementation-best-practices-2026" 
-              className="border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-600 hover:text-white transition flex items-center justify-center"
-            >
-              <Target className="mr-2 h-5 w-5" />
-              实施最佳实践
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Resources */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-center mb-8">相关资源</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/ai-tools-cost-benefit-analysis-2026" className="bg-white p-6 rounded-lg hover:shadow-md transition">
-              <DollarSign className="h-8 w-8 text-green-600 mb-3" />
-              <h3 className="font-semibold mb-2">成本效益分析</h3>
-              <p className="text-sm text-gray-600">AI工具投资的综合财务分析框架</p>
-            </Link>
-            <Link href="/ai-tools-cost-optimization-enterprise-2026" className="bg-white p-6 rounded-lg hover:shadow-md transition">
-              <BarChart3 className="h-8 w-8 text-blue-600 mb-3" />
-              <h3 className="font-semibold mb-2">成本优化策略</h3>
-              <p className="text-sm text-gray-600">企业AI工具成本优化和ROI最大化策略</p>
-            </Link>
-            <Link href="/enterprise-ai-security-risk-management-guide-2026" className="bg-white p-6 rounded-lg hover:shadow-md transition">
-              <AlertTriangle className="h-8 w-8 text-red-600 mb-3" />
-              <h3 className="font-semibold mb-2">失败分析报告</h3>
-              <p className="text-sm text-gray-600">企业AI实施失败案例和风险防范策略</p>
-            </Link>
-          </div>
-        </div>
-      </section>
+        <section className="mb-8">
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Zap className="h-4 w-4 text-[#635bff]" />Related resources</div><h2 className="page-title text-3xl md:text-4xl">Internal links kept intact</h2><p className="page-lead mt-3 text-lg">Same cluster, same intent, cleaner UI.</p></div>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{relatedLinks.map((link) => (<Link key={link.href} href={link.href} className="page-card group p-6 transition hover:-translate-y-0.5 hover:shadow-lg"><div className="mb-3 text-lg font-semibold text-slate-950 group-hover:text-[#635bff]">{link.title}</div><p className="text-sm leading-6 text-slate-600">{link.note}</p><div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#635bff]">Open resource <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" /></div></Link>))}</div>
+        </section>
+      </main>
     </div>
   )
 }

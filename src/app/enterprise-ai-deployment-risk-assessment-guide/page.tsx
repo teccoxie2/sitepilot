@@ -1,416 +1,455 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  AlertTriangle,
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  ChevronRight,
+  ClipboardCheck,
+  ShieldAlert,
+  ShieldCheck,
+  Sparkles,
+  Target,
+} from 'lucide-react'
+import RelatedLinks from '@/components/RelatedLinks'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI Deployment Risk Assessment Guide 2026 | SitePilot'
+const pageDescription =
+  'A practical enterprise AI deployment risk assessment framework for identifying, evaluating, and mitigating implementation risks.'
+const pageUrl = 'https://sitepilot.co/enterprise-ai-deployment-risk-assessment-guide'
 
 export const metadata: Metadata = {
-  title: 'Enterprise AI Deployment Risk Assessment Guide 2026',
-  description: 'Comprehensive enterprise AI deployment risk assessment framework. Identify, evaluate and mitigate AI implementation risks with our 12-factor risk analysis methodology.',
-  keywords: 'enterprise AI deployment, AI risk assessment, AI implementation risks, enterprise AI security, AI governance framework, AI risk management',
+  title: pageTitle,
+  description: pageDescription,
+  keywords: [
+    'enterprise AI deployment',
+    'AI risk assessment',
+    'AI implementation risks',
+    'enterprise AI security',
+    'AI governance framework',
+    'AI risk management',
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: pageUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
+  alternates: { canonical: pageUrl },
 }
+
+const overviewStats = [
+  ['Risk factors covered', '12'],
+  ['Assessment phases', '3'],
+  ['Mitigation success target', '94%'],
+  ['Implementation timeline', '8 weeks'],
+]
+
+const riskGroups = [
+  {
+    title: 'Technical risks',
+    tone: 'from-rose-50 via-white to-orange-50',
+    items: [
+      ['Data quality & integrity', ['Incomplete or biased training data', 'Data drift and distribution shifts', 'Missing validation pipelines']],
+      ['Model performance & reliability', ['Inconsistent accuracy in production', 'Edge case failures', 'Model degradation over time']],
+      ['Infrastructure & scalability', ['Insufficient compute resources', 'Latency and throughput limits', 'Integration complexity']],
+    ],
+  },
+  {
+    title: 'Operational risks',
+    tone: 'from-amber-50 via-white to-yellow-50',
+    items: [
+      ['Change management', ['Employee resistance', 'Inadequate training', 'Workflow disruption']],
+      ['Skills & talent gap', ['Shortage of AI expertise', 'Knowledge transfer issues', 'External dependency']],
+      ['Monitoring & maintenance', ['Weak alerting', 'No continuous monitoring', 'Rollback challenges']],
+    ],
+  },
+  {
+    title: 'Business risks',
+    tone: 'from-sky-50 via-white to-indigo-50',
+    items: [
+      ['ROI & budget overruns', ['Unrealistic expectations', 'Hidden costs', 'Timeline creep']],
+      ['Strategic alignment', ['Misaligned initiatives', 'Weak sponsorship', 'Competing priorities']],
+      ['Vendor & lock-in', ['Single-provider dependency', 'Proprietary limitations', 'Migration friction']],
+    ],
+  },
+  {
+    title: 'Compliance & security',
+    tone: 'from-violet-50 via-white to-fuchsia-50',
+    items: [
+      ['Regulatory compliance', ['AI law obligations', 'Data privacy requirements', 'Industry mandates']],
+      ['Security vulnerabilities', ['Adversarial inputs', 'Data poisoning', 'Privacy leaks']],
+      ['Ethical & bias risks', ['Algorithmic bias', 'Low transparency', 'Governance gaps']],
+    ],
+  },
+]
+
+const methodology = [
+  {
+    title: 'Phase 1: Risk identification',
+    icon: ClipboardCheck,
+    items: ['Risk inventory', 'Stakeholder workshops', 'Architecture review', 'Business impact analysis', 'Regulatory review'],
+  },
+  {
+    title: 'Phase 2: Risk quantification',
+    icon: BarChart3,
+    items: ['Probability-impact scoring', 'Financial impact modeling', 'Risk heat maps', 'Scenario planning'],
+  },
+  {
+    title: 'Phase 3: Risk mitigation',
+    icon: ShieldCheck,
+    items: ['Mitigation strategy design', 'Control implementation', 'Contingency planning', 'Continuous review'],
+  },
+]
+
+const mitigation = [
+  {
+    title: 'Technical mitigation',
+    color: 'border-sky-200 bg-sky-50/70',
+    items: ['Data validation pipeline', 'Model A/B testing', 'Infrastructure redundancy'],
+  },
+  {
+    title: 'Organizational mitigation',
+    color: 'border-indigo-200 bg-indigo-50/70',
+    items: ['Change management program', 'AI governance framework', 'Continuous monitoring'],
+  },
+]
+
+const successMetrics = [
+  ['Project failure rate', '<5%'],
+  ['System uptime', '98.5%'],
+  ['Faster ROI achievement', '73%'],
+  ['Stakeholder satisfaction', '89%'],
+]
+
+const timeline = [
+  ['Week 1-2', 'Risk discovery and stakeholder alignment'],
+  ['Week 3-4', 'Technical and business risk analysis'],
+  ['Week 5-6', 'Risk quantification and prioritization'],
+  ['Week 7-8', 'Mitigation planning and implementation'],
+]
 
 export default function EnterpriseAIDeploymentRiskAssessmentGuidePage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 via-orange-600 to-yellow-500 py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
-            Enterprise AI Deployment Risk Assessment Guide 2026
-          </h1>
-          <p className="text-xl text-red-100 mb-8">
-            Comprehensive framework for identifying, evaluating and mitigating AI implementation risks in enterprise environments
-          </p>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 inline-block">
-            <p className="text-lg text-white font-semibold">
-              ⚠️ 89% of enterprise AI projects face significant deployment risks
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-02-16T00:00:00.000Z"
+        modifiedDate="2026-04-18T00:00:00.000Z"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_22%,#ffffff_50%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[30rem] h-[24rem] bg-[radial-gradient(circle_at_22%_22%,rgba(99,91,255,0.05),transparent_24%),radial-gradient(circle_at_76%_26%,rgba(14,165,233,0.05),transparent_22%),radial-gradient(circle_at_50%_82%,rgba(244,114,182,0.04),transparent_28%)]" />
+      </div>
+
+      <main className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-16 pt-10 md:pb-24 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6 inline-flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-indigo-500" />
+                  2026 risk framework
+                </div>
+
+                <h1 className="page-title mb-6 text-5xl font-semibold tracking-[-0.05em] text-slate-950 md:text-7xl">
+                  Enterprise AI deployment risk
+                  <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
+                    assessment guide.
+                  </span>
+                </h1>
+
+                <p className="page-lead mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+                  If the deployment is serious, the risk plan has to be serious too. This guide maps the main failure modes,
+                  the assessment process, and the mitigations that actually keep an AI rollout from face-planting.
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  <a href="#framework" className="btn-brand inline-flex items-center gap-2">
+                    View risk framework
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a href="#methodology" className="btn-secondary inline-flex items-center gap-2">
+                    See methodology
+                    <ChevronRight className="h-4 w-4" />
+                  </a>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href="/enterprise-ai-budget-optimization-calculator" className="btn-secondary inline-flex items-center gap-2">
+                    Budget calculator
+                  </Link>
+                  <Link href="/ai-risk-management-dashboard-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
+                    Risk dashboard
+                  </Link>
+                  <Link href="/enterprise-ai-transformation-roadmap-2026" className="btn-secondary inline-flex items-center gap-2">
+                    Transformation roadmap
+                  </Link>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="page-card-glow absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card space-y-5 rounded-[2rem] p-5 md:p-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-sm text-slate-500">Executive summary</div>
+                      <div className="text-xl font-semibold text-slate-950">What this framework covers</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Risk first
+                    </div>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {overviewStats.map(([label, value]) => (
+                      <div key={label} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                        <div className="text-xs uppercase tracking-[0.18em] text-slate-400">{label}</div>
+                        <div className="mt-1 text-xl font-semibold text-slate-950">{value}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-4 text-sm leading-6 text-amber-900">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+                      <p>
+                        The goal is not to eliminate every risk. The goal is to know which risks are real, which ones are manageable,
+                        and which ones are a bad idea disguised as optimism.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="framework" className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <ShieldAlert className="h-4 w-4 text-indigo-500" />
+              Risk framework
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">12-factor enterprise AI risk assessment framework</h2>
+            <p className="page-lead mt-3 text-lg">
+              Four risk groups. Twelve factors. Enough structure to stop people from waving their hands and calling it governance.
             </p>
-            <p className="text-red-100">Our 12-Factor Risk Framework helps mitigate 94% of common AI failures</p>
           </div>
-        </div>
-      </section>
 
-      {/* Risk Statistics */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Enterprise AI Risk Landscape 2026
-          </h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-red-600 mb-2">67%</div>
-              <p className="text-gray-700">AI projects fail due to inadequate risk assessment</p>
-            </div>
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">$2.3M</div>
-              <p className="text-gray-700">Average cost of failed enterprise AI deployment</p>
-            </div>
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">156%</div>
-              <p className="text-gray-700">ROI improvement with proper risk management</p>
-            </div>
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">94%</div>
-              <p className="text-gray-700">Risk mitigation success rate with our framework</p>
-            </div>
+          <div className="space-y-6">
+            {riskGroups.map((group) => (
+              <div key={group.title} className="page-card overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+                <div className={`bg-gradient-to-r ${group.tone} p-6 md:p-8`}>
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">{group.title}</h3>
+                </div>
+                <div className="grid gap-6 p-6 md:grid-cols-3 md:p-8">
+                  {group.items.map(([title, bullets]) => {
+                    const bulletList = Array.isArray(bullets) ? bullets : [bullets]
+                    return (
+                      <div key={String(title)} className="page-card-soft p-5">
+                        <div className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">{String(title)}</div>
+                        <ul className="space-y-2 text-sm leading-6 text-slate-600">
+                          {bulletList.map((bullet) => (
+                            <li key={bullet} className="flex gap-2">
+                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-500" />
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 12-Factor Risk Assessment Framework */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            12-Factor Enterprise AI Risk Assessment Framework
-          </h2>
+        <section id="methodology" className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <ClipboardCheck className="h-4 w-4 text-indigo-500" />
+              Methodology
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">Enterprise risk assessment methodology</h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Technical Risks */}
-            <div className="bg-red-50 border border-red-200 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-red-800 mb-6">🔧 Technical Risks</h3>
-              
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-red-700 mb-2">1. Data Quality & Integrity</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Incomplete or biased training data</li>
-                    <li>• Data drift and distribution shifts</li>
-                    <li>• Missing data validation pipelines</li>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {methodology.map((phase) => {
+              const Icon = phase.icon
+              return (
+                <div key={phase.title} className="page-card p-6 md:p-7">
+                  <div className="mb-4 inline-flex rounded-2xl bg-indigo-50 p-3">
+                    <Icon className="h-5 w-5 text-indigo-600" />
+                  </div>
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">{phase.title}</h3>
+                  <ul className="space-y-3 text-sm leading-6 text-slate-600">
+                    {phase.items.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
+              )
+            })}
+          </div>
+        </section>
 
-                <div>
-                  <h4 className="text-lg font-semibold text-red-700 mb-2">2. Model Performance & Reliability</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Inconsistent model accuracy in production</li>
-                    <li>• Edge case handling failures</li>
-                    <li>• Model degradation over time</li>
-                  </ul>
-                </div>
+        <section className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <Target className="h-4 w-4 text-indigo-500" />
+              Mitigation strategy
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">Proven mitigation strategies</h2>
+          </div>
 
-                <div>
-                  <h4 className="text-lg font-semibold text-red-700 mb-2">3. Infrastructure & Scalability</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Insufficient computational resources</li>
-                    <li>• Latency and throughput limitations</li>
-                    <li>• Integration complexity with existing systems</li>
-                  </ul>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {mitigation.map((item) => (
+              <div key={item.title} className={`page-card p-6 md:p-7 ${item.color}`}>
+                <h3 className="mb-4 text-xl font-semibold text-slate-950">{item.title}</h3>
+                <div className="space-y-3">
+                  {item.items.map((point) => (
+                    <div key={point} className="rounded-2xl border border-white/70 bg-white/80 px-4 py-3 text-sm text-slate-700 shadow-sm">
+                      {point}
+                    </div>
+                  ))}
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-indigo-500" />
+              Success metrics
             </div>
+            <h2 className="page-title text-3xl md:text-4xl">Risk management success metrics</h2>
+          </div>
 
-            {/* Operational Risks */}
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-orange-800 mb-6">⚙️ Operational Risks</h3>
-              
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-orange-700 mb-2">4. Change Management</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Employee resistance to AI adoption</li>
-                    <li>• Inadequate training and support</li>
-                    <li>• Disruption to existing workflows</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-orange-700 mb-2">5. Skills & Talent Gap</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Shortage of AI/ML expertise</li>
-                    <li>• Knowledge transfer challenges</li>
-                    <li>• Dependency on external consultants</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-orange-700 mb-2">6. Monitoring & Maintenance</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Lack of continuous monitoring</li>
-                    <li>• Insufficient alerting mechanisms</li>
-                    <li>• Model versioning and rollback challenges</li>
-                  </ul>
-                </div>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {successMetrics.map(([label, value]) => (
+              <div key={label} className="page-card p-5">
+                <div className="text-3xl font-semibold text-slate-950">{value}</div>
+                <div className="mt-2 text-sm font-medium text-slate-900">{label}</div>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-2xl">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <ArrowRight className="h-4 w-4 text-indigo-500" />
+              Timeline
             </div>
+            <h2 className="page-title text-3xl md:text-4xl">Risk assessment implementation timeline</h2>
+          </div>
 
-            {/* Business Risks */}
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-yellow-800 mb-6">💼 Business Risks</h3>
-              
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-yellow-700 mb-2">7. ROI & Budget Overruns</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Unrealistic ROI expectations</li>
-                    <li>• Hidden implementation costs</li>
-                    <li>• Extended deployment timelines</li>
-                  </ul>
+          <div className="grid gap-6 lg:grid-cols-4">
+            {timeline.map(([range, title]) => (
+              <div key={range} className="page-card p-6 md:p-7">
+                <div className="mb-3 inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-indigo-700">
+                  {range}
                 </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-yellow-700 mb-2">8. Strategic Alignment</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Misaligned AI initiatives with business goals</li>
-                    <li>• Lack of executive sponsorship</li>
-                    <li>• Competing priorities and resource conflicts</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-yellow-700 mb-2">9. Vendor & Technology Lock-in</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Dependency on single AI providers</li>
-                    <li>• Proprietary technology limitations</li>
-                    <li>• Migration and interoperability challenges</li>
-                  </ul>
-                </div>
+                <h3 className="text-xl font-semibold text-slate-950">{title}</h3>
               </div>
-            </div>
+            ))}
+          </div>
+        </section>
 
-            {/* Compliance & Security Risks */}
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-purple-800 mb-6">🔒 Compliance & Security</h3>
-              
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-700 mb-2">10. Regulatory Compliance</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• EU AI Act and regional AI regulations</li>
-                    <li>• Data privacy and protection requirements</li>
-                    <li>• Industry-specific compliance mandates</li>
+        <section className="mb-16">
+          <div className="page-card-glow rounded-[2rem] p-1.5">
+            <div className="page-card-soft rounded-[1.6rem] p-6 md:p-8">
+              <div className="grid gap-6 lg:grid-cols-2">
+                <div className="page-card p-6">
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">Immediate actions</h3>
+                  <ul className="space-y-3 text-sm leading-6 text-slate-600">
+                    {['Download the risk assessment checklist', 'Schedule stakeholder alignment', 'Inventory current AI risks', 'Establish the risk team'].map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-700 mb-2">11. Security Vulnerabilities</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• AI model attacks and adversarial inputs</li>
-                    <li>• Data poisoning and manipulation</li>
-                    <li>• Privacy leaks and inference attacks</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-700 mb-2">12. Ethical & Bias Risks</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Algorithmic bias and discrimination</li>
-                    <li>• Lack of AI decision transparency</li>
-                    <li>• Ethical AI governance gaps</li>
+                <div className="page-card p-6">
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">Next 30 days</h3>
+                  <ul className="space-y-3 text-sm leading-6 text-slate-600">
+                    {['Complete risk identification', 'Quantify top 10 risks', 'Develop mitigation strategies', 'Implement monitoring'].map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Risk Assessment Methodology */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Enterprise Risk Assessment Methodology
-          </h2>
+        <RelatedLinks
+          title="Related enterprise AI tools"
+          links={[
+            {
+              href: '/enterprise-ai-budget-optimization-calculator',
+              title: 'Enterprise AI Budget Optimization Calculator',
+              description: 'Plan spending alongside the risk framework.',
+            },
+            {
+              href: '/ai-risk-management-dashboard-enterprise-2026',
+              title: 'AI Risk Management Dashboard',
+              description: 'Track and monitor AI risks after deployment.',
+            },
+            {
+              href: '/enterprise-ai-transformation-roadmap-2026',
+              title: 'Enterprise AI Transformation Roadmap',
+              description: 'Strategic rollout planning across the organization.',
+            },
+          ]}
+        />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-blue-600 mb-4">Phase 1: Risk Identification</h3>
-              <ul className="text-gray-700 space-y-3">
-                <li>✓ Comprehensive risk inventory</li>
-                <li>✓ Stakeholder risk workshops</li>
-                <li>✓ Technical architecture review</li>
-                <li>✓ Business process impact analysis</li>
-                <li>✓ Regulatory landscape assessment</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-orange-600 mb-4">Phase 2: Risk Quantification</h3>
-              <ul className="text-gray-700 space-y-3">
-                <li>✓ Probability-impact scoring</li>
-                <li>✓ Financial impact modeling</li>
-                <li>✓ Risk heat map creation</li>
-                <li>✓ Monte Carlo simulations</li>
-                <li>✓ Scenario planning exercises</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-bold text-green-600 mb-4">Phase 3: Risk Mitigation</h3>
-              <ul className="text-gray-700 space-y-3">
-                <li>✓ Mitigation strategy development</li>
-                <li>✓ Risk control implementation</li>
-                <li>✓ Contingency planning</li>
-                <li>✓ Monitoring and alerting setup</li>
-                <li>✓ Continuous risk review process</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Risk Mitigation Strategies */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Proven Risk Mitigation Strategies
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold text-blue-600 mb-6">Technical Mitigation</h3>
-              <div className="space-y-6">
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-6">
-                  <h4 className="font-semibold text-blue-800 mb-2">Data Validation Pipeline</h4>
-                  <p className="text-gray-700">Implement automated data quality checks, anomaly detection, and continuous monitoring to ensure model input integrity.</p>
+        <section className="page-section pt-0">
+          <div className="max-w-5xl mx-auto">
+            <div className="page-card-glow p-1.5">
+              <div className="page-card rounded-[1.8rem] p-8 md:p-10 text-center">
+                <div className="inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700 mb-5">
+                  Final answer
                 </div>
-
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-6">
-                  <h4 className="font-semibold text-blue-800 mb-2">Model A/B Testing</h4>
-                  <p className="text-gray-700">Deploy gradual rollouts with performance comparison to minimize production risk and enable rapid rollback.</p>
-                </div>
-
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-6">
-                  <h4 className="font-semibold text-blue-800 mb-2">Infrastructure Redundancy</h4>
-                  <p className="text-gray-700">Build fault-tolerant architectures with auto-scaling, load balancing, and disaster recovery capabilities.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-bold text-green-600 mb-6">Organizational Mitigation</h3>
-              <div className="space-y-6">
-                <div className="bg-green-50 border-l-4 border-green-400 p-6">
-                  <h4 className="font-semibold text-green-800 mb-2">Change Management Program</h4>
-                  <p className="text-gray-700">Structured training, communication, and support programs to ensure smooth AI adoption across the organization.</p>
-                </div>
-
-                <div className="bg-green-50 border-l-4 border-green-400 p-6">
-                  <h4 className="font-semibold text-green-800 mb-2">AI Governance Framework</h4>
-                  <p className="text-gray-700">Establish clear policies, decision-making processes, and accountability structures for AI initiatives.</p>
-                </div>
-
-                <div className="bg-green-50 border-l-4 border-green-400 p-6">
-                  <h4 className="font-semibent text-green-800 mb-2">Continuous Monitoring</h4>
-                  <p className="text-gray-700">Real-time performance tracking, alert systems, and regular risk assessment reviews to maintain AI system health.</p>
+                <h2 className="page-title text-3xl md:text-5xl mb-5">Risk management is part of deployment, not a side quest.</h2>
+                <p className="page-lead text-lg max-w-3xl mx-auto mb-8">
+                  The teams that win are the ones that identify the ugly stuff early, quantify it honestly, and build the controls before the rollout goes live.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Link href="/enterprise-ai-budget-optimization-calculator" className="btn-brand inline-flex items-center gap-2">
+                    Check budget model
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link href="/enterprise-ai-transformation-roadmap-2026" className="btn-secondary inline-flex items-center gap-2">
+                    See roadmap
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Success Metrics */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Risk Management Success Metrics
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">&lt;5%</div>
-              <p className="text-gray-700 font-semibold">Project Failure Rate</p>
-              <p className="text-sm text-gray-600">With comprehensive risk assessment</p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">98.5%</div>
-              <p className="text-gray-700 font-semibold">System Uptime</p>
-              <p className="text-sm text-gray-600">With proper infrastructure planning</p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">73%</div>
-              <p className="text-gray-700 font-semibold">Faster ROI Achievement</p>
-              <p className="text-sm text-gray-600">Through risk-aware implementation</p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">89%</div>
-              <p className="text-gray-700 font-semibold">Stakeholder Satisfaction</p>
-              <p className="text-sm text-gray-600">With transparent risk communication</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Implementation Timeline */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Risk Assessment Implementation Timeline
-          </h2>
-
-          <div className="space-y-8">
-            <div className="flex items-center">
-              <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-6">1</div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-800">Week 1-2: Risk Discovery & Stakeholder Alignment</h3>
-                <p className="text-gray-600">Initial risk workshops, stakeholder interviews, and project scope definition</p>
-              </div>
-              <div className="text-sm text-gray-500 ml-6">2 weeks</div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-6">2</div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-800">Week 3-4: Technical & Business Risk Analysis</h3>
-                <p className="text-gray-600">Deep-dive technical assessment, business impact modeling, and regulatory review</p>
-              </div>
-              <div className="text-sm text-gray-500 ml-6">2 weeks</div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-6">3</div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-800">Week 5-6: Risk Quantification & Prioritization</h3>
-                <p className="text-gray-600">Risk scoring, financial impact analysis, and mitigation strategy development</p>
-              </div>
-              <div className="text-sm text-gray-500 ml-6">2 weeks</div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-6">4</div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-800">Week 7-8: Mitigation Planning & Implementation</h3>
-                <p className="text-gray-600">Risk control design, implementation roadmap, and monitoring setup</p>
-              </div>
-              <div className="text-sm text-gray-500 ml-6">2 weeks</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Action Items */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">
-            Start Your Enterprise AI Risk Assessment Today
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Don't let preventable risks derail your AI initiatives. Our proven framework has helped 200+ enterprises successfully deploy AI at scale.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">🎯 Immediate Actions</h3>
-              <ul className="text-left text-blue-100 space-y-2">
-                <li>• Download our risk assessment checklist</li>
-                <li>• Schedule stakeholder alignment workshop</li>
-                <li>• Inventory current AI initiatives and risks</li>
-                <li>• Establish risk management team</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">🚀 Next 30 Days</h3>
-              <ul className="text-left text-blue-100 space-y-2">
-                <li>• Complete comprehensive risk identification</li>
-                <li>• Quantify top 10 critical risks</li>
-                <li>• Develop mitigation strategies</li>
-                <li>• Implement monitoring and alerting</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </main>
     </div>
   )
 }

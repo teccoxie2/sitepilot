@@ -1,677 +1,716 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import SchemaMarkup from '@/components/SchemaMarkup'
+import {
+  ArrowRight,
+  Bot,
+  CheckCircle2,
+  ChevronRight,
+  Gauge,
+  LineChart,
+  Sparkles,
+  Target,
+  Workflow,
+} from 'lucide-react'
 import AffiliateLink from '@/components/AffiliateLink'
 import RelatedLinks from '@/components/RelatedLinks'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Best AI Analytics Tools for Bloggers 2026 | SitePilot'
+const pageDescription =
+  'Compare the best AI analytics tools for bloggers in 2026 across insight quality, automation depth, reporting speed, optimization workflows, and WordPress fit.'
+const pageUrl = 'https://sitepilot.co/best-ai-analytics-tools-bloggers-2026'
 
 export const metadata: Metadata = {
-  title: 'Best AI Analytics Tools for Bloggers 2026 - Data-Driven Content Strategy',
-  description: 'Complete guide to AI-powered analytics tools for bloggers. Optimize content performance with Google Analytics Intelligence, AI insights & automated reporting.',
-  keywords: 'ai analytics tools, google analytics intelligence, ai data analysis, blogger analytics, content optimization tools, ai insights 2026',
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: pageUrl },
   openGraph: {
-    title: 'Best AI Analytics Tools for Bloggers 2026 - Data-Driven Content Strategy',
-    description: 'Complete guide to AI-powered analytics tools for bloggers. Optimize content performance with Google Analytics Intelligence, AI insights & automated reporting.',
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
     type: 'article',
-    publishedTime: '2026-03-05T07:15:00.000Z',
-    authors: ['SitePilot Team'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
   },
 }
 
+const quickPicks = [
+  {
+    label: 'Best free baseline',
+    value: 'Google Analytics Intelligence',
+    note: 'The default starting point when you want insight without a new bill.',
+  },
+  {
+    label: 'Best WordPress add-on',
+    value: 'MonsterInsights Pro',
+    note: 'Useful for teams that want analytics inside the CMS workflow.',
+  },
+  {
+    label: 'Best behavior layer',
+    value: 'Hotjar AI Insights',
+    note: 'Best when you care about reader interaction, scroll depth, and drop-off.',
+  },
+  {
+    label: 'Best content intel',
+    value: 'BuzzSumo AI',
+    note: 'Strong for topic discovery and competitive content research.',
+  },
+]
+
+const signals = [
+  'Light Stripe-ish palette',
+  'Cleaner editorial hierarchy',
+  'Softer gradients, less clutter',
+  'Built for decision-first comparisons',
+]
+
+const tools = [
+  {
+    title: 'Google Analytics Intelligence',
+    strap: 'Foundation standard',
+    rating: '9.0/10',
+    bestFor: 'Blog traffic analysis and content performance insights',
+    pricing: 'Free with Google Analytics',
+    features: [
+      'Intelligent insights and anomaly detection',
+      'Predictive metrics for content performance',
+      'Natural language query processing',
+      'Automated optimization suggestions',
+    ],
+    benefits: [
+      'Automatic traffic spike explanations',
+      'Content decay pattern identification',
+      'Audience behavior predictions',
+      'Revenue opportunity insights',
+    ],
+    case: 'Perfect for understanding which content drives the most valuable traffic and where to optimize next.',
+    result: [
+      'Insight generation time: 5-10 seconds vs. 2-3 hours manual analysis',
+      'Accuracy rate: 89% for traffic pattern predictions',
+      '15-20 actionable recommendations per week',
+      '25% improvement in content strategy decisions',
+    ],
+    accent: 'from-sky-50 via-white to-indigo-50',
+  },
+  {
+    title: 'MonsterInsights Pro',
+    strap: 'WordPress AI integration',
+    rating: '8.7/10',
+    bestFor: 'WordPress bloggers and simplified AI insights',
+    pricing: '$99-399/year',
+    features: [
+      'Smart content recommendations',
+      'Automated performance alerts',
+      'AI-powered audience insights',
+      'Conversion optimization suggestions',
+    ],
+    benefits: [
+      'Dashboard integration with WordPress',
+      'Real-time AI insights in admin',
+      'Automated email reports with insights',
+      'Plugin compatibility optimization',
+    ],
+    case: 'Ideal for bloggers who want AI insights without leaving the WordPress dashboard.',
+    result: [],
+    accent: 'from-violet-50 via-white to-fuchsia-50',
+  },
+  {
+    title: 'Hotjar AI Insights',
+    strap: 'Behavior intelligence',
+    rating: '8.9/10',
+    bestFor: 'User behavior analysis and conversion optimization',
+    pricing: 'Free + $32-171/month',
+    features: [
+      'AI-powered heatmap analysis',
+      'Automated user journey insights',
+      'Conversion funnel AI optimization',
+      'Smart survey response analysis',
+    ],
+    benefits: [
+      'Content engagement patterns',
+      'Reader drop-off point analysis',
+      'Optimal content length recommendations',
+      'CTA placement optimization',
+    ],
+    case: 'Essential for understanding how readers interact with your content and where they bail out.',
+    result: [],
+    accent: 'from-amber-50 via-white to-orange-50',
+  },
+  {
+    title: 'BuzzSumo AI',
+    strap: 'Content intelligence',
+    rating: '9.2/10',
+    bestFor: 'Topic discovery, trending analysis, competitive intelligence',
+    pricing: '$99-499/month',
+    features: [
+      'Trending topic prediction algorithms',
+      'Content gap analysis automation',
+      'Viral content pattern recognition',
+      'Optimal publishing time AI recommendations',
+      'Influencer engagement prediction',
+    ],
+    benefits: [
+      '65% improvement in content topic selection',
+      '2-3x higher social sharing rates',
+      '40% reduction in content research time',
+      '23% increase in organic traffic from better topics',
+    ],
+    case: 'Strong when the job is finding topics worth writing before everybody else does.',
+    result: [],
+    accent: 'from-indigo-50 via-white to-sky-50',
+  },
+  {
+    title: 'Clearscope AI',
+    strap: 'SEO content optimization',
+    rating: '8.8/10',
+    bestFor: 'SEO-focused bloggers',
+    pricing: '$170/month',
+    features: [
+      'Content grade scoring with AI analysis',
+      'Keyword opportunity identification',
+      'Readability optimization suggestions',
+      'Topic coverage gap analysis',
+    ],
+    benefits: [
+      'Average 40% improvement in search rankings',
+      '35% reduction in content optimization time',
+      'Consistent content quality standards',
+    ],
+    case: 'Best for teams that need search-focused content guidance, not just traffic dashboards.',
+    result: [],
+    accent: 'from-slate-50 via-white to-cyan-50',
+  },
+  {
+    title: 'Databox AI',
+    strap: 'Automated dashboard intelligence',
+    rating: '8.6/10',
+    bestFor: 'Automated reporting with AI insights delivered daily or weekly',
+    pricing: 'Free + $47-135/month',
+    features: [
+      'Automated anomaly detection and alerts',
+      'Natural language performance summaries',
+      'Predictive trend analysis',
+      'Custom AI insights based on your goals',
+    ],
+    benefits: [
+      '90% reduction in manual reporting time',
+      'Daily AI insights in your inbox',
+      'Proactive problem identification',
+      'Automated client and stakeholder reports',
+    ],
+    case: 'Handy when you need the numbers summarized instead of staring at raw dashboards all day.',
+    result: [],
+    accent: 'from-blue-50 via-white to-sky-50',
+  },
+  {
+    title: 'Polymer AI',
+    strap: 'Visual analytics intelligence',
+    rating: '8.4/10',
+    bestFor: 'Visual data presentation',
+    pricing: '$20-300/month',
+    features: [
+      'CSV and Google Analytics uploads',
+      'Automatic insight and pattern recognition',
+      'Professional dashboards in minutes',
+    ],
+    benefits: [
+      'Transforms raw blog data into visual insights',
+      'Useful for teams and stakeholders',
+      'Fast reporting workflow',
+    ],
+    case: 'Best when the problem is presentation as much as analysis.',
+    result: [],
+    accent: 'from-purple-50 via-white to-rose-50',
+  },
+]
+
+const phases = [
+  {
+    title: 'Week 1: Foundation setup',
+    items: [
+      'Enable Google Analytics Intelligence (free)',
+      'Set up Hotjar or similar behavior analytics tool',
+      'Install MonsterInsights for WordPress users',
+      'Configure basic automated alerts and reports',
+      'Establish baseline metrics for comparison',
+    ],
+  },
+  {
+    title: 'Week 2: Advanced AI tools',
+    items: [
+      'Integrate content optimization tools such as Clearscope',
+      'Set up automated reporting with Databox',
+      'Begin BuzzSumo content intelligence integration',
+      'Create custom dashboards for key metrics',
+      'Train team members on the new AI insights workflow',
+    ],
+  },
+  {
+    title: 'Week 3-4: Optimization and analysis',
+    items: [
+      'Analyze the first month of AI insights and predictions',
+      'Optimize content strategy based on AI recommendations',
+      'Set up predictive models for content performance',
+      'Create automated decision-making workflows',
+      'Measure ROI from AI analytics implementation',
+    ],
+  },
+]
+
+const results = [
+  {
+    title: 'Time and cost savings',
+    rows: [
+      ['Manual analytics (weekly)', '8-12 hours'],
+      ['AI analytics (weekly)', '1-2 hours'],
+      ['Time savings', '85%'],
+      ['Monthly value', '$1,200-2,000'],
+    ],
+  },
+  {
+    title: 'Performance improvements',
+    rows: [
+      ['Content performance', '+150-300%'],
+      ['Strategic decision quality', '+240%'],
+      ['Content-driven conversions', '+180%'],
+      ['Overall ROI', '480%'],
+    ],
+  },
+]
+
+const comparisonRows = [
+  ['Google Analytics Intelligence', 'All bloggers', 'Free', '9.0/10', '15 mins'],
+  ['MonsterInsights', 'WordPress users', '$99/year', '8.7/10', '30 mins'],
+  ['Hotjar AI', 'Behavior analysis', '$32/month', '8.9/10', '45 mins'],
+  ['BuzzSumo', 'Content strategy', '$99/month', '9.2/10', '1 hour'],
+]
+
 export default function AIAnalyticsToolsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <SchemaMarkup 
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
         type="article"
-        title="Best AI Analytics Tools for Bloggers 2026 - Data-Driven Content Strategy"
-        description="Complete guide to AI-powered analytics tools for bloggers including Google Analytics Intelligence, AI insights and automated reporting."
-        url="https://sitepilot.co/best-ai-analytics-tools-bloggers-2026"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
         publishedDate="2026-03-05T07:15:00.000Z"
         modifiedDate="2026-03-05T07:15:00.000Z"
         authorName="SitePilot Team"
       />
-      
-      <main className="container mx-auto px-4 py-8">
-        <article className="max-w-4xl mx-auto">
-          <header className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Best AI Analytics Tools for Bloggers 2026
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Transform your blog's performance with AI-powered analytics tools. Make data-driven decisions, 
-              predict content trends, and optimize your strategy using artificial intelligence insights.
-            </p>
-            <div className="flex justify-center mt-6 text-sm text-gray-500">
-              <span>Updated March 5, 2026</span>
-              <span className="mx-2">•</span>
-              <span>10-minute read</span>
-            </div>
-          </header>
 
-          {/* Quick Navigation */}
-          <nav className="bg-blue-50 rounded-lg p-6 mb-8">
-            <h2 className="text-lg font-semibold mb-4">Quick Navigation</h2>
-            <div className="grid md:grid-cols-2 gap-2">
-              <a href="#ai-analytics-platforms" className="text-blue-600 hover:underline">• AI Analytics Platforms</a>
-              <a href="#content-optimization" className="text-blue-600 hover:underline">• Content Optimization AI</a>
-              <a href="#automated-reporting" className="text-blue-600 hover:underline">• Automated Reporting Tools</a>
-              <a href="#predictive-analytics" className="text-blue-600 hover:underline">• Predictive Analytics</a>
-              <a href="#implementation" className="text-blue-600 hover:underline">• Implementation Guide</a>
-              <a href="#case-studies" className="text-blue-600 hover:underline">• Performance Results</a>
-            </div>
-          </nav>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
 
-          {/* Introduction */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">Why AI Analytics Transform Blogger Success</h2>
-            
-            <div className="bg-green-50 border-l-4 border-green-400 p-6 mb-8">
-              <p className="text-lg">
-                <strong>Key Insight:</strong> AI analytics tools can improve content performance by 150-300% while reducing 
-                analysis time by 85%. Based on our 6-month testing with 1,000+ blog posts, AI-driven insights 
-                fundamentally change how successful bloggers optimize content.
-              </p>
-            </div>
-
-            <p className="text-lg mb-6">
-              Traditional blog analytics require hours of manual analysis to understand what's working. 
-              AI analytics tools automatically identify patterns, predict trends, and provide actionable insights 
-              that would take weeks to discover manually.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Traditional Analytics Challenges</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Hours spent interpreting data dashboards</li>
-                  <li>Reactive approach to content optimization</li>
-                  <li>Missing correlation patterns across metrics</li>
-                  <li>Difficulty predicting content performance</li>
-                  <li>Limited actionable insights from raw data</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">AI Analytics Advantages</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Instant insights with natural language explanations</li>
-                  <li>Proactive optimization recommendations</li>
-                  <li>Automatic pattern recognition and correlation analysis</li>
-                  <li>Predictive content performance modeling</li>
-                  <li>Clear, actionable improvement strategies</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* AI Analytics Platforms */}
-          <section id="ai-analytics-platforms" className="mb-12">
-            <h2 className="text-3xl font-bold mb-8">Top AI Analytics Platforms for Bloggers</h2>
-
-            {/* Google Analytics Intelligence */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-              <h3 className="text-2xl font-semibold mb-4">1. Google Analytics Intelligence - Foundation Standard</h3>
-              
-              <div className="grid md:grid-cols-3 gap-6 mb-6">
-                <div>
-                  <h4 className="font-semibold mb-2">⭐ Rating: 9.0/10</h4>
-                  <p><strong>Best For:</strong> Blog traffic analysis, content performance insights</p>
-                  <p><strong>Pricing:</strong> Free (included with Google Analytics)</p>
+      <main className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-16 pt-10 md:pb-24 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6 inline-flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-indigo-500" />
+                  2026 blogger analytics comparison
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">✅ AI Features</h4>
-                  <ul className="list-disc pl-5 text-sm">
-                    <li>Intelligent insights & anomaly detection</li>
-                    <li>Predictive metrics for content performance</li>
-                    <li>Natural language query processing</li>
-                    <li>Automated optimization suggestions</li>
-                  </ul>
+
+                <h1 className="page-title mb-6 text-5xl font-semibold tracking-[-0.05em] text-slate-950 md:text-7xl">
+                  Best AI Analytics Tools
+                  <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
+                    for bloggers.
+                  </span>
+                </h1>
+
+                <p className="page-lead mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+                  Compare the best AI analytics tools for bloggers in 2026 across insight quality, automation depth,
+                  reporting speed, optimization workflows, and WordPress fit. This guide is built for people who want
+                  fewer dashboards, better decisions, and less time wasted on manual analysis.
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  <Link href="#tool-comparison" className="btn-brand inline-flex items-center gap-2">
+                    Jump to comparison
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link href="#implementation" className="btn-secondary inline-flex items-center gap-2">
+                    View implementation plan
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">🎯 Blogger Benefits</h4>
-                  <ul className="list-disc pl-5 text-sm">
-                    <li>Automatic traffic spike explanations</li>
-                    <li>Content decay pattern identification</li>
-                    <li>Audience behavior predictions</li>
-                    <li>Revenue opportunity insights</li>
-                  </ul>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href="/best-ai-tools-small-business-2026" className="btn-secondary inline-flex items-center gap-2">
+                    Related AI tools hub
+                  </Link>
+                  <Link href="/best-ai-seo-tools-2026" className="btn-secondary inline-flex items-center gap-2">
+                    SEO tools comparison
+                  </Link>
+                  <Link href="/website-builders" className="btn-secondary inline-flex items-center gap-2">
+                    Builder guidance
+                  </Link>
+                </div>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {signals.map((signal) => (
+                    <div key={signal} className="page-card flex items-center gap-3 bg-white/90 p-4">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-indigo-500" />
+                      <span className="text-sm text-slate-700">{signal}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="bg-blue-50 p-4 rounded-lg mb-4">
-                <p><strong>Blogger Use Case:</strong> Perfect for understanding which content drives the most valuable 
-                traffic and automatically identifying optimization opportunities you might miss manually.</p>
-              </div>
-
-              <p><strong>Performance Data (4-month testing):</strong></p>
-              <ul className="list-disc pl-6 mb-4">
-                <li>Insight generation time: 5-10 seconds vs. 2-3 hours manual analysis</li>
-                <li>Accuracy rate: 89% for traffic pattern predictions</li>
-                <li>Actionable recommendations: 15-20 per week automatically generated</li>
-                <li>ROI optimization: 25% improvement in content strategy decisions</li>
-              </ul>
-            </div>
-
-            {/* MonsterInsights */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-              <h3 className="text-2xl font-semibold mb-4">2. MonsterInsights Pro - WordPress AI Integration</h3>
-              
-              <div className="grid md:grid-cols-3 gap-6 mb-6">
-                <div>
-                  <h4 className="font-semibold mb-2">⭐ Rating: 8.7/10</h4>
-                  <p><strong>Best For:</strong> WordPress bloggers, simplified AI insights</p>
-                  <p><strong>Pricing:</strong> $99-399/year</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">✅ AI Features</h4>
-                  <ul className="list-disc pl-5 text-sm">
-                    <li>Smart content recommendations</li>
-                    <li>Automated performance alerts</li>
-                    <li>AI-powered audience insights</li>
-                    <li>Conversion optimization suggestions</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">🚀 WordPress Advantages</h4>
-                  <ul className="list-disc pl-5 text-sm">
-                    <li>Dashboard integration with WordPress</li>
-                    <li>Real-time AI insights in admin</li>
-                    <li>Automated email reports with insights</li>
-                    <li>Plugin compatibility optimization</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-purple-50 p-4 rounded-lg mb-4">
-                <p><strong>Blogger Use Case:</strong> Ideal for WordPress bloggers who want AI insights without leaving 
-                their dashboard. Particularly powerful for affiliate and content marketing optimization.</p>
-              </div>
-            </div>
-
-            {/* Hotjar AI */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-              <h3 className="text-2xl font-semibold mb-4">3. Hotjar AI Insights - Behavior Intelligence</h3>
-              
-              <div className="grid md:grid-cols-3 gap-6 mb-6">
-                <div>
-                  <h4 className="font-semibold mb-2">⭐ Rating: 8.9/10</h4>
-                  <p><strong>Best For:</strong> User behavior analysis, conversion optimization</p>
-                  <p><strong>Pricing:</strong> Free + $32-171/month</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">✅ AI Features</h4>
-                  <ul className="list-disc pl-5 text-sm">
-                    <li>AI-powered heatmap analysis</li>
-                    <li>Automated user journey insights</li>
-                    <li>Conversion funnel AI optimization</li>
-                    <li>Smart survey response analysis</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">📊 Insights Generated</h4>
-                  <ul className="list-disc pl-5 text-sm">
-                    <li>Content engagement patterns</li>
-                    <li>Reader drop-off point analysis</li>
-                    <li>Optimal content length recommendations</li>
-                    <li>CTA placement optimization</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-orange-50 p-4 rounded-lg mb-4">
-                <p><strong>Blogger Use Case:</strong> Essential for understanding exactly how readers interact with your 
-                content and automatically identifying opportunities to improve engagement and conversions.</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Content Optimization AI */}
-          <section id="content-optimization" className="mb-12">
-            <h2 className="text-3xl font-bold mb-8">AI-Powered Content Optimization Tools</h2>
-
-            {/* BuzzSumo */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-              <h3 className="text-2xl font-semibold mb-4">BuzzSumo AI - Content Intelligence</h3>
-              
-              <div className="bg-green-50 p-4 rounded-lg mb-4">
-                <p><strong>Best For:</strong> Content topic discovery, trending analysis, competitive intelligence.</p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h4 className="font-semibold mb-2">AI Content Features</h4>
-                  <ul className="list-disc pl-5">
-                    <li>Trending topic prediction algorithms</li>
-                    <li>Content gap analysis automation</li>
-                    <li>Viral content pattern recognition</li>
-                    <li>Optimal publishing time AI recommendations</li>
-                    <li>Influencer engagement prediction</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Blogger ROI</h4>
-                  <ul className="list-disc pl-5">
-                    <li>65% improvement in content topic selection</li>
-                    <li>2-3x higher social sharing rates</li>
-                    <li>40% reduction in content research time</li>
-                    <li>23% increase in organic traffic from better topics</li>
-                  </ul>
-                </div>
-              </div>
-
-              <p><strong>Pricing:</strong> $99-499/month | <strong>Free trial:</strong> 30 days</p>
-            </div>
-
-            {/* Clearscope AI */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-6">
-              <h3 className="text-2xl font-semibold mb-4">Clearscope AI - SEO Content Optimization</h3>
-              <p className="mb-4">
-                AI-powered content optimization that analyzes top-ranking pages and provides specific 
-                recommendations for improving your content's search performance.
-              </p>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold mb-2">AI Optimization Features</h4>
-                  <ul className="list-disc pl-5">
-                    <li>Content grade scoring with AI analysis</li>
-                    <li>Keyword opportunity identification</li>
-                    <li>Readability optimization suggestions</li>
-                    <li>Topic coverage gap analysis</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Results for Bloggers</h4>
-                  <ul className="list-disc pl-5">
-                    <li>Average 40% improvement in search rankings</li>
-                    <li>35% reduction in content optimization time</li>
-                    <li>Consistent content quality standards</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <p className="mt-4"><strong>Pricing:</strong> $170/month | <strong>Best For:</strong> SEO-focused bloggers</p>
-            </div>
-          </section>
-
-          {/* Automated Reporting */}
-          <section id="automated-reporting" className="mb-12">
-            <h2 className="text-3xl font-bold mb-8">Automated AI Reporting Tools</h2>
-
-            {/* Databox */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-6">
-              <h3 className="text-2xl font-semibold mb-4">Databox AI - Automated Dashboard Intelligence</h3>
-              <p className="mb-4">
-                <strong>Perfect for:</strong> Bloggers who want automated reporting with AI insights delivered daily/weekly.
-              </p>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold mb-2">AI Reporting Features</h4>
-                  <ul className="list-disc pl-5">
-                    <li>Automated anomaly detection and alerts</li>
-                    <li>Natural language performance summaries</li>
-                    <li>Predictive trend analysis</li>
-                    <li>Custom AI insights based on your goals</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Time Savings</h4>
-                  <ul className="list-disc pl-5">
-                    <li>90% reduction in manual reporting time</li>
-                    <li>Daily AI insights in your inbox</li>
-                    <li>Proactive problem identification</li>
-                    <li>Automated client/stakeholder reports</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <p><strong>Pricing:</strong> Free + $47-135/month | <strong>Rating:</strong> 8.6/10</p>
-            </div>
-
-            {/* Polymer */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-6">
-              <h3 className="text-2xl font-semibold mb-4">Polymer AI - Visual Analytics Intelligence</h3>
-              <p className="mb-4">
-                Transform your blog data into visual insights automatically. Perfect for bloggers who need 
-                to present data to teams, clients, or stakeholders.
-              </p>
-              
-              <div className="grid md:grid-cols-3 gap-4 text-center">
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <h4 className="font-semibold">Upload Data</h4>
-                  <p className="text-sm">CSV, Google Analytics, any data source</p>
-                </div>
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-semibold">AI Analysis</h4>
-                  <p className="text-sm">Automatic insights & pattern recognition</p>
-                </div>
-                <div className="bg-purple-50 p-4 rounded-lg">
-                  <h4 className="font-semibold">Visual Reports</h4>
-                  <p className="text-sm">Professional dashboards in minutes</p>
-                </div>
-              </div>
-              
-              <p className="mt-4"><strong>Pricing:</strong> $20-300/month | <strong>Best For:</strong> Visual data presentation</p>
-            </div>
-          </section>
-
-          {/* Predictive Analytics */}
-          <section id="predictive-analytics" className="mb-12">
-            <h2 className="text-3xl font-bold mb-8">Predictive Analytics for Content Strategy</h2>
-
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-              <h3 className="text-xl font-semibold mb-6">AI-Powered Content Predictions</h3>
-              
-              <div className="grid md:grid-cols-2 gap-8 mb-6">
-                <div>
-                  <h4 className="text-lg font-semibold mb-4">🔮 What AI Can Predict</h4>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li><strong>Content Performance:</strong> Estimated traffic, engagement, conversion rates</li>
-                    <li><strong>Trending Topics:</strong> What will be popular 2-4 weeks ahead</li>
-                    <li><strong>Seasonal Patterns:</strong> When to publish specific content types</li>
-                    <li><strong>Audience Behavior:</strong> Reader preferences and content consumption patterns</li>
-                    <li><strong>Competitor Trends:</strong> Market gap opportunities and competitive analysis</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold mb-4">💡 Strategic Applications</h4>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li><strong>Content Calendar:</strong> AI-optimized publishing schedule</li>
-                    <li><strong>Topic Research:</strong> Data-driven content idea generation</li>
-                    <li><strong>Resource Allocation:</strong> Focus on highest-ROI content types</li>
-                    <li><strong>Risk Management:</strong> Avoid content topics likely to underperform</li>
-                    <li><strong>Growth Optimization:</strong> Double down on predicted successful strategies</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold mb-4">🎯 Predictive Analytics Success Framework</h4>
-                <div className="grid md:grid-cols-4 gap-4 text-center">
-                  <div>
-                    <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2">1</div>
-                    <p className="text-sm"><strong>Data Collection</strong><br/>Historical performance analysis</p>
+              <div className="relative">
+                <div className="page-card-glow absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card space-y-5 rounded-[2rem] p-5 md:p-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-sm text-slate-500">SitePilot view</div>
+                      <div className="text-xl font-semibold text-slate-950">Selection matrix</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Stripe palette
+                    </div>
                   </div>
-                  <div>
-                    <div className="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2">2</div>
-                    <p className="text-sm"><strong>Pattern Recognition</strong><br/>AI identifies success factors</p>
-                  </div>
-                  <div>
-                    <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2">3</div>
-                    <p className="text-sm"><strong>Prediction Modeling</strong><br/>Forecast future performance</p>
-                  </div>
-                  <div>
-                    <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2">4</div>
-                    <p className="text-sm"><strong>Strategy Optimization</strong><br/>Data-driven content decisions</p>
+
+                  <div className="space-y-3">
+                    {quickPicks.map((item) => (
+                      <div
+                        key={item.label}
+                        className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4 transition-colors hover:from-indigo-50/40 hover:to-sky-50/40"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{item.label}</div>
+                            <div className="mt-1 text-lg font-semibold text-slate-950">{item.value}</div>
+                          </div>
+                          <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600">
+                            Decision
+                          </span>
+                        </div>
+                        <p className="mt-3 text-sm leading-6 text-slate-600">{item.note}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Implementation Guide */}
-          <section id="implementation" className="mb-12">
-            <h2 className="text-3xl font-bold mb-8">Implementation Guide: AI Analytics Setup</h2>
-
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold mb-3">Week 1: Foundation Setup</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Enable Google Analytics Intelligence (free)</li>
-                  <li>Set up Hotjar or similar behavior analytics tool</li>
-                  <li>Install MonsterInsights for WordPress users</li>
-                  <li>Configure basic automated alerts and reports</li>
-                  <li>Establish baseline metrics for comparison</li>
-                </ul>
+        <section className="mb-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ['Insight quality', 'What the tool actually tells you matters more than the dashboard glitter.'],
+            ['Automation depth', 'The best tools reduce manual work, not just format prettier charts.'],
+            ['WordPress fit', 'Good blogger analytics often live inside the CMS workflow.'],
+            ['Decision speed', 'Fast answers beat slow, over-engineered reporting rituals.'],
+          ].map(([title, body]) => (
+            <div key={title} className="page-card p-5">
+              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900">
+                <Target className="h-4 w-4 text-indigo-500" />
+                {title}
               </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold mb-3">Week 2: Advanced AI Tools</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Integrate content optimization tools (Clearscope or similar)</li>
-                  <li>Set up automated reporting with Databox</li>
-                  <li>Begin BuzzSumo content intelligence integration</li>
-                  <li>Create custom dashboards for key metrics</li>
-                  <li>Train team members on new AI insights workflow</li>
-                </ul>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold mb-3">Week 3-4: Optimization & Analysis</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Analyze first month of AI insights and predictions</li>
-                  <li>Optimize content strategy based on AI recommendations</li>
-                  <li>Set up predictive models for content performance</li>
-                  <li>Create automated decision-making workflows</li>
-                  <li>Measure ROI from AI analytics implementation</li>
-                </ul>
-              </div>
+              <p className="text-sm leading-6 text-slate-600">{body}</p>
             </div>
-          </section>
+          ))}
+        </section>
 
-          {/* Performance Results */}
-          <section id="case-studies" className="mb-12">
-            <h2 className="text-3xl font-bold mb-8">Real Performance Results: 6-Month AI Analytics Testing</h2>
+        <section className="mb-16">
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <div className="page-pill mb-3 inline-flex items-center gap-2">
+                <Gauge className="h-4 w-4 text-indigo-500" />
+                Top picks
+              </div>
+              <h2 className="page-title text-3xl md:text-4xl">Top AI analytics platforms for bloggers</h2>
+            </div>
+            <Link href="#tool-comparison" className="btn-secondary hidden items-center gap-2 md:inline-flex">
+              View matrix
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
 
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-8 rounded-lg mb-8">
-              <h3 className="text-xl font-semibold mb-6">Testing Methodology</h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-semibold mb-4">Test Parameters</h4>
-                  <ul className="list-disc pl-5 space-y-2">
+          <div className="space-y-6">
+            {tools.map((tool, index) => (
+              <article key={tool.title} className="page-card overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+                <div className={`bg-gradient-to-r ${tool.accent} p-6 md:p-8`}>
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <div>
+                      <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                        #{index + 1} {tool.strap}
+                      </div>
+                      <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 md:text-3xl">{tool.title}</h3>
+                      <p className="mt-2 max-w-3xl text-base leading-7 text-slate-600">{tool.bestFor}</p>
+                    </div>
+                    <div className="rounded-2xl border border-white/70 bg-white/80 px-4 py-3 shadow-sm backdrop-blur-xl">
+                      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Rating</div>
+                      <div className="text-2xl font-semibold text-slate-950">{tool.rating}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-6 p-6 md:grid-cols-3 md:p-8">
+                  <div className="page-card-soft p-5">
+                    <div className="mb-3 text-sm font-semibold text-slate-900">Pricing</div>
+                    <p className="text-sm leading-6 text-slate-600">{tool.pricing}</p>
+                  </div>
+                  <div className="page-card-soft p-5">
+                    <div className="mb-3 text-sm font-semibold text-slate-900">AI features</div>
+                    <ul className="space-y-2 text-sm leading-6 text-slate-600">
+                      {tool.features.map((feature) => (
+                        <li key={feature} className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-500" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="page-card-soft p-5">
+                    <div className="mb-3 text-sm font-semibold text-slate-900">Blogger benefits</div>
+                    <ul className="space-y-2 text-sm leading-6 text-slate-600">
+                      {tool.benefits.map((benefit) => (
+                        <li key={benefit} className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-500" />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="px-6 pb-6 md:px-8 md:pb-8">
+                  <div className="page-card-glow rounded-3xl p-1.5">
+                    <div className="page-card-soft space-y-4 rounded-[1.4rem] p-5 md:p-6">
+                      <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+                        <Workflow className="h-4 w-4 text-sky-500" />
+                        Blogger use case
+                      </div>
+                      <p className="text-sm leading-6 text-slate-600">{tool.case}</p>
+                      {tool.result.length > 0 ? (
+                        <ul className="grid gap-2 text-sm leading-6 text-slate-600 md:grid-cols-2">
+                          {tool.result.map((row) => (
+                            <li key={row} className="flex gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                              <span className="mt-1 h-2 w-2 rounded-full bg-sky-500" />
+                              <span>{row}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="implementation" className="mb-16">
+          <div className="mb-8">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <Workflow className="h-4 w-4 text-indigo-500" />
+              Implementation plan
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">Implementation guide: AI analytics setup</h2>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {phases.map((phase) => (
+              <div key={phase.title} className="page-card p-6 md:p-7">
+                <h3 className="mb-4 text-xl font-semibold tracking-[-0.03em] text-slate-950">{phase.title}</h3>
+                <ul className="space-y-3 text-sm leading-6 text-slate-600">
+                  {phase.items.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <LineChart className="h-4 w-4 text-indigo-500" />
+              Results
+            </div>
+            <h2 className="page-title text-3xl md:text-4xl">Real performance results: 6-month testing</h2>
+          </div>
+
+          <div className="page-card-glow rounded-[2rem] p-1.5">
+            <div className="page-card-soft rounded-[1.6rem] p-6 md:p-8">
+              <div className="grid gap-6 lg:grid-cols-2">
+                <div className="page-card p-6">
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">Testing methodology</h3>
+                  <ul className="space-y-3 text-sm leading-6 text-slate-600">
                     <li><strong>Duration:</strong> September 2025 - March 2026</li>
-                    <li><strong>Content Analyzed:</strong> 1,000+ blog posts</li>
-                    <li><strong>AI Tools Tested:</strong> 8 analytics platforms</li>
-                    <li><strong>Blog Niches:</strong> 3 different verticals tested</li>
-                    <li><strong>Metrics Tracked:</strong> Traffic, engagement, conversions, time savings</li>
+                    <li><strong>Content analyzed:</strong> 1,000+ blog posts</li>
+                    <li><strong>AI tools tested:</strong> 8 analytics platforms</li>
+                    <li><strong>Blog niches:</strong> 3 different verticals tested</li>
+                    <li><strong>Metrics tracked:</strong> Traffic, engagement, conversions, time savings</li>
                   </ul>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-4">Key Findings</h4>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li><strong>Performance Improvement:</strong> 150-300% average boost</li>
-                    <li><strong>Analysis Time Savings:</strong> 85% reduction in manual work</li>
-                    <li><strong>Prediction Accuracy:</strong> 78% for content performance forecasting</li>
-                    <li><strong>Content Strategy ROI:</strong> 240% improvement in strategic decisions</li>
-                    <li><strong>Revenue Impact:</strong> 180% increase in content-driven conversions</li>
+                <div className="page-card p-6">
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">Key findings</h3>
+                  <ul className="space-y-3 text-sm leading-6 text-slate-600">
+                    <li><strong>Performance improvement:</strong> 150-300% average boost</li>
+                    <li><strong>Analysis time savings:</strong> 85% reduction in manual work</li>
+                    <li><strong>Prediction accuracy:</strong> 78% for content performance forecasting</li>
+                    <li><strong>Content strategy ROI:</strong> 240% improvement in strategic decisions</li>
+                    <li><strong>Revenue impact:</strong> 180% increase in content-driven conversions</li>
                   </ul>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* ROI Breakdown */}
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold mb-4">💰 Time & Cost Savings</h4>
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {results.map((block) => (
+              <div key={block.title} className="page-card p-6 md:p-7">
+                <h3 className="mb-4 text-xl font-semibold text-slate-950">{block.title}</h3>
                 <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span>Manual Analytics (weekly)</span>
-                    <span className="font-semibold">8-12 hours</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>AI Analytics (weekly)</span>
-                    <span className="font-semibold text-green-600">1-2 hours</span>
-                  </div>
-                  <div className="flex justify-between border-t pt-2">
-                    <span>Time Savings</span>
-                    <span className="font-semibold text-green-600">85%</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-green-600">Monthly Value</span>
-                    <span className="font-semibold text-green-600">$1,200-2,000</span>
-                  </div>
+                  {block.rows.map(([label, value]) => (
+                    <div key={label} className="flex items-center justify-between gap-4 border-b border-slate-100 pb-3 last:border-b-0 last:pb-0">
+                      <span className="text-sm text-slate-600">{label}</span>
+                      <span className="text-sm font-semibold text-slate-950">{value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-lg font-semibold mb-4">📈 Performance Improvements</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span>Content Performance</span>
-                    <span className="font-semibold text-green-600">+150-300%</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Strategic Decision Quality</span>
-                    <span className="font-semibold text-green-600">+240%</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Content-Driven Conversions</span>
-                    <span className="font-semibold text-green-600">+180%</span>
-                  </div>
-                  <div className="flex justify-between border-t pt-2">
-                    <span className="text-green-600">Overall ROI</span>
-                    <span className="font-semibold text-green-600">480%</span>
-                  </div>
-                </div>
-              </div>
+        <section id="tool-comparison" className="mb-16">
+          <div className="mb-8">
+            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <Bot className="h-4 w-4 text-indigo-500" />
+              Comparison matrix
             </div>
-          </section>
+            <h2 className="page-title text-3xl md:text-4xl">AI analytics tool comparison and recommendations</h2>
+          </div>
 
-          {/* Tool Comparison Matrix */}
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-8">AI Analytics Tool Comparison & Recommendations</h2>
+          <div className="page-card overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <div className="mb-6 text-xl font-semibold text-slate-950">Quick selection matrix</div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[720px] text-sm">
+                <thead>
+                  <tr className="border-b border-slate-200 text-left text-slate-500">
+                    <th className="px-3 py-3 font-medium">Tool</th>
+                    <th className="px-3 py-3 font-medium">Best for</th>
+                    <th className="px-3 py-3 font-medium">Price</th>
+                    <th className="px-3 py-3 font-medium">AI features</th>
+                    <th className="px-3 py-3 font-medium">Setup time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map(([tool, bestFor, price, features, setupTime]) => (
+                    <tr key={tool} className="border-b border-slate-100 last:border-b-0">
+                      <td className="px-3 py-4 font-medium text-slate-950">{tool}</td>
+                      <td className="px-3 py-4 text-slate-600">{bestFor}</td>
+                      <td className="px-3 py-4 text-slate-600">{price}</td>
+                      <td className="px-3 py-4 text-slate-600">{features}</td>
+                      <td className="px-3 py-4 text-slate-600">{setupTime}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-              <h3 className="text-xl font-semibold mb-6">Quick Selection Matrix</h3>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left p-3">Tool</th>
-                      <th className="text-left p-3">Best For</th>
-                      <th className="text-left p-3">Price</th>
-                      <th className="text-left p-3">AI Features</th>
-                      <th className="text-left p-3">Setup Time</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b">
-                      <td className="p-3 font-medium">Google Analytics Intelligence</td>
-                      <td className="p-3">All bloggers</td>
-                      <td className="p-3">Free</td>
-                      <td className="p-3">9.0/10</td>
-                      <td className="p-3">15 mins</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-medium">MonsterInsights</td>
-                      <td className="p-3">WordPress users</td>
-                      <td className="p-3">$99/year</td>
-                      <td className="p-3">8.7/10</td>
-                      <td className="p-3">30 mins</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-medium">Hotjar AI</td>
-                      <td className="p-3">Behavior analysis</td>
-                      <td className="p-3">$32/month</td>
-                      <td className="p-3">8.9/10</td>
-                      <td className="p-3">45 mins</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-medium">BuzzSumo</td>
-                      <td className="p-3">Content strategy</td>
-                      <td className="p-3">$99/month</td>
-                      <td className="p-3">9.2/10</td>
-                      <td className="p-3">1 hour</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <div className="page-card p-6">
+              <h3 className="mb-4 text-lg font-semibold text-slate-950">Beginner stack</h3>
+              <ul className="space-y-2 text-sm leading-6 text-slate-600">
+                <li><strong>Google Analytics Intelligence</strong> — Free</li>
+                <li><strong>Hotjar Basic</strong> — Free tier</li>
+                <li><strong>MonsterInsights Lite</strong> — Free plugin</li>
+              </ul>
+              <p className="mt-4 text-sm text-slate-600">Perfect for new bloggers who want AI insights without monthly costs.</p>
             </div>
 
-            {/* Recommended Tool Stacks */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-green-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold mb-4">🎯 Beginner Stack (Free-$50/mo)</h4>
-                <ul className="space-y-2">
-                  <li><strong>Google Analytics Intelligence</strong> - Free</li>
-                  <li><strong>Hotjar Basic</strong> - Free tier</li>
-                  <li><strong>MonsterInsights Lite</strong> - Free plugin</li>
-                </ul>
-                <p className="text-sm mt-4 text-gray-600">
-                  Perfect for new bloggers who want AI insights without monthly costs.
-                </p>
-              </div>
-
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold mb-4">🚀 Professional Stack ($200/mo)</h4>
-                <ul className="space-y-2">
-                  <li><strong>Google Analytics Intelligence</strong> - Free</li>
-                  <li><strong>MonsterInsights Pro</strong> - $199/year</li>
-                  <li><strong>Hotjar Plus</strong> - $32/month</li>
-                  <li><strong>Databox Pro</strong> - $47/month</li>
-                </ul>
-                <p className="text-sm mt-4 text-gray-600">
-                  Ideal for established bloggers who need comprehensive AI analytics.
-                </p>
-              </div>
-
-              <div className="bg-purple-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold mb-4">⭐ Enterprise Stack ($400/mo)</h4>
-                <ul className="space-y-2">
-                  <li><strong>BuzzSumo Pro</strong> - $179/month</li>
-                  <li><strong>Clearscope</strong> - $170/month</li>
-                  <li><strong>Hotjar Business</strong> - $80/month</li>
-                  <li><strong>All professional tools</strong> - Above stack</li>
-                </ul>
-                <p className="text-sm mt-4 text-gray-600">
-                  For content teams and high-revenue bloggers needing maximum AI insight.
-                </p>
-              </div>
+            <div className="page-card p-6">
+              <h3 className="mb-4 text-lg font-semibold text-slate-950">Professional stack</h3>
+              <ul className="space-y-2 text-sm leading-6 text-slate-600">
+                <li><strong>Google Analytics Intelligence</strong> — Free</li>
+                <li><strong>MonsterInsights Pro</strong> — $199/year</li>
+                <li><strong>Hotjar Plus</strong> — $32/month</li>
+                <li><strong>Databox Pro</strong> — $47/month</li>
+              </ul>
+              <p className="mt-4 text-sm text-slate-600">Ideal for established bloggers who need comprehensive AI analytics.</p>
             </div>
-          </section>
 
-          {/* Related Articles */}
-          <RelatedLinks
-            links={[
-              {
-                href: "/ai-tools-for-bloggers-2026",
-                title: "Complete AI Tools for Bloggers 2026 Guide",
-                description: "Comprehensive guide to all AI tools for blogging productivity"
-              },
-              {
-                href: "/best-ai-image-tools-bloggers-2026",
-                title: "Best AI Image Tools for Bloggers",
-                description: "AI-powered visual content creation and editing tools"
-              },
-              {
-                href: "/best-ai-seo-tools-2026",
-                title: "Best AI SEO Tools for Content Optimization",
-                description: "AI-powered SEO tools for better search rankings"
-              },
-              {
-                href: "/best-website-builders-2026",
-                title: "Best Website Builders for Bloggers",
-                description: "Top platforms to create and host your blog"
-              }
-            ]}
-          />
+            <div className="page-card p-6">
+              <h3 className="mb-4 text-lg font-semibold text-slate-950">Enterprise stack</h3>
+              <ul className="space-y-2 text-sm leading-6 text-slate-600">
+                <li><strong>BuzzSumo Pro</strong> — $179/month</li>
+                <li><strong>Clearscope</strong> — $170/month</li>
+                <li><strong>Hotjar Business</strong> — $80/month</li>
+                <li><strong>All professional tools</strong> — Above stack</li>
+              </ul>
+              <p className="mt-4 text-sm text-slate-600">For content teams and high-revenue bloggers needing maximum AI insight.</p>
+            </div>
+          </div>
+        </section>
 
-          {/* Call to Action */}
-          <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg text-center">
-            <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Blog Analytics?</h2>
-            <p className="text-lg mb-6">
-              Join thousands of data-driven bloggers using AI analytics to optimize content performance and boost revenue.
+        <RelatedLinks
+          links={[
+            {
+              href: '/ai-tools-for-bloggers-2026',
+              title: 'Complete AI Tools for Bloggers 2026 Guide',
+              description: 'Comprehensive guide to all AI tools for blogging productivity',
+            },
+            {
+              href: '/best-ai-image-tools-bloggers-2026',
+              title: 'Best AI Image Tools for Bloggers',
+              description: 'AI-powered visual content creation and editing tools',
+            },
+            {
+              href: '/best-ai-seo-tools-2026',
+              title: 'Best AI SEO Tools for Content Optimization',
+              description: 'AI-powered SEO tools for better search rankings',
+            },
+            {
+              href: '/best-website-builders-2026',
+              title: 'Best Website Builders for Bloggers',
+              description: 'Top platforms to create and host your blog',
+            },
+          ]}
+        />
+
+        <section className="page-card-glow mt-16 rounded-[2rem] p-1.5">
+          <div className="page-card-soft rounded-[1.6rem] px-6 py-10 text-center md:px-10">
+            <h2 className="page-title mb-4 text-3xl md:text-4xl">Ready to transform your blog analytics?</h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg leading-7 text-slate-600">
+              Use AI analytics to optimize content performance, shorten reporting cycles, and stop guessing about what your readers actually want.
             </p>
-            <div className="space-x-4">
-              <AffiliateLink 
-                href="https://analytics.google.com" 
+            <div className="flex flex-wrap justify-center gap-3">
+              <AffiliateLink
+                href="https://analytics.google.com"
                 provider="google"
                 plan="analytics"
-                className="bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 font-semibold"
+                className="btn-brand inline-flex items-center gap-2"
               >
-                Start with Google Analytics AI →
+                Start with Google Analytics AI
+                <ArrowRight className="h-4 w-4" />
               </AffiliateLink>
-              <AffiliateLink 
-                href="https://www.monsterinsights.com" 
+              <AffiliateLink
+                href="https://www.monsterinsights.com"
                 provider="monsterinsights"
                 plan="pro"
-                className="border-2 border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-purple-600 font-semibold"
+                className="btn-secondary inline-flex items-center gap-2"
               >
-                Try MonsterInsights Pro →
+                Try MonsterInsights Pro
+                <ArrowRight className="h-4 w-4" />
               </AffiliateLink>
             </div>
-          </section>
-        </article>
+          </div>
+        </section>
       </main>
     </div>
   )

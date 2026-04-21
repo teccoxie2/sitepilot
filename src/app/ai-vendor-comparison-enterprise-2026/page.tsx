@@ -1,366 +1,497 @@
-import { Metadata } from 'next'
-import { ArrowRight, Shield, Star, Users, Zap, CheckCircle, AlertTriangle } from 'lucide-react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import {
+  AlertTriangle,
+  ArrowRight,
+  CheckCircle2,
+  Shield,
+  Sparkles,
+  Star,
+  Target,
+  Users,
+  Zap,
+} from 'lucide-react'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Enterprise AI Vendor Comparison 2026 | SitePilot'
+const pageDescription =
+  'Compare top enterprise AI vendors including OpenAI, Anthropic, Google, Microsoft, and AWS. Comprehensive feature analysis, pricing, and security comparison.'
+const pageUrl = 'https://sitepilot.co/ai-vendor-comparison-enterprise-2026'
 
 export const metadata: Metadata = {
-  title: 'Enterprise AI Vendor Comparison 2026 | SitePilot',
-  description: 'Compare top enterprise AI vendors including OpenAI, Anthropic, Google, Microsoft, and AWS. Comprehensive feature analysis, pricing, and security comparison.',
-  keywords: 'AI vendor comparison, enterprise AI providers, OpenAI vs Anthropic, AI platform comparison, enterprise AI selection',
+  title: pageTitle,
+  description: pageDescription,
+  keywords: [
+    'AI vendor comparison',
+    'enterprise AI providers',
+    'OpenAI vs Anthropic',
+    'AI platform comparison',
+    'enterprise AI selection',
+  ],
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    title: pageTitle,
+    description:
+      'Compare top enterprise AI vendors including OpenAI, Anthropic, Google, Microsoft, and AWS.',
+    type: 'article',
+    url: pageUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: 'Enterprise AI vendor comparison covering pricing, security, compliance, and best-fit use cases.',
+  },
 }
 
-export default function AIVendorComparison() {
-  const vendors = [
-    {
-      name: "OpenAI",
-      tier: "Premium",
-      pricing: "$20-60/user/month",
-      strengths: ["GPT-4 Excellence", "API Ecosystem", "Developer Tools"],
-      weaknesses: ["Higher Costs", "Rate Limits"],
-      security: "SOC 2 Type II",
-      compliance: "GDPR, CCPA",
-      score: 92
-    },
-    {
-      name: "Anthropic",
-      tier: "Enterprise",
-      pricing: "$25-75/user/month", 
-      strengths: ["Constitutional AI", "Safety Focus", "Long Context"],
-      weaknesses: ["Newer Platform", "Limited Integrations"],
-      security: "SOC 2 Type II",
-      compliance: "GDPR, HIPAA Ready",
-      score: 89
-    },
-    {
-      name: "Google Cloud AI",
-      tier: "Enterprise",
-      pricing: "$15-50/user/month",
-      strengths: ["GCP Integration", "Vertex AI", "Multi-modal"],
-      weaknesses: ["Complex Setup", "Learning Curve"],
-      security: "ISO 27001",
-      compliance: "GDPR, HIPAA, SOX",
-      score: 87
-    },
-    {
-      name: "Microsoft Azure AI",
-      tier: "Enterprise", 
-      pricing: "$18-55/user/month",
-      strengths: ["Office 365 Integration", "Copilot", "Enterprise Grade"],
-      weaknesses: ["Vendor Lock-in", "Complex Pricing"],
-      security: "ISO 27001",
-      compliance: "GDPR, HIPAA, FedRAMP",
-      score: 85
-    },
-    {
-      name: "AWS Bedrock",
-      tier: "Enterprise",
-      pricing: "$12-45/user/month",
-      strengths: ["Multi-model Access", "AWS Integration", "Scalability"],
-      weaknesses: ["Model Latency", "Complex Management"],
-      security: "SOC 1,2,3",
-      compliance: "GDPR, HIPAA, PCI DSS",
-      score: 83
-    }
-  ]
+const vendors = [
+  {
+    name: 'OpenAI',
+    tier: 'Premium',
+    pricing: '$20-60/user/month',
+    strengths: ['GPT-4 excellence', 'API ecosystem', 'Developer tools'],
+    weaknesses: ['Higher costs', 'Rate limits'],
+    security: 'SOC 2 Type II',
+    compliance: 'GDPR, CCPA',
+    score: 92,
+    bestFor: 'Content generation, developer velocity',
+  },
+  {
+    name: 'Anthropic',
+    tier: 'Enterprise',
+    pricing: '$25-75/user/month',
+    strengths: ['Constitutional AI', 'Safety focus', 'Long context'],
+    weaknesses: ['Newer platform', 'Limited integrations'],
+    security: 'SOC 2 Type II',
+    compliance: 'GDPR, HIPAA Ready',
+    score: 89,
+    bestFor: 'High-trust enterprise deployments',
+  },
+  {
+    name: 'Google Cloud AI',
+    tier: 'Enterprise',
+    pricing: '$15-50/user/month',
+    strengths: ['GCP integration', 'Vertex AI', 'Multi-modal'],
+    weaknesses: ['Complex setup', 'Learning curve'],
+    security: 'ISO 27001',
+    compliance: 'GDPR, HIPAA, SOX',
+    score: 87,
+    bestFor: 'Data-heavy AI and analytics workflows',
+  },
+  {
+    name: 'Microsoft Azure AI',
+    tier: 'Enterprise',
+    pricing: '$18-55/user/month',
+    strengths: ['Office 365 integration', 'Copilot', 'Enterprise grade'],
+    weaknesses: ['Vendor lock-in', 'Complex pricing'],
+    security: 'ISO 27001',
+    compliance: 'GDPR, HIPAA, FedRAMP',
+    score: 85,
+    bestFor: 'Microsoft-centric enterprise environments',
+  },
+  {
+    name: 'AWS Bedrock',
+    tier: 'Enterprise',
+    pricing: '$12-45/user/month',
+    strengths: ['Multi-model access', 'AWS integration', 'Scalability'],
+    weaknesses: ['Model latency', 'Complex management'],
+    security: 'SOC 1,2,3',
+    compliance: 'GDPR, HIPAA, PCI DSS',
+    score: 83,
+    bestFor: 'Cost-aware teams already deep in AWS',
+  },
+]
 
+const framingSignals = [
+  '选 AI vendor 这事，最怕的不是选错，而是用一堆模糊标准把错选合理化。',
+  '功能、价格、安全、合规、集成、锁定风险，这几个维度少一个都不完整。',
+  '高分不代表适合你。合适的 vendor，取决于你的技术栈、治理要求和组织成熟度。',
+  '如果采购过程只看 demo 和销售话术，后面多半要花更贵的代价补课。',
+]
+
+const decisionCards = [
+  {
+    title: 'Technical fit',
+    icon: Zap,
+    points: ['Performance & latency', 'Integration quality', 'Model capabilities', 'Scalability requirements'],
+  },
+  {
+    title: 'Security & compliance',
+    icon: Shield,
+    points: ['Security certifications', 'Data-handling model', 'Regional compliance', 'Enterprise control surface'],
+  },
+  {
+    title: 'Business reality',
+    icon: Target,
+    points: ['TCO and pricing model', 'Vendor stability', 'Roadmap confidence', 'Support and enablement'],
+  },
+]
+
+const useCases = [
+  {
+    title: 'Content generation',
+    best: 'OpenAI GPT-4',
+    alt: 'Anthropic Claude',
+    note: 'Superior creative writing and content quality.',
+    tone: 'border-sky-100 bg-sky-50/80 text-sky-800',
+  },
+  {
+    title: 'Data analysis',
+    best: 'Google Cloud AI',
+    alt: 'AWS Bedrock',
+    note: 'Strong analytics and visualization capabilities.',
+    tone: 'border-indigo-100 bg-indigo-50/80 text-indigo-800',
+  },
+  {
+    title: 'Enterprise integration',
+    best: 'Microsoft Azure',
+    alt: 'Google Cloud',
+    note: 'Seamless Office 365 and enterprise workflow alignment.',
+    tone: 'border-violet-100 bg-violet-50/80 text-violet-800',
+  },
+  {
+    title: 'High security',
+    best: 'Anthropic Claude',
+    alt: 'AWS Bedrock',
+    note: 'Constitutional AI and strong safety positioning.',
+    tone: 'border-amber-100 bg-amber-50/80 text-amber-800',
+  },
+  {
+    title: 'Cost optimization',
+    best: 'AWS Bedrock',
+    alt: 'Google Cloud',
+    note: 'Competitive consumption pricing with flexible scaling.',
+    tone: 'border-rose-100 bg-rose-50/80 text-rose-800',
+  },
+  {
+    title: 'Developer experience',
+    best: 'OpenAI',
+    alt: 'Anthropic',
+    note: 'Excellent APIs, docs, and ecosystem momentum.',
+    tone: 'border-indigo-100 bg-indigo-50/80 text-indigo-800',
+  },
+]
+
+export default function AIVendorComparison() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      {/* Hero Section */}
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">
-          Enterprise AI Vendor Comparison 2026
-        </h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Comprehensive analysis of top enterprise AI platforms including features, pricing, security, and compliance
-        </p>
-        <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <div className="flex items-center justify-center mb-4">
-            <Shield className="w-8 h-8 text-blue-600 mr-3" />
-            <span className="text-lg font-semibold text-blue-800">Enterprise-Grade Evaluation</span>
-          </div>
-          <p className="text-blue-700">
-            Independent analysis based on 200+ enterprise deployments and security assessments
-          </p>
-        </div>
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-03-11"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_56%,#fffdf9_100%)]" />
+        <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_54%_82%,rgba(251,191,36,0.05),transparent_28%)]" />
       </div>
 
-      {/* Quick Comparison Table */}
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
-        <div className="p-6 bg-gray-50 border-b">
-          <h2 className="text-2xl font-bold text-gray-900">Quick Vendor Comparison</h2>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="text-left p-4 font-semibold">Vendor</th>
-                <th className="text-left p-4 font-semibold">Score</th>
-                <th className="text-left p-4 font-semibold">Pricing</th>
-                <th className="text-left p-4 font-semibold">Best For</th>
-                <th className="text-left p-4 font-semibold">Security</th>
-              </tr>
-            </thead>
-            <tbody>
-              {vendors.map((vendor, index) => (
-                <tr key={index} className="border-b hover:bg-gray-50">
-                  <td className="p-4">
-                    <div className="flex items-center">
-                      <span className="font-semibold">{vendor.name}</span>
-                      <span className={`ml-2 px-2 py-1 text-xs rounded ${
-                        vendor.tier === 'Premium' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'
-                      }`}>
-                        {vendor.tier}
-                      </span>
+      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="page-hero relative">
+          <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+              <div className="max-w-3xl">
+                <div className="page-pill mb-6">
+                  <Sparkles className="h-4 w-4 text-[#635bff]" />
+                  Enterprise AI vendor selection 2026
+                </div>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">
+                  Enterprise AI vendor 对比，
+                  <span className="brand-gradient-text block">别被 demo 演示骗了。</span>
+                </h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
+                  Compare top enterprise AI vendors including OpenAI, Anthropic, Google, Microsoft, and AWS. 这页保留原来的供应商对比、评分、定价、安全合规、use case 建议和内部链接，只统一到当前浅色 Stripe-ish UI。
+                </p>
+                <div className="mb-10 flex flex-wrap gap-3">
+                  <a href="#comparison" className="btn-brand inline-flex items-center gap-2">
+                    查看供应商对比
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <Link href="/ai-implementation-checklist-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
+                    查看实施清单
+                  </Link>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
+                  {vendors.slice(0, 4).map((vendor) => (
+                    <div key={vendor.name} className="page-card bg-white/90 p-4">
+                      <div className="mb-1 flex items-center gap-2 text-lg font-semibold text-slate-950">
+                        {vendor.name}
+                        <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs font-medium text-slate-600">
+                          {vendor.score}/100
+                        </span>
+                      </div>
+                      <div className="text-sm text-slate-600">{vendor.bestFor}</div>
                     </div>
-                  </td>
-                  <td className="p-4">
-                    <div className="flex items-center">
-                      <Star className="w-4 h-4 text-yellow-400 mr-1" />
-                      <span className="font-semibold">{vendor.score}/100</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+                <div className="relative page-card-glow p-5 md:p-6">
+                  <div className="page-card bg-white/95 p-6">
+                    <div className="mb-6 flex items-center justify-between">
+                      <div>
+                        <div className="mb-1 text-sm text-slate-500">Selection logic</div>
+                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                      </div>
+                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                        No fluff
+                      </div>
                     </div>
-                  </td>
-                  <td className="p-4 text-gray-600">{vendor.pricing}</td>
-                  <td className="p-4">
-                    <div className="space-y-1">
-                      {vendor.strengths.slice(0, 2).map((strength, i) => (
-                        <span key={i} className="block text-sm text-green-700">{strength}</span>
+                    <div className="space-y-3">
+                      {framingSignals.map((item) => (
+                        <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                            <p className="text-sm leading-6 text-slate-600">{item}</p>
+                          </div>
+                        </div>
                       ))}
                     </div>
-                  </td>
-                  <td className="p-4">
-                    <span className="text-sm text-blue-700">{vendor.security}</span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Detailed Vendor Analysis */}
-      <div className="space-y-8 mb-12">
-        <h2 className="text-2xl font-bold text-gray-900">Detailed Vendor Analysis</h2>
-        
-        {vendors.map((vendor, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-lg p-8">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900">{vendor.name}</h3>
-                <div className="flex items-center mt-2">
-                  <div className="flex items-center mr-6">
-                    <Star className="w-5 h-5 text-yellow-400 mr-2" />
-                    <span className="font-semibold text-lg">{vendor.score}/100</span>
                   </div>
-                  <span className="text-gray-600">{vendor.pricing}</span>
                 </div>
               </div>
-              <span className={`px-4 py-2 rounded-lg font-semibold ${
-                vendor.tier === 'Premium' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'
-              }`}>
-                {vendor.tier}
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-6 md:grid-cols-3 mb-16">
+          {decisionCards.map((card) => {
+            const Icon = card.icon
+            return (
+              <div key={card.title} className="page-card p-8">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                  <Icon className="h-5 w-5 text-[#635bff]" />
+                </div>
+                <h2 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{card.title}</h2>
+                <div className="space-y-3">
+                  {card.points.map((point) => (
+                    <div key={point} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-700">
+                      {point}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </section>
+
+        <section id="comparison" className="mb-16 page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Quick vendor comparison</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              先横向看全局，
+              <span className="brand-gradient-text block">再决定谁值得进 shortlist。</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              原来的供应商对比表保留核心字段：vendor、score、pricing、best-for、security。够你先拉开差距，不够你草率拍板。
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[980px] border-separate border-spacing-0 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+              <thead className="bg-slate-50 text-left text-sm text-slate-600">
+                <tr>
+                  <th className="px-5 py-4 font-semibold">Vendor</th>
+                  <th className="px-5 py-4 font-semibold">Score</th>
+                  <th className="px-5 py-4 font-semibold">Pricing</th>
+                  <th className="px-5 py-4 font-semibold">Best for</th>
+                  <th className="px-5 py-4 font-semibold">Security</th>
+                </tr>
+              </thead>
+              <tbody>
+                {vendors.map((vendor, index) => (
+                  <tr key={vendor.name} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50/45'}>
+                    <td className="border-t border-slate-200 px-5 py-4">
+                      <div className="flex items-center gap-3">
+                        <span className="font-semibold text-slate-950">{vendor.name}</span>
+                        <span className={`rounded-full px-2 py-1 text-xs font-semibold ${vendor.tier === 'Premium' ? 'bg-violet-100 text-violet-700' : 'bg-sky-100 text-sky-700'}`}>
+                          {vendor.tier}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="border-t border-slate-200 px-5 py-4">
+                      <div className="flex items-center gap-2 font-semibold text-slate-950">
+                        <Star className="h-4 w-4 text-amber-400" />
+                        {vendor.score}/100
+                      </div>
+                    </td>
+                    <td className="border-t border-slate-200 px-5 py-4 text-slate-700">{vendor.pricing}</td>
+                    <td className="border-t border-slate-200 px-5 py-4 text-sm text-slate-600">{vendor.bestFor}</td>
+                    <td className="border-t border-slate-200 px-5 py-4 text-sm text-indigo-700">{vendor.security}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="space-y-6 mb-16">
+          {vendors.map((vendor) => (
+            <div key={vendor.name} className="page-card p-8 md:p-10">
+              <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <div className="mb-2 flex flex-wrap items-center gap-3">
+                    <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950">{vendor.name}</h2>
+                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${vendor.tier === 'Premium' ? 'bg-violet-100 text-violet-700' : 'bg-sky-100 text-sky-700'}`}>
+                      {vendor.tier}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600">
+                    <span className="inline-flex items-center gap-2 font-semibold text-slate-950">
+                      <Star className="h-4 w-4 text-amber-400" />
+                      {vendor.score}/100
+                    </span>
+                    <span>{vendor.pricing}</span>
+                    <span>{vendor.compliance}</span>
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                  Best fit: {vendor.bestFor}
+                </div>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-3">
+                <div className="rounded-[1.5rem] border border-indigo-100 bg-indigo-50/80 p-6">
+                  <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-indigo-800">
+                    <CheckCircle2 className="h-5 w-5" />
+                    Strengths
+                  </h3>
+                  <div className="space-y-3">
+                    {vendor.strengths.map((item) => (
+                      <div key={item} className="rounded-2xl border border-white/80 bg-white/80 px-4 py-3 text-sm text-indigo-900">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-[1.5rem] border border-amber-100 bg-amber-50/80 p-6">
+                  <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-amber-800">
+                    <AlertTriangle className="h-5 w-5" />
+                    Considerations
+                  </h3>
+                  <div className="space-y-3">
+                    {vendor.weaknesses.map((item) => (
+                      <div key={item} className="rounded-2xl border border-white/80 bg-white/80 px-4 py-3 text-sm text-amber-900">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-[1.5rem] border border-sky-100 bg-sky-50/80 p-6">
+                  <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-sky-800">
+                    <Shield className="h-5 w-5" />
+                    Security & compliance
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-3 text-sm text-sky-900">
+                      <span className="font-semibold">Security:</span> {vendor.security}
+                    </div>
+                    <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-3 text-sm text-sky-900">
+                      <span className="font-semibold">Compliance:</span> {vendor.compliance}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Recommendations by use case</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              不同场景，
+              <span className="brand-gradient-text block">该赢的 vendor 本来就不一样。</span>
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {useCases.map((item) => (
+              <div key={item.title} className={`page-card border p-8 ${item.tone}`}>
+                <h3 className="mb-4 text-2xl font-semibold tracking-[-0.03em]">{item.title}</h3>
+                <div className="space-y-3 text-sm">
+                  <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-3">
+                    <span className="font-semibold">Best:</span> {item.best}
+                  </div>
+                  <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-3">
+                    <span className="font-semibold">Alt:</span> {item.alt}
+                  </div>
+                  <p className="leading-6 opacity-90">{item.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-8 max-w-3xl">
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Related AI selection tools</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+              看完对比，
+              <span className="brand-gradient-text block">该回到决策工具里了。</span>
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Link href="/ai-implementation-checklist-enterprise-2026" className="page-card group p-8 transition-transform duration-200 hover:-translate-y-1">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                <CheckCircle2 className="h-5 w-5 text-[#635bff]" />
+              </div>
+              <h3 className="mb-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">Implementation Checklist</h3>
+              <p className="mb-5 leading-7 text-slate-600">Step-by-step AI deployment guide for turning a shortlist into an executable program.</p>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#635bff]">
+                Open checklist
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </span>
-            </div>
+            </Link>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <div>
-                <h4 className="font-semibold text-green-800 mb-3 flex items-center">
-                  <CheckCircle className="w-5 h-5 mr-2" />
-                  Strengths
-                </h4>
-                <ul className="space-y-2">
-                  {vendor.strengths.map((strength, i) => (
-                    <li key={i} className="text-sm text-green-700 flex items-center">
-                      <CheckCircle className="w-4 h-4 mr-2" />
-                      {strength}
-                    </li>
-                  ))}
-                </ul>
+            <Link href="/ai-total-cost-ownership-calculator-enterprise-2026" className="page-card group p-8 transition-transform duration-200 hover:-translate-y-1">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
+                <Users className="h-5 w-5 text-[#635bff]" />
               </div>
-
-              <div>
-                <h4 className="font-semibold text-orange-800 mb-3 flex items-center">
-                  <AlertTriangle className="w-5 h-5 mr-2" />
-                  Considerations
-                </h4>
-                <ul className="space-y-2">
-                  {vendor.weaknesses.map((weakness, i) => (
-                    <li key={i} className="text-sm text-orange-700 flex items-center">
-                      <AlertTriangle className="w-4 h-4 mr-2" />
-                      {weakness}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-blue-800 mb-3 flex items-center">
-                  <Shield className="w-5 h-5 mr-2" />
-                  Security & Compliance
-                </h4>
-                <div className="space-y-2">
-                  <p className="text-sm text-blue-700">
-                    <span className="font-medium">Security:</span> {vendor.security}
-                  </p>
-                  <p className="text-sm text-blue-700">
-                    <span className="font-medium">Compliance:</span> {vendor.compliance}
-                  </p>
-                </div>
-              </div>
-            </div>
+              <h3 className="mb-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">TCO Calculator</h3>
+              <p className="mb-5 leading-7 text-slate-600">Calculate the real cost of AI ownership before the procurement deck starts lying to you.</p>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#635bff]">
+                Open calculator
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </span>
+            </Link>
           </div>
-        ))}
-      </div>
+        </section>
 
-      {/* Selection Framework */}
-      <div className="bg-gray-50 p-8 rounded-lg mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Vendor Selection Framework</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Technical Requirements</h3>
-            <div className="space-y-3">
-              <div className="flex items-start">
-                <Zap className="w-5 h-5 text-blue-600 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-medium text-gray-800">Performance & Latency</h4>
-                  <p className="text-sm text-gray-600">Response times, throughput, and scalability requirements</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <Shield className="w-5 h-5 text-green-600 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-medium text-gray-800">Security & Privacy</h4>
-                  <p className="text-sm text-gray-600">Data protection, encryption, and compliance needs</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <Users className="w-5 h-5 text-purple-600 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-medium text-gray-800">Integration Capabilities</h4>
-                  <p className="text-sm text-gray-600">API quality, existing system compatibility</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Business Considerations</h3>
-            <div className="space-y-3">
-              <div className="flex items-start">
-                <Star className="w-5 h-5 text-yellow-600 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-medium text-gray-800">Total Cost of Ownership</h4>
-                  <p className="text-sm text-gray-600">Licensing, implementation, and ongoing costs</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-medium text-gray-800">Vendor Stability</h4>
-                  <p className="text-sm text-gray-600">Financial health, roadmap, and long-term viability</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <Users className="w-5 h-5 text-blue-600 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-medium text-gray-800">Support & Training</h4>
-                  <p className="text-sm text-gray-600">Documentation, community, and professional services</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Use Case Recommendations */}
-      <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Recommendations by Use Case</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="font-semibold text-blue-800 mb-3">Content Generation</h3>
-            <div className="space-y-2">
-              <p className="text-sm text-blue-700"><span className="font-medium">Best:</span> OpenAI GPT-4</p>
-              <p className="text-sm text-blue-700"><span className="font-medium">Alt:</span> Anthropic Claude</p>
-              <p className="text-sm text-blue-600">Superior creative writing and content quality</p>
-            </div>
-          </div>
-
-          <div className="bg-green-50 p-6 rounded-lg">
-            <h3 className="font-semibold text-green-800 mb-3">Data Analysis</h3>
-            <div className="space-y-2">
-              <p className="text-sm text-green-700"><span className="font-medium">Best:</span> Google Cloud AI</p>
-              <p className="text-sm text-green-700"><span className="font-medium">Alt:</span> AWS Bedrock</p>
-              <p className="text-sm text-green-600">Strong analytics and visualization capabilities</p>
-            </div>
-          </div>
-
-          <div className="bg-purple-50 p-6 rounded-lg">
-            <h3 className="font-semibold text-purple-800 mb-3">Enterprise Integration</h3>
-            <div className="space-y-2">
-              <p className="text-sm text-purple-700"><span className="font-medium">Best:</span> Microsoft Azure</p>
-              <p className="text-sm text-purple-700"><span className="font-medium">Alt:</span> Google Cloud</p>
-              <p className="text-sm text-purple-600">Seamless Office 365 and enterprise workflows</p>
-            </div>
-          </div>
-
-          <div className="bg-orange-50 p-6 rounded-lg">
-            <h3 className="font-semibold text-orange-800 mb-3">High Security</h3>
-            <div className="space-y-2">
-              <p className="text-sm text-orange-700"><span className="font-medium">Best:</span> Anthropic Claude</p>
-              <p className="text-sm text-orange-700"><span className="font-medium">Alt:</span> AWS Bedrock</p>
-              <p className="text-sm text-orange-600">Constitutional AI and robust safety measures</p>
-            </div>
-          </div>
-
-          <div className="bg-red-50 p-6 rounded-lg">
-            <h3 className="font-semibold text-red-800 mb-3">Cost Optimization</h3>
-            <div className="space-y-2">
-              <p className="text-sm text-red-700"><span className="font-medium">Best:</span> AWS Bedrock</p>
-              <p className="text-sm text-red-700"><span className="font-medium">Alt:</span> Google Cloud</p>
-              <p className="text-sm text-red-600">Competitive pricing and flexible consumption</p>
-            </div>
-          </div>
-
-          <div className="bg-yellow-50 p-6 rounded-lg">
-            <h3 className="font-semibold text-yellow-800 mb-3">Developer Experience</h3>
-            <div className="space-y-2">
-              <p className="text-sm text-yellow-700"><span className="font-medium">Best:</span> OpenAI</p>
-              <p className="text-sm text-yellow-700"><span className="font-medium">Alt:</span> Anthropic</p>
-              <p className="text-sm text-yellow-600">Excellent APIs and development tools</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Related Tools */}
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Related AI Selection Tools</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <Link href="/ai-implementation-checklist-enterprise-2026" className="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-            <CheckCircle className="w-8 h-8 text-blue-600 mr-4" />
+        <section className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
-              <h3 className="font-semibold text-blue-800">Implementation Checklist</h3>
-              <p className="text-sm text-blue-600">Step-by-step AI deployment guide</p>
+              <div className="page-pill mb-4 inline-flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                Advisory CTA
+              </div>
+              <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+                Need personalized vendor analysis?
+              </h2>
+              <p className="text-lg leading-8 text-slate-600">
+                原页 CTA 保留：如果你的约束条件很特殊，就别指望公开榜单替你做最后决策。让标准贴着你的业务来，才不容易翻车。
+              </p>
             </div>
-            <ArrowRight className="w-5 h-5 text-blue-600 ml-auto" />
-          </Link>
-          
-          <Link href="/ai-total-cost-ownership-calculator-enterprise-2026" className="flex items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
-            <Star className="w-8 h-8 text-green-600 mr-4" />
-            <div>
-              <h3 className="font-semibold text-green-800">TCO Calculator</h3>
-              <p className="text-sm text-green-600">Calculate total cost of AI ownership</p>
+            <div className="space-y-4">
+              <div className="page-card bg-slate-50/80 p-5">
+                <div className="text-sm font-semibold text-slate-950">Custom vendor analysis</div>
+                <div className="mt-2 text-sm text-slate-600">Security, compliance, integration fit, TCO, and use-case weighting aligned to your enterprise context.</div>
+              </div>
+              <Link href="/contact" className="btn-brand inline-flex items-center gap-2">
+                Get custom analysis
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
-            <ArrowRight className="w-5 h-5 text-green-600 ml-auto" />
-          </Link>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg text-center">
-        <h2 className="text-2xl font-bold mb-4">Need Personalized Vendor Analysis?</h2>
-        <p className="text-lg mb-6">Get custom AI vendor recommendations based on your specific requirements</p>
-        <button className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
-          Get Custom Analysis
-        </button>
-      </div>
+          </div>
+        </section>
+      </main>
     </div>
   )
 }

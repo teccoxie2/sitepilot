@@ -1,163 +1,356 @@
-import React from 'react';
-import Link from 'next/link';
-import { CheckCircle2, XCircle, Zap, Shield, BarChart3, ArrowRight, Globe, Lock, Cpu, Rocket } from 'lucide-react';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  AlertTriangle,
+  ArrowRight,
+  CheckCircle2,
+  Coins,
+  Gauge,
+  Globe,
+  Headphones,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+  XCircle,
+} from 'lucide-react'
+import RelatedLinks from '@/components/RelatedLinks'
+import SchemaMarkup from '@/components/SchemaMarkup'
+
+const pageTitle = 'Hostinger Review 2026 | SitePilot'
+const pageDescription =
+  'A practical 2026 Hostinger review covering LiteSpeed performance, renewal pricing, support quality, WordPress fit, and whether the budget proposition still holds up after the intro offer ends.'
+const pageUrl = 'https://sitepilot.co/hosting/hostinger-review'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
+}
+
+const quickPicks = [
+  {
+    label: 'Verdict',
+    value: 'Best budget performance pick',
+    note: 'Hostinger is the low-cost option that still feels like a usable hosting product instead of a trap dressed up as a deal.',
+  },
+  {
+    label: 'Best fit',
+    value: 'Smaller sites and cost-sensitive WordPress builds',
+    note: 'Strong fit for brochure sites, early-stage content sites, and lean operators who still care about speed.',
+  },
+  {
+    label: 'Main advantage',
+    value: 'LiteSpeed + NVMe value',
+    note: 'The stack is materially better than what many low-end hosts ship at comparable pricing.',
+  },
+  {
+    label: 'Main caution',
+    value: 'Renewals and support limits',
+    note: 'The budget story gets weaker if you ignore long-term pricing and expect premium support behavior.',
+  },
+]
+
+const scorecard = [
+  {
+    title: 'Performance',
+    score: '8.9/10',
+    body: 'LiteSpeed, caching support, and NVMe storage give Hostinger a better speed profile than most cheap-hosting competitors.',
+    icon: Rocket,
+  },
+  {
+    title: 'Support quality',
+    score: '7.4/10',
+    body: 'Support is usable, but it is not the reason to buy Hostinger. This is where premium providers still separate themselves.',
+    icon: Headphones,
+  },
+  {
+    title: 'Pricing discipline',
+    score: '8.2/10',
+    body: 'Entry pricing is attractive, but renewal pricing still matters. Budget buyers need to look past the first invoice.',
+    icon: Coins,
+  },
+  {
+    title: 'WordPress fit',
+    score: '8.7/10',
+    body: 'A strong budget WordPress path thanks to LiteSpeed, straightforward setup, and a lower-friction operating model.',
+    icon: Globe,
+  },
+]
+
+const strengths = [
+  'LiteSpeed caching makes the performance story stronger than most budget-hosting rivals.',
+  'NVMe-backed plans help the stack feel faster and less strained under normal small-site workloads.',
+  'hPanel is simpler than legacy cPanel-heavy budget hosts and easier for non-technical owners to live with.',
+  'Hostinger is usually the least regrettable answer when budget matters but total junk is unacceptable.',
+]
+
+const tradeoffs = [
+  'Support is decent, not elite. If support quality is your top filter, SiteGround is still the safer answer.',
+  'Renewal pricing reduces some of the initial “wow” once the promo period ends.',
+  'The cheapest tiers can feel restrictive if the site grows into a more serious commercial property.',
+  'Buying purely because the intro plan is cheap is how people end up making dumb hosting decisions.',
+]
+
+const decisionRows = [
+  {
+    title: 'Choose Hostinger if…',
+    points: [
+      'You want the strongest speed-per-dollar profile in the budget lane',
+      'You need cheap hosting that still feels operationally sane',
+      'You are comfortable accepting support that is good enough rather than premium',
+    ],
+  },
+  {
+    title: 'Skip Hostinger if…',
+    points: [
+      'You want top-tier support as the main buying criterion',
+      'The site is commercially critical and downtime anxiety is expensive',
+      'You already know the project will outgrow budget hosting quickly',
+    ],
+  },
+  {
+    title: 'Best comparison path',
+    points: [
+      'Compare against Bluehost if you care about beginner onboarding',
+      'Compare against SiteGround if you care about support and operational trust',
+      'Compare against budget-hosting guides if price is the main filter',
+    ],
+  },
+]
+
+const related = [
+  {
+    title: 'Hostinger vs Bluehost',
+    href: '/hosting/hostinger-vs-bluehost',
+    description: 'See where Hostinger wins on speed and value, and where Bluehost still has a simplicity case.',
+    category: 'hosting',
+  },
+  {
+    title: 'SiteGround Review',
+    href: '/hosting/siteground-review',
+    description: 'Compare the budget-performance leader against the premium support-first hosting pick.',
+    category: 'hosting',
+  },
+  {
+    title: 'Cheap Hosting Guide',
+    href: '/hosting/cheap-hosting',
+    description: 'Review the broader cheap-hosting shortlist before locking into one provider.',
+    category: 'hosting',
+  },
+]
 
 export default function HostingerReview2026() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white">
-      {/* 
-        AEO Optimizer: Factual Definition
-        Hostinger is a global web hosting provider specializing in LiteSpeed-powered shared and cloud hosting solutions for performance-oriented websites. This 2026 technical review evaluates Hostinger's NVMe storage deployment, automated WordPress staging environments, and hPanel custom control interface for speed, reliability, and cost-efficiency in multi-regional hosting deployments.
-      */}
+    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+      <SchemaMarkup
+        type="article"
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedDate="2026-04-18"
+        modifiedDate="2026-04-20"
+        authorName="SitePilot Team"
+      />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute inset-0 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:32px_32px]"></div>
-        </div>
-        
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-black mb-8 tracking-widest uppercase">
-            2026 BUDGET PERFORMANCE LEADER
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
+        <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
+      </div>
+
+      <section className="page-hero relative">
+        <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-22 pb-18 md:pt-28 md:pb-24">
+          <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-indigo-500" />
+                2026 provider audit
+              </div>
+
+              <h1 className="page-title text-5xl md:text-7xl mb-6">
+                Hostinger review,
+                <span className="block brand-gradient-text">without the affiliate hallucinations.</span>
+              </h1>
+
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                Hostinger is a budget hosting provider built around LiteSpeed infrastructure, NVMe storage, and a simpler control experience. In 2026, the real buying question is whether that low-cost stack still holds up once support quality, renewals, and long-term fit enter the picture.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/hosting/hostinger-vs-bluehost" className="btn-brand">
+                  Compare against Bluehost
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/hosting/cheap-hosting" className="btn-secondary">
+                  See cheap-hosting shortlist
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+                {quickPicks.map((item) => (
+                  <div key={item.label} className="page-card px-4 py-4">
+                    <div className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-2">{item.label}</div>
+                    <div className="font-semibold text-slate-950 mb-1">{item.value}</div>
+                    <div className="text-sm text-slate-600 leading-6">{item.note}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
+              <div className="relative page-card-glow p-5 md:p-6">
+                <div className="page-card p-5 md:p-6">
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div>
+                      <div className="text-sm text-slate-500 mb-1">Fast verdict</div>
+                      <div className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Why Hostinger still works</div>
+                    </div>
+                    <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      Budget, not junk
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-6">
+                    {[
+                      'Hostinger wins because the performance baseline is better than most low-cost hosts.',
+                      'The platform is easier to operate than older bargain stacks built around clunky control panels.',
+                      'The main compromises are support depth and long-term pricing, not raw day-one usability.',
+                    ].map((item) => (
+                      <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
+                        <div className="flex items-start gap-3">
+                          <CheckCircle2 className="h-4 w-4 mt-1 text-indigo-500 shrink-0" />
+                          <p className="text-sm text-slate-700 leading-6">{item}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-4">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
+                      <p className="text-sm text-amber-900 leading-6">
+                        If the site carries serious business risk, do not confuse “best budget host” with “best host, full stop.” That is how people end up being weirdly proud of avoidable pain.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">
-            Hostinger <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Audit</span>
-          </h1>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto font-medium leading-relaxed mb-12">
-            Is Hostinger the king of "Value for Money" in 2026? We benchmarked their Premium Cloud plans against budget competitors to find the breaking point.
-          </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {[
-              { label: "Uptime", val: "99.96%", color: "text-blue-400" },
-              { label: "TTFB", val: "242ms", color: "text-cyan-400" },
-              { label: "Storage", val: "NVMe SSD", color: "text-purple-400" },
-              { label: "Web Server", val: "LiteSpeed", color: "text-green-400" }
-            ].map((stat, i) => (
-              <div key={i} className="p-6 rounded-3xl bg-[#161616] border border-white/5 shadow-2xl">
-                <div className={`text-2xl font-black ${stat.color} mb-1`}>{stat.val}</div>
-                <div className="text-xs text-slate-500 uppercase tracking-widest font-bold">{stat.label}</div>
+        </div>
+      </section>
+
+      <section className="page-section surface-muted relative">
+        <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Scorecard</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">How Hostinger holds up in the categories that matter.</h2>
+            <p className="page-lead text-lg">
+              This review cares about operational reality: speed, support, pricing discipline, and WordPress fit. Not homepage theatre.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {scorecard.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.title} className="page-card-soft p-6">
+                  <div className="inline-flex rounded-2xl bg-indigo-50 p-3 mb-5">
+                    <Icon className="h-5 w-5 text-indigo-600" />
+                  </div>
+                  <div className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-2">{item.score}</div>
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{item.title}</h3>
+                  <p className="text-sm leading-6 text-slate-600">{item.body}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div className="page-card p-7">
+              <div className="inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-indigo-700 mb-5">
+                What Hostinger gets right
+              </div>
+              <div className="space-y-3">
+                {strengths.map((item) => (
+                  <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="h-4 w-4 mt-1 text-indigo-500 shrink-0" />
+                      <p className="text-sm text-slate-700 leading-6">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="page-card p-7">
+              <div className="inline-flex rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-rose-700 mb-5">
+                Where it still falls short
+              </div>
+              <div className="space-y-3">
+                {tradeoffs.map((item) => (
+                  <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                    <div className="flex items-start gap-3">
+                      <XCircle className="h-4 w-4 mt-1 text-rose-500 shrink-0" />
+                      <p className="text-sm text-slate-700 leading-6">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section border-y border-slate-200/70 surface-warm">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-2xl mb-10">
+            <div className="page-pill mb-4">Decision guide</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">When Hostinger is the right answer, and when it is not.</h2>
+            <p className="page-lead text-lg">
+              The smartest hosting decision is not “buy the cheapest.” It is “buy the cheapest option that still matches the real operating risk.”
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {decisionRows.map((item) => (
+              <div key={item.title} className="page-card p-7">
+                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-5">{item.title}</h3>
+                <div className="space-y-3">
+                  {item.points.map((point) => (
+                    <div key={point} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                      {point}
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Technical Deep Dive */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            <div>
-              <h2 className="text-3xl font-black mb-8 tracking-tight">The Technical Advantage</h2>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8 font-medium">
-                Hostinger's secret weapon in 2026 is their universal adoption of <span className="text-white">LiteSpeed Web Server (LSWS)</span>. Unlike older Apache-based hosts, LiteSpeed allows for massive performance gains through object caching and HTTP/3 support right out of the box.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex gap-4 p-6 rounded-2xl bg-[#161616] border border-white/5">
-                  <div className="p-3 bg-cyan-500/10 rounded-xl">
-                    <Rocket className="w-6 h-6 text-cyan-400" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-1">NVMe Storage Infrastructure</h4>
-                    <p className="text-slate-400 text-sm font-medium">Read/write speeds that are up to 10x faster than traditional SSD hosting.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 p-6 rounded-2xl bg-[#161616] border border-white/5">
-                  <div className="p-3 bg-blue-500/10 rounded-xl">
-                    <Shield className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-1">Custom hPanel 2.0</h4>
-                    <p className="text-slate-400 text-sm font-medium">A lightweight, proprietary alternative to bloated cPanel interfaces.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-[#161616] p-10 rounded-[3rem] border border-white/5 shadow-2xl">
-              <h3 className="text-2xl font-black mb-8">2026 Entry Costs</h3>
-              <div className="space-y-4 mb-10">
-                <div className="flex justify-between items-center p-4 rounded-xl bg-[#0A0A0A] border border-white/5">
-                  <span className="text-slate-400 font-bold">Premium Shared</span>
-                  <span className="text-white font-black">$2.99/mo*</span>
-                </div>
-                <div className="flex justify-between items-center p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-                  <span className="text-cyan-400 font-bold">Business (Top Pick)</span>
-                  <span className="text-white font-black">$3.99/mo*</span>
-                </div>
-                <div className="flex justify-between items-center p-4 rounded-xl bg-[#0A0A0A] border border-white/5">
-                  <span className="text-slate-400 font-bold">Cloud Startup</span>
-                  <span className="text-white font-black">$9.99/mo*</span>
-                </div>
-              </div>
-              <p className="text-xs text-slate-500 italic mb-10 leading-relaxed">
-                *Prices reflect 48-month commitment. Renews at standard rates ($7.99 - $19.99). Free domain and SSL included for the first year.
-              </p>
-              <Link href="https://hostinger.com?REFERRALCODE=RIWTECCOXIBF" className="inline-flex items-center justify-center w-full py-5 bg-cyan-600 text-white rounded-2xl font-black text-xl hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-900/40">
-                GET THE 2026 DEALS <ArrowRight className="ml-2 w-6 h-6" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Honest Pros & Cons */}
-      <section className="py-24 bg-[#0F0F0F]">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl font-black mb-16 text-center tracking-tight uppercase tracking-widest text-slate-500">The Hard Truth</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-10 rounded-[2.5rem] bg-[#161616] border border-green-500/10 shadow-2xl">
-              <h3 className="text-green-400 font-black text-xl mb-8 flex items-center">
-                <CheckCircle2 className="w-6 h-6 mr-3" /> WHAT WE LOVE
-              </h3>
-              <ul className="space-y-6">
-                {[
-                  "LiteSpeed Caching makes WordPress fly without extra plugins.",
-                  "Proprietary hPanel is exceptionally fast and modern.",
-                  "Weekly backups included on all plans (Daily on Business).",
-                  "Global data centers in USA, UK, Singapore, and more."
-                ].map((text, i) => (
-                  <li key={i} className="text-slate-300 font-bold leading-relaxed">{text}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="p-10 rounded-[2.5rem] bg-[#161616] border border-red-500/10 shadow-2xl">
-              <h3 className="text-red-400 font-black text-xl mb-8 flex items-center">
-                <XCircle className="w-6 h-6 mr-3" /> THE DOWNSIDE
-              </h3>
-              <ul className="space-y-6">
-                {[
-                  "No telephone support (Live Chat only).",
-                  "The cheapest plan lacks a free domain.",
-                  "Uptime is good but not quite as robust as SiteGround.",
-                  "aggressive upsells for 'Priority Support' during checkout."
-                ].map((text, i) => (
-                  <li key={i} className="text-slate-300 font-bold leading-relaxed">{text}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final Verdict Badge */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto p-12 rounded-[3rem] bg-gradient-to-br from-slate-900 to-[#0A0A0A] border border-white/10 shadow-2xl">
-            <h2 className="text-4xl font-black mb-6">Final Verdict 2026</h2>
-            <div className="inline-block px-8 py-3 bg-cyan-500/20 rounded-full border border-cyan-500/30 text-cyan-400 text-2xl font-black mb-8">
-              8.8 / 10
-            </div>
-            <p className="text-lg text-slate-400 font-medium leading-relaxed mb-10">
-              Hostinger is our <span className="text-white italic">"Best Budget Performance"</span> choice for 2026. For beginners and growing blogs, it's impossible to beat their tech stack at this price point.
-            </p>
-            <Link href="https://hostinger.com?REFERRALCODE=RIWTECCOXIBF" className="text-cyan-400 font-black hover:text-cyan-300 flex items-center justify-center gap-2">
-              CLAIM HOSTINGER 2026 DISCOUNT <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
+      <section className="page-section pt-0">
+        <div className="max-w-6xl mx-auto px-4">
+          <RelatedLinks links={related} />
         </div>
       </section>
     </div>
-  );
+  )
 }

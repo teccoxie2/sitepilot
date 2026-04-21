@@ -6,25 +6,25 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  '保留 leadership、technical、business 和 end-user 四条 training track',
-  '保留 certification levels、delivery methods、timeline 和 ROI 数据',
-  '统一到当前浅色 Stripe-ish UI',
-  '保留 related internal links 和咨询 CTA',
+  'Keeps the leadership, technical, business, and end-user training tracks.',
+  'Keeps certification levels, delivery methods, timelines, and ROI data.',
+  'Moves the page into the current light Stripe-ish UI.',
+  'Keeps the related internal links and advisory CTA.',
 ]
 
 const statCards = [
-  { label: 'Leadership', value: '40h', note: '高层策略与治理。' },
-  { label: 'Technical', value: '60h', note: '技术实施与平台。' },
-  { label: 'Business', value: '30h', note: '流程、分析和项目。' },
-  { label: 'Certification', value: '3 levels', note: '从基础到专家。' },
+  { label: 'Leadership', value: '40h', note: 'Executive strategy and governance.' },
+  { label: 'Technical', value: '60h', note: 'Implementation and platform operations.' },
+  { label: 'Business', value: '30h', note: 'Processes, analysis, and project delivery.' },
+  { label: 'Certification', value: '3 levels', note: 'From foundational fluency to expert depth.' },
 ]
 
 const internalLinks = [
-  { href: '/ai-implementation-checklist-enterprise-2026', title: 'AI Readiness Assessment', note: '先确认组织准备度。' },
-  { href: '/ai-change-management-framework-enterprise-2026', title: 'Change Management', note: '看变革怎么推进。' },
-  { href: '/ai-team-productivity-assessment-tool-2026', title: 'Skills Gap Analysis', note: '找出训练缺口。' },
-  { href: '/ai-tool-implementation-strategy-2026', title: 'Implementation Strategy', note: '把训练和部署接起来。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '要定制方案就约。' },
+  { href: '/ai-implementation-checklist-enterprise-2026', title: 'AI Readiness Assessment', note: 'Confirm organizational readiness before rollout.' },
+  { href: '/ai-change-management-framework-enterprise-2026', title: 'Change Management', note: 'Review how the change program should run.' },
+  { href: '/ai-team-productivity-assessment-tool-2026', title: 'Skills Gap Analysis', note: 'Identify the capability gaps that training must close.' },
+  { href: '/ai-tool-implementation-strategy-2026', title: 'Implementation Strategy', note: 'Connect training plans to deployment plans.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a custom engagement if you need a tailored program.' },
 ] as const
 
 const tracks = [
@@ -86,11 +86,11 @@ export default function AITrainingCertificationProgramClient() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     AI Team Training & Certification Program,
-                    <span className="brand-gradient-text block">把 AI 能力做成可交付的组织资产。</span>
+                    <span className="brand-gradient-text block">turn AI capability into a deployable organizational asset.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留原始的训练路径、认证层级、交付方式、实施时间线和 ROI 指标，只把 UI 统一到当前浅色 Stripe-ish 系统。
+                    This page keeps the original training paths, certification levels, delivery formats, implementation timeline, and ROI metrics. Only the UI has been aligned to the current light Stripe-ish system.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -129,10 +129,10 @@ export default function AITrainingCertificationProgramClient() {
 
                       <div className="grid gap-3">
                         {[
-                          ['Tracks', 'Leadership、technical、business 和 end-user。'],
-                          ['Outputs', 'Hours、certification levels、delivery options 和 ROI metrics。'],
-                          ['Workflow', '保留实施时间线和相关培训资源。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['Tracks', 'Leadership, technical, business, and end-user.'],
+                          ['Outputs', 'Hours, certification levels, delivery options, and ROI metrics.'],
+                          ['Workflow', 'Keeps the implementation timeline and related training resources.'],
+                          ['UI system', 'Uses the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -146,7 +146,7 @@ export default function AITrainingCertificationProgramClient() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          训练不是 PPT，认证也不是贴纸。得能让团队真的会上手。
+                          Training is not a slide deck, and certification is not a sticker. Teams need to use the tools for real.
                         </div>
                       </div>
                     </div>
@@ -175,10 +175,10 @@ export default function AITrainingCertificationProgramClient() {
                 Training curriculum
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                把 AI 培训分成角色、层级和可交付结果。
+                Break AI training into roles, levels, and deliverables.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                你仍然能看到领导层、技术、业务和终端用户四条路径，只是现在它看起来像 SitePilot，而不是老式培训宣传页。
+                You still get the leadership, technical, business, and end-user paths. The difference is that it now looks like SitePilot instead of an outdated training brochure.
               </p>
             </div>
 
@@ -191,7 +191,7 @@ export default function AITrainingCertificationProgramClient() {
                   </div>
                   <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-700">
                     {track.bullets.map((item) => (
-                      <li key={item}>• {item}</li>
+                      <li key={item}>- {item}</li>
                     ))}
                   </ul>
                 </div>
@@ -212,7 +212,7 @@ export default function AITrainingCertificationProgramClient() {
                 <h3 className="text-lg font-semibold text-slate-950">Training delivery options</h3>
                 <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                   <p>In-person workshops, executive seminars, self-paced modules, and virtual classrooms are all preserved.</p>
-                  <p>你也还能看到原来的 adoption/ROI 叙事，只是现在不长得像库存主题。</p>
+                  <p>The original adoption and ROI narrative is still here. It just no longer looks like leftover theme inventory.</p>
                 </div>
               </div>
             </div>
@@ -224,9 +224,9 @@ export default function AITrainingCertificationProgramClient() {
                 <TrendingUp className="h-4 w-4" />
                 ROI and rollout
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">培训做对了，回报不是玄学。</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">When training is done right, the return is not mysterious.</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                这个区块保留了原始 ROI、实施周期和成果叙述，只把视觉改成统一版。
+                This section keeps the original ROI, implementation timeline, and outcome framing. Only the presentation changed.
               </p>
             </div>
 
@@ -295,7 +295,7 @@ export default function AITrainingCertificationProgramClient() {
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
                 <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Ready to build an AI-capable workforce?</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  把训练和认证做成体系，团队才不会每次都从零学起。
+                  Turn training and certification into a system so teams do not have to relearn from zero every time.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/ai-tool-implementation-strategy-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">

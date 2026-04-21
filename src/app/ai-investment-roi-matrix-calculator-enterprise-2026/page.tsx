@@ -16,59 +16,59 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  '保留原始的投资、节省、ROI 与风险叙事',
-  '保留 12 维度分析框架、基准比较和情景分析',
-  '统一到当前浅色 Stripe-ish 视觉系统',
-  '补齐 metadata、canonical、schema 和内部链接',
+  'Keeps the original investment, savings, ROI, and risk narrative',
+  'Keeps the 12-dimension framework, benchmark comparisons, and scenario analysis',
+  'Aligns the page with the current light Stripe-ish visual system',
+  'Retains metadata, canonical, schema intent, and internal links',
 ]
 
 const scoreCards = [
-  { label: '平均 ROI', value: '327%', note: '原页面核心结论保留。' },
-  { label: '平均回收期', value: '18个月', note: '仍是 CFO 级决策口径。' },
-  { label: 'Fortune 500 验证', value: '189 家', note: '基准数据叙事完整保留。' },
-  { label: '分析维度', value: '12 项', note: '从财务到实施都不漏。' },
+  { label: 'Average ROI', value: '327%', note: 'The core conclusion from the original page stays intact.' },
+  { label: 'Average payback period', value: '18 months', note: 'Still framed for CFO-level decision making.' },
+  { label: 'Fortune 500 validation', value: '189 companies', note: 'The benchmark-data narrative remains fully intact.' },
+  { label: 'Analysis dimensions', value: '12', note: 'Covers everything from finance to implementation.' },
 ]
 
 const frameworkCards = [
-  { title: '财务回报分析', desc: 'ROI、NPV、IRR 计算', icon: DollarSign },
-  { title: '风险评估模型', desc: '技术、市场、执行风险', icon: Shield },
-  { title: '实施复杂度', desc: '技术栈、人员、时间', icon: Layers3 },
-  { title: '竞争优势评估', desc: '市场差异化潜力', icon: Target },
-  { title: '组织准备度', desc: '团队能力与变更阻力', icon: Compass },
-  { title: '投资排序', desc: '按价值与可行性排序', icon: TrendingUp },
+  { title: 'Financial return analysis', desc: 'ROI, NPV, and IRR modeling', icon: DollarSign },
+  { title: 'Risk assessment model', desc: 'Technical, market, and execution risk', icon: Shield },
+  { title: 'Implementation complexity', desc: 'Stack, staffing, and time requirements', icon: Layers3 },
+  { title: 'Competitive advantage review', desc: 'Potential for market differentiation', icon: Target },
+  { title: 'Organizational readiness', desc: 'Team capability and change resistance', icon: Compass },
+  { title: 'Investment prioritization', desc: 'Rank by value and feasibility', icon: TrendingUp },
 ]
 
 const benchmarkCards = [
-  { label: '行业平均 ROI', value: '285%', compare: 'vs 您的 327%' },
-  { label: '行业平均回收期', value: '15个月', compare: 'vs 您的 18个月' },
-  { label: '行业成功率', value: '68%', compare: 'vs 您的高配方案' },
-  { label: '行业平均投资', value: '$3.2M', compare: 'vs 您的预算区间' },
+  { label: 'Industry average ROI', value: '285%', compare: 'vs your 327%' },
+  { label: 'Industry average payback', value: '15 months', compare: 'vs your 18 months' },
+  { label: 'Industry success rate', value: '68%', compare: 'vs your higher-end configuration' },
+  { label: 'Industry average investment', value: '$3.2M', compare: 'vs your target budget range' },
 ]
 
 const scenarioCards = [
   {
     tone: 'border-indigo-200 bg-indigo-50 text-indigo-900',
-    title: '乐观情况 (30% 概率)',
-    points: ['收益超预期 20%', '实施周期缩短 3 个月', '3 年 ROI: 485%', '投资回收期: 8 个月'],
+    title: 'Upside case (30% probability)',
+    points: ['Benefits exceed plan by 20%', 'Implementation finishes three months faster', '3-year ROI: 485%', 'Payback period: 8 months'],
   },
   {
     tone: 'border-amber-200 bg-amber-50 text-amber-900',
-    title: '基线情况 (55% 概率)',
-    points: ['收益符合预期', '实施按计划进行', '3 年 ROI: 385%', '投资回收期: 11 个月'],
+    title: 'Baseline case (55% probability)',
+    points: ['Benefits match plan', 'Implementation stays on schedule', '3-year ROI: 385%', 'Payback period: 11 months'],
   },
   {
     tone: 'border-rose-200 bg-rose-50 text-rose-900',
-    title: '悲观情况 (15% 概率)',
-    points: ['收益低于预期 25%', '实施延误 6 个月', '3 年 ROI: 210%', '投资回收期: 18 个月'],
+    title: 'Downside case (15% probability)',
+    points: ['Benefits land 25% below plan', 'Implementation slips by six months', '3-year ROI: 210%', 'Payback period: 18 months'],
   },
 ]
 
 const internalLinks = [
-  { href: '/ai-investment-portfolio-optimizer-2026', title: 'Portfolio Optimizer', note: '把 ROI 结果变成分配方案。' },
-  { href: '/ai-investment-roi-calculator-enterprise-2026', title: 'ROI Calculator', note: '看单项目回报测算。' },
-  { href: '/ai-governance-framework-enterprise-2026', title: 'Governance Framework', note: '把预算和治理一起考虑。' },
-  { href: '/enterprise-ai-vendor-shortlist-scorecard-2026', title: 'Vendor Shortlist Scorecard', note: '先比供应商，再下注。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+  { href: '/ai-investment-portfolio-optimizer-2026', title: 'Portfolio Optimizer', note: 'Turn ROI outputs into an allocation plan.' },
+  { href: '/ai-investment-roi-calculator-enterprise-2026', title: 'ROI Calculator', note: 'Review single-project return modeling.' },
+  { href: '/ai-governance-framework-enterprise-2026', title: 'Governance Framework', note: 'Evaluate budget and governance together.' },
+  { href: '/enterprise-ai-vendor-shortlist-scorecard-2026', title: 'Vendor Shortlist Scorecard', note: 'Compare vendors before placing the bet.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a guided assessment if you need advisory support.' },
 ] as const
 
 export default function ROICalculatorPage() {
@@ -101,12 +101,12 @@ export default function ROICalculatorPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 投资回报率矩阵计算器，
-                  <span className="brand-gradient-text block">把财务判断从 PPT 里拽出来。</span>
+                  AI Investment ROI Matrix Calculator
+                  <span className="brand-gradient-text block">Pull the financial decision out of the slide deck.</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  保留原始的 12 维分析框架、基准比较和情景分析，只把界面统一成 SitePilot 现在这套浅色 Stripe-ish 系统。
+                  This page keeps the original 12-dimension analysis framework, benchmark comparisons, and scenario modeling while aligning the interface to SitePilot's current light Stripe-ish system.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
@@ -133,22 +133,22 @@ export default function ROICalculatorPage() {
                 <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
                 <div className="relative page-card-glow p-5 md:p-6">
                   <div className="page-card space-y-5 bg-white/95 p-6">
-                    <div className="flex items-center justify-between gap-4">
-                      <div>
-                        <div className="mb-1 text-sm text-slate-500">What stays intact</div>
-                        <div className="text-xl font-semibold text-slate-950">Same finance story, cleaner layout</div>
-                      </div>
-                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                      <div className="flex items-center justify-between gap-4">
+                        <div>
+                          <div className="mb-1 text-sm text-slate-500">What stays intact</div>
+                          <div className="text-xl font-semibold text-slate-950">Same finance story, cleaner layout</div>
+                        </div>
+                        <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                         12 dimensions
                       </div>
                     </div>
 
                     <div className="grid gap-3">
                       {[
-                        ['Inputs', '投资、节省、效率提升、行业类型和实施参数。'],
-                        ['Outputs', 'ROI、回收期、NPV、IRR、风险与基准比较。'],
-                        ['Decision support', '情景分析和推荐结论仍然是核心。'],
-                        ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                        ['Inputs', 'Investment, savings, efficiency gains, industry type, and implementation parameters.'],
+                        ['Outputs', 'ROI, payback, NPV, IRR, risk signals, and benchmark comparisons.'],
+                        ['Decision support', 'Scenario analysis and recommendation logic remain central.'],
+                        ['UI system', 'Aligned to the current light Stripe-ish cards and gradients.'],
                       ].map(([title, note]) => (
                         <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                           <div className="font-semibold text-slate-950">{title}</div>
@@ -162,7 +162,7 @@ export default function ROICalculatorPage() {
                         Guardrail
                       </div>
                       <div className="text-sm leading-relaxed text-slate-700">
-                        这不是重写业务内容。只是把旧的蓝紫大块头，换成现在这套更稳的视觉语法。
+                        This is not a rewrite of the business content. It simply replaces the old oversized blue-purple shell with the steadier visual system used now.
                       </div>
                     </div>
                   </div>
@@ -192,17 +192,17 @@ export default function ROICalculatorPage() {
                 ROI matrix tool
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                把财务回报、风险和实施复杂度放在同一张桌子上看。
+                Put financial return, risk, and implementation complexity on the same table.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                原页面的价值不在花哨，而在于把企业 AI 决策拆成可比较、可排序、可审视的维度。这个版本只是把排版拉回当前统一系统。
+                The value of the original page was never visual flair. It came from breaking enterprise AI decisions into dimensions that can be compared, prioritized, and challenged. This version simply brings the layout back into the shared system.
               </p>
             </div>
 
             <div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
               <div className="space-y-6">
                 <div className="page-card-soft p-6 md:p-8">
-                  <h3 className="text-2xl font-semibold text-slate-950">12 维度分析框架</h3>
+                  <h3 className="text-2xl font-semibold text-slate-950">12-dimension analysis framework</h3>
                   <div className="mt-6 grid gap-4 md:grid-cols-2">
                     {frameworkCards.map((item) => (
                       <div key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
@@ -218,10 +218,10 @@ export default function ROICalculatorPage() {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   {[
-                    ['5年净收益', '$8,750,000'],
-                    ['净现值 (NPV)', '$7.8M'],
-                    ['内部收益率 (IRR)', '89%'],
-                    ['投资建议', '强烈推荐投资'],
+                    ['Five-year net benefit', '$8,750,000'],
+                    ['Net present value (NPV)', '$7.8M'],
+                    ['Internal rate of return (IRR)', '89%'],
+                    ['Investment recommendation', 'Strongly recommended'],
                   ].map(([label, value]) => (
                     <div key={label} className="page-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                       <div className="text-sm text-slate-500">{label}</div>
@@ -259,7 +259,7 @@ export default function ROICalculatorPage() {
                         Recommendation
                       </div>
                       <p className="text-sm leading-7 text-slate-700">
-                        基于 189 家 Fortune 500 企业数据，你的配置属于高价值、可快速回收的投资组合。可以做，但要认真做。
+                        Based on data from 189 Fortune 500 companies, this configuration sits in the high-value, fast-payback zone. It is worth doing, but it still needs disciplined execution.
                       </p>
                     </div>
                   </div>
@@ -293,9 +293,9 @@ export default function ROICalculatorPage() {
                 <BarChart3 className="h-4 w-4" />
                 Scenario analysis
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">把最乐观、最保守和最可能的答案都放出来。</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">Put the upside, downside, and most likely answer in plain view.</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                场景分析、蒙特卡洛模拟和投资建议这部分，旧页面是对的，所以我只换皮，不动骨头。
+                The scenario analysis, Monte Carlo logic, and investment recommendation on the original page were already strong, so the structure stays. Only the presentation changes.
               </p>
             </div>
 
@@ -313,41 +313,41 @@ export default function ROICalculatorPage() {
             </div>
 
             <div className="mt-6 rounded-[1.5rem] border border-sky-100 bg-sky-50/70 p-5 text-sm leading-7 text-slate-700">
-              <div className="mb-2 font-semibold uppercase tracking-[0.18em] text-sky-700">蒙特卡洛模拟结果</div>
-              <div>• 10,000 次模拟分析</div>
-              <div>• ROI {'>'} 200% 概率: 89%</div>
-              <div>• ROI {'>'} 300% 概率: 72%</div>
-              <div>• 负 ROI 风险: 3%</div>
-              <div className="mt-2 font-semibold">投资建议: 强烈推荐</div>
+              <div className="mb-2 font-semibold uppercase tracking-[0.18em] text-sky-700">Monte Carlo results</div>
+              <div>• 10,000 simulation runs</div>
+              <div>• Probability of ROI {'>'} 200%: 89%</div>
+              <div>• Probability of ROI {'>'} 300%: 72%</div>
+              <div>• Negative ROI risk: 3%</div>
+              <div className="mt-2 font-semibold">Investment recommendation: strongly recommended</div>
             </div>
           </section>
 
           <section className="mt-16 grid gap-6 lg:grid-cols-3">
             <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">收益放大策略</h3>
+              <h3 className="text-xl font-semibold text-slate-950">Strategies to amplify returns</h3>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
-                <li>聚焦高 ROI 场景，别拿低价值项目凑数。</li>
-                <li>先做数据清理，再谈精确预测。</li>
-                <li>分阶段部署，比一次性大跃进靠谱得多。</li>
-                <li>培训预算不能省，不然 ROI 会回头咬你。</li>
+                <li>Focus on high-ROI use cases instead of filling the portfolio with low-value work.</li>
+                <li>Clean the data first, then talk about prediction quality.</li>
+                <li>Phased rollout is far more reliable than a one-shot expansion.</li>
+                <li>Do not cut the training budget or the ROI will come back to hurt you.</li>
               </ul>
             </div>
             <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">关键风险控制</h3>
+              <h3 className="text-xl font-semibold text-slate-950">Key risk controls</h3>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
-                <li>成熟方案优先，别把项目变成自研研究所。</li>
-                <li>严格变更管理，防止范围无限膨胀。</li>
-                <li>变革沟通要早，不然组织会本能抵抗。</li>
-                <li>监管和数据安全要提前做，不要等炸了再补。</li>
+                <li>Favor mature solutions instead of turning the project into an internal research lab.</li>
+                <li>Use strict change control so the scope does not balloon endlessly.</li>
+                <li>Start change communication early or the organization will resist on reflex.</li>
+                <li>Handle regulation and data security before anything breaks.</li>
               </ul>
             </div>
             <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">加速实施建议</h3>
+              <h3 className="text-xl font-semibold text-slate-950">Execution accelerators</h3>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
-                <li>需要的话可以拉外部专家，缩短学习曲线。</li>
-                <li>云原生 AI 服务能明显缩短集成时间。</li>
-                <li>2-4 周迭代最适合持续验证和修正。</li>
-                <li>KPI 必须明确，不然优化没抓手。</li>
+                <li>Bring in outside specialists when needed to shorten the learning curve.</li>
+                <li>Cloud-native AI services can shrink integration time materially.</li>
+                <li>Two- to four-week iterations are ideal for continuous validation and correction.</li>
+                <li>KPIs need to be explicit or optimization loses traction.</li>
               </ul>
             </div>
           </section>
@@ -355,24 +355,24 @@ export default function ROICalculatorPage() {
           <section className="mt-16 text-center">
             <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#38bdf8] p-8 text-white">
-                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">需要个性化 ROI 分析？</h3>
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Need a personalized ROI analysis?</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  如果你要把这个 ROI 计算器接到真正的投资评审、治理框架和实施支持里，SitePilot 可以继续往下接。
+                  If you want to connect this ROI calculator to a real investment review, governance framework, and implementation plan, SitePilot can keep the work moving.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/apply-for-audit" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
-                    联系 AI 投资专家
+                    Talk to an AI investment specialist
                   </Link>
                   <Link href="/ai-investment-portfolio-optimizer-2026" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15">
-                    看投资组合优化器
+                    Explore the portfolio optimizer
                   </Link>
                 </div>
               </div>
             </div>
 
             <div className="mt-6 text-sm text-slate-600">
-              <p>© 2026 SitePilot AI Investment Solutions. 专业级 AI 投资 ROI 工具。</p>
-              <p className="mt-1">基于最新 AI 投资数据和行业最佳实践构建。</p>
+              <p>© 2026 SitePilot AI Investment Solutions. Enterprise-grade AI investment ROI tools.</p>
+              <p className="mt-1">Built on current AI investment data and industry best practices.</p>
             </div>
           </section>
         </main>

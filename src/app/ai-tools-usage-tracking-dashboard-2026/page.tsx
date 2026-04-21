@@ -14,140 +14,140 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'AI工具使用率追踪仪表板 2026 | SitePilot'
+const pageTitle = 'AI Tools Usage Tracking Dashboard 2026 | SitePilot'
 const pageDescription =
-  '企业 AI 工具使用率追踪应该同时衡量采用率、成本、ROI、功能重叠和告警优先级，否则预算优化只会停在 PPT 里。这个 2026 仪表板页面保留原有案例、ROI 结果、实施方案与内部链接，只统一到当前浅色 Stripe-ish UI。'
+  'AI tools usage tracking for enterprises needs to measure adoption, cost, ROI, feature overlap, and alert priority together or budget optimization never leaves the slide deck. This 2026 dashboard keeps the original examples, ROI results, rollout logic, and internal links while aligning the page to the current light Stripe-ish UI.'
 const pageUrl = 'https://sitepilot.co/ai-tools-usage-tracking-dashboard-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    '企业AI工具追踪',
-    '使用率监控',
-    '成本优化仪表板',
-    'AI投资ROI',
-    '企业级工具管理',
-    '预算优化',
-    '使用率分析',
+    'enterprise AI tool tracking',
+    'usage monitoring',
+    'cost optimization dashboard',
+    'AI investment ROI',
+    'enterprise tool management',
+    'budget optimization',
+    'usage analysis',
   ],
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
     title: pageTitle,
-    description: '企业级 AI 工具使用率追踪页面，覆盖采用率、成本浪费、预警等级、案例 ROI 和实施路径。',
+    description: 'An enterprise AI tools usage tracking page covering adoption, wasted spend, alert levels, ROI examples, and rollout paths.',
     type: 'article',
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
     title: pageTitle,
-    description: 'AI 工具使用率追踪仪表板：保留原有 ROI 与实施逻辑，只统一到当前浅色 Stripe-ish UI。',
+    description: 'An AI tools usage tracking dashboard that keeps the original ROI and rollout logic while aligning the interface to the current light Stripe-ish UI.',
   },
 }
 
 const heroStats = [
-  { value: '87%', label: '企业无法准确衡量 AI 工具 ROI' },
-  { value: '44%', label: '平均预算节省空间' },
-  { value: '467%', label: '第一年平均投资回报率' },
-  { value: '3.2个月', label: '平均投资回收周期' },
+  { value: '87%', label: 'Enterprises unable to measure AI tool ROI accurately' },
+  { value: '44%', label: 'Average budget savings opportunity' },
+  { value: '467%', label: 'Average first-year ROI' },
+  { value: '3.2 months', label: 'Average payback period' },
 ]
 
 const dashboardSignals = [
-  '没有使用率数据，所谓“工具组合优化”通常只是拍脑袋裁预算。',
-  '功能重叠不追踪，企业会同时给三套相似工具付钱，还以为自己很数字化。',
-  '追踪看板不是为了好看，是为了让取消、整合、培训和扩容有证据。',
-  '如果上线后没人用，再便宜的工具也是贵的。这个道理很残酷，但也很简单。',
+  'Without usage data, so-called tool portfolio optimization is usually just budget cutting by instinct.',
+  'If nobody tracks overlap, enterprises pay for three similar tools at once and still call it digital maturity.',
+  'A tracking dashboard is not there to look impressive. It exists to justify cancellation, consolidation, training, and expansion decisions.',
+  'If nobody uses the tool after launch, even the cheap one is expensive. The logic is brutal but simple.',
 ]
 
 const problemCards = [
   {
-    title: '37% 预算浪费',
-    description: '平均使用率只有 31%，功能重叠和闲置 license 把钱吞得很安静。',
+    title: '37% budget waste',
+    description: 'Average usage sits at just 31%, while overlapping functionality and idle licenses quietly eat the budget.',
     icon: AlertTriangle,
   },
   {
-    title: '缺乏数据支撑',
-    description: '87% 企业无法准确量化工具的真实采用率、ROI 和跨团队使用深度。',
+    title: 'Weak data foundation',
+    description: '87% of enterprises cannot quantify real adoption, ROI, or depth of cross-team usage accurately.',
     icon: BarChart3,
   },
   {
-    title: '隐性成本高昂',
-    description: '培训、集成、维护等隐性成本平均 $2,400 / 工具 / 年，常常没人算。',
+    title: 'Hidden costs stay high',
+    description: 'Training, integration, and maintenance add an average of $2,400 per tool per year, and many teams never model it.',
     icon: Shield,
   },
 ]
 
 const trackingMatrix = [
   {
-    title: '高使用率工具',
+    title: 'High-usage tools',
     range: '>70%',
-    note: '保留并扩大范围，检查是否值得升级许可或做更深集成。',
+    note: 'Keep and expand these tools. Review whether they justify deeper integrations or upgraded licenses.',
     tone: 'border-indigo-100 bg-indigo-50/80 text-indigo-800',
   },
   {
-    title: '中使用率工具',
+    title: 'Mid-usage tools',
     range: '30-70%',
-    note: '先优化培训、模板和工作流，再决定砍不砍。',
+    note: 'Optimize training, templates, and workflows before deciding whether to cut them.',
     tone: 'border-amber-100 bg-amber-50/80 text-amber-800',
   },
   {
-    title: '低使用率工具',
+    title: 'Low-usage tools',
     range: '<30%',
-    note: '优先评估替换、整合或取消订阅。别继续养着。',
+    note: 'Evaluate replacement, consolidation, or cancellation first. Do not keep carrying them passively.',
     tone: 'border-rose-100 bg-rose-50/80 text-rose-800',
   },
 ]
 
 const alertLevels = [
   {
-    title: '高风险',
-    note: '使用率 <20% + 高成本 → 立即行动',
+    title: 'High risk',
+    note: 'Usage below 20% plus high cost means immediate action',
     tone: 'border-rose-100 bg-rose-50/80 text-rose-800',
   },
   {
-    title: '中风险',
-    note: '使用率 20-50% + 中等成本 → 制定优化计划',
+    title: 'Moderate risk',
+    note: 'Usage between 20% and 50% plus mid-range cost means build an optimization plan',
     tone: 'border-amber-100 bg-amber-50/80 text-amber-800',
   },
   {
-    title: '低风险',
-    note: '使用率 >50% + 成本合理 → 维持并持续监控',
+    title: 'Low risk',
+    note: 'Usage above 50% plus reasonable cost means maintain and keep monitoring',
     tone: 'border-indigo-100 bg-indigo-50/80 text-indigo-800',
   },
 ]
 
 const beforeItems = [
-  '23 个 AI 工具订阅，年度成本 $127,000',
-  '平均使用率 31%，大量功能重叠',
-  '培训成本 $18,000 / 年，员工困惑度高',
-  'IT 维护工时每月 120 小时',
+  '23 AI tool subscriptions with annual cost of $127,000',
+  'Average usage at 31% with heavy feature overlap',
+  'Training cost of $18,000 per year with high employee confusion',
+  '120 hours of IT maintenance work each month',
 ]
 
 const afterItems = [
-  '9 个核心工具，年度成本 $71,000（节省 44%）',
-  '平均使用率 78%，功能更集中',
-  '培训成本 $6,000 / 年，满意度 8.7 / 10',
-  'IT 维护工时每月 45 小时',
+  '9 core tools with annual cost of $71,000, a 44% reduction',
+  'Average usage raised to 78% with a tighter functional stack',
+  'Training cost cut to $6,000 per year with satisfaction at 8.7 out of 10',
+  'IT maintenance reduced to 45 hours each month',
 ]
 
 const serviceCards = [
   {
-    title: '30天免费试用',
+    title: '30-day free trial',
     price: '$0',
-    note: '限时免费',
-    features: ['完整仪表板体验', '基础实施指导', '使用率分析报告', '初步优化建议'],
-    cta: '开始免费试用',
+    note: 'Limited-time free offer',
+    features: ['Full dashboard experience', 'Basic implementation guidance', 'Usage analysis report', 'Initial optimization recommendations'],
+    cta: 'Start the free trial',
     href: '/ai-roi-calculator',
     featured: false,
   },
   {
-    title: '企业级完整实施',
+    title: 'Full enterprise implementation',
     price: '$15,000 - $50,000',
-    note: '根据企业规模定价',
-    features: ['6 个月实施支持', '定制追踪指标设计', '团队培训与变革管理', '季度优化 review'],
-    cta: '预约企业咨询',
+    note: 'Priced by company size',
+    features: ['Six months of implementation support', 'Custom tracking metric design', 'Team training and change management', 'Quarterly optimization reviews'],
+    cta: 'Book an enterprise consultation',
     href: '/ai-roi-calculator',
     featured: true,
   },
@@ -184,21 +184,21 @@ export default function AIToolsUsageTrackingDashboardPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 工具使用率追踪，
-                  <span className="brand-gradient-text block">别再拿感觉冒充 ROI。</span>
+                  AI Tools Usage Tracking
+                  <span className="brand-gradient-text block">Stop mistaking instinct for ROI.</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  企业 AI 工具使用率追踪应该同时衡量采用率、成本、ROI、功能重叠和告警优先级，否则预算优化只会停在汇报材料里。这个页面保留原有案例、ROI 结果、实施方案和内部链接逻辑，只把视觉统一到当前浅色 Stripe-ish 系统。
+                  Usage tracking for enterprise AI tools has to measure adoption, cost, ROI, feature overlap, and alert priority together or budget optimization stays trapped in presentation decks. This page keeps the original case study, ROI results, rollout framing, and internal link structure while moving the interface into the current light Stripe-ish system.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
                   <Link href="/ai-roi-calculator" className="btn-brand inline-flex items-center gap-2">
-                    免费评估 ROI
+                    Get a free ROI estimate
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <a href="#case-study" className="btn-secondary inline-flex items-center gap-2">
-                    查看案例研究
+                    View the case study
                   </a>
                 </div>
 
@@ -219,10 +219,10 @@ export default function AIToolsUsageTrackingDashboardPage() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Dashboard logic</div>
-                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                        <div className="text-xl font-semibold text-slate-950">Four hard calls</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                        数据先于感觉
+                        Data before intuition
                       </div>
                     </div>
 
@@ -247,11 +247,11 @@ export default function AIToolsUsageTrackingDashboardPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Problem framing</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              追踪不是锦上添花，
-              <span className="brand-gradient-text block">而是预算治理的起点。</span>
+              Tracking is not a nice-to-have
+              <span className="brand-gradient-text block">It is where budget governance starts.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              原页面的问题陈述、研究数字和优化方向都保留。这里只把它们整理成更清楚的决策卡片，不再搞那种“企业蓝渐变万岁”的老派视觉轰炸。
+              The original problem statement, research numbers, and optimization direction all remain. They are simply organized into clearer decision cards without the older overdesigned enterprise visual style.
             </p>
           </div>
 
@@ -277,7 +277,7 @@ export default function AIToolsUsageTrackingDashboardPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <Activity className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">使用率监控矩阵</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Usage monitoring matrix</h2>
             </div>
             <div className="space-y-4">
               {trackingMatrix.map((item) => (
@@ -301,7 +301,7 @@ export default function AIToolsUsageTrackingDashboardPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <AlertTriangle className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">智能预警系统</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Smart alerting system</h2>
             </div>
             <div className="space-y-4">
               {alertLevels.map((item) => (
@@ -318,18 +318,18 @@ export default function AIToolsUsageTrackingDashboardPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Case study</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              500 人公司优化案例，
-              <span className="brand-gradient-text block">从 23 个工具收缩到 9 个核心工具。</span>
+              Case study: a 500-person company
+              <span className="brand-gradient-text block">From 23 tools down to 9 core tools.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              这页最值钱的地方不是口号，是前后对比：成本、使用率、培训费用、维护工时都给了。很好，这才像能拿去做决策的页面。
+              The most valuable part of the page is not the headline. It is the before-and-after comparison: cost, usage, training spend, and maintenance hours are all there. That is what makes the page usable for actual decisions.
             </p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2 mb-6">
             <div className="page-card rounded-[1.8rem] border border-rose-100 bg-white p-8">
               <div className="mb-6 inline-flex rounded-full border border-rose-100 bg-rose-50/80 px-3 py-1 text-xs font-semibold text-rose-700">
-                实施前状况
+                Before implementation
               </div>
               <div className="space-y-3">
                 {beforeItems.map((item) => (
@@ -345,7 +345,7 @@ export default function AIToolsUsageTrackingDashboardPage() {
 
             <div className="page-card rounded-[1.8rem] border border-indigo-100 bg-white p-8">
               <div className="mb-6 inline-flex rounded-full border border-indigo-100 bg-indigo-50/80 px-3 py-1 text-xs font-semibold text-indigo-700">
-                6 个月后结果
+                Results after six months
               </div>
               <div className="space-y-3">
                 {afterItems.map((item) => (
@@ -363,9 +363,9 @@ export default function AIToolsUsageTrackingDashboardPage() {
           <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
             <div className="grid gap-6 md:grid-cols-3">
               {[
-                ['467%', '总投资回报率（第一年）'],
-                ['3.2个月', '投资回收期'],
-                ['$84,000', '年度净收益'],
+                ['467%', 'Total ROI in year one'],
+                ['3.2 months', 'Payback period'],
+                ['$84,000', 'Annual net benefit'],
               ].map(([value, label]) => (
                 <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 text-center">
                   <div className="mb-2 text-4xl font-semibold tracking-[-0.04em] text-slate-950">{value}</div>
@@ -381,18 +381,18 @@ export default function AIToolsUsageTrackingDashboardPage() {
             <div className="max-w-3xl">
               <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">ROI prompt</div>
               <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-                要评估追踪看板值不值，
-                <span className="brand-gradient-text block">先把自己的工具账本摊开。</span>
+                If you want to know whether the dashboard pays off
+                <span className="brand-gradient-text block">Start by opening the tool ledger you already have.</span>
               </h2>
               <p className="mb-8 text-lg leading-relaxed text-slate-600">
-                原页面这里是 ROI 计算器 CTA。我保留了这条路径，因为这很合理：看完追踪逻辑之后，下一步就该量化你自己的节省空间，而不是继续开会抒情。
+                The original page routed readers into the ROI calculator, and that path still makes sense. Once the tracking logic is clear, the next step is to quantify your own savings opportunity instead of holding another abstract meeting.
               </p>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
                 {[
-                  ['10-50人', '小型企业'],
-                  ['50-200人', '中型企业'],
-                  ['200+人', '大型企业'],
-                  ['44%', '平均节省率'],
+                  ['10-50', 'Smaller teams'],
+                  ['50-200', 'Mid-sized teams'],
+                  ['200+', 'Large enterprises'],
+                  ['44%', 'Average savings rate'],
                 ].map(([value, label]) => (
                   <div key={label} className="page-card bg-white/90 p-4 text-center">
                     <div className="mb-1 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{value}</div>
@@ -402,11 +402,11 @@ export default function AIToolsUsageTrackingDashboardPage() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <Link href="/ai-roi-calculator" className="btn-brand inline-flex items-center gap-2">
-                  免费计算 ROI
+                  Calculate ROI for free
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link href="/ai-tools-cost-optimization-enterprise-2026" className="btn-secondary">
-                  查看成本优化指南
+                  Review the cost optimization guide
                 </Link>
               </div>
             </div>
@@ -417,19 +417,19 @@ export default function AIToolsUsageTrackingDashboardPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <LayoutDashboard className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">相关路径</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Related paths</h2>
             </div>
             <div className="space-y-3">
               {[
                 {
                   href: '/ai-roi-calculator',
-                  title: 'AI ROI 计算器',
-                  description: '把使用率、成本和回收周期放进同一套模型。',
+                  title: 'AI ROI Calculator',
+                  description: 'Model usage, cost, and payback in the same framework.',
                 },
                 {
                   href: '/ai-tools-cost-optimization-enterprise-2026',
-                  title: 'AI 工具成本优化指南',
-                  description: '追踪发现问题，优化负责把钱省下来。',
+                  title: 'AI Tools Cost Optimization Guide',
+                  description: 'Tracking finds the issue, and optimization is what saves the money.',
                 },
               ].map((item) => (
                 <Link
@@ -449,11 +449,11 @@ export default function AIToolsUsageTrackingDashboardPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Implementation options</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              实施路径要分层，
-              <span className="brand-gradient-text block">不是所有团队都该一上来就买全套。</span>
+              Implementation should be tiered
+              <span className="brand-gradient-text block">Not every team should buy the full program on day one.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              原页面给了免费试用和企业实施两档服务。这个结构保留，因为它符合实际：先验证，再扩展，别上来就把流程和预算一起炸飞。
+              The original page offered a free trial tier and a full enterprise implementation tier, and that structure stays because it matches reality. Validate first, then expand. Do not blow up process and budget in the first move.
             </p>
           </div>
 
@@ -465,7 +465,7 @@ export default function AIToolsUsageTrackingDashboardPage() {
               >
                 {card.featured ? (
                   <div className="absolute -top-3 left-8 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                    推荐方案
+                    Recommended
                   </div>
                 ) : null}
                 <div className="mb-6">
@@ -503,19 +503,19 @@ export default function AIToolsUsageTrackingDashboardPage() {
                 Final CTA
               </div>
               <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
-                别让 37% 的 AI 预算继续蒸发。
+                Do not let another 37% of the AI budget evaporate.
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                基于 $25,000 投资研究和 500 家企业实践验证的优化逻辑都还在。现在这页终于也长得像同一个产品家族里的成员了，不再像从 2023 年的 B2B 模板库里爬出来的。
+                The optimization logic based on a $25,000 investment and validation across 500 companies is still intact. The page now finally looks like it belongs to the same product family instead of a recycled 2023 B2B template.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <Link href="/ai-roi-calculator" className="btn-brand inline-flex items-center gap-2">
-                免费评估 ROI
+                Get a free ROI estimate
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/ai-tools-cost-optimization-enterprise-2026" className="btn-secondary">
-                查看完整成本优化指南
+                Review the full cost optimization guide
               </Link>
             </div>
           </div>

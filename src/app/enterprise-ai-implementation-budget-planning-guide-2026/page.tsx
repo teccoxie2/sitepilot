@@ -188,12 +188,12 @@ const planningTips = [
 ]
 
 const relatedLinks = [
-  { href: '/enterprise-ai-budget-optimization-calculator', title: 'Enterprise AI Budget Optimization Calculator', note: '预算规划和优化算到一块。' },
-  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'Enterprise AI ROI Calculation Model', note: '把支出和回报连起来。' },
-  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Enterprise AI Implementation Best Practices', note: '实施框架和预算框架配套看。' },
-  { href: '/ai-tools-cost-benefit-analysis-2026', title: 'AI Tools Cost-Benefit Analysis', note: '更偏工具层面的财务分析。' },
-  { href: '/ai-tools-integration-roadmap-2026', title: 'AI Tools Integration Roadmap', note: '看集成推进怎么排期。' },
-  { href: '/ai-transformation-roi-calculation-framework-2026', title: 'AI Transformation ROI Calculation Framework', note: '看转型级 ROI 模型。' },
+  { href: '/enterprise-ai-budget-optimization-calculator', title: 'Enterprise AI Budget Optimization Calculator', note: 'Model planning and optimization in the same flow.' },
+  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'Enterprise AI ROI Calculation Model', note: 'Connect spend to return with the same model.' },
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Enterprise AI Implementation Best Practices', note: 'Pair the implementation framework with the budget framework.' },
+  { href: '/ai-tools-cost-benefit-analysis-2026', title: 'AI Tools Cost-Benefit Analysis', note: 'Use this for more tool-level financial analysis.' },
+  { href: '/ai-tools-integration-roadmap-2026', title: 'AI Tools Integration Roadmap', note: 'See how to sequence the integration work.' },
+  { href: '/ai-transformation-roi-calculation-framework-2026', title: 'AI Transformation ROI Calculation Framework', note: 'Review the broader transformation-level ROI model.' },
 ]
 
 export default function EnterpriseAIImplementationBudgetPlanningGuidePage() {
@@ -225,18 +225,18 @@ export default function EnterpriseAIImplementationBudgetPlanningGuidePage() {
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
                   Enterprise AI budget planning，
-                  <span className="brand-gradient-text block">先算钱，再谈愿景。</span>
+                  <span className="brand-gradient-text block">Model the money before you sell the vision.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Complete financial framework for AI project budgeting: from $50K pilots to $5M+ transformations. 这页保留原本的预算层级、项目模板、执行建议和内部链接，只统一到当前浅色 Stripe-ish UI。
+                  Complete financial framework for AI project budgeting: from $50K pilots to $5M+ transformations. This page keeps the original budget layers, project templates, execution advice, and internal links while aligning the layout to the current light Stripe-ish UI.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#framework" className="btn-brand inline-flex items-center gap-2">
-                    查看预算框架
+                    Review the budget framework
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <a href="#templates" className="btn-secondary inline-flex items-center gap-2">
-                    查看模板
+                    Review the templates
                   </a>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">

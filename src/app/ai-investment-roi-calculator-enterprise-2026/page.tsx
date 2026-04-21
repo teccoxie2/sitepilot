@@ -16,41 +16,41 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  '保留原有的企业规模、行业、AI应用类型、复杂度与预算输入',
-  '保留3年ROI、投资回收期、NPV、IRR 和情景分析输出',
-  '把旧页面的 CFO 级财务叙事收进统一的浅色 Stripe-ish UI',
-  '补上规范 metadata、canonical、OG、Twitter 与结构化数据意图',
+  'Keeps the original inputs for company size, industry, AI use case, complexity, and budget',
+  'Keeps the three-year ROI, payback, NPV, IRR, and scenario outputs intact',
+  'Moves the CFO-grade financial narrative into the unified light Stripe-ish UI',
+  'Retains clean metadata, canonical, OG, Twitter, and structured-data intent',
 ]
 
 const financialCards = [
-  { label: '3年净 ROI', value: '385%', note: '基线情景下仍是核心 KPI。' },
-  { label: '投资回收期', value: '11个月', note: '在基线假设下回本速度够快。' },
-  { label: '3年净收益', value: '$9.2M', note: '维持旧页面的财务口径。' },
-  { label: '成功概率', value: '85%', note: '与原始输入面板保持一致。' },
+  { label: 'Three-year net ROI', value: '385%', note: 'Still the core KPI in the baseline scenario.' },
+  { label: 'Payback period', value: '11 months', note: 'The baseline case still recovers capital quickly.' },
+  { label: 'Three-year net benefit', value: '$9.2M', note: 'Uses the same financial framing as the original page.' },
+  { label: 'Success probability', value: '85%', note: 'Matches the original input panel logic.' },
 ]
 
 const benchmarkCards = [
-  { label: '行业平均 ROI', value: '285%', compare: 'vs 您的 385%' },
-  { label: '行业平均回收期', value: '15个月', compare: 'vs 您的 11个月' },
-  { label: '行业成功率', value: '68%', compare: 'vs 您的 85%' },
-  { label: '行业平均投资', value: '$3.2M', compare: 'vs 您的 $2.4M' },
+  { label: 'Industry average ROI', value: '285%', compare: 'vs your 385%' },
+  { label: 'Industry average payback', value: '15 months', compare: 'vs your 11 months' },
+  { label: 'Industry success rate', value: '68%', compare: 'vs your 85%' },
+  { label: 'Industry average investment', value: '$3.2M', compare: 'vs your $2.4M' },
 ]
 
 const scenarioCards = [
   {
     tone: 'border-indigo-200 bg-indigo-50 text-indigo-900',
-    title: '乐观情况',
-    detail: ['收益超预期 20%', '实施周期缩短 3 个月', '3 年 ROI: 485%', '投资回收期: 8 个月'],
+    title: 'Upside case',
+    detail: ['Benefits exceed plan by 20%', 'Implementation finishes three months faster', '3-year ROI: 485%', 'Payback period: 8 months'],
   },
   {
     tone: 'border-amber-200 bg-amber-50 text-amber-900',
-    title: '基线情况',
-    detail: ['收益符合预期', '实施按计划进行', '3 年 ROI: 385%', '投资回收期: 11 个月'],
+    title: 'Baseline case',
+    detail: ['Benefits match plan', 'Implementation stays on schedule', '3-year ROI: 385%', 'Payback period: 11 months'],
   },
   {
     tone: 'border-rose-200 bg-rose-50 text-rose-900',
-    title: '悲观情况',
-    detail: ['收益低于预期 25%', '实施延误 6 个月', '3 年 ROI: 210%', '投资回收期: 18 个月'],
+    title: 'Downside case',
+    detail: ['Benefits land 25% below plan', 'Implementation slips by six months', '3-year ROI: 210%', 'Payback period: 18 months'],
   },
 ]
 
@@ -58,27 +58,27 @@ const internalLinks = [
   {
     href: '/ai-investment-roi-matrix-calculator-enterprise-2026',
     title: 'ROI Matrix Calculator',
-    note: '把单点测算升级成多因素决策。'
+    note: 'Turn a single-project estimate into a multi-factor decision.'
   },
   {
     href: '/ai-investment-portfolio-optimizer-2026',
     title: 'Portfolio Optimizer',
-    note: '把 ROI 变成可执行的资本分配。'
+    note: 'Translate ROI into executable capital allocation.'
   },
   {
     href: '/ai-governance-framework-enterprise-2026',
     title: 'Governance Framework',
-    note: '让预算和治理一起上桌。'
+    note: 'Bring budget and governance into the same conversation.'
   },
   {
     href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
     title: 'Vendor Shortlist Scorecard',
-    note: '先比供应商，再下注。'
+    note: 'Compare vendors before you place the bet.'
   },
   {
     href: '/apply-for-audit',
     title: 'Talk to SitePilot',
-    note: '需要顾问式评估就直接约。'
+    note: 'Book a guided assessment if you need advisory support.'
   },
 ] as const
 
@@ -223,10 +223,10 @@ export default function AIInvestmentROICalculatorPage() {
                         Project parameters
                       </div>
                       <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-600">
-                        <li>企业规模</li>
-                        <li>行业类型</li>
-                        <li>AI 应用类型</li>
-                        <li>项目复杂度</li>
+                        <li>Enterprise size</li>
+                        <li>Industry type</li>
+                        <li>AI use case</li>
+                        <li>Project complexity</li>
                       </ul>
                     </div>
                     <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
@@ -235,10 +235,10 @@ export default function AIInvestmentROICalculatorPage() {
                         Investment parameters
                       </div>
                       <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-600">
-                        <li>初始投资预算</li>
-                        <li>年度运营成本</li>
-                        <li>实施周期</li>
-                        <li>成功概率评估</li>
+                        <li>Initial investment budget</li>
+                        <li>Annual operating cost</li>
+                        <li>Implementation timeline</li>
+                        <li>Estimated probability of success</li>
                       </ul>
                     </div>
                     <div className="md:col-span-2 rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
@@ -249,11 +249,11 @@ export default function AIInvestmentROICalculatorPage() {
                       <div className="mt-4 grid gap-4 md:grid-cols-2">
                         <div className="rounded-2xl border border-white bg-white p-4">
                           <div className="font-semibold text-slate-950">Cost savings</div>
-                          <div className="mt-1 text-sm text-slate-600">人力、运营、错误减少收益。</div>
+                          <div className="mt-1 text-sm text-slate-600">Labor, operations, and error-reduction gains.</div>
                         </div>
                         <div className="rounded-2xl border border-white bg-white p-4">
                           <div className="font-semibold text-slate-950">Revenue growth</div>
-                          <div className="mt-1 text-sm text-slate-600">新业务、客户价值、竞争优势。</div>
+                          <div className="mt-1 text-sm text-slate-600">New business, customer value, and competitive advantage.</div>
                         </div>
                       </div>
                     </div>
@@ -262,10 +262,10 @@ export default function AIInvestmentROICalculatorPage() {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   {[
-                    ['技术风险', '低 (15%)'],
-                    ['执行风险', '中 (25%)'],
-                    ['市场风险', '低 (18%)'],
-                    ['总体评估', '强烈推荐投资'],
+                    ['Technical risk', 'Low (15%)'],
+                    ['Execution risk', 'Moderate (25%)'],
+                    ['Market risk', 'Low (18%)'],
+                    ['Overall assessment', 'Strongly recommended'],
                   ].map(([label, value]) => (
                     <div key={label} className="page-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                       <div className="text-sm text-slate-500">{label}</div>
@@ -290,10 +290,10 @@ export default function AIInvestmentROICalculatorPage() {
 
                     <div className="grid gap-3 sm:grid-cols-2">
                       {[
-                        ['3年净ROI', '385%'],
-                        ['投资回收期', '11个月'],
-                        ['3年净收益', '$9.2M'],
-                        ['净现值 (NPV)', '$7.8M'],
+                        ['Three-year net ROI', '385%'],
+                        ['Payback period', '11 months'],
+                        ['Three-year net benefit', '$9.2M'],
+                        ['Net present value (NPV)', '$7.8M'],
                       ].map(([title, value]) => (
                         <div key={title} className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
                           <div className="text-sm text-slate-500">{title}</div>
@@ -307,7 +307,7 @@ export default function AIInvestmentROICalculatorPage() {
                         Decision summary
                       </div>
                       <p className="text-sm leading-7 text-slate-700">
-                        这组假设下的项目值得投，但前提是实施纪律、数据质量和变更管理别掉链子。
+                        Under these assumptions, the project is worth funding, but only if implementation discipline, data quality, and change management stay tight.
                       </p>
                     </div>
                   </div>
@@ -341,9 +341,9 @@ export default function AIInvestmentROICalculatorPage() {
                 <BarChart3 className="h-4 w-4" />
                 Industry benchmark comparison
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">基准不是装饰品，是谈判时的武器。</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">Benchmarks are not decoration. They are leverage in the room.</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                这块内容继续保留 179 家 Fortune 500 的对比叙事，只是换成更干净的卡片和表格排版。
+                This section keeps the benchmark narrative from 179 Fortune 500 companies and simply presents it in a cleaner card and table layout.
               </p>
             </div>
 
@@ -361,21 +361,21 @@ export default function AIInvestmentROICalculatorPage() {
               <table className="w-full text-sm">
                 <thead className="bg-slate-50">
                   <tr className="border-b border-slate-200 text-left">
-                    <th className="p-4 font-semibold text-slate-700">行业</th>
-                    <th className="p-4 font-semibold text-slate-700">企业数</th>
-                    <th className="p-4 font-semibold text-slate-700">平均 ROI</th>
-                    <th className="p-4 font-semibold text-slate-700">成功率</th>
-                    <th className="p-4 font-semibold text-slate-700">您的位置</th>
+                    <th className="p-4 font-semibold text-slate-700">Industry</th>
+                    <th className="p-4 font-semibold text-slate-700">Companies</th>
+                    <th className="p-4 font-semibold text-slate-700">Average ROI</th>
+                    <th className="p-4 font-semibold text-slate-700">Success rate</th>
+                    <th className="p-4 font-semibold text-slate-700">Your position</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white text-slate-700">
                   {[
-                    ['零售电商', '32家', '325%', '74%', 'TOP 15%'],
-                    ['金融服务', '28家', '295%', '71%', 'TOP 12%'],
-                    ['制造业', '41家', '245%', '65%', 'TOP 8%'],
-                    ['医疗健康', '23家', '385%', '82%', '平均水平'],
-                    ['科技服务', '35家', '425%', '89%', '接近平均'],
-                    ['物流运输', '20家', '215%', '58%', 'TOP 5%'],
+                    ['Retail ecommerce', '32', '325%', '74%', 'Top 15%'],
+                    ['Financial services', '28', '295%', '71%', 'Top 12%'],
+                    ['Manufacturing', '41', '245%', '65%', 'Top 8%'],
+                    ['Healthcare', '23', '385%', '82%', 'At market average'],
+                    ['Technology services', '35', '425%', '89%', 'Near average'],
+                    ['Logistics', '20', '215%', '58%', 'Top 5%'],
                   ].map((row) => (
                     <tr key={row[0]} className="border-b border-slate-100 last:border-b-0">
                       {row.map((cell, index) => (
@@ -398,30 +398,30 @@ export default function AIInvestmentROICalculatorPage() {
 
           <section className="mt-16 grid gap-6 lg:grid-cols-3">
             <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">收益放大策略</h3>
+              <h3 className="text-xl font-semibold text-slate-950">Strategies to amplify returns</h3>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
-                <li>聚焦高 ROI 场景，别拿低价值项目凑数。</li>
-                <li>先做数据清理，再谈精确预测。</li>
-                <li>分阶段部署，比一次性大跃进靠谱得多。</li>
-                <li>培训预算不能省，不然 ROI 会回头咬你。</li>
+                <li>Focus on high-ROI use cases instead of padding the portfolio with low-value work.</li>
+                <li>Clean the data first, then start talking about prediction quality.</li>
+                <li>Phased rollout is far more reliable than a one-shot launch.</li>
+                <li>Do not cut the training budget or the ROI will come back to punish you.</li>
               </ul>
             </div>
             <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">关键风险控制</h3>
+              <h3 className="text-xl font-semibold text-slate-950">Key risk controls</h3>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
-                <li>成熟方案优先，别把项目变成自研研究所。</li>
-                <li>严格变更管理，防止范围无限膨胀。</li>
-                <li>变革沟通要早，不然组织会本能抵抗。</li>
-                <li>监管和数据安全要提前做，不要等炸了再补。</li>
+                <li>Favor mature solutions instead of turning the project into an internal research lab.</li>
+                <li>Use strict change control so scope does not expand indefinitely.</li>
+                <li>Start change communication early or the organization will resist by default.</li>
+                <li>Handle regulation and data security early instead of patching them after failure.</li>
               </ul>
             </div>
             <div className="page-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">加速实施建议</h3>
+              <h3 className="text-xl font-semibold text-slate-950">Execution accelerators</h3>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
-                <li>需要的话可以拉外部专家，缩短学习曲线。</li>
-                <li>云原生 AI 服务能明显缩短集成时间。</li>
-                <li>2-4 周迭代最适合持续验证和修正。</li>
-                <li>KPI 必须明确，不然优化没抓手。</li>
+                <li>Bring in outside specialists when needed to compress the learning curve.</li>
+                <li>Cloud-native AI services can shorten integration time materially.</li>
+                <li>Two- to four-week iterations are ideal for continuous validation and correction.</li>
+                <li>KPIs need to be explicit or optimization loses its grip.</li>
               </ul>
             </div>
           </section>
@@ -432,9 +432,9 @@ export default function AIInvestmentROICalculatorPage() {
                 <Target className="h-4 w-4" />
                 Scenario analysis
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">把最好、最坏、最可能的结果都摊在桌上。</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">Put the best, worst, and most likely outcomes on the table.</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                这里保留原页面的场景分析、蒙特卡洛结论和投资建议口径，只是把视觉系统统一掉。
+                This section keeps the original scenario analysis, Monte Carlo framing, and investment recommendation logic while aligning the presentation to the shared visual system.
               </p>
             </div>
 
@@ -452,36 +452,36 @@ export default function AIInvestmentROICalculatorPage() {
             </div>
 
             <div className="mt-6 rounded-[1.5rem] border border-sky-100 bg-sky-50/70 p-5 text-sm leading-7 text-slate-700">
-              <div className="mb-2 font-semibold uppercase tracking-[0.18em] text-sky-700">蒙特卡洛模拟结果</div>
-              <div>• 10,000 次模拟分析</div>
-              <div>• ROI {'>'} 200% 概率: 89%</div>
-              <div>• ROI {'>'} 300% 概率: 72%</div>
-              <div>• 负 ROI 风险: 3%</div>
-              <div className="mt-2 font-semibold">投资建议: 强烈推荐</div>
+              <div className="mb-2 font-semibold uppercase tracking-[0.18em] text-sky-700">Monte Carlo results</div>
+              <div>• 10,000 simulation runs</div>
+              <div>• Probability of ROI {'>'} 200%: 89%</div>
+              <div>• Probability of ROI {'>'} 300%: 72%</div>
+              <div>• Negative ROI risk: 3%</div>
+              <div className="mt-2 font-semibold">Investment recommendation: strongly recommended</div>
             </div>
           </section>
 
           <section className="mt-16 text-center">
             <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
-                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">需要个性化 ROI 分析？</h3>
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Need a personalized ROI analysis?</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  如果你要把这个 ROI 计算器接到真正的投资评审、治理框架和实施支持里，SitePilot 可以继续往下接。
+                  If you want to connect this ROI calculator to a real investment review, governance framework, and implementation plan, SitePilot can take the next step with you.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/apply-for-audit" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
-                    联系 AI 投资专家
+                    Talk to an AI investment specialist
                   </Link>
                   <Link href="/ai-investment-portfolio-optimizer-2026" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15">
-                    看投资组合优化器
+                    Explore the portfolio optimizer
                   </Link>
                 </div>
               </div>
             </div>
 
             <div className="mt-6 text-sm text-slate-600">
-              <p>© 2026 SitePilot AI Investment Solutions. 专业级 AI 投资 ROI 工具。</p>
-              <p className="mt-1">基于最新 AI 投资数据和行业最佳实践构建。</p>
+              <p>© 2026 SitePilot AI Investment Solutions. Enterprise-grade AI investment ROI tools.</p>
+              <p className="mt-1">Built on current AI investment data and industry best practices.</p>
             </div>
           </section>
         </main>

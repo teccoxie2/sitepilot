@@ -109,26 +109,26 @@ const criticalityLevels = [
 ]
 
 const heroSignals = [
-  '8 个风险维度都保留，分值和权重逻辑不改。',
-  '结果页继续输出风险等级、合规状态、建议和关键发现。',
-  'canonical、metadata、内部链接全部补齐并保留。',
-  '只换壳，不改这页原来的评估脑子。',
+  'All eight risk dimensions remain intact, with the original scores and weighting logic preserved.',
+  'The results screen still reports risk level, compliance status, recommendations, and key findings.',
+  'Canonical, metadata, and internal links stay in place.',
+  'Only the shell changed; the evaluation logic did not.',
 ]
 
 const processCards = [
   {
     title: 'Step 1',
-    note: '录入 vendor 基本信息、类别和业务关键级别。',
+    note: 'Enter the vendor basics, category, and business criticality.',
     icon: FileSearch,
   },
   {
     title: 'Step 2',
-    note: '按 8 个维度给分，不要拿感觉当证据。',
+    note: 'Score across all eight dimensions using evidence instead of instinct.',
     icon: ClipboardCheck,
   },
   {
     title: 'Step 3',
-    note: '系统输出综合风险、合规状态和行动建议。',
+    note: 'Generate the overall risk view, compliance status, and action guidance.',
     icon: Target,
   },
 ]
@@ -137,22 +137,22 @@ const relatedLinks = [
   {
     href: '/ai-vendor-due-diligence-checklist-enterprise-2026',
     title: 'AI Vendor Due Diligence Checklist 2026',
-    note: '先把尽调问题问清楚，再来打分。',
+    note: 'Get the diligence questions straight before you score anything.',
   },
   {
     href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
     title: 'Enterprise AI Vendor Shortlist Scorecard 2026',
-    note: '把长名单压缩成 shortlist。',
+    note: 'Turn the long list into a workable shortlist.',
   },
   {
     href: '/ai-governance-framework-enterprise-2026',
     title: 'AI Governance Framework Enterprise 2026',
-    note: '把 vendor 风险接进治理和审批体系。',
+    note: 'Connect vendor risk to governance and approval workflows.',
   },
   {
     href: '/ai-procurement-decision-matrix-tool-2026',
     title: 'AI Procurement Decision Matrix Tool 2026',
-    note: '需要更偏采购视角时看这个。',
+    note: 'Use this when you need a more procurement-led lens.',
   },
 ]
 
@@ -349,19 +349,21 @@ export default function AIVendorRiskEvaluationTool2026() {
                   Enterprise vendor risk scoring 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI vendor 风险评估，
-                  <span className="brand-gradient-text block">别把“感觉还行”当结论。</span>
+                  AI vendor risk evaluation,
+                  <span className="brand-gradient-text block">do not let &quot;seems fine&quot; become the verdict.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  用 8 维模型评估 enterprise AI vendor，覆盖安全、合规、架构、财务、运营、治理和合作成熟度。原来的评分逻辑、风险分级、建议输出都保留，只把界面统一到当前浅色 Stripe-ish UI。
+                  Use an 8-dimension model to evaluate enterprise AI vendors across security, compliance, architecture, financial health, operations, governance,
+                  and partnership maturity. The original scoring logic, risk tiers, and recommendation outputs stay intact; only the interface has been aligned to
+                  the current light Stripe-ish UI.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#tool" className="btn-brand inline-flex items-center gap-2">
-                    打开评估工具
+                    Open the assessment tool
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
-                    先看尽调清单
+                    Review the due diligence checklist first
                   </Link>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
@@ -381,7 +383,7 @@ export default function AIVendorRiskEvaluationTool2026() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Assessment structure</div>
-                        <div className="text-xl font-semibold text-slate-950">三步，出结论</div>
+                        <div className="text-xl font-semibold text-slate-950">Three steps to a defensible decision</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                         Evidence first
@@ -406,7 +408,8 @@ export default function AIVendorRiskEvaluationTool2026() {
                       })}
                     </div>
                     <div className="mt-5 rounded-2xl border border-sky-100 bg-sky-50/80 px-4 py-4 text-sm leading-6 text-slate-700">
-                      高分不代表一定该买；低分也不一定马上淘汰。重点是你终于有个能解释、能复盘、能留档的判断过程。
+                      A high score does not automatically mean you should buy, and a low score does not always mean immediate rejection. The point is to create a
+                      judgment process you can explain, revisit, and document.
                     </div>
                   </div>
                 </div>
@@ -423,7 +426,8 @@ export default function AIVendorRiskEvaluationTool2026() {
                 This page still uses the original 8-dimension weighted model. Technical architecture, security, compliance, pricing, operations, roadmap, governance, and partnership potential all keep the same relative importance.
               </p>
               <p>
-                The result logic also stays intact: overall score, risk classification, recommendations, critical findings, and compliance status. 只是现在不再像 2024 年随手拼出来的 B2B 表单页。
+                The result logic also stays intact: overall score, risk classification, recommendations, critical findings, and compliance status. It just no longer
+                feels like a rushed B2B form page from 2024.
               </p>
             </div>
           </div>
@@ -447,8 +451,8 @@ export default function AIVendorRiskEvaluationTool2026() {
             <div>
               <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Interactive tool</div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-                给分可以主观，
-                <span className="brand-gradient-text block">但过程必须透明。</span>
+                Scoring can be subjective,
+                <span className="brand-gradient-text block">but the process has to stay transparent.</span>
               </h2>
             </div>
             <div className="min-w-[240px] rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
@@ -540,9 +544,9 @@ export default function AIVendorRiskEvaluationTool2026() {
                 <div className="page-card border border-indigo-100 bg-indigo-50/80 p-8">
                   <h3 className="mb-4 text-2xl font-semibold text-slate-950">Before you score</h3>
                   <div className="space-y-3 text-sm leading-6 text-slate-700">
-                    <p>别拿销售承诺直接打高分。能验证的再算数。</p>
-                    <p>如果 security、legal、procurement 没对齐，结果一定会虚高。</p>
-                    <p>这个工具适合做第一轮结构化判断，不适合替代正式尽调。</p>
+                    <p>Do not hand out high scores based on sales promises. It only counts if you can verify it.</p>
+                    <p>If security, legal, and procurement are not aligned, the result will almost always look too optimistic.</p>
+                    <p>This tool is built for a first structured view, not as a replacement for formal due diligence.</p>
                   </div>
                 </div>
 
@@ -779,11 +783,12 @@ export default function AIVendorRiskEvaluationTool2026() {
                         <div>
                           <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Next actions</div>
                           <h3 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
-                            分数只是开始，
-                            <span className="brand-gradient-text block">决策要靠后续动作。</span>
+                            The score is only the start,
+                            <span className="brand-gradient-text block">the decision depends on what happens next.</span>
                           </h3>
                           <p className="mt-4 text-lg leading-8 text-slate-600">
-                            把这份结果拿去做尽调、shortlist 和采购审批。别把风险评估做成一个看完就扔的 PDF。
+                            Take this result into diligence, shortlisting, and procurement approval. Do not turn vendor risk assessment into a PDF people read once and
+                            ignore.
                           </p>
                         </div>
                         <div className="space-y-3">

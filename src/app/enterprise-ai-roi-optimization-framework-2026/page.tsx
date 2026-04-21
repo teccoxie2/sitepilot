@@ -18,7 +18,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI ROI Optimization Framework 2026 - CFO Financial Analysis Guide'
 const pageDescription =
-  'CFO视角的企业AI投资分析框架。基于50家财富500强企业18个月ROI追踪研究，7步ROI计算方法，风险评估，行业基准数据。专业企业AI咨询服务。'
+  'CFO-oriented enterprise AI investment analysis framework based on an 18-month ROI tracking study of 50 Fortune 500 companies, including a seven-step ROI method, risk assessment, and industry benchmarks.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-roi-optimization-framework-2026'
 
 export const metadata: Metadata = {
@@ -112,12 +112,12 @@ const checklist = [
 ]
 
 const relatedLinks = [
-  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: '实施框架和 ROI 框架一起看。' },
-  { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: '预算和 ROI 放一起算。' },
-  { href: '/enterprise-ai-risk-assessment-tool-2026', title: 'Risk assessment tool', note: '把风险量化。' },
-  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'ROI calculation model', note: '看计算模型本体。' },
-  { href: '/enterprise-ai-budget-optimization-calculator', title: 'Budget optimization calculator', note: '先把钱花得对。' },
-  { href: '/enterprise-ai-transformation-roadmap-2026', title: 'Transformation roadmap', note: '看路线图怎么排。' },
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: 'Review the implementation framework alongside the ROI model.' },
+  { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: 'Model budget discipline and ROI together.' },
+  { href: '/enterprise-ai-risk-assessment-tool-2026', title: 'Risk assessment tool', note: 'Quantify risk before you present the case.' },
+  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'ROI calculation model', note: 'See the underlying calculation model.' },
+  { href: '/enterprise-ai-budget-optimization-calculator', title: 'Budget optimization calculator', note: 'Make sure the money is pointed at the right work.' },
+  { href: '/enterprise-ai-transformation-roadmap-2026', title: 'Transformation roadmap', note: 'See how the rollout sequence should be staged.' },
 ]
 
 export default function EnterpriseAIROIFrameworkPage() {
@@ -138,11 +138,11 @@ export default function EnterpriseAIROIFrameworkPage() {
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
               <div className="max-w-3xl">
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI ROI optimization framework</div>
-                <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI ROI framework，<span className="brand-gradient-text block">别让财务被“我们很快就能回本”骗了。</span></h1>
-                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">CFO视角的企业AI投资分析框架。基于50家财富500强企业18个月ROI追踪研究。这里保留 7 步框架、行业基准和决策清单，只统一到浅色 Stripe-ish UI。</p>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI ROI framework,<span className="brand-gradient-text block">Do not let finance buy a “payback is coming soon” story.</span></h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">A CFO-oriented enterprise AI investment analysis framework based on an 18-month ROI tracking study of 50 Fortune 500 companies. This page keeps the seven-step framework, industry benchmarks, and decision checklist intact while aligning the presentation to the light Stripe-ish UI.</p>
                 <div className="mb-10 flex flex-wrap gap-3">
-                  <a href="#framework" className="btn-brand inline-flex items-center gap-2">查看7步框架 <ArrowRight className="h-4 w-4" /></a>
-                  <a href="#benchmarks" className="btn-secondary inline-flex items-center gap-2">查看行业基准</a>
+                  <a href="#framework" className="btn-brand inline-flex items-center gap-2">View 7-step framework <ArrowRight className="h-4 w-4" /></a>
+                  <a href="#benchmarks" className="btn-secondary inline-flex items-center gap-2">View industry benchmarks</a>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-3xl">
                   {heroStats.map((stat) => (
@@ -182,7 +182,7 @@ export default function EnterpriseAIROIFrameworkPage() {
         </section>
 
         <section id="framework" className="mb-16">
-          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Compass className="h-4 w-4 text-[#635bff]" />7-step framework</div><h2 className="page-title text-3xl md:text-4xl">7步ROI计算框架</h2><p className="page-lead mt-3 text-lg">从成本、收益、风险到治理，一步一步把投资说清楚。</p></div>
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Compass className="h-4 w-4 text-[#635bff]" />7-step framework</div><h2 className="page-title text-3xl md:text-4xl">7-step ROI calculation framework</h2><p className="page-lead mt-3 text-lg">Move from costs to returns, risk, and governance without skipping the hard parts.</p></div>
           <div className="space-y-5">
             {steps.map((step) => {
               const Icon = step.icon
@@ -201,7 +201,7 @@ export default function EnterpriseAIROIFrameworkPage() {
         </section>
 
         <section id="benchmarks" className="mb-16">
-          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Layers className="h-4 w-4 text-[#635bff]" />Industry benchmarks</div><h2 className="page-title text-3xl md:text-4xl">行业基准ROI数据</h2><p className="page-lead mt-3 text-lg">Three vertical slices, no marketing fluff.</p></div>
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Layers className="h-4 w-4 text-[#635bff]" />Industry benchmarks</div><h2 className="page-title text-3xl md:text-4xl">Industry ROI benchmarks</h2><p className="page-lead mt-3 text-lg">Three vertical slices, no marketing fluff.</p></div>
           <div className="grid gap-5 lg:grid-cols-3">
             {benchmarks.map((item) => (
               <div key={item.title} className="page-card p-6">
@@ -220,7 +220,7 @@ export default function EnterpriseAIROIFrameworkPage() {
         <section className="mb-16">
           <div className="page-card-glow rounded-[2rem] p-5 md:p-6">
             <div className="page-card flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Clock3 className="h-4 w-4 text-[#635bff]" />CFO checklist</div><h2 className="page-title text-3xl md:text-4xl">决策检查清单</h2><p className="page-lead mt-3 text-lg">If these boxes are not ticked, the project is not ready.</p></div>
+              <div className="max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Clock3 className="h-4 w-4 text-[#635bff]" />CFO checklist</div><h2 className="page-title text-3xl md:text-4xl">Decision checklist</h2><p className="page-lead mt-3 text-lg">If these boxes are not ticked, the project is not ready.</p></div>
               <div className="grid gap-2 sm:grid-cols-2">
                 {checklist.map((item) => (<div key={item} className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-sm text-slate-700"><CheckCircle2 className="mr-2 inline h-4 w-4 text-indigo-500" />{item}</div>))}
               </div>

@@ -194,22 +194,22 @@ const relatedLinks = [
   {
     href: '/ai-vendor-risk-evaluation-tool-2026',
     title: 'AI Vendor Risk Evaluation Tool 2026',
-    note: '先看风险，再谈 shortlist。',
+    note: 'Review risk before you talk about the shortlist.',
   },
   {
     href: '/ai-vendor-due-diligence-checklist-enterprise-2026',
     title: 'AI Vendor Due Diligence Checklist 2026',
-    note: '把该问的尽调问题问完。',
+    note: 'Ask the full diligence question set before you decide.',
   },
   {
     href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
     title: 'Enterprise AI Vendor Shortlist Scorecard 2026',
-    note: '把长名单收成 shortlist。',
+    note: 'Compress the long list into a real shortlist.',
   },
   {
     href: '/ai-procurement-decision-matrix-tool-2026',
     title: 'AI Procurement Decision Matrix Tool 2026',
-    note: '需要更偏采购打法时继续看。',
+    note: 'Use this when you need a more procurement-led view.',
   },
 ]
 
@@ -241,19 +241,19 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
                   Enterprise vendor selection 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI vendor 选型，
-                  <span className="brand-gradient-text block">别把采购做成抽盲盒。</span>
+                  AI vendor selection,
+                  <span className="brand-gradient-text block">Do not turn procurement into a blind-box draw.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  这页保留原来的 8 维决策框架、市场数据、评分矩阵、流程、ROI 对比和执行步骤，只把视觉统一到当前浅色 Stripe-ish UI。内容还是那套：系统化选型，比事后返工便宜太多。
+                  This page keeps the original eight-dimension decision framework, market data, scoring matrix, process flow, ROI comparison, and execution steps, and only aligns the presentation to the current light Stripe-ish UI. The core argument is unchanged: systematic selection is far cheaper than cleaning up after the wrong choice.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#matrix" className="btn-brand inline-flex items-center gap-2">
-                    查看评分矩阵
+                    View scoring matrix
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/ai-vendor-risk-evaluation-tool-2026" className="btn-secondary inline-flex items-center gap-2">
-                    先做风险评估
+                    Start with risk evaluation
                   </Link>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
@@ -295,7 +295,7 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
                       ))}
                     </div>
                     <div className="mt-5 rounded-2xl border border-sky-100 bg-sky-50/80 px-4 py-4 text-sm leading-6 text-slate-700">
-                      选型最大的坑不是“选错”，而是你根本说不清自己为什么选它。这个框架就是拿来防这个的。
+                      The biggest selection failure is not choosing wrong. It is being unable to explain why you chose the vendor in the first place. This framework exists to prevent that.
                     </div>
                   </div>
                 </div>
@@ -308,11 +308,11 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Market overview</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              市场很热闹，
-              <span className="brand-gradient-text block">但错误选型一样很贵。</span>
+              The market is crowded,
+              <span className="brand-gradient-text block">and wrong selection is still expensive.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              原页面的市场数据和“选错代价”逻辑保留。现在只是把它摆得更像一个真正的决策页面，而不是一张长到想关掉的宣传页。
+              The original market data and switching-cost logic stay intact. The difference is that the page now reads like a real decision surface instead of an oversized promo sheet.
             </p>
           </div>
 
@@ -330,8 +330,8 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Framework</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              8 维决策框架，
-              <span className="brand-gradient-text block">不靠供应商 demo 冲昏头。</span>
+              8-decision framework,
+              <span className="brand-gradient-text block">without letting vendor demos scramble your judgment.</span>
             </h2>
           </div>
 
@@ -356,8 +356,8 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
             <div>
               <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Comparison matrix</div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-                评分矩阵不是圣旨，
-                <span className="brand-gradient-text block">但至少比拍脑袋强太多。</span>
+                A scoring matrix is not gospel,
+                <span className="brand-gradient-text block">but it beats guesswork by a mile.</span>
               </h2>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4 text-sm leading-6 text-slate-600">
@@ -408,8 +408,8 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Process</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              选型流程要分阶段，
-              <span className="brand-gradient-text block">不然所有问题都会拖到最后一周。</span>
+              Selection needs phases,
+              <span className="brand-gradient-text block">or every problem lands in the final week.</span>
             </h2>
           </div>
 
@@ -491,7 +491,7 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
             <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] md:text-4xl">Start the selection process without the usual chaos.</h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/85">
-                原页面的行动步骤保留，只是现在放进更清楚的执行模块里。先定义需求，再做 shortlist，再验证，不要一上来就被 vendor 带着走。
+                The original action steps stay intact, but they now sit inside a clearer execution module. Define requirements first, build the shortlist second, validate third, and do not let the vendor steer the process from day one.
               </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2">

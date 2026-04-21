@@ -1,21 +1,21 @@
 import type { Metadata } from 'next'
 
-const pageTitle = 'AI营销归因分析工具 2026 | 多渠道ROI追踪 | SitePilot'
+const pageTitle = 'AI Marketing Attribution Analysis Tool 2026 | Multi-Channel ROI Tracking | SitePilot'
 const pageDescription =
-  '专业AI营销归因分析工具 2026版。多渠道ROI追踪、客户旅程分析、转化路径优化。助力CMO级别营销决策，提升营销效率75%+。'
+  'Professional AI marketing attribution analysis tool for 2026. Track multi-channel ROI, analyze customer journeys, and optimize conversion paths for CMO-level decisions and 75%+ marketing efficiency gains.'
 const pageUrl = 'https://sitepilot.co/ai-marketing-attribution-analysis-tool-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    'AI营销归因',
-    '多渠道分析',
-    'ROI追踪',
-    '客户旅程分析',
-    '转化优化',
-    '营销分析工具',
-    'CMO工具',
+    'AI marketing attribution',
+    'multi-channel analysis',
+    'ROI tracking',
+    'customer journey analysis',
+    'conversion optimization',
+    'marketing analytics tool',
+    'CMO tool',
   ],
   authors: [{ name: 'SitePilot Team' }],
   alternates: {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     type: 'article',
     siteName: 'SitePilot',
-    locale: 'zh_CN',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',

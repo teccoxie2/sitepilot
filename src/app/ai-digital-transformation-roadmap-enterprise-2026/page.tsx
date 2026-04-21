@@ -3,20 +3,20 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = '企业AI数字化转型路线图指南 2026 | SitePilot'
+const pageTitle = 'Enterprise AI Digital Transformation Roadmap Guide 2026 | SitePilot'
 const pageDescription =
-  '基于 Fortune 500 实践的企业 AI 数字化转型 18 个月路线图，覆盖三阶段推进、预算规划、风险管控与成功衡量指标。'
+  'An 18-month enterprise AI digital transformation roadmap based on Fortune 500 execution patterns, covering phased rollout, budget planning, risk controls, and success metrics.'
 const pageUrl = 'https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    '企业AI转型',
+    'enterprise AI transformation',
     'digital transformation roadmap',
     'AI implementation strategy',
     'enterprise AI adoption',
-    '数字化转型路线图',
+    'enterprise transformation roadmap',
   ],
   alternates: {
     canonical: pageUrl,
@@ -35,137 +35,137 @@ export const metadata: Metadata = {
 }
 
 const quickNav = [
-  { href: '#overview', title: '执行摘要', note: '转型成果、投资与总体判断' },
-  { href: '#framework', title: '三阶段框架', note: '基础构建、规模部署、智能创新' },
-  { href: '#phase-one', title: 'Phase 1 细化', note: '战略评估与能力建设动作' },
-  { href: '#phase-two', title: 'Phase 2 重点', note: '核心业务 AI 化优先级' },
-  { href: '#risk', title: '风险与指标', note: '缓解策略与里程碑体系' },
+  { href: '#overview', title: 'Executive summary', note: 'Transformation outcomes, investment, and overall judgment' },
+  { href: '#framework', title: 'Three-phase framework', note: 'Foundation, scaled deployment, and intelligent innovation' },
+  { href: '#phase-one', title: 'Phase 1 detail', note: 'Strategy assessment and capability-building actions' },
+  { href: '#phase-two', title: 'Phase 2 priorities', note: 'Business AI priorities across core functions' },
+  { href: '#risk', title: 'Risk and metrics', note: 'Mitigation strategy and milestone system' },
 ]
 
 const summaryStats = [
-  { value: '18个月', label: '完整转型周期' },
-  { value: '236', label: '执行步骤' },
-  { value: '$2.4M-$4.8M', label: '中型企业总投资' },
-  { value: '242%-425%', label: '净 ROI 区间' },
+  { value: '18 months', label: 'Full transformation timeline' },
+  { value: '236', label: 'Execution steps' },
+  { value: '$2.4M-$4.8M', label: 'Total investment for a mid-market enterprise' },
+  { value: '242%-425%', label: 'Net ROI range' },
 ]
 
 const executiveHighlights = [
-  '运营效率平均提升 47%，关键决策时间减少 62%，是这类 Fortune 500 转型项目的典型结果带。',
-  '18 个月路线图分为三阶段：基础构建、规模化部署、智能创新，每一阶段都对应不同的组织与投资重心。',
-  '转型成败通常不取决于模型本身，而取决于数据治理、组织协同、技能建设和变革管理是否跟上。',
-  '最危险的做法不是慢，而是在基础能力不稳时就试图大规模上线高复杂度 AI 项目。',
+  'Average operating efficiency improves by 47%, while critical decision time drops by 62% in this class of Fortune 500 transformation program.',
+  'The 18-month roadmap runs in three phases: foundation building, scaled deployment, and intelligent innovation, each with a different organizational and investment focus.',
+  'Transformation success is rarely about the model alone. It depends on whether data governance, cross-functional alignment, skill development, and change management keep up.',
+  'The most dangerous mistake is not moving slowly. It is trying to scale high-complexity AI programs before the core operating foundation is stable.',
 ]
 
 const phaseCards = [
   {
     phase: 'Phase 1',
-    title: '基础构建',
-    duration: '1-6个月 · 投资占比 35%',
+    title: 'Foundation build',
+    duration: 'Months 1-6 | 35% of investment',
     accent: 'text-blue-600',
-    outcome: '关键成果：AI Ready Organization',
+    outcome: 'Key outcome: AI-ready organization',
     items: [
-      'AI 战略制定与组织调整',
-      '基础设施评估与升级',
-      '数据架构现代化',
-      '人才招聘与培训体系',
-      '治理框架建立',
-      'Pilot 项目启动',
+      'AI strategy definition and org redesign',
+      'Infrastructure assessment and upgrades',
+      'Data architecture modernization',
+      'Hiring and training systems',
+      'Governance framework setup',
+      'Pilot launch',
     ],
   },
   {
     phase: 'Phase 2',
-    title: '规模化部署',
-    duration: '7-12个月 · 投资占比 45%',
+    title: 'Scaled deployment',
+    duration: 'Months 7-12 | 45% of investment',
     accent: 'text-indigo-600',
-    outcome: '关键成果：AI-Powered Operations',
+    outcome: 'Key outcome: AI-powered operations',
     items: [
-      '核心业务流程 AI 化',
-      '客户体验智能化升级',
-      '供应链 AI 优化',
-      '财务 AI 分析系统',
-      '人力资源 AI 工具',
-      '风险管理 AI 系统',
+      'AI-enabled core business workflows',
+      'Intelligent customer experience upgrades',
+      'AI-optimized supply chain planning',
+      'AI-driven financial analysis systems',
+      'AI tools for HR operations',
+      'AI-assisted risk management systems',
     ],
   },
   {
     phase: 'Phase 3',
-    title: '智能创新',
-    duration: '13-18个月 · 投资占比 20%',
+    title: 'Intelligent innovation',
+    duration: 'Months 13-18 | 20% of investment',
     accent: 'text-violet-600',
-    outcome: '关键成果：AI-First Enterprise',
+    outcome: 'Key outcome: AI-first enterprise',
     items: [
-      'AI 驱动产品创新',
-      '智能商业模式探索',
-      '生态系统 AI 集成',
-      '预测性业务战略',
-      '自主决策系统',
-      'AI 中心组织进化',
+      'AI-driven product innovation',
+      'Exploration of intelligent business models',
+      'Ecosystem-wide AI integration',
+      'Predictive business strategy',
+      'Autonomous decision systems',
+      'Evolution into an AI-centered organization',
     ],
   },
 ]
 
 const phaseOneTracks = [
   {
-    title: 'Month 1-2：战略规划与评估',
+    title: 'Months 1-2: Strategy planning and assessment',
     sections: [
       {
-        heading: 'Week 1-2 · AI Vision & Strategy',
+        heading: 'Week 1-2 - AI Vision & Strategy',
         items: [
-          '成立 AI 转型委员会（CEO / CTO / CDO / CHRO）',
-          '制定 5 年 AI 愿景声明',
-          '确定 AI 投资预算分配策略',
-          '识别 12 个优先级业务用例',
-          '制定 AI 伦理与治理原则',
-          '设立 AI 卓越中心（CoE）组织架构',
+          'Establish an AI transformation committee (CEO / CTO / CDO / CHRO)',
+          'Define a five-year AI vision statement',
+          'Set the AI investment allocation strategy',
+          'Identify 12 priority business use cases',
+          'Define AI ethics and governance principles',
+          'Stand up an AI center of excellence (CoE)',
         ],
       },
       {
-        heading: 'Week 3-4 · Current State Assessment',
+        heading: 'Week 3-4 - Current State Assessment',
         items: [
-          'IT 基础设施 AI 就绪度评估',
-          '数据质量与可用性审计',
-          '员工 AI 技能差距分析',
-          '业务流程 AI 化机会识别',
-          '竞争对手 AI 采用情况调研',
-          '合规与安全要求评估',
+          'Assess AI readiness of the IT infrastructure',
+          'Audit data quality and availability',
+          'Analyze employee AI skill gaps',
+          'Identify workflow automation opportunities',
+          'Benchmark competitor AI adoption',
+          'Assess compliance and security requirements',
         ],
       },
     ],
   },
   {
-    title: 'Month 3-6：基础设施与能力建设',
+    title: 'Months 3-6: Infrastructure and capability build',
     sections: [
       {
-        heading: '技术基础设施',
+        heading: 'Technical infrastructure',
         items: [
-          '云平台 AI 服务集成',
-          '数据湖 / 仓库现代化',
-          'MLOps 平台部署',
-          'API 管理系统升级',
-          '网络安全加固',
-          '监控与日志系统',
+          'Integrate cloud AI services',
+          'Modernize the data lake and warehouse stack',
+          'Deploy an MLOps platform',
+          'Upgrade API management',
+          'Strengthen cybersecurity controls',
+          'Implement monitoring and logging systems',
         ],
       },
       {
-        heading: '组织能力建设',
+        heading: 'Organizational capability build',
         items: [
-          'AI 团队招聘计划',
-          '员工 AI 素养培训',
-          '变管理流程设计',
-          'KPI 与激励体系调整',
-          '跨部门协作机制',
-          '外部合作伙伴选择',
+          'Launch the AI hiring plan',
+          'Deliver AI literacy training',
+          'Design change management workflows',
+          'Adjust KPIs and incentives',
+          'Build cross-functional collaboration mechanisms',
+          'Select external partners',
         ],
       },
       {
-        heading: '治理与合规',
+        heading: 'Governance and compliance',
         items: [
-          'AI 治理政策制定',
-          '数据隐私合规框架',
-          'AI 模型审批流程',
-          '风险管理机制',
-          '道德委员会设立',
-          '监管报告流程',
+          'Define AI governance policies',
+          'Implement a data privacy compliance framework',
+          'Create model approval workflows',
+          'Set risk management mechanisms',
+          'Establish an ethics committee',
+          'Build regulatory reporting processes',
         ],
       },
     ],
@@ -173,102 +173,102 @@ const phaseOneTracks = [
 ]
 
 const businessPriorityRows = [
-  ['客户服务', '智能客服 + 情感分析', '425%', '中等', '高'],
-  ['销售预测', '预测分析 + 推荐引擎', '380%', '低', '高'],
-  ['供应链优化', '需求预测 + 库存优化', '315%', '高', '中'],
-  ['财务分析', '智能报告 + 异常检测', '290%', '中等', '中'],
-  ['人力资源', '招聘筛选 + 员工发展', '235%', '低', '中'],
-  ['产品研发', 'AI辅助设计 + 测试自动化', '185%', '高', '低'],
+  ['Customer service', 'Conversational AI + sentiment analysis', '425%', 'Medium', 'High'],
+  ['Sales forecasting', 'Predictive analytics + recommendation engine', '380%', 'Low', 'High'],
+  ['Supply chain optimization', 'Demand forecasting + inventory optimization', '315%', 'High', 'Medium'],
+  ['Financial analysis', 'Intelligent reporting + anomaly detection', '290%', 'Medium', 'Medium'],
+  ['Human resources', 'Recruiting triage + employee development', '235%', 'Low', 'Medium'],
+  ['Product development', 'AI-assisted design + test automation', '185%', 'High', 'Low'],
 ]
 
 const innovationTracks = [
   {
-    title: 'AI 驱动创新战略',
+    title: 'AI-driven innovation strategy',
     items: [
-      'AI-Native 产品线开发',
-      '智能服务定制化平台',
-      '预测性维护服务',
-      'AI 驱动用户体验优化',
-      'AI 即服务（AIaaS）平台',
-      '数据货币化策略',
-      '生态系统合作伙伴网络',
-      '订阅制智能服务',
+      'Develop AI-native product lines',
+      'Build customizable intelligent service platforms',
+      'Launch predictive maintenance services',
+      'Use AI to optimize customer experience',
+      'Create an AI-as-a-Service (AIaaS) platform',
+      'Define data monetization strategies',
+      'Expand the ecosystem partner network',
+      'Ship subscription-based intelligent services',
     ],
   },
   {
-    title: '成熟度评估框架',
+    title: 'Maturity assessment framework',
     items: [
-      'AI 战略成熟度：Level 5',
-      '技术实施能力：Level 4',
-      '组织变管理：Level 4',
-      '数据治理能力：Level 3',
-      '总体判断：AI-First Enterprise Ready',
+      'AI strategy maturity: Level 5',
+      'Technical implementation capability: Level 4',
+      'Change management maturity: Level 4',
+      'Data governance capability: Level 3',
+      'Overall judgment: AI-first enterprise ready',
     ],
   },
 ]
 
 const riskGroups = [
   {
-    title: '关键风险识别',
+    title: 'Critical risk identification',
     accent: 'text-rose-600',
     items: [
-      '技术风险：模型性能不达预期、数据质量问题、系统集成复杂、网络安全漏洞',
-      '组织风险：员工抵触变化、关键人才流失、部门协调困难、管理层支持不足',
-      '商业风险：投资回收期延长、竞争对手先发、客户接受度不足、合规要求变化',
+      'Technical risk: model performance misses targets, data quality problems emerge, integration gets complex, or cybersecurity gaps open.',
+      'Organizational risk: employees resist the change, key talent leaves, cross-functional coordination breaks down, or leadership support fades.',
+      'Commercial risk: payback takes longer, competitors move first, customer adoption stays weak, or compliance requirements shift.',
     ],
   },
   {
-    title: '风险缓解措施',
+    title: 'Risk mitigation measures',
     accent: 'text-indigo-600',
     items: [
-      '技术风险缓解：MVP 验证机制、数据质量标准化、分阶段集成、零信任安全架构',
-      '组织风险缓解：全员 AI 培训、人才保留机制、跨部门协调委员会、C-suite KPI 绑定',
-      '商业风险缓解：阶段性 ROI 衡量、快速原型、客户共创、持续合规监控',
+      'Technical mitigation: MVP validation, data quality standards, phased integration, and zero-trust security architecture.',
+      'Organizational mitigation: company-wide AI training, talent retention programs, a cross-functional steering group, and C-suite KPI alignment.',
+      'Commercial mitigation: phased ROI checkpoints, rapid prototyping, customer co-creation, and continuous compliance monitoring.',
     ],
   },
 ]
 
 const kpiCards = [
-  ['47%', '运营效率提升'],
-  ['62%', '决策速度加快'],
-  ['35%', '18个月成本降低'],
-  ['425%', '总体 ROI 目标'],
-  ['里程碑 1', 'AI 战略规划完成'],
-  ['里程碑 2', '基础设施就绪'],
-  ['里程碑 3', '核心业务 AI 化完成'],
-  ['里程碑 4', 'AI-First 文化确立'],
+  ['47%', 'Operating efficiency gain'],
+  ['62%', 'Faster decision velocity'],
+  ['35%', 'Cost reduction over 18 months'],
+  ['425%', 'Target total ROI'],
+  ['Milestone 1', 'AI strategy completed'],
+  ['Milestone 2', 'Infrastructure ready'],
+  ['Milestone 3', 'Core workflows AI-enabled'],
+  ['Milestone 4', 'AI-first culture established'],
 ]
 
 const relatedResources = [
   {
     href: '/ai-roi-calculator',
     title: 'AI ROI Calculator',
-    description: '先把 18 个月路线图转成财务模型，避免预算讨论失焦。',
+    description: 'Turn the 18-month roadmap into a financial model before the budget discussion drifts.',
   },
   {
     href: '/enterprise-ai-implementation-best-practices-2026',
     title: 'Enterprise AI Best Practices',
-    description: '把路线图落成可交付的实施方法，而不是停留在战略口号。',
+    description: 'Translate the roadmap into an executable delivery model instead of leaving it at strategy slogans.',
   },
   {
     href: '/ai-governance-compliance-framework-2026',
     title: 'AI Governance & Compliance',
-    description: '把治理和合规前置，避免规模化后才回头补控制。',
+    description: 'Move governance and compliance up front instead of retrofitting controls after scale.',
   },
   {
     href: '/ai-team-training-certification-2026',
     title: 'AI Team Training Program',
-    description: '解决变革中最常见的技能和采用率短板。',
+    description: 'Address the most common skill and adoption gaps in enterprise change programs.',
   },
   {
     href: '/ai-tools-budget-planning-enterprise-2026',
     title: 'AI Budget Planning',
-    description: '让转型阶段、工具成本和年度预算节奏对齐。',
+    description: 'Align transformation phases, tooling costs, and annual budget pacing.',
   },
   {
     href: '/enterprise-ai-vendor-comparison-guide-2026',
     title: 'Enterprise AI Vendor Comparison',
-    description: '在规模化部署阶段更理性地筛选平台与服务商。',
+    description: 'Make platform and service-provider selection more disciplined during the scale phase.',
   },
 ]
 
@@ -301,21 +301,21 @@ export default function AIDigitalTransformationRoadmapPage() {
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                企业 AI 数字化转型路线图，
-                <span className="brand-gradient-text block">从试点走到 AI-First 组织。</span>
+                Enterprise AI transformation roadmap,
+                <span className="brand-gradient-text block">from pilot motion to an AI-first operating model.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                这份 18 个月路线图面向 CEO、CTO、CDO 和转型办公室负责人，目标不是列出更多愿景，而是把基础构建、规模部署和智能创新拆成可执行的节奏、预算与控制动作。
+                This 18-month roadmap is built for CEOs, CTOs, CDOs, and transformation-office leaders. The goal is not more vision statements. It is to break foundation work, scaled deployment, and intelligent innovation into executable timing, budget, and control actions.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
                 <a href="#framework" className="btn-brand">
-                  查看三阶段框架
+                  View the three-phase framework
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
                 <Link href="/ai-roi-calculator" className="btn-secondary">
-                  先算 ROI
+                  Model ROI first
                 </Link>
               </div>
 
@@ -336,10 +336,10 @@ export default function AIDigitalTransformationRoadmapPage() {
                   <div className="flex items-center justify-between gap-4 mb-6">
                     <div>
                       <div className="text-sm text-slate-500 mb-1">Guide map</div>
-                      <div className="text-xl font-semibold text-slate-950">如何使用这份路线图</div>
+                      <div className="text-xl font-semibold text-slate-950">How to use this roadmap</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                      18个月视角
+                      18-month view
                     </div>
                   </div>
 
@@ -367,10 +367,10 @@ export default function AIDigitalTransformationRoadmapPage() {
         <section id="overview" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8">
             <div>
-              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">执行摘要</div>
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Executive summary</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-                真正有价值的转型路线图，
-                <span className="block brand-gradient-text">必须把组织和投资节奏写清楚。</span>
+                A roadmap only becomes useful
+                <span className="block brand-gradient-text">when the organization model and investment cadence are explicit.</span>
               </h2>
               <div className="space-y-4">
                 {executiveHighlights.map((item) => (
@@ -382,13 +382,13 @@ export default function AIDigitalTransformationRoadmapPage() {
             </div>
 
             <div className="page-card-soft p-7">
-              <h3 className="text-2xl font-semibold text-slate-950 mb-5">投资回报预览</h3>
+              <h3 className="text-2xl font-semibold text-slate-950 mb-5">ROI preview</h3>
               <div className="space-y-4">
                 {[
-                  ['18个月总投资', '$2.4M-$4.8M'],
-                  ['年化收益', '$8.2M-$15.6M'],
-                  ['净 ROI', '242%-425%'],
-                  ['投资回收期', '8-14个月'],
+                  ['18-month investment', '$2.4M-$4.8M'],
+                  ['Annualized benefit', '$8.2M-$15.6M'],
+                  ['Net ROI', '242%-425%'],
+                  ['Payback period', '8-14 months'],
                 ].map(([label, value]) => (
                   <div key={label} className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-4">
                     <span className="text-slate-600">{label}</span>
@@ -403,10 +403,10 @@ export default function AIDigitalTransformationRoadmapPage() {
         <section id="framework" className="page-card-glow p-1.5 mb-16 scroll-mt-28">
           <div className="page-card rounded-[2rem] p-8 md:p-10">
             <div className="max-w-3xl mb-8">
-              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">三阶段框架</div>
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Three-phase framework</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-                18 个月路线图，
-                <span className="block brand-gradient-text">先打基础，再放大价值，最后建立优势。</span>
+                The 18-month roadmap
+                <span className="block brand-gradient-text">builds the base, scales the value, then turns it into an advantage.</span>
               </h2>
             </div>
 
@@ -434,10 +434,10 @@ export default function AIDigitalTransformationRoadmapPage() {
 
         <section id="phase-one" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="max-w-3xl mb-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Phase 1 细化</div>
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Phase 1 detail</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-              基础构建阶段，
-              <span className="block brand-gradient-text">把组织、基础设施和治理一起推起来。</span>
+              Foundation building
+              <span className="block brand-gradient-text">means moving organization, infrastructure, and governance together.</span>
             </h2>
           </div>
 
@@ -467,22 +467,22 @@ export default function AIDigitalTransformationRoadmapPage() {
             <div className="max-w-3xl mb-8">
               <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Phase 2 & 3</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-                规模化部署与智能创新，
-                <span className="block brand-gradient-text">决定你是在追赶，还是在建立领先位置。</span>
+                Scale and intelligent innovation
+                <span className="block brand-gradient-text">decide whether you are catching up or building a lead.</span>
               </h2>
             </div>
 
             <div className="page-card-soft p-6 mb-8">
-              <h3 className="text-2xl font-semibold text-slate-950 mb-5">核心业务 AI 化优先级</h3>
+              <h3 className="text-2xl font-semibold text-slate-950 mb-5">Core workflow AI priorities</h3>
               <div className="overflow-x-auto">
                 <table className="min-w-full text-sm">
                   <thead>
                     <tr className="border-b border-slate-200 text-slate-500">
-                      <th className="px-3 py-3 text-left font-semibold">业务领域</th>
-                      <th className="px-3 py-3 text-left font-semibold">AI 应用场景</th>
-                      <th className="px-3 py-3 text-left font-semibold">预期 ROI</th>
-                      <th className="px-3 py-3 text-left font-semibold">实施复杂度</th>
-                      <th className="px-3 py-3 text-left font-semibold">优先级</th>
+                      <th className="px-3 py-3 text-left font-semibold">Business function</th>
+                      <th className="px-3 py-3 text-left font-semibold">AI use case</th>
+                      <th className="px-3 py-3 text-left font-semibold">Expected ROI</th>
+                      <th className="px-3 py-3 text-left font-semibold">Implementation complexity</th>
+                      <th className="px-3 py-3 text-left font-semibold">Priority</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -519,10 +519,10 @@ export default function AIDigitalTransformationRoadmapPage() {
 
         <section id="risk" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="max-w-3xl mb-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">风险与指标</div>
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Risk and metrics</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-              风险缓解和里程碑体系，
-              <span className="block brand-gradient-text">是路线图能否真正执行下去的护栏。</span>
+              Risk mitigation and milestone discipline
+              <span className="block brand-gradient-text">are the guardrails that keep the roadmap executable.</span>
             </h2>
           </div>
 
@@ -554,10 +554,10 @@ export default function AIDigitalTransformationRoadmapPage() {
         <section className="page-card-glow p-1.5">
           <div className="page-card rounded-[2rem] p-8 md:p-10">
             <div className="max-w-3xl mb-8">
-              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">相关资源</div>
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Related resources</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-                从路线图继续往下走，
-                <span className="block brand-gradient-text">把 ROI、治理、团队和供应商选择串起来。</span>
+                Keep moving beyond the roadmap,
+                <span className="block brand-gradient-text">and connect ROI, governance, team readiness, and vendor choices.</span>
               </h2>
             </div>
 
@@ -572,14 +572,14 @@ export default function AIDigitalTransformationRoadmapPage() {
 
             <div className="text-center">
               <p className="text-slate-600 text-lg max-w-3xl mx-auto mb-8">
-                如果你已经有初步路线图，下一步通常不是继续写文档，而是把预算、供应商、治理和团队训练拆成可推进的工作流。
+                Once the draft roadmap exists, the next step is usually not more documentation. It is turning budget, vendors, governance, and team training into executable workstreams.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Link href="/ai-roi-calculator" className="btn-brand">
-                  先做 ROI 建模
+                  Start ROI modeling
                 </Link>
                 <Link href="/ai-tools" className="btn-secondary">
-                  浏览 AI 工具与资源
+                  Browse AI tools and resources
                 </Link>
               </div>
             </div>

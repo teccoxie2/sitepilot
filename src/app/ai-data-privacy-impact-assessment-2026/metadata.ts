@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
 
-const pageTitle = 'AI数据隐私影响评估工具 2026 | SitePilot'
+const pageTitle = 'AI Data Privacy Impact Assessment Tool 2026 | SitePilot'
 const pageDescription =
-  '全面评估企业 AI 系统的数据隐私风险，输出合规缺口、整改优先级和实施路线图。'
+  'Assess enterprise AI privacy risk and produce compliance gaps, remediation priorities, and an implementation roadmap.'
 const pageUrl = 'https://sitepilot.co/ai-data-privacy-impact-assessment-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    'AI 数据隐私评估',
+    'AI data privacy assessment',
     'privacy impact assessment',
     'AI compliance assessment',
-    '企业 AI 合规',
-    '数据保护风险评估',
+    'enterprise AI compliance',
+    'data protection risk assessment',
     'GDPR AI assessment',
   ],
   alternates: {

@@ -16,10 +16,10 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  '保留 KPI、usage、alerts、cost analysis 和 related tools',
-  '保留原始的企业监控、ROI、合规和运营指标叙事',
-  '统一到当前浅色 Stripe-ish 视觉系统',
-  '保留 internal links、canonical、metadata 和 schema',
+  'Keeps KPI, usage, alerts, cost analysis, and related tools.',
+  'Keeps the original enterprise monitoring, ROI, compliance, and operations narrative.',
+  'Aligns the page with the current light Stripe-ish visual system.',
+  'Preserves internal links, canonical, metadata, and schema.',
 ]
 
 const kpiMetrics = [
@@ -40,11 +40,11 @@ const usageMetrics = [
 ]
 
 const internalLinks = [
-  { href: '/ai-automation-roi-measurement-2026', title: 'ROI Measurement', note: '把监控数据转成 ROI 结论。' },
-  { href: '/ai-governance-monitoring-dashboard-2026', title: 'Governance Monitoring', note: '追踪合规、风险和治理。' },
-  { href: '/ai-performance-monitoring-dashboard-2026', title: 'Standard Monitoring Dashboard', note: '看标准版监控页面。' },
-  { href: '/ai-tools', title: 'AI Tools Hub', note: '回到工具总目录。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+  { href: '/ai-automation-roi-measurement-2026', title: 'ROI Measurement', note: 'Turn monitoring data into an ROI conclusion.' },
+  { href: '/ai-governance-monitoring-dashboard-2026', title: 'Governance Monitoring', note: 'Track compliance, risk, and governance.' },
+  { href: '/ai-performance-monitoring-dashboard-2026', title: 'Standard Monitoring Dashboard', note: 'Open the standard monitoring page.' },
+  { href: '/ai-tools', title: 'AI Tools Hub', note: 'Return to the main tools directory.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a consultative assessment if you need one.' },
 ] as const
 
 export default function AIPerformanceMonitoringDashboardEnterprisePage() {
@@ -80,11 +80,11 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     Enterprise AI Performance Monitoring Dashboard,
-                    <span className="brand-gradient-text block">把性能、成本和治理摆在同一张桌子上。</span>
+                    <span className="brand-gradient-text block">put performance, cost, and governance on the same table.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留原始的 KPI、部门使用、告警、成本分析与相关工具导航，只把外观统一到现在这套浅色 Stripe-ish 系统。
+                    This page keeps the original KPI coverage, department usage, alerts, cost analysis, and related tool navigation, and only aligns the shell with the current light Stripe-ish system.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -123,10 +123,10 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
 
                       <div className="grid gap-3">
                         {[
-                          ['KPI metrics', '模型准确率、响应时间、API uptime、成本和 adoption。'],
-                          ['Charts', '实时性能、速率、成功率和小时成本。'],
-                          ['Alerts', '延迟、成本、模型更新与安全状态仍然可见。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['KPI metrics', 'Model accuracy, response time, API uptime, cost, and adoption.'],
+                          ['Charts', 'Real-time performance, throughput, success rate, and hourly cost.'],
+                          ['Alerts', 'Latency, cost, model updates, and security status remain visible.'],
+                          ['UI system', 'Aligned with the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -140,7 +140,7 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          这是监控页，不是仪表盘装饰画。该报警就报警，该看 ROI 就看 ROI。
+                          This is a monitoring page, not dashboard wall art. If an alert matters, show it. If ROI matters, show it.
                         </div>
                       </div>
                     </div>
@@ -153,10 +153,10 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
           <section className="space-y-8">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {[
-                { value: '$2.4M', label: 'AI-Generated ROI', note: '这个月的净回报。' },
-                { value: '1.2M', label: 'API Requests', note: '过去 24 小时请求量。' },
-                { value: '94.2%', label: 'Avg Accuracy', note: '当前平均准确率。' },
-                { value: '1.2s', label: 'Response Time', note: 'P95 响应时间。' },
+                { value: '$2.4M', label: 'AI-Generated ROI', note: 'Net return for the current month.' },
+                { value: '1.2M', label: 'API Requests', note: 'Request volume over the last 24 hours.' },
+                { value: '94.2%', label: 'Avg Accuracy', note: 'Current average model accuracy.' },
+                { value: '1.2s', label: 'Response Time', note: 'P95 response time.' },
               ].map((card) => (
                 <div key={card.label} className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                   <div className="text-3xl font-semibold tracking-tight text-slate-950">{card.value}</div>
@@ -174,10 +174,10 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
                 Monitoring dashboard
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                用一套干净的仪表盘，把企业 AI 状态讲明白。
+                Use a clean dashboard to make the enterprise AI operating picture obvious.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                你仍然能看到核心指标、部门使用、告警、安全和成本。区别只是这次不用在蓝色大盒子里翻答案了。
+                You still get the same core metrics, department usage, alerts, security view, and cost data. The difference is that you no longer have to dig through oversized blue boxes to find the answer.
               </p>
             </div>
 
@@ -317,10 +317,10 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
               </div>
               <div className="mt-4 grid gap-3">
                 {[
-                  ['Data Encryption', '✓ Active'],
-                  ['Access Logs', '✓ Monitored'],
-                  ['Compliance Check', '✓ GDPR Ready'],
-                  ['Audit Trail', '✓ Complete'],
+                  ['Data Encryption', 'Active'],
+                  ['Access Logs', 'Monitored'],
+                  ['Compliance Check', 'GDPR Ready'],
+                  ['Audit Trail', 'Complete'],
                 ].map(([label, status]) => (
                   <div key={label} className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm">
                     <span className="font-medium text-slate-700">{label}</span>
@@ -337,9 +337,9 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
               </div>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {[
-                  ['$47K', 'Monthly Spend', '↓ $3K vs budget'],
-                  ['$0.003', 'Cost Per Query', '↓ 15% optimization'],
-                  ['340%', 'ROI Current', '↑ 18% vs Q3'],
+                  ['$47K', 'Monthly Spend', 'down $3K vs budget'],
+                  ['$0.003', 'Cost Per Query', 'down 15% after optimization'],
+                  ['340%', 'ROI Current', 'up 18% vs Q3'],
                   ['18m', 'Payback Period', '3m ahead of plan'],
                 ].map(([value, label, note]) => (
                   <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 text-center">
@@ -358,9 +358,9 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
                 <TrendingUp className="h-4 w-4" />
                 Optimization recommendations
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">成本别硬扛，优化是正经活。</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">Do not absorb cost blindly. Optimization is real work.</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                Quick wins 和长期策略都保留着，只是现在的排版更像在看一个认真做事的产品，而不是一个花哨的报表。
+                The quick wins and long-term strategies are still here. The difference is that the page now reads like a serious product instead of a flashy report.
               </p>
             </div>
 
@@ -368,18 +368,18 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
               <div className="rounded-[1.5rem] border border-sky-200 bg-sky-50/70 p-6">
                 <div className="text-lg font-semibold text-slate-950">Quick Wins</div>
                 <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
-                  <li>• Implement request caching (est. 15% savings)</li>
-                  <li>• Optimize model selection per use case</li>
-                  <li>• Enable auto-scaling for peak hours</li>
+                  <li>- Implement request caching (est. 15% savings)</li>
+                  <li>- Optimize model selection per use case</li>
+                  <li>- Enable auto-scaling for peak hours</li>
                 </ul>
               </div>
 
               <div className="rounded-[1.5rem] border border-indigo-200 bg-indigo-50/70 p-6">
                 <div className="text-lg font-semibold text-slate-950">Long-term Strategies</div>
                 <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
-                  <li>• Negotiate enterprise pricing tiers</li>
-                  <li>• Consider fine-tuned models for repetitive tasks</li>
-                  <li>• Implement usage quotas by department</li>
+                  <li>- Negotiate enterprise pricing tiers</li>
+                  <li>- Consider fine-tuned models for repetitive tasks</li>
+                  <li>- Implement usage quotas by department</li>
                 </ul>
               </div>
             </div>
@@ -390,7 +390,7 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#38bdf8] p-8 text-white">
                 <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Advanced AI Analytics Platform</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  监控做得好，钱花得才不心虚。需要更深的企业 AI 监控，我们可以继续往下接。
+                  Good monitoring is what makes AI spend defensible. If you need a deeper enterprise monitoring layer, SitePilot can take it further.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/ai-automation-roi-measurement-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
@@ -404,7 +404,7 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
             </div>
 
             <div className="mt-6 text-sm text-slate-600">
-              <p>© 2026 SitePilot. Enterprise AI performance monitoring dashboard.</p>
+              <p>(c) 2026 SitePilot. Enterprise AI performance monitoring dashboard.</p>
               <p className="mt-1">Track KPIs, ROI, and operational metrics.</p>
             </div>
           </section>

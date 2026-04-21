@@ -6,21 +6,21 @@ import type { Metadata } from 'next'
 import { ArrowRight, Calendar, CheckCircle2, Compass, Shield, Sparkles, Target, TrendingUp } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = '2026年AI工具实施终极策略指南 | SitePilot'
+const pageTitle = 'Ultimate AI Tool Implementation Strategy Guide for 2026 | SitePilot'
 const pageDescription =
-  '基于$25,000真实投资和500+企业调研的AI工具成功实施策略。分阶段部署、ROI驱动选择、风险缓解的完整框架。'
+  'A proven AI tool implementation strategy built from a $25,000 real-world investment and research across 500+ companies. Covers phased rollout, ROI-led selection, and risk mitigation.'
 const pageUrl = 'https://sitepilot.co/ai-tool-implementation-strategy-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    'AI工具实施',
-    'AI实施策略',
-    '企业AI转型',
-    'AI工具部署',
+    'AI tool implementation',
+    'AI implementation strategy',
+    'enterprise AI transformation',
+    'AI tool deployment',
     '2026 AI trends',
-    '人工智能实施',
+    'artificial intelligence implementation',
   ],
   alternates: {
     canonical: pageUrl,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     type: 'article',
     url: pageUrl,
     siteName: 'SitePilot',
-    locale: 'zh_CN',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
@@ -45,25 +45,25 @@ export const metadata: Metadata = {
 }
 
 const heroSignals = [
-  '保留原始文章、章节和内部锚点',
-  '保留 ROI、风险和实施框架叙事',
-  '统一到当前浅色 Stripe-ish UI',
-  '保留 /ai-roi-calculator 等内部链接路径',
+  'Keeps the original article, section anchors, and internal links intact',
+  'Preserves the ROI, risk, and implementation narrative',
+  'Aligns the page with the current light Stripe-ish UI',
+  'Retains internal paths such as /ai-roi-calculator',
 ]
 
 const statCards = [
-  { label: 'Tools tested', value: '78', note: '原文里的测试结论保留。' },
-  { label: 'ROI uplift', value: '245%', note: '结果叙事继续可见。' },
-  { label: 'Deployment style', value: 'Phased', note: '分阶段，不一口吞。' },
-  { label: 'Decision layer', value: 'Executive', note: '给负责人看的。' },
+  { label: 'Tools tested', value: '78', note: 'The original testing conclusions remain visible.' },
+  { label: 'ROI uplift', value: '245%', note: 'The outcome narrative stays intact.' },
+  { label: 'Deployment style', value: 'Phased', note: 'Roll out in stages instead of forcing a big-bang launch.' },
+  { label: 'Decision layer', value: 'Executive', note: 'Built for the leaders making the call.' },
 ]
 
 const internalLinks = [
-  { href: '/ai-roi-calculator', title: 'AI ROI Calculator', note: '把策略直接接到 ROI 计算。' },
-  { href: '/ai-tools', title: 'AI Tools Hub', note: '回到工具总目录。' },
-  { href: '/ai-tool-implementation-strategy-2026', title: 'Implementation Strategy', note: '当前页面正文保持完整。' },
-  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Enterprise Best Practices', note: '看企业级执行方法。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '要顾问式评估就直接约。' },
+  { href: '/ai-roi-calculator', title: 'AI ROI Calculator', note: 'Connect the strategy directly to ROI modeling.' },
+  { href: '/ai-tools', title: 'AI Tools Hub', note: 'Jump back to the full tools directory.' },
+  { href: '/ai-tool-implementation-strategy-2026', title: 'Implementation Strategy', note: 'The full article remains on this page.' },
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Enterprise Best Practices', note: 'See how enterprise teams execute the rollout.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book an advisory review if you want a guided assessment.' },
 ] as const
 
 export default function AIToolImplementationStrategyPage() {
@@ -101,12 +101,12 @@ export default function AIToolImplementationStrategyPage() {
                   </div>
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                    2026年AI工具实施终极策略指南,
-                    <span className="brand-gradient-text block">把“买工具”变成“真的落地”。</span>
+                    The Ultimate AI Tool Implementation Strategy Guide for 2026
+                    <span className="brand-gradient-text block">Turn tool buying into real adoption.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留原始文章内容、章节锚点和内链，只把界面收进当前统一的浅色 Stripe-ish 系统。
+                    This page keeps the original article, section anchors, and internal links intact while moving the presentation into the current light Stripe-ish system.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -145,10 +145,10 @@ export default function AIToolImplementationStrategyPage() {
 
                       <div className="grid gap-3">
                         {[
-                          ['Sections', '核心洞察、原则、矩阵、规模实施、风险、KPI 和行动计划。'],
-                          ['CTA', '继续导向 ROI 计算和工具总目录。'],
-                          ['Content', 'Markdown 正文原样渲染。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['Sections', 'Core insights, principles, selection matrix, scale guidance, risk, KPI, and action plan.'],
+                          ['CTA', 'Still routes readers to ROI modeling and the tools hub.'],
+                          ['Content', 'The markdown article renders without rewriting the source narrative.'],
+                          ['UI system', 'Unified with the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -162,7 +162,7 @@ export default function AIToolImplementationStrategyPage() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          策略不是“多买几个工具”——是把部署、采用和回报串成一条线。
+                          Strategy is not about buying more tools. It is about connecting deployment, adoption, and returns.
                         </div>
                       </div>
                     </div>
@@ -191,10 +191,10 @@ export default function AIToolImplementationStrategyPage() {
                 Core strategy guide
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                原文正文保留，页面只是换了更像产品的壳。
+                The original article stays intact. The page just gets a cleaner product shell.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                你依旧能通过锚点导航浏览内容，也能继续把读者带到 ROI 计算和工具目录。
+                Readers can still use anchor navigation to move through the content and continue into ROI modeling or the tools hub.
               </p>
             </div>
 
@@ -203,15 +203,15 @@ export default function AIToolImplementationStrategyPage() {
                 <h3 className="text-lg font-semibold text-slate-950">Navigation</h3>
                 <nav className="mt-4 space-y-2 text-sm">
                   {[
-                    ['#core-insights', '核心洞察'],
-                    ['#implementation-principles', '实施策略原则'],
-                    ['#tool-selection-matrix', '工具选择矩阵'],
-                    ['#enterprise-scale', '按规模实施'],
-                    ['#risk-assessment', '风险评估缓解'],
-                    ['#success-metrics', '成功指标KPI'],
-                    ['#2026-trends', '2026趋势预测'],
-                    ['#best-practices', '最佳实践'],
-                    ['#action-plan', '行动计划模板'],
+                    ['#core-insights', 'Core insights'],
+                    ['#implementation-principles', 'Implementation principles'],
+                    ['#tool-selection-matrix', 'Tool selection matrix'],
+                    ['#enterprise-scale', 'Enterprise scale rollout'],
+                    ['#risk-assessment', 'Risk assessment and mitigation'],
+                    ['#success-metrics', 'Success metrics and KPIs'],
+                    ['#2026-trends', '2026 trend outlook'],
+                    ['#best-practices', 'Best practices'],
+                    ['#action-plan', 'Action plan template'],
                   ].map(([href, label]) => (
                     <a key={href} href={href} className="block text-sky-700 transition hover:text-sky-900">
                       {label}
@@ -220,10 +220,10 @@ export default function AIToolImplementationStrategyPage() {
                 </nav>
 
                 <div className="mt-8 rounded-[1.25rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#7c3aed] p-5 text-white">
-                  <h4 className="text-lg font-semibold">获取个性化建议</h4>
-                  <p className="mt-2 text-sm text-white/80">使用 AI ROI 计算器获取定制实施策略。</p>
+                  <h4 className="text-lg font-semibold">Get tailored guidance</h4>
+                  <p className="mt-2 text-sm text-white/80">Use the AI ROI calculator to shape a rollout plan for your own team.</p>
                   <Link href="/ai-roi-calculator" className="mt-4 inline-flex items-center justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-slate-950">
-                    计算 ROI
+                    Calculate ROI
                   </Link>
                 </div>
               </aside>
@@ -261,10 +261,10 @@ export default function AIToolImplementationStrategyPage() {
               </div>
               <div className="mt-5 grid gap-3">
                 {[
-                  ['Implementation principles', '先定边界，再定工具。'],
-                  ['Risk assessment', '不只看功能，也看采用风险。'],
-                  ['Success metrics', 'KPI 先行，不要只看上线。'],
-                  ['Action plan', '每一步都要能执行。'],
+                  ['Implementation principles', 'Set the boundaries first, then choose the tools.'],
+                  ['Risk assessment', 'Evaluate adoption risk, not just feature depth.'],
+                  ['Success metrics', 'Define KPIs before you celebrate launch.'],
+                  ['Action plan', 'Every step should be executable by an operating team.'],
                 ].map(([title, note]) => (
                   <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3">
                     <div className="font-semibold text-slate-950">{title}</div>
@@ -278,16 +278,16 @@ export default function AIToolImplementationStrategyPage() {
           <section className="mt-16 text-center">
             <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#7c3aed] p-8 text-white">
-                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">准备开始 AI 工具实施？</h3>
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Ready to roll out AI tools with a plan?</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  先把策略看完，再去算 ROI；别倒过来。
+                  Read the strategy first, then model the ROI. Not the other way around.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/ai-roi-calculator" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
-                    计算 ROI 预期
+                    Estimate ROI
                   </Link>
                   <Link href="/ai-tools" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15">
-                    浏览工具推荐
+                    Browse tool recommendations
                   </Link>
                 </div>
               </div>

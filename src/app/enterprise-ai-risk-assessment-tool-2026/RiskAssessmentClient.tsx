@@ -214,11 +214,11 @@ export default function EnterpriseAIRiskAssessmentToolClient() {
                   Enterprise AI risk assessment tool 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI investment risk calculator，
-                  <span className="brand-gradient-text block">先把坑算清楚，再谈上线。</span>
+                  AI investment risk calculator,
+                  <span className="brand-gradient-text block">Quantify the downside before you talk about launch.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Evaluate financial risks, hidden costs, and success probability for your enterprise AI investment. 这页保留交互计算逻辑，只把外壳换成统一浅色 Stripe-ish UI。
+                  Evaluate financial risks, hidden costs, and success probability for your enterprise AI investment. This page keeps the interactive calculation logic and simply moves the shell into the shared light Stripe-ish UI.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#assessment" className="btn-brand inline-flex items-center gap-2">
@@ -428,9 +428,9 @@ export default function EnterpriseAIRiskAssessmentToolClient() {
 
           <div className="grid gap-5 md:grid-cols-3">
             {[
-              ['/enterprise-ai-implementation-best-practices-2026', 'Implementation guide', '和实施框架搭配看。'],
-              ['/manufacturing-ai-roi-calculator-2026', 'ROI calculator', '看更具体的 ROI 入口。'],
-              ['/enterprise-ai-success-patterns-analysis-2026', 'Success patterns', '看成功路径怎么长出来。'],
+              ['/enterprise-ai-implementation-best-practices-2026', 'Implementation guide', 'Pair it with the implementation framework.'],
+              ['/manufacturing-ai-roi-calculator-2026', 'ROI calculator', 'See a more specific ROI workflow.' ],
+              ['/enterprise-ai-success-patterns-analysis-2026', 'Success patterns', 'Study how successful delivery paths actually form.' ],
             ].map(([href, title, note]) => (
               <Link key={href} href={href} className="page-card group p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
                 <div className="mb-3 text-lg font-semibold text-slate-950 group-hover:text-[#635bff]">{title}</div>

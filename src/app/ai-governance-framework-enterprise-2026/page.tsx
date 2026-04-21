@@ -16,22 +16,22 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = '企业AI治理框架2026 | 完整实施指南 | SitePilot'
+const pageTitle = 'Enterprise AI Governance Framework 2026 | Complete Implementation Guide | SitePilot'
 const pageDescription =
-  '基于 Fortune 500 公司实践的企业 AI 治理框架，涵盖政策模板、合规清单、风险控制和 12 个月实施路线图，帮助团队负责任地部署 AI 系统。'
+  'An enterprise AI governance framework based on Fortune 500 practices, covering policy templates, compliance checklists, risk controls, and a 12-month rollout plan for responsible AI deployment.'
 const pageUrl = 'https://sitepilot.co/ai-governance-framework-enterprise-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    'AI治理框架',
-    '企业AI政策',
-    'AI合规',
-    'AI伦理',
-    'AI风险管理',
-    '企业AI治理',
-    'AI监管框架',
+    'AI governance framework',
+    'enterprise AI policy',
+    'AI compliance',
+    'AI ethics',
+    'AI risk management',
+    'enterprise AI governance',
+    'AI regulatory framework',
   ],
   authors: [{ name: 'SitePilot Team' }],
   alternates: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     type: 'article',
     siteName: 'SitePilot',
-    locale: 'zh_CN',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
@@ -57,42 +57,42 @@ export const metadata: Metadata = {
 }
 
 const quickNav = [
-  { href: '#overview', title: '治理定义', note: '为什么企业现在就要建立 AI 治理' },
-  { href: '#framework', title: '框架模块', note: '政策、风险、合规与组织架构' },
-  { href: '#roadmap', title: '12个月路线图', note: '从盘点到规模化治理' },
-  { href: '#practices', title: '最佳实践', note: '组织、技术与文化建设' },
-  { href: '#faq', title: '常见问题', note: '委员会、成本、周期与 KPI' },
+  { href: '#overview', title: 'Overview', note: 'Why enterprises need AI governance now' },
+  { href: '#framework', title: 'Framework modules', note: 'Policy, risk, compliance, and operating model' },
+  { href: '#roadmap', title: '12-month roadmap', note: 'From discovery to scaled governance' },
+  { href: '#practices', title: 'Best practices', note: 'Organization, technology, and culture' },
+  { href: '#faq', title: 'FAQ', note: 'Committees, cost, timelines, and KPIs' },
 ] as const
 
 const summaryCards = [
-  { value: '15+', label: '可直接落地的政策模板' },
-  { value: '12', label: '个月实施路线图' },
-  { value: '95%', label: '目标合规成功率' },
-  { value: '$2.5M', label: '平均年度风险缓释价值' },
+  { value: '15+', label: 'Deployable policy templates' },
+  { value: '12', label: 'Month rollout plan' },
+  { value: '95%', label: 'Target compliance success rate' },
+  { value: '$2.5M', label: 'Average annual risk mitigation value' },
 ] as const
 
 const coreGoals = [
   {
-    title: '公平与无偏见',
-    description: '用测试、审查和升级路径减少模型偏见与不一致决策。',
+    title: 'Fairness & bias reduction',
+    description: 'Use testing, reviews, and escalation paths to reduce bias and inconsistent decisions.',
     icon: Target,
     accent: 'text-indigo-600',
   },
   {
-    title: '隐私与数据保护',
-    description: '把数据最小化、使用边界、保留策略和访问控制纳入日常流程。',
+    title: 'Privacy & data protection',
+    description: 'Bring data minimization, usage boundaries, retention rules, and access controls into everyday operations.',
     icon: Shield,
     accent: 'text-sky-600',
   },
   {
-    title: '透明与可解释',
-    description: '为内部运营、法务审计和终端用户提供足够的解释能力。',
+    title: 'Transparency & explainability',
+    description: 'Give operations, legal, auditors, and end users enough context to understand AI decisions.',
     icon: FileText,
     accent: 'text-indigo-600',
   },
   {
-    title: '风险与声誉控制',
-    description: '避免监管处罚、舆论事件和高价值 AI 项目的失控扩散。',
+    title: 'Risk & reputation control',
+    description: 'Avoid regulatory penalties, trust failures, and runaway exposure in high-value AI programs.',
     icon: AlertTriangle,
     accent: 'text-amber-600',
   },
@@ -100,99 +100,99 @@ const coreGoals = [
 
 const riskDrivers = [
   {
-    title: '法律风险',
+    title: 'Legal risk',
     tone: 'border-rose-200 bg-rose-50 text-rose-900',
-    note: '欧盟 AI 法案、美国州级监管和行业规则都在抬高企业 AI 失误成本。',
+    note: 'The EU AI Act, U.S. state-level regulation, and sector rules are all raising the cost of enterprise AI mistakes.',
   },
   {
-    title: '声誉风险',
+    title: 'Reputational risk',
     tone: 'border-amber-200 bg-amber-50 text-amber-900',
-    note: '算法偏见、错误自动化和不透明决策会直接侵蚀客户信任与品牌估值。',
+    note: 'Bias, bad automation, and opaque decisions directly erode customer trust and brand value.',
   },
   {
-    title: '运营风险',
+    title: 'Operational risk',
     tone: 'border-sky-200 bg-sky-50 text-sky-900',
-    note: '没有治理的 AI 项目更容易出现故障、漂移、返工和维护成本失控。',
+    note: 'Ungoverned AI projects fail faster, drift harder, and create more rework and maintenance cost.',
   },
   {
-    title: '商业机会',
+    title: 'Business upside',
     tone: 'border-indigo-200 bg-indigo-50 text-indigo-900',
-    note: '治理成熟的团队通常能更快通过审批、更稳交付，并把 ROI 讲清楚。',
+    note: 'Teams with mature governance usually clear approvals faster, deliver more reliably, and explain ROI more clearly.',
   },
 ] as const
 
 const frameworkComponents = [
   {
-    title: 'AI 伦理与原则',
-    description: '把企业价值观翻译成 AI 使用原则、升级规则和审查标准。',
+    title: 'AI ethics & principles',
+    description: 'Translate company values into AI usage principles, escalation rules, and review standards.',
     icon: Shield,
     columns: [
       {
-        heading: '伦理指南',
+        heading: 'Ethics guide',
         items: [
-          '公平性与偏见预防协议',
-          '透明度与可解释性要求',
-          '隐私保护与数据最小化',
-          '人工监督与决策干预机制',
+          'Fairness and bias prevention protocol',
+          'Transparency and explainability requirements',
+          'Privacy safeguards and data minimization',
+          'Human oversight and intervention rules',
         ],
       },
       {
-        heading: '政策模板',
+        heading: 'Policy templates',
         items: [
-          'AI 伦理宪章模板',
-          '算法问责政策',
-          'AI 决策准则',
-          '偏见检测与缓释流程',
+          'AI ethics charter template',
+          'Algorithm accountability policy',
+          'AI decision-making guidelines',
+          'Bias detection and mitigation workflow',
         ],
       },
     ],
   },
   {
-    title: '风险管理框架',
-    description: '把高风险场景识别、监控、应对和回滚机制嵌入 AI 生命周期。',
+    title: 'Risk management framework',
+    description: 'Embed identification, monitoring, response, and rollback into the AI lifecycle for high-risk use cases.',
     icon: AlertTriangle,
     columns: [
       {
-        heading: '风险评估',
+        heading: 'Risk assessment',
         items: [
-          '高/中/低风险分级方法',
-          '影响评估与业务容忍度',
-          '持续监控与异常告警',
-          'AI 事件响应预案',
+          'High / medium / low risk scoring method',
+          'Impact assessment and business tolerance',
+          'Continuous monitoring and anomaly alerts',
+          'AI incident response plan',
         ],
       },
       {
-        heading: '缓释策略',
+        heading: 'Mitigation strategy',
         items: [
-          '技术防护与验证措施',
-          '人工复核与审批门槛',
-          '测试、上线和回滚机制',
-          '供应商与第三方责任控制',
+          'Technical safeguards and validation controls',
+          'Human review and approval thresholds',
+          'Testing, release, and rollback gates',
+          'Vendor and third-party accountability controls',
         ],
       },
     ],
   },
   {
-    title: '合规与法律控制',
-    description: '面向多司法辖区构建证据链、文档标准和审计准备度。',
+    title: 'Compliance & legal controls',
+    description: 'Build evidence trails, documentation standards, and audit readiness across jurisdictions.',
     icon: FileText,
     columns: [
       {
-        heading: '监管对齐',
+        heading: 'Regulatory alignment',
         items: [
-          'EU AI Act 合规清单',
-          'GDPR 的 AI 专项要求',
-          '美国 AI 政策与行政命令对齐',
-          '金融、医疗等行业监管映射',
+          'EU AI Act compliance checklist',
+          'AI-specific GDPR requirements',
+          'Alignment to U.S. AI policy and executive orders',
+          'Industry mapping for finance, healthcare, and other regulated sectors',
         ],
       },
       {
-        heading: '文档要求',
+        heading: 'Documentation requirements',
         items: [
-          'AI 系统说明文档模板',
-          '数据血缘与来源追踪',
-          '审计轨迹保留流程',
-          '合规报告与例外说明模板',
+          'AI system description template',
+          'Data lineage and source traceability',
+          'Audit trail retention workflow',
+          'Compliance reporting and exception templates',
         ],
       },
     ],
@@ -202,71 +202,71 @@ const frameworkComponents = [
 const operatingModel = [
   {
     title: 'Policy foundation',
-    detail: '以伦理、数据使用、问责和风险容忍度为核心的政策底座。',
+    detail: 'A policy base centered on ethics, data use, accountability, and risk tolerance.',
     icon: FileText,
   },
   {
     title: 'Compliance tools',
-    detail: '清单、审计模版、监控规则和跨法域控制映射。',
+    detail: 'Checklists, audit templates, monitoring rules, and cross-jurisdiction control mapping.',
     icon: Shield,
   },
   {
     title: 'Implementation guide',
-    detail: '明确季度里程碑、责任人、培训动作和 KPI。',
+    detail: 'Quarterly milestones, accountable owners, training actions, and KPIs.',
     icon: Clock,
   },
 ] as const
 
 const governancePractices = [
   {
-    title: '组织架构最佳实践',
+    title: 'Organizational best practices',
     items: [
-      '设立 AI 伦理官或同等责任角色',
-      '建立跨部门 AI 治理委员会并形成固定会议节奏',
-      '在业务单元设 AI 治理联络人',
-      '定义清晰的权限矩阵与升级流程',
-      '建立技术、业务、伦理三级审查机制',
+      'Appoint an AI ethics officer or equivalent accountable lead',
+      'Stand up a cross-functional AI governance committee with a fixed meeting cadence',
+      'Assign AI governance liaisons in major business units',
+      'Define a clear authority matrix and escalation workflow',
+      'Create three-layer review across technical, business, and ethics stakeholders',
     ],
   },
   {
-    title: '技术实施最佳实践',
+    title: 'Technical implementation best practices',
     items: [
-      '部署自动化偏见检测与公平性监控',
-      '建立模型性能与伦理指标仪表板',
-      '落地可解释 AI 技术和记录机制',
-      '把版本控制、变更审批与回滚流程制度化',
-      '配置实时告警与异常处理流程',
+      'Deploy automated bias detection and fairness monitoring',
+      'Build dashboards for model performance and ethical indicators',
+      'Operationalize explainable AI techniques and recordkeeping',
+      'Standardize version control, change approvals, and rollback procedures',
+      'Set up real-time alerts and exception handling',
     ],
   },
   {
-    title: '文化建设最佳实践',
+    title: 'Culture-building best practices',
     items: [
-      '为所有员工提供 AI 伦理和使用培训',
-      '建立治理举报与反馈机制',
-      '把 AI 治理指标纳入绩效考核',
-      '定期复盘案例并沉淀经验',
-      '持续分享治理成功故事与失败教训',
+      'Train all employees on AI ethics and acceptable use',
+      'Create reporting and feedback channels for governance concerns',
+      'Include AI governance metrics in performance reviews',
+      'Review incidents regularly and document lessons learned',
+      'Keep sharing both governance wins and governance failures',
     ],
   },
 ] as const
 
 const trendGroups = [
   {
-    title: '监管加强',
+    title: 'Regulation intensifies',
     items: [
-      '欧盟 AI 法案进入更强执行阶段，高风险系统要求更明确',
-      '美国联邦与州级 AI 规则逐步细化',
-      '中国 AI 算法备案与内容治理要求持续演进',
-      '金融、医疗、教育等行业专项标准继续增加',
+      'The EU AI Act is moving into stronger enforcement, with clearer requirements for high-risk systems',
+      'U.S. federal and state AI rules continue to get more specific',
+      'China’s AI algorithm filing and content-governance requirements keep evolving',
+      'Sector-specific standards in finance, healthcare, education, and other fields continue to expand',
     ],
   },
   {
-    title: '技术发展',
+    title: 'Technology shifts',
     items: [
-      '可解释 AI 逐渐从加分项变成基础配置',
-      '联邦学习和隐私增强技术加速普及',
-      '自动化合规监控工具更容易进入日常运营',
-      '一体化 AI 治理平台开始替代分散式脚本与手工检查',
+      'Explainable AI is moving from a nice-to-have into baseline infrastructure',
+      'Federated learning and privacy-enhancing technologies are spreading faster',
+      'Automated compliance monitoring is becoming easier to operationalize',
+      'Integrated AI governance platforms are starting to replace scattered scripts and manual checks',
     ],
   },
 ] as const
@@ -274,137 +274,137 @@ const trendGroups = [
 const roadmapPhases = [
   {
     phase: 'Q1',
-    timing: '1-3个月',
-    title: '基础搭建与盘点',
+    timing: 'Months 1-3',
+    title: 'Foundation and discovery',
     items: [
-      '组建 AI 治理委员会',
-      '梳理现有 AI 资产与风险画像',
-      '完成关键利益相关方访谈与培训',
-      '把通用框架定制成企业内部政策底稿',
+      'Stand up the AI governance committee',
+      'Map current AI assets and risk exposure',
+      'Complete key stakeholder interviews and training',
+      'Adapt the base framework into company-specific draft policies',
     ],
   },
   {
     phase: 'Q2',
-    timing: '4-6个月',
-    title: '政策落地与监控启动',
+    timing: 'Months 4-6',
+    title: 'Policy launch and monitoring kickoff',
     items: [
-      '发布伦理宪章与问责政策',
-      '上线风险管理和审批流程',
-      '部署基础监控与合规检查机制',
-      '启动员工培训与认证计划',
+      'Publish the ethics charter and accountability policy',
+      'Launch risk-management and approval workflows',
+      'Deploy foundational monitoring and compliance checks',
+      'Start the employee training and certification program',
     ],
   },
   {
     phase: 'Q3',
-    timing: '7-9个月',
-    title: '系统集成与流程固化',
+    timing: 'Months 7-9',
+    title: 'System integration and process hardening',
     items: [
-      '把治理要求嵌入开发与采购流程',
-      '上线自动化监控和异常预警',
-      '更新供应商管理与第三方控制条款',
-      '建立 KPI 与经营层汇报机制',
+      'Embed governance requirements into development and procurement workflows',
+      'Launch automated monitoring and exception alerts',
+      'Refresh vendor management and third-party control clauses',
+      'Establish KPI reporting for operating leadership',
     ],
   },
   {
     phase: 'Q4',
-    timing: '10-12个月',
-    title: '优化评估与规模化',
+    timing: 'Months 10-12',
+    title: 'Optimization, review, and scale',
     items: [
-      '完成治理成熟度审计与差距分析',
-      '优化流程并压缩审查周期',
-      '形成年度成效报告',
-      '建立持续改进和复盘机制',
+      'Complete the governance maturity audit and gap analysis',
+      'Optimize workflows and shorten review cycles',
+      'Publish the annual outcomes report',
+      'Establish continuous-improvement and review loops',
     ],
   },
 ] as const
 
 const impactGroups = [
   {
-    title: '风险缓释价值',
+    title: 'Risk mitigation value',
     icon: Shield,
     accent: 'text-indigo-600',
     rows: [
-      ['监管合规成本', '-60%'],
-      ['AI 相关事故', '-85%'],
-      ['审计准备时间', '-70%'],
-      ['法律暴露风险', '-90%'],
+      ['Regulatory compliance cost', '-60%'],
+      ['AI-related incidents', '-85%'],
+      ['Audit preparation time', '-70%'],
+      ['Legal exposure', '-90%'],
     ],
   },
   {
-    title: '运营效率提升',
+    title: 'Operational efficiency gains',
     icon: BarChart3,
     accent: 'text-indigo-600',
     rows: [
-      ['AI 项目审批速度', '+40%'],
-      ['利益相关方信心', '+65%'],
-      ['部署成功率', '+50%'],
-      ['AI 投资 ROI', '+35%'],
+      ['AI project approval speed', '+40%'],
+      ['Stakeholder confidence', '+65%'],
+      ['Deployment success rate', '+50%'],
+      ['AI investment ROI', '+35%'],
     ],
   },
 ] as const
 
 const economicImpact = [
-  { value: '$2.5M', label: '平均风险缓释价值' },
-  { value: '$1.8M', label: '年度效率收益' },
-  { value: '320%', label: '三年平均 ROI' },
+  { value: '$2.5M', label: 'Average risk mitigation value' },
+  { value: '$1.8M', label: 'Annual efficiency gains' },
+  { value: '320%', label: 'Average 3-year ROI' },
 ] as const
 
 const faqs = [
   {
-    question: '企业 AI 治理框架应该包含哪些核心要素？',
+    question: 'What core elements should an enterprise AI governance framework include?',
     answer:
-      '完整框架通常包括治理组织架构、伦理原则、风险管理流程、技术标准、数据治理政策、合规监督机制和持续改进闭环。关键不是写出大而全文件，而是让每个要素都能落到责任人、证据和决策流程上。',
+      'A complete framework usually includes the governance operating model, ethics principles, risk-management workflows, technical standards, data governance policy, compliance oversight, and a continuous-improvement loop. The point is not to produce a giant document; it is to tie every element to accountable owners, evidence, and decision paths.',
   },
   {
-    question: 'AI 治理委员会应该由哪些人组成？',
+    question: 'Who should sit on an AI governance committee?',
     answer:
-      '典型成员包括高管代表、业务负责人、AI 工程与数据科学负责人、法务合规、风险管理、人力资源，以及必要时的外部顾问。规模通常控制在 7 到 9 人，既要覆盖关键职能，也要保证决策效率。',
+      'Typical members include executive sponsors, business leaders, heads of AI engineering and data science, legal and compliance, risk management, human resources, and external advisers when needed. Most teams keep it to roughly seven to nine people so the committee covers key functions without killing decision speed.',
   },
   {
-    question: '如何评估 AI 系统的伦理风险？',
+    question: 'How should teams evaluate ethical risk in AI systems?',
     answer:
-      '建议从公平性、透明度、隐私、人类监督和社会影响五个维度打分，再结合业务影响和触达人群确定是否需要更高等级审查。低分项必须对应整改动作，而不是只做一次性评估。',
+      'A practical method is to score fairness, transparency, privacy, human oversight, and social impact, then combine that with business impact and affected populations to decide whether the system needs a higher level of review. Low-scoring areas should always map to corrective actions instead of a one-time assessment.',
   },
   {
-    question: 'AI 治理框架通常需要多长时间落地？',
+    question: 'How long does an AI governance framework usually take to implement?',
     answer:
-      '企业通常需要 3 到 6 个月完成基础搭建，6 到 12 个月把流程嵌入主要项目，12 到 24 个月进入成熟运营状态。大型企业往往更慢，因为跨部门协同和供应商治理会成为主要瓶颈。',
+      'Most enterprises need three to six months for the foundation, six to twelve months to embed governance into major programs, and twelve to twenty-four months to reach a mature operating state. Large organizations usually move slower because cross-functional coordination and vendor governance become the main bottlenecks.',
   },
   {
-    question: 'AI 治理需要投入多少预算？',
+    question: 'How much budget does AI governance usually require?',
     answer:
-      '成本通常由人员、监控工具、咨询审计和日常运营构成。中型企业常见年度投入在 50 万到 150 万美元之间，大型企业可能达到 200 万到 500 万美元，但避免的损失和提高的交付成功率通常远高于投入本身。',
+      'Costs usually come from staffing, monitoring tools, consulting and audit support, and day-to-day operations. Mid-market enterprises often spend about $500,000 to $1.5 million per year, while large enterprises may reach $2 million to $5 million. In practice, the losses avoided and the gains in delivery success often outweigh the spend.',
   },
   {
-    question: '如何衡量 AI 治理是否有效？',
+    question: 'How do you measure whether AI governance is working?',
     answer:
-      '可以跟踪 AI 事故数量、合规违规次数、项目审批周期、部署成功率、培训覆盖率、客户信任度和治理相关 ROI。最重要的一条是：关键控制项在审计时能否快速出示证据。',
+      'Track AI incident volume, compliance breaches, approval cycle time, deployment success rate, training coverage, customer trust, and governance-related ROI. The most important test is whether the team can quickly produce evidence for critical controls during an audit.',
   },
 ] as const
 
 const relatedResources = [
   {
     href: '/ai-ethics-compliance-checklist-enterprise-2026',
-    title: 'AI 伦理与合规清单',
-    description: '把治理原则翻译成逐项检查动作与优先级。',
+    title: 'AI Ethics & Compliance Checklist',
+    description: 'Turn governance principles into step-by-step checks and priorities.',
     icon: CheckCircle2,
   },
   {
     href: '/ai-governance-compliance-framework-2026',
     title: 'AI Governance & Compliance Framework',
-    description: '查看英文版治理与监管框架，适合跨区域团队对齐。',
+    description: 'Review the English-language governance and regulatory framework for cross-regional alignment.',
     icon: Shield,
   },
   {
     href: '/ai-security-framework-enterprise-2026',
-    title: '企业 AI 安全框架',
-    description: '把治理要求继续下沉到安全控制、检测与响应。',
+    title: 'Enterprise AI Security Framework',
+    description: 'Extend governance requirements into security controls, detection, and response.',
     icon: AlertTriangle,
   },
   {
     href: '/ai-data-privacy-impact-assessment-2026',
-    title: 'AI 隐私影响评估',
-    description: '在数据敏感、跨境或高风险用例上线前完成隐私评估。',
+    title: 'AI Data Privacy Impact Assessment',
+    description: 'Run a privacy assessment before sensitive, cross-border, or high-risk use cases go live.',
     icon: FileText,
   },
 ] as const
@@ -434,26 +434,26 @@ export default function AIGovernanceFrameworkPage() {
             <div className="max-w-3xl">
               <div className="page-pill mb-6">
                 <Sparkles className="h-4 w-4 text-[#635bff]" />
-                企业 AI 治理框架 2026
+                Enterprise AI governance framework 2026
               </div>
 
               <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                企业 AI 治理不是写政策，
-                <span className="brand-gradient-text block">而是把责任、证据和升级路径真正跑起来。</span>
+                Enterprise AI governance is not about writing policy,
+                <span className="brand-gradient-text block">it is about making accountability, evidence, and escalation actually work.</span>
               </h1>
 
               <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                这套框架基于 Fortune 500 企业实践，覆盖伦理原则、风险管理、合规控制和 12 个月实施路线图，
-                目标是让 AI 系统在扩大部署前就具备清晰的规则、审查机制和问责结构。
+                This framework is based on Fortune 500 operating practice and covers ethics principles, risk management, compliance controls, and a 12-month rollout
+                roadmap. The goal is to make sure AI systems have clear rules, review mechanisms, and accountability before deployment expands.
               </p>
 
               <div className="mb-10 flex flex-wrap gap-3">
                 <a href="#framework" className="btn-brand">
-                  查看框架模块
+                  View framework modules
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
                 <Link href="/ai-ethics-compliance-checklist-enterprise-2026" className="btn-secondary">
-                  配套合规清单
+                  Supporting compliance checklist
                 </Link>
               </div>
 
@@ -473,8 +473,8 @@ export default function AIGovernanceFrameworkPage() {
                 <div className="page-card space-y-6 bg-white/95 p-6">
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <div className="mb-1 text-sm text-slate-500">治理导航</div>
-                      <div className="text-xl font-semibold text-slate-950">先看哪些模块</div>
+                      <div className="mb-1 text-sm text-slate-500">Governance navigation</div>
+                      <div className="text-xl font-semibold text-slate-950">Which modules to review first</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                       Framework map
@@ -500,28 +500,28 @@ export default function AIGovernanceFrameworkPage() {
                   <div className="rounded-[1.5rem] border border-indigo-200 bg-indigo-50/80 p-5">
                     <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700">
                       <CheckCircle2 className="h-4 w-4" />
-                      框架交付物
+                      Framework deliverables
                     </div>
                     <div className="grid gap-3 sm:grid-cols-2">
                       <div className="rounded-2xl border border-white/70 bg-white/90 px-4 py-3 text-sm text-slate-700">
-                        15+ 政策模板
+                        15+ policy templates
                       </div>
                       <div className="rounded-2xl border border-white/70 bg-white/90 px-4 py-3 text-sm text-slate-700">
-                        合规检查清单
+                        Compliance checklist
                       </div>
                       <div className="rounded-2xl border border-white/70 bg-white/90 px-4 py-3 text-sm text-slate-700">
-                        风险评估方法
+                        Risk assessment methodology
                       </div>
                       <div className="rounded-2xl border border-white/70 bg-white/90 px-4 py-3 text-sm text-slate-700">
-                        12 个月实施路线图
+                        12-month rollout plan
                       </div>
                     </div>
                   </div>
 
                   <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
-                    <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">执行原则</div>
+                    <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Execution principle</div>
                     <p className="text-sm leading-6 text-slate-700">
-                      治理文件只有在能被审批、审计、培训和事故响应团队真正调用时才算生效。
+                      Governance documents only count when approval, audit, training, and incident-response teams can actually use them.
                     </p>
                   </div>
                 </div>
@@ -537,14 +537,14 @@ export default function AIGovernanceFrameworkPage() {
             <div className="page-card-soft p-8">
               <div className="page-pill mb-4">
                 <Shield className="h-4 w-4 text-[#635bff]" />
-                什么是企业 AI 治理
+                What enterprise AI governance means
               </div>
               <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
-                AI 治理是一套管理 AI 开发、部署和运营的政策、流程与控制系统。
+                AI governance is a system of policies, workflows, and controls for managing AI development, deployment, and operations.
               </h2>
               <p className="page-lead mb-6 text-base md:text-lg">
-                它的目标不是拖慢创新，而是确保 AI 的使用符合法律要求、伦理标准和业务目标，同时提升可解释性、
-                降低失误成本，并让高价值项目更容易通过内部审批和外部审查。
+                Its goal is not to slow innovation. It is to make AI use consistent with legal requirements, ethical standards, and business goals while improving
+                explainability, lowering the cost of mistakes, and helping high-value programs clear internal and external review more reliably.
               </p>
 
               <div className="grid gap-4 md:grid-cols-2">
@@ -564,8 +564,8 @@ export default function AIGovernanceFrameworkPage() {
             <div className="page-card p-8">
               <div className="mb-5 flex items-center justify-between gap-4">
                 <div>
-                  <div className="mb-1 text-sm text-slate-500">为什么现在要做</div>
-                  <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">治理驱动因素</h2>
+                  <div className="mb-1 text-sm text-slate-500">Why now</div>
+                  <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Governance drivers</h2>
                 </div>
                 <AlertTriangle className="h-7 w-7 text-amber-600" />
               </div>
@@ -588,14 +588,14 @@ export default function AIGovernanceFrameworkPage() {
           <div className="mb-10 max-w-3xl">
             <div className="page-pill mb-4">
               <Target className="h-4 w-4 text-[#635bff]" />
-              核心框架
+              Core framework
             </div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              用三组核心模块把政策、风险、合规和执行串成一个系统。
+              Use three core modules to connect policy, risk, compliance, and execution into one operating system.
             </h2>
             <p className="page-lead text-base md:text-lg">
-              这部分保留原始页面的核心内容，但把旧式深色分段改成当前统一的治理框架布局，便于直接给管理层、
-              法务和 AI 项目团队共用。
+              This section preserves the core substance of the original page, but restructures it into the current governance-framework layout so leadership, legal,
+              and AI delivery teams can use the same page.
             </p>
           </div>
 
@@ -639,13 +639,14 @@ export default function AIGovernanceFrameworkPage() {
             <div className="page-card-soft p-8">
               <div className="page-pill mb-4">
                 <Users className="h-4 w-4 text-[#635bff]" />
-                框架总览
+                Framework overview
               </div>
               <h3 className="mb-4 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                企业治理框架不仅是原则集合，还要有真正可交付的工作包。
+                Enterprise governance cannot stop at principles; it needs work packages teams can actually deliver.
               </h3>
               <p className="mb-6 text-sm leading-6 text-slate-600">
-                原始页面中的框架总览被保留为三个落地面向：政策底座、合规工具和实施指南。这样更接近团队在季度里真正交付的成果。
+                The original framework summary is preserved as three execution tracks: policy foundation, compliance tools, and implementation guide. That maps better to
+                what teams actually ship in a quarter.
               </p>
               <div className="space-y-4">
                 {operatingModel.map((item) => {
@@ -668,28 +669,28 @@ export default function AIGovernanceFrameworkPage() {
             <div className="page-card p-8">
               <div className="mb-5 flex items-center justify-between gap-4">
                 <div>
-                  <div className="mb-1 text-sm text-slate-500">管理层摘要</div>
-                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">治理执行检查点</h3>
+                  <div className="mb-1 text-sm text-slate-500">Executive summary</div>
+                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Governance execution checkpoints</h3>
                 </div>
                 <BarChart3 className="h-7 w-7 text-indigo-600" />
               </div>
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">组织</div>
-                  <p className="text-sm leading-6 text-slate-700">是否已经明确 AI 决策权、例外审批和事件升级责任人。</p>
+                  <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Organization</div>
+                  <p className="text-sm leading-6 text-slate-700">Have you assigned AI decision rights, exception approvals, and incident escalation owners?</p>
                 </div>
                 <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">文档</div>
-                  <p className="text-sm leading-6 text-slate-700">是否能在审计时快速拿出模型说明、风险记录和数据来源证据。</p>
+                  <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Documentation</div>
+                  <p className="text-sm leading-6 text-slate-700">Can you produce model documentation, risk logs, and data-source evidence quickly during an audit?</p>
                 </div>
                 <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">监控</div>
-                  <p className="text-sm leading-6 text-slate-700">是否有持续监测、告警和回滚机制，而不是只做一次上线评审。</p>
+                  <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Monitoring</div>
+                  <p className="text-sm leading-6 text-slate-700">Do you have continuous monitoring, alerts, and rollback paths instead of a one-time launch review?</p>
                 </div>
                 <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">培训</div>
-                  <p className="text-sm leading-6 text-slate-700">是否让业务、法务和技术团队使用同一套治理语言和升级规则。</p>
+                  <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Training</div>
+                  <p className="text-sm leading-6 text-slate-700">Are business, legal, and technical teams using the same governance language and escalation rules?</p>
                 </div>
               </div>
             </div>
@@ -702,13 +703,13 @@ export default function AIGovernanceFrameworkPage() {
           <div className="mb-10 max-w-3xl">
             <div className="page-pill mb-4">
               <Clock className="h-4 w-4 text-[#635bff]" />
-              12 个月实施路线图
+              12-month rollout roadmap
             </div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              用四个季度完成从盘点、落地到规模化优化的治理建设。
+              Build governance across four quarters, from discovery to scalable optimization.
             </h2>
             <p className="page-lead text-base md:text-lg">
-              保留原有 Q1-Q4 路线图，但改成统一的阶段卡片和里程碑结构，方便直接映射到项目组合管理和季度 OKR。
+              The original Q1-Q4 roadmap stays intact, but it is now packaged as milestone cards that map more cleanly to portfolio management and quarterly OKRs.
             </p>
           </div>
 
@@ -741,13 +742,13 @@ export default function AIGovernanceFrameworkPage() {
           <div className="mb-10 max-w-3xl">
             <div className="page-pill mb-4">
               <Sparkles className="h-4 w-4 text-[#635bff]" />
-              最佳实践与趋势
+              Best practices and trends
             </div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              组织、技术和文化要一起建设，治理框架才不会停留在文档层。
+              Governance only sticks when organization, technology, and culture are built together.
             </h2>
             <p className="page-lead text-base md:text-lg">
-              这部分延续原页面的最佳实践和 2026 趋势判断，但统一到当前内容系统的卡片节奏与信息层级。
+              This section keeps the original best-practice guidance and 2026 trend view, but aligns it to the current content system and information hierarchy.
             </p>
           </div>
 
@@ -773,8 +774,8 @@ export default function AIGovernanceFrameworkPage() {
                 <AlertTriangle className="h-5 w-5 text-amber-600" />
               </div>
               <div>
-                <div className="text-sm text-slate-500">2026 关键变化</div>
-                <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">治理门槛在上升，自动化能力也在变成熟。</h3>
+                <div className="text-sm text-slate-500">Key 2026 changes</div>
+                <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Governance expectations are rising, and automation is finally maturing.</h3>
               </div>
             </div>
 
@@ -802,13 +803,13 @@ export default function AIGovernanceFrameworkPage() {
           <div className="mb-10 max-w-3xl">
             <div className="page-pill mb-4">
               <HelpCircle className="h-4 w-4 text-[#635bff]" />
-              常见问题
+              Frequently asked questions
             </div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              围绕委员会、周期、预算与 KPI 的关键问题。
+              The questions leaders keep asking about committees, timelines, budget, and KPIs.
             </h2>
             <p className="page-lead text-base md:text-lg">
-              这里保留原页面的 FAQ 主题，并用当前知识型页面结构重排，方便直接作为企业内部沟通素材使用。
+              The original FAQ themes remain intact, but the section now uses the current knowledge-page structure so teams can reuse it in internal communication.
             </p>
           </div>
 
@@ -833,13 +834,13 @@ export default function AIGovernanceFrameworkPage() {
           <div className="mb-10 max-w-3xl">
             <div className="page-pill mb-4">
               <DollarSign className="h-4 w-4 text-[#635bff]" />
-              业务影响与相关资源
+              Business impact and related resources
             </div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              治理成熟度最终要体现在风险降低、交付效率和内部信心上。
+              Governance maturity has to show up in lower risk, faster delivery, and stronger internal confidence.
             </h2>
             <p className="page-lead text-base md:text-lg">
-              除了原页面的业务影响指标，这里也补上同主题内部链接，保持 cluster 页面之间的互联完整性。
+              In addition to the original business-impact metrics, this section keeps the related internal links so the governance cluster remains tightly connected.
             </p>
           </div>
 
@@ -874,7 +875,7 @@ export default function AIGovernanceFrameworkPage() {
                 <div className="page-card bg-slate-950 p-8 text-white">
                   <div className="mb-6">
                     <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-300">Total economic impact</div>
-                    <h3 className="text-2xl font-semibold tracking-[-0.04em]">治理框架成熟后，价值来自风险回避和执行效率的双重提升。</h3>
+                    <h3 className="text-2xl font-semibold tracking-[-0.04em]">Once the governance framework matures, value comes from both risk avoidance and execution speed.</h3>
                   </div>
                   <div className="grid gap-4 md:grid-cols-3">
                     {economicImpact.map((item) => (
@@ -893,7 +894,7 @@ export default function AIGovernanceFrameworkPage() {
                 <div className="mb-5 flex items-center justify-between gap-4">
                   <div>
                     <div className="mb-1 text-sm text-slate-500">Related resources</div>
-                    <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">继续推进治理集群</h3>
+                    <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Keep the governance cluster moving</h3>
                   </div>
                   <ArrowRight className="h-6 w-6 text-indigo-600" />
                 </div>
@@ -920,25 +921,26 @@ export default function AIGovernanceFrameworkPage() {
               </div>
 
               <div className="page-card-soft p-8">
-                <div className="page-pill mb-4">
-                  <Users className="h-4 w-4 text-[#635bff]" />
-                  下一步
-                </div>
-                <h3 className="mb-4 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                  如果你已经有 AI 项目在跑，下一步不是再写一份原则，而是做治理盘点和责任映射。
-                </h3>
-                <p className="mb-6 text-sm leading-6 text-slate-600">
-                  先识别高风险项目、关键数据流、审批断点和证据缺口，再决定哪些政策、监控和培训动作要优先落地。
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/contact" className="btn-brand">
-                    预约治理咨询
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                  <Link href="/ai-governance-compliance-framework-2026" className="btn-secondary">
-                    查看配套框架
-                  </Link>
-                </div>
+              <div className="page-pill mb-4">
+                <Users className="h-4 w-4 text-[#635bff]" />
+                Next step
+              </div>
+              <h3 className="mb-4 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                If you already have AI projects in flight, the next move is not another principles memo but a governance inventory and accountability map.
+              </h3>
+              <p className="mb-6 text-sm leading-6 text-slate-600">
+                Start by identifying high-risk programs, critical data flows, approval bottlenecks, and evidence gaps. Then decide which policy, monitoring, and
+                training actions need to land first.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-brand">
+                  Book governance consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/ai-governance-compliance-framework-2026" className="btn-secondary">
+                  View companion framework
+                </Link>
+              </div>
               </div>
             </div>
           </div>

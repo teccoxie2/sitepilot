@@ -12,29 +12,29 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = '企业级 AI 工具风险评估框架 2026 | SitePilot'
+const pageTitle = 'Enterprise AI Tools Risk Assessment Framework 2026 | SitePilot'
 const pageDescription =
-  '企业级 AI 工具风险评估框架，覆盖数据安全、供应商依赖、兼容性、合规与采用风险，帮助团队在实施前控制暴露面与缓解成本。'
+  'An enterprise AI tools risk assessment framework covering data security, vendor dependence, technical compatibility, compliance, and adoption risk so teams can control exposure before rollout.'
 const pageUrl = 'https://sitepilot.co/ai-tools-risk-assessment-enterprise-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    'AI工具风险评估',
-    '企业风险管理',
-    'AI实施风险',
-    '数据安全风险',
-    '合规风险',
-    '供应商风险',
-    '风险缓解策略',
+    'AI tool risk assessment',
+    'enterprise risk management',
+    'AI implementation risk',
+    'data security risk',
+    'compliance risk',
+    'vendor risk',
+    'risk mitigation strategy',
   ],
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
-    title: '企业级AI工具风险评估框架 - 保护您的AI投资',
-    description: '面向 CFO、CTO 与风控团队的企业 AI 风险评估框架，覆盖实时风险评分、缓解路径与 ROI 影响。',
+    title: 'Enterprise AI Tools Risk Assessment Framework - Protect Your AI Investment',
+    description: 'An enterprise AI risk framework for CFOs, CTOs, and risk teams covering live scoring, mitigation paths, and ROI impact.',
     type: 'article',
     url: pageUrl,
     images: [
@@ -42,63 +42,63 @@ export const metadata: Metadata = {
         url: '/images/ai-risk-assessment-dashboard.jpg',
         width: 1200,
         height: 630,
-        alt: 'AI工具风险评估仪表板',
+        alt: 'AI tools risk assessment dashboard',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '企业级AI工具风险评估框架 | 保护 AI 投资',
-    description: '实时风险评分系统、专业缓解策略与 CFO 友好的 ROI 分析。',
+    title: 'Enterprise AI Tools Risk Assessment Framework | Protect AI Investment',
+    description: 'Live risk scoring, practical mitigation strategy, and CFO-friendly ROI analysis.',
     images: ['/images/ai-risk-assessment-dashboard.jpg'],
   },
 }
 
 const heroStats = [
-  { value: '87%', label: '企业缺乏系统化 AI 风险评估' },
-  { value: '$2.5M', label: '年度 AI 投资常处于风险暴露中' },
-  { value: '43%', label: 'AI 项目因风险处理失当而失败' },
-  { value: '$680K', label: '平均损失来自错误工具选择' },
+  { value: '87%', label: 'Enterprises without a formal AI risk assessment process' },
+  { value: '$2.5M', label: 'Annual AI investment often left exposed to avoidable risk' },
+  { value: '43%', label: 'AI projects that fail because risk was handled poorly' },
+  { value: '$680K', label: 'Average loss from choosing the wrong tools' },
 ]
 
 const riskPrinciples = [
-  '风险评估必须在采购前完成，不是事故后写复盘时才想起来的东西。',
-  '供应商锁定、数据流向、合规义务和员工采纳率，要一起看，不能拆开装专业。',
-  '高 ROI 叙事如果不算风险缓解成本，通常只是乐观主义打扮成财务模型。',
-  '路线图的价值在于提前约束损失，而不是把风险标签做得更好看。',
+  'Risk assessment has to happen before procurement, not after an incident when someone is writing the retrospective.',
+  'Vendor lock-in, data movement, compliance obligations, and employee adoption need to be reviewed together.',
+  'Any high-ROI story that ignores mitigation cost is usually optimism disguised as a finance model.',
+  'A roadmap matters because it constrains losses early, not because it makes the risk labels look cleaner.',
 ]
 
 const riskMatrix = [
   {
-    category: '数据安全风险',
+    category: 'Data security risk',
     impact: 'High',
     probability: '30%',
     score: 'High',
     mitigationCost: '$150K',
   },
   {
-    category: '供应商依赖风险',
+    category: 'Vendor dependence risk',
     impact: 'Medium',
     probability: '60%',
     score: 'High',
     mitigationCost: '$80K',
   },
   {
-    category: '技术兼容性风险',
+    category: 'Technical compatibility risk',
     impact: 'Medium',
     probability: '40%',
     score: 'Medium',
     mitigationCost: '$45K',
   },
   {
-    category: '合规要求风险',
+    category: 'Compliance requirement risk',
     impact: 'High',
     probability: '25%',
     score: 'High',
     mitigationCost: '$200K',
   },
   {
-    category: '员工接受度风险',
+    category: 'Employee adoption risk',
     impact: 'Low',
     probability: '70%',
     score: 'Medium',
@@ -109,78 +109,78 @@ const riskMatrix = [
 const riskBands = [
   {
     range: '0-30',
-    label: '低风险',
-    note: '绿灯 - 快速审批流程',
+    label: 'Low risk',
+    note: 'Green light - fast approval path',
     tone: 'border-indigo-200 bg-indigo-50 text-indigo-700',
   },
   {
     range: '31-60',
-    label: '中风险',
-    note: '黄灯 - 增强尽调和保护措施',
+    label: 'Moderate risk',
+    note: 'Yellow light - enhanced diligence and controls',
     tone: 'border-amber-200 bg-amber-50 text-amber-700',
   },
   {
     range: '61-85',
-    label: '高风险',
-    note: '红灯 - 董事会级别审批',
+    label: 'High risk',
+    note: 'Red light - board-level approval required',
     tone: 'border-rose-200 bg-rose-50 text-rose-700',
   },
   {
     range: '86-100',
-    label: '极高风险',
-    note: '禁止 - 寻找替代方案',
+    label: 'Critical risk',
+    note: 'Do not proceed - find an alternative',
     tone: 'border-violet-200 bg-violet-50 text-violet-700',
   },
 ]
 
 const roiCards = [
-  { value: '$3.2M', label: '初始风险暴露' },
-  { value: '$450K', label: '缓解投资成本' },
-  { value: '433%', label: '风险缓解 ROI' },
+  { value: '$3.2M', label: 'Initial risk exposure' },
+  { value: '$450K', label: 'Mitigation investment' },
+  { value: '433%', label: 'Risk mitigation ROI' },
 ]
 
 const roadmapPhases = [
   {
     phase: 'Phase 1',
-    timeline: '月度 1-2',
-    title: '风险基线建立',
-    items: ['AI 工具 inventory', '行业基准对标', 'KRI 定义', '初始风险评分'],
+    timeline: 'Months 1-2',
+    title: 'Establish the risk baseline',
+    items: ['AI tool inventory', 'Industry benchmark comparison', 'KRI definition', 'Initial risk scoring'],
   },
   {
     phase: 'Phase 2',
-    timeline: '月度 3-4',
-    title: '缓解措施实施',
-    items: ['高风险项目处理', '供应商合同重谈', '员工培训', '技术安全升级'],
+    timeline: 'Months 3-4',
+    title: 'Implement mitigation actions',
+    items: ['Treat high-risk items', 'Renegotiate vendor contracts', 'Train employees', 'Upgrade technical security'],
   },
   {
     phase: 'Phase 3',
-    timeline: '月度 5-6',
-    title: '监控系统建立',
-    items: ['风险监控仪表板', '自动告警系统', '月度审查流程', '持续改进机制'],
+    timeline: 'Months 5-6',
+    title: 'Stand up the monitoring system',
+    items: ['Risk monitoring dashboard', 'Automated alerting', 'Monthly review process', 'Continuous improvement loop'],
   },
   {
     phase: 'Phase 4',
-    timeline: '持续',
-    title: '优化和扩展',
-    items: ['风险模型精化', '评估标准化', '风险文化建设', '最佳实践分享'],
+    timeline: 'Ongoing',
+    title: 'Optimize and scale',
+    items: ['Refine the risk model', 'Standardize assessment criteria', 'Build risk culture', 'Share best practices'],
   },
 ]
 
 const relatedLinks = [
   {
     href: '/ai-tools-usage-tracking-dashboard-2026',
-    title: 'AI 工具使用率追踪仪表板',
-    description: '把采用率、浪费与真实 ROI 连起来看。',
+    title: 'AI Tools Usage Tracking Dashboard',
+    description: 'Connect adoption, waste, and actual ROI in one operating view.',
   },
   {
     href: '/ai-tools-cost-optimization-enterprise-2026',
-    title: 'AI 成本优化框架',
-    description: '风险缓解不能脱离预算结构单聊。',
+    title: 'AI Cost Optimization Framework',
+    description: 'Mitigation planning only works when it stays tied to budget structure.',
   },
   {
     href: '/enterprise-ai-roi-optimization-framework-2026',
-    title: 'AI ROI 实施指南',
-    description: '把风险、收益和回收周期放进同一个决策模型。',
+    title: 'AI ROI Implementation Guide',
+    description: 'Put risk, return, and payback into the same decision model.',
   },
 ]
 
@@ -219,21 +219,21 @@ export default function AIRiskAssessmentPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  企业级 AI 工具风险评估，
-                  <span className="brand-gradient-text block">先挡坑，再谈回报。</span>
+                  Enterprise AI Tools Risk Assessment
+                  <span className="brand-gradient-text block">Close the gaps before you talk about returns.</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  企业 AI 工具风险评估要同时处理数据安全、供应商依赖、技术兼容、合规要求和采用阻力。这个页面保留原来的风险矩阵、评分逻辑、ROI 案例、实施路线图和相关内部链接，只把那股老式红色营销页味道收拾成现在统一的浅色 Stripe-ish 系统。
+                  Enterprise AI risk assessment has to evaluate data security, vendor dependence, technical compatibility, compliance obligations, and adoption friction together. This page keeps the original risk matrix, scoring logic, ROI examples, roadmap, and internal links while moving the visual language into the current light Stripe-ish system.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
                   <Link href="/ai-tools-usage-tracking-dashboard-2026" className="btn-brand inline-flex items-center gap-2">
-                    查看使用率追踪
+                    Review usage tracking
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link href="/ai-tools" className="btn-secondary inline-flex items-center gap-2">
-                    返回 AI tools hub
+                    Return to the AI tools hub
                   </Link>
                 </div>
 
@@ -254,7 +254,7 @@ export default function AIRiskAssessmentPage() {
                     <div className="mb-6 flex items-center justify-between gap-3">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Risk posture baseline</div>
-                        <div className="text-xl font-semibold text-slate-950">四条不扯淡的评估原则</div>
+                        <div className="text-xl font-semibold text-slate-950">Four practical assessment rules</div>
                       </div>
                       <div className="rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-semibold text-rose-700">
                         Board-level useful
@@ -282,11 +282,11 @@ export default function AIRiskAssessmentPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">risk matrix</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              风险值不是感觉，
-              <span className="brand-gradient-text block">要拆成类别、概率、影响和成本。</span>
+              Risk is not a feeling
+              <span className="brand-gradient-text block">Break it into category, probability, impact, and cost.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              原页面的五类风险和缓解成本都保留。这里把它们变成更清晰的表格式决策面板，让人一眼知道哪类问题最贵、最常见、最该先处理。
+              The five risk categories and mitigation costs from the original page remain intact. They are simply laid out as a clearer table so the most expensive, frequent, and urgent issues stand out immediately.
             </p>
           </div>
 
@@ -295,11 +295,11 @@ export default function AIRiskAssessmentPage() {
               <table className="min-w-full divide-y divide-slate-200 text-sm">
                 <thead className="bg-slate-950 text-white">
                   <tr>
-                    <th className="px-6 py-4 text-left font-semibold">风险类别</th>
-                    <th className="px-6 py-4 text-center font-semibold">影响等级</th>
-                    <th className="px-6 py-4 text-center font-semibold">发生概率</th>
-                    <th className="px-6 py-4 text-center font-semibold">风险值</th>
-                    <th className="px-6 py-4 text-center font-semibold">缓解成本</th>
+                    <th className="px-6 py-4 text-left font-semibold">Risk category</th>
+                    <th className="px-6 py-4 text-center font-semibold">Impact level</th>
+                    <th className="px-6 py-4 text-center font-semibold">Likelihood</th>
+                    <th className="px-6 py-4 text-center font-semibold">Risk score</th>
+                    <th className="px-6 py-4 text-center font-semibold">Mitigation cost</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 bg-white">
@@ -332,14 +332,14 @@ export default function AIRiskAssessmentPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <Radar className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">实时风险评分系统</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Live risk scoring system</h2>
             </div>
             <div className="space-y-4">
               {riskBands.map((band) => (
                 <div key={band.range} className={`rounded-2xl border px-4 py-4 ${band.tone}`}>
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <div className="text-base font-semibold">{band.label} ({band.range} 分)</div>
+                      <div className="text-base font-semibold">{band.label} ({band.range} points)</div>
                       <div className="mt-1 text-sm opacity-90">{band.note}</div>
                     </div>
                     <AlertTriangle className="h-5 w-5" />
@@ -354,16 +354,16 @@ export default function AIRiskAssessmentPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <BarChart3 className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">风险评分算法</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Risk scoring formula</h2>
             </div>
             <div className="rounded-[1.75rem] border border-slate-800 bg-slate-950 p-6 font-mono text-sm text-indigo-300 shadow-[0_24px_80px_-40px_rgba(15,23,42,0.7)]">
-              <div className="mb-4 text-slate-100">总风险分数 = Σ(风险概率 × 影响程度 × 行业权重)</div>
+              <div className="mb-4 text-slate-100">Total risk score = sum of (risk probability x impact severity x industry weight)</div>
               <div className="space-y-2 text-slate-300">
-                <div>数据安全: 30% × 9 × 0.8 = 2.16</div>
-                <div>供应商风险: 60% × 7 × 0.6 = 2.52</div>
-                <div>合规风险: 25% × 9 × 0.9 = 2.03</div>
+                <div>Data security: 30% x 9 x 0.8 = 2.16</div>
+                <div>Vendor risk: 60% x 7 x 0.6 = 2.52</div>
+                <div>Compliance risk: 25% x 9 x 0.9 = 2.03</div>
                 <div>...</div>
-                <div className="pt-2 font-bold text-indigo-300">总分: 67（高风险）</div>
+                <div className="pt-2 font-bold text-indigo-300">Total score: 67 (high risk)</div>
               </div>
             </div>
           </div>
@@ -373,8 +373,8 @@ export default function AIRiskAssessmentPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">cfo view</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              风险投入值不值，
-              <span className="brand-gradient-text block">最后还是看财务结果。</span>
+              Risk spend still has to prove itself financially
+              <span className="brand-gradient-text block">The balance sheet gets the final vote.</span>
             </h2>
           </div>
 
@@ -394,11 +394,11 @@ export default function AIRiskAssessmentPage() {
 
           <div className="page-card mt-6 p-8 md:p-10">
             <div className="rounded-[1.75rem] border border-slate-800 bg-slate-950 p-6 font-mono text-sm text-indigo-300">
-              <div>AI 工具年收益：      $2.8M</div>
-              <div>风险缓解成本：      $450K</div>
-              <div>潜在风险损失：      $3.2M（未缓解）</div>
-              <div>实际风险损失：      $800K（已缓解）</div>
-              <div className="mt-2 font-bold text-indigo-300">净收益提升：        $1.95M</div>
+              <div>Annual AI tool benefit: $2.8M</div>
+              <div>Risk mitigation cost: $450K</div>
+              <div>Potential risk loss: $3.2M (unmitigated)</div>
+              <div>Actual risk loss: $800K (mitigated)</div>
+              <div className="mt-2 font-bold text-indigo-300">Net benefit improvement: $1.95M</div>
             </div>
           </div>
         </section>
@@ -407,8 +407,8 @@ export default function AIRiskAssessmentPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">implementation roadmap</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              风险治理别空谈，
-              <span className="brand-gradient-text block">按阶段落地才算数。</span>
+              Risk governance cannot stay theoretical
+              <span className="brand-gradient-text block">It only matters when it ships in phases.</span>
             </h2>
           </div>
 
@@ -437,7 +437,7 @@ export default function AIRiskAssessmentPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <Shield className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">相关企业级 AI 工具</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Related enterprise AI resources</h2>
             </div>
             <div className="space-y-3">
               {relatedLinks.map((item) => (
@@ -454,18 +454,18 @@ export default function AIRiskAssessmentPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white">
                 <ArrowRight className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">下一步动作</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Next step</h2>
             </div>
             <p className="mb-6 leading-7 text-slate-600">
-              如果你正在评估 AI 工具组合，先把现有工具清单、数据流、合规约束、供应商锁定点和采用率一起摆出来。少任何一个维度，风险结论都容易变成自我安慰。
+              If you are evaluating an AI tool portfolio, put the current tool list, data flows, compliance constraints, vendor lock-in points, and adoption rates on the table together. Miss one of those dimensions and the conclusion gets unreliable fast.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/ai-tools-usage-tracking-dashboard-2026" className="btn-brand inline-flex items-center gap-2">
-                去看使用率追踪
+                Review usage tracking
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/enterprise-ai-roi-optimization-framework-2026" className="btn-secondary inline-flex items-center gap-2">
-                继续看 ROI 框架
+                Continue to the ROI framework
               </Link>
             </div>
           </div>

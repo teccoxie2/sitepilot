@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
 
-const pageTitle = 'AI投资回报率矩阵计算器 - 企业决策工具2026 | SitePilot'
+const pageTitle = 'AI Investment ROI Matrix Calculator - Enterprise Decision Tool 2026 | SitePilot'
 const pageDescription =
-  '专业AI投资ROI分析工具：12个维度评估框架，327%平均回报验证，CFO级别财务建模。Fortune 500企业验证的投资决策标准。'
+  'A professional AI investment ROI tool with a 12-dimension evaluation framework, a validated 327% average return benchmark, and CFO-level financial modeling grounded in Fortune 500 decision standards.'
 const pageUrl = 'https://sitepilot.co/ai-investment-roi-matrix-calculator-enterprise-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    'AI投资回报率',
-    'ROI计算器',
-    '企业AI投资',
-    'AI财务分析',
-    '投资决策工具',
+    'AI investment ROI',
+    'ROI calculator',
+    'enterprise AI investment',
+    'AI financial analysis',
+    'investment decision tool',
     'AI ROI matrix',
   ],
   authors: [{ name: 'SitePilot Team' }],

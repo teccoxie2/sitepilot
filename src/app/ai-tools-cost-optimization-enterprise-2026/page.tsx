@@ -15,85 +15,85 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = '企业AI工具成本优化权威指南 - 2026年版 | SitePilot'
+const pageTitle = 'Enterprise AI Tools Cost Optimization Guide 2026 | SitePilot'
 const pageDescription =
-  '基于 78 个 AI 工具测试的企业成本优化策略。从年支出 $50,000 优化到 $28,000 的实战经验，ROI 提升 550% 的完整框架。'
+  'A cost optimization framework for enterprise AI tools based on testing across 78 products. Covers the path from $50,000 in annual spend to $28,000 with a full model for ROI gains of up to 550%.'
 const pageUrl = 'https://sitepilot.co/ai-tools-cost-optimization-enterprise-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  keywords: ['AI工具成本优化', '企业AI投资', 'ROI优化', '成本控制', 'AI预算管理', '2026年AI策略'],
+  keywords: ['AI cost optimization', 'enterprise AI investment', 'ROI optimization', 'cost control', 'AI budget management', '2026 AI strategy'],
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
-    title: '企业AI工具成本优化权威指南 - 实现30-50%成本节省',
-    description: '从 $50,000 到 $28,000 的优化实战。四象限成本分析矩阵，分规模优化策略，ROI 量化框架。',
+    title: 'Enterprise AI Tools Cost Optimization Guide - Deliver 30-50% Savings',
+    description: 'A practical path from $50,000 to $28,000 in annual spend, with a four-quadrant cost matrix, size-based optimization strategy, and quantified ROI model.',
     type: 'article',
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
-    title: '企业AI工具成本优化权威指南 | SitePilot',
-    description: '基于 78 个 AI 工具测试的成本优化策略。30-50% 成本节省，ROI 提升 550% 的完整框架。',
+    title: 'Enterprise AI Tools Cost Optimization Guide | SitePilot',
+    description: 'A cost optimization strategy based on testing across 78 AI tools, with 30-50% savings and a framework for 550% ROI gains.',
   },
 }
 
 const heroStats = [
-  { value: '78', label: 'AI 工具深度测试' },
-  { value: '44%', label: '平均成本节省' },
-  { value: '550%', label: '最高 ROI 实现' },
-  { value: '2.2个月', label: '平均回收期' },
+  { value: '78', label: 'AI tools tested in depth' },
+  { value: '44%', label: 'Average cost savings' },
+  { value: '550%', label: 'Best ROI achieved' },
+  { value: '2.2 months', label: 'Average payback period' },
 ]
 
 const optimizationSignals = [
-  '高价值高成本工具不是原罪，问题是你有没有把采购和使用率做扎实。',
-  '低价值高成本工具该换就换，别因为已经买了就继续沉没。',
-  '平台整合通常比继续堆单点工具更省钱，也更少管理噪音。',
-  '成本优化不是盲砍预算，是用更少的钱换更稳定的产出。',
+  'High-value, high-cost tools are not the problem. The real issue is weak procurement discipline and poor usage governance.',
+  'Replace low-value, high-cost tools when they show up. Do not keep funding sunk costs out of habit.',
+  'Platform consolidation is usually cheaper and quieter to manage than stacking isolated point tools.',
+  'Cost optimization is not blind budget cutting. It is getting steadier output with less spend.',
 ]
 
 const strategyCards = [
   {
-    title: '小型企业',
-    range: '10-50 人 · $5,000-$12,000 / 年',
-    note: '工具整合优先，先消灭功能重叠。',
-    outcome: '示例节省：$8,000 → $5,500',
+    title: 'Smaller teams',
+    range: '10-50 employees · $5,000-$12,000 / year',
+    note: 'Start with consolidation and eliminate overlapping functionality first.',
+    outcome: 'Example savings: $8,000 to $5,500',
   },
   {
-    title: '中型企业',
-    range: '50-200 人 · $15,000-$35,000 / 年',
-    note: '企业级平台 + 精选专业工具，配合使用率治理。',
-    outcome: '企业折扣平均可省 25-35%',
+    title: 'Mid-sized teams',
+    range: '50-200 employees · $15,000-$35,000 / year',
+    note: 'Combine enterprise platforms with a small set of specialized tools and active usage governance.',
+    outcome: 'Enterprise discounting can typically save 25-35%',
   },
   {
-    title: '大型企业',
-    range: '200+ 人 · $50,000-$150,000 / 年',
-    note: '自研、战略采购和深度集成一起做，预算才不失控。',
-    outcome: '核心平台 60% + 专业工具 30% + 创新 10%',
+    title: 'Large enterprises',
+    range: '200+ employees · $50,000-$150,000 / year',
+    note: 'Blend internal development, strategic procurement, and deep integration to keep the budget under control.',
+    outcome: 'Core platforms 60% + specialized tools 30% + innovation 10%',
   },
 ]
 
 const quadrantCards = [
   {
-    title: '高价值 / 高成本',
-    note: '保留并优化。去谈折扣、年付和模块选择。',
+    title: 'High value / high cost',
+    note: 'Keep and optimize. Negotiate pricing, annual terms, and module mix.',
     style: 'border-indigo-100 bg-indigo-50/70 text-indigo-800',
   },
   {
-    title: '高价值 / 低成本',
-    note: '最大化利用。把 API、模板和共享许可吃满。',
+    title: 'High value / low cost',
+    note: 'Maximize usage. Push APIs, templates, and shared licenses to full value.',
     style: 'border-indigo-100 bg-indigo-50/70 text-indigo-800',
   },
   {
-    title: '低价值 / 高成本',
-    note: '立即替换。典型预算陷阱。',
+    title: 'Low value / high cost',
+    note: 'Replace immediately. This is the classic budget trap.',
     style: 'border-rose-100 bg-rose-50/70 text-rose-800',
   },
   {
-    title: '低价值 / 低成本',
-    note: '谨慎保留。3 个月评估，不行就撤。',
+    title: 'Low value / low cost',
+    note: 'Keep cautiously. Review it for three months, then cut it if it underperforms.',
     style: 'border-amber-100 bg-amber-50/70 text-amber-800',
   },
 ]
@@ -101,18 +101,18 @@ const quadrantCards = [
 const relatedLinks = [
   {
     href: '/ai-tools-cost-benefit-analysis-2026',
-    title: '成本效益分析',
-    description: '先看值不值，再看怎么省。',
+    title: 'Cost-Benefit Analysis',
+    description: 'Start by deciding whether the tool is worth funding at all.',
   },
   {
     href: '/ai-tools-budget-planning-enterprise-2026',
-    title: '预算规划策略',
-    description: '成本优化要回到预算结构里看。',
+    title: 'Budget Planning Strategy',
+    description: 'Cost optimization only works when it connects back to budget structure.',
   },
   {
     href: '/ai-tool-implementation-strategy-2026',
-    title: '实施策略指南',
-    description: '别把采购优化成落地灾难。',
+    title: 'Implementation Strategy Guide',
+    description: 'Do not optimize procurement in a way that breaks rollout execution.',
   },
 ]
 
@@ -149,21 +149,21 @@ export default function AIToolsCostOptimizationPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 工具成本优化，
-                  <span className="brand-gradient-text block">别把采购清单养成宠物。</span>
+                  AI Tools Cost Optimization
+                  <span className="brand-gradient-text block">Do not turn the procurement list into a pet project.</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  这页保留原有的四象限成本矩阵、分规模策略、ROI 量化框架和内部链接，只把视觉统一到当前浅色 Stripe-ish 系统。核心结论没变：花得少不是本事，花得准才是。
+                  This page keeps the original four-quadrant cost matrix, size-based strategies, ROI framework, and internal links. The visual system is the only thing that changed. The core conclusion stays intact: spending less is not the goal, spending accurately is.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
                   <Link href="/ai-tools-cost-benefit-analysis-2026" className="btn-brand inline-flex items-center gap-2">
-                    先看成本效益
+                    Start with cost-benefit analysis
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link href="/ai-tools" className="btn-secondary inline-flex items-center gap-2">
-                    返回 AI tools hub
+                    Return to the AI tools hub
                   </Link>
                 </div>
 
@@ -184,10 +184,10 @@ export default function AIToolsCostOptimizationPage() {
                     <div className="flex items-center justify-between mb-6">
                       <div>
                         <div className="text-sm text-slate-500 mb-1">Optimization logic</div>
-                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                        <div className="text-xl font-semibold text-slate-950">Four hard calls</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                        省钱但别省傻
+                        Save money without getting sloppy
                       </div>
                     </div>
 
@@ -212,11 +212,11 @@ export default function AIToolsCostOptimizationPage() {
           <div className="max-w-3xl mb-8">
             <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Optimization matrix</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-              先放进象限，
-              <span className="brand-gradient-text block">再决定砍、留、换、谈。</span>
+              Put every tool in the right quadrant first
+              <span className="brand-gradient-text block">Then decide whether to cut, keep, replace, or renegotiate.</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              原文最有用的部分就是这套四象限逻辑。别一股脑全削，也别看见 AI 就想囤。按价值和成本一起判，脑子会清醒很多。
+              The most useful part of the original page is this four-quadrant logic, so it stays. Do not slash everything at once, and do not hoard tools just because they have AI on the label. Judge value and cost together.
             </p>
           </div>
 
@@ -254,7 +254,7 @@ export default function AIToolsCostOptimizationPage() {
               <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
                 <BarChart3 className="w-5 h-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">完整优化正文</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Full optimization article</h2>
             </div>
 
             <div
@@ -283,12 +283,12 @@ export default function AIToolsCostOptimizationPage() {
                 <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
                   <TrendingDown className="w-5 h-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">优化提醒</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Optimization reminders</h2>
               </div>
               <div className="space-y-3 text-sm text-slate-600">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">过度削减会直接把效率砍掉，别为了省订阅费多花人工费。</div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">短期低价不等于长期低成本，迁移和培训一样要算。</div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">没有标准采购和 review 机制，重复投资一定卷土重来。</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">Over-cutting will erase efficiency. Do not save on subscriptions only to spend more on manual labor.</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">A low short-term price does not guarantee a low long-term cost. Migration and training still count.</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">Without standardized procurement and review cycles, duplicate spend always finds its way back.</div>
               </div>
             </div>
 
@@ -297,7 +297,7 @@ export default function AIToolsCostOptimizationPage() {
                 <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
                   <Shield className="w-5 h-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">相关内部资源</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Related internal resources</h2>
               </div>
               <div className="space-y-3">
                 {relatedLinks.map((item) => (
@@ -314,18 +314,18 @@ export default function AIToolsCostOptimizationPage() {
                 <div className="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center">
                   <Coins className="w-5 h-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">下一步动作</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Next step</h2>
               </div>
               <p className="text-slate-600 leading-7 mb-6">
-                真要优化成本，就把现有 AI 订阅列成表：名称、部门、年费、使用率、替代方案。没有这张表，所谓“成本优化”多半只是嘴上健身。
+                If you want real cost optimization, list every AI subscription you already have with the owner team, annual cost, usage rate, and replacement path. Without that table, so-called optimization is usually just talk.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/ai-roi-calculator" className="btn-brand inline-flex items-center gap-2">
-                  去算 ROI
+                  Model ROI
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link href="/ai-tools-cost-benefit-analysis-2026" className="btn-secondary">
-                  继续看成本效益
+                  Continue to cost-benefit analysis
                 </Link>
               </div>
             </div>

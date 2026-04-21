@@ -81,12 +81,12 @@ const metrics = [
 ]
 
 const relatedLinks = [
-  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: '先看实施最佳实践。' },
-  { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: '预算和路线图要一起走。' },
-  { href: '/enterprise-ai-security-risk-management-guide-2026', title: 'Security & risk guide', note: '安全与治理不能掉队。' },
-  { href: '/enterprise-ai-success-patterns-analysis-2026', title: 'Success patterns analysis', note: '成功模式和路线图是配套件。' },
-  { href: '/enterprise-ai-roi-optimization-framework-2026', title: 'ROI optimization framework', note: 'ROI 框架补全财务逻辑。' },
-  { href: '/enterprise-ai-vendor-comparison-guide-2026', title: 'Vendor comparison guide', note: '供应商选择放进路线图。' },
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: 'Start with the implementation playbook.' },
+  { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: 'Budget planning and the roadmap need to move together.' },
+  { href: '/enterprise-ai-security-risk-management-guide-2026', title: 'Security & risk guide', note: 'Security and governance cannot fall behind.' },
+  { href: '/enterprise-ai-success-patterns-analysis-2026', title: 'Success patterns analysis', note: 'Success patterns and the roadmap are built to work together.' },
+  { href: '/enterprise-ai-roi-optimization-framework-2026', title: 'ROI optimization framework', note: 'Use the ROI framework to complete the financial logic.' },
+  { href: '/enterprise-ai-vendor-comparison-guide-2026', title: 'Vendor comparison guide', note: 'Put vendor selection inside the roadmap.' },
 ]
 
 export default function EnterpriseAITransformationRoadmap() {
@@ -107,11 +107,11 @@ export default function EnterpriseAITransformationRoadmap() {
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
               <div className="max-w-3xl">
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI transformation roadmap</div>
-                <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI transformation，<span className="brand-gradient-text block">别指望一年内“全员AI化”还能不翻车。</span></h1>
-                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Complete enterprise AI transformation roadmap for 2026. 18-month strategic implementation framework, change management protocols, and ROI validation methods — same content, cleaner shell.</p>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI transformation,<span className="brand-gradient-text block">do not expect company-wide AI adoption in a year without breaking things.</span></h1>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Complete enterprise AI transformation roadmap for 2026. 18-month strategic implementation framework, change management protocols, and ROI validation methods, same content and a cleaner shell.</p>
                 <div className="mb-10 flex flex-wrap gap-3">
-                  <a href="#roadmap-framework" className="btn-brand inline-flex items-center gap-2">查看路线图 <ArrowRight className="h-4 w-4" /></a>
-                  <a href="#change-management" className="btn-secondary inline-flex items-center gap-2">查看变革框架</a>
+                  <a href="#roadmap-framework" className="btn-brand inline-flex items-center gap-2">View roadmap <ArrowRight className="h-4 w-4" /></a>
+                  <a href="#change-management" className="btn-secondary inline-flex items-center gap-2">View change framework</a>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-3xl">
                   {heroStats.map((stat) => (<div key={stat.label} className="page-card bg-white/90 p-4"><div className="text-2xl font-semibold text-slate-950 md:text-3xl">{stat.value}</div><div className="mt-1 text-sm text-slate-600">{stat.label}</div></div>))}
@@ -159,9 +159,9 @@ export default function EnterpriseAITransformationRoadmap() {
         <section className="mb-16">
           <div className="page-card-glow rounded-[2rem] p-5 md:p-6">
             <div className="page-card flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Shield className="h-4 w-4 text-[#635bff]" />Success metrics</div><h2 className="page-title text-3xl md:text-4xl">Transformation success metrics</h2><p className="page-lead mt-3 text-lg">If the metrics don’t move, the roadmap is just decoration.</p></div>
+              <div className="max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Shield className="h-4 w-4 text-[#635bff]" />Success metrics</div><h2 className="page-title text-3xl md:text-4xl">Transformation success metrics</h2><p className="page-lead mt-3 text-lg">If the metrics don't move, the roadmap is just decoration.</p></div>
               <div className="grid gap-3 sm:grid-cols-3">
-                {metrics.map((metric) => (<div key={metric.title} className="rounded-2xl border border-slate-200 bg-white/90 p-4"><div className="mb-2 text-sm font-semibold text-slate-900">{metric.title}</div><ul className="space-y-1 text-sm text-slate-600">{metric.items.map((item) => (<li key={item}>• {item}</li>))}</ul></div>))}
+                {metrics.map((metric) => (<div key={metric.title} className="rounded-2xl border border-slate-200 bg-white/90 p-4"><div className="mb-2 text-sm font-semibold text-slate-900">{metric.title}</div><ul className="space-y-1 text-sm text-slate-600">{metric.items.map((item) => (<li key={item}>- {item}</li>))}</ul></div>))}
               </div>
             </div>
           </div>

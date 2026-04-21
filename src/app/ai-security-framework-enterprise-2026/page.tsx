@@ -4,25 +4,25 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  '保留 8 层安全架构、威胁态势、ROI、实施方法和 CTA',
-  '保留原始的安全价值叙事和核心数据点',
-  '统一到当前浅色 Stripe-ish 视觉系统',
-  '保留内部链接、canonical、metadata 和 schema',
+  'Keep the 8-layer security architecture, threat posture, ROI framing, implementation method, and CTA.',
+  'Preserve the original security value narrative and core proof points.',
+  'Align the page with the current light Stripe-ish visual system.',
+  'Keep internal links, canonical, metadata, and schema intact.',
 ]
 
 const statCards = [
-  { value: '300+', label: 'Enterprises Protected', note: '原有企业案例叙事继续保留。' },
-  { value: '99.7%', label: 'Threat Mitigation', note: '继续展示框架保护能力。' },
-  { value: '$50B+', label: 'AI Investments', note: '承载的价值叙事不变。' },
-  { value: '8', label: 'Security Layers', note: '八层架构仍然在场。' },
+  { value: '300+', label: 'Enterprises Protected', note: 'The original enterprise case-study framing is still here.' },
+  { value: '99.7%', label: 'Threat Mitigation', note: 'The page still highlights the framework’s protection capability.' },
+  { value: '$50B+', label: 'AI Investments', note: 'The value-at-risk narrative remains unchanged.' },
+  { value: '8', label: 'Security Layers', note: 'The full eight-layer architecture is still present.' },
 ]
 
 const relatedLinks = [
-  { href: '/ai-governance-compliance-framework-2026', title: 'AI Governance Framework', note: '治理和安全一起看。' },
-  { href: '/ai-risk-management-dashboard-enterprise-2026', title: 'Risk Management Dashboard', note: '看风险监控主线页。' },
-  { href: '/tools/ai-compliance-audit-2026', title: 'AI Compliance Audit', note: '更细的合规审计。' },
-  { href: '/ai-security-risk-management-guide-2026', title: 'Security Risk Management Guide', note: '安全风险管理指南。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+  { href: '/ai-governance-compliance-framework-2026', title: 'AI Governance Framework', note: 'Review governance and security together.' },
+  { href: '/ai-risk-management-dashboard-enterprise-2026', title: 'Risk Management Dashboard', note: 'See the main risk-monitoring page.' },
+  { href: '/tools/ai-compliance-audit-2026', title: 'AI Compliance Audit', note: 'Go deeper with a compliance audit.' },
+  { href: '/ai-security-risk-management-guide-2026', title: 'Security Risk Management Guide', note: 'Read the broader security risk playbook.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a guided assessment if you need one.' },
 ] as const
 
 export default function EnterpriseAISecurityFrameworkPage() {
@@ -58,11 +58,12 @@ export default function EnterpriseAISecurityFrameworkPage() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     Enterprise AI Security Framework 2026
-                    <span className="brand-gradient-text block">把防护层次讲清楚，别让安全像祈祷。</span>
+                    <span className="brand-gradient-text block">Explain each defense layer clearly, and stop treating security like a prayer.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留原始的 8 层安全架构、威胁态势、实施方法和 ROI 叙事，只把外观统一到当前浅色 Stripe-ish 系统。
+                    This page preserves the original 8-layer security architecture, threat posture, implementation method, and ROI framing. Only the visual system has
+                    been aligned to the current light Stripe-ish UI.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -101,10 +102,10 @@ export default function EnterpriseAISecurityFrameworkPage() {
 
                       <div className="grid gap-3">
                         {[
-                          ['Architecture', '数据、模型、访问、基础设施、监控、合规、人员、治理。'],
-                          ['Metrics', '威胁检测率、响应时间、保护效果持续展示。'],
-                          ['Implementation', '评估、设计、分阶段部署、持续优化。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['Architecture', 'Data, models, access, infrastructure, monitoring, compliance, people, and governance.'],
+                          ['Metrics', 'Threat detection, response speed, and protection outcomes stay visible.'],
+                          ['Implementation', 'Assessment, design, phased rollout, and continuous improvement.'],
+                          ['UI system', 'Aligned to the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -118,7 +119,7 @@ export default function EnterpriseAISecurityFrameworkPage() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          安全框架不是装饰；它是 AI 计划能不能活到上线后的分界线。
+                          A security framework is not decoration; it decides whether an AI program survives contact with production.
                         </div>
                       </div>
                     </div>
@@ -147,10 +148,11 @@ export default function EnterpriseAISecurityFrameworkPage() {
                 Security framework
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                八层防护，别给攻击面留假期。
+                Eight layers of defense, with no vacation time for the attack surface.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                原始页面里那些安全层、监控层、治理层都保留着。这里不搞花里胡哨，只把排版换成更稳的产品语气。
+                The original security, monitoring, and governance layers are all still here. This update avoids decoration and simply gives the content a steadier
+                product-style presentation.
               </p>
             </div>
 
@@ -181,7 +183,7 @@ export default function EnterpriseAISecurityFrameworkPage() {
                   {[
                     ['Threat mitigation', '99.7%'],
                     ['Detection rate', '99.8%'],
-                    ['Average response', '<30秒'],
+                    ['Average response', '<30 seconds'],
                     ['Leakage events', '0'],
                   ].map(([label, value]) => (
                     <div key={label} className="page-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -224,7 +226,7 @@ export default function EnterpriseAISecurityFrameworkPage() {
                         ROI note
                       </div>
                       <p className="text-sm leading-7 text-slate-700">
-                        安全投入会花钱，但被打穿通常更贵，别假装这两件事是同一种账。
+                        Security costs money, but getting breached usually costs more. Do not pretend those are the same line item.
                       </p>
                     </div>
                   </div>
@@ -257,7 +259,7 @@ export default function EnterpriseAISecurityFrameworkPage() {
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
                 <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Secure Your Enterprise AI Investment Today</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  如果你要把这个安全框架接到更大的治理、监控和风险管理流程里，SitePilot 可以继续往下接。
+                  If you want to connect this security framework to broader governance, monitoring, and risk-management workflows, SitePilot can help extend it.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/tools/ai-compliance-audit-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">

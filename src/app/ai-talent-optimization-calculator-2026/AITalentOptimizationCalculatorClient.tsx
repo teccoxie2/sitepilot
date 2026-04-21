@@ -44,25 +44,25 @@ interface CalculationResults {
 }
 
 const heroSignals = [
-  '保留招聘预算、离职率、培训成本和生产力输入',
-  '保留节省、ROI、回收期和风险等级输出',
-  '统一到当前浅色 Stripe-ish UI',
-  '保留 enterprise HR planning 的内部链接和决策路径',
+  'Keeps recruitment budget, turnover rate, training cost, and productivity inputs.',
+  'Keeps savings, ROI, payback period, and risk-level outputs.',
+  'Moves the page into the current light Stripe-ish UI.',
+  'Keeps the enterprise HR planning links and decision flow.',
 ]
 
 const statCards = [
-  { label: 'Recruitment focus', value: 'Hiring', note: '先看招聘和时间成本。' },
-  { label: 'Retention focus', value: 'Stability', note: '别把离职率当背景音乐。' },
-  { label: 'Productivity focus', value: 'Output', note: '人效要算，不能靠感觉。' },
-  { label: 'Decision level', value: 'Executive', note: '给老板和 HRD 一起看的。' },
+  { label: 'Recruitment focus', value: 'Hiring', note: 'Start with recruiting cost and time-to-hire.' },
+  { label: 'Retention focus', value: 'Stability', note: 'Do not treat turnover as background noise.' },
+  { label: 'Productivity focus', value: 'Output', note: 'Workforce efficiency has to be measured, not guessed.' },
+  { label: 'Decision level', value: 'Executive', note: 'Built for leadership teams and HR directors together.' },
 ]
 
 const internalLinks = [
-  { href: '/ai-tool-implementation-strategy-2026', title: 'AI Tool Implementation Strategy', note: '把 HR 方案接到落地路线。' },
-  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation Best Practices', note: '看企业级执行方法。' },
-  { href: '/ai-implementation-cost-calculator-enterprise-2026', title: 'Implementation Cost Calculator', note: '把 ROI 和成本摆一起。' },
-  { href: '/ai-tools', title: 'AI Tools Hub', note: '回到工具总目录。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+  { href: '/ai-tool-implementation-strategy-2026', title: 'AI Tool Implementation Strategy', note: 'Connect the HR program to the implementation roadmap.' },
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation Best Practices', note: 'Review the enterprise execution model.' },
+  { href: '/ai-implementation-cost-calculator-enterprise-2026', title: 'Implementation Cost Calculator', note: 'Put ROI and cost on the same page.' },
+  { href: '/ai-tools', title: 'AI Tools Hub', note: 'Return to the main tool directory.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book an advisory review if you need a deeper assessment.' },
 ] as const
 
 const companyOptions = [
@@ -205,11 +205,11 @@ export default function AITalentOptimizationCalculatorClient() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     AI Talent Optimization Calculator,
-                    <span className="brand-gradient-text block">把招聘、留任和人效放进同一张账单。</span>
+                    <span className="brand-gradient-text block">put hiring, retention, and workforce output on one ledger.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留原始的招聘预算、离职率、培训成本、生产力和 ROI 逻辑，只把壳子统一到当前浅色 Stripe-ish 系统。
+                    This page keeps the original recruitment budget, turnover, training cost, productivity, and ROI logic. Only the shell has been aligned to the current light Stripe-ish system.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -248,10 +248,10 @@ export default function AITalentOptimizationCalculatorClient() {
 
                       <div className="grid gap-3">
                         {[
-                          ['Inputs', '公司规模、行业、预算、离职率、培训成本和人效。'],
-                          ['Outputs', 'Savings、ROI、payback period、risk level 和 timeframe。'],
-                          ['Workflow', '继续走公司概览、HR 指标、AI 经验和结果四步。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['Inputs', 'Company size, industry, budget, turnover, training cost, and workforce productivity.'],
+                          ['Outputs', 'Savings, ROI, payback period, risk level, and timeframe.'],
+                          ['Workflow', 'Keeps the four-step flow: company overview, HR metrics, AI experience, and results.'],
+                          ['UI system', 'Uses the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -265,7 +265,7 @@ export default function AITalentOptimizationCalculatorClient() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          这是 HR ROI 工具，不是招聘海报。先算账，再谈愿景。
+                          This is an HR ROI tool, not a recruiting poster. Do the math before you sell the vision.
                         </div>
                       </div>
                     </div>
@@ -294,10 +294,10 @@ export default function AITalentOptimizationCalculatorClient() {
                 Interactive calculator
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                把 HR 投入、效率和回报放到同一个模型里。
+                Put HR investment, efficiency, and return into one model.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                输入保留原样，只是现在它们被包进了统一的视觉系统。
+                The inputs are unchanged. They are now wrapped in the unified visual system.
               </p>
             </div>
 
@@ -412,7 +412,7 @@ export default function AITalentOptimizationCalculatorClient() {
                       ].map(([label, value]) => (
                         <div key={label} className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
                           <div className="text-sm text-slate-500">{label}</div>
-                          <div className="mt-1 text-lg font-semibold text-slate-950">{value || '未填写'}</div>
+                          <div className="mt-1 text-lg font-semibold text-slate-950">{value || 'Not provided'}</div>
                         </div>
                       ))}
                     </div>
@@ -498,13 +498,13 @@ export default function AITalentOptimizationCalculatorClient() {
           {currentStep === 4 && (
             <section className="mt-16 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
               <div className="max-w-3xl">
-                <div className="page-pill mb-4 inline-flex items-center gap-2">
-                  <TrendingUp className="h-4 w-4" />
-                  Results and recommendations
-                </div>
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-950">结果出来了，别装作没看见。</h2>
+              <div className="page-pill mb-4 inline-flex items-center gap-2">
+                <TrendingUp className="h-4 w-4" />
+                Results and recommendations
+              </div>
+                <h2 className="text-3xl font-semibold tracking-tight text-slate-950">The results are here, so do not ignore them.</h2>
                 <p className="mt-4 text-base leading-7 text-slate-600">
-                  保留原来的输出逻辑，只是排版换成了统一的 light Stripe-ish system。
+                  The output logic is unchanged. Only the presentation has been moved into the shared light Stripe-ish system.
                 </p>
               </div>
 
@@ -539,7 +539,7 @@ export default function AITalentOptimizationCalculatorClient() {
                       <p>Turnover reduction: {results.turnoverReduction}%.</p>
                       <p>Implementation cost: ${results.implementationCost.toLocaleString()}.</p>
                       <p>Expected timeframe: {results.timeframe}.</p>
-                      <p>这页已经把结果、风险和落地路径放到一起了。</p>
+                      <p>This page already puts the result, risk, and execution path in one place.</p>
                     </div>
                   </div>
                 </div>
@@ -556,7 +556,7 @@ export default function AITalentOptimizationCalculatorClient() {
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
                 <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Ready to optimize your HR operations?</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  把人效算清楚，才知道该先投工具、流程还是培训。
+                  Quantify workforce productivity first so you know whether to invest in tools, process, or training.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/enterprise-ai-implementation-best-practices-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">

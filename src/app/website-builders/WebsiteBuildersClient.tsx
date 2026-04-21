@@ -39,7 +39,7 @@ const websiteBuilders: WebsiteBuilder[] = [
     uptime: '99.98%',
     mobileScore: 95,
     seoScore: 92,
-    icon: '🏆',
+    icon: 'WF',
     gradient: 'from-purple-500 to-blue-500',
     description: 'Webflow bridges the gap between drag-and-drop simplicity and professional web design, offering unmatched flexibility and power.',
     pros: [
@@ -79,7 +79,7 @@ const websiteBuilders: WebsiteBuilder[] = [
     uptime: '99.8%',
     mobileScore: 88,
     seoScore: 85,
-    icon: '🎨',
+    icon: 'WX',
     gradient: 'from-pink-500 to-orange-500',
     description: 'Wix leads in template variety and design flexibility, making it perfect for creative professionals and businesses that prioritize visual appeal.',
     pros: [
@@ -121,7 +121,7 @@ const websiteBuilders: WebsiteBuilder[] = [
     uptime: '99.9%',
     mobileScore: 93,
     seoScore: 89,
-    icon: '💰',
+    icon: 'HG',
     gradient: 'from-indigo-500 to-sky-500',
     description: 'Hostinger Website Builder provides exceptional value for budget-conscious users without compromising on essential features.',
     pros: [
@@ -160,7 +160,7 @@ const websiteBuilders: WebsiteBuilder[] = [
     uptime: '99.98%',
     mobileScore: 91,
     seoScore: 87,
-    icon: '🛒',
+    icon: 'SH',
     gradient: 'from-blue-500 to-purple-500',
     description: 'Shopify remains the undisputed leader for e-commerce, offering comprehensive tools for online stores of any size.',
     pros: [
@@ -200,7 +200,7 @@ const websiteBuilders: WebsiteBuilder[] = [
     uptime: '99.95%',
     mobileScore: 97,
     seoScore: 91,
-    icon: '📱',
+    icon: 'SQ',
     gradient: 'from-indigo-500 to-cyan-500',
     description: 'Squarespace excels in mobile-optimized designs and is perfect for portfolios and creative businesses.',
     pros: [
@@ -236,11 +236,11 @@ export default function WebsiteBuildersClient() {
   const [expandedBuilder, setExpandedBuilder] = useState<string | null>(null)
 
   const categories = [
-    { id: 'professional', name: 'Professional', icon: '🏆' },
-    { id: 'creative', name: 'Creative', icon: '🎨' },
-    { id: 'budget', name: 'Budget', icon: '💰' },
-    { id: 'ecommerce', name: 'E-commerce', icon: '🛒' },
-    { id: 'mobile', name: 'Mobile-first', icon: '📱' }
+    { id: 'professional', name: 'Professional', icon: 'WF' },
+    { id: 'creative', name: 'Creative', icon: 'WX' },
+    { id: 'budget', name: 'Budget', icon: 'HG' },
+    { id: 'ecommerce', name: 'E-commerce', icon: 'SH' },
+    { id: 'mobile', name: 'Mobile-first', icon: 'SQ' }
   ]
 
   const priceRanges = [
@@ -300,7 +300,7 @@ export default function WebsiteBuildersClient() {
               onClick={() => setSidebarOpen(false)}
               className="text-gray-500 hover:text-gray-700 md:hidden"
             >
-              ✕
+              X
             </button>
           </div>
 
@@ -404,14 +404,14 @@ export default function WebsiteBuildersClient() {
 
           {/* Quick Picks */}
           <section id="quick-picks" className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center">🚀 Quick Picks</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Quick Picks</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {websiteBuilders.slice(0, 5).map((builder) => (
                 <div
                   key={builder.id}
                   className="card hover-lift relative overflow-hidden"
                 >
-                  {/* 统一的图标区域 */}
+                  {/* Shared icon area */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="p-3 bg-purple-100 text-purple-600 rounded-xl">
                       <span className="text-2xl">{builder.icon}</span>
@@ -424,8 +424,7 @@ export default function WebsiteBuildersClient() {
                   <div className="mb-4">
                     <h3 className="text-xl font-bold text-slate-900 mb-2">{builder.name}</h3>
                     <div className="flex items-center mb-2">
-                      <span className="text-yellow-500 mr-1">⭐</span>
-                      <span className="text-sm font-medium text-slate-600">{builder.rating}/10</span>
+                      <span className="text-sm font-medium text-slate-600">Rating {builder.rating}/10</span>
                     </div>
                   </div>
                   
@@ -439,7 +438,7 @@ export default function WebsiteBuildersClient() {
                       rel="noopener noreferrer"
                       className="btn btn-primary text-sm"
                     >
-                      Try Now →
+                      Try now
                     </a>
                   </div>
                 </div>
@@ -461,7 +460,7 @@ export default function WebsiteBuildersClient() {
                         onClick={() => toggleCategory(categoryId)}
                         className="ml-2 text-purple-600 hover:text-purple-800"
                       >
-                        ×
+                        x
                       </button>
                     </span>
                   )
@@ -473,7 +472,7 @@ export default function WebsiteBuildersClient() {
                       onClick={() => setPriceRange('all')}
                       className="ml-2 text-purple-600 hover:text-purple-800"
                     >
-                      ×
+                      x
                     </button>
                   </span>
                 )}
@@ -483,7 +482,7 @@ export default function WebsiteBuildersClient() {
 
           {/* Detailed Reviews */}
           <section id="detailed-reviews" className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center">📝 Detailed Reviews</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Detailed Reviews</h2>
             <div className="space-y-8">
               {filteredBuilders.map((builder, index) => (
                 <div
@@ -500,7 +499,7 @@ export default function WebsiteBuildersClient() {
                             <div className="flex text-yellow-400">
                               {[...Array(5)].map((_, i) => (
                                 <span key={i} className={i < Math.floor(builder.rating) ? 'text-yellow-400' : 'text-gray-300'}>
-                                  ⭐
+                                  *
                                 </span>
                               ))}
                             </div>
@@ -521,12 +520,12 @@ export default function WebsiteBuildersClient() {
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                       <div>
                         <h4 className="font-semibold text-indigo-600 mb-3 flex items-center">
-                          <span className="mr-2">✅</span> Pros:
+                          <span className="mr-2">+</span> Pros:
                         </h4>
                         <ul className="space-y-2">
                           {builder.pros.map((pro, i) => (
                             <li key={i} className="flex items-start">
-                              <span className="text-indigo-500 mr-2 mt-1">•</span>
+                              <span className="text-indigo-500 mr-2 mt-1">-</span>
                               <span className="text-gray-700">{pro}</span>
                             </li>
                           ))}
@@ -534,12 +533,12 @@ export default function WebsiteBuildersClient() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-red-600 mb-3 flex items-center">
-                          <span className="mr-2">❌</span> Cons:
+                          <span className="mr-2">-</span> Cons:
                         </h4>
                         <ul className="space-y-2">
                           {builder.cons.map((con, i) => (
                             <li key={i} className="flex items-start">
-                              <span className="text-red-500 mr-2 mt-1">•</span>
+                              <span className="text-red-500 mr-2 mt-1">-</span>
                               <span className="text-gray-700">{con}</span>
                             </li>
                           ))}
@@ -549,7 +548,7 @@ export default function WebsiteBuildersClient() {
 
                     {expandedBuilder === builder.id && (
                       <div className="border-t pt-6 mt-6">
-                        <h4 className="font-semibold mb-4">💰 Pricing Plans:</h4>
+                        <h4 className="font-semibold mb-4">Pricing Plans:</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                           {builder.pricing.map((plan, i) => (
                             <div key={i} className="bg-gray-50 p-4 rounded-lg">
@@ -580,7 +579,7 @@ export default function WebsiteBuildersClient() {
                           rel="noopener noreferrer"
                           className={`px-6 py-2 bg-gradient-to-r ${builder.gradient} text-white rounded-lg hover:opacity-90 transition-opacity font-medium`}
                         >
-                          Try {builder.name} →
+                          Try {builder.name}
                         </a>
                       </div>
                     </div>
@@ -592,7 +591,7 @@ export default function WebsiteBuildersClient() {
 
           {/* Performance Visualization */}
           <section id="performance" className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center">⚡ Performance Results</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Performance Results</h2>
             <p className="text-center text-gray-600 mb-8">Based on our 6-month testing period</p>
             
             <div className="bg-white rounded-xl shadow-lg p-8">
@@ -657,7 +656,7 @@ export default function WebsiteBuildersClient() {
 
           {/* Comparison Table */}
           <section id="comparison" className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center">📊 Quick Comparison</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Quick Comparison</h2>
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -711,7 +710,7 @@ export default function WebsiteBuildersClient() {
 
           {/* FAQ */}
           <section id="faq" className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center">❓ Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
             <div className="bg-white rounded-xl shadow-lg p-8">
               <div className="space-y-8">
                 {[
@@ -743,7 +742,7 @@ export default function WebsiteBuildersClient() {
 
           {/* Conclusion */}
           <section className="text-center bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl">
-            <h2 className="text-3xl font-bold mb-6">🎯 Our Recommendation</h2>
+            <h2 className="text-3xl font-bold mb-6">Our Recommendation</h2>
             <p className="text-lg text-gray-700 mb-4">
               For most users, <strong className="text-blue-600">Webflow</strong> offers the best combination of power and ease-of-use. 
               <strong className="text-pink-600"> Wix</strong> excels for creative professionals, while 

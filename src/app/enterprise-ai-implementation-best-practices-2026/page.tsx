@@ -169,32 +169,32 @@ const relatedLinks = [
   {
     href: '/ai-tool-implementation-strategy-2026',
     title: 'AI Tool Implementation Strategy 2026',
-    note: '把选型和 rollout 策略接起来。',
+    note: 'Connect tool selection with rollout strategy.',
   },
   {
     href: '/ai-implementation-success-framework-2026',
     title: 'AI Implementation Success Framework 2026',
-    note: '更聚焦实施成败因素。',
+    note: 'Focus more tightly on implementation success factors.',
   },
   {
     href: '/ai-vendor-comparison-enterprise-2026',
     title: 'Enterprise AI Vendor Comparison',
-    note: '先把供应商对比做扎实。',
+    note: 'Get the vendor comparison right first.',
   },
   {
     href: '/ai-tools-cost-benefit-analysis-2026',
     title: 'AI Tools Cost-Benefit Analysis',
-    note: '看预算和收益怎么对齐。',
+    note: 'See how budget and upside line up.',
   },
   {
     href: '/ai-tools-cost-optimization-enterprise-2026',
     title: 'AI Tools Cost Optimization',
-    note: '优化总拥有成本，不是只看报价。',
+    note: 'Optimize total cost of ownership, not just the quoted price.',
   },
   {
     href: '/ai-productivity-tools-comparison-2026',
     title: 'AI Productivity Tools Comparison',
-    note: '把落地工具链串起来。',
+    note: 'Connect the operational toolchain.',
   },
 ]
 
@@ -228,19 +228,19 @@ export default function EnterpriseAIImplementationPage() {
                   Enterprise AI implementation best practices 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  Enterprise AI implementation，
-                  <span className="brand-gradient-text block">别拿“先试试”当策略。</span>
+                  Enterprise AI implementation,
+                  <span className="brand-gradient-text block">do not mistake "let's just try it" for a strategy.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Comprehensive enterprise AI implementation framework based on $25K investment research. 这页保留原来的四阶段框架、最佳实践、成功案例和内部链接，只统一到当前浅色 Stripe-ish UI。
+                  Comprehensive enterprise AI implementation framework based on $25K investment research. This page keeps the original four-phase framework, best-practice cards, success stories, and internal links, and only aligns the shell with the current light Stripe-ish UI.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#framework" className="btn-brand inline-flex items-center gap-2">
-                    查看实施框架
+                    View implementation framework
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <a href="#best-practices" className="btn-secondary inline-flex items-center gap-2">
-                    查看最佳实践
+                    View best practices
                   </a>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
@@ -260,7 +260,7 @@ export default function EnterpriseAIImplementationPage() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">What this page keeps</div>
-                        <div className="text-xl font-semibold text-slate-950">结构不变，皮肤统一</div>
+                        <div className="text-xl font-semibold text-slate-950">Same structure, updated shell</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                         Practical
@@ -268,10 +268,10 @@ export default function EnterpriseAIImplementationPage() {
                     </div>
                     <div className="space-y-3">
                       {[
-                        '四阶段实施路线图',
-                        '六大最佳实践卡片',
-                        '三组企业成功案例',
-                        '保留 metadata / canonical / schema / internal links',
+                        'Four-phase implementation roadmap',
+                        'Six best-practice cards',
+                        'Three enterprise success-story groups',
+                        'Metadata, canonical, schema, and internal links remain intact',
                       ].map((item) => (
                         <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
                           <div className="flex items-start gap-3">
@@ -296,7 +296,7 @@ export default function EnterpriseAIImplementationPage() {
             </div>
             <h2 className="page-title text-3xl md:text-4xl">4-phase enterprise rollout</h2>
             <p className="page-lead mt-3 text-lg">
-              Current state assessment, pilot selection, scale-up planning, and long-term innovation — all in one practical sequence.
+              Current state assessment, pilot selection, scale-up planning, and long-term innovation, all in one practical sequence.
             </p>
           </div>
 
@@ -395,7 +395,7 @@ export default function EnterpriseAIImplementationPage() {
                 <h3 className="mb-3 text-xl font-semibold text-slate-950">{story.title}</h3>
                 <div className="space-y-2 text-sm text-slate-700">
                   {story.bullets.map((bullet) => (
-                    <p key={bullet}>• {bullet}</p>
+                    <p key={bullet}>- {bullet}</p>
                   ))}
                 </div>
                 <div className="mt-5 border-t border-slate-200/70 pt-4 text-sm text-slate-700">

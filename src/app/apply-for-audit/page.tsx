@@ -38,17 +38,17 @@ const relatedLinks = [
   {
     href: '/contact',
     title: 'Contact the BD team',
-    note: '需要定制范围或企业合作，就走这里。',
+    note: 'Use this path for custom scope or enterprise partnership discussions.',
   },
   {
     href: '/hosting/best-web-hosting',
     title: 'Best web hosting coverage',
-    note: '看看 SitePilot 现有 hosting 评测风格。',
+    note: 'Review how current SitePilot hosting coverage is framed.',
   },
   {
     href: '/methodology',
     title: 'Methodology',
-    note: '想看评测标准和方法，先读这个。',
+    note: 'Start here if you want the review standards and scoring method.',
   },
 ]
 
@@ -80,7 +80,7 @@ export default function ApplyForAudit() {
                   <span className="brand-gradient-text block">for platforms that want the receipts.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Apply for a technical audit to feature your platform on SitePilot.co. We keep the original offer intact: technical benchmarking, transparent review coverage, and a direct invoice path for standard audits — now in the current light Stripe-ish UI.
+                  Apply for a technical audit to feature your platform on SitePilot.co. We keep the original offer intact: technical benchmarking, transparent review coverage, and a direct invoice path for standard audits, now in the current light Stripe-ish UI.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a
@@ -231,7 +231,7 @@ export default function ApplyForAudit() {
             <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#7c3aed] p-8 text-white">
               <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Ready to be audited properly?</h3>
               <p className="mt-3 max-w-2xl text-white/85">
-                If your platform can stand up to technical scrutiny, ask for the invoice. If the scope is weird, talk to the BD team. 简单，直接，不演。
+                If your platform can stand up to technical scrutiny, ask for the invoice. If the scope is unusual, talk to the BD team. Keep it simple and direct.
               </p>
               <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                 <a

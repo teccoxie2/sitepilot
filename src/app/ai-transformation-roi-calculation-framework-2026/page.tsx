@@ -51,10 +51,10 @@ const heroStats = [
 ]
 
 const frameworkSignals = [
-  '只报一个 ROI 数字最省事，也最容易误导人。',
-  'AI 投资值不值，得同时看现金回报、效率变化、战略位置和人力影响。',
-  '如果 baseline 没立住，后面所有“提升”都可能只是幻觉。',
-  '真正成熟的 ROI 框架，不是让汇报更好看，是让资源分配更狠更准。',
+  'Reporting a single ROI number is easy, and that is exactly why it misleads people.',
+  'AI investment should be judged across cash returns, efficiency change, strategic position, and human-capital impact at the same time.',
+  'If the baseline is weak, every later “improvement” can turn into an illusion.',
+  'A mature ROI framework is not there to make slides prettier. It is there to make resource allocation sharper.',
 ]
 
 const pillars = [
@@ -81,36 +81,36 @@ const metricSections = [
     title: '1. Financial ROI metrics',
     tone: 'border-indigo-100 bg-indigo-50/80',
     blocks: [
-      'NPV、IRR、payback period 这些经典指标都要保留，别为了新潮把财务常识扔了。',
-      'Direct savings、revenue generation、investment costs、risk adjustments 都必须进模型。',
-      '时间跨度通常看 3-5 年，AI 项目如果只算第一年，判断很容易失真。',
+      'Keep the classic metrics like NPV, IRR, and payback period instead of dropping financial discipline for novelty.',
+      'Direct savings, revenue generation, investment costs, and risk adjustments all belong in the model.',
+      'Most ROI views need a three-to-five-year horizon. If you only measure year one, the answer gets distorted fast.',
     ],
   },
   {
     title: '2. Operational efficiency metrics',
     tone: 'border-sky-100 bg-sky-50/80',
     blocks: [
-      'Cycle time、throughput、first-pass yield、defect reduction、SLA achievement 都是实打实的价值。',
-      'Time savings 要乘 fully-loaded cost，不然你会把效率提升严重低估。',
-      '质量提升不能只看返工成本，还得看客户影响和信誉损失。',
+      'Cycle time, throughput, first-pass yield, defect reduction, and SLA achievement all represent real value.',
+      'Time savings need to be multiplied by fully loaded cost, or you will badly understate the gain.',
+      'Quality improvements are not just rework costs. Customer impact and reputation damage matter too.',
     ],
   },
   {
     title: '3. Strategic value metrics',
     tone: 'border-violet-100 bg-violet-50/80',
     blocks: [
-      'Innovation acceleration、market expansion、competitive differentiation 这些东西虽然难算，但不是不能算。',
-      'Market share impact、CLV improvement、option value、risk mitigation 都有可落地的量化路径。',
-      '战略价值不进表，组织就会天然偏爱短期项目。这个偏差很常见。',
+      'Innovation acceleration, market expansion, and competitive differentiation are hard to quantify, not impossible to quantify.',
+      'Market share impact, CLV improvement, option value, and risk mitigation can all be modeled in practical ways.',
+      'If strategic value never makes it into the table, the organization will default toward short-term projects. That bias is common.',
     ],
   },
   {
     title: '4. Human capital value',
     tone: 'border-amber-100 bg-amber-50/80',
     blocks: [
-      '员工生产率、满意度、留存率和组织敏捷性，都是 AI 转型的关键账。',
-      'Retention value 不能只看 HR 数据，要把 replacement cost 算进去。',
-      'Training ROI 通常被低估得离谱，因为很多公司把能力建设当成纯成本。',
+      'Employee productivity, satisfaction, retention, and organizational agility are all core AI transformation value pools.',
+      'Retention value cannot stop at HR metrics. Replacement cost needs to be included.',
+      'Training ROI is usually underestimated because too many companies treat capability building as pure cost.',
     ],
   },
 ]
@@ -171,11 +171,11 @@ export default function AITransformationROICalculationFramework2026Page() {
                   Enterprise AI ROI framework 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 转型 ROI 框架，
-                  <span className="brand-gradient-text block">别再拿一个数字糊弄董事会。</span>
+                  AI transformation ROI framework,
+                  <span className="brand-gradient-text block">Stop trying to brief the board with one number.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Enterprise AI transformation ROI should be measured across financial returns, operational improvements, strategic advantage, and human capital impact instead of pretending one headline savings number is enough. 这页保留原来的框架、基准、roadmap 和 CTA，只把视觉统一到当前浅色 Stripe-ish 系统。
+                  Enterprise AI transformation ROI should be measured across financial returns, operational improvements, strategic advantage, and human capital impact instead of pretending one headline savings number is enough. This page keeps the original framework, benchmarks, roadmap, and CTA structure while aligning the presentation to the current light Stripe-ish system.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
                   {heroStats.map((item) => (
@@ -194,7 +194,7 @@ export default function AITransformationROICalculationFramework2026Page() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Framework baseline</div>
-                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                        <div className="text-xl font-semibold text-slate-950">Four hard tests</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                         Multi-layer ROI
@@ -245,11 +245,11 @@ export default function AITransformationROICalculationFramework2026Page() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Industry benchmarks</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              行业基准不是答案，
-              <span className="brand-gradient-text block">但能让你少说很多废话。</span>
+              Benchmarks are not the answer,
+              <span className="brand-gradient-text block">but they cut down a lot of empty talk.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              原页的 benchmark 表我保留了核心数字和行业说明。别把它当保证书，但它至少能给你的预期装上护栏。
+              The original benchmark table keeps its core figures and industry notes. It is not a guarantee, but it does put guardrails around your assumptions.
             </p>
           </div>
           <div className="overflow-x-auto">
@@ -282,8 +282,8 @@ export default function AITransformationROICalculationFramework2026Page() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Implementation roadmap</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              ROI 测量要落地，
-              <span className="brand-gradient-text block">不是把公式贴进 PPT 就算完成。</span>
+              ROI measurement has to reach operations,
+              <span className="brand-gradient-text block">dropping formulas into slides is not implementation.</span>
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -316,7 +316,7 @@ export default function AITransformationROICalculationFramework2026Page() {
                 Maximize your AI transformation ROI
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                这页 CTA 的意思我保留了：如果你真要做 ROI 体系，最好别停在“我们感觉 AI 很有价值”。感觉不值钱，测量才值钱。
+                The CTA intent stays the same: if you are serious about building an ROI system, do not stop at “we feel AI is valuable.” Feeling is cheap. Measurement is what counts.
               </p>
             </div>
             <div className="space-y-4">

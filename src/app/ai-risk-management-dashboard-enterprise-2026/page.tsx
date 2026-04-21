@@ -4,25 +4,25 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  '保留风险仪表板、监控指标、威胁记录、合规状态与 CTA',
-  '保留 7 层防护体系与安全性能指标叙事',
-  '统一到当前浅色 Stripe-ish 视觉系统',
-  '保留所有内部链接和风险信息结构',
+  'Keeps the risk dashboard, monitoring metrics, threat log, compliance status, and CTA intact',
+  'Keeps the seven-layer protection model and security performance narrative intact',
+  'Aligns the page to the current light Stripe-ish visual system',
+  'Preserves the internal links and risk-information structure',
 ]
 
 const statCards = [
-  { value: '低风险', label: 'Risk Rating', note: '七日内无高风险事件。' },
-  { value: '98.5%', label: 'Compliance', note: 'GDPR, SOX, HIPAA 追踪中。' },
-  { value: '247', label: 'Assets Monitored', note: '模型与端点持续监控。' },
-  { value: '1,247', label: 'Threat Blocks', note: '本月阻断次数。' },
+  { value: 'Low risk', label: 'Risk Rating', note: 'No high-risk events in the last 7 days.' },
+  { value: '98.5%', label: 'Compliance', note: 'GDPR, SOX, and HIPAA tracking remains active.' },
+  { value: '247', label: 'Assets Monitored', note: 'Models and endpoints stay under continuous monitoring.' },
+  { value: '1,247', label: 'Threat Blocks', note: 'Blocks recorded this month.' },
 ]
 
 const relatedLinks = [
-  { href: '/ai-governance-compliance-framework-2026', title: 'AI Governance Framework', note: '治理和风险要一起管。' },
-  { href: '/tools/ai-compliance-audit-2026', title: 'AI Compliance Audit', note: '更深的合规检查。' },
-  { href: '/ai-implementation-success-framework-2026', title: 'Implementation Success Framework', note: '把风险控制接到实施流程。' },
-  { href: '/ai-security-framework-enterprise-2026', title: 'AI Security Framework', note: '看安全框架的主线页。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+  { href: '/ai-governance-compliance-framework-2026', title: 'AI Governance Framework', note: 'Governance and risk belong in the same operating model.' },
+  { href: '/tools/ai-compliance-audit-2026', title: 'AI Compliance Audit', note: 'Run a deeper compliance review.' },
+  { href: '/ai-implementation-success-framework-2026', title: 'Implementation Success Framework', note: 'Connect risk controls to the delivery process.' },
+  { href: '/ai-security-framework-enterprise-2026', title: 'AI Security Framework', note: 'See the main security framework page.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a consultative review if you need one.' },
 ] as const
 
 export default function AIRiskManagementDashboardPage() {
@@ -58,11 +58,11 @@ export default function AIRiskManagementDashboardPage() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     AI Risk Management Dashboard Enterprise 2026
-                    <span className="brand-gradient-text block">把安全、合规和威胁状况一起看明白。</span>
+                    <span className="brand-gradient-text block">See security, compliance, and threat posture in one place.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留原始的风险评分、监控指标、告警列表、防护体系和 CTA，只把外观统一到当前浅色 Stripe-ish 系统。
+                    This page keeps the original risk scores, monitoring metrics, alert list, protection model, and CTA, and only aligns the shell to the current light Stripe-ish system.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -101,10 +101,10 @@ export default function AIRiskManagementDashboardPage() {
 
                       <div className="grid gap-3">
                         {[
-                          ['Metrics', '风险等级、合规状态、设备、拦截次数继续保留。'],
-                          ['Threats', '实时威胁记录和状态更新仍然可见。'],
-                          ['Controls', '快速操作和安全策略依旧在场。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['Metrics', 'Risk rating, compliance status, asset counts, and block counts all stay visible.'],
+                          ['Threats', 'Real-time threat records and status updates remain visible.'],
+                          ['Controls', 'Quick actions and security policy controls are still in place.'],
+                          ['UI system', 'Now aligned to the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -118,7 +118,7 @@ export default function AIRiskManagementDashboardPage() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          风险页应该像报警器，不应该像红色烟花秀。
+                          A risk page should behave like an alarm panel, not a red fireworks show.
                         </div>
                       </div>
                     </div>
@@ -147,10 +147,10 @@ export default function AIRiskManagementDashboardPage() {
                 Monitoring dashboard
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                用一套干净的仪表盘，把 AI 风险讲清楚。
+                Use one clean dashboard to explain AI risk.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                这不是换个皮肤而已，是把“谁在报警、谁在挨打、谁要负责”看得更清楚。
+                This is not just a reskin. It makes it clearer who is alerting, who is exposed, and who is accountable.
               </p>
             </div>
 
@@ -160,10 +160,10 @@ export default function AIRiskManagementDashboardPage() {
                   <h3 className="text-2xl font-semibold text-slate-950">Risk metrics snapshot</h3>
                   <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                     {[
-                      ['Risk Rating', '低风险', '7日内无高风险事件'],
+                      ['Risk Rating', 'Low risk', 'No high-risk events in the last 7 days'],
                       ['Compliance', '98.5%', 'GDPR, SOX, HIPAA'],
-                      ['Assets Monitored', '247', 'AI 模型与端点'],
-                      ['Threat Blocks', '1,247', '本月阻断次数'],
+                      ['Assets Monitored', '247', 'AI models and endpoints'],
+                      ['Threat Blocks', '1,247', 'Blocks this month'],
                     ].map(([label, value, note]) => (
                       <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
                         <div className="text-sm text-slate-600">{label}</div>
@@ -178,7 +178,7 @@ export default function AIRiskManagementDashboardPage() {
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <div className="text-sm text-slate-500">7-layer protection</div>
-                      <h3 className="text-2xl font-semibold text-slate-950">7层防护体系</h3>
+                      <h3 className="text-2xl font-semibold text-slate-950">7-layer protection model</h3>
                     </div>
                     <div className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
                       monitored
@@ -187,10 +187,10 @@ export default function AIRiskManagementDashboardPage() {
 
                   <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     {[
-                      { title: '数据安全', desc: 'PII保护、加密传输、访问控制', icon: Lock },
-                      { title: '模型安全', desc: '模型完整性、输出验证', icon: Shield },
-                      { title: '基础设施', desc: '云环境、网络安全、端点防护', icon: Zap },
-                      { title: '合规监管', desc: 'GDPR、SOX、HIPAA 合规', icon: Users },
+                      { title: 'Data security', desc: 'PII protection, encrypted transport, and access control', icon: Lock },
+                      { title: 'Model security', desc: 'Model integrity and output validation', icon: Shield },
+                      { title: 'Infrastructure', desc: 'Cloud environment, network security, and endpoint protection', icon: Zap },
+                      { title: 'Compliance', desc: 'GDPR, SOX, and HIPAA controls', icon: Users },
                     ].map((item) => (
                       <div key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
                         <item.icon className="h-5 w-5 text-[#635bff]" />
@@ -208,7 +208,7 @@ export default function AIRiskManagementDashboardPage() {
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <div className="text-sm text-slate-500">Latest events</div>
-                        <div className="text-xl font-semibold text-slate-950">实时威胁监控</div>
+                        <div className="text-xl font-semibold text-slate-950">Real-time threat monitoring</div>
                       </div>
                       <div className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
                         live feed
@@ -217,10 +217,10 @@ export default function AIRiskManagementDashboardPage() {
 
                     <div className="grid gap-3">
                       {[
-                        ['数据访问模式异常', 'AI模型training-v2.3异常访问敏感数据集', '已自动隔离'],
-                        ['API调用频率超限', 'third-party-connector超出每分钟1000次限制', '需要审查'],
-                        ['模型输出数据泄露风险', 'customer-analysis-ai尝试输出PII数据', '紧急阻断'],
-                        ['权限配置更新', 'user@company.com权限降级为只读', '已完成'],
+                        ['Unusual data access pattern', 'AI model training-v2.3 attempted abnormal access to a sensitive dataset', 'Auto-isolated'],
+                        ['API call rate exceeded', 'third-party-connector exceeded the 1000 requests-per-minute threshold', 'Needs review'],
+                        ['Model output data-leakage risk', 'customer-analysis-ai attempted to output PII data', 'Emergency block'],
+                        ['Permission configuration updated', 'user@company.com was downgraded to read-only access', 'Completed'],
                       ].map(([title, note, status]) => (
                         <div key={title} className="rounded-2xl border border-slate-200 bg-white p-4">
                           <div className="flex items-center justify-between gap-4">
@@ -268,7 +268,7 @@ export default function AIRiskManagementDashboardPage() {
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {[
                   ['Threat detection rate', '99.8%'],
-                  ['Average response time', '<30秒'],
+                  ['Average response time', '<30 sec'],
                   ['24/7 monitoring', 'Always on'],
                   ['Data leakage events', '0'],
                 ].map(([label, value]) => (
@@ -286,7 +286,7 @@ export default function AIRiskManagementDashboardPage() {
                 Quick actions
               </div>
               <div className="mt-4 grid gap-3">
-                {['生成风险报告', '更新安全策略', '配置告警规则'].map((label) => (
+                {['Generate risk report', 'Update security policy', 'Configure alert rules'].map((label) => (
                   <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm font-medium text-slate-800">
                     {label}
                   </div>
@@ -298,13 +298,13 @@ export default function AIRiskManagementDashboardPage() {
           <section className="mt-16 text-center">
             <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#7c3aed] p-8 text-white">
-                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">增强您的 AI 安全防护</h3>
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Strengthen your AI security posture</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  如果你要把这个风险管理仪表盘接到更大的治理、合规和安全流程里，SitePilot 可以继续往下接。
+                  If you want to connect this risk management dashboard into a broader governance, compliance, and security workflow, SitePilot can take it further.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/tools/ai-compliance-audit-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
-                    免费安全评估
+                    Free security assessment
                   </Link>
                   <Link href="/ai-security-framework-enterprise-2026" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15">
                     Security framework

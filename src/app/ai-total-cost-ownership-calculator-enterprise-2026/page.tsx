@@ -47,59 +47,59 @@ export const metadata: Metadata = {
 }
 
 const heroStats = [
-  { value: '$670K', label: '示例 Year 1 总成本' },
-  { value: '$1.405M', label: '示例 5 年 TCO' },
-  { value: '340%', label: '示例 ROI' },
-  { value: '18个月', label: '示例回本周期' },
+  { value: '$670K', label: 'Example year-one total cost' },
+  { value: '$1.405M', label: 'Example five-year TCO' },
+  { value: '340%', label: 'Example ROI' },
+  { value: '18 months', label: 'Example payback period' },
 ]
 
 const tcoSignals = [
-  'AI 项目最会骗人的地方，就是大家只盯 license 价格，不看后面的组织成本。',
-  '如果培训、治理、兼容性和维护没进模型，那个预算基本就是乐观主义文学。',
-  'TCO 不只是财务数字，它决定这个项目是战略资产还是昂贵摆设。',
-  '先算全成本，再谈 ROI，顺序反了通常会很惨。',
+  'The most misleading part of AI projects is how often teams stare at license fees and ignore the organizational cost behind them.',
+  'If training, governance, compatibility, and maintenance are missing from the model, the budget is usually just optimism in spreadsheet form.',
+  'TCO is not only a finance number. It determines whether the project becomes a strategic asset or an expensive prop.',
+  'Calculate full cost before you start arguing about ROI. Reversing that order usually ends badly.',
 ]
 
 const initialCosts = [
-  'AI 软件许可',
-  '基础设施与硬件',
-  '实施服务',
-  '培训与变革管理',
+  'AI software licenses',
+  'Infrastructure and hardware',
+  'Implementation services',
+  'Training and change management',
 ]
 
 const ongoingCosts = [
-  '维护与支持',
-  '云与算力成本',
-  '新增人力与持续培训',
-  '合规与安全治理',
+  'Maintenance and support',
+  'Cloud and compute costs',
+  'Additional staffing and ongoing training',
+  'Compliance and security governance',
 ]
 
 const hiddenCosts = [
   {
-    title: '技术隐性成本',
-    items: ['数据迁移与集成', '旧系统兼容性改造', '安全与合规升级', '监控与可观测性工具'],
+    title: 'Hidden technical costs',
+    items: ['Data migration and integration', 'Legacy-system compatibility work', 'Security and compliance upgrades', 'Monitoring and observability tooling'],
   },
   {
-    title: '组织隐性成本',
-    items: ['员工阻力与流失', '流程重设计', '延长培训周期', '短期生产率下滑'],
+    title: 'Hidden organizational costs',
+    items: ['Employee resistance and attrition', 'Process redesign', 'Extended training cycles', 'Short-term productivity decline'],
   },
 ]
 
 const optimizationStrategies = [
   {
-    title: '降低初始成本',
+    title: 'Reduce upfront cost',
     icon: Clock,
     items: [
-      '分阶段实施，把一次性投入拆成可控波次。',
-      '优先 cloud-first，避免过早砸重资产。',
+      'Use phased implementation so one-time spend is broken into controlled waves.',
+      'Prefer a cloud-first setup to avoid committing too early to heavy fixed assets.',
     ],
   },
   {
-    title: '最大化 ROI',
+    title: 'Maximize ROI',
     icon: TrendingUp,
     items: [
-      '优先切高影响流程，不要什么都一起上。',
-      '持续 review，别把第一次上线当成最后答案。',
+      'Prioritize high-impact workflows instead of trying to launch everything at once.',
+      'Keep reviewing the rollout instead of treating the first launch as the final answer.',
     ],
   },
 ]
@@ -108,12 +108,12 @@ const relatedLinks = [
   {
     href: '/ai-implementation-cost-calculator-enterprise-2026',
     title: 'Implementation cost calculator',
-    description: '先算初始实施开销。',
+    description: 'Model the upfront implementation spend first.',
   },
   {
     href: '/ai-automation-roi-measurement-2026',
     title: 'AI ROI measurement',
-    description: '上线后继续量化自动化回报。',
+    description: 'Keep measuring automation returns after launch.',
   },
 ]
 
@@ -146,21 +146,21 @@ export default function AITotalCostOwnershipCalculatorPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 总拥有成本，
-                  <span className="brand-gradient-text block">别只算订阅费那点皮毛。</span>
+                  AI Total Cost of Ownership
+                  <span className="brand-gradient-text block">Do not stop at the subscription line item.</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Enterprise AI total cost of ownership should include software, infrastructure, implementation, training, maintenance, compliance, and hidden organizational drag instead of pretending the subscription line item is the whole story. 这页保留原有 TCO 结构、5 年成本视角、优化策略和内部链接，只统一到当前浅色 Stripe-ish UI。
+                  Enterprise AI total cost of ownership should include software, infrastructure, implementation, training, maintenance, compliance, and hidden organizational drag instead of pretending the subscription line item is the whole story. This page keeps the original TCO structure, five-year cost view, optimization strategy, and internal links while aligning the layout to the current light Stripe-ish UI.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
                   <Link href="/ai-implementation-cost-calculator-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
-                    查看实施成本
+                    Review implementation costs
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link href="/ai-automation-roi-measurement-2026" className="btn-secondary inline-flex items-center gap-2">
-                    查看 ROI 量化
+                    Review ROI measurement
                   </Link>
                 </div>
 
@@ -181,10 +181,10 @@ export default function AITotalCostOwnershipCalculatorPage() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Financial baseline</div>
-                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                        <div className="text-xl font-semibold text-slate-950">Four non-negotiable checks</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                        全成本视角
+                        Full-cost perspective
                       </div>
                     </div>
                     <div className="space-y-3">
@@ -210,7 +210,7 @@ export default function AITotalCostOwnershipCalculatorPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <Calculator className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">初始投资成本</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Upfront investment costs</h2>
             </div>
             <div className="space-y-4">
               {initialCosts.map((item) => (
@@ -226,7 +226,7 @@ export default function AITotalCostOwnershipCalculatorPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <DollarSign className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">年度持续成本</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Annual ongoing costs</h2>
             </div>
             <div className="space-y-4">
               {ongoingCosts.map((item) => (
@@ -240,9 +240,9 @@ export default function AITotalCostOwnershipCalculatorPage() {
 
         <section className="grid gap-6 md:grid-cols-3 mb-16">
           {[
-            { title: 'Year 1 costs', icon: DollarSign, tone: 'bg-indigo-50/80 border-indigo-100', lines: ['初始投资：$425,000', '持续成本：$245,000', '总计：$670,000'] },
-            { title: '5-year TCO', icon: BarChart3, tone: 'bg-sky-50/80 border-sky-100', lines: ['总投资：$1,405,000', '平均年成本：$281,000', 'ROI：340%'] },
-            { title: 'Break-even', icon: TrendingUp, tone: 'bg-violet-50/80 border-violet-100', lines: ['回本周期：18个月', 'Year 3+ 净收益：$890K', 'NPV：$2.4M'] },
+            { title: 'Year 1 costs', icon: DollarSign, tone: 'bg-indigo-50/80 border-indigo-100', lines: ['Upfront investment: $425,000', 'Ongoing costs: $245,000', 'Total: $670,000'] },
+            { title: '5-year TCO', icon: BarChart3, tone: 'bg-sky-50/80 border-sky-100', lines: ['Total investment: $1,405,000', 'Average annual cost: $281,000', 'ROI: 340%'] },
+            { title: 'Break-even', icon: TrendingUp, tone: 'bg-violet-50/80 border-violet-100', lines: ['Payback period: 18 months', 'Year 3+ net benefit: $890K', 'NPV: $2.4M'] },
           ].map((card) => {
             const Icon = card.icon
             return (
@@ -290,11 +290,11 @@ export default function AITotalCostOwnershipCalculatorPage() {
           <div className="page-card-glow p-8 md:p-12 surface-muted">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Optimization strategies</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              降成本和提 ROI，
-              <span className="brand-gradient-text block">都得按顺序来。</span>
+              Lowering cost and lifting ROI
+              <span className="brand-gradient-text block">Both depend on doing the work in the right order.</span>
             </h2>
             <p className="mb-8 text-lg leading-relaxed text-slate-600">
-              原页的优化策略我保留了：先控制初始投入，再聚焦高影响场景，最后做持续优化。没有这个顺序，很多团队会在“AI 转型”四个字里烧掉一堆真金白银。
+              The original optimization sequence stays intact: control initial spend first, then focus on high-impact use cases, then optimize continuously. Without that order, many teams burn a lot of real money chasing the phrase "AI transformation."
             </p>
             <div className="grid gap-4 md:grid-cols-2">
               {optimizationStrategies.map((group) => {
@@ -344,7 +344,7 @@ export default function AITotalCostOwnershipCalculatorPage() {
                 <h3 className="text-lg font-semibold text-slate-950">Next move</h3>
               </div>
               <p className="text-sm leading-7 text-slate-600">
-                真要算 TCO，就把软件、硬件、实施、培训、维护、安全、合规和人力波动全拉进一个表。少一列，结果都可能从决策模型变成自我安慰。
+                If you want a real TCO model, pull software, hardware, implementation, training, maintenance, security, compliance, and workforce variability into the same sheet. Miss one column and the model turns into self-soothing.
               </p>
             </div>
           </div>
@@ -361,7 +361,7 @@ export default function AITotalCostOwnershipCalculatorPage() {
                 Need expert TCO analysis?
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                页面还是原来的意思：如果你的企业正在算 AI 财务模型，最好别一个人瞎猜。至少把 TCO 和 ROI 放在同一张图里看，不然预算审批大概率会被现实狠狠干翻。
+                The underlying message stays the same: if your team is modeling enterprise AI finances, do not guess alone. At minimum, look at TCO and ROI in the same frame or reality will likely tear the budget approval apart.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">

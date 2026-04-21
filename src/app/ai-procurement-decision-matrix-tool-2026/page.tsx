@@ -5,10 +5,10 @@ import RelatedLinks from '@/components/RelatedLinks'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  '保留原始的评分维度、workflow、FAQ schema 和 RelatedLinks',
-  '保留采购、治理、安全、价格和实施风险的判断逻辑',
-  '统一到当前浅色 Stripe-ish UI',
-  '保留所有内部链接，不动导航骨架',
+  'Keeps the original scoring dimensions, workflow, FAQ schema, and RelatedLinks.',
+  'Preserves the procurement, governance, security, pricing, and implementation risk logic.',
+  'Aligns the page with the current light Stripe-ish UI.',
+  'Keeps all internal links and leaves the navigation skeleton intact.',
 ]
 
 const dimensions = [
@@ -99,11 +99,11 @@ export default function AIProcurementDecisionMatrixToolPage() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     AI Procurement Decision Matrix Tool 2026
-                    <span className="brand-gradient-text block">把采购争论变成可追溯的分数。</span>
+                    <span className="brand-gradient-text block">Turn procurement debates into traceable scores.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留原始的加权维度、评分尺度、工作流、FAQ schema 和相关链接，只把外壳统一到现在的浅色 Stripe-ish 风格。
+                    This page keeps the original weighted dimensions, scoring scale, workflow, FAQ schema, and related links, and only aligns the shell with the current light Stripe-ish style.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -142,10 +142,10 @@ export default function AIProcurementDecisionMatrixToolPage() {
 
                       <div className="grid gap-3">
                         {[
-                          ['Inputs', '企业规模、治理约束、预算、架构偏好、实施时长。'],
-                          ['Outputs', '加权分数、短名单排序和采购建议。'],
-                          ['Evidence', '所有评分都要落在证据，而不是演示幻觉上。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['Inputs', 'Company size, governance constraints, budget, architecture preferences, and rollout timing.'],
+                          ['Outputs', 'Weighted scores, shortlist ranking, and procurement guidance.'],
+                          ['Evidence', 'Every score should be grounded in evidence, not demo theater.'],
+                          ['UI system', 'Aligned with the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -159,7 +159,7 @@ export default function AIProcurementDecisionMatrixToolPage() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          采购决策别靠 vibe。这个 matrix 的作用就是把 vibe 干掉。
+                          Procurement decisions should not run on vibe. This matrix exists to remove it.
                         </div>
                       </div>
                     </div>
@@ -172,10 +172,10 @@ export default function AIProcurementDecisionMatrixToolPage() {
           <section className="space-y-8">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {[
-                { value: '8', label: 'Weighted dimensions', note: '采购矩阵的八个核心维度。' },
-                { value: '5%', label: 'Risk weight', note: '风险权重单独拎出来。' },
-                { value: '3', label: 'Score bands', note: 'Strong、Baseline、High Risk。' },
-                { value: '7', label: 'Related links', note: '内部导航保持完整。' },
+                { value: '8', label: 'Weighted dimensions', note: 'Eight core dimensions in the procurement matrix.' },
+                { value: '5%', label: 'Risk weight', note: 'Risk weighting is separated out explicitly.' },
+                { value: '3', label: 'Score bands', note: 'Strong, Baseline, and High Risk.' },
+                { value: '7', label: 'Related links', note: 'Internal navigation stays intact.' },
               ].map((card) => (
                 <div key={card.label} className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                   <div className="text-3xl font-semibold tracking-tight text-slate-950">{card.value}</div>
@@ -193,10 +193,10 @@ export default function AIProcurementDecisionMatrixToolPage() {
                 Decision matrix
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                先把采购因素拆开，再让证据自己说话。
+                Break the procurement factors apart, then let the evidence speak.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                这不是为了复杂而复杂，而是为了避免 demo 现场把人哄晕。每个维度都要能追溯到证据、合同、流程或测试结果。
+                The point is not complexity for its own sake. It is to stop the live demo from overwhelming the room. Every dimension should trace back to evidence, contracts, workflows, or test results.
               </p>
             </div>
 
@@ -286,9 +286,9 @@ export default function AIProcurementDecisionMatrixToolPage() {
                 <Shield className="h-4 w-4" />
                 FAQ schema
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">采购矩阵不是摆设，是防踩坑工具。</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">The procurement matrix is not decorative. It keeps teams out of avoidable traps.</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                FAQ 结构化数据继续保留，能不能帮 SEO 也许不该用玄学承诺，但至少内容结构是完整的。
+                The FAQ structured data stays in place. Whether it helps SEO is not something to romanticize, but the content structure remains intact.
               </p>
             </div>
 
@@ -300,7 +300,7 @@ export default function AIProcurementDecisionMatrixToolPage() {
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#7c3aed] p-8 text-white">
                 <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Need a procurement decision framework?</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  如果你要把这个矩阵接到更大的采购、尽调和 pilot 流程里，SitePilot 可以继续往下接。
+                  If you want to connect this matrix to a broader procurement, due diligence, and pilot workflow, SitePilot can take the process further.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
@@ -314,7 +314,7 @@ export default function AIProcurementDecisionMatrixToolPage() {
             </div>
 
             <div className="mt-6 text-sm text-slate-600">
-              <p>© 2026 SitePilot. AI procurement decision matrix tool.</p>
+              <p>(c) 2026 SitePilot. AI procurement decision matrix tool.</p>
               <p className="mt-1">Evidence-first vendor evaluation for enterprise teams.</p>
             </div>
           </section>

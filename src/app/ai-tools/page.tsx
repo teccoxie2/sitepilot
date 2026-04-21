@@ -41,11 +41,11 @@ const hubSignals = [
 ]
 
 const resourceLinks = [
-  { href: '/ai-tools-cost-benefit-analysis-2026', title: 'Cost-benefit analysis', note: '把投资和收益放在一起看。' },
-  { href: '/ai-tools-budget-planning-enterprise-2026', title: 'Budget planning', note: '做预算，不是拍脑袋。' },
-  { href: '/ai-tools-risk-assessment-enterprise-2026', title: 'Risk framework', note: '先看风险，再看热度。' },
-  { href: '/ai-tools-security-compliance-checklist-2026', title: 'Security compliance', note: '合规别漏掉。' },
-  { href: '/ai-tools-usage-tracking-dashboard-2026', title: 'Usage tracking', note: '落地之后要能追踪。' },
+  { href: '/ai-tools-cost-benefit-analysis-2026', title: 'Cost-benefit analysis', note: 'Evaluate investment and return in the same frame.' },
+  { href: '/ai-tools-budget-planning-enterprise-2026', title: 'Budget planning', note: 'Build a budget with evidence instead of guesswork.' },
+  { href: '/ai-tools-risk-assessment-enterprise-2026', title: 'Risk framework', note: 'Score risk before you chase hype.' },
+  { href: '/ai-tools-security-compliance-checklist-2026', title: 'Security compliance', note: 'Keep security and compliance inside the buying process.' },
+  { href: '/ai-tools-usage-tracking-dashboard-2026', title: 'Usage tracking', note: 'Track adoption and value after rollout.' },
 ] as const
 
 export default function AiToolsHub2026() {
@@ -83,7 +83,7 @@ export default function AiToolsHub2026() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     AI tools hub,
-                    <span className="brand-gradient-text block">把预算规划、评测和实施收进同一套系统。</span>
+                    <span className="brand-gradient-text block">Bring budgeting, evaluation, and implementation into one operating system.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">

@@ -217,18 +217,18 @@ export default function AITrainingROICalculator() {
                   AI training ROI calculator 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 培训 ROI 计算器，
-                  <span className="brand-gradient-text block">别再把学习项目当成本黑洞。</span>
+                  AI training ROI calculator,
+                  <span className="brand-gradient-text block">Stop treating learning programs like bottomless cost centers.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  这页保留原有四步计算流程、行业系数、ROI 逻辑、结果指标和内部链接，只把交互界面统一到当前浅色 Stripe-ish 系统。L&D 页面也该像产品，不该像旧式企业表单墓地。
+                  This page keeps the original four-step flow, industry multipliers, ROI logic, result metrics, and internal links, and only brings the experience into the current light Stripe-ish system. L&D pages should feel like products, not archived enterprise forms.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
                   {[
-                    ['8 分钟', '完成一次定制化测算'],
-                    ['4 步', '组织信息到 ROI 结果'],
-                    ['280%', '示例年内平均 ROI'],
-                    ['68%', '示例完成率提升'],
+                    ['8 min', 'Time to complete a tailored estimate'],
+                    ['4 steps', 'From org inputs to ROI output'],
+                    ['280%', 'Illustrative first-year ROI'],
+                    ['68%', 'Illustrative completion-rate lift'],
                   ].map(([value, label]) => (
                     <div key={label} className="page-card bg-white/90 p-4">
                       <div className="mb-1 text-3xl font-semibold tracking-[-0.04em] text-slate-950">{value}</div>
@@ -245,18 +245,18 @@ export default function AITrainingROICalculator() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Calculator frame</div>
-                        <div className="text-xl font-semibold text-slate-950">你会得到什么</div>
+                        <div className="text-xl font-semibold text-slate-950">What you get</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                        可执行结果
+                        Actionable output
                       </div>
                     </div>
                     <div className="space-y-3">
                       {[
-                        '年度节省额、实施成本和 ROI',
-                        '回本周期、效率提升和完成率改善',
-                        '学习速度、参与度和知识保留改善',
-                        '风险等级与建议实施时间窗',
+                        'Annual savings, implementation cost, and ROI',
+                        'Payback period, efficiency lift, and completion-rate improvement',
+                        'Learning-speed, engagement, and retention improvement',
+                        'Risk level and recommended implementation window',
                       ].map((item) => (
                         <div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4 text-sm text-slate-600">
                           {item}
@@ -293,7 +293,7 @@ export default function AITrainingROICalculator() {
               <div>
                 <div className="mb-8">
                   <h2 className="mb-2 text-3xl font-semibold tracking-[-0.03em] text-slate-950">Organization details</h2>
-                  <p className="text-slate-600">先把组织规模、预算和行业说清楚，后面结果才不至于瞎飘。</p>
+                  <p className="text-slate-600">Define scale, budget, and industry first so the results stop floating.</p>
                 </div>
                 <div className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -329,7 +329,7 @@ export default function AITrainingROICalculator() {
               <div>
                 <div className="mb-8">
                   <h2 className="mb-2 text-3xl font-semibold tracking-[-0.03em] text-slate-950">Current training program</h2>
-                  <p className="text-slate-600">看清现在的训练方式、时间投入和完成率，才知道 AI 能不能真帮上忙。</p>
+                  <p className="text-slate-600">Understand the current training mix, time investment, and completion rate before deciding whether AI can help.</p>
                 </div>
                 <div className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -370,7 +370,7 @@ export default function AITrainingROICalculator() {
               <div>
                 <div className="mb-8">
                   <h2 className="mb-2 text-3xl font-semibold tracking-[-0.03em] text-slate-950">Challenges & goals</h2>
-                  <p className="text-slate-600">把当前问题和目标挑出来，结果才会更像决策工具，不像算命。</p>
+                  <p className="text-slate-600">Select the current pain points and desired outcomes so the result behaves like a decision tool instead of a horoscope.</p>
                 </div>
                 <div className="space-y-6">
                   <div>
@@ -419,13 +419,13 @@ export default function AITrainingROICalculator() {
                   <div className="py-20 text-center">
                     <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-[#635bff]" />
                     <h3 className="mb-2 text-xl font-semibold text-slate-950">Analyzing your L&D optimization potential</h3>
-                    <p className="text-slate-600">在算训练效率、完成率、时间节省和财务影响。别急，几秒钟。</p>
+                    <p className="text-slate-600">Estimating training efficiency, completion lift, time savings, and financial impact. This only takes a few seconds.</p>
                   </div>
                 ) : results ? (
                   <div>
                     <div className="mb-8">
                       <h2 className="mb-2 text-3xl font-semibold tracking-[-0.03em] text-slate-950">Your AI training ROI analysis</h2>
-                      <p className="text-slate-600">下面这些结果保留原始计算逻辑，只把展示方式整理得更像一个靠谱工具。</p>
+                      <p className="text-slate-600">These outputs keep the original calculation logic and package it in a cleaner, more credible tool interface.</p>
                     </div>
 
                     <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -507,7 +507,7 @@ export default function AITrainingROICalculator() {
 
                     <div className="border-t border-slate-200 pt-8">
                       <h3 className="mb-3 text-lg font-semibold text-slate-950">Ready to transform your L&D program?</h3>
-                      <p className="mb-6 text-slate-600">下一步很简单：拿这些结果去做实施策略，不要把它们埋进下载文件夹吃灰。</p>
+                      <p className="mb-6 text-slate-600">Next step is simple: use these results in an implementation plan instead of burying them in a downloads folder.</p>
                       <div className="flex flex-col gap-4 sm:flex-row">
                         <Link href="/ai-tool-implementation-strategy-2026" className="btn-brand inline-flex items-center justify-center gap-2">
                           <Calendar className="h-4 w-4" />
@@ -529,7 +529,7 @@ export default function AITrainingROICalculator() {
         <section className="mt-16 page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 p-8 shadow-sm">
           <div className="mb-8 text-center">
             <h2 className="mb-4 text-2xl font-semibold text-white">Proven results from L&D leaders</h2>
-            <p className="text-slate-300">原来的成功指标保留：完成率、时间缩减、年内 ROI。只是终于没那么像十年前的黑底宣传页。</p>
+            <p className="text-slate-300">The original success metrics stay intact: completion rate, time reduction, and first-year ROI. The page just no longer looks trapped in a 2014 campaign microsite.</p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[

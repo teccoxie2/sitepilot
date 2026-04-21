@@ -163,11 +163,11 @@ export default function EnterpriseAIROICalculationModelClient() {
                   4-dimension ROI assessment
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  Enterprise AI ROI model，
-                  <span className="brand-gradient-text block">别拿“感觉会回本”糊弄财务。</span>
+                  Enterprise AI ROI model,
+                  <span className="brand-gradient-text block">Stop asking finance to trust a vague payback story.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Comprehensive ROI calculation model based on analysis of 1,000+ enterprise AI implementations. 这页保留原来的计算逻辑、行业基准和详细拆分，只统一到当前浅色 Stripe-ish UI。
+                  Comprehensive ROI calculation model based on analysis of 1,000+ enterprise AI implementations. This page keeps the original calculation logic, industry benchmarks, and detailed breakdowns while aligning the presentation to the current light Stripe-ish UI.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#calculator" className="btn-brand inline-flex items-center gap-2">
@@ -399,9 +399,9 @@ export default function EnterpriseAIROICalculationModelClient() {
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {[
-              ['/enterprise-ai-implementation-best-practices-2026', 'Implementation guide', '和实施框架搭配看。'],
-              ['/enterprise-ai-roi-optimization-framework-2026', 'ROI optimization framework', '看更完整的优化框架。'],
-              ['/enterprise-ai-budget-optimization-calculator', 'Budget optimization calculator', '先把预算和 ROI 对齐。'],
+              ['/enterprise-ai-implementation-best-practices-2026', 'Implementation guide', 'Pair it with the implementation framework.'],
+              ['/enterprise-ai-roi-optimization-framework-2026', 'ROI optimization framework', 'See the broader optimization framework.'],
+              ['/enterprise-ai-budget-optimization-calculator', 'Budget optimization calculator', 'Align budget assumptions with ROI first.'],
             ].map(([href, title, note]) => (
               <Link key={href} href={href} className="page-card group p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
                 <div className="mb-3 text-lg font-semibold text-slate-950 group-hover:text-[#635bff]">{title}</div>

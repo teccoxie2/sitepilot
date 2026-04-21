@@ -28,25 +28,25 @@ interface Results {
 }
 
 const heroSignals = [
-  '保留原有的员工、工具数、月度支出与效果输入',
-  '保留性能指数、ROI、建议和风险提示输出',
-  '统一到当前浅色 Stripe-ish UI 风格',
-  '保持用户能继续做 AI 实施监控和优化判断',
+  'Keeps the original employee, tool count, monthly spend, and outcome inputs.',
+  'Keeps the performance index, ROI, recommendations, and risk alert outputs.',
+  'Aligns the page with the current light Stripe-ish UI style.',
+  'Preserves the ability to monitor and optimize AI implementation decisions.',
 ]
 
 const statCards = [
-  { label: 'Performance visibility', value: 'Real-time', note: '看得到才有得管。' },
-  { label: 'ROI focus', value: 'Optimization', note: '把花的钱和拿到的价值连起来。' },
-  { label: 'Adoption tracking', value: 'Enterprise', note: '使用率不是装饰品。' },
-  { label: 'Decision level', value: 'Executive', note: '给管理层看的，不是给仪表盘看的。' },
+  { label: 'Performance visibility', value: 'Real-time', note: 'You can only manage what you can actually see.' },
+  { label: 'ROI focus', value: 'Optimization', note: 'Tie what you spend to the value you get back.' },
+  { label: 'Adoption tracking', value: 'Enterprise', note: 'Usage is not a decorative metric.' },
+  { label: 'Decision level', value: 'Executive', note: 'This is built for management decisions, not dashboard theater.' },
 ]
 
 const internalLinks = [
-  { href: '/ai-tools', title: 'AI Tools Hub', note: '回到工具总目录。' },
-  { href: '/ai-roi-calculator', title: 'AI ROI Calculator', note: '把绩效和财务回报接起来。' },
-  { href: '/ai-performance-monitoring-dashboard-enterprise-2026', title: 'Enterprise Dashboard', note: '更完整的企业监控版。' },
-  { href: '/ai-transformation-success-metrics-enterprise-2026', title: 'Transformation Success Metrics', note: '看转型指标怎么落地。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+  { href: '/ai-tools', title: 'AI Tools Hub', note: 'Return to the main tools directory.' },
+  { href: '/ai-roi-calculator', title: 'AI ROI Calculator', note: 'Connect performance metrics to financial return.' },
+  { href: '/ai-performance-monitoring-dashboard-enterprise-2026', title: 'Enterprise Dashboard', note: 'Open the more complete enterprise monitoring version.' },
+  { href: '/ai-transformation-success-metrics-enterprise-2026', title: 'Transformation Success Metrics', note: 'See how transformation metrics become operational.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a consultative assessment if you need one.' },
 ] as const
 
 export default function AIPerformanceMonitoringDashboardClient() {
@@ -153,11 +153,11 @@ export default function AIPerformanceMonitoringDashboardClient() {
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
                   AI Performance Monitoring Dashboard,
-                  <span className="brand-gradient-text block">把“上线了”变成“真的有效”。</span>
+                  <span className="brand-gradient-text block">turn "it is live" into "it actually works."</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  这页保留原始的绩效指数、ROI 计算、风险提醒和建议输出，只把界面收进当前统一的浅色 Stripe-ish 系统。
+                  This page keeps the original performance index, ROI calculation, risk alerts, and recommendation outputs, and only aligns the interface with the current light Stripe-ish system.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
@@ -196,10 +196,10 @@ export default function AIPerformanceMonitoringDashboardClient() {
 
                     <div className="grid gap-3">
                       {[
-                        ['Inputs', '员工数、工具数、月度投入、生产力、错误率、满意度和见效时间。'],
-                        ['Outputs', 'Performance grade、ROI、annual savings、quality score 和 risk alerts。'],
-                        ['Recommendation', '识别是否该扩展、优化、培训，还是重新评估策略。'],
-                        ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                        ['Inputs', 'Employee count, tool count, monthly spend, productivity, error rate, satisfaction, and time to value.'],
+                        ['Outputs', 'Performance grade, ROI, annual savings, quality score, and risk alerts.'],
+                        ['Recommendation', 'Surface whether the team should scale, optimize, train, or reassess strategy.'],
+                        ['UI system', 'Aligned with the current light Stripe-ish cards and gradients.'],
                       ].map(([title, note]) => (
                         <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                           <div className="font-semibold text-slate-950">{title}</div>
@@ -208,14 +208,14 @@ export default function AIPerformanceMonitoringDashboardClient() {
                       ))}
                     </div>
 
-                    <div className="rounded-[1.5rem] border border-indigo-100 bg-gradient-to-r from-indigo-50 to-sky-50 p-5">
+                      <div className="rounded-[1.5rem] border border-indigo-100 bg-gradient-to-r from-indigo-50 to-sky-50 p-5">
                       <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700/80">
                         Guardrail
                       </div>
-                      <div className="text-sm leading-relaxed text-slate-700">
-                        这个 dashboard 不是装饰面板；它是看 AI 部署有没有在漏钱。
+                        <div className="text-sm leading-relaxed text-slate-700">
+                        This dashboard is not decorative. It exists to show whether the AI deployment is leaking money.
+                        </div>
                       </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -242,10 +242,10 @@ export default function AIPerformanceMonitoringDashboardClient() {
               Performance monitoring workspace
             </div>
             <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-              把 AI 实施指标摆到桌面上，别让它藏在会议纪要里。
+              Put AI implementation metrics on the table instead of burying them in meeting notes.
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              你仍然可以输入员工、支出、生产力、错误率和满意度。区别只是现在它看起来像一个靠谱产品，而不是旧时代的财务表单。
+              You can still enter employee count, spend, productivity, error rate, and satisfaction. The difference is that it now looks like a credible product instead of an outdated finance form.
             </p>
           </div>
 
@@ -254,10 +254,10 @@ export default function AIPerformanceMonitoringDashboardClient() {
               <div className="page-card-soft p-6 md:p-8">
                 <div className="grid gap-4 md:grid-cols-2">
                   {[
-                    ['Performance visibility', '实时看清 AI 部署到底发生了什么。'],
-                    ['ROI optimization', '别让投入只长报告不长回报。'],
-                    ['Adoption tracking', '知道谁在用，谁在装样子。'],
-                    ['Rapid optimization', '尽快发现瓶颈，尽快处理。'],
+                    ['Performance visibility', 'See in real time what the AI deployment is actually doing.'],
+                    ['ROI optimization', 'Do not let spend produce reports without producing return.'],
+                    ['Adoption tracking', 'Know who is using the tools and who is only pretending to.'],
+                    ['Rapid optimization', 'Find bottlenecks quickly and fix them quickly.'],
                   ].map(([title, note]) => (
                     <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
                       <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
@@ -273,7 +273,7 @@ export default function AIPerformanceMonitoringDashboardClient() {
                   <div>
                     <h3 className="text-xl font-semibold text-slate-950">Current AI Implementation Metrics</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
-                      输入现状数据，看看你的 AI 部署是在赚钱，还是在偷偷烧钱。
+                      Enter current-state data and see whether the AI deployment is creating value or quietly burning money.
                     </p>
                   </div>
 
@@ -307,10 +307,10 @@ export default function AIPerformanceMonitoringDashboardClient() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
-                  ['Performance Grade', results?.performanceGrade ?? '—'],
-                  ['Performance Index', results ? `${results.performanceIndex}/100` : '—'],
-                  ['ROI', results ? `${results.roi}%` : '—'],
-                  ['Annual Savings', results ? `$${results.annualSavings}` : '—'],
+                  ['Performance Grade', results?.performanceGrade ?? 'N/A'],
+                  ['Performance Index', results ? `${results.performanceIndex}/100` : 'N/A'],
+                  ['ROI', results ? `${results.roi}%` : 'N/A'],
+                  ['Annual Savings', results ? `$${results.annualSavings}` : 'N/A'],
                 ].map(([label, value]) => (
                   <div key={label} className="page-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                     <div className="text-sm text-slate-500">{label}</div>
@@ -340,11 +340,11 @@ export default function AIPerformanceMonitoringDashboardClient() {
                       ['Productivity Gains', formData.productivityGains],
                       ['User Satisfaction', formData.userSatisfaction],
                     ].map(([label, value]) => (
-                      <div key={label} className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
-                        <div className="text-sm text-slate-500">{label}</div>
-                        <div className="mt-1 text-lg font-semibold text-slate-950">{value || '未填写'}</div>
-                      </div>
-                    ))}
+                        <div key={label} className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                          <div className="text-sm text-slate-500">{label}</div>
+                          <div className="mt-1 text-lg font-semibold text-slate-950">{value || 'Not provided'}</div>
+                        </div>
+                      ))}
                   </div>
 
                   <button
@@ -387,9 +387,9 @@ export default function AIPerformanceMonitoringDashboardClient() {
                 <TrendingUp className="h-4 w-4" />
                 Results and recommendations
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">结果出来了，别装作没看见。</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">The result is in. Do not pretend you missed it.</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                这里继续展示绩效等级、建议和风险提醒。逻辑和原来一样，只是摆法更像现在的 SitePilot。
+                The page still shows the performance grade, recommendations, and risk alerts. The logic is unchanged. The layout now matches the current SitePilot system.
               </p>
             </div>
 
@@ -412,7 +412,7 @@ export default function AIPerformanceMonitoringDashboardClient() {
                 <div className="text-lg font-semibold text-slate-950">Key Recommendations</div>
                 <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
                   {results.recommendations.map((rec) => (
-                    <li key={rec}>• {rec}</li>
+                    <li key={rec}>- {rec}</li>
                   ))}
                 </ul>
               </div>
@@ -422,7 +422,7 @@ export default function AIPerformanceMonitoringDashboardClient() {
                 {results.risks.length > 0 ? (
                   <ul className="mt-4 space-y-3 text-sm leading-7 text-rose-900/90">
                     {results.risks.map((risk) => (
-                      <li key={risk}>• {risk}</li>
+                      <li key={risk}>- {risk}</li>
                     ))}
                   </ul>
                 ) : (
@@ -434,10 +434,10 @@ export default function AIPerformanceMonitoringDashboardClient() {
             <div className="mt-8 text-center">
               <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
                 <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
-                  <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Ready to optimize your AI performance?</h3>
-                  <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                    把监控做起来，才能知道到底是工具不行，还是流程不行，还是人不行。
-                  </p>
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Ready to optimize your AI performance?</h3>
+                <p className="mx-auto mt-3 max-w-2xl text-white/85">
+                    Monitoring is what tells you whether the problem is the tool, the workflow, or the people.
+                </p>
                   <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                     <a href="mailto:hello@sitepilot.co" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
                       Schedule AI Performance Consultation

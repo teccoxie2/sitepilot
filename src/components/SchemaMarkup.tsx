@@ -27,8 +27,11 @@ export default function SchemaMarkup({
 }: SchemaMarkupProps) {
   
   const getSchemaData = () => {
-    if (type === 'custom' && data) {
-      return data
+    if (data) {
+      return {
+        '@context': 'https://schema.org',
+        ...data,
+      }
     }
 
     const baseSchema = {

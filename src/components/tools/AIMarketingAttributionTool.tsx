@@ -53,13 +53,13 @@ export default function AIMarketingAttributionTool() {
         const revenueShare = channel.revenue / totalRevenue
         const costShare = channel.cost / totalCost
         
-        // 不同归因模型计算
+        // Calculate each attribution model.
         const firstTouchAttribution = conversionShare * 0.4 + revenueShare * 0.6
         const lastTouchAttribution = conversionShare * 0.6 + revenueShare * 0.4
         const linearAttribution = conversionShare
         const timeDecayAttribution = conversionShare * 0.3 + revenueShare * 0.7
         
-        // AI增强归因（考虑更多因素）
+        // AI-enhanced attribution considers additional performance signals.
         const ctr = channel.clicks / Math.max(channel.impressions, 1) * 100
         const conversionRate = channel.conversions / Math.max(channel.clicks, 1) * 100
         const costPerConversion = channel.cost / Math.max(channel.conversions, 1)
@@ -79,16 +79,16 @@ export default function AIMarketingAttributionTool() {
         let priority: 'High' | 'Medium' | 'Low' = 'Medium'
         
         if (roi > 200 && efficiency > 3) {
-          recommendation = '表现卓越，建议增加预算投入'
+          recommendation = 'Outstanding performance. Increase budget allocation.'
           priority = 'High'
         } else if (roi > 100 && efficiency > 2) {
-          recommendation = '表现良好，可适当增加投入'
+          recommendation = 'Strong performance. Consider moderate additional spend.'
           priority = 'Medium'
         } else if (roi > 50) {
-          recommendation = '表现一般，需要优化转化率'
+          recommendation = 'Mixed performance. Improve conversion efficiency.'
           priority = 'Medium'
         } else {
-          recommendation = '表现不佳，建议重新评估策略'
+          recommendation = 'Weak performance. Reassess the channel strategy.'
           priority = 'Low'
         }
         
@@ -122,7 +122,7 @@ export default function AIMarketingAttributionTool() {
   }
 
   const addChannel = () => {
-    setChannels([...channels, { name: '新渠道', impressions: 0, clicks: 0, conversions: 0, cost: 0, revenue: 0 }])
+    setChannels([...channels, { name: 'New channel', impressions: 0, clicks: 0, conversions: 0, cost: 0, revenue: 0 }])
   }
 
   const removeChannel = (index: number) => {
@@ -141,30 +141,30 @@ export default function AIMarketingAttributionTool() {
     <div className="bg-white rounded-2xl shadow-lg p-8">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          🎯 AI营销归因分析工具 2026
+          AI Marketing Attribution Analysis Tool 2026
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          专业级多渠道营销归因分析，精准追踪每个营销触点的贡献价值，优化预算分配策略
+          Professional multi-channel marketing attribution analysis that tracks the contribution of each touchpoint and improves budget allocation decisions.
         </p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
-        {/* 左侧：渠道数据输入 */}
+        {/* Left column: channel data input. */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-semibold text-gray-900">营销渠道数据</h3>
+            <h3 className="text-xl font-semibold text-gray-900">Marketing channel data</h3>
             <div className="flex gap-2">
               <button
                 onClick={() => setAnalysisMode(analysisMode === 'standard' ? 'advanced' : 'standard')}
                 className="text-sm px-3 py-1 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
               >
-                {analysisMode === 'standard' ? '高级模式' : '标准模式'}
+                {analysisMode === 'standard' ? 'Advanced mode' : 'Standard mode'}
               </button>
               <button
                 onClick={addChannel}
                 className="text-sm px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                + 添加渠道
+                + Add channel
               </button>
             </div>
           </div>
@@ -184,13 +184,13 @@ export default function AIMarketingAttributionTool() {
                       onClick={() => removeChannel(index)}
                       className="text-red-500 hover:text-red-700"
                     >
-                      ✕
+                      Remove
                     </button>
                   )}
                 </div>
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   <div>
-                    <label className="block text-gray-600 mb-1">展示量</label>
+                    <label className="block text-gray-600 mb-1">Impressions</label>
                     <input
                       type="number"
                       value={channel.impressions}
@@ -199,7 +199,7 @@ export default function AIMarketingAttributionTool() {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-600 mb-1">点击量</label>
+                    <label className="block text-gray-600 mb-1">Clicks</label>
                     <input
                       type="number"
                       value={channel.clicks}
@@ -208,7 +208,7 @@ export default function AIMarketingAttributionTool() {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-600 mb-1">转化量</label>
+                    <label className="block text-gray-600 mb-1">Conversions</label>
                     <input
                       type="number"
                       value={channel.conversions}
@@ -217,7 +217,7 @@ export default function AIMarketingAttributionTool() {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-600 mb-1">成本 ($)</label>
+                    <label className="block text-gray-600 mb-1">Cost ($)</label>
                     <input
                       type="number"
                       value={channel.cost}
@@ -226,7 +226,7 @@ export default function AIMarketingAttributionTool() {
                     />
                   </div>
                   <div className="col-span-2">
-                    <label className="block text-gray-600 mb-1">收入 ($)</label>
+                    <label className="block text-gray-600 mb-1">Revenue ($)</label>
                     <input
                       type="number"
                       value={channel.revenue}
@@ -239,24 +239,24 @@ export default function AIMarketingAttributionTool() {
             ))}
           </div>
 
-          {/* 整体指标 */}
+          {/* Aggregate metrics. */}
           <div className="bg-gray-50 rounded-lg p-4">
-            <h4 className="font-medium text-gray-900 mb-3">整体营销指标</h4>
+            <h4 className="font-medium text-gray-900 mb-3">Overall marketing metrics</h4>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-gray-600">总成本:</span>
+                <span className="text-gray-600">Total cost:</span>
                 <span className="float-right font-medium">${totalMetrics.cost.toLocaleString()}</span>
               </div>
               <div>
-                <span className="text-gray-600">总收入:</span>
+                <span className="text-gray-600">Total revenue:</span>
                 <span className="float-right font-medium">${totalMetrics.revenue.toLocaleString()}</span>
               </div>
               <div>
-                <span className="text-gray-600">总转化:</span>
+                <span className="text-gray-600">Total conversions:</span>
                 <span className="float-right font-medium">{totalMetrics.conversions}</span>
               </div>
               <div>
-                <span className="text-gray-600">整体ROI:</span>
+                <span className="text-gray-600">Overall ROI:</span>
                 <span className={`float-right font-medium ${totalMetrics.roi > 100 ? 'text-indigo-600' : 'text-red-600'}`}>
                   {totalMetrics.roi.toFixed(1)}%
                 </span>
@@ -265,23 +265,23 @@ export default function AIMarketingAttributionTool() {
           </div>
         </div>
 
-        {/* 右侧：归因分析结果 */}
+        {/* Right column: attribution analysis results. */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-semibold text-gray-900">归因分析结果</h3>
+            <h3 className="text-xl font-semibold text-gray-900">Attribution analysis results</h3>
             <button
               onClick={calculateAttribution}
               disabled={isCalculating}
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {isCalculating ? '分析中...' : '重新分析'}
+              {isCalculating ? 'Analyzing...' : 'Run analysis again'}
             </button>
           </div>
 
           {isCalculating ? (
             <div className="text-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-              <p className="text-gray-600">AI正在分析您的营销数据...</p>
+              <p className="text-gray-600">AI is analyzing your marketing data...</p>
             </div>
           ) : (
             <div className="space-y-4 max-h-96 overflow-y-auto">
@@ -301,13 +301,13 @@ export default function AIMarketingAttributionTool() {
                           : 'bg-red-100 text-red-800'
                       }`}
                     >
-                      {result.priority === 'High' ? '高优先级' : result.priority === 'Medium' ? '中优先级' : '低优先级'}
+                      {result.priority === 'High' ? 'High priority' : result.priority === 'Medium' ? 'Medium priority' : 'Low priority'}
                     </span>
                   </div>
 
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">AI增强归因:</span>
+                      <span className="text-gray-600">AI-enhanced attribution:</span>
                       <span className="font-medium text-blue-600">
                         {result.aiEnhancedAttribution.toFixed(1)}%
                       </span>
@@ -316,19 +316,19 @@ export default function AIMarketingAttributionTool() {
                     {analysisMode === 'advanced' && (
                       <>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">首次接触:</span>
+                          <span className="text-gray-600">First touch:</span>
                           <span className="font-medium">{result.firstTouchAttribution.toFixed(1)}%</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">最后接触:</span>
+                          <span className="text-gray-600">Last touch:</span>
                           <span className="font-medium">{result.lastTouchAttribution.toFixed(1)}%</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">线性归因:</span>
+                          <span className="text-gray-600">Linear attribution:</span>
                           <span className="font-medium">{result.linearAttribution.toFixed(1)}%</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">时间衰减:</span>
+                          <span className="text-gray-600">Time decay:</span>
                           <span className="font-medium">{result.timeDecayAttribution.toFixed(1)}%</span>
                         </div>
                       </>
@@ -341,14 +341,14 @@ export default function AIMarketingAttributionTool() {
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">效率比:</span>
+                      <span className="text-gray-600">Efficiency ratio:</span>
                       <span className="font-medium">{result.efficiency.toFixed(2)}x</span>
                     </div>
                   </div>
 
                   <div className="mt-3 p-3 bg-gray-50 rounded-lg">
                     <p className="text-sm text-gray-700">
-                      <span className="font-medium">AI建议:</span> {result.recommendation}
+                      <span className="font-medium">AI recommendation:</span> {result.recommendation}
                     </p>
                   </div>
                 </div>
@@ -356,17 +356,17 @@ export default function AIMarketingAttributionTool() {
             </div>
           )}
 
-          {/* 预算优化建议 */}
+          {/* Budget optimization guidance. */}
           {!isCalculating && results.length > 0 && (
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4">
-              <h4 className="font-medium text-gray-900 mb-2">🎯 预算优化建议</h4>
+              <h4 className="font-medium text-gray-900 mb-2">Budget optimization guidance</h4>
               <div className="text-sm text-gray-700 space-y-1">
                 {results.slice(0, 3).map((result, index) => (
                   <div key={index}>
-                    • <strong>{result.channel}</strong>: 
-                    {result.priority === 'High' && ' 建议增加预算30-50%'}
-                    {result.priority === 'Medium' && ' 保持当前预算或小幅调整'}
-                    {result.priority === 'Low' && ' 考虑减少预算或优化策略'}
+                    - <strong>{result.channel}</strong>:
+                    {result.priority === 'High' && ' Increase budget by 30-50%.'}
+                    {result.priority === 'Medium' && ' Hold the current budget or make a small adjustment.'}
+                    {result.priority === 'Low' && ' Consider reducing spend or revising the channel strategy.'}
                   </div>
                 ))}
               </div>

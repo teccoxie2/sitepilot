@@ -25,22 +25,22 @@ const phaseCards = [
   {
     title: 'Phase 1: Strategic assessment & planning',
     icon: FileSearch,
-    note: '先确认流程值不值得自动化，再谈工具。',
+    note: 'Confirm the workflow is worth automating before debating tools.',
   },
   {
     title: 'Phase 2: Tool selection & architecture design',
     icon: Compass,
-    note: '平台选型、集成边界、安全和 fallback 一起定。',
+    note: 'Define platform choice, integration boundaries, security, and fallback together.',
   },
   {
     title: 'Phase 3: Implementation strategy',
     icon: Layers,
-    note: '从 pilot 开始，别一口气上全公司。',
+    note: 'Start with a pilot instead of rolling it out to the whole company at once.',
   },
   {
     title: 'Phase 4: ROI measurement & optimization',
     icon: BarChart3,
-    note: '没有指标就没有优化，只有自我感动。',
+    note: 'Without metrics, there is no optimization, only self-congratulation.',
   },
 ]
 
@@ -163,10 +163,10 @@ const kpiRows = [
 ]
 
 const roiFormula = [
-  'Labor cost savings (hours saved × hourly rate)',
-  'Error reduction value (error cost × volume × improvement %)',
-  'Capacity increase value (additional throughput × unit value)',
-  'Compliance risk mitigation (potential fine × risk reduction %)',
+  'Labor cost savings (hours saved x hourly rate)',
+  'Error reduction value (error cost x volume x improvement %)',
+  'Capacity increase value (additional throughput x unit value)',
+  'Compliance risk mitigation (potential fine x risk reduction %)',
   'Minus platform, implementation, maintenance, support, and adoption costs',
 ]
 
@@ -252,22 +252,22 @@ const relatedLinks = [
   {
     href: '/ai-tool-implementation-strategy-2026',
     title: 'AI Tool Implementation Strategy 2026',
-    note: '把工具选型和 rollout 策略接起来。',
+    note: 'Connect tooling decisions with the rollout strategy.',
   },
   {
     href: '/ai-implementation-success-framework-2026',
     title: 'AI Implementation Success Framework 2026',
-    note: '看更聚焦实施成败因素的页面。',
+    note: 'Go deeper on the factors that decide implementation success.',
   },
   {
     href: '/ai-automation-workflow-templates-2026',
     title: 'AI Automation Workflow Templates 2026',
-    note: '如果你想从模板起步，看这里。',
+    note: 'Start here if you want to begin from reusable templates.',
   },
   {
     href: '/ai-roi-calculator',
     title: 'AI ROI Calculator',
-    note: '把自动化收益算明白。',
+    note: 'Model the economics of automation before you scale it.',
   },
 ]
 
@@ -301,19 +301,19 @@ export default function AIWorkflowAutomationGuide() {
                   Enterprise workflow automation 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI workflow automation，
-                  <span className="brand-gradient-text block">别先买工具，再想流程。</span>
+                  AI workflow automation,
+                  <span className="brand-gradient-text block">do not buy tools before you design the process.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  这份 implementation guide 保留原来的战略评估、工具对比、pilot 计划、ROI 公式、扩展策略、风险控制和 checklist，只把页面统一到当前浅色 Stripe-ish UI。内容核心没变：自动化项目最怕的不是慢，而是乱。
+                  This implementation guide keeps the original strategic assessment, tool comparison, pilot plan, ROI formula, scaling strategy, risk control, and checklist. The page now matches the light Stripe-ish UI, but the core message is unchanged: automation programs fail less from moving slowly than from moving chaotically.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#guide" className="btn-brand inline-flex items-center gap-2">
-                    打开实施指南
+                    Open the implementation guide
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/ai-roi-calculator" className="btn-secondary inline-flex items-center gap-2">
-                    先算 ROI
+                    Calculate ROI first
                   </Link>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
@@ -369,10 +369,10 @@ export default function AIWorkflowAutomationGuide() {
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">Executive summary</h2>
             <div className="space-y-4 text-lg leading-8 text-slate-600">
               <p>
-                AI workflow automation is not just “doing the same thing faster.” It changes how teams design work, hand off decisions, measure quality, and scale operations.
+                AI workflow automation is not just "doing the same thing faster." It changes how teams design work, hand off decisions, measure quality, and scale operations.
               </p>
               <p>
-                The original page’s promise stays intact: strategic assessment, tools selection, implementation, and ROI optimization. 只是现在终于像一个可信的 enterprise guide，而不是普通博客模板。
+                The original page's promise stays intact: strategic assessment, tool selection, implementation, and ROI optimization. It now reads like a credible enterprise guide instead of a generic blog template.
               </p>
             </div>
           </div>
@@ -396,7 +396,7 @@ export default function AIWorkflowAutomationGuide() {
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Phase 1</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
               Strategic assessment first,
-              <span className="brand-gradient-text block">because bad processes don’t become smart by magic.</span>
+              <span className="brand-gradient-text block">because bad processes do not become smart by magic.</span>
             </h2>
           </div>
 
@@ -507,7 +507,7 @@ export default function AIWorkflowAutomationGuide() {
                     <h4 className="mb-3 text-lg font-semibold text-slate-950">{week.title}</h4>
                     <ul className="space-y-2 text-sm leading-6 text-slate-700">
                       {week.bullets.map((bullet) => (
-                        <li key={bullet}>• {bullet}</li>
+                        <li key={bullet}>- {bullet}</li>
                       ))}
                     </ul>
                   </div>
@@ -540,7 +540,7 @@ export default function AIWorkflowAutomationGuide() {
               <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Phase 4</div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
                 Measure ROI properly,
-                <span className="brand-gradient-text block">or don’t claim victory yet.</span>
+                <span className="brand-gradient-text block">or do not claim victory yet.</span>
               </h2>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4 text-sm leading-6 text-slate-600">
@@ -578,10 +578,10 @@ export default function AIWorkflowAutomationGuide() {
               <div className="rounded-3xl border border-white/80 bg-white/90 p-5">
                 <div className="space-y-3 text-sm leading-6 text-slate-700">
                   {roiFormula.map((item) => (
-                    <div key={item}>• {item}</div>
+                    <div key={item}>- {item}</div>
                   ))}
                   <div className="border-t border-slate-200 pt-3 font-semibold text-slate-950">
-                    ROI = (Total Benefits - Total Costs) / Total Costs × 100%
+                    ROI = (Total Benefits - Total Costs) / Total Costs x 100%
                   </div>
                 </div>
               </div>
@@ -620,8 +620,8 @@ export default function AIWorkflowAutomationGuide() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-rose-600/80">Risk management & compliance</div>
             <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              你不设计风险控制，
-              <span className="brand-gradient-text block">风险就会自己设计你。</span>
+              If you do not design the controls,
+              <span className="brand-gradient-text block">the risks will design the outcome for you.</span>
             </h2>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
@@ -630,7 +630,7 @@ export default function AIWorkflowAutomationGuide() {
                 <h3 className="mb-4 text-xl font-semibold text-slate-950">{column.title}</h3>
                 <ul className="space-y-2 text-sm leading-6 text-slate-700">
                   {column.bullets.map((bullet) => (
-                    <li key={bullet}>• {bullet}</li>
+                    <li key={bullet}>- {bullet}</li>
                   ))}
                 </ul>
               </div>
@@ -644,10 +644,10 @@ export default function AIWorkflowAutomationGuide() {
             <div className="grid gap-6 md:grid-cols-2">
               {checklistColumns.map((column) => (
                 <div key={column.title} className="rounded-3xl border border-slate-200 bg-slate-50/80 p-6">
-                  <h3 className="mb-4 text-xl font-semibold text-slate-950">{column.title} ✓</h3>
+                  <h3 className="mb-4 text-xl font-semibold text-slate-950">{column.title} - Ready</h3>
                   <ul className="space-y-2 text-sm leading-6 text-slate-700">
                     {column.bullets.map((bullet) => (
-                      <li key={bullet}>□ {bullet}</li>
+                      <li key={bullet}>[ ] {bullet}</li>
                     ))}
                   </ul>
                 </div>
@@ -668,7 +668,7 @@ export default function AIWorkflowAutomationGuide() {
               </div>
               <ul className="mt-5 space-y-2 text-sm leading-6 text-slate-700">
                 {serviceBullets.map((item) => (
-                  <li key={item}>• {item}</li>
+                  <li key={item}>- {item}</li>
                 ))}
               </ul>
             </div>
@@ -692,7 +692,7 @@ export default function AIWorkflowAutomationGuide() {
             <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#7c3aed] p-8 text-white">
               <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Automation works when process, platform, and governance move together.</h3>
               <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                如果你只是想把人工混乱变成自动化混乱，这份指南救不了你。要真做，就从 audit、pilot、ROI 和 risk control 一起开始。
+                If all you want is to turn manual chaos into automated chaos, this guide will not save you. Do it properly by starting with audit, pilot, ROI, and risk control together.
               </p>
               <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link href="/ai-tool-implementation-strategy-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">

@@ -4,25 +4,25 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  '保留 24 个风险因子、6 个类别和 FAQ 结构化数据',
-  '保留风险评估流程、结果和缓解时间线',
-  '统一到当前浅色 Stripe-ish 视觉系统',
-  '保留所有内部链接与可追溯的风险叙事',
+  'Keeps the 24 risk factors, 6 categories, and FAQ structured data intact',
+  'Keeps the assessment flow, result outputs, and mitigation timeline intact',
+  'Aligns the page to the current light Stripe-ish visual system',
+  'Preserves the internal links and traceable risk narrative',
 ]
 
 const statCards = [
-  { value: '24', label: 'Risk Factors', note: '24 个核心风险因子继续可见。' },
-  { value: '6', label: 'Risk Categories', note: '六大类风险结构保持不变。' },
-  { value: '72%', label: 'Risk Reduction', note: '缓解策略目标仍然写着。' },
-  { value: '300+', label: 'Organizations', note: '原始案例叙事保留。' },
+  { value: '24', label: 'Risk Factors', note: 'All 24 core risk factors remain visible.' },
+  { value: '6', label: 'Risk Categories', note: 'The six-category structure stays intact.' },
+  { value: '72%', label: 'Risk Reduction', note: 'The mitigation target is still explicit.' },
+  { value: '300+', label: 'Organizations', note: 'The original case-study framing remains.' },
 ]
 
 const relatedLinks = [
-  { href: '/ai-governance-compliance-framework-2026', title: 'AI Governance Framework', note: '治理框架和风险管理配套。' },
-  { href: '/tools/ai-compliance-audit-2026', title: 'AI Compliance Audit', note: '更细的合规审计工具。' },
-  { href: '/ai-implementation-success-framework-2026', title: 'Implementation Success Framework', note: '把风险控制接到实施流程。' },
-  { href: '/ai-risk-management-dashboard-enterprise-2026', title: 'Risk Management Dashboard', note: '看企业风险监控仪表盘。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+  { href: '/ai-governance-compliance-framework-2026', title: 'AI Governance Framework', note: 'Governance design and risk management should travel together.' },
+  { href: '/tools/ai-compliance-audit-2026', title: 'AI Compliance Audit', note: 'Use the deeper compliance audit when you need more detail.' },
+  { href: '/ai-implementation-success-framework-2026', title: 'Implementation Success Framework', note: 'Connect risk controls to the delivery workflow.' },
+  { href: '/ai-risk-management-dashboard-enterprise-2026', title: 'Risk Management Dashboard', note: 'See the enterprise monitoring dashboard in action.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a consultative review if you need one.' },
 ] as const
 
 export default function AIProjectRiskAssessmentFrameworkPage() {
@@ -58,11 +58,11 @@ export default function AIProjectRiskAssessmentFrameworkPage() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     AI Project Risk Assessment Framework 2026
-                    <span className="brand-gradient-text block">先把坑找出来，再谈上线。</span>
+                    <span className="brand-gradient-text block">Find the failure points before you talk about launch.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留原始的 24 因子风险分析、互动评估工具、六大类别、缓解时间线和 FAQ，只把外观统一到现在的浅色 Stripe-ish 系统。
+                    This page keeps the original 24-factor risk analysis, interactive assessment tool, six categories, mitigation timeline, and FAQ, and only aligns the shell to the current light Stripe-ish system.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -101,10 +101,10 @@ export default function AIProjectRiskAssessmentFrameworkPage() {
 
                       <div className="grid gap-3">
                         {[
-                          ['Inputs', '项目类型、行业、数据类型、用户基数、合规和复杂度。'],
-                          ['Outputs', '风险评分、关键领域、行动建议与预算影响。'],
-                          ['Timeline', '24 周缓解路线图继续保留。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['Inputs', 'Project type, industry, data type, user scale, compliance needs, and complexity.'],
+                          ['Outputs', 'Risk score, priority areas, action recommendations, and budget impact.'],
+                          ['Timeline', 'The 24-week mitigation roadmap remains intact.'],
+                          ['UI system', 'Now aligned to the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -118,7 +118,7 @@ export default function AIProjectRiskAssessmentFrameworkPage() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          这页的价值就是把风险说人话，而且说早一点。
+                          The value of this page is simple: make risk understandable and make it visible early.
                         </div>
                       </div>
                     </div>
@@ -147,10 +147,10 @@ export default function AIProjectRiskAssessmentFrameworkPage() {
                 Interactive risk assessment
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                先做风险评估，别把后悔留到上线那天。
+                Run the risk assessment before launch day, not after it turns into regret.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                你仍然可以输入项目类型、行业、数据类型和合规要求。区别只是现在它看起来像站内主线产品，而不是一个临时拼出来的控件堆。
+                You can still input project type, industry, data type, and compliance needs. The difference is that it now looks like a core product page instead of a pile of temporary controls.
               </p>
             </div>
 
@@ -173,10 +173,10 @@ export default function AIProjectRiskAssessmentFrameworkPage() {
                   </div>
                   <div className="mt-4 space-y-3">
                     {[
-                      ['Technical risk', '别让架构、集成和数据质量把项目拖死。'],
-                      ['Security risk', '权限、加密和审计别等出事才补。'],
-                      ['Regulatory risk', '合规不是附录，是上线门票。'],
-                      ['Operational risk', 'ROI 和 adoption 不对，就别说成功。'],
+                      ['Technical risk', 'Do not let architecture, integration, and data quality drag the project down.'],
+                      ['Security risk', 'Do not wait for an incident before fixing permissions, encryption, and auditability.'],
+                      ['Regulatory risk', 'Compliance is not an appendix. It is the ticket to launch.'],
+                      ['Operational risk', 'If ROI and adoption do not hold, do not call it a success.'],
                     ].map(([title, note]) => (
                       <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
                         <div className="font-semibold text-slate-950">{title}</div>
@@ -241,7 +241,7 @@ export default function AIProjectRiskAssessmentFrameworkPage() {
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#7c3aed] p-8 text-white">
                 <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Secure Your AI Project Success</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  如果你要把这个风险框架接到更大的治理、实施和合规流程里，SitePilot 可以继续往下接。
+                  If you want to connect this framework into a broader governance, implementation, and compliance flow, SitePilot can take it further.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/ai-governance-compliance-framework-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">

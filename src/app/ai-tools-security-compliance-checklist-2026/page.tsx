@@ -16,103 +16,103 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = '企业AI工具安全合规审计清单 2026版 | SitePilot'
+const pageTitle = 'Enterprise AI Tools Security and Compliance Audit Checklist 2026 | SitePilot'
 const pageDescription =
-  '企业 AI 工具安全与合规审计要同时检查数据驻留、访问控制、监管义务、供应商尽调和部署治理，否则上线越快，出事也越快。这个 2026 检查清单保留原有 GDPR、SOX、HIPAA、供应商审计和实施路线图内容。'
+  'Security and compliance audits for enterprise AI tools need to review data residency, access control, regulatory obligations, vendor due diligence, and deployment governance together. This 2026 checklist keeps the original GDPR, SOX, HIPAA, vendor audit, and rollout content intact.'
 const pageUrl = 'https://sitepilot.co/ai-tools-security-compliance-checklist-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    'AI工具合规',
-    '企业AI安全',
-    'GDPR合规',
-    'SOX审计',
-    'HIPAA合规',
-    '数据安全审计',
-    'AI工具风险评估',
-    '企业安全框架',
-    '合规检查清单',
+    'AI tools compliance',
+    'enterprise AI security',
+    'GDPR compliance',
+    'SOX audit',
+    'HIPAA compliance',
+    'data security audit',
+    'AI tool risk assessment',
+    'enterprise security framework',
+    'compliance checklist',
   ],
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
     title: pageTitle,
-    description: '专业级 AI 工具安全合规框架，覆盖数据安全、监管义务、供应商尽调与部署治理。',
+    description: 'A professional AI security and compliance framework covering data security, regulatory obligations, vendor due diligence, and deployment governance.',
     type: 'article',
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
     title: pageTitle,
-    description: '企业 AI 工具安全合规检查清单：保留原有法规框架与审计逻辑，只统一到当前浅色 Stripe-ish UI。',
+    description: 'An enterprise AI security and compliance checklist that keeps the original regulatory framework and audit logic while aligning the page to the current light Stripe-ish UI.',
   },
 }
 
 marked.setOptions({ breaks: true, gfm: true })
 
 const heroStats = [
-  { value: '500+', label: '企业合规实施样本' },
-  { value: '$1.2M', label: '年均违规损失风险' },
-  { value: '15', label: '监管框架与机构要求' },
-  { value: '90天', label: '企业治理落地节奏' },
+  { value: '500+', label: 'Enterprise compliance implementations reviewed' },
+  { value: '$1.2M', label: 'Average annual exposure to compliance-related losses' },
+  { value: '15', label: 'Regulatory frameworks and oversight bodies covered' },
+  { value: '90 days', label: 'Typical enterprise governance rollout cadence' },
 ]
 
 const auditSignals = [
-  '数据驻留、删除能力和审计日志没有确认前，别急着把业务数据喂进去。',
-  '合规不是法务单兵作战，IT、安全、采购和业务负责人都得进场。',
-  '供应商尽调没做透，后面补救通常更贵，而且还更狼狈。',
-  '真正有用的清单，不是拿来装专业，是拿来拦下烂决策。',
+  'Do not put business data into a tool before you verify data residency, deletion controls, and audit logs.',
+  'Compliance is not a solo legal exercise. IT, security, procurement, and business owners all need to be involved.',
+  'If vendor due diligence is shallow up front, the cleanup later is usually more expensive and far more painful.',
+  'A useful checklist is not there to look sophisticated. It is there to stop bad decisions before they ship.',
 ]
 
 const auditLevels = [
   {
-    title: 'Level 1 · 数据安全审计',
+    title: 'Level 1 · Data security audit',
     icon: Lock,
     tone: 'border-rose-100 bg-rose-50/80 text-rose-800',
-    items: ['数据驻留与传输加密', '身份验证与访问控制', '数据备份与删除政策', 'API 安全与审计日志'],
-    note: '任一关键项不达标，就不是“有点风险”，而是高风险。',
+    items: ['Data residency and encryption in transit', 'Authentication and access control', 'Backup and deletion policy', 'API security and audit logs'],
+    note: 'If even one critical item fails, the result is not mild risk. It is high risk.',
   },
   {
-    title: 'Level 2 · 法规合规审计',
+    title: 'Level 2 · Regulatory compliance audit',
     icon: Shield,
     tone: 'border-amber-100 bg-amber-50/80 text-amber-800',
-    items: ['GDPR 数据主体权利', 'SOX 内控与审计要求', 'HIPAA 健康信息保护', '行业特定监管义务'],
-    note: '合规状态至少要能区分完全、部分和违规，别只写“基本符合”。',
+    items: ['GDPR data subject rights', 'SOX internal control and audit requirements', 'HIPAA health information protection', 'Industry-specific regulatory obligations'],
+    note: 'Compliance status should clearly separate full compliance, partial compliance, and non-compliance. "Mostly aligned" is not enough.',
   },
   {
-    title: 'Level 3 · 企业整合适配',
+    title: 'Level 3 · Enterprise integration fit',
     icon: Target,
     tone: 'border-sky-100 bg-sky-50/80 text-sky-800',
-    items: ['IT 基础设施兼容性', '数据治理体系整合', '供应商尽职调查', '部署实施最佳实践'],
-    note: '真正上线难的，通常不是模型，而是整合和治理。',
+    items: ['IT infrastructure compatibility', 'Integration with the data governance model', 'Vendor due diligence', 'Deployment best practices'],
+    note: 'The hardest part of production rollout is usually not the model. It is integration and governance.',
   },
 ]
 
 const riskExamples = [
-  'GDPR 罚款案例：制造业数据泄露，损失 $2.3M',
-  'SOX 整改案例：金融服务企业额外成本 $850K',
-  'HIPAA 处罚案例：医疗机构违规成本 $420K',
-  '供应商中断案例：72 小时停摆造成 $420K 业务损失',
+  'GDPR fine example: manufacturing data breach, $2.3M in losses',
+  'SOX remediation example: financial services firm incurred an extra $850K',
+  'HIPAA penalty example: healthcare organization absorbed $420K in non-compliance costs',
+  'Vendor outage example: a 72-hour disruption created $420K in business loss',
 ]
 
 const relatedLinks = [
   {
     href: '/ai-tools-risk-assessment-enterprise-2026',
-    title: 'AI 工具风险评估框架',
-    description: '先评风险，再决定谁能进企业环境。',
+    title: 'AI Tools Risk Assessment Framework',
+    description: 'Assess risk first, then decide what can enter the enterprise environment.',
   },
   {
     href: '/ai-tools-usage-tracking-dashboard-2026',
-    title: 'AI 工具使用追踪看板',
-    description: '上线之后要盯使用率、权限和异常活动。',
+    title: 'AI Tools Usage Tracking Dashboard',
+    description: 'After launch, monitor adoption, permissions, and unusual activity continuously.',
   },
   {
     href: '/ai-roi-calculator',
-    title: 'AI ROI 计算器',
-    description: '安全、合规和 ROI 要一起算，不要各玩各的。',
+    title: 'AI ROI Calculator',
+    description: 'Security, compliance, and ROI should be modeled together instead of in separate silos.',
   },
 ]
 
@@ -149,21 +149,21 @@ export default function AIToolsSecurityComplianceChecklistPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 工具安全合规，
-                  <span className="brand-gradient-text block">别等出事了才想起审计。</span>
+                  AI Tools Security and Compliance
+                  <span className="brand-gradient-text block">Do not wait for an incident before you remember the audit.</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  企业 AI 工具安全与合规审计要同时检查数据驻留、访问控制、监管义务、供应商尽调和部署治理，否则上线越快，翻车也越快。这个页面保留原有 GDPR、SOX、HIPAA、供应商审计和实施路线图内容，只把视觉统一到当前浅色 Stripe-ish 系统。
+                  Security and compliance audits for enterprise AI tools have to evaluate data residency, access control, regulatory obligations, vendor due diligence, and deployment governance together. This page keeps the original GDPR, SOX, HIPAA, vendor audit, and rollout content while aligning the visual system to the current light Stripe-ish standard.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
                   <Link href="/ai-tools-risk-assessment-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
-                    先做风险评估
+                    Start with risk assessment
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link href="/ai-tools" className="btn-secondary inline-flex items-center gap-2">
-                    返回 AI tools hub
+                    Return to the AI tools hub
                   </Link>
                 </div>
 
@@ -184,10 +184,10 @@ export default function AIToolsSecurityComplianceChecklistPage() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Audit baseline</div>
-                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                        <div className="text-xl font-semibold text-slate-950">Four non-negotiable checks</div>
                       </div>
                       <div className="rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-semibold text-rose-700">
-                        合规不是装饰
+                        Compliance is not decoration
                       </div>
                     </div>
 
@@ -214,14 +214,14 @@ export default function AIToolsSecurityComplianceChecklistPage() {
               <div>
                 <div className="page-pill mb-4 inline-flex items-center gap-2">
                   <AlertTriangle className="h-4 w-4 text-rose-500" />
-                  风险警示
+                  Risk warning
                 </div>
                 <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
-                  87% 的企业不是没买工具，
-                  <span className="brand-gradient-text block">是买了以后根本没把风险关上。</span>
+                  The problem is not that enterprises fail to buy the tools
+                  <span className="brand-gradient-text block">It is that they buy them without closing the risk gaps.</span>
                 </h2>
                 <p className="text-lg leading-8 text-slate-600">
-                  原页里的风险告警、罚款案例和监管压力都保留。因为这些东西不是恐吓文案，是你不做治理时迟早会收到的账单。
+                  The original page kept the risk warnings, penalty examples, and regulatory pressure for a reason. They are not fear-based copy. They are the invoice you eventually receive when governance never happens.
                 </p>
               </div>
 
@@ -243,11 +243,11 @@ export default function AIToolsSecurityComplianceChecklistPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Three-level audit model</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              先分层审，
-              <span className="brand-gradient-text block">再决定能不能进生产环境。</span>
+              Audit in layers first
+              <span className="brand-gradient-text block">Then decide whether the tool belongs in production.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              这三层结构就是这页的骨架：先查数据安全，再查法规义务，最后看企业整合和供应商治理。顺序错了，判断就容易变味。
+              This three-level structure is the backbone of the page: check data security first, then regulatory obligations, then enterprise integration and vendor governance. Change the order and the judgment gets distorted.
             </p>
           </div>
 
@@ -284,7 +284,7 @@ export default function AIToolsSecurityComplianceChecklistPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                 <ClipboardCheck className="h-5 w-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">完整审计正文</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Full audit article</h2>
             </div>
 
             <div
@@ -313,12 +313,12 @@ export default function AIToolsSecurityComplianceChecklistPage() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                   <Shield className="h-5 w-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">实施提醒</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Implementation reminders</h2>
               </div>
               <div className="space-y-3 text-sm text-slate-600">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">只看功能不看审计日志，通常等于给未来事故写邀请函。</div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">合规框架要在采购前卡口，不要等签完合同才让法务进场。</div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">季度 review 不能省。工具、条款、模型能力和监管要求都会变。</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">Reviewing features without reviewing audit logs is usually an open invitation to a future incident.</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">The compliance gate needs to happen before procurement, not after contracts are already signed.</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">Do not skip quarterly reviews. Tools, contract terms, model behavior, and regulations all change.</div>
               </div>
             </div>
 
@@ -327,7 +327,7 @@ export default function AIToolsSecurityComplianceChecklistPage() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50">
                   <BarChart3 className="h-5 w-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">相关内部资源</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Related internal resources</h2>
               </div>
               <div className="space-y-3">
                 {relatedLinks.map((item) => (
@@ -348,18 +348,18 @@ export default function AIToolsSecurityComplianceChecklistPage() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white">
                   <Target className="h-5 w-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">下一步动作</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Next step</h2>
               </div>
               <p className="mb-6 text-slate-600 leading-7">
-                真要把这页用起来，就把现有 AI 工具列成清单：供应商、处理数据类型、权限模型、审计日志、合同条款、退出路径。没有这张表，所谓“合规治理”多半只是会议纪要文学。
+                If you want to use this page seriously, build a table of the AI tools you already run with the vendor, data types handled, permission model, audit logs, contract terms, and exit path. Without that table, "compliance governance" is usually just meeting notes.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/ai-tools-risk-assessment-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
-                  去做风险评估
+                  Run the risk assessment
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link href="/ai-tools-usage-tracking-dashboard-2026" className="btn-secondary">
-                  查看使用追踪
+                  Review usage tracking
                 </Link>
               </div>
             </div>

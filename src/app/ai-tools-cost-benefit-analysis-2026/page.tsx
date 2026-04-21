@@ -16,29 +16,29 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'AI工具成本效益分析：中小企业智能投资指南2026年 - SitePilot'
+const pageTitle = 'AI Tools Cost-Benefit Analysis: Smart Investment Guide for SMBs 2026 | SitePilot'
 const pageDescription =
-  '基于 $25,000 真实投资的 AI 工具成本效益深度分析。为中小企业提供科学的 AI 工具投资策略、ROI 计算方法、风险评估框架。500+ 企业调研数据，78 个工具测试结果，助您避坑并实现 245% 平均 ROI 提升。'
+  'A deep cost-benefit analysis of AI tools grounded in a $25,000 real-world investment. Built for SMBs that need a practical investment strategy, ROI model, and risk framework backed by research across 500+ companies and testing on 78 tools.'
 const pageUrl = 'https://sitepilot.co/ai-tools-cost-benefit-analysis-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    'AI工具投资',
-    '成本效益分析',
-    'ROI计算',
-    '中小企业AI',
-    '生产力工具',
-    '人工智能预算',
-    'AI工具选择',
-    '投资回报率',
-    '企业数字化转型',
-    'AI工具评估',
+    'AI tool investment',
+    'cost-benefit analysis',
+    'ROI modeling',
+    'SMB AI',
+    'productivity tools',
+    'artificial intelligence budget',
+    'AI tool selection',
+    'return on investment',
+    'digital transformation',
+    'AI tool evaluation',
   ],
   openGraph: {
-    title: 'AI工具成本效益分析：中小企业智能投资指南2026',
-    description: '$25,000真实投资测试78个AI工具，为中小企业提供科学投资策略。500+企业调研，平均ROI提升245%。',
+    title: 'AI Tools Cost-Benefit Analysis: Smart Investment Guide for SMBs 2026',
+    description: 'Results from a $25,000 real-world AI tools investment across 78 products, with research from 500+ companies and a 245% average ROI uplift.',
     type: 'article',
     url: pageUrl,
     images: [
@@ -46,14 +46,14 @@ export const metadata: Metadata = {
         url: '/images/ai-cost-benefit-analysis-2026-og.png',
         width: 1200,
         height: 630,
-        alt: 'AI工具成本效益分析2026 - SitePilot专业指南',
+        alt: 'AI tools cost-benefit analysis 2026 - SitePilot guide',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI工具成本效益分析：中小企业智能投资指南2026',
-    description: '$25,000真实投资测试结果：78个AI工具深度分析，平均ROI提升245%',
+    title: 'AI Tools Cost-Benefit Analysis: Smart Investment Guide for SMBs 2026',
+    description: 'Results from a $25,000 real-world test of 78 AI tools with a 245% average ROI uplift.',
     images: ['/images/ai-cost-benefit-analysis-2026-twitter.png'],
     creator: '@sitepilot',
   },
@@ -63,83 +63,83 @@ export const metadata: Metadata = {
 }
 
 const heroStats = [
-  { value: '78', label: '工具深度测试' },
-  { value: '500+', label: '企业调研样本' },
-  { value: '245%', label: '平均 ROI 提升' },
-  { value: '18个月', label: '投资回报跟踪' },
+  { value: '78', label: 'Tools deeply tested' },
+  { value: '500+', label: 'Companies in the research sample' },
+  { value: '245%', label: 'Average ROI uplift' },
+  { value: '18 months', label: 'Investment payback tracking window' },
 ]
 
 const evaluationSignals = [
-  '别只看月费，TCO 还包括培训、集成、维护和机会成本。',
-  'ROI 要连到时间节省、收入提升和成本压缩，不要拿感觉充数。',
-  '高价值低成本工具优先，低价值高成本工具该砍就砍。',
-  'AI 投资是组合管理，不是看到新工具就手痒下单。',
+  'Do not stop at monthly fees. TCO also includes training, integration, maintenance, and opportunity cost.',
+  'ROI has to connect to time saved, revenue gained, and cost removed instead of vague intuition.',
+  'Prioritize high-value, low-cost tools and cut high-cost, low-value tools without sentimentality.',
+  'AI investment is portfolio management, not impulse buying every time a new tool appears.',
 ]
 
 const investmentBands = [
   {
-    title: '微型企业',
-    range: '1-5 人 · $100-$300 / 月',
-    note: '先用低成本、高确定性的核心组合把效率抬起来。',
-    roi: '预期 ROI 312%',
+    title: 'Micro businesses',
+    range: '1-5 employees · $100-$300 / month',
+    note: 'Start with a low-cost, high-certainty core stack that lifts team efficiency quickly.',
+    roi: 'Expected ROI 312%',
   },
   {
-    title: '小型企业',
-    range: '6-25 人 · $500-$1500 / 月',
-    note: '重点放在工作流整合、团队协同和跨部门使用深度。',
-    roi: '预期 ROI 425%',
+    title: 'Small businesses',
+    range: '6-25 employees · $500-$1,500 / month',
+    note: 'Focus on workflow integration, team collaboration, and depth of cross-functional usage.',
+    roi: 'Expected ROI 425%',
   },
   {
-    title: '中型企业',
-    range: '26-100 人 · $2000-$8000 / 月',
-    note: '平台级能力、数据分析和部门协作会开始主导总回报。',
-    roi: '预期 ROI 380%',
+    title: 'Mid-sized businesses',
+    range: '26-100 employees · $2,000-$8,000 / month',
+    note: 'Platform capabilities, analytics, and cross-team collaboration begin to drive total return.',
+    roi: 'Expected ROI 380%',
   },
 ]
 
 const frameworkCards = [
   {
-    title: '高价值 / 低成本',
+    title: 'High value / low cost',
     tone: 'indigo',
-    note: '优先投资，马上部署，快速扩大。',
+    note: 'Prioritize these investments, deploy quickly, and scale fast.',
   },
   {
-    title: '高价值 / 高成本',
+    title: 'High value / high cost',
     tone: 'indigo',
-    note: '战略投资，分阶段推进，培训别省。',
+    note: 'Treat these as strategic bets, roll them out in phases, and do not shortchange training.',
   },
   {
-    title: '低价值 / 低成本',
+    title: 'Low value / low cost',
     tone: 'amber',
-    note: '可小规模试点，但别误会它是核心引擎。',
+    note: 'These can be piloted at a small scale, but they are not the engine of the stack.',
   },
   {
-    title: '低价值 / 高成本',
+    title: 'Low value / high cost',
     tone: 'rose',
-    note: '能不买就别买，典型预算黑洞。',
+    note: 'Skip these whenever possible. They are classic budget sinkholes.',
   },
 ]
 
 const relatedLinks = [
   {
     href: '/ai-roi-calculator',
-    title: 'ROI 计算器',
-    description: '把这页的判断逻辑变成可量化输入。',
+    title: 'ROI Calculator',
+    description: 'Turn the logic on this page into a quantified model.',
   },
   {
     href: '/best-ai-tools-small-business-2026',
-    title: '中小企业 AI 工具推荐',
-    description: '看哪些工具值得进 shortlist。',
+    title: 'Best AI Tools for Small Business',
+    description: 'See which tools belong on the shortlist.',
   },
   {
     href: '/ai-tools-budget-planning-enterprise-2026',
-    title: '预算规划框架',
-    description: '先排钱，再决定工具栈。',
+    title: 'Budget Planning Framework',
+    description: 'Set the budget structure before you finalize the stack.',
   },
   {
     href: '/ai-tools-risk-assessment-enterprise-2026',
-    title: '风险评估框架',
-    description: '收益要和风险一起看，不然容易自嗨。',
+    title: 'Risk Assessment Framework',
+    description: 'Returns only matter when you evaluate them alongside risk.',
   },
 ]
 
@@ -186,21 +186,21 @@ export default function AICostBenefitAnalysisPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 工具成本效益分析，
-                  <span className="brand-gradient-text block">别把预算烧成演示效果。</span>
+                  AI Tools Cost-Benefit Analysis
+                  <span className="brand-gradient-text block">Do not burn budget on polished demos.</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  这页保留原来的 78 个工具测试、500+ 企业调研、ROI 逻辑和内部链接，只把界面统一到当前浅色 Stripe-ish 系统。核心意思没变：AI 工具采购最怕的不是贵，而是贵得没产出。
+                  This page keeps the original testing across 78 tools, research from 500+ companies, the ROI logic, and the internal links. The interface is the only thing that changed. The core message stays the same: the worst AI purchase is not the expensive one, but the expensive one that produces nothing.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
                   <Link href="/ai-roi-calculator" className="btn-brand inline-flex items-center gap-2">
-                    打开 ROI 计算器
+                    Open the ROI calculator
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link href="/ai-tools-budget-planning-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
-                    查看预算规划
+                    Review budget planning
                   </Link>
                 </div>
 
@@ -221,10 +221,10 @@ export default function AICostBenefitAnalysisPage() {
                     <div className="flex items-center justify-between mb-6">
                       <div>
                         <div className="text-sm text-slate-500 mb-1">Evaluation frame</div>
-                        <div className="text-xl font-semibold text-slate-950">四个判断动作</div>
+                        <div className="text-xl font-semibold text-slate-950">Four decision moves</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                        先算账，再选型
+                        Model first, choose second
                       </div>
                     </div>
 
@@ -265,11 +265,11 @@ export default function AICostBenefitAnalysisPage() {
           <div className="max-w-3xl mb-8">
             <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Investment framework</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-              成本效益判断，
-              <span className="brand-gradient-text block">先把工具丢进正确象限。</span>
+              Cost-benefit decisions start with the right quadrant
+              <span className="brand-gradient-text block">Place every tool where it actually belongs.</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              原文的四象限模型很有用，这里直接保留。高价值低成本先上，高价值高成本分阶段上，低价值高成本就别硬上。就这么简单。
+              The original four-quadrant model stays because it works. High-value, low-cost tools go first. High-value, high-cost tools roll out in phases. High-cost, low-value tools should rarely survive the review.
             </p>
           </div>
 
@@ -291,7 +291,7 @@ export default function AICostBenefitAnalysisPage() {
               <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
                 <BarChart3 className="w-5 h-5 text-[#635bff]" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">完整分析正文</h2>
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Full analysis article</h2>
             </div>
 
             <div
@@ -321,12 +321,12 @@ export default function AICostBenefitAnalysisPage() {
                 <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
                   <Gauge className="w-5 h-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">快速判断</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Quick checks</h2>
               </div>
               <div className="space-y-3 text-sm text-slate-600">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">如果订阅费很低，但团队根本不用，它依然是浪费。</div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">如果工具很贵，但真能吃掉大量重复劳动，它可能反而最值钱。</div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">别把“AI”当 bonus point。能落到收入、速度、准确率才算数。</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">If the subscription is cheap but nobody uses it, it is still waste.</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">If a tool is expensive but eliminates large blocks of repetitive work, it may be the most valuable item in the stack.</div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">Do not treat AI as a bonus point. It only matters when it changes revenue, speed, or accuracy.</div>
               </div>
             </div>
 
@@ -335,7 +335,7 @@ export default function AICostBenefitAnalysisPage() {
                 <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
                   <Shield className="w-5 h-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">相关内部资源</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Related internal resources</h2>
               </div>
               <div className="space-y-3">
                 {relatedLinks.map((item) => (
@@ -352,18 +352,18 @@ export default function AICostBenefitAnalysisPage() {
                 <div className="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-[#635bff]" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">下一步</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Next step</h2>
               </div>
               <p className="text-slate-600 leading-7 mb-6">
-                看完这页，最合理的动作不是继续收藏页面，而是立刻把你现在在付费的 AI 工具列出来，算 TCO、算使用率、算产出。不然分析再漂亮也只是电子鸡汤。
+                After this page, the right move is not to bookmark it and keep browsing. List the AI tools you are already paying for, then calculate TCO, usage, and output. Without that step, even a strong analysis is just decorative theory.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/ai-roi-calculator" className="btn-brand inline-flex items-center gap-2">
-                  去算 ROI
+                  Model ROI
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link href="/contact" className="btn-secondary">
-                  联系顾问团队
+                  Contact the advisory team
                 </Link>
               </div>
             </div>

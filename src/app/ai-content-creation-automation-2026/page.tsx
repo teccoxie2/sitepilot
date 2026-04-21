@@ -8,9 +8,9 @@ import type { Components } from 'react-markdown'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'AI内容创作自动化完全指南 (2026年) | SitePilot'
+const pageTitle = 'Complete Guide to AI Content Creation Automation (2026) | SitePilot'
 const pageDescription =
-  '基于 $45,000 实测与 127 个 AI 工具测试的中文长文指南，覆盖 AI 内容创作自动化、分发、变现与 ROI 路线图。'
+  'A long-form guide backed by $45,000 in live testing and 127 AI tools, covering AI content creation automation, distribution, monetization, and the ROI roadmap.'
 const pageUrl = 'https://sitepilot.co/ai-content-creation-automation-2026'
 const ogImage = 'https://sitepilot.co/og-ai-content-automation.png'
 const twitterImage = 'https://sitepilot.co/twitter-ai-content-automation.png'
@@ -18,13 +18,13 @@ const twitterImage = 'https://sitepilot.co/twitter-ai-content-automation.png'
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  keywords: ['AI内容创作', 'AI自动化', '内容创作工具', '社交媒体自动化', 'AI写作工具', '内容变现', '粉丝增长'],
+  keywords: ['AI content creation', 'AI automation', 'content creation tools', 'social media automation', 'AI writing tools', 'content monetization', 'audience growth'],
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
-    title: 'AI内容创作自动化完全指南 (2026年)',
-    description: '基于 $45,000 真实投资测试的 AI 内容创作完整方案。12 倍效率提升，平均 6 个月实现 8.7 万粉丝增长。',
+    title: 'Complete Guide to AI Content Creation Automation (2026)',
+    description: 'A complete AI content creation system backed by $45,000 in testing, 12x efficiency gains, and an average audience increase of 87,000 followers in six months.',
     url: pageUrl,
     siteName: 'SitePilot',
     images: [
@@ -32,16 +32,16 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: 'AI内容创作自动化指南',
+        alt: 'AI content creation automation guide',
       },
     ],
-    locale: 'zh_CN',
+    locale: 'en_US',
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI内容创作自动化完全指南 (2026年)',
-    description: '从 0 到 10 万粉丝的 AI 智能化内容创作系统，12 倍效率提升实战方案。',
+    title: 'Complete Guide to AI Content Creation Automation (2026)',
+    description: 'A practical AI content system for scaling from zero to 100,000 followers with 12x efficiency gains.',
     images: [twitterImage],
   },
   robots: {
@@ -58,59 +58,52 @@ export const metadata: Metadata = {
 }
 
 const quickNav = [
-  { href: '#data-insights', title: '效率数据揭秘', note: '红利与案例' },
-  { href: '#four-step-method', title: '四步自动化法', note: '策略到优化' },
-  { href: '#monetization', title: '变现自动化', note: '商业化系统' },
-  { href: '#tool-stack', title: '工具栈配置', note: '核心订阅组合' },
-  { href: '#roadmap', title: '6 个月路线图', note: '从设置到规模化' },
-  { href: '#roi-analysis', title: '投资回报分析', note: '预期收益与节奏' },
+  { href: '#data-insights', title: 'Efficiency data insights', note: 'Upside and case signals' },
+  { href: '#four-step-method', title: 'Four-step automation method', note: 'Strategy through optimization' },
+  { href: '#monetization', title: 'Monetization automation', note: 'Commercial system design' },
+  { href: '#tool-stack', title: 'Tool stack setup', note: 'Core subscription mix' },
+  { href: '#roadmap', title: 'Six-month roadmap', note: 'From setup to scale' },
+  { href: '#roi-analysis', title: 'ROI analysis', note: 'Expected return and pacing' },
 ]
 
 const summaryCards = [
-  { label: '$45K 实测投入', note: '内容来自 18 个月测试、127 个 AI 工具和多种创作者场景。' },
-  { label: '12 倍效率提升', note: '页面重点是规模化创作系统，而不是单一生成器清单。' },
-  { label: '中文长文保留', note: '正文继续使用原始 markdown，迁移只升级信息结构与阅读体验。' },
-  { label: '直接衔接 ROI', note: '保留 AI ROI 计算器、工具对比和生产力相关内链。' },
+  { label: '$45K in live testing', note: 'Built from 18 months of testing, 127 AI tools, and multiple creator scenarios.' },
+  { label: '12x efficiency gain', note: 'The focus is a scalable content system, not a list of one-off generators.' },
+  { label: 'Chinese long-form preserved', note: 'The body still uses the original markdown; the migration upgrades structure and reading experience only.' },
+  { label: 'Directly linked to ROI', note: 'Keeps the AI ROI calculator, tool comparisons, and productivity-related internal links.' },
 ]
 
 const quickSignals = [
-  '保留原始中文 markdown 正文与既有站内链接',
-  '把旧版紫色渐变外壳统一到浅色 Stripe-ish 设计系统',
-  '补齐绝对 canonical / Open Graph URL，避免相对路径残留',
-  '正文导航、CTA 与资源入口更适合长文阅读和后续扩展',
+  'Keeps the original Chinese markdown body and the existing internal links.',
+  'Moves the old purple-gradient shell into the light Stripe-ish design system.',
+  'Uses absolute canonical and Open Graph URLs to avoid relative-path leftovers.',
+  'Improves navigation, CTA structure, and resource entry points for long-form reading.',
 ]
 
 const relatedResources = [
   {
     href: '/ai-roi-calculator',
-    title: 'AI ROI 计算器',
-    description: '先估算你的内容自动化投入回收期，再决定需要哪一层工具栈和流程深度。',
+    title: 'AI ROI Calculator',
+    description: 'Estimate the payback period for content automation before deciding how deep the tool stack and workflow should go.',
   },
   {
     href: '/ai-content-workflow-automation-2026',
-    title: '内容工作流自动化指南',
-    description: '如果你已经有创作能力，下一步通常是把选题、审核、发布和复盘连接起来。',
+    title: 'Content Workflow Automation Guide',
+    description: 'If the creative capability already exists, the next step is usually to connect ideation, review, publishing, and postmortems.',
   },
   {
     href: '/ai-content-performance-analytics-2026',
-    title: '内容表现分析工具',
-    description: '用分析页补上投后监控，把效率提升真正转换成转化和收入增长。',
+    title: 'Content Performance Analytics Tool',
+    description: 'Use the analytics page to add post-launch monitoring and convert efficiency gains into conversion and revenue growth.',
   },
   {
     href: '/best-ai-writing-tools-2026',
-    title: 'AI 写作工具对比',
-    description: '需要先补齐写作引擎选择时，可以从这页继续收敛模型和工具组合。',
+    title: 'AI Writing Tools Comparison',
+    description: 'If the writing engine choice still needs work, use this page to narrow the model and tool combination.',
   },
 ]
 
-const headingIds: Record<string, string> = {
-  '📊 数据揭秘：AI内容创作的巨大红利': 'data-insights',
-  '🎯 AI内容创作自动化四步法': 'four-step-method',
-  '💰 变现自动化系统': 'monetization',
-  '🛠️ 实战工具清单与配置': 'tool-stack',
-  '📈 6个月实施路线图': 'roadmap',
-  '💰 投资回报预期': 'roi-analysis',
-}
+const orderedHeadingIds = ['data-insights', 'four-step-method', 'monetization', 'tool-stack', 'roadmap', 'roi-analysis']
 
 function extractText(node: ReactNode): string {
   if (typeof node === 'string' || typeof node === 'number') {
@@ -128,76 +121,82 @@ function extractText(node: ReactNode): string {
   return ''
 }
 
-const markdownComponents: Components = {
-  h1: () => null,
-  h2: ({ children }) => {
-    const text = extractText(children).trim()
-    const id = headingIds[text]
+function createMarkdownComponents(): Components {
+  let headingIndex = 0
 
-    return (
-      <h2 id={id} className="text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-slate-950 mt-12 mb-5 scroll-mt-32">
-        {children}
-      </h2>
-    )
-  },
-  h3: ({ children }) => (
-    <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mt-8 mb-4">
-      {children}
-    </h3>
-  ),
-  h4: ({ children }) => <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">{children}</h4>,
-  p: ({ children }) => <p className="text-slate-600 mb-5 leading-8">{children}</p>,
-  ul: ({ children }) => <ul className="space-y-3 mb-6 text-slate-600">{children}</ul>,
-  ol: ({ children }) => <ol className="space-y-3 mb-6 text-slate-600 list-decimal pl-6">{children}</ol>,
-  li: ({ children }) => <li className="leading-7">{children}</li>,
-  strong: ({ children }) => <strong className="font-semibold text-slate-950">{children}</strong>,
-  blockquote: ({ children }) => (
-    <blockquote className="page-card-soft px-6 py-5 mb-8 text-slate-700 border-l-0">{children}</blockquote>
-  ),
-  table: ({ children }) => (
-    <div className="overflow-x-auto mb-8 page-card">
-      <table className="min-w-full text-left">{children}</table>
-    </div>
-  ),
-  thead: ({ children }) => <thead className="bg-slate-50">{children}</thead>,
-  tbody: ({ children }) => <tbody className="divide-y divide-slate-200">{children}</tbody>,
-  tr: ({ children }) => <tr>{children}</tr>,
-  th: ({ children }) => (
-    <th className="px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{children}</th>
-  ),
-  td: ({ children }) => <td className="px-5 py-4 text-sm text-slate-700 align-top">{children}</td>,
-  code: ({ children, className }) => {
-    const isBlock = className?.includes('language-')
-    if (isBlock) {
-      return (
-        <pre className="page-card-soft p-5 mb-6 overflow-x-auto">
-          <code className="text-sm font-mono text-slate-700">{children}</code>
-        </pre>
-      )
-    }
+  return {
+    h1: () => null,
+    h2: ({ children }) => {
+      extractText(children)
+      const id = orderedHeadingIds[headingIndex]
+      headingIndex += 1
 
-    return <code className="rounded-md bg-slate-100 px-2 py-1 text-sm font-mono text-slate-800">{children}</code>
-  },
-  a: ({ children, href }) => {
-    if (href?.startsWith('/')) {
       return (
-        <Link href={href} className="link-brand underline underline-offset-4">
+        <h2 id={id} className="text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-slate-950 mt-12 mb-5 scroll-mt-32">
           {children}
-        </Link>
+        </h2>
       )
-    }
-
-    return (
-      <a href={href} className="link-brand underline underline-offset-4" target="_blank" rel="noreferrer">
+    },
+    h3: ({ children }) => (
+      <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mt-8 mb-4">
         {children}
-      </a>
-    )
-  },
+      </h3>
+    ),
+    h4: ({ children }) => <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">{children}</h4>,
+    p: ({ children }) => <p className="text-slate-600 mb-5 leading-8">{children}</p>,
+    ul: ({ children }) => <ul className="space-y-3 mb-6 text-slate-600">{children}</ul>,
+    ol: ({ children }) => <ol className="space-y-3 mb-6 text-slate-600 list-decimal pl-6">{children}</ol>,
+    li: ({ children }) => <li className="leading-7">{children}</li>,
+    strong: ({ children }) => <strong className="font-semibold text-slate-950">{children}</strong>,
+    blockquote: ({ children }) => (
+      <blockquote className="page-card-soft px-6 py-5 mb-8 text-slate-700 border-l-0">{children}</blockquote>
+    ),
+    table: ({ children }) => (
+      <div className="overflow-x-auto mb-8 page-card">
+        <table className="min-w-full text-left">{children}</table>
+      </div>
+    ),
+    thead: ({ children }) => <thead className="bg-slate-50">{children}</thead>,
+    tbody: ({ children }) => <tbody className="divide-y divide-slate-200">{children}</tbody>,
+    tr: ({ children }) => <tr>{children}</tr>,
+    th: ({ children }) => (
+      <th className="px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{children}</th>
+    ),
+    td: ({ children }) => <td className="px-5 py-4 text-sm text-slate-700 align-top">{children}</td>,
+    code: ({ children, className }) => {
+      const isBlock = className?.includes('language-')
+      if (isBlock) {
+        return (
+          <pre className="page-card-soft p-5 mb-6 overflow-x-auto">
+            <code className="text-sm font-mono text-slate-700">{children}</code>
+          </pre>
+        )
+      }
+
+      return <code className="rounded-md bg-slate-100 px-2 py-1 text-sm font-mono text-slate-800">{children}</code>
+    },
+    a: ({ children, href }) => {
+      if (href?.startsWith('/')) {
+        return (
+          <Link href={href} className="link-brand underline underline-offset-4">
+            {children}
+          </Link>
+        )
+      }
+
+      return (
+        <a href={href} className="link-brand underline underline-offset-4" target="_blank" rel="noreferrer">
+          {children}
+        </a>
+      )
+    },
+  }
 }
 
 export default function AIContentCreationAutomationPage() {
   const contentPath = join(process.cwd(), 'content', 'ai-content-creation-automation-2026.md')
   const content = readFileSync(contentPath, 'utf8')
+  const markdownComponents = createMarkdownComponents()
 
   return (
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
@@ -223,26 +222,26 @@ export default function AIContentCreationAutomationPage() {
             <div className="max-w-3xl">
               <div className="page-pill mb-6">
                 <Sparkles className="h-4 w-4 text-[#635bff]" />
-                AI 内容自动化增长框架
+                AI content automation growth framework
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                AI 内容创作自动化，
-                <span className="brand-gradient-text block">从产能提升到规模化变现。</span>
+                AI content creation automation,
+                <span className="brand-gradient-text block">from output gains to scalable monetization.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                这是一页保留完整中文正文的实战指南，聚焦创作者如何用 AI 建立内容策略、批量生产、
-                多平台分发和数据驱动优化系统，而不是停留在“试几个写作工具”的层面。
+                This page preserves the full original Chinese body as a practical guide for creators building AI-enabled content strategy, batch production, multi-platform distribution, and data-driven optimization systems.
+                The point is not to sample a few writing tools. It is to build a repeatable operating model.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
                 <a href="#data-insights" className="btn-brand">
-                  进入正文导航
+                  Enter content navigation
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
                 <Link href="/ai-roi-calculator" className="btn-secondary">
-                  打开 ROI 计算器
+                  Open ROI calculator
                 </Link>
               </div>
 
@@ -262,11 +261,11 @@ export default function AIContentCreationAutomationPage() {
                 <div className="page-card p-6 bg-white/95">
                   <div className="flex items-center justify-between mb-6 gap-4">
                     <div>
-                      <div className="text-sm text-slate-500 mb-1">迁移说明</div>
-                      <div className="text-xl font-semibold text-slate-950">这页现在怎么读最快</div>
+                      <div className="text-sm text-slate-500 mb-1">Migration note</div>
+                      <div className="text-xl font-semibold text-slate-950">How to read this page fastest</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                      中文长文
+                      Chinese long-form
                     </div>
                   </div>
 
@@ -282,10 +281,9 @@ export default function AIContentCreationAutomationPage() {
                   </div>
 
                   <div className="mt-6 rounded-2xl border border-indigo-100 bg-indigo-50/70 px-4 py-4">
-                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600/80 mb-2">入口建议</div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600/80 mb-2">Entry advice</div>
                     <p className="text-sm text-slate-600 leading-relaxed">
-                      如果你是第一次搭建内容自动化体系，先读四步法和路线图；如果你已经在产出内容，优先跳到 ROI
-                      与工具栈部分收敛预算。
+                      If you are building a content automation system for the first time, start with the four-step method and roadmap. If you already publish consistently, jump to the ROI and tool-stack sections to narrow the budget.
                     </p>
                   </div>
                 </div>
@@ -298,14 +296,14 @@ export default function AIContentCreationAutomationPage() {
       <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="page-card p-7 md:p-10 mb-16">
           <div className="max-w-4xl mb-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">正文导航</div>
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Content navigation</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-              保留原始中文指南，
-              <span className="block brand-gradient-text">只重做页面骨架与阅读体验。</span>
+              Keep the original Chinese guide,
+              <span className="block brand-gradient-text">rebuild only the shell and reading experience.</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              下方正文仍然来自原始 markdown 文件，因此案例、工具价格、路线图和行动计划内容都保持不变。
-              当前迁移只统一视觉系统、目录锚点、CTA 结构和元数据规范。
+              The body below still comes from the original markdown file, so the case studies, tool pricing, roadmap, and action-plan content remain unchanged.
+              This migration only standardizes the visual system, anchor navigation, CTA structure, and metadata conventions.
             </p>
           </div>
 
@@ -325,22 +323,21 @@ export default function AIContentCreationAutomationPage() {
 
         <section className="page-card-glow p-8 md:p-12 surface-muted mb-16">
           <div className="max-w-3xl">
-            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">下一步</div>
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Next step</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-              先把内容自动化
-              <span className="block brand-gradient-text">接到预算、工作流和复盘上。</span>
+              Connect content automation first
+              <span className="block brand-gradient-text">to budget, workflow, and post-launch review.</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
-              这类页面最容易的问题不是“没工具”，而是买了太多工具却没有 ROI 视角。先估算收益，再串联工作流和分析页，
-              比直接扩张订阅更稳。
+              The common failure mode on pages like this is not a lack of tools. It is buying too many tools without an ROI view. Estimate the upside first, then connect workflow and analytics pages. That is safer than expanding subscriptions blindly.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/ai-roi-calculator" className="btn-brand">
-                免费 ROI 计算器
+                Free ROI calculator
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <Link href="/ai-content-workflow-automation-2026" className="btn-secondary">
-                查看工作流自动化
+                View workflow automation
               </Link>
             </div>
           </div>
@@ -352,7 +349,7 @@ export default function AIContentCreationAutomationPage() {
               <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{resource.title}</h3>
               <p className="text-slate-600 leading-relaxed mb-6">{resource.description}</p>
               <div className="inline-flex items-center text-[#635bff] font-semibold">
-                打开资源
+                Open resource
                 <ArrowRight className="ml-2 h-4 w-4" />
               </div>
             </Link>

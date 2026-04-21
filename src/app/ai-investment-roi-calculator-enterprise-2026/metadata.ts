@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-const pageTitle = '企业AI投资回报率计算器 2026 | ROI Calculator | SitePilot'
+const pageTitle = 'Enterprise AI Investment ROI Calculator 2026 | SitePilot'
 const pageDescription =
-  '权威企业AI投资ROI计算工具。基于179家Fortune 500实际数据的智能计算器，评估AI项目财务回报、风险因子和投资建议。CFO级财务建模工具。'
+  'An enterprise AI ROI calculator built on real-world data from 179 Fortune 500 companies. Evaluates financial return, risk factors, and investment recommendations with CFO-level modeling.'
 const pageUrl = 'https://sitepilot.co/ai-investment-roi-calculator-enterprise-2026'
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'enterprise AI ROI',
     'AI project valuation',
     'AI cost benefit analysis',
-    'AI财务分析',
+    'AI financial analysis',
   ],
   authors: [{ name: 'SitePilot Team' }],
   alternates: {

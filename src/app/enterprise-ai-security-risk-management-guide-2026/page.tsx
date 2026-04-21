@@ -124,12 +124,12 @@ const checklist = [
 ]
 
 const relatedLinks = [
-  { href: '/ai-enterprise-security-compliance', title: 'AI enterprise security compliance', note: '更通用的安全合规模型。' },
-  { href: '/ai-governance-framework-enterprise-2026', title: 'AI governance framework', note: '把治理层补齐。' },
-  { href: '/ai-security-framework-enterprise-2026', title: 'AI security framework', note: '更偏安全框架本体。' },
-  { href: '/enterprise-ai-vendor-due-diligence-checklist-2026', title: 'Vendor due diligence checklist', note: '供应商风险别跳过。' },
-  { href: '/enterprise-ai-vendor-rfp-template-2026', title: 'Vendor RFP template', note: '采购阶段就把安全要求写进去。' },
-  { href: '/ai-compliance-readiness-assessment-2026', title: 'Compliance readiness assessment', note: '先看合规成熟度。' },
+  { href: '/ai-enterprise-security-compliance', title: 'AI enterprise security compliance', note: 'See the broader enterprise security and compliance model.' },
+  { href: '/ai-governance-framework-enterprise-2026', title: 'AI governance framework', note: 'Fill in the governance layer around the program.' },
+  { href: '/ai-security-framework-enterprise-2026', title: 'AI security framework', note: 'Review the core security framework page.' },
+  { href: '/enterprise-ai-vendor-due-diligence-checklist-2026', title: 'Vendor due diligence checklist', note: 'Do not skip vendor risk review.' },
+  { href: '/enterprise-ai-vendor-rfp-template-2026', title: 'Vendor RFP template', note: 'Write security requirements into the procurement phase.' },
+  { href: '/ai-compliance-readiness-assessment-2026', title: 'Compliance readiness assessment', note: 'Check compliance maturity first.' },
 ]
 
 export default function EnterpriseAISecurityRiskManagementGuidePage() {
@@ -148,11 +148,11 @@ export default function EnterpriseAISecurityRiskManagementGuidePage() {
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
               <div className="max-w-3xl">
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI security & risk management</div>
-                <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI security，<span className="brand-gradient-text block">别把“先上线再补安全”当工程方法。</span></h1>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI security,<span className="brand-gradient-text block">Do not treat “launch first, patch security later” as an engineering method.</span></h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Comprehensive security framework for enterprise AI deployment: Zero-trust architecture, compliance automation, and threat mitigation. This page keeps the 7-layer framework, benchmarks, and checklist, just in the unified light Stripe-ish UI.</p>
                 <div className="mb-10 flex flex-wrap gap-3">
-                  <a href="#framework" className="btn-brand inline-flex items-center gap-2">查看7层框架 <ArrowRight className="h-4 w-4" /></a>
-                  <a href="#checklist" className="btn-secondary inline-flex items-center gap-2">查看检查清单</a>
+                  <a href="#framework" className="btn-brand inline-flex items-center gap-2">View 7-layer framework <ArrowRight className="h-4 w-4" /></a>
+                  <a href="#checklist" className="btn-secondary inline-flex items-center gap-2">View checklist</a>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-3xl">
                   {heroStats.map((stat) => (<div key={stat.label} className="page-card bg-white/90 p-4"><div className="text-2xl font-semibold text-slate-950 md:text-3xl">{stat.value}</div><div className="mt-1 text-sm text-slate-600">{stat.label}</div></div>))}

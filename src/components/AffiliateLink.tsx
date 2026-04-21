@@ -34,7 +34,7 @@ export default function AffiliateLink({
     }
   }
 
-  // 如果没有提供自定义样式，使用现代按钮样式
+  // If no custom style is provided, fall back to the default button style.
   const defaultClassName = className || 'btn btn-primary inline-flex items-center gap-2';
   
   return (

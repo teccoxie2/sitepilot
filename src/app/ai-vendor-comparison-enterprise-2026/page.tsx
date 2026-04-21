@@ -104,10 +104,10 @@ const vendors = [
 ]
 
 const framingSignals = [
-  '选 AI vendor 这事，最怕的不是选错，而是用一堆模糊标准把错选合理化。',
-  '功能、价格、安全、合规、集成、锁定风险，这几个维度少一个都不完整。',
-  '高分不代表适合你。合适的 vendor，取决于你的技术栈、治理要求和组织成熟度。',
-  '如果采购过程只看 demo 和销售话术，后面多半要花更贵的代价补课。',
+  'The biggest vendor-selection failure is not choosing wrong. It is using vague criteria to rationalize the wrong choice.',
+  'Capability, pricing, security, compliance, integration, and lock-in risk all belong in the decision. Skip one and the picture is incomplete.',
+  'A high score does not automatically mean a fit. The right vendor depends on your stack, governance needs, and operating maturity.',
+  'If procurement only reacts to demos and sales language, you usually pay for it later at a much higher cost.',
 ]
 
 const decisionCards = [
@@ -201,19 +201,19 @@ export default function AIVendorComparison() {
                   Enterprise AI vendor selection 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  Enterprise AI vendor 对比，
-                  <span className="brand-gradient-text block">别被 demo 演示骗了。</span>
+                  Enterprise AI vendor comparison,
+                  <span className="brand-gradient-text block">Do not let the demo fool you.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Compare top enterprise AI vendors including OpenAI, Anthropic, Google, Microsoft, and AWS. 这页保留原来的供应商对比、评分、定价、安全合规、use case 建议和内部链接，只统一到当前浅色 Stripe-ish UI。
+                  Compare top enterprise AI vendors including OpenAI, Anthropic, Google, Microsoft, and AWS. This page keeps the original vendor comparison, scoring, pricing, security and compliance framing, use-case guidance, and internal links while aligning the presentation to the current light Stripe-ish UI.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#comparison" className="btn-brand inline-flex items-center gap-2">
-                    查看供应商对比
+                    View vendor comparison
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/ai-implementation-checklist-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
-                    查看实施清单
+                    View implementation checklist
                   </Link>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
@@ -238,7 +238,7 @@ export default function AIVendorComparison() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Selection logic</div>
-                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                        <div className="text-xl font-semibold text-slate-950">Four hard tests</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                         No fluff
@@ -286,11 +286,11 @@ export default function AIVendorComparison() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Quick vendor comparison</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              先横向看全局，
-              <span className="brand-gradient-text block">再决定谁值得进 shortlist。</span>
+              Start with the full market view,
+              <span className="brand-gradient-text block">then decide who deserves a shortlist.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              原来的供应商对比表保留核心字段：vendor、score、pricing、best-for、security。够你先拉开差距，不够你草率拍板。
+              The original comparison table keeps its core fields: vendor, score, pricing, best fit, and security. It is enough to create separation, not enough to justify a careless final decision.
             </p>
           </div>
           <div className="overflow-x-auto">
@@ -408,8 +408,8 @@ export default function AIVendorComparison() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Recommendations by use case</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              不同场景，
-              <span className="brand-gradient-text block">该赢的 vendor 本来就不一样。</span>
+              Different use cases,
+              <span className="brand-gradient-text block">should produce different winners.</span>
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -434,8 +434,8 @@ export default function AIVendorComparison() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Related AI selection tools</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              看完对比，
-              <span className="brand-gradient-text block">该回到决策工具里了。</span>
+              Once you finish the comparison,
+              <span className="brand-gradient-text block">go back to the decision tools.</span>
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -476,7 +476,7 @@ export default function AIVendorComparison() {
                 Need personalized vendor analysis?
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                原页 CTA 保留：如果你的约束条件很特殊，就别指望公开榜单替你做最后决策。让标准贴着你的业务来，才不容易翻车。
+                The CTA intent stays the same: if your constraints are unusual, do not expect a public ranking to make the final call for you. Decision criteria need to fit the business or the selection will fail under pressure.
               </p>
             </div>
             <div className="space-y-4">

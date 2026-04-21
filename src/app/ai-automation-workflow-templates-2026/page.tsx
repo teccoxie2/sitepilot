@@ -7,76 +7,76 @@ import type { Components } from 'react-markdown'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = '25 AI自动化工作流程模板 - 立即可用的业务优化方案 | SitePilot 2026'
+const pageTitle = '25 AI Automation Workflow Templates - Ready-to-Use Business Optimization Plays | SitePilot 2026'
 const pageDescription =
-  '基于$12K AI工具测试的25个经过验证的自动化工作流程模板，覆盖客户服务、销售、内容营销、财务管理等场景，并附带成本分析、实施时间和预期ROI。'
+  '25 validated AI automation workflow templates backed by $12K in tool testing, covering customer service, sales, content marketing, finance, and more with cost analysis, implementation time, and expected ROI.'
 const pageUrl = 'https://sitepilot.co/ai-automation-workflow-templates-2026'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
-    'AI自动化, 工作流程模板, 业务流程优化, ChatGPT自动化, Zapier工作流, AI客服, 销售自动化, 内容营销自动化, ROI分析, 小企业AI解决方案',
+    'AI automation, workflow templates, business process optimization, ChatGPT automation, Zapier workflows, AI customer service, sales automation, content marketing automation, ROI analysis, small business AI solutions',
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: '25 AI自动化工作流程模板 - 经过验证的业务优化方案',
-    description: '基于$12K真实测试的AI自动化模板，平均ROI 320%+。包含实施指南、成本分析和真实案例。',
+    title: '25 AI Automation Workflow Templates - Proven Business Optimization Plays',
+    description: 'AI automation templates backed by $12K in real testing with 320%+ average ROI, implementation guidance, cost analysis, and real-world examples.',
     type: 'article',
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
-    title: '25 AI自动化工作流程模板 - 经过验证的业务优化方案',
-    description: '基于$12K真实测试的AI自动化模板，平均ROI 320%+。包含实施指南、成本分析和真实案例。',
+    title: '25 AI Automation Workflow Templates - Proven Business Optimization Plays',
+    description: 'AI automation templates backed by $12K in real testing with 320%+ average ROI, implementation guidance, cost analysis, and real-world examples.',
   },
 }
 
 const summaryCards = [
   {
-    label: '25 个模板',
-    note: '覆盖客户服务、销售自动化、内容营销、财务管理、项目管理与招聘场景。',
+    label: '25 templates',
+    note: 'Covering customer service, sales automation, content marketing, finance, project management, and hiring.',
   },
   {
-    label: '平均 ROI 320%+',
-    note: '模板基于真实测试与实施案例整理，不只是理论流程图。',
+    label: '320%+ average ROI',
+    note: 'Built from real testing and implementation cases, not theoretical flowcharts.',
   },
   {
-    label: '$12K 测试投入',
-    note: '页面聚焦成本、实施时间与预期回报，适合业务负责人快速筛选。',
+    label: '$12K in testing',
+    note: 'Focused on cost, implementation time, and expected return so operators can filter quickly.',
   },
   {
-    label: '可直接落地',
-    note: '每个模板都围绕工具组合、使用场景、执行步骤与预算假设展开。',
+    label: 'Ready to implement',
+    note: 'Each template maps the tool stack, use case, execution steps, and budget assumptions.',
   },
 ]
 
 const quickSignals = [
-  '保留全文 markdown 内容与既有中文定位',
-  '统一为 SitePilot 浅色 Stripe-ish AI 内容系统',
-  '继续指向 ROI 计算器、案例研究和工具对比页',
-  '更适合长文阅读、表格浏览和后续内链扩展',
+  'Keeps the full markdown content and the original long-form structure.',
+  'Updated to the SitePilot light Stripe-ish AI content system.',
+  'Still routes readers to the ROI calculator, case studies, and tool comparison pages.',
+  'Better for long-form reading, tables, and future internal-link expansion.',
 ]
 
 const relatedResources = [
   {
     href: '/ai-roi-calculator',
-    title: 'AI ROI 计算器',
-    description: '基于业务规模和目标流程，快速估算自动化工具的投资回收周期。',
+    title: 'AI ROI Calculator',
+    description: 'Estimate payback periods for automation tooling based on company size and target workflows.',
   },
   {
     href: '/enterprise-ai-implementation-best-practices-2026',
-    title: 'AI 实施案例研究',
-    description: '查看真实企业落地 AI 的做法、风险点和执行经验。',
+    title: 'AI Implementation Case Studies',
+    description: 'Review how real companies deployed AI, where the risks appeared, and what execution patterns held up.',
   },
   {
     href: '/best-ai-tools-small-business-2026',
-    title: '小企业 AI 工具指南',
-    description: '如果预算更敏感，可以先从小团队可承受的工具组合开始。',
+    title: 'Small Business AI Tools Guide',
+    description: 'If budget sensitivity matters more, start with tool combinations that smaller teams can actually sustain.',
   },
   {
     href: '/ai-tools-cost-benefit-analysis-2026',
-    title: 'AI 工具对比分析',
-    description: '从成本效益角度继续细化工具选择，而不是直接堆订阅。',
+    title: 'AI Tool Cost-Benefit Analysis',
+    description: 'Refine tool selection through cost-benefit tradeoffs instead of stacking subscriptions blindly.',
   },
 ]
 
@@ -167,26 +167,26 @@ export default function AIWorkflowTemplatesPage() {
             <div className="max-w-3xl">
               <div className="page-pill mb-6">
                 <Sparkles className="h-4 w-4 text-[#635bff]" />
-                已验证的 AI 自动化模板库
+                Validated AI automation template library
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                AI 自动化工作流程模板，
-                <span className="brand-gradient-text block">从测试到落地。</span>
+                AI automation workflow templates,
+                <span className="brand-gradient-text block">from testing to execution.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                这份模板库基于 $12K AI 工具测试与 25+ 真实企业实施案例，整理出可直接复用的业务自动化方案。
-                页面重点不是“灵感清单”，而是帮助团队快速判断哪类流程值得自动化、要花多少钱、多久能回本。
+                This library draws on $12K in AI tool testing and more than 25 real implementation cases to package reusable business automation plays.
+                The goal is not an inspiration list. It is to help teams judge which workflows are worth automating, what they cost, and how quickly they can pay back.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
                 <Link href="/ai-roi-calculator" className="btn-brand">
-                  打开 ROI 计算器
+                  Open the ROI calculator
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link href="/ai-tools" className="btn-secondary">
-                  浏览 AI 工具对比
+                  Browse AI tool comparisons
                 </Link>
               </div>
 
@@ -206,11 +206,11 @@ export default function AIWorkflowTemplatesPage() {
                 <div className="page-card p-6 bg-white/95">
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <div className="text-sm text-slate-500 mb-1">模板信号</div>
-                      <div className="text-xl font-semibold text-slate-950">为什么这页适合先读</div>
+                      <div className="text-sm text-slate-500 mb-1">Template signals</div>
+                      <div className="text-xl font-semibold text-slate-950">Why this page is worth reading first</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                      中文长文
+                      Long-form guide
                     </div>
                   </div>
 
@@ -234,14 +234,14 @@ export default function AIWorkflowTemplatesPage() {
       <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="page-card p-7 md:p-10 mb-16">
           <div className="max-w-3xl mb-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">正文内容</div>
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Main content</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-              保留原始模板内容，
-              <span className="block brand-gradient-text">只升级阅读和导航体验。</span>
+              Keep the original template content,
+              <span className="block brand-gradient-text">upgrade only the reading and navigation experience.</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              下方正文仍然来自原始 markdown 文件，因此分类表、模板说明、ROI 示例和实施步骤都保持不变。
-              当前迁移只处理页面壳层、目录感、表格可读性和站内链接体验。
+              The body below still comes from the original markdown file, so the category tables, template notes, ROI examples, and implementation steps remain intact.
+              This migration only updates the page shell, information scent, table readability, and internal-link experience.
             </p>
           </div>
 
@@ -252,21 +252,21 @@ export default function AIWorkflowTemplatesPage() {
 
         <section className="page-card-glow p-8 md:p-12 surface-muted mb-16">
           <div className="max-w-3xl">
-            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">下一步</div>
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Next step</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-              准备把模板
-              <span className="block brand-gradient-text">变成实际预算与执行计划？</span>
+              Ready to turn templates
+              <span className="block brand-gradient-text">into budgets and execution plans?</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
-              先用 ROI 计算器估算自动化收益，再回到工具对比与案例研究页收敛方案。这样比先买一堆订阅再找用法更稳。
+              Start with the ROI calculator to size the upside, then return to the comparison and case-study pages to narrow the plan. That is a safer sequence than buying subscriptions first and inventing the use case later.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/ai-roi-calculator" className="btn-brand">
-                免费 ROI 计算器
+                Free ROI calculator
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <Link href="/ai-tools" className="btn-secondary">
-                浏览 AI 工具对比
+                Browse AI tool comparisons
               </Link>
             </div>
           </div>
@@ -278,7 +278,7 @@ export default function AIWorkflowTemplatesPage() {
               <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{resource.title}</h3>
               <p className="text-slate-600 leading-relaxed mb-6">{resource.description}</p>
               <div className="inline-flex items-center text-[#635bff] font-semibold">
-                打开资源
+                Open resource
                 <ArrowRight className="ml-2 h-4 w-4" />
               </div>
             </Link>

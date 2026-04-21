@@ -32,25 +32,25 @@ interface ResultsType {
 }
 
 const heroSignals = [
-  '保留团队规模、生产力、重复任务、预算和 AI readiness 输入',
-  '保留 productivity boost、ROI、风险、建议和 payback 输出',
-  '统一到当前浅色 Stripe-ish UI',
-  '继续保留 internal links 和咨询路径',
+  'Keeps the original team size, productivity, repetitive task, budget, and AI readiness inputs.',
+  'Keeps the productivity boost, ROI, risk, recommendations, and payback outputs.',
+  'Aligns the page with the current light Stripe-ish UI.',
+  'Preserves internal links and the consultation path.',
 ]
 
 const statCards = [
-  { label: 'Team focus', value: 'People', note: '人效是主角，不是摆设。' },
-  { label: 'Automation focus', value: 'Tasks', note: '重复工作越多，空间越大。' },
-  { label: 'Risk focus', value: 'Readiness', note: '准备度低，风险就会写脸上。' },
-  { label: 'Decision level', value: 'Executive', note: '给管理层的数字，不是情绪。' },
+  { label: 'Team focus', value: 'People', note: 'Workforce productivity is the point, not decoration.' },
+  { label: 'Automation focus', value: 'Tasks', note: 'The more repetitive work you have, the bigger the upside.' },
+  { label: 'Risk focus', value: 'Readiness', note: 'Low readiness makes risk visible fast.' },
+  { label: 'Decision level', value: 'Executive', note: 'These numbers are for management decisions, not vibes.' },
 ]
 
 const internalLinks = [
-  { href: '/ai-tool-implementation-strategy-2026', title: 'AI Tool Implementation Strategy', note: '把评估结果接到实施路线。' },
-  { href: '/ai-roi-calculator', title: 'AI ROI Calculator', note: '看回报怎么落到预算。' },
-  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation Best Practices', note: '参考企业级执行方法。' },
-  { href: '/ai-tools', title: 'AI Tools Hub', note: '回到工具总目录。' },
-  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: '需要顾问式评估就直接约。' },
+  { href: '/ai-tool-implementation-strategy-2026', title: 'AI Tool Implementation Strategy', note: 'Connect the assessment output to an implementation roadmap.' },
+  { href: '/ai-roi-calculator', title: 'AI ROI Calculator', note: 'See how the return maps into the budget.' },
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation Best Practices', note: 'Reference the enterprise execution playbook.' },
+  { href: '/ai-tools', title: 'AI Tools Hub', note: 'Return to the main tools directory.' },
+  { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a consultative assessment if you need one.' },
 ] as const
 
 export default function AITeamProductivityAssessmentToolClient() {
@@ -243,11 +243,11 @@ export default function AITeamProductivityAssessmentToolClient() {
 
                   <h1 className="page-title mb-6 text-5xl md:text-7xl">
                     AI Team Productivity Assessment Tool,
-                    <span className="brand-gradient-text block">先算人效，再谈 AI 革命。</span>
+                    <span className="brand-gradient-text block">measure team productivity before you start talking about AI revolutions.</span>
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    这页保留团队规模、重复任务、预算、技能、数据和 readiness 的原始逻辑，只把外观统一到当前浅色 Stripe-ish 系统。
+                    This page keeps the original logic for team size, repetitive work, budget, skills, data, and readiness, and only aligns the shell with the current light Stripe-ish system.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -286,10 +286,10 @@ export default function AITeamProductivityAssessmentToolClient() {
 
                       <div className="grid gap-3">
                         {[
-                          ['Inputs', 'Team size、生产力、重复任务、预算和 AI readiness。'],
-                          ['Outputs', 'Boost、time saved、savings、ROI、risk 和 payback。'],
-                          ['Workflow', '保留完整的计算逻辑与结果展示。'],
-                          ['UI system', '统一到当前浅色 Stripe-ish cards and gradients。'],
+                          ['Inputs', 'Team size, current productivity, repetitive work, budget, and AI readiness.'],
+                          ['Outputs', 'Productivity boost, time saved, savings, ROI, risk, and payback.'],
+                          ['Workflow', 'The calculation logic and result structure stay intact.'],
+                          ['UI system', 'Aligned with the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
                           <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                             <div className="font-semibold text-slate-950">{title}</div>
@@ -303,7 +303,7 @@ export default function AITeamProductivityAssessmentToolClient() {
                           Guardrail
                         </div>
                         <div className="text-sm leading-relaxed text-slate-700">
-                          这是 productivity assessment，不是“买点 AI 就会飞”的许愿池。
+                          This is a productivity assessment, not a wish fountain where buying AI magically fixes everything.
                         </div>
                       </div>
                     </div>
@@ -332,10 +332,10 @@ export default function AITeamProductivityAssessmentToolClient() {
                 Productivity assessment workspace
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                把团队人效、成本和 AI 空间一次看清。
+                See team productivity, cost, and AI headroom in one view.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                输入照旧，输出照旧，只是现在不用盯着旧的蓝色卡片看半天。
+                The inputs stay the same and the outputs stay the same. The page just no longer makes you stare at outdated blue cards.
               </p>
             </div>
 
@@ -475,10 +475,10 @@ export default function AITeamProductivityAssessmentToolClient() {
                   <h3 className="text-2xl font-semibold text-slate-950">What gets returned</h3>
                   <div className="mt-6 grid gap-4 md:grid-cols-2">
                     {[
-                      ['Productivity boost', '预计的人效提升。'],
-                      ['Time saved', '每月节省的工时。'],
-                      ['ROI', '预算和回报的关系。'],
-                      ['Risk assessment', '看团队准备度是否匹配。'],
+                      ['Productivity boost', 'Estimated improvement in team productivity.'],
+                      ['Time saved', 'Working hours saved each month.'],
+                      ['ROI', 'How the budget compares with the return.'],
+                      ['Risk assessment', 'Whether team readiness matches the plan.'],
                     ].map(([title, note]) => (
                       <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
                         <div className="font-semibold text-slate-950">{title}</div>
@@ -550,14 +550,14 @@ export default function AITeamProductivityAssessmentToolClient() {
 
           {results && (
             <section className="mt-16 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
-              <div className="max-w-3xl">
+                <div className="max-w-3xl">
                 <div className="page-pill mb-4 inline-flex items-center gap-2">
                   <TrendingUp className="h-4 w-4" />
                   Results and recommendations
                 </div>
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-950">结果出来了，别装作没看见。</h2>
+                <h2 className="text-3xl font-semibold tracking-tight text-slate-950">The result is in. Do not pretend you did not see it.</h2>
                 <p className="mt-4 text-base leading-7 text-slate-600">
-                  这里继续展示绩效等级、建议和风险提醒。逻辑和原来一样，只是摆法更像现在的 SitePilot。
+                  The page still shows performance levels, recommendations, and risk warnings. The logic is unchanged. The presentation just matches the current SitePilot system.
                 </p>
               </div>
 
@@ -596,7 +596,7 @@ export default function AITeamProductivityAssessmentToolClient() {
                     {results.riskFactors.length > 0 ? (
                       <ul className="space-y-2">
                         {results.riskFactors.map((factor) => (
-                          <li key={factor}>• {factor}</li>
+                          <li key={factor}>- {factor}</li>
                         ))}
                       </ul>
                     ) : (
@@ -610,7 +610,7 @@ export default function AITeamProductivityAssessmentToolClient() {
                 <h3 className="text-lg font-semibold text-slate-950">Strategic Recommendations</h3>
                 <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-700">
                   {results.recommendations.map((rec) => (
-                    <li key={rec}>• {rec}</li>
+                    <li key={rec}>- {rec}</li>
                   ))}
                 </ul>
               </div>
@@ -622,7 +622,7 @@ export default function AITeamProductivityAssessmentToolClient() {
               <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-[#7c3aed] p-8 text-white">
                 <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Ready for enterprise AI implementation?</h3>
                 <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                  把 productivity 先量出来，再决定要不要扩张工具、训练团队或重写流程。
+                  Measure productivity first, then decide whether to expand tools, train the team, or redesign the workflow.
                 </p>
                 <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link href="/enterprise-ai-implementation-best-practices-2026" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">

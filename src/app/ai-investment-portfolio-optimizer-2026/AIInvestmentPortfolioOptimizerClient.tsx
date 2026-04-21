@@ -251,17 +251,17 @@ export default function AIInvestmentPortfolioOptimizerClient() {
       finalAllocations.length
 
     const recommendations = [
-      `基于您的${strategicGoals.join('、')}目标，建议优先投资 ${[...finalAllocations].sort((a, b) => b.proposedBudget - a.proposedBudget)[0].name}`,
-      `您的投资组合风险评分为 ${riskScore.toFixed(1)}/3，${riskScore < 2 ? '风险适中' : riskScore < 2.5 ? '风险较高' : '高风险投资'}`,
-      '建议分阶段实施，从 ROI 最高且风险最低的项目开始。',
-      `预期在 ${Math.min(...finalAllocations.map((area) => area.timeline))} 个月内看到初步成果。`,
+      `Based on your ${strategicGoals.join(', ')} priorities, the optimizer recommends leading with ${[...finalAllocations].sort((a, b) => b.proposedBudget - a.proposedBudget)[0].name}.`,
+      `The portfolio risk score is ${riskScore.toFixed(1)}/3, which indicates ${riskScore < 2 ? 'a balanced risk profile' : riskScore < 2.5 ? 'an elevated risk profile' : 'a high-risk portfolio'}.`,
+      'Phase the rollout, starting with the highest-ROI and lowest-risk initiatives.',
+      `Expect the first visible results within ${Math.min(...finalAllocations.map((area) => area.timeline))} months.`,
       industry === 'Financial Services'
-        ? '考虑额外的合规和安全投资。'
+        ? 'Plan for additional compliance and security investment.'
         : industry === 'Healthcare'
-          ? '重点关注数据隐私和监管要求。'
+          ? 'Make data privacy and regulatory requirements a front-line constraint.'
           : industry === 'Manufacturing'
-            ? '优先考虑运营效率和预测性维护。'
-            : '建议定期评估 ROI 进展。',
+            ? 'Prioritize operational-efficiency and predictive-maintenance bets first.'
+            : 'Review ROI progress on a regular operating cadence.',
     ]
 
     setResult({
@@ -440,10 +440,10 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                 </div>
                 <Progress value={(currentStep / 4) * 100} className="h-2" />
                 <div className="mt-3 flex justify-between text-xs text-slate-500">
-                  <span className={currentStep >= 1 ? 'font-medium text-[#635bff]' : ''}>公司概况</span>
-                  <span className={currentStep >= 2 ? 'font-medium text-[#635bff]' : ''}>战略目标</span>
-                  <span className={currentStep >= 3 ? 'font-medium text-[#635bff]' : ''}>投资配置</span>
-                  <span className={currentStep >= 4 ? 'font-medium text-[#635bff]' : ''}>优化结果</span>
+                  <span className={currentStep >= 1 ? 'font-medium text-[#635bff]' : ''}>Company profile</span>
+                  <span className={currentStep >= 2 ? 'font-medium text-[#635bff]' : ''}>Strategic goals</span>
+                  <span className={currentStep >= 3 ? 'font-medium text-[#635bff]' : ''}>Portfolio setup</span>
+                  <span className={currentStep >= 4 ? 'font-medium text-[#635bff]' : ''}>Optimized result</span>
                 </div>
               </div>
 
@@ -452,16 +452,16 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                   <CardHeader className="pb-4">
                     <CardTitle className="flex items-center gap-2 text-xl text-slate-950">
                       <Briefcase className="h-5 w-5 text-[#635bff]" />
-                      公司概况
+                      Company profile
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div className="grid gap-6 md:grid-cols-2">
                       <div className="space-y-2">
-                        <Label>公司规模</Label>
+                        <Label>Company size</Label>
                         <Select value={companySize} onValueChange={setCompanySize}>
                           <SelectTrigger className="rounded-2xl">
-                            <SelectValue placeholder="选择公司规模" />
+                            <SelectValue placeholder="Select company size" />
                           </SelectTrigger>
                           <SelectContent>
                             {companySizes.map((size) => (
@@ -473,10 +473,10 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label>行业</Label>
+                        <Label>Industry</Label>
                         <Select value={industry} onValueChange={setIndustry}>
                           <SelectTrigger className="rounded-2xl">
-                            <SelectValue placeholder="选择行业" />
+                            <SelectValue placeholder="Select industry" />
                           </SelectTrigger>
                           <SelectContent>
                             {industries.map((item) => (
@@ -489,17 +489,17 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <Label>年度 AI 预算 (USD)</Label>
+                      <Label>Annual AI budget (USD)</Label>
                       <Input
                         type="number"
-                        placeholder="例如: 500000"
+                        placeholder="For example: 500000"
                         value={currentAIBudget}
                         onChange={(event) => setCurrentAIBudget(event.target.value)}
                         className="rounded-2xl"
                       />
                     </div>
                     <Button onClick={() => setCurrentStep(2)} disabled={!canAdvanceStep1} className="btn-brand w-full">
-                      下一步：设定战略目标
+                      Next: define strategic goals
                     </Button>
                   </CardContent>
                 </Card>
@@ -510,12 +510,12 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                   <CardHeader className="pb-4">
                     <CardTitle className="flex items-center gap-2 text-xl text-slate-950">
                       <Target className="h-5 w-5 text-[#635bff]" />
-                      战略目标设定
+                      Strategic goal setup
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
-                      <Label className="text-base font-medium">主要战略目标（可多选）</Label>
+                      <Label className="text-base font-medium">Primary strategic goals (select multiple)</Label>
                       <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
                         {goalOptions.map((goal) => (
                           <Button
@@ -533,28 +533,28 @@ export default function AIInvestmentPortfolioOptimizerClient() {
 
                     <div className="grid gap-6 md:grid-cols-2">
                       <div className="space-y-2">
-                        <Label>风险承受度</Label>
+                        <Label>Risk tolerance</Label>
                         <Select value={riskTolerance} onValueChange={setRiskTolerance}>
                           <SelectTrigger className="rounded-2xl">
-                            <SelectValue placeholder="选择风险偏好" />
+                            <SelectValue placeholder="Select risk tolerance" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="conservative">保守型 - 稳定回报</SelectItem>
-                            <SelectItem value="balanced">平衡型 - 适度风险</SelectItem>
-                            <SelectItem value="aggressive">激进型 - 高收益追求</SelectItem>
+                            <SelectItem value="conservative">Conservative - stable returns</SelectItem>
+                            <SelectItem value="balanced">Balanced - moderate risk</SelectItem>
+                            <SelectItem value="aggressive">Aggressive - higher-return pursuit</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label>投资时间周期</Label>
+                        <Label>Investment horizon</Label>
                         <Select value={timeHorizon} onValueChange={setTimeHorizon}>
                           <SelectTrigger className="rounded-2xl">
-                            <SelectValue placeholder="选择时间周期" />
+                            <SelectValue placeholder="Select time horizon" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="short">短期（6-12个月）</SelectItem>
-                            <SelectItem value="medium">中期（1-2年）</SelectItem>
-                            <SelectItem value="long">长期（2年以上）</SelectItem>
+                            <SelectItem value="short">Short term (6-12 months)</SelectItem>
+                            <SelectItem value="medium">Medium term (1-2 years)</SelectItem>
+                            <SelectItem value="long">Long term (2+ years)</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -562,10 +562,10 @@ export default function AIInvestmentPortfolioOptimizerClient() {
 
                     <div className="flex flex-col gap-3 sm:flex-row">
                       <Button variant="outline" onClick={() => setCurrentStep(1)} className="btn-secondary">
-                        上一步
+                        Back
                       </Button>
                       <Button onClick={() => setCurrentStep(3)} disabled={!canAdvanceStep2} className="btn-brand flex-1">
-                        下一步：配置投资领域
+                        Next: configure investment areas
                       </Button>
                     </div>
                   </CardContent>
@@ -577,12 +577,12 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                   <CardHeader className="pb-4">
                     <CardTitle className="flex items-center gap-2 text-xl text-slate-950">
                       <DollarSign className="h-5 w-5 text-[#635bff]" />
-                      投资领域配置
+                      Investment area configuration
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <p className="text-sm leading-7 text-slate-600">
-                      配置各投资领域的当前预算（可选）。如果留空，系统将基于您的战略目标自动优化分配。
+                      Set the current budget for each investment area if you have it. Leave fields empty and the optimizer will distribute capital from your strategic priorities.
                     </p>
 
                     <div className="space-y-4">
@@ -592,7 +592,7 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                             <div>
                               <h4 className="font-semibold text-slate-950">{area.name}</h4>
                               <p className="text-sm text-slate-600">
-                                预期时间线: {area.timeline} 个月 • 风险级别:{' '}
+                                Expected timeline: {area.timeline} months • Risk level:{' '}
                                 <Badge
                                   variant="secondary"
                                   className={`ml-1 ${
@@ -603,17 +603,17 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                                         : 'bg-rose-100 text-rose-800'
                                   }`}
                                 >
-                                  {area.riskLevel === 'low' ? '低' : area.riskLevel === 'medium' ? '中' : '高'}
+                                  {area.riskLevel === 'low' ? 'Low' : area.riskLevel === 'medium' ? 'Medium' : 'High'}
                                 </Badge>
                               </p>
                             </div>
                           </div>
                           <div className="space-y-2">
-                            <Label htmlFor={`budget-${index}`}>当前预算 (USD)</Label>
+                            <Label htmlFor={`budget-${index}`}>Current budget (USD)</Label>
                             <Input
                               id={`budget-${index}`}
                               type="number"
-                              placeholder="例如: 50000"
+                              placeholder="For example: 50000"
                               value={area.currentBudget || ''}
                               onChange={(event) => updateInvestmentBudget(index, event.target.value)}
                               className="rounded-2xl"
@@ -625,7 +625,7 @@ export default function AIInvestmentPortfolioOptimizerClient() {
 
                     <div className="flex flex-col gap-3 sm:flex-row">
                       <Button variant="outline" onClick={() => setCurrentStep(2)} className="btn-secondary">
-                        上一步
+                        Back
                       </Button>
                       <Button
                         onClick={() => {
@@ -635,7 +635,7 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                         className="btn-brand flex-1"
                         disabled={!canCalculate}
                       >
-                        生成优化方案
+                        Generate optimized plan
                       </Button>
                     </div>
                   </CardContent>
@@ -699,37 +699,37 @@ export default function AIInvestmentPortfolioOptimizerClient() {
             <div className="grid gap-4 md:grid-cols-4">
               <div className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <DollarSign className="h-8 w-8 text-[#635bff]" />
-                <p className="mt-4 text-sm font-medium text-slate-600">总投资</p>
+                <p className="mt-4 text-sm font-medium text-slate-600">Total investment</p>
                 <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">{formatCurrency(result.totalInvestment)}</p>
               </div>
               <div className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <TrendingUp className="h-8 w-8 text-indigo-600" />
-                <p className="mt-4 text-sm font-medium text-slate-600">预期 ROI</p>
+                <p className="mt-4 text-sm font-medium text-slate-600">Expected ROI</p>
                 <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">{result.expectedROI.toFixed(0)}%</p>
               </div>
               <div className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <Shield className="h-8 w-8 text-amber-600" />
-                <p className="mt-4 text-sm font-medium text-slate-600">风险评分</p>
+                <p className="mt-4 text-sm font-medium text-slate-600">Risk score</p>
                 <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">{result.riskScore.toFixed(1)}/3</p>
               </div>
               <div className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <Calendar className="h-8 w-8 text-violet-600" />
-                <p className="mt-4 text-sm font-medium text-slate-600">见效时间</p>
-                <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">{result.timeToValue} 个月</p>
+                <p className="mt-4 text-sm font-medium text-slate-600">Time to value</p>
+                <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">{result.timeToValue} months</p>
               </div>
             </div>
 
             <Tabs defaultValue="allocations" className="w-full">
               <TabsList className="grid w-full grid-cols-3 rounded-2xl bg-slate-100 p-1">
-                <TabsTrigger value="allocations">投资分配</TabsTrigger>
-                <TabsTrigger value="recommendations">专业建议</TabsTrigger>
-                <TabsTrigger value="timeline">实施路线图</TabsTrigger>
+                <TabsTrigger value="allocations">Allocations</TabsTrigger>
+                <TabsTrigger value="recommendations">Recommendations</TabsTrigger>
+                <TabsTrigger value="timeline">Roadmap</TabsTrigger>
               </TabsList>
 
               <TabsContent value="allocations" className="mt-6">
                 <Card className="page-card border-slate-200 shadow-sm">
                   <CardHeader>
-                    <CardTitle className="text-xl text-slate-950">优化后的投资分配</CardTitle>
+                    <CardTitle className="text-xl text-slate-950">Optimized investment allocation</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {[...result.allocations].map((area) => (
@@ -748,9 +748,9 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                                       : 'bg-rose-100 text-rose-800'
                                 }`}
                               >
-                                {area.riskLevel === 'low' ? '低风险' : area.riskLevel === 'medium' ? '中风险' : '高风险'}
+                                {area.riskLevel === 'low' ? 'Low risk' : area.riskLevel === 'medium' ? 'Medium risk' : 'High risk'}
                               </Badge>
-                              <span>预期 ROI: {area.roi}%</span>
+                              <span>Expected ROI: {area.roi}%</span>
                             </div>
                           </div>
                           <div className="text-right">
@@ -759,7 +759,7 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                           </div>
                         </div>
                         <Progress value={(area.proposedBudget / result.totalInvestment) * 100} className="h-2" />
-                        <p className="mt-2 text-sm text-slate-600">依赖项: {area.dependencies.join(', ')}</p>
+                        <p className="mt-2 text-sm text-slate-600">Dependencies: {area.dependencies.join(', ')}</p>
                       </div>
                     ))}
                   </CardContent>
@@ -769,7 +769,7 @@ export default function AIInvestmentPortfolioOptimizerClient() {
               <TabsContent value="recommendations" className="mt-6">
                 <Card className="page-card border-slate-200 shadow-sm">
                   <CardHeader>
-                    <CardTitle className="text-xl text-slate-950">专业建议</CardTitle>
+                    <CardTitle className="text-xl text-slate-950">Professional recommendations</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {result.recommendations.map((recommendation, index) => (
@@ -785,7 +785,7 @@ export default function AIInvestmentPortfolioOptimizerClient() {
               <TabsContent value="timeline" className="mt-6">
                 <Card className="page-card border-slate-200 shadow-sm">
                   <CardHeader>
-                    <CardTitle className="text-xl text-slate-950">实施路线图</CardTitle>
+                    <CardTitle className="text-xl text-slate-950">Implementation roadmap</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {[...result.allocations]
@@ -798,11 +798,11 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                           <div className="min-w-0 flex-1">
                             <h4 className="font-semibold text-slate-950">{area.name}</h4>
                             <p className="text-sm text-slate-600">
-                              预期完成时间: {area.timeline} 个月 • 预算: {formatCurrency(area.proposedBudget)}
+                              Expected completion: {area.timeline} months • Budget: {formatCurrency(area.proposedBudget)}
                             </p>
                           </div>
                           <Badge variant="outline" className="rounded-full border-slate-200 text-slate-600">
-                            阶段 {index + 1}
+                            Phase {index + 1}
                           </Badge>
                         </div>
                       ))}
@@ -813,11 +813,11 @@ export default function AIInvestmentPortfolioOptimizerClient() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button variant="outline" onClick={() => setCurrentStep(3)} className="btn-secondary">
-                返回修改
+                Return to inputs
               </Button>
               <Button onClick={generatePDFReport} className="btn-brand">
                 <Download className="mr-2 h-4 w-4" />
-                下载详细报告
+                Download detailed report
               </Button>
               <Button
                 onClick={() => {
@@ -834,7 +834,7 @@ export default function AIInvestmentPortfolioOptimizerClient() {
                 variant="outline"
                 className="btn-secondary"
               >
-                重新开始
+                Start over
               </Button>
             </div>
           </section>
@@ -843,24 +843,24 @@ export default function AIInvestmentPortfolioOptimizerClient() {
         <section className="mt-16 text-center">
           <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
             <div className="rounded-[1.5rem] bg-gradient-to-r from-[#0f172a] via-[#635bff] to-sky-500 p-8 text-white">
-              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">需要专业的 AI 投资顾问服务？</h3>
+              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Need expert AI investment advisory?</h3>
               <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                我们可以把这个投资组合优化器，接到更完整的企业 AI 规划、治理和实施支持流程里。
+                We can plug this portfolio optimizer into a broader enterprise AI planning, governance, and implementation support process.
               </p>
               <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link href="/apply-for-audit" className="btn-brand bg-white text-slate-950 hover:bg-slate-100">
-                  联系 AI 投资专家
+                  Talk to an AI investment expert
                 </Link>
                 <Link href="/ai-investment-roi-matrix-calculator-enterprise-2026" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15">
-                  查看 ROI Matrix
+                  View ROI Matrix
                 </Link>
               </div>
             </div>
           </div>
 
           <div className="mt-6 text-sm text-slate-600">
-            <p>© 2026 SitePilot AI Investment Solutions. 专业级 AI 投资组合优化工具。</p>
-            <p className="mt-1">基于最新 AI 投资数据和行业最佳实践构建。</p>
+            <p>© 2026 SitePilot AI Investment Solutions. Professional-grade AI portfolio optimization tool.</p>
+            <p className="mt-1">Built on current AI investment data and practical industry guidance.</p>
           </div>
         </section>
       </main>

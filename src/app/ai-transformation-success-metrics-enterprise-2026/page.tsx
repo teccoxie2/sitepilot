@@ -56,10 +56,10 @@ const heroStats = [
 ]
 
 const metricSignals = [
-  '只报“AI 很成功”这种空话，没有任何管理价值。指标不到位，决策基本靠猜。',
-  '真正有用的 success metrics，必须同时覆盖财务、运营、创新、采用率和风险。',
-  '如果没有 baseline，后面所有 improvement stories 都可能只是自我感动。',
-  'KPI 体系的作用不是做一张漂亮 dashboard，而是决定继续投、缩编，还是直接砍。',
+  'Saying only that "AI is going great" has no management value. Without metrics, decisions are mostly guesswork.',
+  'Useful success metrics must cover financial impact, operations, innovation, adoption, and risk at the same time.',
+  'Without a baseline, most later improvement stories are just narrative inflation.',
+  'The point of a KPI system is not to decorate a dashboard. It is to decide whether to keep funding, resize, or cut the initiative.',
 ]
 
 const categoryCards = [
@@ -108,7 +108,7 @@ const categoryCards = [
 const phaseCards = [
   {
     phase: 'Phase 1',
-    title: 'Foundation · Months 1-6',
+    title: 'Foundation - Months 1-6',
     tone: 'border-sky-100 bg-sky-50/80',
     items: [
       'Establish baseline metrics and data infrastructure',
@@ -119,7 +119,7 @@ const phaseCards = [
   },
   {
     phase: 'Phase 2',
-    title: 'Scale · Months 7-12',
+    title: 'Scale - Months 7-12',
     tone: 'border-indigo-100 bg-indigo-50/80',
     items: [
       'Department-wide deployment success rates',
@@ -130,7 +130,7 @@ const phaseCards = [
   },
   {
     phase: 'Phase 3',
-    title: 'Optimize · Months 13-18',
+    title: 'Optimize - Months 13-18',
     tone: 'border-violet-100 bg-violet-50/80',
     items: [
       'Enterprise-wide performance and utilization metrics',
@@ -166,7 +166,7 @@ const benchmarkRows = [
 
 const actionPlan = [
   {
-    title: 'Days 1-30 · Foundation',
+    title: 'Days 1-30 - Foundation',
     items: [
       'Establish baseline metrics and collection infrastructure',
       'Deploy analytics and monitoring tools',
@@ -175,7 +175,7 @@ const actionPlan = [
     ],
   },
   {
-    title: 'Days 31-60 · Implementation',
+    title: 'Days 31-60 - Implementation',
     items: [
       'Launch pilot tracking and measurement',
       'Begin automated reporting',
@@ -184,7 +184,7 @@ const actionPlan = [
     ],
   },
   {
-    title: 'Days 61-90 · Optimization',
+    title: 'Days 61-90 - Optimization',
     items: [
       'Analyze trends and improvement opportunities',
       'Expand scope to additional initiatives',
@@ -240,19 +240,19 @@ export default function AITransformationSuccessMetrics() {
                   Enterprise AI success metrics 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI 转型 KPI，
-                  <span className="brand-gradient-text block">不是汇报装饰品，是生死线。</span>
+                  AI transformation KPIs,
+                  <span className="brand-gradient-text block">not reporting decoration, but operating guardrails.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Comprehensive framework for measuring and optimizing AI transformation success in enterprise environments. 这页保留原来的 KPI 分类、阶段框架、行业基准、90 天行动计划和内部链接，只把视觉系统统一到当前浅色 Stripe-ish 风格。
+                  Comprehensive framework for measuring and optimizing AI transformation success in enterprise environments. This page keeps the original KPI categories, phase model, industry benchmarks, 90-day action plan, and internal links while aligning the shell to the current light Stripe-ish system.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#benchmarks" className="btn-brand inline-flex items-center gap-2">
-                    查看行业基准
+                    View industry benchmarks
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/contact" className="btn-secondary inline-flex items-center gap-2">
-                    获取咨询
+                    Get advisory support
                   </Link>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
@@ -272,7 +272,7 @@ export default function AITransformationSuccessMetrics() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Measurement discipline</div>
-                        <div className="text-xl font-semibold text-slate-950">四个硬判断</div>
+                        <div className="text-xl font-semibold text-slate-950">Four hard calls</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                         Metrics first
@@ -320,11 +320,11 @@ export default function AITransformationSuccessMetrics() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Phase-based measurement</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              AI 转型分阶段评估，
-              <span className="brand-gradient-text block">别拿同一把尺子量所有阶段。</span>
+              Measure AI transformation by phase,
+              <span className="brand-gradient-text block">not with one ruler for every stage.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              原页面的三阶段实施逻辑保留不动，只是换成更清晰的决策卡片。不同阶段看不同指标，这不是讲究，是常识。
+              The original three-stage implementation logic stays intact. It now uses clearer decision cards because different stages require different metrics. That is not overengineering. It is basic operating sense.
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
@@ -368,11 +368,11 @@ export default function AITransformationSuccessMetrics() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Industry success benchmarks</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              Benchmark 不是护身符，
-              <span className="brand-gradient-text block">但能防你胡扯。</span>
+              Benchmarks are not armor,
+              <span className="brand-gradient-text block">but they do stop you from making things up.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              这里保留原页面的 benchmark 分层：laggards、average、leaders、best practice target。你至少能知道自己是在发力，还是在自欺欺人。
+              The original benchmark tiers remain: laggards, average, leaders, and best practice target. At minimum, they tell you whether you are building real momentum or flattering yourself.
             </p>
           </div>
           <div className="overflow-x-auto">
@@ -405,8 +405,8 @@ export default function AITransformationSuccessMetrics() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">90-day action plan</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              先跑 90 天，
-              <span className="brand-gradient-text block">别一上来就幻想永久真理。</span>
+              Start with 90 days,
+              <span className="brand-gradient-text block">do not pretend you have permanent truth on day one.</span>
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -437,8 +437,8 @@ export default function AITransformationSuccessMetrics() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Related enterprise resources</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              继续往下做，
-              <span className="brand-gradient-text block">别把这页当终点。</span>
+              Keep moving,
+              <span className="brand-gradient-text block">do not treat this page as the finish line.</span>
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -466,7 +466,7 @@ export default function AITransformationSuccessMetrics() {
                 Ready to measure your AI transformation success?
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                原页 CTA 的意思保留：要么建立一套真能指导投资决策的 metrics framework，要么继续被漂亮口号骗。二选一，没中间地带。
+                The original CTA still says the same thing: either build a metrics framework that can actually guide investment decisions, or keep getting fooled by polished slogans. There is no middle ground.
               </p>
             </div>
             <div className="space-y-4">

@@ -182,19 +182,19 @@ export default function AIVendorDueDiligenceChecklistPage() {
                   Enterprise procurement playbook
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI vendor due diligence，
-                  <span className="brand-gradient-text block">别把 demo 当审计报告。</span>
+                  AI vendor due diligence,
+                  <span className="brand-gradient-text block">Do not mistake a demo for an audit report.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  A practical enterprise AI vendor due diligence checklist covering security, legal, procurement, architecture, data governance, and rollout readiness. 这页保留原来的 checklist、FAQ schema、RelatedLinks、canonical 和内部链接，只统一到当前浅色 Stripe-ish UI。
+                  A practical enterprise AI vendor due diligence checklist covering security, legal, procurement, architecture, data governance, and rollout readiness. This page keeps the original checklist, FAQ schema, related links, canonical setup, and internal-link structure while aligning the presentation to the current light Stripe-ish UI.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#checklist" className="btn-brand inline-flex items-center gap-2">
-                    查看尽调清单
+                    View due diligence checklist
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="btn-secondary inline-flex items-center gap-2">
-                    打开 shortlist scorecard
+                    Open shortlist scorecard
                   </Link>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-3 max-w-3xl">
@@ -220,7 +220,7 @@ export default function AIVendorDueDiligenceChecklistPage() {
                     <div className="mb-6 flex items-center justify-between">
                       <div>
                         <div className="mb-1 text-sm text-slate-500">Review discipline</div>
-                        <div className="text-xl font-semibold text-slate-950">三种结果，别装糊涂</div>
+                        <div className="text-xl font-semibold text-slate-950">Three possible outcomes. Do not blur them.</div>
                       </div>
                       <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                         Evidence first
@@ -283,8 +283,8 @@ export default function AIVendorDueDiligenceChecklistPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Core due diligence checklist</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              尽调不是打钩游戏，
-              <span className="brand-gradient-text block">是把风险逼出水面。</span>
+              Due diligence is not a box-ticking game,
+              <span className="brand-gradient-text block">it is how you force risk into the open.</span>
             </h2>
           </div>
           <div className="space-y-6">
@@ -349,8 +349,8 @@ export default function AIVendorDueDiligenceChecklistPage() {
             <div>
               <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Buying process</div>
               <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-                真正的采购流程里，
-                <span className="brand-gradient-text block">这张表该怎么用。</span>
+                Inside a real buying process,
+                <span className="brand-gradient-text block">this is how the checklist gets used.</span>
               </h2>
               <div className="space-y-3 text-lg leading-8 text-slate-600">
                 <p>Use it to filter longlist vendors before wasting pilot time.</p>

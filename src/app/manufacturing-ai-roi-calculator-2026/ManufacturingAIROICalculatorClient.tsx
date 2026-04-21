@@ -31,24 +31,24 @@ type Results = {
 }
 
 const heroHighlights = [
-  '保留停机、缺陷、能耗、库存和项目周期输入',
-  '保留 annual savings、ROI、payback 和 risk-adjusted ROI 输出',
-  '统一到当前浅色 Stripe-ish UI',
-  '继续保留 metadata / canonical / schema / internal links',
+  'Keeps downtime, defect, energy, inventory, and project-timeline inputs',
+  'Keeps annual savings, ROI, payback, and risk-adjusted ROI outputs',
+  'Aligns the page with the current light Stripe-ish UI',
+  'Preserves metadata, canonical, schema, and internal links',
 ]
 
 const benchmarkCards = [
-  { label: 'Downtime reduction', value: '35%', note: '预测性维护是主力。' },
-  { label: 'Defect reduction', value: '68%', note: '质量检测更直接。' },
-  { label: 'Energy efficiency gain', value: '25%', note: '能源优化不玩虚的。' },
-  { label: 'Inventory optimization', value: '20%', note: '库存是现金，别浪费。' },
+  { label: 'Downtime reduction', value: '35%', note: 'Predictive maintenance usually drives the biggest gain.' },
+  { label: 'Defect reduction', value: '68%', note: 'Quality inspection creates the clearest savings.' },
+  { label: 'Energy efficiency gain', value: '25%', note: 'Energy optimization needs hard operational data.' },
+  { label: 'Inventory optimization', value: '20%', note: 'Inventory is working capital. Treat it that way.' },
 ]
 
 const internalLinks = [
-  { href: '/enterprise-ai-roi-optimization-framework-2026', title: 'Enterprise AI ROI Optimization Framework', note: '把财务结果接到优化框架。' },
-  { href: '/ai-roi-calculator', title: 'AI ROI Calculator', note: '回到更通用的 AI ROI 入口。' },
-  { href: '/ai-tools-cost-benefit-analysis-2026', title: 'AI Tools Cost Benefit Analysis', note: '对照成本收益拆解。' },
-  { href: '/ai-digital-transformation-roadmap-2026', title: 'AI Digital Transformation Roadmap', note: '把 ROI 接到路线图。' },
+  { href: '/enterprise-ai-roi-optimization-framework-2026', title: 'Enterprise AI ROI Optimization Framework', note: 'Connect the financial case to the optimization framework.' },
+  { href: '/ai-roi-calculator', title: 'AI ROI Calculator', note: 'Return to the broader AI ROI entry point.' },
+  { href: '/ai-tools-cost-benefit-analysis-2026', title: 'AI Tools Cost Benefit Analysis', note: 'Compare the output against the cost-benefit breakdown.' },
+  { href: '/ai-digital-transformation-roadmap-2026', title: 'AI Digital Transformation Roadmap', note: 'Tie the ROI view into the transformation roadmap.' },
 ]
 
 const formatCurrency = (amount: number) =>
@@ -142,11 +142,11 @@ export default function ManufacturingAIROICalculatorClient() {
                   Manufacturing ROI calculator 2026
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  制造业 AI ROI 计算器，
-                  <span className="brand-gradient-text block">别拿“自动化会省钱”这种空话糊弄财务。</span>
+                  Manufacturing AI ROI calculator,
+                  <span className="brand-gradient-text block">Stop pitching automation savings finance cannot defend.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  这页保留原来的停机、缺陷、能耗、库存和风险调整逻辑，只把展示统一到当前浅色 Stripe-ish UI。结果依然是制造业财务模型，不是漂亮但没用的宣传页。
+                  This page keeps the original downtime, defect, energy, inventory, and risk-adjusted logic, and only updates the presentation to the current light Stripe-ish UI. The output is still a manufacturing finance model, not a polished brochure.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
@@ -211,7 +211,7 @@ export default function ManufacturingAIROICalculatorClient() {
               ROI calculator
             </div>
             <h2 className="page-title text-3xl md:text-4xl">Manufacturing inputs</h2>
-            <p className="page-lead mt-3 text-lg">把真实经营数据填进去，结果才不会像销售 PPT。</p>
+            <p className="page-lead mt-3 text-lg">Enter real operating data so the result does not read like a sales deck.</p>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
@@ -267,7 +267,7 @@ export default function ManufacturingAIROICalculatorClient() {
                     <span className="font-medium text-slate-900">Risk-adjusted ROI</span>
                   </div>
                   <div className={`text-3xl font-semibold ${roiTone(results.riskAdjustedROI)}`}>{results.riskAdjustedROI}%</div>
-                  <p className="mt-1 text-sm text-slate-600">按 80% 行业平均实现率做保守折算。</p>
+                  <p className="mt-1 text-sm text-slate-600">Discounted conservatively to 80% of the industry-average realization rate.</p>
                 </div>
               </div>
 
@@ -301,7 +301,7 @@ export default function ManufacturingAIROICalculatorClient() {
               Benchmarks and interpretation
             </div>
             <h2 className="page-title text-3xl md:text-4xl">Benchmark signals</h2>
-            <p className="page-lead mt-3 text-lg">制造业不是玄学；看停机、缺陷、能耗和库存，才算靠谱。</p>
+            <p className="page-lead mt-3 text-lg">Manufacturing ROI is not guesswork. Downtime, defects, energy, and inventory are what matter.</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -319,9 +319,9 @@ export default function ManufacturingAIROICalculatorClient() {
           <div className="mt-6 page-card-glow p-8 md:p-10 surface-muted">
             <div className="grid gap-6 md:grid-cols-3">
               {[
-                ['Good fit', '看起来像真项目，不像概念秀。'],
-                ['Watch-outs', '旧系统复杂、数据差、管理期望太高。'],
-                ['Next step', '把结果接到路线图和预算评审。'],
+                ['Good fit', 'The economics look like a real operating project, not a concept demo.'],
+                ['Watch-outs', 'Legacy systems are messy, data quality is weak, or expectations are inflated.'],
+                ['Next step', 'Take the output into roadmap and budget review.'],
               ].map(([title, note]) => (
                 <div key={title} className="page-card p-6 bg-white/90">
                   <div className="mb-2 text-lg font-semibold text-slate-950">{title}</div>
@@ -348,7 +348,7 @@ export default function ManufacturingAIROICalculatorClient() {
               Internal links
             </div>
             <h2 className="page-title text-3xl md:text-4xl">Keep the decision chain intact</h2>
-            <p className="page-lead mt-3 text-lg">别把 ROI 页做成孤岛，要让它连到优化、路线图和对照工具。</p>
+            <p className="page-lead mt-3 text-lg">Do not leave the ROI page isolated. Connect it to optimization, roadmap, and comparison tools.</p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {internalLinks.map((item) => (
@@ -369,10 +369,10 @@ export default function ManufacturingAIROICalculatorClient() {
             <div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">What to do next</h2>
               <ul className="space-y-3 text-slate-600">
-                <li>• 先校准真实生产数据，再谈 ROI。</li>
-                <li>• 把停机、缺陷、能源和库存分别核算，不要混成一锅粥。</li>
-                <li>• 用风险调整后的结果去和财务、运营、工厂负责人对齐。</li>
-                <li>• 结果如果还行，再接实施路线图和预算审批。</li>
+                <li>• Calibrate real production data before debating ROI.</li>
+                <li>• Model downtime, defects, energy, and inventory separately instead of blending them together.</li>
+                <li>• Use the risk-adjusted result to align finance, operations, and plant leadership.</li>
+                <li>• If the case still holds, move it into implementation planning and budget approval.</li>
               </ul>
             </div>
             <div className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6">
@@ -381,7 +381,7 @@ export default function ManufacturingAIROICalculatorClient() {
                 Decision note
               </div>
               <p className="text-sm leading-6 text-slate-700">
-                如果你的项目在停机、缺陷率、能耗或库存任一项上没有可验证改善空间，那就别硬上。数字会替你把这事说死。
+                If the project cannot show verifiable improvement in downtime, defect rate, energy use, or inventory, do not force it through. The numbers will kill the story for you.
               </p>
             </div>
           </div>

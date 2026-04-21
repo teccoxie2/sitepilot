@@ -52,7 +52,7 @@ const patterns = [
     fail: [
       'Start with the technology and look for a use case later',
       'Copy competitors without a business case',
-      'Use vague goals like “we should do AI”',
+      'Use vague goals like "we should do AI"',
       'End up with no clear ROI model',
     ],
   },
@@ -123,12 +123,12 @@ const checklist = [
 ]
 
 const relatedLinks = [
-  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: '实施框架和成功模式一起看。' },
-  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'ROI calculation model', note: '把成功模式连到财务模型。' },
-  { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: '预算规划和成功模式配套。' },
-  { href: '/enterprise-ai-security-risk-management-guide-2026', title: 'Security & risk guide', note: '安全和治理不该缺席。' },
-  { href: '/enterprise-ai-deployment-risk-assessment-guide', title: 'Deployment risk assessment', note: '看部署阶段的风险控制。' },
-  { href: '/enterprise-ai-transformation-roadmap-2026', title: 'Transformation roadmap', note: '把模式映射到路线图。' },
+  { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: 'Review the implementation framework alongside the success patterns.' },
+  { href: '/enterprise-ai-roi-calculation-model-2026', title: 'ROI calculation model', note: 'Connect the success patterns to the financial model.' },
+  { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: 'Budget planning should reinforce the success patterns.' },
+  { href: '/enterprise-ai-security-risk-management-guide-2026', title: 'Security & risk guide', note: 'Security and governance should not be missing.' },
+  { href: '/enterprise-ai-deployment-risk-assessment-guide', title: 'Deployment risk assessment', note: 'Review deployment-stage risk controls.' },
+  { href: '/enterprise-ai-transformation-roadmap-2026', title: 'Transformation roadmap', note: 'Map the patterns back to the roadmap.' },
 ]
 
 export default function EnterpriseAISuccessPatternsPage() {
@@ -149,11 +149,11 @@ export default function EnterpriseAISuccessPatternsPage() {
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
               <div className="max-w-3xl">
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI success patterns analysis</div>
-                <h1 className="page-title mb-6 text-5xl md:text-7xl">7个关键模式，<span className="brand-gradient-text block">先把成功路径看清楚，别让项目变成事故。</span></h1>
+                <h1 className="page-title mb-6 text-5xl md:text-7xl">7 critical patterns,<span className="brand-gradient-text block">understand the success path before the project turns into an incident.</span></h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Enterprise AI success patterns analysis based on 50 Fortune 500 companies and 18 months of tracking. This page keeps the 7 patterns, ROI examples, checklist, and internal links in the unified light Stripe-ish UI.</p>
                 <div className="mb-10 flex flex-wrap gap-3">
-                  <a href="#patterns" className="btn-brand inline-flex items-center gap-2">查看7个模式 <ArrowRight className="h-4 w-4" /></a>
-                  <a href="#checklist" className="btn-secondary inline-flex items-center gap-2">查看清单</a>
+                  <a href="#patterns" className="btn-brand inline-flex items-center gap-2">View 7 patterns <ArrowRight className="h-4 w-4" /></a>
+                  <a href="#checklist" className="btn-secondary inline-flex items-center gap-2">View checklist</a>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-3xl">
                   {heroStats.map((stat) => (<div key={stat.label} className="page-card bg-white/90 p-4"><div className="text-2xl font-semibold text-slate-950 md:text-3xl">{stat.value}</div><div className="mt-1 text-sm text-slate-600">{stat.label}</div></div>))}
@@ -184,7 +184,7 @@ export default function EnterpriseAISuccessPatternsPage() {
         </section>
 
         <section id="patterns" className="mb-16">
-          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Compass className="h-4 w-4 text-[#635bff]" />7 success patterns</div><h2 className="page-title text-3xl md:text-4xl">7个决定成败的关键模式</h2><p className="page-lead mt-3 text-lg">Each pattern is a practical operating rule, not a motivational poster.</p></div>
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Compass className="h-4 w-4 text-[#635bff]" />7 success patterns</div><h2 className="page-title text-3xl md:text-4xl">7 patterns that decide whether the program succeeds or fails</h2><p className="page-lead mt-3 text-lg">Each pattern is a practical operating rule, not a motivational poster.</p></div>
           <div className="space-y-5">
             {patterns.map((pattern) => (
               <div key={pattern.step} className={`page-card p-6 md:p-8 ${pattern.tone}`}>

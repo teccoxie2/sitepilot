@@ -76,8 +76,8 @@ const builders: {
     description:
       'A prompt-driven website builder that stands out for fast AI-assisted draft creation, polished first outputs, and a more modern AI-first workflow than old-school template browsing. Best for teams that want to move from idea to page quickly without sacrificing visual quality.',
     bullets: ['Fast prompt-to-page workflow', 'Strong first-pass visual output', 'Good fit for AI-assisted landing page ideation'],
-    href: 'https://readdy.ai/',
-    cta: 'Visit Readdy.ai',
+    href: '/readdy-ai-review',
+    cta: 'Read Readdy review',
     accent: 'blue',
   },
   {
@@ -103,7 +103,7 @@ const builders: {
     accent: 'purple',
   },
   {
-    rank: '03',
+    rank: '04',
     name: 'Shopify',
     strap: 'Best for revenue-first builds',
     description:

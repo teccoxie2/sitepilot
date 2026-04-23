@@ -27,6 +27,43 @@ interface WebsiteBuilder {
 
 const websiteBuilders: WebsiteBuilder[] = [
   {
+    id: 'readdy',
+    name: 'Readdy.ai',
+    rating: 8.5,
+    category: 'professional',
+    price: 'Custom / trial-based',
+    templates: 'AI-generated',
+    ecommerce: 'Emerging',
+    freePlan: 'Trial',
+    loadTime: 'AI-first workflow',
+    uptime: 'N/A',
+    mobileScore: 84,
+    seoScore: 78,
+    icon: 'RD',
+    gradient: 'from-violet-500 to-fuchsia-500',
+    description: 'Readdy.ai is a strong AI website builder for teams that want fast prompt-to-page generation, visually polished first drafts, and a more modern AI-first starting point than traditional template-led builders.',
+    pros: [
+      'Strong first-pass AI website generation',
+      'Good speed from prompt to usable draft',
+      'Feels more substantial than shallow AI wrappers',
+      'Promising fit for rapid landing page ideation',
+      'Broader product ambition beyond simple template filling',
+      'Worth serious consideration in the AI website builder category'
+    ],
+    cons: [
+      'Advanced iteration workflows are still evolving',
+      'Power users may want clearer fine-grained steering controls',
+      'Some feature boundaries are easier to understand after hands-on use',
+      'Less ideal for teams that need maximum customization depth from day one'
+    ],
+    pricing: [
+      { plan: 'Trial / evaluation', price: 'Varies', features: 'Access level depends on account and engagement' },
+      { plan: 'Builder access', price: 'Custom', features: 'AI-first website generation and project workflow' }
+    ],
+    bestFor: 'Teams that want fast AI-generated site drafts, polished first outputs, and an AI-first builder experience',
+    link: 'https://readdy.ai/'
+  },
+  {
     id: 'webflow',
     name: 'Webflow',
     rating: 9.8,

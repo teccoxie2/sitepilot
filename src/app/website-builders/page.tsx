@@ -38,9 +38,9 @@ export const metadata: Metadata = {
 
 const quickPicks = [
   {
-    label: 'Fastest launch path',
-    value: 'Wix Studio',
-    note: 'Strong for teams that want speed, polish, and less setup drag.',
+    label: 'Fastest AI-first draft',
+    value: 'Readdy.ai',
+    note: 'Strong for teams that want prompt-to-page speed, polished first drafts, and a modern AI-first workflow.',
   },
   {
     label: 'Best visual simplicity',
@@ -71,6 +71,17 @@ const builders: {
 }[] = [
   {
     rank: '01',
+    name: 'Readdy.ai',
+    strap: 'Best for AI-first website generation',
+    description:
+      'A prompt-driven website builder that stands out for fast AI-assisted draft creation, polished first outputs, and a more modern AI-first workflow than old-school template browsing. Best for teams that want to move from idea to page quickly without sacrificing visual quality.',
+    bullets: ['Fast prompt-to-page workflow', 'Strong first-pass visual output', 'Good fit for AI-assisted landing page ideation'],
+    href: 'https://readdy.ai/',
+    cta: 'Visit Readdy.ai',
+    accent: 'blue',
+  },
+  {
+    rank: '02',
     name: 'Wix Studio',
     strap: 'Best for high-speed marketing sites',
     description:
@@ -78,10 +89,10 @@ const builders: {
     bullets: ['Strong visual control', 'Fast team handoff', 'Good fit for branded landing pages'],
     href: 'https://www.wix.com/studio',
     cta: 'Visit Wix Studio',
-    accent: 'blue',
+    accent: 'purple',
   },
   {
-    rank: '02',
+    rank: '03',
     name: 'Squarespace',
     strap: 'Best for presentation-first brands',
     description:
@@ -93,6 +104,17 @@ const builders: {
   },
   {
     rank: '03',
+    name: 'Squarespace',
+    strap: 'Best for presentation-first brands',
+    description:
+      'A simpler publishing environment for teams that care more about visual cohesion, content, and ease of maintenance than deep structural customization.',
+    bullets: ['Clean templates', 'Simple editing flow', 'Good for small brand sites'],
+    href: '/best-website-builders-2026',
+    cta: 'Read builder guide',
+    accent: 'indigo',
+  },
+  {
+    rank: '04',
     name: 'Shopify',
     strap: 'Best for revenue-first builds',
     description:
@@ -131,7 +153,7 @@ const signals = [
   'Stripe-style light palette',
   'Cleaner editorial hierarchy',
   'Softer gradients, less noise',
-  'Ready for a future Readdy.ai feature card',
+  'Readdy.ai added as an AI-first feature card',
 ]
 
 const accentMap = {
@@ -191,7 +213,7 @@ export default function WebsiteBuildersHub() {
               </h1>
 
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
-                A website builder comparison in 2026 should evaluate AI-assisted setup, design flexibility, ecommerce readiness, SEO ownership, operating overhead, and long-term customization limits. This hub connects the main SitePilot builder guides so buyers can move from broad platform selection to specific decisions about ecommerce fit, WordPress tradeoffs, and free-plan constraints.
+                A website builder comparison in 2026 should evaluate AI-assisted setup, design flexibility, ecommerce readiness, SEO ownership, and long-term platform limits. This hub connects the main SitePilot builder guides so buyers can move from broad platform selection to specific decisions without getting trapped by glossy templates and weak ownership.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-6">
@@ -370,7 +392,7 @@ export default function WebsiteBuildersHub() {
               <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Selection model</div>
               <h2 className="text-3xl font-semibold tracking-[-0.03em] mb-4 text-slate-950">How we judge a builder</h2>
               <p className="text-slate-600 leading-relaxed">
-                Good builder pages should help a buyer think clearly, not numb them with giant hero numbers and fake certainty.
+                Good builder pages should help a buyer think clearly, not numb them with giant hero numbers and fake certainty. For AI-first builders like Readdy.ai, we weigh speed to first usable draft, visual polish, and launch momentum more heavily than maximum long-term customization depth.
               </p>
             </div>
 
@@ -404,6 +426,7 @@ export default function WebsiteBuildersHub() {
               <li>Moved the accent system toward indigo, sky, and subtle violet instead of heavy neon glow.</li>
               <li>Kept the stronger layout you liked, so this is a color comparison instead of a layout reset.</li>
               <li>Made cards feel more editorial and premium, less “tech demo landing page.”</li>
+              <li>Added Readdy.ai as an AI-first featured builder so the page better reflects where buyer interest is moving.</li>
               <li>This should be easier to scale across the rest of SitePilot if you want a consistent redesign system.</li>
             </ul>
 

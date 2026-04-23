@@ -104,17 +104,6 @@ const builders: {
   },
   {
     rank: '03',
-    name: 'Squarespace',
-    strap: 'Best for presentation-first brands',
-    description:
-      'A simpler publishing environment for teams that care more about visual cohesion, content, and ease of maintenance than deep structural customization.',
-    bullets: ['Clean templates', 'Simple editing flow', 'Good for small brand sites'],
-    href: '/best-website-builders-2026',
-    cta: 'Read builder guide',
-    accent: 'indigo',
-  },
-  {
-    rank: '04',
     name: 'Shopify',
     strap: 'Best for revenue-first builds',
     description:

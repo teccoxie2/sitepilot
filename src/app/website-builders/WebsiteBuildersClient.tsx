@@ -61,7 +61,7 @@ const websiteBuilders: WebsiteBuilder[] = [
       { plan: 'Builder access', price: 'Custom', features: 'AI-first website generation and project workflow' }
     ],
     bestFor: 'Teams that want fast AI-generated site drafts, polished first outputs, and an AI-first builder experience',
-    link: 'https://readdy.ai/'
+    link: 'https://readdy.ai/?via=ted'
   },
   {
     id: 'webflow',

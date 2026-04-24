@@ -110,7 +110,7 @@ export default function ReaddyAiReviewPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <a
-                  href="https://readdy.ai/?via=ted"
+                  href="https://readdy.ai/?via=sitepilot"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
@@ -282,7 +282,7 @@ export default function ReaddyAiReviewPage() {
             <Link href="/website-builders" className="inline-flex items-center rounded-full bg-[#635bff] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(99,91,255,0.18)] hover:bg-[#564ee8] transition-colors">
               Back to builder hub
             </Link>
-            <a href="https://readdy.ai/?via=ted" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors">
+            <a href="https://readdy.ai/?via=sitepilot" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors">
               Visit Readdy.ai
             </a>
           </div>

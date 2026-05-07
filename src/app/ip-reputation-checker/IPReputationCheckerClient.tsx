@@ -3,13 +3,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
   AlertTriangle,
-  Building2,
   CheckCircle2,
   ChevronDown,
   Clock3,
   Globe2,
-  MapPin,
-  Network,
   Play,
   RotateCcw,
   Search,
@@ -37,10 +34,12 @@ function fieldStyles(tone: ResultField['tone'] = 'default') {
   return 'border-slate-200 bg-white'
 }
 
-function scoreTone(score: number): ResultField['tone'] {
-  if (score <= 24) return 'good'
-  if (score <= 59) return 'watch'
-  return 'bad'
+function isUnavailable(value: string | null | undefined) {
+  return !value || !value.trim() || value === 'Unavailable'
+}
+
+function cleanOrNull(value: string | null | undefined) {
+  return isUnavailable(value) ? null : value
 }
 
 function derivePurity(result: LiveReputationResult) {
@@ -48,7 +47,7 @@ function derivePurity(result: LiveReputationResult) {
     return {
       label: 'Special-use',
       tone: 'watch' as const,
-      summary: `This address is in ${result.addressScope}, so it is not judged like a normal public IP.` ,
+      summary: `This address is in ${result.addressScope}, so it is not judged like a normal public IP.`,
     }
   }
 
@@ -113,7 +112,7 @@ async function requestCheck(target: string): Promise<LiveReputationResult> {
 }
 
 function safeLabel(value: string | null | undefined) {
-  return value && value.trim() ? value : 'Unavailable'
+  return cleanOrNull(value) ?? 'Unavailable'
 }
 
 function boolLabel(value: boolean) {
@@ -163,20 +162,21 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
   const keyFacts: ResultField[] = useMemo(() => {
     if (!result) return []
 
-    const organization = result.ipapi.organization !== 'Unavailable' ? result.ipapi.organization : result.proxycheck.organization
-    const location = result.ipapi.location !== 'Unavailable' ? result.ipapi.location : result.proxycheck.location
+    const organization = cleanOrNull(result.ipapi.organization) || cleanOrNull(result.proxycheck.organization)
+    const location = cleanOrNull(result.ipapi.location) || cleanOrNull(result.proxycheck.location)
+    const timezone = cleanOrNull(result.ipapi.timezone) || cleanOrNull(result.proxycheck.timezone)
 
     return [
       { label: 'IP address', value: result.resolvedIp },
       { label: 'Address scope', value: result.addressScope, tone: result.addressScope === 'public routable IP' ? 'good' : 'watch' },
-      { label: 'Location', value: location },
-      { label: 'ASN', value: result.proxycheck.asn },
-      { label: 'Organization', value: organization },
-      { label: 'Network range', value: result.networkRange },
-      { label: 'Network type', value: result.networkType },
-      { label: 'Timezone', value: result.ipapi.timezone !== 'Unavailable' ? result.ipapi.timezone : result.proxycheck.timezone },
-      { label: 'First seen', value: safeLabel(result.firstSeen) },
-      { label: 'Last updated', value: safeLabel(result.updatedAt) },
+      ...(location ? [{ label: 'Location', value: location }] : []),
+      ...(cleanOrNull(result.proxycheck.asn) ? [{ label: 'ASN', value: result.proxycheck.asn }] : []),
+      ...(organization ? [{ label: 'Organization', value: organization }] : []),
+      ...(cleanOrNull(result.networkRange) ? [{ label: 'Network range', value: result.networkRange }] : []),
+      ...(cleanOrNull(result.networkType) ? [{ label: 'Network type', value: result.networkType }] : []),
+      ...(timezone ? [{ label: 'Timezone', value: timezone }] : []),
+      ...(cleanOrNull(result.firstSeen) ? [{ label: 'First seen', value: result.firstSeen! }] : []),
+      ...(cleanOrNull(result.updatedAt) ? [{ label: 'Last updated', value: result.updatedAt! }] : []),
     ]
   }, [result])
 
@@ -196,15 +196,27 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
   const advancedFacts: ResultField[] = useMemo(() => {
     if (!result) return []
 
+    const purityNote = derivePurity(result).summary
+
     return [
-      { label: 'Coordinates', value: result.ipapi.coordinates !== 'Unavailable' ? result.ipapi.coordinates : result.proxycheck.coordinates },
-      { label: 'Currency', value: result.ipapi.currency !== 'Unavailable' ? result.ipapi.currency : result.proxycheck.currency },
-      { label: 'Confidence', value: result.confidence === null ? 'Unavailable' : `${result.confidence}%` },
-      { label: 'Last seen', value: safeLabel(result.lastSeen) },
+      ...(cleanOrNull(result.ipapi.coordinates) || cleanOrNull(result.proxycheck.coordinates)
+        ? [{ label: 'Coordinates', value: cleanOrNull(result.ipapi.coordinates) || result.proxycheck.coordinates }]
+        : []),
+      ...(cleanOrNull(result.ipapi.currency) || cleanOrNull(result.proxycheck.currency)
+        ? [{ label: 'Currency', value: cleanOrNull(result.ipapi.currency) || result.proxycheck.currency }]
+        : []),
+      ...(result.confidence !== null ? [{ label: 'Confidence', value: `${result.confidence}%` }] : []),
+      ...(cleanOrNull(result.lastSeen) ? [{ label: 'Last seen', value: result.lastSeen! }] : []),
       { label: 'Scraper', value: boolLabel(result.scraper) },
-      { label: 'Context status', value: result.ipapi.status === 'degraded' ? safeLabel(result.ipapi.note) : 'Available' },
-      { label: 'Purity note', value: derivePurity(result).summary },
+      ...(result.ipapi.status === 'degraded' && cleanOrNull(result.ipapi.note)
+        ? [{ label: 'Context status', value: result.ipapi.note! }]
+        : []),
+      { label: 'Purity note', value: purityNote },
     ]
+  }, [result])
+
+  const visibleCrossChecks = useMemo(() => {
+    return (result?.crossChecks || []).filter((signal) => !isUnavailable(signal.value))
   }, [result])
 
   return (
@@ -296,9 +308,14 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
                 Key identity
               </div>
               <div className="mt-3 space-y-2 text-sm">
-                <div className="font-semibold text-slate-950">{result ? result.proxycheck.asn : 'waiting'}</div>
-                <div className="text-slate-600">{result ? (result.ipapi.organization !== 'Unavailable' ? result.ipapi.organization : result.proxycheck.organization) : 'waiting'}</div>
-                <div className="text-slate-600">{result ? (result.ipapi.location !== 'Unavailable' ? result.ipapi.location : result.proxycheck.location) : 'waiting'}</div>
+                {cleanOrNull(result?.proxycheck.asn) ? <div className="font-semibold text-slate-950">{result?.proxycheck.asn}</div> : null}
+                {cleanOrNull(result?.ipapi.organization) || cleanOrNull(result?.proxycheck.organization) ? (
+                  <div className="text-slate-600">{cleanOrNull(result?.ipapi.organization) || result?.proxycheck.organization}</div>
+                ) : null}
+                {cleanOrNull(result?.ipapi.location) || cleanOrNull(result?.proxycheck.location) ? (
+                  <div className="text-slate-600">{cleanOrNull(result?.ipapi.location) || result?.proxycheck.location}</div>
+                ) : null}
+                {loading && !result ? <div className="text-slate-500">Loading identity...</div> : null}
               </div>
             </div>
 
@@ -363,41 +380,45 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
               <ChevronDown className="h-4 w-4 text-slate-500 transition group-open:rotate-180" />
             </summary>
             <div className="border-t border-slate-200 p-4 space-y-4">
-              <div>
-                <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
-                  <Clock3 className="h-3.5 w-3.5" />
-                  Activity and coverage
+              {advancedFacts.length > 0 ? (
+                <div>
+                  <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+                    <Clock3 className="h-3.5 w-3.5" />
+                    Activity and coverage
+                  </div>
+                  <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                    {advancedFacts.map((field) => (
+                      <div key={field.label} className="rounded-lg border border-slate-200 bg-white p-3">
+                        <div className="mb-1 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">{field.label}</div>
+                        <div className="break-words text-sm font-semibold leading-5 text-slate-950">{field.value}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                  {advancedFacts.map((field) => (
-                    <div key={field.label} className="rounded-lg border border-slate-200 bg-white p-3">
-                      <div className="mb-1 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">{field.label}</div>
-                      <div className="break-words text-sm font-semibold leading-5 text-slate-950">{field.value}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ) : null}
 
-              <div>
-                <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
-                  <Network className="h-3.5 w-3.5" />
-                  Cross-check
-                </div>
-                <div className="space-y-2">
-                  {result?.crossChecks.map((signal) => (
-                    <div key={signal.label} className="flex flex-col gap-1 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
-                      <div>
-                        <div className="text-sm font-semibold text-slate-950">{signal.label}</div>
-                        <div className="text-sm text-slate-600">{signal.value}</div>
+              {visibleCrossChecks.length > 0 ? (
+                <div>
+                  <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+                    <ShieldCheck className="h-3.5 w-3.5" />
+                    Cross-check
+                  </div>
+                  <div className="space-y-2">
+                    {visibleCrossChecks.map((signal) => (
+                      <div key={signal.label} className="flex flex-col gap-1 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                          <div className="text-sm font-semibold text-slate-950">{signal.label}</div>
+                          <div className="text-sm text-slate-600">{signal.value}</div>
+                        </div>
+                        <div className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold capitalize ${signalStyles(signal.status)}`}>
+                          {signal.status === 'clear' ? <CheckCircle2 className="h-3.5 w-3.5" /> : <AlertTriangle className="h-3.5 w-3.5" />}
+                          {signal.status}
+                        </div>
                       </div>
-                      <div className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold capitalize ${signalStyles(signal.status)}`}>
-                        {signal.status === 'clear' ? <CheckCircle2 className="h-3.5 w-3.5" /> : <AlertTriangle className="h-3.5 w-3.5" />}
-                        {signal.status}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </details>
         </div>

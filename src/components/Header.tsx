@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Zap, Menu, X, ArrowRight } from 'lucide-react';
+import { Zap, Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [toolsMenuOpen, setToolsMenuOpen] = useState(false);
+  const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -25,6 +27,14 @@ export default function Header() {
     { name: "Proxies", href: "/proxies" }
   ];
 
+  const toolsDropdownLinks = [
+    {
+      name: "IP Reputation Checker",
+      href: "/ip-reputation-checker",
+      description: "Check purity, VPN, hosting, and network signals.",
+    },
+  ];
+
   const navHoverClasses = 'hover:text-[#635bff] hover:bg-indigo-50/55 rounded-full px-4 py-2.5';
 
   const headerClasses = scrolled
@@ -41,7 +51,7 @@ export default function Header() {
   const ctaClasses = 'bg-[#635bff] text-white hover:bg-[#564ee8] shadow-[0_12px_24px_rgba(99,91,255,0.18)]';
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerClasses}`}>
+    <header data-nosnippet className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerClasses}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -63,6 +73,37 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
+
+            <div
+              className="relative"
+              onMouseEnter={() => setToolsMenuOpen(true)}
+              onMouseLeave={() => setToolsMenuOpen(false)}
+            >
+              <button
+                type="button"
+                className={`${desktopNavBase} ${navHoverClasses} transition-all duration-200 inline-flex items-center gap-2`}
+                onClick={() => setToolsMenuOpen((open) => !open)}
+              >
+                Tools
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${toolsMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {toolsMenuOpen && (
+                <div className="absolute left-0 top-full mt-3 w-80 overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-[0_18px_40px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+                  {toolsDropdownLinks.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="block rounded-xl px-4 py-3 transition-colors hover:bg-slate-50"
+                    >
+                      <div className="text-sm font-semibold text-slate-950">{link.name}</div>
+                      <div className="mt-1 text-sm leading-5 text-slate-500">{link.description}</div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link 
               href="/web-hosting" 
               className={`ml-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 ${ctaClasses}`}
@@ -94,6 +135,37 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
+
+          <div className="rounded-2xl border border-slate-200 bg-white/80">
+            <button
+              type="button"
+              className="flex w-full items-center justify-between px-4 py-3 text-left text-xl font-semibold tracking-tight text-slate-900"
+              onClick={() => setMobileToolsOpen((open) => !open)}
+            >
+              Tools
+              <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${mobileToolsOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {mobileToolsOpen && (
+              <div className="space-y-2 px-3 pb-3">
+                {toolsDropdownLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="block rounded-2xl bg-slate-50 px-4 py-3 text-base font-semibold text-slate-900 transition-colors hover:bg-indigo-50"
+                    onClick={() => {
+                      setMobileToolsOpen(false);
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <div>{link.name}</div>
+                    <div className="mt-1 text-sm font-normal leading-5 text-slate-500">{link.description}</div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           <Link 
             href="/web-hosting" 
             className={`block w-full py-4 text-center rounded-2xl font-semibold ${ctaClasses}`}

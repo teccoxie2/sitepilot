@@ -249,11 +249,66 @@ export function buildCrossChecks(
 
 export async function fetchProxycheckResult(input: string): Promise<LiveReputationResult> {
   const key = process.env.PROXYCHECK_API_KEY
-  if (!key) {
-    throw new Error('PROXYCHECK_API_KEY is missing on the server.')
-  }
 
   const { normalizedTarget, resolvedIp, hostname, addressScope, isSpecialUse } = await resolveTarget(input)
+
+  if (!key) {
+    return {
+      input: normalizeInput(input),
+      normalizedTarget,
+      resolvedIp,
+      addressScope,
+      networkType: isSpecialUse ? 'Special-use' : 'Unavailable',
+      networkRange: 'Unavailable',
+      riskScore: 0,
+      confidence: null,
+      proxy: false,
+      vpn: false,
+      tor: false,
+      hosting: false,
+      scraper: false,
+      compromised: false,
+      anonymous: false,
+      firstSeen: null,
+      lastSeen: null,
+      updatedAt: null,
+      signals: [
+        {
+          label: isSpecialUse ? 'Address scope' : 'Risk coverage',
+          value: isSpecialUse ? addressScope : 'Risk engine temporarily unavailable.',
+          status: 'review',
+        },
+      ],
+      proxycheck: {
+        source: 'risk',
+        ip: resolvedIp,
+        hostname,
+        location: 'Unavailable',
+        timezone: 'Unavailable',
+        asn: 'Unavailable',
+        organization: 'Unavailable',
+        coordinates: 'Unavailable',
+        currency: 'Unavailable',
+        status: 'degraded',
+        note: isSpecialUse
+          ? `Special-use address detected: ${addressScope}. External reputation lookup skipped.`
+          : 'Risk engine temporarily unavailable.',
+      },
+      ipapi: {
+        source: 'context',
+        ip: 'Unavailable',
+        hostname: 'Unavailable',
+        location: 'Unavailable',
+        timezone: 'Unavailable',
+        asn: 'Unavailable',
+        organization: 'Unavailable',
+        coordinates: 'Unavailable',
+        currency: 'Unavailable',
+      },
+      crossChecks: isSpecialUse ? [{ label: 'Address scope', value: addressScope, status: 'review' }] : [],
+      scopeNote: isSpecialUse ? `Special-use address detected: ${addressScope}.` : undefined,
+    }
+  }
   const params = new URLSearchParams({
     key,
     vpn: '1',

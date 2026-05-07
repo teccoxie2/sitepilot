@@ -33,6 +33,11 @@ export default function Header() {
       href: "/ip-reputation-checker",
       description: "Check purity, VPN, hosting, and network signals.",
     },
+    {
+      name: "IP Leak Test",
+      href: "/ip-leak-test",
+      description: "Probe WebRTC exposure and surface rDNS context.",
+    },
   ];
 
   const navHoverClasses = 'hover:text-[#635bff] hover:bg-indigo-50/55 rounded-full px-4 py-2.5';

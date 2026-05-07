@@ -121,6 +121,15 @@ function stripDecorators(target: string) {
   return trimmed
 }
 
+async function lookupReverseDns(ip: string) {
+  try {
+    const results = await dns.reverse(ip)
+    return results.filter(Boolean)
+  } catch {
+    return []
+  }
+}
+
 async function resolveTarget(input: string) {
   const normalizedTarget = stripDecorators(normalizeInput(input))
   if (!normalizedTarget) {
@@ -251,12 +260,14 @@ export async function fetchProxycheckResult(input: string): Promise<LiveReputati
   const key = process.env.PROXYCHECK_API_KEY
 
   const { normalizedTarget, resolvedIp, hostname, addressScope, isSpecialUse } = await resolveTarget(input)
+  const reverseDns = isIP(resolvedIp) ? await lookupReverseDns(resolvedIp) : []
 
   if (!key) {
     return {
       input: normalizeInput(input),
       normalizedTarget,
       resolvedIp,
+      reverseDns,
       addressScope,
       networkType: isSpecialUse ? 'Special-use' : 'Unavailable',
       networkRange: 'Unavailable',
@@ -351,6 +362,7 @@ export async function fetchProxycheckResult(input: string): Promise<LiveReputati
     input: normalizeInput(input),
     normalizedTarget,
     resolvedIp,
+    reverseDns,
     addressScope,
     networkType: node?.network?.type || (isSpecialUse ? 'Special-use' : 'Unavailable'),
     networkRange: node?.network?.range || 'Unavailable',

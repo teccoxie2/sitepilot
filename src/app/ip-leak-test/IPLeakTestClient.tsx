@@ -12,11 +12,21 @@ import {
   Search,
   ShieldAlert,
   ShieldCheck,
+  Wifi,
 } from 'lucide-react'
-import type { CheckApiResponse, LiveReputationResult, ResultField, SignalResult } from './types'
+import type { CheckApiResponse, LiveReputationResult, ResultField, SignalResult } from '../ip-reputation-checker/types'
 
 type Props = {
   initialTarget: string
+}
+
+type WebRtcProbe = {
+  supported: boolean
+  candidates: string[]
+  privateCandidates: string[]
+  publicCandidates: string[]
+  mdnsCandidates: string[]
+  status: 'idle' | 'running' | 'done' | 'unsupported' | 'timeout'
 }
 
 const sampleTargets = ['8.8.8.8', '1.1.1.1', '185.199.108.153']
@@ -42,59 +52,34 @@ function cleanOrNull(value: string | null | undefined) {
   return isUnavailable(value) ? null : value
 }
 
-function derivePurity(result: LiveReputationResult) {
-  if (result.addressScope !== 'public routable IP') {
-    return {
-      label: 'Special-use',
-      tone: 'watch' as const,
-      summary: `This address is in ${result.addressScope}, so it is not judged like a normal public IP.`,
-    }
-  }
+function boolLabel(value: boolean) {
+  return value ? 'Yes' : 'No'
+}
 
-  if (result.compromised || result.tor) {
-    return {
-      label: 'Low purity',
-      tone: 'bad' as const,
-      summary: 'Strong signals such as compromised or TOR are present, so purity cannot be considered high.',
-    }
-  }
+function isPrivateIpv4(ip: string) {
+  const parts = ip.split('.').map((part) => Number(part))
+  if (parts.length !== 4 || parts.some((part) => !Number.isInteger(part) || part < 0 || part > 255)) return false
+  if (parts[0] === 10) return true
+  if (parts[0] === 127) return true
+  if (parts[0] === 169 && parts[1] === 254) return true
+  if (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) return true
+  if (parts[0] === 192 && parts[1] === 168) return true
+  if (parts[0] === 100 && parts[1] >= 64 && parts[1] <= 127) return true
+  return false
+}
 
-  if (result.vpn && result.hosting && result.anonymous) {
-    return {
-      label: 'Medium-low purity',
-      tone: 'bad' as const,
-      summary: 'VPN, hosting, and anonymous signals are present together, which looks more like infrastructure or privacy-routed traffic.',
-    }
-  }
-
-  if (result.vpn || result.hosting || result.anonymous || result.proxy) {
-    return {
-      label: 'Needs review',
-      tone: 'watch' as const,
-      summary: 'Privacy-routing or infrastructure signals are present, so this should not be treated as a high-purity public IP by default.',
-    }
-  }
-
-  if (result.riskScore <= 24) {
-    return {
-      label: 'High purity',
-      tone: 'good' as const,
-      summary: 'No obvious proxy, anonymous, or compromised signal is currently exposed, so it looks closer to a normal public IP.',
-    }
-  }
-
-  if (result.riskScore <= 59) {
-    return {
-      label: 'Moderate purity',
-      tone: 'watch' as const,
-      summary: 'There is no strong risk signal, but the score and context are not clean enough to call this high purity outright.',
-    }
-  }
-
+function classifyCandidate(line: string) {
+  const lower = line.toLowerCase()
+  const typeMatch = lower.match(/ typ ([a-z]+)/)
+  const ipMatches = line.match(/\b(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\b/g) || []
+  const publicIps = ipMatches.filter((ip) => !isPrivateIpv4(ip))
+  const privateIps = ipMatches.filter(isPrivateIpv4)
+  const mdns = line.includes('.local') || line.includes('mdns')
   return {
-    label: 'Needs review',
-    tone: 'watch' as const,
-    summary: 'The external score is elevated, but without enough explanation it should not be translated directly into a hard high-risk verdict.',
+    type: typeMatch?.[1] || 'unknown',
+    privateIps,
+    publicIps,
+    mdns,
   }
 }
 
@@ -111,20 +96,114 @@ async function requestCheck(target: string): Promise<LiveReputationResult> {
   return payload.result
 }
 
-function safeLabel(value: string | null | undefined) {
-  return cleanOrNull(value) ?? 'Unavailable'
+async function probeWebRtc(timeoutMs = 1800): Promise<WebRtcProbe> {
+  if (typeof RTCPeerConnection === 'undefined') {
+    return {
+      supported: false,
+      candidates: [],
+      privateCandidates: [],
+      publicCandidates: [],
+      mdnsCandidates: [],
+      status: 'unsupported',
+    }
+  }
+
+  const pc = new RTCPeerConnection({ iceServers: [] })
+  const candidates: string[] = []
+  let finished = false
+
+  const result = await new Promise<WebRtcProbe>((resolve) => {
+    const finish = (status: WebRtcProbe['status']) => {
+      if (finished) return
+      finished = true
+      pc.close()
+      const privateCandidates = candidates.filter((line) => classifyCandidate(line).privateIps.length > 0)
+      const publicCandidates = candidates.filter((line) => classifyCandidate(line).publicIps.length > 0)
+      const mdnsCandidates = candidates.filter((line) => classifyCandidate(line).mdns)
+      resolve({
+        supported: true,
+        candidates,
+        privateCandidates,
+        publicCandidates,
+        mdnsCandidates,
+        status,
+      })
+    }
+
+    pc.onicecandidate = (event) => {
+      if (event.candidate?.candidate) {
+        candidates.push(event.candidate.candidate)
+        return
+      }
+      finish('done')
+    }
+
+    pc.createDataChannel('probe')
+    pc
+      .createOffer()
+      .then((offer) => pc.setLocalDescription(offer))
+      .catch(() => finish('timeout'))
+
+    window.setTimeout(() => finish('timeout'), timeoutMs)
+  })
+
+  return result
 }
 
-function boolLabel(value: boolean) {
-  return value ? 'Yes' : 'No'
+function deriveLeakVerdict(result: WebRtcProbe) {
+  if (!result.supported) {
+    return {
+      label: 'Unsupported',
+      tone: 'watch' as const,
+      summary: 'This browser did not expose WebRTC probing.',
+    }
+  }
+
+  if (result.privateCandidates.length) {
+    return {
+      label: 'Local candidate exposed',
+      tone: 'bad' as const,
+      summary: 'The browser exposed private/local ICE candidates, which is the leak signal you actually care about here.',
+    }
+  }
+
+  if (result.publicCandidates.length) {
+    return {
+      label: 'Public candidate exposed',
+      tone: 'watch' as const,
+      summary: 'The browser exposed a public reflexive candidate, so the session is not fully hidden from peer discovery.',
+    }
+  }
+
+  if (result.mdnsCandidates.length) {
+    return {
+      label: 'mDNS masked',
+      tone: 'good' as const,
+      summary: 'Only mDNS-style host candidates were observed, which is better than raw private IP leakage.',
+    }
+  }
+
+  return {
+    label: 'No obvious leak',
+    tone: 'good' as const,
+    summary: 'No obvious private or reflexive candidates were collected during this pass.',
+  }
 }
 
-export default function IPReputationCheckerClient({ initialTarget }: Props) {
+export default function IPLeakTestClient({ initialTarget }: Props) {
   const [target, setTarget] = useState(initialTarget)
   const [checkedTarget, setCheckedTarget] = useState(initialTarget)
   const [result, setResult] = useState<LiveReputationResult | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [probe, setProbe] = useState<WebRtcProbe>({
+    supported: true,
+    candidates: [],
+    privateCandidates: [],
+    publicCandidates: [],
+    mdnsCandidates: [],
+    status: 'idle',
+  })
 
   useEffect(() => {
     let active = true
@@ -147,6 +226,31 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
     }
   }, [checkedTarget])
 
+  useEffect(() => {
+    let active = true
+    setProbe((current) => ({ ...current, status: 'running' }))
+    probeWebRtc()
+      .then((next) => {
+        if (active) setProbe(next)
+      })
+      .catch(() => {
+        if (active) {
+          setProbe({
+            supported: false,
+            candidates: [],
+            privateCandidates: [],
+            publicCandidates: [],
+            mdnsCandidates: [],
+            status: 'unsupported',
+          })
+        }
+      })
+
+    return () => {
+      active = false
+    }
+  }, [])
+
   const headline = useMemo(() => {
     if (!result) {
       return {
@@ -156,8 +260,22 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
       }
     }
 
-    return derivePurity(result)
+    if (result.addressScope !== 'public routable IP') {
+      return {
+        label: 'Special-use',
+        tone: 'watch' as const,
+        summary: `This target is ${result.addressScope}, so it should not be treated as a normal public endpoint.`,
+      }
+    }
+
+    return {
+      label: 'Public target',
+      tone: 'default' as const,
+      summary: 'Live reputation and browser exposure are being checked separately.',
+    }
   }, [result])
+
+  const leakVerdict = useMemo(() => deriveLeakVerdict(probe), [probe])
 
   const keyFacts: ResultField[] = useMemo(() => {
     if (!result) return []
@@ -168,16 +286,14 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
 
     return [
       { label: 'IP address', value: result.resolvedIp },
+      ...(cleanOrNull(result.reverseDns.join(', ')) ? [{ label: 'rDNS', value: result.reverseDns.join(', ') }] : []),
       { label: 'Address scope', value: result.addressScope, tone: result.addressScope === 'public routable IP' ? 'good' : 'watch' },
       ...(location ? [{ label: 'Location', value: location }] : []),
       ...(cleanOrNull(result.proxycheck.asn) ? [{ label: 'ASN', value: result.proxycheck.asn }] : []),
       ...(organization ? [{ label: 'Organization', value: organization }] : []),
-      ...(result.reverseDns.length ? [{ label: 'rDNS', value: result.reverseDns.slice(0, 3).join(', ') }] : []),
       ...(cleanOrNull(result.networkRange) ? [{ label: 'Network range', value: result.networkRange }] : []),
       ...(cleanOrNull(result.networkType) ? [{ label: 'Network type', value: result.networkType }] : []),
       ...(timezone ? [{ label: 'Timezone', value: timezone }] : []),
-      ...(cleanOrNull(result.firstSeen) ? [{ label: 'First seen', value: result.firstSeen! }] : []),
-      ...(cleanOrNull(result.updatedAt) ? [{ label: 'Last updated', value: result.updatedAt! }] : []),
     ]
   }, [result])
 
@@ -194,44 +310,32 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
     ]
   }, [result])
 
-  const advancedFacts: ResultField[] = useMemo(() => {
-    if (!result) return []
-
-    const purityNote = derivePurity(result).summary
-
+  const browserFacts: ResultField[] = useMemo(() => {
     return [
-      ...(cleanOrNull(result.ipapi.coordinates) || cleanOrNull(result.proxycheck.coordinates)
-        ? [{ label: 'Coordinates', value: cleanOrNull(result.ipapi.coordinates) || result.proxycheck.coordinates }]
-        : []),
-      ...(cleanOrNull(result.ipapi.currency) || cleanOrNull(result.proxycheck.currency)
-        ? [{ label: 'Currency', value: cleanOrNull(result.ipapi.currency) || result.proxycheck.currency }]
-        : []),
-      ...(result.confidence !== null ? [{ label: 'Confidence', value: `${result.confidence}%` }] : []),
-      ...(cleanOrNull(result.lastSeen) ? [{ label: 'Last seen', value: result.lastSeen! }] : []),
-      { label: 'Scraper', value: boolLabel(result.scraper) },
-      ...(result.ipapi.status === 'degraded' && cleanOrNull(result.ipapi.note)
-        ? [{ label: 'Context status', value: result.ipapi.note! }]
-        : []),
-      { label: 'Purity note', value: purityNote },
+      { label: 'WebRTC support', value: probe.supported ? 'Yes' : 'No', tone: probe.supported ? 'good' : 'watch' },
+      { label: 'Probe status', value: probe.status },
+      { label: 'Candidate count', value: String(probe.candidates.length) },
+      { label: 'Private candidates', value: String(probe.privateCandidates.length), tone: probe.privateCandidates.length ? 'bad' : 'good' },
+      { label: 'Public candidates', value: String(probe.publicCandidates.length), tone: probe.publicCandidates.length ? 'watch' : 'good' },
+      { label: 'mDNS candidates', value: String(probe.mdnsCandidates.length), tone: probe.mdnsCandidates.length ? 'good' : 'default' },
     ]
-  }, [result])
+  }, [probe])
 
-  const visibleCrossChecks = useMemo(() => {
-    return (result?.crossChecks || []).filter((signal) => !isUnavailable(signal.value))
-  }, [result])
+  const browserCandidateList = useMemo(() => probe.candidates.slice(0, 8), [probe])
+  const visibleCrossChecks = useMemo(() => (result?.crossChecks || []).filter((signal) => !isUnavailable(signal.value)), [result])
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white shadow-sm">
       <div className="border-b border-slate-200 p-3 md:p-4">
         <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
           <div className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row">
-            <label className="sr-only" htmlFor="ip-target">
+            <label className="sr-only" htmlFor="ip-leak-target">
               IP address, hostname, or endpoint
             </label>
             <div className="relative flex-1">
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input
-                id="ip-target"
+                id="ip-leak-target"
                 value={target}
                 onChange={(event) => setTarget(event.target.value)}
                 onKeyDown={(event) => {
@@ -287,13 +391,13 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
           <div className={`rounded-xl border p-4 ${fieldStyles(headline.tone)}`}>
             <div className="flex items-start justify-between gap-4">
               <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Purity assessment</div>
+                <div className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Leak verdict</div>
                 <div className="mt-2 flex items-end gap-3">
                   <span className="text-5xl font-semibold tracking-[-0.05em] text-slate-950">{loading || !result ? '—' : result.riskScore}</span>
                   <span className="pb-1 text-sm font-medium text-slate-500">signal</span>
                 </div>
-                <div className="mt-2 text-lg font-semibold text-slate-950">{loading ? 'Loading' : headline.label}</div>
-                <div className="mt-2 text-sm text-slate-600">{headline.summary}</div>
+                <div className="mt-2 text-lg font-semibold text-slate-950">{loading ? 'Loading' : leakVerdict.label}</div>
+                <div className="mt-2 text-sm text-slate-600">{loading ? 'Fetching live data and probing the browser.' : leakVerdict.summary}</div>
               </div>
 
               <div className="rounded-full border border-white/60 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-700">
@@ -306,7 +410,7 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
             <div className="rounded-xl border border-slate-200 bg-white p-4">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
                 <ShieldCheck className="h-3.5 w-3.5" />
-                Key identity
+                Server-visible target
               </div>
               <div className="mt-3 space-y-2 text-sm">
                 {cleanOrNull(result?.proxycheck.asn) ? <div className="font-semibold text-slate-950">{result?.proxycheck.asn}</div> : null}
@@ -322,36 +426,59 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
 
             <div className="rounded-xl border border-slate-200 bg-white p-4">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
-                <ShieldAlert className="h-3.5 w-3.5" />
-                Key signals
+                <Wifi className="h-3.5 w-3.5" />
+                Browser exposure
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
-                {loading || !result ? (
-                  <span className="text-sm text-slate-500">Loading signals...</span>
-                ) : (
-                  signalFacts.map((field) => (
-                    <span key={field.label} className={`rounded-full border px-2.5 py-1 text-xs font-semibold ${fieldStyles(field.tone)}`}>
-                      {field.label}: {field.value}
-                    </span>
-                  ))
-                )}
+                {browserFacts.map((field) => (
+                  <span key={field.label} className={`rounded-full border px-2.5 py-1 text-xs font-semibold ${fieldStyles(field.tone)}`}>
+                    {field.label}: {field.value}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
-          <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-950">
-            <Globe2 className="h-4 w-4 text-slate-500" />
-            Core facts
+        <div className="mt-4 grid gap-4 xl:grid-cols-2">
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-950">
+              <Globe2 className="h-4 w-4 text-slate-500" />
+              Live reputation + rDNS
+            </div>
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+              {keyFacts.map((field) => (
+                <div key={field.label} className="rounded-lg border border-slate-200 bg-white p-3">
+                  <div className="mb-1 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">{field.label}</div>
+                  <div className="break-words text-sm font-semibold leading-5 text-slate-950">{field.value}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-            {keyFacts.map((field) => (
-              <div key={field.label} className="rounded-lg border border-slate-200 bg-white p-3">
-                <div className="mb-1 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">{field.label}</div>
-                <div className="break-words text-sm font-semibold leading-5 text-slate-950">{field.value}</div>
+
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-950">
+              <ShieldAlert className="h-4 w-4 text-slate-500" />
+              Browser candidate preview
+            </div>
+            {browserCandidateList.length ? (
+              <div className="space-y-2">
+                {browserCandidateList.map((candidate) => {
+                  const classified = classifyCandidate(candidate)
+                  return (
+                    <div key={candidate} className="rounded-lg border border-slate-200 bg-white p-3 text-sm text-slate-700">
+                      <div className="mb-1 flex items-center justify-between gap-3">
+                        <span className="font-semibold text-slate-950">{classified.type}</span>
+                        <span className="text-xs text-slate-500">{classified.mdns ? 'mDNS' : classified.privateIps.length ? 'private' : classified.publicIps.length ? 'public' : 'unknown'}</span>
+                      </div>
+                      <div className="break-all font-mono text-xs leading-5 text-slate-600">{candidate}</div>
+                    </div>
+                  )
+                })}
               </div>
-            ))}
+            ) : (
+              <div className="text-sm text-slate-500">No candidate lines collected yet.</div>
+            )}
           </div>
         </div>
 
@@ -381,14 +508,14 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
               <ChevronDown className="h-4 w-4 text-slate-500 transition group-open:rotate-180" />
             </summary>
             <div className="border-t border-slate-200 p-4 space-y-4">
-              {advancedFacts.length > 0 ? (
+              {signalFacts.length > 0 ? (
                 <div>
                   <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
                     <Clock3 className="h-3.5 w-3.5" />
-                    Activity and coverage
+                    Risk coverage
                   </div>
                   <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                    {advancedFacts.map((field) => (
+                    {signalFacts.map((field) => (
                       <div key={field.label} className="rounded-lg border border-slate-200 bg-white p-3">
                         <div className="mb-1 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">{field.label}</div>
                         <div className="break-words text-sm font-semibold leading-5 text-slate-950">{field.value}</div>
@@ -425,7 +552,7 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
         </div>
 
         <div className="mt-4 rounded-lg border border-sky-200 bg-sky-50 p-3 text-sm leading-6 text-sky-900">
-          Default view only shows the verdict, key signals, and core facts. Extra detail stays collapsed unless needed.
+          Default view only shows what the browser and live lookup actually expose. DNS leak scoring is not invented here.
         </div>
       </div>
     </section>

@@ -30,6 +30,7 @@ export type LiveReputationResult = {
   input: string
   normalizedTarget: string
   resolvedIp: string
+  reverseDns: string[]
   addressScope: string
   networkType: string
   networkRange: string

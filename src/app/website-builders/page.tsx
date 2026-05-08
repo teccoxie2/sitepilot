@@ -14,9 +14,9 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Best Website Builders 2026 | SitePilot'
+const pageTitle = 'Website Builder Comparison: Which Platform Fits Your Business? Wix vs Shopify vs Squarespace vs Readdy vs WordPress (2026)'
 const pageDescription =
-  'Compare the best website builders in 2026 across AI generation, design flexibility, ecommerce readiness, SEO control, and long-term platform fit.'
+  'Use this website builder comparison to choose Wix, Shopify, Squarespace, Readdy, or WordPress by ecommerce fit, AI setup speed, SEO ownership, migration risk, editing overhead, and long-term platform trade-offs before you commit.'
 const pageUrl = 'https://sitepilot.co/website-builders'
 
 export const metadata: Metadata = {
@@ -139,9 +139,9 @@ const criteria = [
 ]
 
 const signals = [
-  'Stripe-style light palette',
+  'Direct website builder comparison framing',
   'Cleaner editorial hierarchy',
-  'Softer gradients, less noise',
+  'Business-model fit over template hype',
   'Readdy.ai added as an AI-first feature card',
 ]
 
@@ -175,7 +175,7 @@ export default function WebsiteBuildersHub() {
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-04-17"
-        modifiedDate="2026-04-17"
+        modifiedDate="2026-05-02"
         authorName="SitePilot Team"
       />
 
@@ -195,14 +195,14 @@ export default function WebsiteBuildersHub() {
               </div>
 
               <h1 className="text-5xl md:text-7xl font-semibold tracking-[-0.05em] leading-[0.96] mb-6 text-slate-950">
-                Website builders,
+                Website builder comparison: which platform fits your business?
                 <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
-                  with better taste.
+                  Compare platform fit, not template hype, in 2026.
                 </span>
               </h1>
 
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
-                A website builder comparison in 2026 should evaluate AI-assisted setup, design flexibility, ecommerce readiness, SEO ownership, and long-term platform limits. This hub connects the main SitePilot builder guides so buyers can move from broad platform selection to specific decisions without getting trapped by glossy templates and weak ownership.
+                A website builder comparison should help buyers choose Wix, Shopify, Squarespace, Readdy, or WordPress based on ecommerce fit, AI setup speed, editing overhead, SEO ownership, content portability, pricing flexibility, and migration risk before they commit. Use this page when the real decision is which platform best matches the business model, not which demo looks prettiest for five minutes.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-6">
@@ -220,6 +220,15 @@ export default function WebsiteBuildersHub() {
                   Compare ecommerce platforms
                   <ShoppingCart className="ml-2 h-4 w-4" />
                 </Link>
+                <a
+                  href="https://readdy.ai/?via=sitepilot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-5 py-3 text-sm font-semibold text-indigo-700 shadow-sm hover:bg-indigo-100 transition-colors"
+                >
+                  Visit Readdy.ai
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </div>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -307,10 +316,10 @@ export default function WebsiteBuildersHub() {
           <div className="max-w-3xl mb-8">
             <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Featured picks</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] mb-4 text-slate-950">
-              Same layout, Stripe-style color system
+              Compare builders by workflow fit, not homepage cosmetics
             </h2>
             <p className="text-slate-600 leading-relaxed text-lg">
-              This keeps the improved structure you liked, but swaps the mood to a cleaner Stripe-like palette: lighter surfaces, tighter contrast, softer purple-blue energy, and less sci-fi drama.
+              Most buyers do not fail because they picked an ugly builder. They fail because they picked the wrong workflow model for ecommerce, SEO control, editing burden, and future migration risk. This section keeps the shortlist tight and decision-oriented.
             </p>
           </div>
 
@@ -407,24 +416,33 @@ export default function WebsiteBuildersHub() {
           <div className="rounded-[2rem] border border-slate-200/90 bg-[linear-gradient(180deg,#ffffff_0%,#fbfcff_100%)] p-8 shadow-[0_14px_32px_rgba(15,23,42,0.035)]">
             <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 mb-5">
               <PenTool className="h-3.5 w-3.5" />
-              Color experiment
+              Buyer decision notes
             </div>
-            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">What changed in this pass</h2>
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">What actually matters in this comparison</h2>
             <ul className="space-y-4 text-sm leading-relaxed text-slate-600 list-disc pl-5">
-              <li>Swapped the deep dark palette for Stripe-like off-white surfaces and crisp contrast.</li>
-              <li>Moved the accent system toward indigo, sky, and subtle violet instead of heavy neon glow.</li>
-              <li>Kept the stronger layout you liked, so this is a color comparison instead of a layout reset.</li>
-              <li>Made cards feel more editorial and premium, less “tech demo landing page.”</li>
-              <li>Added Readdy.ai as an AI-first featured builder so the page better reflects where buyer interest is moving.</li>
-              <li>This should be easier to scale across the rest of SitePilot if you want a consistent redesign system.</li>
+              <li>Readdy.ai is included because buyer interest is shifting toward prompt-to-page workflows, not because “AI” alone is a differentiator.</li>
+              <li>Shopify stays the default commerce answer when the site exists to sell, not merely to publish.</li>
+              <li>Wix and Squarespace win when speed and presentation matter more than deep ownership or extensibility.</li>
+              <li>WordPress still matters when long-term control, portability, and broader SEO system design outweigh ease of use.</li>
+              <li>The wrong platform usually shows up later as editing drag, migration pain, or structural SEO constraints.</li>
+              <li>This page should route buyers into deeper BOFU comparisons, not trap them in a shallow top-level roundup.</li>
             </ul>
 
             <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-white p-5">
-              <div className="text-sm text-slate-500 mb-2">Reference mood</div>
-              <div className="text-slate-950 font-medium mb-3">Stripe palette, not Stripe clone</div>
+              <div className="text-sm text-slate-500 mb-2">Bottom-line framing</div>
+              <div className="text-slate-950 font-medium mb-3">Choose the operating model you can live with</div>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Lighter page canvas, richer typography contrast, restrained gradients, and UI elements that feel more like a premium SaaS brand than a cyberpunk concept mockup.
+                Fast setup is useful. But if the platform blocks ecommerce workflows, weakens SEO ownership, or makes migration expensive, the “easy” choice was just delayed pain wearing a nice UI.
               </p>
+              <a
+                href="https://readdy.ai/?via=sitepilot"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center rounded-full bg-[#635bff] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#564ee8] transition-colors"
+              >
+                Open Readdy.ai
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
             </div>
           </div>
         </section>

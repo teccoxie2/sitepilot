@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Zap, Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function Header() {
@@ -9,6 +9,7 @@ export default function Header() {
   const [toolsMenuOpen, setToolsMenuOpen] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const toolsMenuCloseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +19,14 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (toolsMenuCloseTimeoutRef.current) {
+        clearTimeout(toolsMenuCloseTimeoutRef.current);
+      }
+    };
   }, []);
 
   const navLinks = [
@@ -55,6 +64,26 @@ export default function Header() {
   const mobileLinkClasses = 'text-slate-900';
   const ctaClasses = 'bg-[#635bff] text-white hover:bg-[#564ee8] shadow-[0_12px_24px_rgba(99,91,255,0.18)]';
 
+  const openToolsMenu = () => {
+    if (toolsMenuCloseTimeoutRef.current) {
+      clearTimeout(toolsMenuCloseTimeoutRef.current);
+      toolsMenuCloseTimeoutRef.current = null;
+    }
+
+    setToolsMenuOpen(true);
+  };
+
+  const closeToolsMenu = () => {
+    if (toolsMenuCloseTimeoutRef.current) {
+      clearTimeout(toolsMenuCloseTimeoutRef.current);
+    }
+
+    toolsMenuCloseTimeoutRef.current = setTimeout(() => {
+      setToolsMenuOpen(false);
+      toolsMenuCloseTimeoutRef.current = null;
+    }, 320);
+  };
+
   return (
     <header data-nosnippet className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerClasses}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,30 +110,41 @@ export default function Header() {
 
             <div
               className="relative"
-              onMouseEnter={() => setToolsMenuOpen(true)}
-              onMouseLeave={() => setToolsMenuOpen(false)}
+              onMouseEnter={openToolsMenu}
+              onMouseLeave={closeToolsMenu}
             >
               <button
                 type="button"
                 className={`${desktopNavBase} ${navHoverClasses} transition-all duration-200 inline-flex items-center gap-2`}
-                onClick={() => setToolsMenuOpen((open) => !open)}
+                onClick={() => {
+                  if (toolsMenuOpen) {
+                    closeToolsMenu();
+                    return;
+                  }
+
+                  openToolsMenu();
+                }}
+                onFocus={openToolsMenu}
               >
                 Tools
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${toolsMenuOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {toolsMenuOpen && (
-                <div className="absolute left-0 top-full mt-3 w-80 overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-[0_18px_40px_rgba(15,23,42,0.12)] backdrop-blur-xl">
-                  {toolsDropdownLinks.map((link) => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className="block rounded-xl px-4 py-3 transition-colors hover:bg-slate-50"
-                    >
-                      <div className="text-sm font-semibold text-slate-950">{link.name}</div>
-                      <div className="mt-1 text-sm leading-5 text-slate-500">{link.description}</div>
-                    </Link>
-                  ))}
+                <div className="absolute left-0 top-full pt-2">
+                  <div aria-hidden="true" className="absolute inset-x-0 -top-2 h-4" />
+                  <div className="w-80 overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-[0_18px_40px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+                    {toolsDropdownLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="block rounded-xl px-4 py-3 transition-colors hover:bg-slate-50"
+                      >
+                        <div className="text-sm font-semibold text-slate-950">{link.name}</div>
+                        <div className="mt-1 text-sm leading-5 text-slate-500">{link.description}</div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

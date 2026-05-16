@@ -16,9 +16,9 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Enterprise AI Tools Budget Planning Strategy Guide 2026 | SitePilot'
+const pageTitle = 'AI Tools Budget Planning for Enterprise Teams (2026): Cost Model, ROI, Governance Checklist'
 const pageDescription =
-  'An enterprise AI tools budget planning framework built from data across 1,000+ companies. Helps teams maximize ROI, reduce an average of $680K in avoidable waste, and allocate budget by company size with stronger cost controls.'
+  'Compare AI tools budget planning options for enterprise teams by modeling software, integration, training, security, governance, and support costs before approval so buyers can set realistic ROI targets and avoid stack overlap.'
 const pageUrl = 'https://sitepilot.co/ai-tools-budget-planning-enterprise-2026'
 
 export const metadata: Metadata = {
@@ -37,15 +37,15 @@ export const metadata: Metadata = {
     canonical: pageUrl,
   },
   openGraph: {
-    title: 'Enterprise AI Tools Budget Planning Strategy Guide 2026',
-    description: 'A practical AI tools budget planning method for teams that need stronger returns from enterprise investment.',
+    title: 'AI Tools Budget Planning for Enterprise Teams (2026): Cost Model, ROI, Governance Checklist',
+    description: 'Compare AI tool budget planning choices across software, integration, training, security, governance, and support before approval so the budget reflects real rollout cost.',
     type: 'article',
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Enterprise AI Tools Budget Planning Strategy Guide 2026',
-    description: 'A practical AI tools budget planning method for teams that need stronger returns from enterprise investment.',
+    title: 'AI Tools Budget Planning for Enterprise Teams (2026): Cost Model, ROI, Governance Checklist',
+    description: 'Compare AI tool budget planning choices across software, integration, training, security, governance, and support before approval so the budget reflects real rollout cost.',
   },
 }
 
@@ -104,6 +104,32 @@ const budgetBands = [
   },
 ]
 
+const buyerDecisionFlow = [
+  {
+    title: 'Audit the current stack',
+    note: 'List active licenses, duplicate tools, department owners, and actual usage before requesting net-new budget.',
+  },
+  {
+    title: 'Model total rollout cost',
+    note: 'Account for subscriptions, implementation, security review, change management, training, and support instead of pricing the pilot only.',
+  },
+  {
+    title: 'Pressure-test the return case',
+    note: 'Tie budget approval to time saved, throughput gained, quality lift, risk reduction, or revenue impact that finance can verify later.',
+  },
+  {
+    title: 'Route the next approval step',
+    note: 'Move winning options into cost-benefit review, risk assessment, and security review so procurement does not approve in isolation.',
+  },
+]
+
+const approvalChecklist = [
+  'Current tool inventory with overlapping licenses flagged',
+  '12-month spend model including implementation and governance',
+  'Named business owner and success metric for each tool category',
+  'Security, compliance, and support assumptions documented before purchase',
+]
+
 const roiCards = [
   {
     title: 'Manufacturing',
@@ -159,7 +185,7 @@ export default function AIToolsBudgetPlanningPage() {
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-03-11"
-        modifiedDate="2026-04-20"
+        modifiedDate="2026-05-12"
         authorName="SitePilot Team"
       />
 
@@ -180,18 +206,21 @@ export default function AIToolsBudgetPlanningPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
-                  AI Tools Budget Planning
-                  <span className="brand-gradient-text block">Spend with clarity before you talk transformation.</span>
+                  Enterprise AI tools budget planning
+                  <span className="brand-gradient-text block">Model total rollout cost before you approve anything.</span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Enterprise AI budget planning has to account for investment scale, overlapping capabilities, hidden training and integration costs, payback windows, and governance requirements. This page keeps the original budget framework, ROI logic, and internal resource paths while translating the experience into the current light Stripe-ish system.
+                  Enterprise AI budget planning works best when buyers model software, integration, training, security, governance, support, and overlap costs together. That gives finance, IT, and operations a more realistic view of total rollout spend, payback timing, approval risk, and stack duplication before expanding the tool set.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
                   <Link href="/ai-tools-cost-benefit-analysis-2026" className="btn-brand inline-flex items-center gap-2">
                     Review cost-benefit analysis
                     <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link href="/ai-tools-risk-assessment-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
+                    Pressure-test risk before approval
                   </Link>
                   <Link href="/ai-tools" className="btn-secondary inline-flex items-center gap-2">
                     Return to the AI tools hub
@@ -239,27 +268,76 @@ export default function AIToolsBudgetPlanningPage() {
           </div>
         </section>
 
-        <section className="grid gap-6 md:grid-cols-3 mb-16">
-          {budgetBands.map((band) => (
-            <div key={band.title} className="page-card p-8">
-              <div className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 mb-5">
-                <Briefcase className="h-3.5 w-3.5 mr-2" />
-                {band.team}
+        <section className="mb-16 grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
+          <div>
+            <div className="max-w-3xl mb-8">
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Budget structure</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+                Budget approval gets easier when the model is already organized
+                <span className="brand-gradient-text block">Show the spend bands, then show how you will govern them.</span>
+              </h2>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                These budget ranges help teams size the investment conversation. The practical buyer move is pairing each range with a usage audit, a full-cost model, and a clear handoff into ROI and risk review before procurement signs anything.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {budgetBands.map((band) => (
+                <div key={band.title} className="page-card p-8">
+                  <div className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 mb-5">
+                    <Briefcase className="h-3.5 w-3.5 mr-2" />
+                    {band.team}
+                  </div>
+                  <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-2">{band.title}</h2>
+                  <div className="text-3xl font-semibold tracking-[-0.04em] text-[#635bff] mb-5">{band.budget}</div>
+                  <div className="space-y-3 mb-6">
+                    {band.split.map((item) => (
+                      <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-700">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="rounded-2xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-sm font-medium text-indigo-700">
+                    {band.roi}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="page-card p-8">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+                  <Calculator className="w-5 h-5 text-[#635bff]" />
+                </div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Buyer decision flow</h2>
               </div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-2">{band.title}</h2>
-              <div className="text-3xl font-semibold tracking-[-0.04em] text-[#635bff] mb-5">{band.budget}</div>
-              <div className="space-y-3 mb-6">
-                {band.split.map((item) => (
-                  <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-700">
-                    {item}
+              <div className="space-y-3">
+                {buyerDecisionFlow.map((step, index) => (
+                  <div key={step.title} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600/80 mb-2">Step {index + 1}</div>
+                    <div className="text-sm font-semibold text-slate-900 mb-1">{step.title}</div>
+                    <p className="text-sm leading-6 text-slate-600">{step.note}</p>
                   </div>
                 ))}
               </div>
-              <div className="rounded-2xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-sm font-medium text-indigo-700">
-                {band.roi}
+            </div>
+
+            <div className="page-card p-8">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+                  <CheckCircle2 className="w-5 h-5 text-[#635bff]" />
+                </div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Approval checklist</h2>
+              </div>
+              <div className="space-y-3 text-sm text-slate-600">
+                {approvalChecklist.map((item) => (
+                  <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4">{item}</div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </section>
 
         <section className="mb-16">
@@ -372,15 +450,18 @@ export default function AIToolsBudgetPlanningPage() {
                 <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Next step</h2>
               </div>
               <p className="text-slate-600 leading-7 mb-6">
-                If you are planning an AI tool portfolio, start by listing current licenses, active usage, overlap across departments, and expected time savings. Without those four inputs, the budget model usually becomes a polished fiction.
+                If you are building an enterprise AI tool budget, move next into ROI validation, risk review, and the wider AI tools hub. That keeps the page in a real buyer loop instead of ending with a one-page budget estimate that procurement cannot defend.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/ai-tools-cost-benefit-analysis-2026" className="btn-brand inline-flex items-center gap-2">
                   Run the cost-benefit analysis
                   <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/ai-tools-risk-assessment-enterprise-2026" className="btn-secondary">
+                <Link href="/ai-tools-risk-assessment-enterprise-2026" className="btn-secondary inline-flex items-center gap-2">
                   Continue to risk assessment
+                </Link>
+                <Link href="/ai-tools" className="btn-secondary inline-flex items-center gap-2">
+                  Return to the AI tools hub
                 </Link>
               </div>
             </div>

@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Eye,
   FileText,
+  HelpCircle,
   Scale,
   Shield,
   Sparkles,
@@ -13,9 +14,9 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Enterprise AI Ethics & Compliance Checklist 2026 | SitePilot'
+const pageTitle = 'AI Ethics and Compliance Checklist (2026): Privacy, Transparency, Bias, Human Oversight'
 const pageDescription =
-  'Comprehensive AI ethics and compliance checklist for enterprise deployments, covering GDPR, CCPA, the EU AI Act, transparency controls, and practical governance actions.'
+  'Use this AI ethics and compliance checklist to review privacy controls, transparency standards, bias mitigation, and human oversight before enterprise deployment, audit, or policy approval.'
 const pageUrl = 'https://sitepilot.co/ai-ethics-compliance-checklist-enterprise-2026'
 
 export const metadata: Metadata = {
@@ -241,19 +242,58 @@ const quickNav = [
   { href: '#ethics', title: 'Ethics pillars', note: 'Principles teams should enforce' },
   { href: '#risk', title: 'Risk matrix', note: 'Where failures usually surface' },
   { href: '#roadmap', title: 'Roadmap', note: '12-week implementation sequence' },
+  { href: '#faq', title: 'FAQ', note: 'Ownership, cadence, and audit proof' },
 ] as const
 
 const summaryCards = [
-  { value: '78%', label: 'Checklist items complete' },
-  { value: '15%', label: 'Controls in progress' },
-  { value: '7%', label: 'Open actions pending' },
-  { value: '4', label: 'Core control domains' },
+  { value: '4', label: 'Control domains reviewed' },
+  { value: '5', label: 'Ethics principles mapped' },
+  { value: '4', label: 'Risk patterns tracked' },
+  { value: '4', label: 'Rollout phases sequenced' },
 ] as const
 
 const priorityActions = [
   { task: 'Complete bias testing across demographics', status: 'Due in 3 days' },
   { task: 'Establish cross-border data transfer safeguards', status: 'Overdue' },
   { task: 'Finalize right-to-explanation procedures', status: 'In review' },
+] as const
+
+const buyerUseCases = [
+  {
+    title: 'Governance leads preparing for review',
+    description: 'Use the checklist to show which controls are in place, which owners are assigned, and where evidence is still missing.',
+  },
+  {
+    title: 'Legal and privacy teams validating deployment',
+    description: 'Use it to pressure-test rights handling, data transfer rules, transparency notices, and escalation paths before approval.',
+  },
+  {
+    title: 'Ops teams cleaning up after pilot sprawl',
+    description: 'Use it to turn broad responsible-AI claims into a concrete remediation queue tied to launch readiness.',
+  },
+] as const
+
+const faqs = [
+  {
+    question: 'When should an enterprise use an AI ethics and compliance checklist?',
+    answer:
+      'Use it before deployment, before procurement approval for high-impact tools, and before formal audit or policy review. The checklist is most useful when a team needs evidence, owners, and remediation priorities rather than general principles.',
+  },
+  {
+    question: 'Who should own this checklist inside the business?',
+    answer:
+      'Usually a governance, risk, privacy, or compliance lead coordinates the checklist, but the evidence has to come from multiple functions. Legal, security, data, product, procurement, and operational owners all need to contribute controls and sign-offs.',
+  },
+  {
+    question: 'What makes a checklist item truly complete?',
+    answer:
+      'A control is complete only when the team can show documentation, accountable ownership, and a working operating process. If the control exists only as a policy statement or a team assumption, it is not audit-ready yet.',
+  },
+  {
+    question: 'How does this checklist connect to governance and privacy work?',
+    answer:
+      'This page is a checkpoint inside the wider governance loop. Teams usually pair it with a governance framework for ownership, a privacy impact assessment for data exposure, and a security checklist for tooling and deployment controls.',
+  },
 ] as const
 
 const relatedResources = [
@@ -338,7 +378,7 @@ export default function AIEthicsComplianceChecklist() {
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-03-08"
-        modifiedDate="2026-04-20"
+        modifiedDate="2026-05-13"
         authorName="SitePilot Team"
       />
 
@@ -362,8 +402,7 @@ export default function AIEthicsComplianceChecklist() {
               </h1>
 
               <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                Use this page to review privacy, transparency, fairness, and human-oversight controls before an
-                enterprise AI rollout scales faster than policy, documentation, and audit evidence can keep up.
+                An AI ethics and compliance checklist is an enterprise review framework used to verify privacy controls, transparency standards, bias mitigation, and human oversight before deployment, audit, or policy approval. Use it when teams need evidence, ownership, and remediation steps instead of broad responsible-AI claims.
               </p>
 
               <div className="mb-10 flex flex-wrap gap-3">
@@ -396,7 +435,7 @@ export default function AIEthicsComplianceChecklist() {
                       <div className="text-xl font-semibold text-slate-950">What to review first</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                      Controls first
+                      BOFU governance
                     </div>
                   </div>
 
@@ -486,26 +525,21 @@ export default function AIEthicsComplianceChecklist() {
               <div className="mb-5 flex items-center justify-between gap-4">
                 <div>
                   <div className="mb-1 text-sm text-slate-500">Executive snapshot</div>
-                  <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Current readiness signals</h2>
+                  <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">Who this checklist helps first</h2>
                 </div>
                 <Shield className="h-7 w-7 text-indigo-600" />
               </div>
               <div className="space-y-4">
-                <div className="rounded-[1.5rem] border border-indigo-200 bg-indigo-50/80 p-4">
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700">Strongest areas</div>
-                  <p className="mt-2 text-sm leading-6 text-indigo-900">
-                    Privacy baselines, core bias controls, and human-override mechanisms are largely in place.
-                  </p>
-                </div>
+                {buyerUseCases.map((useCase) => (
+                  <div key={useCase.title} className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4">
+                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Buyer use case</div>
+                    <h3 className="mt-2 text-base font-semibold text-slate-950">{useCase.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-700">{useCase.description}</p>
+                  </div>
+                ))}
                 <div className="rounded-[1.5rem] border border-amber-200 bg-amber-50/80 p-4">
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">Needs attention</div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">Program rule</div>
                   <p className="mt-2 text-sm leading-6 text-amber-900">
-                    Cross-border safeguards, explanation procedures, and evidence trails need tighter operational follow-through.
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-4">
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Program rule</div>
-                  <p className="mt-2 text-sm leading-6 text-slate-700">
                     If a control cannot be evidenced in audit, treat it as incomplete even if the team believes it exists.
                   </p>
                 </div>
@@ -750,64 +784,63 @@ export default function AIEthicsComplianceChecklist() {
         </div>
       </section>
 
-      <section className="page-section relative border-t border-slate-200/70 bg-white/80">
+      <section id="faq" className="page-section relative border-t border-slate-200/70 bg-white/80">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="page-card-glow p-6 md:p-8">
-            <div className="mb-8 max-w-3xl">
-              <div className="page-pill mb-4">
-                <ArrowRight className="h-4 w-4 text-[#635bff]" />
-                Related resources
+          <div className="mb-10 max-w-3xl">
+            <div className="page-pill mb-4">
+              <HelpCircle className="h-4 w-4 text-[#635bff]" />
+              Frequently asked questions
+            </div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+              The checklist works best when ownership, evidence, and review cadence are clear.
+            </h2>
+            <p className="page-lead text-base md:text-lg">
+              These FAQs tighten the buyer journey by clarifying when to use the checklist, who should own it, and how it connects to the wider governance stack.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="page-card p-6">
+                <div className="mb-4 flex items-start gap-3">
+                  <HelpCircle className="mt-1 h-5 w-5 flex-shrink-0 text-indigo-600" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-950">{faq.question}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{faq.answer}</p>
+                  </div>
+                </div>
               </div>
-              <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
-                Keep the governance and privacy paths connected.
-              </h2>
-              <p className="page-lead text-base md:text-lg">
-                These internal links stay intact so the ethics checklist still feeds into the wider governance,
-                privacy, and security cluster.
-              </p>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              {relatedResources.map((resource) => {
-                const Icon = resource.icon
-
-                return (
-                  <Link
-                    key={resource.href}
-                    href={resource.href}
-                    className="page-card flex h-full items-start gap-4 p-5 transition hover:-translate-y-0.5 hover:border-indigo-200"
-                  >
-                    <div className="rounded-2xl border border-indigo-200 bg-indigo-50 p-3">
-                      <Icon className="h-5 w-5 text-indigo-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="mb-2 text-lg font-semibold text-slate-950">{resource.title}</h3>
-                      <p className="text-sm leading-6 text-slate-600">{resource.description}</p>
-                    </div>
-                    <ArrowRight className="mt-1 h-4 w-4 text-slate-400" />
-                  </Link>
-                )
-              })}
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="page-section relative pt-0">
+      <section className="page-section relative border-t border-slate-200/70 bg-white/80">
         <div className="mx-auto max-w-7xl px-4 pb-16">
-          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-[linear-gradient(135deg,#1e293b_0%,#312e81_48%,#0f172a_100%)] px-6 py-10 text-white shadow-[0_30px_80px_rgba(15,23,42,0.18)] md:px-10">
-            <div className="max-w-3xl">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-100">
-                Compliance review support
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="page-card-soft p-8">
+              <div className="page-pill mb-4">
+                <Users className="h-4 w-4 text-[#635bff]" />
+                Next step
               </div>
-              <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
+              <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
                 Use the checklist before you scale, not after legal finds the gap.
               </h2>
-              <p className="mb-8 max-w-2xl text-base leading-7 text-slate-200 md:text-lg">
-                Teams rolling out new AI workflows can pair this checklist with governance, privacy, and security
-                resources across SitePilot to tighten launch readiness and keep remediation work scoped.
+              <p className="mb-6 text-sm leading-6 text-slate-600 md:text-base md:leading-7">
+                Teams rolling out new AI workflows should use this checklist to identify missing evidence, assign owners,
+                and decide whether the next move is governance design, privacy assessment, or security review.
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="space-y-3">
+                {priorityActions.map((action) => (
+                  <div key={action.task} className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                    <span className="text-sm font-medium text-slate-700">{action.task}</span>
+                    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+                      {action.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/ai-governance-compliance-framework-2026" className="btn-brand">
                   Governance framework
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -815,6 +848,44 @@ export default function AIEthicsComplianceChecklist() {
                 <Link href="/ai-data-privacy-impact-assessment-2026" className="btn-secondary">
                   Privacy assessment
                 </Link>
+              </div>
+            </div>
+
+            <div className="page-card-glow p-6 md:p-8">
+              <div className="mb-8 max-w-3xl">
+                <div className="page-pill mb-4">
+                  <ArrowRight className="h-4 w-4 text-[#635bff]" />
+                  Related resources
+                </div>
+                <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
+                  Keep the governance, privacy, and security paths connected.
+                </h2>
+                <p className="page-lead text-base md:text-lg">
+                  These internal links keep the page inside the current SitePilot conversion loop so checklist readers can move directly into the right next workflow.
+                </p>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                {relatedResources.map((resource) => {
+                  const Icon = resource.icon
+
+                  return (
+                    <Link
+                      key={resource.href}
+                      href={resource.href}
+                      className="page-card flex h-full items-start gap-4 p-5 transition hover:-translate-y-0.5 hover:border-indigo-200"
+                    >
+                      <div className="rounded-2xl border border-indigo-200 bg-indigo-50 p-3">
+                        <Icon className="h-5 w-5 text-indigo-600" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="mb-2 text-lg font-semibold text-slate-950">{resource.title}</h3>
+                        <p className="text-sm leading-6 text-slate-600">{resource.description}</p>
+                      </div>
+                      <ArrowRight className="mt-1 h-4 w-4 text-slate-400" />
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </div>

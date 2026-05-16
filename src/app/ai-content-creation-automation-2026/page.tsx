@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs'
+/* <p>AI content creation automation combines strategy, drafting, distribution, monetization, and reporting into one operating model. This guide helps teams compare tool roles, approval overhead, workflow design, and ROI planning before they rebuild a content operation around automation instead of adding another isolated writing tool.</p> */
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -10,7 +11,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Complete Guide to AI Content Creation Automation (2026) | SitePilot'
 const pageDescription =
-  'A long-form guide backed by $45,000 in live testing and 127 AI tools, covering AI content creation automation, distribution, monetization, and the ROI roadmap.'
+  'Review AI content creation automation for strategy, drafting, distribution, monetization, and reporting. This guide helps teams compare workflow design, tool roles, approval overhead, and ROI planning before they rebuild a content operation around automation.'
 const pageUrl = 'https://sitepilot.co/ai-content-creation-automation-2026'
 const ogImage = 'https://sitepilot.co/og-ai-content-automation.png'
 const twitterImage = 'https://sitepilot.co/twitter-ai-content-automation.png'
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Complete Guide to AI Content Creation Automation (2026)',
-    description: 'A complete AI content creation system backed by $45,000 in testing, 12x efficiency gains, and an average audience increase of 87,000 followers in six months.',
+    description: 'Review AI content creation automation for strategy, drafting, distribution, monetization, and reporting before rebuilding a content workflow or tool stack.',
     url: pageUrl,
     siteName: 'SitePilot',
     images: [
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Complete Guide to AI Content Creation Automation (2026)',
-    description: 'A practical AI content system for scaling from zero to 100,000 followers with 12x efficiency gains.',
+    description: 'Review AI content creation automation for strategy, drafting, distribution, monetization, and reporting before rebuilding a content workflow or tool stack.',
     images: [twitterImage],
   },
   robots: {
@@ -67,8 +68,8 @@ const quickNav = [
 ]
 
 const summaryCards = [
-  { label: '$45K in live testing', note: 'Built from 18 months of testing, 127 AI tools, and multiple creator scenarios.' },
-  { label: '12x efficiency gain', note: 'The focus is a scalable content system, not a list of one-off generators.' },
+  { label: 'Workflow-first guide', note: 'The focus is operating design across strategy, drafting, distribution, monetization, and reporting.' },
+  { label: 'Approval and handoff fit', note: 'Use this page to judge where editing load, review delays, and orchestration complexity actually appear.' },
   { label: 'Chinese long-form preserved', note: 'The body still uses the original markdown; the migration upgrades structure and reading experience only.' },
   { label: 'Directly linked to ROI', note: 'Keeps the AI ROI calculator, tool comparisons, and productivity-related internal links.' },
 ]
@@ -207,7 +208,7 @@ export default function AIContentCreationAutomationPage() {
         url={pageUrl}
         imageUrl={ogImage}
         publishedDate="2026-03-06"
-        modifiedDate="2026-04-19"
+        modifiedDate="2026-05-14"
         authorName="SitePilot Team"
       />
 
@@ -231,8 +232,7 @@ export default function AIContentCreationAutomationPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This page preserves the full original Chinese body as a practical guide for creators building AI-enabled content strategy, batch production, multi-platform distribution, and data-driven optimization systems.
-                The point is not to sample a few writing tools. It is to build a repeatable operating model.
+                AI content creation automation combines strategy, drafting, distribution, monetization, and reporting into one operating model. This page helps teams compare tool roles, approval overhead, workflow design, and ROI planning before they rebuild a content operation around automation instead of adding another isolated writing tool.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

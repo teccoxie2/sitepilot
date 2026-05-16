@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-const pageTitle = 'AI Marketing Attribution Analysis Tool 2026 | Multi-Channel ROI Tracking | SitePilot'
+const pageTitle = 'AI Marketing Attribution Analysis Tool (2026): Multi-Channel ROI and Journey Review'
 const pageDescription =
-  'Professional AI marketing attribution analysis tool for 2026. Track multi-channel ROI, analyze customer journeys, and optimize conversion paths for CMO-level decisions and 75%+ marketing efficiency gains.'
+  'Use this AI marketing attribution analysis tool to review multi-channel ROI, customer journeys, assisted conversions, and budget allocation before reporting channel performance or changing spend.'
 const pageUrl = 'https://sitepilot.co/ai-marketing-attribution-analysis-tool-2026'
 
 export const metadata: Metadata = {

@@ -12,10 +12,10 @@ const heroSignals = [
 ]
 
 const highlightCards = [
-  { label: 'Marketing channels', value: '12+', note: 'Still built for multi-channel attribution analysis.' },
-  { label: 'Efficiency gain', value: '75%+', note: 'The original performance promise stays in place.' },
-  { label: 'Attribution accuracy', value: '90%+', note: 'AI-enhanced attribution remains visible in the tool.' },
-  { label: 'Decision level', value: 'CMO-level', note: 'Still written for marketing leaders and operators.' },
+  { label: 'Review focus', value: 'ROI', note: 'Compare channel contribution against cost before reallocating budget.' },
+  { label: 'Analysis layer', value: 'Journey', note: 'Look at assisted conversions, not just last-touch noise.' },
+  { label: 'Decision frame', value: 'Budget', note: 'Use attribution to cut weak channels or defend productive spend.' },
+  { label: 'Buyer stage', value: 'BOFU', note: 'Written for operators evaluating reporting and spend decisions.' },
 ]
 
 const internalLinks = [
@@ -86,7 +86,7 @@ export default function AIMarketingAttributionAnalysisPage() {
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    This page keeps the original multi-channel attribution, AI-enhanced model, budget optimization guidance, and advanced mode toggle. Only the visual system has been pulled into SitePilot's current light design language.
+                    An AI marketing attribution analysis tool reviews multi-channel ROI, customer journeys, assisted conversions, and budget allocation before teams change spend or report channel performance. Use it when the problem is not missing dashboards but deciding which channels deserve more budget, tighter controls, or less internal storytelling.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -126,7 +126,7 @@ export default function AIMarketingAttributionAnalysisPage() {
                       <div className="grid gap-3">
                         {[
                           ['Inputs', 'Impressions, clicks, conversions, cost, and revenue.'],
-                          ['Outputs', 'AI-enhanced attribution, ROI, efficiency ratios, and priority guidance.'],
+                          ['Outputs', 'Attribution views, ROI estimates, efficiency ratios, and priority guidance.'],
                           ['Modes', 'Standard and advanced mode toggles stay intact.'],
                           ['UI system', 'The shell now uses the unified light Stripe-ish layout.'],
                         ].map(([title, note]) => (

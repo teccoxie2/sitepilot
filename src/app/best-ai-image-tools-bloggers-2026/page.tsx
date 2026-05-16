@@ -168,8 +168,7 @@ export default function AIImageToolsPage() {
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-                  Compare the best AI image tools for bloggers in 2026 across generation quality, editing power, brand consistency,
-                  workflow speed, and publishing fit. The point is simple: better visuals, less pain, fewer tabs.
+                  The best AI image tools for bloggers in 2026 differ on generation quality, editing control, brand consistency, workflow speed, and publishing fit. This comparison helps content teams choose the right stack for headers, social assets, tutorials, and recurring editorial production without buying more design software than they need.
                 </p>
 
                 <div className="flex flex-wrap gap-3">

@@ -1,246 +1,102 @@
+import { promises as fs } from 'fs'
+import path from 'path'
 import { NextResponse } from 'next/server'
 
-export async function GET() {
-  const baseUrl = 'https://sitepilot.co'
-  const currentDate = new Date().toISOString()
-  
-  const routes = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFreq: 'daily',
-      priority: '1.0'
-    },
-    // Core category pages
-    {
-      url: `${baseUrl}/web-hosting`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: '0.9'
-    },
-    {
-      url: `${baseUrl}/hosting`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: '0.9'
-    },
-    {
-      url: `${baseUrl}/ai-tools`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: '0.9'
-    },
-    {
-      url: `${baseUrl}/website-builders`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: '0.9'
-    },
-    {
-      url: `${baseUrl}/proxies`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: '0.9'
-    },
-    // In-depth guides and reviews
-    {
-      url: `${baseUrl}/best-web-hosting-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/best-ai-writing-tools-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/best-ai-seo-tools-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/best-website-builders-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/ai-content-generator-comparison`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/cheap-hosting`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.7'
-    },
-    {
-      url: `${baseUrl}/cloud-hosting-vs-traditional-hosting-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/website-builder-vs-wordpress-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.9'
-    },
-    {
-      url: `${baseUrl}/free-website-builders-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.9'
-    },
-    {
-      url: `${baseUrl}/ai-vendor-due-diligence-checklist-enterprise-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/enterprise-ai-vendor-rfp-template-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/enterprise-ai-vendor-comparison-guide-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.9'
-    },
-    {
-      url: `${baseUrl}/ai-procurement-decision-matrix-tool-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/enterprise-ai-vendor-shortlist-scorecard-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/enterprise-ai-vendor-pricing-guide-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/enterprise-ai-vendor-pilot-evaluation-checklist-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/proxies/mobile-proxy-farm-setup-guide-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/proxies/residential-vs-mobile-proxies-comparison-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/proxies/proxy-farm-hardware-selection-guide`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/proxies/mobile-proxy-software-comparison-2026`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.3'
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.3'
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.5'
-    },
-    {
-      url: `${baseUrl}/methodology`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.6'
-    },
-    {
-      url: `${baseUrl}/hosting/best-web-hosting`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: '0.9'
-    },
-    {
-      url: `${baseUrl}/hosting/wordpress-hosting`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/hosting/cheap-hosting`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: '0.8'
-    },
-    {
-      url: `${baseUrl}/hosting/siteground-review`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.7'
-    },
-    {
-      url: `${baseUrl}/hosting/hostinger-review`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.7'
-    },
-    {
-      url: `${baseUrl}/hosting/hostinger-vs-bluehost`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: '0.7'
-    }
-  ]
+type RouteEntry = {
+  url: string
+  lastModified: string
+  changeFreq: 'daily' | 'weekly' | 'monthly'
+  priority: string
+}
 
-  const sitemap = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
-${routes.map(route => `
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+const baseUrl = 'https://sitepilot.co'
+const appDir = path.join(process.cwd(), 'src', 'app')
+const excludedSegments = new Set(['sitemap.xml', 'robots.txt'])
+
+function isIgnorableSegment(segment: string) {
+  return segment.startsWith('(') || segment.startsWith('_') || excludedSegments.has(segment)
+}
+
+async function collectPageRoutes(dir: string, segments: string[] = []): Promise<string[]> {
+  const entries = await fs.readdir(dir, { withFileTypes: true })
+  const routes: string[] = []
+
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      if (isIgnorableSegment(entry.name)) continue
+      routes.push(...(await collectPageRoutes(path.join(dir, entry.name), [...segments, entry.name])))
+      continue
+    }
+
+    if (entry.isFile() && entry.name === 'page.tsx') {
+      routes.push(segments.length === 0 ? '/' : `/${segments.join('/')}`)
+    }
+  }
+
+  return routes
+}
+
+function getPriority(pathname: string) {
+  if (pathname === '/') return '1.0'
+  if (['/ai-tools', '/web-hosting', '/website-builders', '/proxies', '/hosting', '/methodology'].includes(pathname)) return '0.9'
+  if (pathname.startsWith('/proxies/') || pathname.startsWith('/hosting/') || pathname.startsWith('/tools/')) return '0.8'
+  if (pathname.startsWith('/ai-') || pathname.startsWith('/enterprise-ai-') || pathname.startsWith('/best-')) return '0.8'
+  if (['/privacy', '/terms'].includes(pathname)) return '0.3'
+  if (pathname === '/contact') return '0.5'
+  return '0.7'
+}
+
+function getChangeFreq(pathname: string): RouteEntry['changeFreq'] {
+  if (pathname === '/') return 'daily'
+  if (['/ai-tools', '/web-hosting', '/website-builders', '/proxies', '/hosting'].includes(pathname)) return 'weekly'
+  if (pathname.startsWith('/proxies/') || pathname.startsWith('/hosting/')) return 'weekly'
+  return 'monthly'
+}
+
+async function buildRoutes(): Promise<RouteEntry[]> {
+  const currentDate = new Date().toISOString()
+  const pathnames = Array.from(new Set(await collectPageRoutes(appDir))).sort((a, b) => {
+    if (a === '/') return -1
+    if (b === '/') return 1
+    return a.localeCompare(b)
+  })
+
+  return pathnames.map((pathname) => ({
+    url: pathname === '/' ? baseUrl : `${baseUrl}${pathname}`,
+    lastModified: currentDate,
+    changeFreq: getChangeFreq(pathname),
+    priority: getPriority(pathname),
+  }))
+}
+
+export async function GET() {
+  const routes = await buildRoutes()
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${routes
+  .map(
+    (route) => `
   <url>
     <loc>${route.url}</loc>
     <lastmod>${route.lastModified}</lastmod>
     <changefreq>${route.changeFreq}</changefreq>
     <priority>${route.priority}</priority>
-  </url>`).join('')}
+  </url>`,
+  )
+  .join('')}
 </urlset>`
 
   return new NextResponse(sitemap, {
     status: 200,
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=86400', // 24 hours
+      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+      Pragma: 'no-cache',
+      Expires: '0',
     },
   })
 }

@@ -221,7 +221,7 @@ export default function AITrainingROICalculator() {
                   <span className="brand-gradient-text block">Stop treating learning programs like bottomless cost centers.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  This page keeps the original four-step flow, industry multipliers, ROI logic, result metrics, and internal links, and only brings the experience into the current light Stripe-ish system. L&D pages should feel like products, not archived enterprise forms.
+                  An AI training ROI calculator estimates implementation cost, annual savings, payback period, completion-rate lift, and productivity impact from workforce learning programs. Teams should use this page when budget owners need a model-based business case for AI-enabled training instead of another generic enablement pitch.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
                   {[

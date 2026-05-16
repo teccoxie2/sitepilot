@@ -37,21 +37,13 @@ export const metadata: Metadata = {
     description: 'An enterprise AI risk framework for CFOs, CTOs, and risk teams covering live scoring, mitigation paths, and ROI impact.',
     type: 'article',
     url: pageUrl,
-    images: [
-      {
-        url: '/images/ai-risk-assessment-dashboard.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'AI tools risk assessment dashboard',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Enterprise AI Tools Risk Assessment Framework | Protect AI Investment',
     description: 'Live risk scoring, practical mitigation strategy, and CFO-friendly ROI analysis.',
-    images: ['/images/ai-risk-assessment-dashboard.jpg'],
   },
+
 }
 
 const heroStats = [

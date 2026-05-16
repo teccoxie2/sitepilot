@@ -17,7 +17,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Tools Cost Optimization Guide 2026 | SitePilot'
 const pageDescription =
-  'A cost optimization framework for enterprise AI tools based on testing across 78 products. Covers the path from $50,000 in annual spend to $28,000 with a full model for ROI gains of up to 550%.'
+  'Reduce enterprise AI tool waste by auditing overlap, usage governance, contract structure, and platform fit so teams can decide what to keep, cut, consolidate, or renegotiate before annual budget cycles and procurement renewals.'
 const pageUrl = 'https://sitepilot.co/ai-tools-cost-optimization-enterprise-2026'
 
 export const metadata: Metadata = {
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
 }
 
 const heroStats = [
-  { value: '78', label: 'AI tools tested in depth' },
-  { value: '44%', label: 'Average cost savings' },
-  { value: '550%', label: 'Best ROI achieved' },
-  { value: '2.2 months', label: 'Average payback period' },
+  { value: '4', label: 'Optimization quadrants' },
+  { value: '3', label: 'Team-size playbooks' },
+  { value: '1', label: 'Budget control model' },
+  { value: 'Annual', label: 'Renewal decision focus' },
 ]
 
 const optimizationSignals = [
@@ -154,7 +154,7 @@ export default function AIToolsCostOptimizationPage() {
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  This page keeps the original four-quadrant cost matrix, size-based strategies, ROI framework, and internal links. The visual system is the only thing that changed. The core conclusion stays intact: spending less is not the goal, spending accurately is.
+                  Optimize enterprise AI tool spend by reviewing overlap, adoption, contract terms, governance, and workflow fit across the stack. This guide helps procurement, operations, and transformation teams decide what to consolidate, renegotiate, replace, or keep before renewal pressure turns software sprawl into budget drag.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">

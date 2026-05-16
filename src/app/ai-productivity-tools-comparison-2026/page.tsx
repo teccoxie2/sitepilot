@@ -7,20 +7,20 @@ import { ArrowRight, BarChart3, CheckCircle2, Sparkles, TrendingUp, Zap } from '
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
-  title: 'AI Productivity Tools Comparison Guide 2026 - ROI Analysis from 53 Tool Tests | SitePilot',
+  title: 'AI Productivity Tools Comparison Guide (2026): Compare Workflow Fit, Cost, and Operating Load',
   description:
-    'Authoritative comparison of 53 AI productivity tools based on $15K of real testing spend. See which tools generated positive ROI, which ones did not, and how to implement the winners.',
-  keywords: 'AI productivity tools, AI tool comparison, ROI analysis, productivity improvement, workflow efficiency, AI automation, business tools',
+    'Use this AI productivity tools comparison to evaluate workflow fit, operating load, software cost, and implementation overhead before adding another AI tool to the stack.',
+  keywords: 'AI productivity tools, AI tool comparison, workflow fit, operating cost, productivity improvement, workflow efficiency, AI automation, business tools',
   openGraph: {
-    title: 'AI Productivity Tools Comparison Guide 2026 - Authoritative ROI Analysis',
-    description: 'Results from testing 53 AI tools: only 12 produced positive ROI. Get the real data from a $15K spend and the best practices behind it.',
+    title: 'AI Productivity Tools Comparison Guide (2026): Compare Workflow Fit, Cost, and Operating Load',
+    description: 'Compare AI productivity tools by workflow fit, operating load, software cost, and implementation overhead before the stack gets noisy.',
     type: 'article',
     url: 'https://sitepilot.co/ai-productivity-tools-comparison-2026',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Productivity Tools Comparison - 2026 Guide',
-    description: 'After $15K of real testing, these 12 AI tools cleared 1000% ROI. Get the full analysis.',
+    title: 'AI Productivity Tools Comparison Guide (2026)',
+    description: 'Compare AI productivity tools by workflow fit, software cost, operating load, and implementation overhead.',
   },
   alternates: {
     canonical: 'https://sitepilot.co/ai-productivity-tools-comparison-2026',
@@ -28,10 +28,10 @@ export const metadata: Metadata = {
 }
 
 const stats = [
-  { value: '53', label: 'tools tested in depth' },
-  { value: '$15K', label: 'real testing spend' },
-  { value: '12', label: 'positive ROI tools' },
-  { value: '5 months', label: 'test window' },
+  { value: 'ROI', label: 'compare financial return against tool sprawl' },
+  { value: 'Workflow', label: 'judge handoff fit before adding another app' },
+  { value: 'Ops load', label: 'account for setup, maintenance, and approvals' },
+  { value: '2026', label: 'buyer-stage comparison framing' },
 ]
 
 const topCombos = [
@@ -115,7 +115,7 @@ export default function AIProductivityToolsComparison() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Based on 53 tools, five months, and $15K of real testing, this page focuses on one question: which AI productivity tools produced positive ROI, and which ones only created procurement noise.
+                An AI productivity tools comparison should evaluate workflow fit, operating load, software cost, and implementation overhead before a team adds another app. Use this page when the real decision is which tools reduce manual work and approval drag, and which ones only add stack noise.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

@@ -140,7 +140,7 @@ export default function HostingPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                We test hosting providers through uptime discipline, support quality, performance reality, and pricing traps. If a provider looks good only because the landing page screams “80% off,” that does not count.
+                Web hosting reviews should measure uptime discipline, support quality, performance consistency, pricing structure, caching defaults, and migration risk before a buyer commits. This hub compares providers and hosting models so teams can filter out promo-driven noise and choose infrastructure that stays workable after the discount disappears.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

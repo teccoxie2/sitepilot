@@ -4,9 +4,9 @@ import { AlertTriangle, ArrowRight, CheckCircle2, Coins, Gauge, Headphones, Spar
 import RelatedLinks, { hostingRelatedLinks } from '@/components/RelatedLinks'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Best Cheap Web Hosting Under $5 in 2026 | SitePilot'
+const pageTitle = 'Cheap Hosting Comparison: Which Budget Web Host Is Actually Worth It Under $5? (2026)'
 const pageDescription =
-  'Compare cheap web hosting under $5 in 2026. Review Hostinger, Namecheap, and A2 Hosting on speed, uptime, support, renewal pricing, and hidden trade-offs.'
+  'Use this cheap hosting comparison to choose a budget web host under $5 by renewal pricing, support quality, speed, hidden costs, and long-term operating risk before you lock into the wrong plan.'
 const pageUrl = 'https://sitepilot.co/cheap-hosting'
 
 export const metadata: Metadata = {
@@ -22,7 +22,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: pageTitle,
-    description: pageDescription,
+    description:
+      'Use this cheap hosting comparison to choose a budget host under $5 by renewal pricing, speed, support quality, and the traps that make “cheap” expensive later.',
   },
   alternates: { canonical: pageUrl },
 }
@@ -168,11 +169,11 @@ export default function CheapHostingPage() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Best Cheap Web Hosting Under $5 in 2026"
+        title="Cheap Hosting Comparison: Which Budget Web Host Is Actually Worth It Under $5? (2026)"
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-02-14T00:00:00Z"
-        modifiedDate="2026-04-18T00:00:00Z"
+        modifiedDate="2026-05-03T00:00:00Z"
         authorName="SitePilot Team"
       />
 
@@ -193,14 +194,14 @@ export default function CheapHostingPage() {
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl font-semibold tracking-[-0.05em] text-slate-950 md:text-7xl">
-                  Cheap hosting,
+                  Cheap hosting comparison: which budget web host is actually worth it?
                   <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
-                    without the fake bargain smell.
+                    Compare budget web hosting beyond the intro price in 2026.
                   </span>
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-                  Cheap hosting only works when the lower price does not quietly buy you slow servers, useless support, and billing nonsense later. This page focuses on the under-$5 options that are at least worth discussing.
+                  A cheap hosting comparison in 2026 should help buyers choose the budget web host under $5 that still works after renewal, with acceptable speed, support quality, pricing honesty, and fewer hidden costs. Use this page when the real decision is which low-cost host stays tolerable long after checkout instead of looking cheap for five minutes.
                 </p>
 
                 <div className="flex flex-wrap gap-3">

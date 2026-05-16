@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Shield, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'AI Compliance Automation Assessment Tool | Enterprise Risk Analysis | SitePilot.co'
+const pageTitle = 'AI Compliance Automation Assessment Tool (2026): GDPR, HIPAA, CCPA, and SOX Risk Review'
 const pageDescription =
-  'Automated enterprise AI compliance risk assessment tool covering GDPR, CCPA, HIPAA, and SOX with risk scoring and mitigation guidance.'
+  'Use this AI compliance automation assessment tool to review GDPR, CCPA, HIPAA, and SOX exposure across data handling, access controls, vendor obligations, audit evidence, and remediation priorities before procurement or rollout.'
 const pageUrl = 'https://sitepilot.co/ai-compliance-automation-assessment-tool'
 
 export const metadata: Metadata = {
@@ -28,10 +28,10 @@ export const metadata: Metadata = {
 }
 
 const summaryCards = [
-  { value: '85%', label: 'Faster assessment', note: 'Manual review reduced from weeks to days.' },
-  { value: '95%', label: 'Risk accuracy', note: 'Higher signal than manual-only compliance review.' },
-  { value: '70%', label: 'Cost reduction', note: 'Lower legal and consulting overhead with better coverage.' },
-  { value: '4', label: 'Core frameworks', note: 'GDPR, CCPA, HIPAA, and SOX in one workflow.' },
+  { value: '4', label: 'Core frameworks', note: 'GDPR, CCPA, HIPAA, and SOX in one buyer workflow.' },
+  { value: '5', label: 'Review layers', note: 'Data handling, access, vendor terms, audit evidence, and remediation.' },
+  { value: '2026-05-13', label: 'Last revision', note: 'Metadata and buyer framing updated for current procurement use.' },
+  { value: 'BOFU', label: 'Decision stage', note: 'Built for procurement, security, and rollout approval reviews.' },
 ]
 
 const orgFields = [
@@ -156,7 +156,7 @@ export default function AIComplianceAutomationAssessmentPage() {
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-04-19"
-        modifiedDate="2026-04-19"
+        modifiedDate="2026-05-13"
         authorName="SitePilot Team"
       />
 
@@ -175,13 +175,12 @@ export default function AIComplianceAutomationAssessmentPage() {
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                AI compliance risk,
-                <span className="brand-gradient-text block">scored before it bites.</span>
+                AI compliance automation assessment,
+                <span className="brand-gradient-text block">before enterprise rollout risk compounds.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This assessment tool maps enterprise AI implementations against GDPR, CCPA, HIPAA, and SOX requirements so teams can
-                identify high-risk programs early, prioritize mitigation work, and reduce the cost of manual review.
+                An AI compliance automation assessment reviews whether an enterprise AI workflow can meet GDPR, CCPA, HIPAA, and SOX obligations before rollout by checking data handling, access controls, vendor terms, audit evidence, remediation priority, governance ownership, and exception handling across the operating stack.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -192,6 +191,9 @@ export default function AIComplianceAutomationAssessmentPage() {
                 <a href="#compliance-frameworks" className="btn-secondary">
                   Review frameworks
                 </a>
+                <Link href="/ai-ethics-compliance-checklist-enterprise-2026" className="btn-secondary">
+                  Ethics checklist
+                </Link>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
@@ -480,6 +482,9 @@ export default function AIComplianceAutomationAssessmentPage() {
                 </Link>
                 <Link href="/apply-for-audit" className="btn-secondary">
                   Apply for audit review
+                </Link>
+                <Link href="/ai-enterprise-security-compliance" className="btn-secondary">
+                  Security controls guide
                 </Link>
               </div>
             </div>

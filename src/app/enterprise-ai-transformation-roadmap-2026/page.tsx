@@ -108,7 +108,7 @@ export default function EnterpriseAITransformationRoadmap() {
               <div className="max-w-3xl">
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI transformation roadmap</div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI transformation,<span className="brand-gradient-text block">do not expect company-wide AI adoption in a year without breaking things.</span></h1>
-                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Complete enterprise AI transformation roadmap for 2026. 18-month strategic implementation framework, change management protocols, and ROI validation methods, same content and a cleaner shell.</p>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">An enterprise AI transformation roadmap is a phased operating plan that sequences readiness, vendor selection, pilots, governance, change management, and scaled rollout over 12 to 18 months. This page ties implementation planning to budget, ROI, risk, and vendor-evaluation decisions instead of treating adoption like a one-quarter launch.</p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#roadmap-framework" className="btn-brand inline-flex items-center gap-2">View roadmap <ArrowRight className="h-4 w-4" /></a>
                   <a href="#change-management" className="btn-secondary inline-flex items-center gap-2">View change framework</a>

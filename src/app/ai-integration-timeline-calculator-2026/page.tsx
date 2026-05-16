@@ -21,9 +21,9 @@ type TimelineData = {
   phases: TimelinePhase[]
 }
 
-const pageTitle = 'AI Integration Timeline Calculator 2026 | SitePilot'
+const pageTitle = 'AI Integration Timeline Calculator (2026): Estimate Rollout Timing by Complexity, Budget, and Team Readiness'
 const pageDescription =
-  'Estimate a realistic AI implementation timeline based on company size, industry, complexity, budget, and team experience.'
+  'Use this AI integration timeline calculator to estimate rollout timing by company scale, industry complexity, budget, implementation scope, and team readiness before planning milestones or vendor commitments.'
 const pageUrl = 'https://sitepilot.co/ai-integration-timeline-calculator-2026'
 
 const quickSignals = [
@@ -213,8 +213,7 @@ export default function AIIntegrationTimelineCalculator() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Estimate a realistic implementation timeline based on company scale, industry complexity, budget, and team maturity.
-                The goal is to stop teams from planning AI rollouts like generic software installs.
+                An AI integration timeline calculator estimates rollout timing by company scale, industry complexity, budget, implementation scope, and team readiness before milestones get committed. Use it when the real question is whether an AI program fits the delivery calendar, approval path, and integration workload the business can actually support.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

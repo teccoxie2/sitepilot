@@ -41,20 +41,11 @@ export const metadata: Metadata = {
     description: 'Results from a $25,000 real-world AI tools investment across 78 products, with research from 500+ companies and a 245% average ROI uplift.',
     type: 'article',
     url: pageUrl,
-    images: [
-      {
-        url: '/images/ai-cost-benefit-analysis-2026-og.png',
-        width: 1200,
-        height: 630,
-        alt: 'AI tools cost-benefit analysis 2026 - SitePilot guide',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'AI Tools Cost-Benefit Analysis: Smart Investment Guide for SMBs 2026',
     description: 'Results from a $25,000 real-world test of 78 AI tools with a 245% average ROI uplift.',
-    images: ['/images/ai-cost-benefit-analysis-2026-twitter.png'],
     creator: '@sitepilot',
   },
   alternates: {

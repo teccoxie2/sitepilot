@@ -172,8 +172,7 @@ export default function EnterpriseAIDeploymentRiskAssessmentGuidePage() {
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-                  If the deployment is serious, the risk plan has to be serious too. This guide maps the main failure modes,
-                  the assessment process, and the mitigations that actually keep an AI rollout from face-planting.
+                  An enterprise AI deployment risk assessment identifies technical, operational, security, compliance, vendor, and budget risks before rollout. This guide explains how teams score failure modes, assign owners, prioritize mitigations, and validate controls so implementation plans survive real production pressure instead of collapsing after approval.
                 </p>
 
                 <div className="flex flex-wrap gap-3">

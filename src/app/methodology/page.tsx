@@ -120,7 +120,7 @@ export default function MethodologyPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                An enterprise AI vendor evaluation methodology is a structured research and decision model used to compare vendors across security, data governance, architecture, pricing, and rollout risk. This page defines how SitePilot ties comparison, RFP, due diligence, scoring, pricing review, and pilot validation into one procurement-ready system.
+                An enterprise AI vendor evaluation methodology is a structured model for comparing vendors across security, data governance, architecture, pricing, and rollout risk. This page shows how SitePilot ties comparison, RFP, due diligence, scoring, pricing review, and pilot validation into one procurement-ready system.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

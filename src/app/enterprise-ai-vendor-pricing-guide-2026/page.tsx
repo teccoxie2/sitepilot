@@ -1,10 +1,12 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight, CheckCircle2, Sparkles, Target, TriangleAlert } from 'lucide-react'
 import RelatedLinks from '@/components/RelatedLinks'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Vendor Pricing Guide 2026 | SitePilot'
-const pageDescription = 'A comprehensive guide to understanding enterprise AI vendor pricing models, hidden costs, and contract traps before moving to pilot or production.'
+const pageDescription =
+  'A comprehensive guide to understanding enterprise AI vendor pricing models, hidden costs, and contract traps before moving to pilot or production.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-vendor-pricing-guide-2026'
 
 export const metadata: Metadata = {
@@ -69,6 +71,28 @@ const pricingHighlights = [
   },
 ]
 
+const reviewSteps = [
+  {
+    title: '1. Force a written pricing model',
+    text: 'Use the RFP to pin down billing units, minimums, support tiers, and offboarding costs before anyone starts free-associating about ROI.',
+  },
+  {
+    title: '2. Stress-test the quote with real usage',
+    text: 'Run pilot scenarios that expose adoption curves, peak-volume behavior, and the cost of security or residency requirements.',
+  },
+  {
+    title: '3. Push commercial risk into the final score',
+    text: 'Feed total cost, lock-in risk, and volatility into the shortlist scorecard so the cheapest headline price does not win by accident.',
+  },
+]
+
+const approvalQuestions = [
+  'What does the vendor charge when usage doubles faster than expected?',
+  'Which controls or support promises require a higher-priced enterprise tier?',
+  'How expensive is data export, retention, or migration if the pilot fails?',
+  'Can procurement explain the year-one and year-two bill in plain English?',
+]
+
 export default function PricingGuidePage() {
   return (
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
@@ -84,7 +108,10 @@ export default function PricingGuidePage() {
         <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
           <div className="grid lg:grid-cols-[1.06fr_0.94fr] gap-12 items-center">
             <div className="max-w-3xl">
-              <div className="page-pill mb-6">Commercial review</div>
+              <div className="page-pill mb-6">
+                <Sparkles className="h-4 w-4 text-[#635bff]" />
+                Commercial review
+              </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
                 Enterprise AI vendor pricing guide 2026,
@@ -92,18 +119,22 @@ export default function PricingGuidePage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Enterprise AI pricing is never just a sticker price. This guide breaks down consumption models, seat licenses, platform fees, and contract traps so procurement can compare the real total cost before pilot approval turns into expensive regret.
+                Enterprise AI vendor pricing review compares usage fees, seat costs, platform charges, support minimums, and exit terms before procurement approves a pilot or production contract. The goal is to expose total cost, lock-in risk, and budget volatility before a cheap-looking quote turns into an expensive operating mistake.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
-                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="btn-brand">
-                  RFP template
+                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="btn-brand inline-flex items-center gap-2">
+                  Open RFP template
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="btn-secondary">
                   Shortlist scorecard
                 </Link>
                 <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="btn-secondary">
                   Pilot checklist
+                </Link>
+                <Link href="/ai-vendor-contract-red-flags-2026" className="btn-secondary">
+                  Contract red flags
                 </Link>
               </div>
 
@@ -131,13 +162,25 @@ export default function PricingGuidePage() {
                     </div>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-3 mb-6">
                     {pricingModels.map((row) => (
                       <div key={row.title} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
                         <div className="font-semibold text-slate-950 mb-1">{row.title}</div>
                         <div className="text-sm text-slate-500">{row.text}</div>
                       </div>
                     ))}
+                  </div>
+
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-4">
+                    <div className="flex items-start gap-3">
+                      <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+                      <div>
+                        <div className="font-semibold text-slate-950 mb-1">Buyer warning</div>
+                        <div className="text-sm text-slate-600 leading-6">
+                          The quote is only useful if it includes overages, support, data handling, and exit. Anything else is just a teaser price.
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -209,6 +252,30 @@ export default function PricingGuidePage() {
         <section className="page-section">
           <div className="max-w-6xl mx-auto px-4">
             <div className="max-w-2xl mb-10">
+              <div className="page-pill mb-4">Buyer workflow</div>
+              <h2 className="page-title text-3xl md:text-5xl mb-4">Use pricing review as a decision gate, not a late-stage cleanup job.</h2>
+              <p className="page-lead text-lg">
+                This page works best when it closes the loop between vendor claims, pilot evidence, and final approval.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-6">
+              {reviewSteps.map((item) => (
+                <div key={item.title} className="page-card-glow p-1.5">
+                  <div className="page-card rounded-[1.6rem] p-7 md:p-8 h-full">
+                    <div className="page-pill mb-4">Workflow</div>
+                    <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">{item.title}</h3>
+                    <p className="text-slate-600 leading-7">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="page-section surface-muted">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="max-w-2xl mb-10">
               <div className="page-pill mb-4">Core pricing models</div>
               <h2 className="page-title text-3xl md:text-5xl mb-4">The three ways vendors charge you.</h2>
               <p className="page-lead text-lg">
@@ -230,7 +297,7 @@ export default function PricingGuidePage() {
           </div>
         </section>
 
-        <section className="page-section surface-muted">
+        <section className="page-section">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
               <div className="page-card-glow p-1.5">
@@ -251,14 +318,32 @@ export default function PricingGuidePage() {
                 </div>
               </div>
 
-              <div className="page-card p-7 md:p-8">
-                <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">How to think about this page</h3>
-                <ul className="space-y-4 text-slate-600 leading-7">
-                  <li><strong className="text-slate-900">Token pricing:</strong> fine for variable workloads, dangerous for uncapped user-facing apps.</li>
-                  <li><strong className="text-slate-900">Seat licensing:</strong> predictable, but wasteful when adoption is spotty.</li>
-                  <li><strong className="text-slate-900">Platform + compute:</strong> useful when latency and privacy need their own budget line.</li>
-                  <li><strong className="text-slate-900">The real question:</strong> what happens when actual usage shows up and the spreadsheet stops being polite?</li>
-                </ul>
+              <div className="space-y-4">
+                <div className="page-card p-7 md:p-8">
+                  <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-4">Approval questions buyers should answer before sign-off</h3>
+                  <ul className="space-y-4 text-slate-600 leading-7">
+                    {approvalQuestions.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-indigo-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="page-card-soft p-6">
+                  <div className="text-sm text-slate-500 mb-3">Decision lens</div>
+                  <ul className="space-y-3 text-sm text-slate-700 leading-6">
+                    <li className="flex items-start gap-3">
+                      <Target className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                      <span>Price against the real deployment pattern, not the best-case demo pattern.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                      <span>Treat unclear overages, retention, and offboarding language as active risk, not minor wording.</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -268,20 +353,21 @@ export default function PricingGuidePage() {
           <div className="max-w-6xl mx-auto px-4">
             <div className="page-card-glow p-8 md:p-12 surface-muted">
               <div className="max-w-3xl">
-                <div className="page-pill mb-4">Bottom line</div>
-                <h2 className="page-title text-3xl md:text-5xl mb-4">If the vendor cannot explain the bill, the bill will explain itself later.</h2>
+                <div className="page-pill mb-4">Next step</div>
+                <h2 className="page-title text-3xl md:text-5xl mb-4">Turn the price review into a defendable buying decision.</h2>
                 <p className="text-slate-600 text-lg leading-relaxed mb-8">
                   Good pricing review does not chase the lowest number. It checks whether the vendor’s commercial model survives deployment, adoption, support, and exit without turning into a budget hostage situation.
                 </p>
                 <div className="flex flex-wrap gap-3">
+                  <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="btn-brand inline-flex items-center gap-2">
+                    Open shortlist scorecard
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                   <Link href="/enterprise-ai-vendor-rfp-template-2026" className="btn-secondary">
                     RFP template
                   </Link>
                   <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="btn-secondary">
                     Pilot checklist
-                  </Link>
-                  <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="btn-brand">
-                    Shortlist scorecard
                   </Link>
                 </div>
               </div>
@@ -297,6 +383,7 @@ export default function PricingGuidePage() {
                 { title: 'AI Vendor Due Diligence Checklist 2026', href: '/ai-vendor-due-diligence-checklist-enterprise-2026', description: 'Check residency, retention, and training clauses behind the quoted price.', category: 'guide' },
                 { title: 'Enterprise AI Vendor Shortlist Scorecard 2026', href: '/enterprise-ai-vendor-shortlist-scorecard-2026', description: 'Score vendors based on TCO and commercial models.', category: 'tools' },
                 { title: 'Enterprise AI Vendor Pilot Evaluation Checklist 2026', href: '/enterprise-ai-vendor-pilot-evaluation-checklist-2026', description: 'Validate commercial assumptions with real pilot data before production.', category: 'tools' },
+                { title: 'AI Vendor Contract Red Flags 2026', href: '/ai-vendor-contract-red-flags-2026', description: 'Spot contract language that turns a workable quote into a risky commitment.', category: 'guide' },
                 { title: 'AI Procurement Decision Matrix Tool 2026', href: '/ai-procurement-decision-matrix-tool-2026', description: 'Quantify trade-offs across price, risk, and implementation fit.', category: 'tools' },
               ]}
             />

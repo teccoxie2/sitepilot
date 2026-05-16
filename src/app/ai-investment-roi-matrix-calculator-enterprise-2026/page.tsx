@@ -106,7 +106,7 @@ export default function ROICalculatorPage() {
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  This page keeps the original 12-dimension analysis framework, benchmark comparisons, and scenario modeling while aligning the interface to SitePilot's current light Stripe-ish system.
+                  An AI ROI matrix calculator scores enterprise use cases across return, risk, implementation effort, strategic fit, and organizational readiness so operators can rank competing investments, defend portfolio priorities, and move shortlist decisions out of opinion fights and into a repeatable capital-allocation framework.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">

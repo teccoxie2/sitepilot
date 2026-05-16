@@ -7,6 +7,7 @@ import { metadata as pageMetadata } from './metadata'
 export const metadata: Metadata = pageMetadata
 
 const tools = [
+  ['Comparison guide', '/enterprise-ai-vendor-comparison-guide-2026'],
   ['Vendor RFP template', '/enterprise-ai-vendor-rfp-template-2026'],
   ['Due diligence checklist', '/ai-vendor-due-diligence-checklist-enterprise-2026'],
   ['Shortlist scorecard', '/enterprise-ai-vendor-shortlist-scorecard-2026'],
@@ -16,7 +17,7 @@ const tools = [
 ]
 
 const notes = [
-  'Start with the template that removes the most ambiguity.',
+  'Start with comparison, then force every claim into evidence.',
   'Move down the chain only after the previous step has real evidence.',
   'Use the hub to keep the process consistent across vendors.',
   'Do not let any single tool become the whole process.',
@@ -34,7 +35,8 @@ export default function EvaluationToolsHubPage() {
               <h1 className="page-title text-5xl md:text-7xl mb-6">AI vendor evaluation tools 2026,<span className="brand-gradient-text block">for approve-or-reject decisions.</span></h1>
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">AI vendor evaluation tools are approval-stage buyer controls used to review RFP responses, verify diligence evidence, score finalists, test pilot conditions, and catch contract risk before signature. This hub gives procurement, security, and business owners one BOFU path from comparison to approve, hold, or reject.</p>
               <div className="flex flex-wrap gap-3 mb-10">
-                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="btn-brand inline-flex items-center gap-2">Start with RFP template <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/enterprise-ai-vendor-comparison-guide-2026" className="btn-brand inline-flex items-center gap-2">Start with comparison guide <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/enterprise-ai-vendor-rfp-template-2026" className="btn-secondary">RFP template</Link>
                 <Link href="/ai-vendor-contract-red-flags-2026" className="btn-secondary">Contract red flags</Link>
                 <Link href="/ai-procurement-decision-matrix-tool-2026" className="btn-secondary">Decision matrix</Link>
               </div>
@@ -56,7 +58,7 @@ export default function EvaluationToolsHubPage() {
             <div className="page-pill mb-4">How to use it</div>
             <h2 className="page-title text-3xl md:text-5xl mb-4">Keep the whole vendor decision loop together.</h2>
             <p className="page-lead text-lg mb-4">Use this page as the top-level entry point for procurement, security, and business stakeholders. It keeps the core BOFU assets in one place so the team does not wander off into generic content.</p>
-            <p className="text-slate-600 leading-7 mb-4">The sequence should stay consistent: <Link href="/enterprise-ai-vendor-rfp-template-2026" className="text-[#635bff] hover:underline font-medium">RFP</Link>, <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="text-[#635bff] hover:underline font-medium">diligence</Link>, <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-[#635bff] hover:underline font-medium">scorecard</Link>, <Link href="/ai-vendor-contract-red-flags-2026" className="text-[#635bff] hover:underline font-medium">contract review</Link>, <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="text-[#635bff] hover:underline font-medium">pilot</Link>, then <Link href="/ai-procurement-decision-matrix-tool-2026" className="text-[#635bff] hover:underline font-medium">decision matrix</Link>.</p>
+            <p className="text-slate-600 leading-7 mb-4">The sequence should stay consistent: <Link href="/enterprise-ai-vendor-comparison-guide-2026" className="text-[#635bff] hover:underline font-medium">comparison</Link>, <Link href="/enterprise-ai-vendor-rfp-template-2026" className="text-[#635bff] hover:underline font-medium">RFP</Link>, <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="text-[#635bff] hover:underline font-medium">diligence</Link>, <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-[#635bff] hover:underline font-medium">scorecard</Link>, <Link href="/ai-vendor-contract-red-flags-2026" className="text-[#635bff] hover:underline font-medium">contract review</Link>, <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="text-[#635bff] hover:underline font-medium">pilot</Link>, then <Link href="/ai-procurement-decision-matrix-tool-2026" className="text-[#635bff] hover:underline font-medium">decision matrix</Link>.</p>
             <p className="text-slate-600 leading-7">If any step disappears, the process gets sloppy fast. This hub is here to stop that and keep topical authority tied to a real buyer workflow instead of a random tool list.</p>
           </div></div>
           <div className="space-y-4">

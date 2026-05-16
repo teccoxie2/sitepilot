@@ -68,7 +68,7 @@ export default function EnterpriseAIVendorComparisonPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Compare two AI vendors side by side on workflow fit, risk, cost, support, and implementation proof. Enter scores and the tool will tell you which vendor wins, why it wins, and whether the deal should be approved.
+                An AI vendor comparison tool ranks finalists side by side on workflow fit, security risk, pricing, support, and implementation proof before procurement approval. Buyers can enter weighted scores, expose why one vendor wins, and decide whether the deal should be approved, conditioned, or rejected.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -137,6 +137,32 @@ export default function EnterpriseAIVendorComparisonPage() {
           <p className="text-base md:text-lg leading-7 text-slate-600 max-w-3xl">
             Change the vendor names and scores, and the page will re-rank them instantly. That gives buyers a live recommendation they can use during vendor review.
           </p>
+        </section>
+
+        <section className="mt-16 rounded-[2rem] border border-slate-200 bg-slate-50/80 p-6 md:p-8 shadow-sm">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 mb-4">
+              <Target className="h-4 w-4" />
+              Decision loop
+            </div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">Use the comparison inside the full procurement stack.</h2>
+            <p className="text-base md:text-lg leading-7 text-slate-600 max-w-3xl mb-6">
+              A comparison only matters when it flows into diligence, shortlist scoring, contract review, pilot checks, and the final decision matrix. Otherwise the winner is just the loudest demo, not the safest buy.
+            </p>
+            <div className="flex flex-wrap gap-3 mb-6">
+              <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
+                Due diligence checklist
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="btn-secondary">Shortlist scorecard</Link>
+              <Link href="/ai-vendor-contract-red-flags-2026" className="btn-secondary">Contract red flags</Link>
+              <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="btn-secondary">Pilot checklist</Link>
+              <Link href="/ai-procurement-decision-matrix-tool-2026" className="btn-secondary">Decision matrix</Link>
+            </div>
+            <p className="text-sm leading-7 text-slate-600 max-w-3xl">
+              Start with the <Link href="/tools/evaluation-tools-2026" className="text-[#635bff] hover:underline font-medium">evaluation hub</Link>, compare finalists here, then validate the result with the <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-[#635bff] hover:underline font-medium">shortlist scorecard</Link>, <Link href="/ai-vendor-contract-red-flags-2026" className="text-[#635bff] hover:underline font-medium">contract review</Link>, <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="text-[#635bff] hover:underline font-medium">pilot checklist</Link>, and <Link href="/ai-procurement-decision-matrix-tool-2026" className="text-[#635bff] hover:underline font-medium">decision matrix</Link> so the methodology → tool → checklist loop stays intact.
+            </p>
+          </div>
         </section>
       </main>
     </div>

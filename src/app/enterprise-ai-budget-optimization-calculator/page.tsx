@@ -163,8 +163,7 @@ export default function EnterpriseAIBudgetCalculatorPage() {
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-                  Plan enterprise AI spending with actual structure: 12-month allocation guidance, ROI tracking, industry benchmarks,
-                  and a phased implementation framework that does not insult the CFO.
+                  An enterprise AI budget optimization calculator helps finance and transformation teams allocate spending across platform, talent, data, security, and experimentation while tracking payback, cash timing, ownership, and rollout risk. This page connects budget planning to ROI analysis, risk review, and transformation sequencing.
                 </p>
 
                 <div className="flex flex-wrap gap-3">

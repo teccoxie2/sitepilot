@@ -4,9 +4,9 @@ import { ArrowRight, CheckCircle2, Gauge, Layers3, ShieldCheck, Sparkles, Wrench
 import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedLinks from '@/components/RelatedLinks'
 
-const pageTitle = 'Website Builder vs WordPress 2026: Complete Decision Guide (Real Usage Data)'
+const pageTitle = 'Website Builder vs WordPress 2026 | Which Is Better for Your Site?'
 const pageDescription =
-  '12-month testing of 25 website builders vs WordPress. Real performance data, cost analysis, and expert recommendations based on 1,200+ sites built.'
+  'Compare website builders vs WordPress in 2026 using launch speed, maintenance burden, customization depth, SEO headroom, and total cost before you choose a platform.'
 const pageUrl = 'https://sitepilot.co/website-builder-vs-wordpress-2026'
 
 export const metadata: Metadata = {
@@ -183,12 +183,12 @@ export default function WebsiteBuilderVsWordPress() {
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                Website builder vs WordPress,
-                <span className="block brand-gradient-text">without the religious war.</span>
+                Website builder vs WordPress 2026,
+                <span className="block brand-gradient-text">which is better for your site?</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                A website builder vs WordPress decision in 2026 should compare launch speed, maintenance burden, customization depth, SEO headroom, and total operating cost. This guide uses those variables to show when a managed builder reduces complexity and when WordPress still wins on ownership, extensibility, and long-term control.
+                Website builders are usually better for faster launch and lower maintenance, while WordPress is better for deeper customization and long-term control. This guide compares setup speed, SEO headroom, ownership, and operating cost so buyers can choose the right platform before committing to a stack.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

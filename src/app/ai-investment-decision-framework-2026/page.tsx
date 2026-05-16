@@ -326,8 +326,9 @@ export default function AIInvestmentDecisionFramework2026Page() {
                   AI investment decision framework for enterprises deciding where to place the next dollar.
                 </h1>
                 <p className="page-lead mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-                  Use a practical capital-allocation framework to score AI initiatives by strategic impact, feasibility,
-                  payback, and portfolio fit—without separating investment ambition from governance reality.
+                  An AI investment decision framework helps enterprises rank AI programs by strategic impact, feasibility,
+                  payback period, risk, and portfolio fit so capital moves toward initiatives that can scale, survive
+                  governance review, and produce measurable operating returns instead of demo-stage enthusiasm.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">

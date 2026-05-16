@@ -39,7 +39,7 @@ export default function ContactPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Have a question about enterprise AI implementation, a partnership proposal, or feedback on the site? The fastest path is still direct email.
+                A SitePilot contact request is for buyers, partners, or operators who need direct help with enterprise AI procurement, governance, implementation planning, or commercial collaboration. Use this page when the next step is a real conversation about scope, evidence, partnership fit, or decision support rather than more generic research.
               </p>
 
               <div className="flex flex-wrap gap-3">

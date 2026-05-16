@@ -103,6 +103,14 @@ const checklistSteps = [
   'Use the same questions across all shortlisted vendors so comparisons stay clean.',
 ]
 
+const procurementQuestions = [
+  'Can you confirm in writing whether customer prompts, files, outputs, logs, and telemetry are excluded from model training by default?',
+  'Which controls are live today for SSO, MFA, RBAC, SCIM, audit logs, and admin approval workflows?',
+  'What are the exact retention, deletion, backup, export, and account-closure timelines for customer data and metadata?',
+  'Which deployment, networking, and regional isolation options are available for enterprise buyers with security constraints?',
+  'What changes after signature on pricing, usage caps, support scope, renewals, or overage exposure?',
+]
+
 const scoringRules = [
   'Mandatory requirements: pass/fail items that eliminate vendors immediately.',
   'Weighted scoring: security, data governance, architecture, business fit, and commercial terms.',
@@ -116,6 +124,29 @@ const redFlags = [
   'Provides vague security answers or only marketing-grade compliance claims.',
   'Makes export, deletion, or offboarding unclear.',
   'Pushes “standard terms only” while asking for production access to sensitive workflows.',
+]
+
+const nextStepLinks = [
+  {
+    href: '/ai-vendor-due-diligence-checklist-enterprise-2026',
+    title: 'Due diligence checklist',
+    note: 'Take the strongest RFP responses into security, legal, and architecture review.',
+  },
+  {
+    href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
+    title: 'Shortlist scorecard',
+    note: 'Rank vendors with one weighted score once evidence is in.',
+  },
+  {
+    href: '/enterprise-ai-vendor-pilot-evaluation-checklist-2026',
+    title: 'Pilot evaluation checklist',
+    note: 'Turn unresolved claims into measurable pilot conditions before approval.',
+  },
+  {
+    href: '/ai-procurement-decision-matrix-tool-2026',
+    title: 'Decision matrix',
+    note: 'Convert the full buyer record into an approve, hold, or reject decision.',
+  },
 ]
 
 const faqSchema = {
@@ -184,7 +215,7 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                An enterprise AI vendor RFP template is a structured questionnaire designed to evaluate solution providers across security, data governance, and technical architecture. SitePilot’s 2026 procurement framework helps buying teams eliminate ambiguity by requesting evidence-based responses on model risk, integration capabilities, and commercial terms before moving to the pilot or contract negotiation phase.
+                An enterprise AI vendor RFP template is a buyer-side questionnaire for comparing vendors on security, data governance, architecture, model risk, and commercial terms. Use it to force evidence-based answers early, narrow the field faster, and carry unresolved claims into diligence, pilot review, and contract negotiation.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -258,6 +289,17 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
         <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
         <section className="page-section surface-muted">
           <div className="max-w-7xl mx-auto px-4">
+            <div className="page-card border border-slate-200 bg-slate-50/70 p-6 md:p-7 mb-6">
+              <div className="mb-3 text-sm uppercase tracking-[0.18em] text-slate-500">Questions procurement should send before the next call</div>
+              <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                {procurementQuestions.map((item) => (
+                  <div key={item} className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-sm leading-6 text-slate-700">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-8 items-start">
               <div className="page-card-glow p-1.5">
                 <div className="page-card rounded-[1.6rem] p-7 md:p-8">
@@ -276,6 +318,25 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
                       procurement decision matrix
                     </Link>{' '}
                     so the RFP feeds directly into selection instead of becoming dead paperwork.
+                  </p>
+                  <p className="text-slate-600 leading-7 mb-4">
+                    The clean buyer path is consistent: <Link href="/methodology" className="text-[#635bff] hover:underline font-medium">methodology</Link>, RFP,{' '}
+                    <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="text-[#635bff] hover:underline font-medium">
+                      diligence
+                    </Link>
+                    ,{' '}
+                    <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-[#635bff] hover:underline font-medium">
+                      shortlist scoring
+                    </Link>
+                    ,{' '}
+                    <Link href="/enterprise-ai-vendor-pilot-evaluation-checklist-2026" className="text-[#635bff] hover:underline font-medium">
+                      pilot validation
+                    </Link>
+                    , then{' '}
+                    <Link href="/ai-procurement-decision-matrix-tool-2026" className="text-[#635bff] hover:underline font-medium">
+                      final decision
+                    </Link>
+                    .
                   </p>
                   <p className="text-slate-600 leading-7">
                     If you want a buying system rather than a form, connect this page to the{' '}
@@ -420,23 +481,30 @@ export default function EnterpriseAIVendorRFPTemplatePage() {
 
         <section className="page-section surface-muted">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="page-card p-7 md:p-8">
-              <div className="page-pill mb-4">Reusable version</div>
-              <h2 className="page-title text-3xl md:text-5xl mb-4">Need this in a working format for your team?</h2>
-              <p className="page-lead text-lg mb-6 max-w-3xl">
-                If you want this RFP in a reusable working format instead of copying questions out of a web page, request the downloadable version and use it with your procurement, security, legal, and architecture reviewers.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="mailto:contact@sitepilot.co?subject=Downloadable%20AI%20Vendor%20RFP%20Template"
-                  className="btn-brand inline-flex items-center gap-2"
-                >
-                  Request downloadable RFP template
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-                <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="btn-secondary">
-                  Open shortlist scorecard
-                </Link>
+            <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+              <div className="page-card p-7 md:p-8">
+                <div className="page-pill mb-4">Next step</div>
+                <h2 className="page-title text-3xl md:text-5xl mb-4">Keep the buyer flow moving after the RFP.</h2>
+                <p className="page-lead text-lg mb-6 max-w-3xl">
+                  Once responses are in, move clean answers into diligence, escalate weak claims into legal or security review, and convert unresolved items into pilot test conditions. Do not let the RFP end as a PDF graveyard.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/ai-vendor-due-diligence-checklist-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
+                    Open due diligence checklist
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link href="/apply-for-audit" className="btn-secondary">
+                    Talk to SitePilot
+                  </Link>
+                </div>
+              </div>
+              <div className="grid gap-4 md:grid-cols-2">
+                {nextStepLinks.map((item) => (
+                  <Link key={item.href} href={item.href} className="page-card rounded-[1.5rem] p-6 hover:border-indigo-200 transition-colors">
+                    <div className="font-semibold text-slate-950 mb-2">{item.title}</div>
+                    <div className="text-sm leading-6 text-slate-600">{item.note}</div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

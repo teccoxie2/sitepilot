@@ -84,7 +84,7 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    This page keeps the original KPI coverage, department usage, alerts, cost analysis, and related tool navigation, and only aligns the shell with the current light Stripe-ish system.
+                    An enterprise AI performance monitoring dashboard tracks usage, quality, response time, cost, adoption, and governance signals in one operating view. Buyers use it to spot failing workflows, rising spend, weak model output, and reporting gaps before the AI program turns into an unmeasured cost center.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">

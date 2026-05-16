@@ -80,7 +80,7 @@ export default function ApplyForAudit() {
                   <span className="brand-gradient-text block">for platforms that want the receipts.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Apply for a technical audit to feature your platform on SitePilot.co. We keep the original offer intact: technical benchmarking, transparent review coverage, and a direct invoice path for standard audits, now in the current light Stripe-ish UI.
+                  A SitePilot infrastructure audit application is for hosting, proxy, or software platforms that want technical benchmarking, transparent review coverage, and a defined invoice path before publication. Teams should use this page when they need scope clarity, verification terms, and a buyer-trust review process instead of vague sponsorship language.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a

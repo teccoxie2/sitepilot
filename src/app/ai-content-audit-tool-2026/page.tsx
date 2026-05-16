@@ -5,9 +5,9 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'AI Content Audit Tool 2026 | SitePilot'
+const pageTitle = 'AI Content Audit Tool for SEO and Content Ops Teams (2026) | SitePilot'
 const pageDescription =
-  'Analyze your content strategy and identify AI optimization opportunities to improve quality, efficiency, and ROI.'
+  'Use this AI content audit tool to score content quality, workflow efficiency, channel mix, and ROI potential before teams change tooling, staffing, or publishing priorities.'
 const pageUrl = 'https://sitepilot.co/ai-content-audit-tool-2026'
 
 type Recommendation = {
@@ -143,8 +143,7 @@ export default function AIContentAuditTool() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Analyze your current content operation, estimate the likely impact of AI optimization, and prioritize the next moves
-                that improve quality, efficiency, and ROI instead of adding more content noise.
+                An AI content audit tool helps SEO and content ops teams score content quality, workflow efficiency, channel mix, and ROI potential before changing tools, staffing, or publishing priorities. Use it when the real question is where AI removes waste without lowering output quality or search performance.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

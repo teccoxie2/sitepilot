@@ -306,7 +306,7 @@ export default function AIDigitalTransformationRoadmapPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This 18-month roadmap is built for CEOs, CTOs, CDOs, and transformation-office leaders. The goal is not more vision statements. It is to break foundation work, scaled deployment, and intelligent innovation into executable timing, budget, and control actions.
+                An enterprise AI digital transformation roadmap sequences foundation work, scaled deployment, governance controls, and budget timing across a multi-phase rollout. Teams use it to decide which capabilities come first, what operating changes are required, and where execution risk will slow adoption before enterprise-scale expansion starts.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

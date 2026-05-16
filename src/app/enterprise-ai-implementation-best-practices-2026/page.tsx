@@ -17,7 +17,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Implementation Best Practices 2026 | SitePilot'
 const pageDescription =
-  'Comprehensive enterprise AI implementation framework based on $25K investment research. Get proven strategies, best practices, and ROI optimization techniques for successful AI transformation.'
+  'Enterprise AI implementation best practices should define scope, owners, controls, rollout phases, and success metrics before teams expand beyond a pilot. Use this framework to sequence adoption, manage delivery risk, and connect governance, tooling, and ROI decisions.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-implementation-best-practices-2026'
 
 export const metadata: Metadata = {
@@ -48,10 +48,10 @@ export const metadata: Metadata = {
 }
 
 const heroStats = [
-  { value: '$25K', label: 'investment research basis' },
-  { value: '500+', label: 'companies analyzed' },
-  { value: '78', label: 'AI tools tested' },
-  { value: '5124%', label: 'best combination ROI' },
+  { value: '4', label: 'implementation phases' },
+  { value: '6', label: 'best-practice areas' },
+  { value: '3', label: 'linked decision paths' },
+  { value: 'BOFU', label: 'buyer-stage framework' },
 ]
 
 const phases = [
@@ -232,7 +232,7 @@ export default function EnterpriseAIImplementationPage() {
                   <span className="brand-gradient-text block">do not mistake "let's just try it" for a strategy.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Comprehensive enterprise AI implementation framework based on $25K investment research. This page keeps the original four-phase framework, best-practice cards, success stories, and internal links, and only aligns the shell with the current light Stripe-ish UI.
+                  Enterprise AI implementation best practices should define scope, owners, controls, rollout phases, success metrics, and review points before teams expand beyond a pilot. This framework helps buyers connect governance, tooling, adoption, security, and ROI decisions without treating implementation like improvised experimentation.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#framework" className="btn-brand inline-flex items-center gap-2">

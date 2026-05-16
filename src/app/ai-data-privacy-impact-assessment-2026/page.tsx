@@ -441,7 +441,7 @@ export default function DataPrivacyAssessment() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This tool is built for enterprise AI owners, compliance leads, and security teams. It does not try to cover every legal detail. It prioritizes the privacy gaps most likely to trigger fines, lawsuits, operating disruption, and reputational damage.
+                An AI data privacy impact assessment scores enterprise AI use cases against data types, jurisdictions, retention, sharing, security controls, and compliance gaps before rollout. Teams use it to rank remediation work, budget controls, and approval risk when privacy exposure could delay deployment or trigger legal review.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

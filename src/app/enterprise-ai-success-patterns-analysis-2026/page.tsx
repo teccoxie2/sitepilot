@@ -150,7 +150,7 @@ export default function EnterpriseAISuccessPatternsPage() {
               <div className="max-w-3xl">
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI success patterns analysis</div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">7 critical patterns,<span className="brand-gradient-text block">understand the success path before the project turns into an incident.</span></h1>
-                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Enterprise AI success patterns analysis based on 50 Fortune 500 companies and 18 months of tracking. This page keeps the 7 patterns, ROI examples, checklist, and internal links in the unified light Stripe-ish UI.</p>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Enterprise AI success patterns analysis identifies the operating choices that separate projects with measurable ROI, controlled rollout risk, funded change management, and visible governance from projects that stall after demos, drift on budget, or collapse during deployment. This page turns those patterns into a buyer and operator reference model.</p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#patterns" className="btn-brand inline-flex items-center gap-2">View 7 patterns <ArrowRight className="h-4 w-4" /></a>
                   <a href="#checklist" className="btn-secondary inline-flex items-center gap-2">View checklist</a>

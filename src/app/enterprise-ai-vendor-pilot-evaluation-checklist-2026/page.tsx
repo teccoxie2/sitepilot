@@ -125,6 +125,37 @@ const checklistHighlights = [
   },
 ]
 
+const buyerSequence = [
+  {
+    step: '01',
+    title: 'Convert shortlist claims into pilot tests',
+    text: 'Pull open questions from the RFP, diligence, and scoring stages so the pilot closes real buying risk instead of replaying the demo.',
+    href: '/enterprise-ai-vendor-rfp-template-2026',
+    cta: 'Start with the RFP',
+  },
+  {
+    step: '02',
+    title: 'Run pass/fail checks before weighted scoring',
+    text: 'Security, workflow quality, and operational fit should disqualify weak vendors before commercial optimism gets a vote.',
+    href: '/enterprise-ai-vendor-shortlist-scorecard-2026',
+    cta: 'See the shortlist scorecard',
+  },
+  {
+    step: '03',
+    title: 'Feed pilot evidence into the final approval pack',
+    text: 'Push confirmed outcomes into pricing, contract review, and the final decision matrix so approval reflects live evidence, not unresolved promises.',
+    href: '/ai-procurement-decision-matrix-tool-2026',
+    cta: 'Open the decision matrix',
+  },
+]
+
+const pilotDeliverables = [
+  'Named business workflows with pass/fail criteria agreed before kickoff.',
+  'Evidence pack covering output quality, controls, logs, and integration behavior.',
+  'Commercial readout showing whether real pilot usage still fits the budget model.',
+  'A decision recommendation with explicit approve, extend, or reject logic.',
+]
+
 export default function PilotEvaluationChecklistPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
@@ -149,7 +180,7 @@ export default function PilotEvaluationChecklistPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This checklist turns an enterprise AI pilot into a procurement-grade test: define measurable acceptance criteria, force rollback conditions, and prove whether the vendor can survive real workflows, real controls, and real economics.
+                An enterprise AI vendor pilot evaluation checklist defines acceptance criteria, rollback triggers, evidence requirements, and commercial checkpoints before production approval. It helps buyers prove whether a shortlisted vendor can survive live workflows, real controls, and actual usage economics instead of passing on demo energy alone.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -161,6 +192,12 @@ export default function PilotEvaluationChecklistPage() {
                 </Link>
                 <Link href="/enterprise-ai-vendor-pricing-guide-2026" className="btn-secondary">
                   Pricing guide
+                </Link>
+                <Link href="/ai-vendor-contract-red-flags-2026" className="btn-secondary">
+                  Contract red flags
+                </Link>
+                <Link href="/ai-procurement-decision-matrix-tool-2026" className="btn-secondary">
+                  Decision matrix
                 </Link>
               </div>
 
@@ -230,11 +267,19 @@ export default function PilotEvaluationChecklistPage() {
                     <Link href="/enterprise-ai-vendor-shortlist-scorecard-2026" className="text-[#635bff] hover:underline font-medium">
                       shortlist scorecard
                     </Link>{' '}
-                    and the{' '}
+                    , the{' '}
                     <Link href="/enterprise-ai-vendor-pricing-guide-2026" className="text-[#635bff] hover:underline font-medium">
                       pricing guide
                     </Link>{' '}
-                    so the final decision reflects live evidence, real cost behavior, and verified operational fit.
+                    , the{' '}
+                    <Link href="/ai-vendor-contract-red-flags-2026" className="text-[#635bff] hover:underline font-medium">
+                      contract red flags review
+                    </Link>{' '}
+                    , and the{' '}
+                    <Link href="/ai-procurement-decision-matrix-tool-2026" className="text-[#635bff] hover:underline font-medium">
+                      final decision matrix
+                    </Link>{' '}
+                    so the final approval reflects live evidence, real cost behavior, legal risk, and verified operational fit.
                   </p>
                   <p className="text-slate-600 leading-7">
                     Use the{' '}
@@ -253,6 +298,17 @@ export default function PilotEvaluationChecklistPage() {
                   <p className="text-sm text-slate-600 leading-6">Good pilots create evidence, not optimism.</p>
                 </div>
                 <div className="page-card-soft p-6">
+                  <div className="text-sm text-slate-500 mb-3">What buyers should leave with</div>
+                  <ul className="space-y-3 text-sm text-slate-700 leading-6">
+                    {pilotDeliverables.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-[#635bff] flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="page-card-soft p-6">
                   <div className="text-sm text-slate-500 mb-3">Decision outcomes</div>
                   <ul className="space-y-3 text-sm text-slate-700 leading-6">
                     <li><strong>Approve:</strong> controls, quality, and economics hold up under live conditions.</li>
@@ -268,38 +324,64 @@ export default function PilotEvaluationChecklistPage() {
 
         <section className="page-section">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="max-w-2xl mb-10">
-              <div className="page-pill mb-4">Core workstreams</div>
-              <h2 className="page-title text-3xl md:text-5xl mb-4">The four buckets that decide whether a pilot means anything.</h2>
-              <p className="page-lead text-lg">
-                If a vendor survives all four, you have evidence. If it only looks good in one of them, you have a demo with a budget request attached.
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-6">
-              {pilotWorkstreams.map((group, index) => (
-                <div key={group.title} className="page-card-glow p-1.5">
-                  <div className="page-card rounded-[1.6rem] p-7 md:p-8 h-full">
-                    <div className="flex items-center justify-between gap-4 mb-5">
-                      <div>
-                        <div className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-2">0{index + 1}</div>
-                        <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-slate-950">{group.title}</h3>
+            <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 items-start mb-10">
+              <div className="page-card-glow p-1.5">
+                <div className="page-card rounded-[1.6rem] p-7 md:p-8 h-full">
+                  <div className="page-pill mb-4">Buyer flow</div>
+                  <h2 className="page-title text-3xl md:text-5xl mb-4">Use the pilot to close buying risk in sequence.</h2>
+                  <p className="page-lead text-lg mb-6">
+                    The pilot should sit between shortlist ranking and final approval. Each step below keeps the page connected to the rest of the procurement journey instead of turning validation into a standalone exercise.
+                  </p>
+                  <div className="space-y-4">
+                    {buyerSequence.map((item) => (
+                      <div key={item.step} className="rounded-2xl border border-slate-200 bg-white px-5 py-5">
+                        <div className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-2">{item.step}</div>
+                        <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950 mb-2">{item.title}</h3>
+                        <p className="text-slate-600 leading-7 mb-3">{item.text}</p>
+                        <Link href={item.href} className="text-sm font-medium text-[#635bff] hover:underline">
+                          {item.cta}
+                        </Link>
                       </div>
-                      <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 whitespace-nowrap">
-                        Required
-                      </div>
-                    </div>
-                    <ul className="space-y-3">
-                      {group.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-slate-600 leading-7">
-                          <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#635bff] flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div>
+                <div className="max-w-2xl mb-10">
+                  <div className="page-pill mb-4">Core workstreams</div>
+                  <h2 className="page-title text-3xl md:text-5xl mb-4">The four buckets that decide whether a pilot means anything.</h2>
+                  <p className="page-lead text-lg">
+                    If a vendor survives all four, you have evidence. If it only looks good in one of them, you have a demo with a budget request attached.
+                  </p>
+                </div>
+
+                <div className="grid gap-6">
+                  {pilotWorkstreams.map((group, index) => (
+                    <div key={group.title} className="page-card-glow p-1.5">
+                      <div className="page-card rounded-[1.6rem] p-7 md:p-8 h-full">
+                        <div className="flex items-center justify-between gap-4 mb-5">
+                          <div>
+                            <div className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-2">0{index + 1}</div>
+                            <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-slate-950">{group.title}</h3>
+                          </div>
+                          <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 whitespace-nowrap">
+                            Required
+                          </div>
+                        </div>
+                        <ul className="space-y-3">
+                          {group.items.map((item) => (
+                            <li key={item} className="flex items-start gap-3 text-slate-600 leading-7">
+                              <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#635bff] flex-shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -380,7 +462,28 @@ export default function PilotEvaluationChecklistPage() {
         </section>
 
         <section className="page-section surface-muted">
-          <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-6xl mx-auto px-4 space-y-6">
+            <div className="page-card-glow p-1.5">
+              <div className="page-card rounded-[1.6rem] p-7 md:p-8">
+                <div className="page-pill mb-4">Next decision</div>
+                <h2 className="page-title text-3xl md:text-5xl mb-4">Turn pilot evidence into a final approval decision.</h2>
+                <p className="page-lead text-lg mb-6 max-w-3xl">
+                  Once the pilot is scored, move straight into commercial review, contract review, and the final decision matrix so stakeholders approve a vendor with one evidence chain instead of disconnected documents.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/enterprise-ai-vendor-pricing-guide-2026" className="btn-brand">
+                    Review pricing next
+                  </Link>
+                  <Link href="/ai-vendor-contract-red-flags-2026" className="btn-secondary">
+                    Review contract red flags
+                  </Link>
+                  <Link href="/ai-procurement-decision-matrix-tool-2026" className="btn-secondary">
+                    Use the decision matrix
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <RelatedLinks
               links={[
                 { title: 'Enterprise AI Vendor RFP Template 2026', href: '/enterprise-ai-vendor-rfp-template-2026', description: 'Turn unresolved RFP answers into explicit pilot test cases.', category: 'guide' },

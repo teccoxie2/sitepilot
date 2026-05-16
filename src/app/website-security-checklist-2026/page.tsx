@@ -98,7 +98,9 @@ export default function SecurityChecklist2026() {
                 <span className="brand-gradient-text block">for hardening the parts that actually fail first.</span>
               </h1>
 
-              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">{pageDescription}</p>
+              <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
+                A website security checklist in 2026 should verify web application firewall coverage, enforced multi-factor authentication, encrypted off-site backups, TLS hardening, malware detection, least-privilege admin access, patch discipline, and tested incident recovery so the site can keep payments, customer data, and backend systems resilient under routine attack pressure.
+              </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
                 <Link href="/web-hosting" className="btn-brand">

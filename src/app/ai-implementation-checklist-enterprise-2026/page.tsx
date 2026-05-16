@@ -15,9 +15,9 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'AI Implementation Checklist for Enterprise 2026 | SitePilot'
+const pageTitle = 'AI Implementation Checklist for Enterprise Teams (2026): Rollout, Governance, Pilot, Scale'
 const pageDescription =
-  'Comprehensive enterprise AI implementation checklist with 90+ action items across strategy, technology, people, governance, rollout, and optimization.'
+  'Use this AI implementation checklist to sequence strategy, architecture, governance, pilot design, rollout, and optimization so enterprise teams can reduce delivery risk before scaling AI tools across departments.'
 const pageUrl = 'https://sitepilot.co/ai-implementation-checklist-enterprise-2026'
 
 export const metadata: Metadata = {
@@ -378,8 +378,7 @@ export default function AIImplementationChecklistPage() {
               </h1>
 
               <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                This checklist keeps enterprise AI programs grounded in sequencing: strategy first, architecture second,
-                pilot discipline third, and only then scale. It preserves the original 90+ action items, but organizes them in the current shared system.
+                An AI implementation checklist helps enterprise teams sequence strategy, architecture, governance, pilot design, rollout, and optimization before deployment expands. Use it to reduce ownership gaps, integration delays, approval friction, training drift, and measurement failures that usually appear when programs scale faster than operating discipline.
               </p>
 
               <div className="mb-10 flex flex-wrap gap-3">

@@ -224,8 +224,7 @@ export default function EnterpriseAISecurityCompliancePage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This framework covers the security architecture, audit posture, and regulatory-control expectations that
-                enterprise AI programs need across GDPR, SOX, HIPAA, ISO 27001, and adjacent security standards.
+                An enterprise AI security and compliance framework defines the controls, evidence, ownership, and monitoring needed to keep AI systems aligned with GDPR, SOX, HIPAA, ISO 27001, and internal audit requirements before procurement, deployment, and scale create regulatory or operational exposure.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

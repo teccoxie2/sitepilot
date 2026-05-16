@@ -140,7 +140,7 @@ export default function EnterpriseAIVendorComparisonGuide2026() {
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    Enterprise AI vendors in 2026 should be compared on architecture, security, deployment model, pricing mechanics, and operational fit so buying teams can move from shortlist to pilot with fewer mistakes.
+                    Enterprise AI vendors in 2026 should be compared on architecture, security, deployment model, pricing mechanics, implementation effort, and operational fit so procurement, security, finance, and business owners can move from shortlist to pilot with shared decision criteria instead of feature-demo bias.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">

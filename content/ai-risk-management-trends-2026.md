@@ -180,7 +180,7 @@ Forward-thinking organizations recognize AI risk management not as compliance ov
 
 The window for reactive risk management has closed. Proactive, strategic AI risk frameworks are now essential for maintaining market leadership in an AI-transformed business environment.
 
-**Next Steps**: [Evaluate your organization's AI risk maturity with our comprehensive assessment framework](/tools/ai-risk-management-framework)
+**Next Steps**: [Evaluate your organization's AI risk maturity with our enterprise AI risk assessment tool](/enterprise-ai-risk-assessment-tool-2026)
 
 ---
 

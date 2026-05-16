@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-export const pageTitle = 'Best AI Tools 2026 | SitePilot'
+export const pageTitle = 'Best AI Tools 2026 | Compare AI Software for Business, SEO & Content'
 export const pageDescription =
-  'AI tools in 2026 should be compared on workflow automation depth, output quality, integration fit, privacy risk, pricing discipline, and operator control so buyers can separate durable business value from demo-stage novelty.'
+  'Compare the best AI tools in 2026 for business, SEO, and content workflows using output quality, workflow fit, privacy risk, pricing discipline, and operator control before you shortlist software.'
 export const pageUrl = 'https://sitepilot.co/ai-tools'
 
 export const metadata: Metadata = {

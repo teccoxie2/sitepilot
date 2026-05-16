@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Complete AI Content Workflow Automation Guide 2026 | SitePilot'
+const pageTitle = 'AI Content Workflow Automation for Marketing Teams (2026): Tools, Handoffs, and Reporting Comparison'
 const pageDescription =
-  'Master AI-powered content workflow automation with our comprehensive guide. From content creation to distribution, optimize your entire content pipeline with proven automation strategies and tools.'
+  'Compare AI content workflow automation tools and operating models for marketing teams in 2026. Use this buyer-focused guide to evaluate research, drafting, approvals, scheduling, reporting, editing overhead, and integration risk before rebuilding your content stack.'
 const pageUrl = 'https://sitepilot.co/ai-content-workflow-automation-2026'
 const pageImage = 'https://sitepilot.co/images/ai-content-workflow-automation-og.webp'
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: pageTitle,
-    description: 'Transform your content operations with AI workflow automation. Comprehensive strategies, tools, and implementation frameworks for content teams.',
+    description: 'Compare AI content workflow automation tools, approval flows, and reporting models for content teams that need speed without handoff chaos.',
     type: 'article',
     url: pageUrl,
     images: [
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Complete AI Content Workflow Automation Guide 2026',
-    description: 'Master AI-powered content workflow automation with proven strategies and tools',
+    title: 'AI Content Workflow Automation for Marketing Teams (2026)',
+    description: 'Buyer-focused guide to compare content workflow automation tools, approvals, reporting, and integration risk.',
     images: [pageImage],
   },
 }
@@ -49,10 +49,10 @@ const quickNav = [
 ]
 
 const summaryCards = [
-  { label: '75%', note: 'Time savings on repetitive content operations when the workflow is designed correctly.' },
-  { label: '3x faster', note: 'Typical production cycle acceleration across briefing, drafting, review, and distribution.' },
-  { label: '90%', note: 'Reduction in manual workflow errors once approvals and handoffs are automated.' },
-  { label: '150-400%', note: 'Traffic growth range cited for mature automation programs with measurement in place.' },
+  { label: '6 stages', note: 'Research, drafting, approvals, scheduling, publishing, and reporting should be reviewed as one operating system.' },
+  { label: '4 buyer checks', note: 'Judge tools on handoff control, editing load, integration overhead, and reporting visibility.' },
+  { label: '2026 update', note: 'This page is positioned for current buying conversations, not recycled automation hype.' },
+  { label: 'BOFU', note: 'The page is written for teams comparing workflow options before stack changes or procurement approval.' },
 ]
 
 const stageCards = [
@@ -242,10 +242,10 @@ const roiCards: Array<[string, string]> = [
 ]
 
 const expectedReturns: Array<[string, string]> = [
-  ['Time savings', '40-80 hours/month'],
-  ['Content output increase', '200-300%'],
-  ['Quality improvement', '85% consistency'],
-  ['Traffic growth', '150-400%'],
+  ['Workflow priority', 'Remove handoff delays before adding more tools'],
+  ['Review priority', 'Measure editing load and approval friction'],
+  ['Reporting priority', 'Make attribution and ROI visibility visible before scale'],
+  ['Integration priority', 'Price connector, training, and governance overhead early'],
 ]
 
 const toolStacks = [
@@ -255,7 +255,7 @@ const toolStacks = [
     accent: 'bg-blue-50',
     items: ['Writing: Claude 3.5 Sonnet + Grammarly', 'Planning: Buffer + Google Calendar', 'Analytics: Google Analytics 4', 'Automation: Zapier Basic'],
     total: '$200-400/month',
-    roi: '400-600%',
+    roi: 'Low-cost stack for smaller teams' ,
   },
   {
     title: 'Professional stack',
@@ -263,7 +263,7 @@ const toolStacks = [
     accent: 'bg-indigo-50',
     items: ['Writing: Jasper AI + ContentCal', 'Planning: CoSchedule + BuzzSumo', 'Analytics: Mixpanel + Hotjar', 'Automation: Make + HubSpot'],
     total: '$800-1,500/month',
-    roi: '500-800%',
+    roi: 'Balanced stack for growing teams' ,
   },
   {
     title: 'Enterprise stack',
@@ -271,7 +271,7 @@ const toolStacks = [
     accent: 'bg-violet-50',
     items: ['Writing: Custom AI + Writesonic', 'Planning: Lately AI + Hootsuite', 'Analytics: Adobe Analytics + Salesforce', 'Automation: Custom APIs + Enterprise tools'],
     total: '$2,000-5,000/month',
-    roi: '600-1,200%',
+    roi: 'High-control stack for complex organizations' ,
   },
 ]
 
@@ -308,7 +308,7 @@ export default function AIContentWorkflowAutomation() {
         url={pageUrl}
         imageUrl={pageImage}
         publishedDate="2026-03-06"
-        modifiedDate="2026-04-19"
+        modifiedDate="2026-05-14"
         authorName="SitePilot Content Team"
       />
 
@@ -332,8 +332,7 @@ export default function AIContentWorkflowAutomation() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This guide maps the full content automation pipeline: ideation, writing, planning, publishing, performance tracking,
-                and the tool stacks that help teams scale output without letting quality collapse.
+                AI content workflow automation helps marketing teams connect research, drafting, approvals, scheduling, publishing, and reporting in one operating system so they can reduce handoff delays, editing waste, channel inconsistency, integration overhead, and rework risk before expanding tools, channels, or headcount.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -343,6 +342,9 @@ export default function AIContentWorkflowAutomation() {
                 </a>
                 <Link href="/ai-content-calendar-tools-2026" className="btn-secondary">
                   Planning tools
+                </Link>
+                <Link href="/ai-content-generator-comparison" className="btn-secondary">
+                  Compare generators
                 </Link>
               </div>
 
@@ -395,15 +397,14 @@ export default function AIContentWorkflowAutomation() {
                 <span className="block brand-gradient-text">not just the writing step.</span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                Automation only compounds when the full system is connected. Research, drafting, approvals, publishing, and analytics
-                need to move as one pipeline, otherwise teams just create more content chaos faster.
+                Workflow automation only helps when research, drafting, approvals, publishing, and analytics move through a controlled path. If the system still hides editing bottlenecks, approval lag, and reporting gaps, teams just create faster chaos with more software.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  '40+ hours per month reclaimed for strategy',
-                  '3x faster content production cycles',
-                  'Consistent brand voice and style',
-                  'Data-driven content decisions and reviews',
+                  'Map where briefs stall before adding another writing tool',
+                  'Check who owns approvals, edits, and publishing release control',
+                  'Compare reporting visibility across channels and stakeholders',
+                  'Price integration and governance overhead before rollout',
                 ].map((item) => (
                   <div key={item} className="page-card-soft p-4 flex items-start gap-3">
                     <CheckCircle2 className="h-4 w-4 text-indigo-500 shrink-0 mt-0.5" />

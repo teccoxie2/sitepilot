@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 const pageTitle = 'Enterprise AI Performance Monitoring Dashboard 2026 | SitePilot'
 const pageDescription =
-  'Comprehensive AI performance monitoring and analytics dashboard for enterprise deployments. Track KPIs, ROI, costs, compliance, and operational metrics.'
+  'Use this enterprise AI performance monitoring dashboard to track usage, quality, response time, cost, adoption, and governance signals before poor workflows or model drift damage ROI.'
 const pageUrl = 'https://sitepilot.co/ai-performance-monitoring-dashboard-enterprise-2026'
 
 export const metadata: Metadata = {

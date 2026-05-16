@@ -58,6 +58,11 @@ const clusterLinks = [
     note: 'Use the shortlist when you want the broader market view before digging into provider-specific audits.',
   },
   {
+    title: 'Hostinger vs Bluehost',
+    href: '/hosting/hostinger-vs-bluehost',
+    note: 'Use a direct comparison when the real buying question is value stack versus beginner familiarity.',
+  },
+  {
     title: 'Cheap hosting',
     href: '/cheap-hosting',
     note: 'For budget-sensitive buying, where low cost matters but you still want to avoid total garbage.',
@@ -93,18 +98,22 @@ export default function WebHostingHub2026() {
         <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
           <div className="grid lg:grid-cols-[1.06fr_0.94fr] gap-12 items-center">
             <div className="max-w-3xl">
-              <div className="page-pill mb-6">
+              <p className="text-sm md:text-base font-medium text-slate-600 max-w-2xl mb-4">
+                Web hosting choices should be compared by uptime discipline, support quality, infrastructure fit, pricing structure, security defaults, and migration risk. This hub helps buyers evaluate provider reviews, model comparisons, and shortlist pages so they can choose hosting with fewer long-term operational surprises.
+              </p>
+
+              <div className="page-pill mb-6" data-nosnippet>
                 <Sparkles className="h-4 w-4 text-[#635bff]" />
                 2026 hosting audits
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                Hosting audits,
-                <span className="brand-gradient-text block">without marketing sludge.</span>
+                Best web hosting 2026,
+                <span className="brand-gradient-text block">compared beyond the promo page.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Web hosting in 2026 should be evaluated on uptime discipline, support quality, pricing structure, caching stack, security defaults, scaling headroom, and lock-in risk so teams can choose infrastructure that stays reliable after the promotional discount expires instead of buying short-term speed claims with long-term operating pain.
+                The best web hosting in 2026 is the provider that balances uptime, support quality, pricing structure, security defaults, and scaling headroom after the intro discount ends. This hub helps buyers compare shortlist options, provider reviews, and direct comparisons before committing to a stack.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -112,8 +121,8 @@ export default function WebHostingHub2026() {
                   Start with a real audit
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link href="/cloud-hosting-vs-traditional-hosting-2026" className="btn-secondary">
-                  Compare hosting models
+                <Link href="/hosting/hostinger-vs-bluehost" className="btn-secondary">
+                  Compare Hostinger vs Bluehost
                 </Link>
                 <Link href="/best-web-hosting-2026" className="btn-secondary">
                   Review top hosting picks
@@ -219,11 +228,10 @@ export default function WebHostingHub2026() {
               <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Selection logic</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
                 Hosting is not a vibes purchase.
-                <span className="block brand-gradient-text">It is an operations decision.</span>
+                <span className="block brand-gradient-text">It should branch into shortlist, comparison, and audit paths.</span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                That means the page should feel calm, legible, and authority-driven. The new visual system does that better than the old black-box cyber aesthetic.
-                It looks more credible and scales better across adjacent audit categories.
+                This hub should move buyers into a shortlist, a direct provider comparison, or a deeper audit depending on what is blocking the decision. That is more useful to both humans and answer engines than leaving the page as a broad category overview.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/website-builders" className="btn-secondary">See the reference style</Link>

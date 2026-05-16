@@ -51,8 +51,11 @@ const resourceLinks = [
   { href: '/ai-tools-cost-benefit-analysis-2026', title: 'Cost-benefit analysis', note: 'Evaluate investment and return in the same frame.' },
   { href: '/ai-tools-budget-planning-enterprise-2026', title: 'Budget planning', note: 'Build a budget with evidence instead of guesswork.' },
   { href: '/ai-tools-risk-assessment-enterprise-2026', title: 'Risk framework', note: 'Score risk before you chase hype.' },
+  { href: '/ai-vendor-due-diligence-checklist-enterprise-2026', title: 'Vendor due diligence', note: 'Pressure-test security, governance, and rollout claims before shortlist decisions.' },
+  { href: '/enterprise-ai-vendor-shortlist-scorecard-2026', title: 'Shortlist scorecard template', note: 'Rank finalists with a weighted buying rubric instead of demo energy.' },
   { href: '/ai-tools-security-compliance-checklist-2026', title: 'Security compliance', note: 'Keep security and compliance inside the buying process.' },
   { href: '/ai-tools-usage-tracking-dashboard-2026', title: 'Usage tracking', note: 'Track adoption and value after rollout.' },
+  { href: '/tools/evaluation-tools-2026', title: 'Evaluation tools hub', note: 'Go from discovery to approval-stage evaluation.' },
 ] as const
 
 export default function AiToolsHub2026() {
@@ -65,7 +68,7 @@ export default function AiToolsHub2026() {
           description: pageDescription,
           url: pageUrl,
           datePublished: '2026-04-19',
-          dateModified: '2026-04-22',
+          dateModified: '2026-05-02',
         }}
       />
 
@@ -79,28 +82,32 @@ export default function AiToolsHub2026() {
         <div className="max-w-7xl mx-auto px-4 pt-22 pb-20 md:pt-28 md:pb-24">
           <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 mb-6 shadow-sm backdrop-blur-xl">
+              <p className="text-sm md:text-base font-medium text-slate-600 max-w-2xl mb-4">
+                An AI tools hub should help buyers compare products on workflow impact, output quality, integration fit, privacy risk, operator control, and commercial discipline. This page routes category research into cost analysis, risk review, due diligence, shortlist scoring, and post-rollout tracking.
+              </p>
+
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 mb-6 shadow-sm backdrop-blur-xl" data-nosnippet>
                 <Sparkles className="h-4 w-4 text-indigo-500" />
                 2026 AI tools hub
               </div>
 
               <h1 className="text-5xl md:text-7xl font-semibold tracking-[-0.05em] leading-[0.96] mb-6 text-slate-950">
-                AI tools,
+                Best AI tools 2026,
                 <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
-                  with better operating discipline.
+                  compared for real business workflows.
                 </span>
               </h1>
 
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
-                AI tools in 2026 should be compared on workflow automation depth, output quality, integration fit, privacy risk, pricing discipline, and operator control so buyers can separate durable business value from demo-stage novelty instead of mistaking entertaining product launches for real operating leverage.
+                The best AI tools in 2026 are the products that improve real business, SEO, and content workflows without creating privacy risk, pricing regret, or operator chaos. This hub compares AI software using output quality, workflow fit, and commercial discipline before shortlist decisions.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-6">
                 <Link
-                  href="/ai-tools-cost-benefit-analysis-2026"
+                  href="/tools/evaluation-tools-2026"
                   className="inline-flex items-center rounded-full bg-[#635bff] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(99,91,255,0.18)] hover:bg-[#564ee8] transition-colors"
                 >
-                  Open cost analysis
+                  Open evaluation tools hub
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link
@@ -167,7 +174,7 @@ export default function AiToolsHub2026() {
         </div>
       </section>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-16 md:py-20">
+      <main className="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
         <section className="grid gap-6 md:grid-cols-3 mb-16">
           {cards.map((card) => {
             const Icon = card.icon
@@ -197,22 +204,22 @@ export default function AiToolsHub2026() {
         <section className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="rounded-[2rem] border border-slate-200 bg-gradient-to-br from-[#f7fbff] via-white to-[#f7f4ff] p-8 md:p-12 shadow-[0_24px_60px_rgba(15,23,42,0.06)]">
             <div className="max-w-3xl">
-              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Positioning</div>
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Decision path</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-                AI pages should feel analytical.
+                Good AI buying starts with a category view.
                 <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
-                  Not like a vaporwave casino.
+                  Then it moves into budget, risk, and diligence.
                 </span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                The lighter system gives these pages more editorial credibility and aligns them with the direction already established on the website builders hub. Good. That is exactly what a unified product should do.
+                This hub should not stop at discovery. It should route buyers into budget planning, risk review, security checks, vendor due diligence, shortlist scoring, and post-rollout tracking so the page behaves like a real decision system instead of a category landing page.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
-                  href="/website-builders"
+                  href="/tools/evaluation-tools-2026"
                   className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
                 >
-                  See the reference style
+                  See evaluation tools hub
                 </Link>
                 <Link
                   href="/best-ai-seo-tools-2026"
@@ -226,6 +233,12 @@ export default function AiToolsHub2026() {
                   className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
                 >
                   Compare content generators
+                </Link>
+                <Link
+                  href="/enterprise-ai-vendor-shortlist-scorecard-2026"
+                  className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
+                >
+                  Use shortlist scorecard
                 </Link>
               </div>
             </div>

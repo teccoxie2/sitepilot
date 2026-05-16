@@ -13,8 +13,8 @@ const heroSignals = [
 const statCards = [
   { value: '24', label: 'Risk Factors', note: 'All 24 core risk factors remain visible.' },
   { value: '6', label: 'Risk Categories', note: 'The six-category structure stays intact.' },
-  { value: '72%', label: 'Risk Reduction', note: 'The mitigation target is still explicit.' },
-  { value: '300+', label: 'Organizations', note: 'The original case-study framing remains.' },
+  { value: '4', label: 'Decision Areas', note: 'Score output still highlights technical, security, regulatory, and operating risk.' },
+  { value: '24 weeks', label: 'Mitigation Timeline', note: 'The phased mitigation timeline remains part of the output.' },
 ]
 
 const relatedLinks = [
@@ -62,7 +62,7 @@ export default function AIProjectRiskAssessmentFrameworkPage() {
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    This page keeps the original 24-factor risk analysis, interactive assessment tool, six categories, mitigation timeline, and FAQ, and only aligns the shell to the current light Stripe-ish system.
+                    Assess AI project risk across 24 factors covering governance, security, data quality, vendor exposure, compliance, and rollout complexity. This framework helps teams surface failure points, score delivery risk, and prioritize mitigation before contracts, launch dates, or implementation approvals make course correction slower and more expensive.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">

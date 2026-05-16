@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { ArrowRight, Shield, Cpu, Gauge, Network, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'SitePilot | Global Digital Infrastructure Authority'
+const pageTitle = 'SitePilot | Compare Hosting, AI Tools, Website Builders & Proxies'
 const pageDescription =
-  'Independent technical audits, infrastructure benchmarks, and AI-driven procurement frameworks for modern enterprises.'
+  'Compare hosting, AI tools, website builders, and proxy infrastructure using independent audits, buyer-focused comparisons, and decision assets built for real operator and procurement workflows.'
 const pageUrl = 'https://sitepilot.co'
 
 export const metadata: Metadata = {
@@ -108,19 +108,22 @@ export default function HomePage() {
         <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
           <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
             <div className="max-w-3xl">
-              <div className="page-pill mb-6">
+              <p className="text-sm md:text-base font-medium text-slate-600 max-w-2xl mb-4">
+                SitePilot compares hosting, website builders, AI tools, and proxy infrastructure using independent audits, commercial analysis, operational risk review, and buyer-path decision assets. Teams use it to move from category discovery into shortlist, diligence, implementation planning, and platform commitment without affiliate fluff or vendor theatre.
+              </p>
+
+              <div className="page-pill mb-6" data-nosnippet>
                 <Sparkles className="h-4 w-4 text-[#635bff]" />
-                2026 digital infrastructure authority
+                2026 digital infrastructure decision system
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                Audit the stack.
-                <span className="brand-gradient-text block">Then buy with discipline.</span>
+                Independent infrastructure buying intelligence.
+                <span className="brand-gradient-text block">For teams that need evidence, not theater.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                SitePilot helps operators evaluate hosting, builders, AI tools, and proxy infrastructure with technical fit,
-                commercial clarity, and operational reality instead of marketing theater.
+                SitePilot is a decision system for hosting, website builders, AI tools, and proxy infrastructure that connects methodology, audits, comparisons, and buyer assets so operators can move from category discovery to shortlist, due diligence, and vendor selection without relying on affiliate fluff or glossy vendor positioning.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -231,12 +234,11 @@ export default function HomePage() {
             <div className="max-w-2xl">
               <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Operating model</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-                A clearer homepage for a site
-                <span className="block brand-gradient-text">that now behaves like one product.</span>
+                One site, four decision systems.
+                <span className="block brand-gradient-text">Built to move buyers from category to evidence.</span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                The homepage now acts as the front door to the audit system, not a placeholder for visual intent. It orients buyers,
-                routes them into the right cluster, and keeps the design language aligned with the migrated pages underneath it.
+                The homepage should explain what SitePilot is, route visitors into the right hub, and connect those hubs to methodology, comparisons, scorecards, and audit paths that can actually support a real buying decision.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/ai-tools" className="btn-brand">

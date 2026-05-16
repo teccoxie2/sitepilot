@@ -14,9 +14,9 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Website Builder Comparison: Which Platform Fits Your Business? Wix vs Shopify vs Squarespace vs Readdy vs WordPress (2026)'
+const pageTitle = 'Website Builder Comparison (2026): Wix vs Shopify vs Squarespace vs Readdy vs WordPress'
 const pageDescription =
-  'Use this website builder comparison to choose Wix, Shopify, Squarespace, Readdy, or WordPress by ecommerce fit, AI setup speed, SEO ownership, migration risk, editing overhead, and long-term platform trade-offs before you commit.'
+  'Use this website builder comparison to choose Wix, Shopify, Squarespace, Readdy, or WordPress by ecommerce fit, SEO control, editing overhead, migration risk, AI workflow fit, and long-term ownership before you commit.'
 const pageUrl = 'https://sitepilot.co/website-builders'
 
 export const metadata: Metadata = {
@@ -175,7 +175,7 @@ export default function WebsiteBuildersHub() {
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-04-17"
-        modifiedDate="2026-05-02"
+        modifiedDate="2026-05-12"
         authorName="SitePilot Team"
       />
 
@@ -195,14 +195,14 @@ export default function WebsiteBuildersHub() {
               </div>
 
               <h1 className="text-5xl md:text-7xl font-semibold tracking-[-0.05em] leading-[0.96] mb-6 text-slate-950">
-                Website builder comparison: which platform fits your business?
+                Website builder comparison for 2026.
                 <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
-                  Compare platform fit, not template hype, in 2026.
+                  Compare Wix, Shopify, Squarespace, Readdy, and WordPress before you commit.
                 </span>
               </h1>
 
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
-                A website builder comparison should help buyers choose Wix, Shopify, Squarespace, Readdy, or WordPress based on ecommerce fit, AI setup speed, editing overhead, SEO ownership, content portability, pricing flexibility, and migration risk before they commit. Use this page when the real decision is which platform best matches the business model, not which demo looks prettiest for five minutes.
+                A website builder comparison helps buyers choose Wix, Shopify, Squarespace, Readdy, or WordPress by ecommerce fit, SEO control, editing overhead, migration risk, AI workflow fit, and long-term ownership before platform lock-in gets expensive. Use this page when the real decision is not design style but which builder best fits revenue model, publishing speed, and future control.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-6">
@@ -210,7 +210,7 @@ export default function WebsiteBuildersHub() {
                   href="/best-website-builders-2026"
                   className="inline-flex items-center rounded-full bg-[#635bff] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(99,91,255,0.18)] hover:bg-[#564ee8] transition-colors"
                 >
-                  Open full builder guide
+                  Open full builder shortlist
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link
@@ -243,6 +243,18 @@ export default function WebsiteBuildersHub() {
                   className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
                 >
                   Free plan comparison
+                </Link>
+                <Link
+                  href="/best-ecommerce-website-builders-2026"
+                  className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
+                >
+                  Best ecommerce builders
+                </Link>
+                <Link
+                  href="/readdy-ai-review"
+                  className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
+                >
+                  Readdy review
                 </Link>
               </div>
 

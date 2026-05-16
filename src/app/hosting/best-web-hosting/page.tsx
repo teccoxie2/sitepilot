@@ -167,7 +167,7 @@ export default function BestWebHostingPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This page is the cleaner shortlist version: the hosts most worth paying attention to, based on real support quality, uptime behavior, speed, and long-term economics rather than promo banner noise.
+                Web hosting providers should be compared on uptime discipline, support quality, speed consistency, renewal pricing, security defaults, and migration risk rather than promo discounts. This shortlist focuses on the hosts most worth evaluating when buyers need dependable operations, clearer economics, and fewer support failures after launch.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

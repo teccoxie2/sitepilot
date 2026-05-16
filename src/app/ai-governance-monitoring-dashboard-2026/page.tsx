@@ -465,8 +465,7 @@ export default function AIGovernanceMonitoringDashboard() {
               </h1>
 
               <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                This dashboard keeps compliance status, risk alerts, and operating KPIs in one place so AI oversight teams
-                can see what is stable, what is slipping, and what needs human intervention next.
+                An AI governance monitoring dashboard tracks compliance posture, policy drift, risk alerts, control ownership, and operating KPIs in one review layer. Teams use it to find unresolved exposure, reporting gaps, and accountability failures before oversight weakness turns into audit, legal, or delivery risk.
               </p>
 
               <div className="mb-10 flex flex-wrap gap-3">

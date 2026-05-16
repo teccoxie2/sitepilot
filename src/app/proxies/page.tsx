@@ -5,9 +5,9 @@ import { ArrowRight, Smartphone, Network, Cpu, Shield, Sparkles, CheckCircle2, G
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
-  title: 'Mobile Proxy Infrastructure Guides 2026 | SitePilot',
+  title: 'Mobile Proxies 2026 | Compare Proxy Infrastructure, Farms & Software',
   description:
-    'Compare mobile proxy infrastructure in 2026 across network model, farm setup, hardware selection, and control software.',
+    'Compare mobile proxy infrastructure in 2026 across proxy model, farm setup, hardware selection, and control software before you build or buy a mobile proxy stack.',
   alternates: { canonical: 'https://sitepilot.co/proxies' },
   openGraph: {
     title: 'Mobile Proxy Infrastructure Guides 2026 | SitePilot',
@@ -114,11 +114,12 @@ export default function ProxiesHub() {
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                Mobile Proxy Infrastructure Guides 2026
+                Mobile proxies 2026,
+                <span className="brand-gradient-text block">compared from model to operating stack.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Mobile proxy infrastructure in 2026 includes network-model selection, Android device planning, powered USB topology, controller hosting, and software orchestration for IP rotation. This guide cluster compares the main architectural choices so operators can evaluate fit, hardware risk, and operating complexity before building or buying a stack.
+                Mobile proxies in 2026 require decisions about proxy model, Android farm design, powered USB topology, controller hosting, and rotation software. This hub compares the main infrastructure choices so operators can evaluate fit, hardware risk, and operating complexity before building or buying a stack.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -212,14 +213,13 @@ export default function ProxiesHub() {
         <section className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] mb-16">
           <div className="page-card-glow p-8 md:p-12 surface-muted">
             <div className="max-w-3xl">
-              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Why this works better</div>
+              <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Decision path</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-                Proxy content can still feel technical.
-                <span className="block brand-gradient-text">It just no longer has to look ridiculous.</span>
+                Proxy research should branch into model, farm, and software choices.
+                <span className="block brand-gradient-text">Not stop at category jargon.</span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                The old dark cyber style made everything feel louder than it needed to be. The new system keeps the category serious,
-                but aligns it with the rest of SitePilot so the whole site finally feels like one product.
+                This hub should move operators into proxy-model comparison, farm setup, hardware selection, and software control decisions. That is more useful than leaving the page as a broad infrastructure explainer with no operational next step.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/website-builders" className="btn-secondary">See the reference style</Link>

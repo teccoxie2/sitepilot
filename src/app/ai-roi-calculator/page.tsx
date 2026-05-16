@@ -87,21 +87,21 @@ const packages: Record<PackageKey, PackageConfig> = {
 
 const methodology = [
   {
-    title: 'Real business testing',
+    title: 'Time-saved model',
     description:
-      'Benchmarked across 25+ small businesses including restaurants, services, e-commerce, and consulting teams.',
+      'The calculator estimates ROI from repetitive work hours, internal labor value, and monthly tool cost instead of relying on vendor performance promises.',
     icon: BarChart3,
   },
   {
-    title: '$12K+ invested',
+    title: 'Cost-capped output',
     description:
-      'Actual subscription spend, implementation costs, and training effort were included in the model instead of estimated from vendor materials.',
+      'Savings are capped by the labor cost entered by the user, which keeps the model anchored to the budget already on the table.',
     icon: DollarSign,
   },
   {
-    title: '8-month observation window',
+    title: 'Package-level scenario planning',
     description:
-      'The strongest packages showed sustained gains in time savings, output quality, and repeatable business workflows.',
+      'Each package changes modeled efficiency, monthly spend, and payback speed so teams can compare adoption paths before buying more tools.',
     icon: Clock3,
   },
 ]
@@ -228,7 +228,7 @@ export default function AIROICalculator() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Estimate AI investment returns using the same framework we applied across 50+ tools and $12,000+ of real testing. The calculator focuses on time saved, labor value, and package cost instead of vendor claims.
+                Estimate AI ROI from repetitive work hours, internal labor value, and monthly tool cost. This calculator helps small teams compare package scenarios, expected time savings, and payback timing without leaning on vendor case studies, inflated implementation claims, or generic productivity hype.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -243,20 +243,20 @@ export default function AIROICalculator() {
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
                 <div className="page-card px-4 py-4">
-                  <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">$12K+</div>
-                  <div className="text-sm text-slate-500">Testing investment</div>
+                  <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">3</div>
+                  <div className="text-sm text-slate-500">Core inputs</div>
                 </div>
                 <div className="page-card px-4 py-4">
-                  <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">50+</div>
-                  <div className="text-sm text-slate-500">AI tools evaluated</div>
+                  <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">4</div>
+                  <div className="text-sm text-slate-500">Package scenarios</div>
                 </div>
                 <div className="page-card px-4 py-4">
-                  <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">25+</div>
-                  <div className="text-sm text-slate-500">Small businesses benchmarked</div>
+                  <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">1</div>
+                  <div className="text-sm text-slate-500">Payback model</div>
                 </div>
                 <div className="page-card px-4 py-4">
-                  <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">450%</div>
-                  <div className="text-sm text-slate-500">Best ROI package observed</div>
+                  <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">Monthly</div>
+                  <div className="text-sm text-slate-500">Budget view</div>
                 </div>
               </div>
             </div>

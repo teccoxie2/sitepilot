@@ -62,7 +62,7 @@ export default function AIRiskManagementDashboardPage() {
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    This page keeps the original risk scores, monitoring metrics, alert list, protection model, and CTA, and only aligns the shell to the current light Stripe-ish system.
+                    An enterprise AI risk management dashboard shows security exposure, compliance status, threat activity, control coverage, and operational risk in one review layer. Teams use it to identify weak controls, unresolved incidents, and ownership gaps before deployment risk turns into audit, legal, or service failures.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">

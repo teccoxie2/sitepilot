@@ -4,24 +4,24 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const heroSignals = [
-  'Keep the 8-layer security architecture, threat posture, ROI framing, implementation method, and CTA.',
-  'Preserve the original security value narrative and core proof points.',
-  'Align the page with the current light Stripe-ish visual system.',
+  'Map data, model, access, infrastructure, monitoring, privacy, human, and governance controls before rollout.',
+  'Use the framework to expose missing ownership, logging, vendor risk, and response gaps early.',
   'Keep internal links, canonical, metadata, and schema intact.',
+  'Align the page with the current light Stripe-ish visual system without padding it with fake proof.',
 ]
 
 const statCards = [
-  { value: '300+', label: 'Enterprises Protected', note: 'The original enterprise case-study framing is still here.' },
-  { value: '99.7%', label: 'Threat Mitigation', note: 'The page still highlights the framework’s protection capability.' },
-  { value: '$50B+', label: 'AI Investments', note: 'The value-at-risk narrative remains unchanged.' },
-  { value: '8', label: 'Security Layers', note: 'The full eight-layer architecture is still present.' },
+  { value: '8', label: 'Security layers', note: 'Data, models, access, infrastructure, monitoring, privacy, people, and governance.' },
+  { value: '4', label: 'Implementation phases', note: 'Assessment, design, rollout, and continuous review.' },
+  { value: '1', label: 'Decision goal', note: 'Show where the program is exposed before procurement or launch.' },
+  { value: '0', label: 'Tolerance for hand-waving', note: 'Security theater does not count as a control.' },
 ]
 
 const relatedLinks = [
   { href: '/ai-governance-compliance-framework-2026', title: 'AI Governance Framework', note: 'Review governance and security together.' },
   { href: '/ai-risk-management-dashboard-enterprise-2026', title: 'Risk Management Dashboard', note: 'See the main risk-monitoring page.' },
   { href: '/tools/ai-compliance-audit-2026', title: 'AI Compliance Audit', note: 'Go deeper with a compliance audit.' },
-  { href: '/ai-security-risk-management-guide-2026', title: 'Security Risk Management Guide', note: 'Read the broader security risk playbook.' },
+  { href: '/enterprise-ai-security-risk-management-guide-2026', title: 'Security Risk Management Guide', note: 'Read the broader security risk playbook.' },
   { href: '/apply-for-audit', title: 'Talk to SitePilot', note: 'Book a guided assessment if you need one.' },
 ] as const
 
@@ -62,8 +62,8 @@ export default function EnterpriseAISecurityFrameworkPage() {
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    This page preserves the original 8-layer security architecture, threat posture, implementation method, and ROI framing. Only the visual system has
-                    been aligned to the current light Stripe-ish UI.
+                    An enterprise AI security framework defines the controls, owners, and monitoring required to protect models, data, access, infrastructure, privacy,
+                    and incident response before deployment. Buyers use it to spot missing safeguards, approval blockers, and vendor risk before launch turns expensive.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -181,10 +181,10 @@ export default function EnterpriseAISecurityFrameworkPage() {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   {[
-                    ['Threat mitigation', '99.7%'],
-                    ['Detection rate', '99.8%'],
-                    ['Average response', '<30 seconds'],
-                    ['Leakage events', '0'],
+                    ['Control layers', '8'],
+                    ['Implementation phases', '4'],
+                    ['Primary use', 'Pre-launch review'],
+                    ['Focus', 'Exposure reduction'],
                   ].map(([label, value]) => (
                     <div key={label} className="page-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                       <div className="text-sm text-slate-500">{label}</div>

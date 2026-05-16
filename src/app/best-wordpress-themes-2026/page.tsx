@@ -4,11 +4,27 @@ import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '../../components/SchemaMarkup'
 
 export const metadata: Metadata = {
-  title: 'Best WordPress Themes 2026: 25+ Tested Themes for Every Website Type | SitePilot',
+  title: 'Best WordPress Themes 2026 | Astra vs GeneratePress vs Divi vs Flatsome',
   description:
-    'Discover the best WordPress themes for 2026. Detailed reviews of 25+ premium and free themes tested for speed, SEO, and design quality.',
+    'Compare Astra, GeneratePress, Divi, and Flatsome by speed, SEO control, design flexibility, WooCommerce fit, and long-term maintenance cost before choosing a WordPress theme in 2026.',
   keywords:
     'wordpress themes, best wordpress themes 2026, premium wordpress themes, free wordpress themes, responsive themes, SEO optimized themes',
+  alternates: {
+    canonical: 'https://sitepilot.co/best-wordpress-themes-2026',
+  },
+  openGraph: {
+    title: 'Best WordPress Themes 2026 | Astra vs GeneratePress vs Divi vs Flatsome',
+    description:
+      'Compare Astra, GeneratePress, Divi, and Flatsome by speed, SEO control, design flexibility, WooCommerce fit, and maintenance cost before choosing a WordPress theme.',
+    url: 'https://sitepilot.co/best-wordpress-themes-2026',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Best WordPress Themes 2026 | Astra vs GeneratePress vs Divi vs Flatsome',
+    description:
+      'Choose a WordPress theme by speed, SEO control, design flexibility, WooCommerce fit, and maintenance cost instead of demo hype.',
+  },
 }
 
 const relatedArticles = [
@@ -194,11 +210,11 @@ export default function BestWordPressThemes2026() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Best WordPress Themes 2026: 25+ Tested Themes for Every Website Type"
-        description="Comprehensive review of the best WordPress themes based on 6 months of testing. Performance data, design analysis, and expert recommendations."
+        title="Best WordPress Themes 2026: Astra vs GeneratePress vs Divi vs Flatsome"
+        description="Buyer-focused comparison of the best WordPress themes based on speed, SEO control, design flexibility, WooCommerce fit, and maintenance trade-offs."
         url="https://sitepilot.co/best-wordpress-themes-2026"
         publishedDate="2026-03-05"
-        modifiedDate="2026-03-05"
+        modifiedDate="2026-04-27"
       />
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -221,7 +237,7 @@ export default function BestWordPressThemes2026() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This guide covers 25+ themes tested across speed, mobile performance, SEO quality, and real-world usability. The goal is not to list everything. It is to show which themes actually make sense for business sites, content sites, and e-commerce builds.
+                The best WordPress themes in 2026 combine speed, SEO control, design flexibility, WooCommerce fit, pricing, and maintenance realism so buyers can choose Astra, GeneratePress, Divi, Flatsome, or another theme based on operating needs, not demo polish, feature bloat, or agency hype.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

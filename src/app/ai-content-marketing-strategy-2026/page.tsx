@@ -11,9 +11,9 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'AI Content Marketing Strategy 2026 | Enterprise Content Automation & Growth'
+const pageTitle = 'AI Content Marketing Strategy for Enterprise Teams (2026): Workflow, Governance, and ROI'
 const pageDescription =
-  'Advanced AI content marketing strategies for enterprises. Automate content creation, optimize performance, and scale content operations with AI-powered marketing frameworks for 2026.'
+  'Use this AI content marketing strategy guide to plan workflow design, governance, performance measurement, and rollout priorities for enterprise content teams in 2026.'
 const pageUrl = 'https://sitepilot.co/ai-content-marketing-strategy-2026'
 
 export const metadata: Metadata = {
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
 }
 
 const summaryCards = [
-  { label: '267%', note: 'Typical production increase once AI-assisted creation and review loops are standardized.' },
-  { label: '84%', note: 'Cycle-time reduction for briefing, drafting, and multi-format adaptation.' },
-  { label: '156%', note: 'Engagement lift when optimization and personalization are part of the workflow.' },
-  { label: '$2.4M', note: 'Illustrative annual savings for enterprise teams replacing fragmented manual processes.' },
+  { label: 'Planning', note: 'Map audience, content goals, approvals, and channel priorities before automating production.' },
+  { label: 'Workflow', note: 'Standardize research, drafting, review, publishing, and reporting instead of adding random tools.' },
+  { label: 'Governance', note: 'Define brand, legal, security, and data-handling controls before scale creates cleanup work.' },
+  { label: 'ROI', note: 'Measure throughput, engagement quality, conversion support, and operator workload together.' },
 ]
 
 const quickNav = [
@@ -244,8 +244,7 @@ export default function AIContentMarketingStrategy() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This page turns the original enterprise framework into a clearer operating view: how to plan, create, distribute,
-                measure, and scale AI-assisted content systems without losing control of quality or ROI.
+                An AI content marketing strategy is an operating plan for research, drafting, review, publishing, measurement, and governance across enterprise content teams. It helps buyers decide which workflows to automate, where human approval stays mandatory, and how content output connects to conversion support, reporting quality, and operating cost.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -315,8 +314,7 @@ export default function AIContentMarketingStrategy() {
               <span className="block brand-gradient-text">from planning to scale.</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              The original page already covered the right phases. This migration keeps that logic but presents it as a single operating system
-              for enterprise teams choosing where to automate, where to keep human review, and how to measure actual value.
+              Strong AI content marketing programs do not start with generation speed. They start with planning discipline, approval design, content routing, measurement rules, and a clear decision about where automation lowers workload versus where it creates review debt.
             </p>
           </div>
 

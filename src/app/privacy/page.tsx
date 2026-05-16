@@ -59,7 +59,7 @@ export default function PrivacyPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                How SitePilot and Xentech Limited approach privacy, infrastructure integrity, and the minimal collection of operational data.
+                SitePilot privacy policy explains what operational data Xentech Limited collects, why it is collected, how analytics and server logs are used, what security controls protect that data, and how visitors can request clarification, correction, or deletion when privacy rights or compliance obligations apply.
               </p>
             </div>
 

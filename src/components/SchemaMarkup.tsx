@@ -26,17 +26,24 @@ export default function SchemaMarkup({
   data,
 }: SchemaMarkupProps) {
   
+  const schemaType = type === 'website' ? 'WebSite' : type === 'article' ? 'Article' : 'Review'
+
   const getSchemaData = () => {
     if (data) {
       return {
         '@context': 'https://schema.org',
+        '@type': schemaType,
+        name: title,
+        description,
+        url,
+        image: imageUrl,
         ...data,
       }
     }
 
     const baseSchema = {
       '@context': 'https://schema.org',
-      '@type': type === 'website' ? 'WebSite' : type === 'article' ? 'Article' : 'Review',
+      '@type': schemaType,
       name: title,
       description,
       url,

@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Shield, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'AI Compliance Readiness Assessment 2026 | Enterprise AI Regulatory Framework'
+const pageTitle = 'AI Compliance Readiness Assessment for Enterprise Rollouts (2026): Gap Review, Risk Scoring, Remediation Plan'
 const pageDescription =
-  'Comprehensive AI compliance readiness assessment with regulatory framework evaluation, risk scoring, and remediation planning for enterprise AI governance.'
+  'Use this AI compliance readiness assessment to score enterprise rollout risk across governance, data handling, oversight, documentation, and remediation priorities before legal review or production approval.'
 const pageUrl = 'https://sitepilot.co/ai-compliance-readiness-assessment-2026'
 
 export const metadata: Metadata = {
@@ -256,13 +256,12 @@ export default function AIComplianceReadinessAssessment2026() {
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                AI compliance readiness,
-                <span className="brand-gradient-text block">measured before enforcement hits.</span>
+                AI compliance readiness assessment,
+                <span className="brand-gradient-text block">for enterprise rollout approval in 2026.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This assessment maps enterprise AI systems against the regulatory frameworks most likely to create serious exposure in
-                2026, then translates that exposure into risk scores, priority gaps, and a staged remediation plan.
+                An AI compliance readiness assessment scores whether an enterprise rollout can meet governance, data handling, oversight, documentation, and remediation requirements before legal review or production approval. Use it to find the gaps that create audit failure, delay procurement, or force a late rollback after deployment work has already started.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

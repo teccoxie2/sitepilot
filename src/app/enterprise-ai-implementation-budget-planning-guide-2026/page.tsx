@@ -19,7 +19,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Implementation Budget Planning Guide 2026 | SitePilot'
 const pageDescription =
-  'Complete financial framework for AI project budgeting: from $50K pilots to $5M+ transformations. Based on 247 enterprise AI implementations across Fortune 500 companies.'
+  'Enterprise AI budget planning should map infrastructure, staffing, integration, security, and contingency costs before approval. Use this guide to structure pilot, department, or transformation budgets so finance and delivery teams can compare scope, risk, and expected return with the same model.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-implementation-budget-planning-guide-2026'
 
 export const metadata: Metadata = {
@@ -48,10 +48,10 @@ export const metadata: Metadata = {
 }
 
 const heroStats = [
-  { value: '$127K', label: 'median AI project budget' },
-  { value: '3.2x', label: 'average budget overrun' },
-  { value: '18mo', label: 'ROI breakeven point' },
-  { value: '247', label: 'enterprise implementations analyzed' },
+  { value: '5', label: 'budget layers' },
+  { value: '3', label: 'project templates' },
+  { value: '15-20%', label: 'contingency range shown' },
+  { value: 'BOFU', label: 'budget-owner framing' },
 ]
 
 const budgetLayers = [
@@ -228,7 +228,7 @@ export default function EnterpriseAIImplementationBudgetPlanningGuidePage() {
                   <span className="brand-gradient-text block">Model the money before you sell the vision.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Complete financial framework for AI project budgeting: from $50K pilots to $5M+ transformations. This page keeps the original budget layers, project templates, execution advice, and internal links while aligning the layout to the current light Stripe-ish UI.
+                  Enterprise AI budget planning should map infrastructure, staffing, integration, security, compliance, and contingency costs before approval. This guide helps finance, procurement, and delivery teams compare pilot, department, and transformation budgets using the same cost structure, review criteria, and risk logic.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#framework" className="btn-brand inline-flex items-center gap-2">

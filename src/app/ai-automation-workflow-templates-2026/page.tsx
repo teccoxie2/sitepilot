@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+/* <p>AI automation workflow templates help teams compare repeatable process designs across customer service, sales, content, finance, and operations. This guide is for buyers who need to judge workflow fit, implementation effort, cost assumptions, and likely payback before changing process design or adding new automation software.</p> */
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import ReactMarkdown from 'react-markdown'
@@ -9,7 +10,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = '25 AI Automation Workflow Templates - Ready-to-Use Business Optimization Plays | SitePilot 2026'
 const pageDescription =
-  '25 validated AI automation workflow templates backed by $12K in tool testing, covering customer service, sales, content marketing, finance, and more with cost analysis, implementation time, and expected ROI.'
+  'Review 25 AI automation workflow templates for customer service, sales, content marketing, finance, and operations. This guide helps teams compare workflow fit, implementation effort, cost assumptions, and expected payback before they change process design or buy more automation software.'
 const pageUrl = 'https://sitepilot.co/ai-automation-workflow-templates-2026'
 
 export const metadata: Metadata = {
@@ -19,15 +20,15 @@ export const metadata: Metadata = {
     'AI automation, workflow templates, business process optimization, ChatGPT automation, Zapier workflows, AI customer service, sales automation, content marketing automation, ROI analysis, small business AI solutions',
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: '25 AI Automation Workflow Templates - Proven Business Optimization Plays',
-    description: 'AI automation templates backed by $12K in real testing with 320%+ average ROI, implementation guidance, cost analysis, and real-world examples.',
+    title: '25 AI Automation Workflow Templates - Business Process Comparison Guide',
+    description: 'Compare 25 AI automation workflow templates by workflow fit, implementation effort, cost assumptions, and expected payback before changing operations or tool spend.',
     type: 'article',
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
-    title: '25 AI Automation Workflow Templates - Proven Business Optimization Plays',
-    description: 'AI automation templates backed by $12K in real testing with 320%+ average ROI, implementation guidance, cost analysis, and real-world examples.',
+    title: '25 AI Automation Workflow Templates - Business Process Comparison Guide',
+    description: 'Compare 25 AI automation workflow templates by workflow fit, implementation effort, cost assumptions, and expected payback before changing operations or tool spend.',
   },
 }
 
@@ -37,16 +38,16 @@ const summaryCards = [
     note: 'Covering customer service, sales automation, content marketing, finance, project management, and hiring.',
   },
   {
-    label: '320%+ average ROI',
-    note: 'Built from real testing and implementation cases, not theoretical flowcharts.',
+    label: 'Buyer-first comparison',
+    note: 'Use the templates to compare workflow fit, implementation effort, and operating complexity before rollout.',
   },
   {
-    label: '$12K in testing',
-    note: 'Focused on cost, implementation time, and expected return so operators can filter quickly.',
+    label: 'Cost and payback framing',
+    note: 'The page is meant to help operators judge spend, setup time, and payback assumptions, not collect automation hype.',
   },
   {
-    label: 'Ready to implement',
-    note: 'Each template maps the tool stack, use case, execution steps, and budget assumptions.',
+    label: 'Ready to evaluate',
+    note: 'Each template maps the workflow, likely tool stack, business use case, and implementation tradeoffs.',
   },
 ]
 
@@ -152,7 +153,7 @@ export default function AIWorkflowTemplatesPage() {
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-04-19"
-        modifiedDate="2026-04-19"
+        modifiedDate="2026-05-14"
         authorName="SitePilot Team"
       />
 
@@ -176,8 +177,7 @@ export default function AIWorkflowTemplatesPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This library draws on $12K in AI tool testing and more than 25 real implementation cases to package reusable business automation plays.
-                The goal is not an inspiration list. It is to help teams judge which workflows are worth automating, what they cost, and how quickly they can pay back.
+                AI automation workflow templates help teams compare repeatable process designs across customer service, sales, content, finance, and operations. This page is built for buyers who need to judge workflow fit, implementation effort, cost assumptions, and likely payback before changing process design or adding new automation software.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

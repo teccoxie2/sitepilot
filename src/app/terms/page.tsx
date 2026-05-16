@@ -59,7 +59,7 @@ export default function TermsPage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Last updated April 9, 2026. These terms govern the use of SitePilot technical assets, guides, and auditing frameworks.
+                These SitePilot terms explain who operates the platform, what users may do with its guides and auditing assets, where liability limits apply, how intellectual property is protected, and which legal framework governs access to informational content, technical evaluations, and buyer-oriented decision tools.
               </p>
             </div>
 

@@ -218,7 +218,7 @@ export default function AIComplianceAudit2026() {
                   </h1>
 
                   <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                    This assessment uses 190 checkpoints across data privacy, algorithmic fairness, model transparency, data security, and regulatory readiness. The goal is not to showcase terminology. It is to give teams an actionable remediation direction in about 15 minutes.
+                    An enterprise AI compliance audit should test data privacy, model transparency, security controls, fairness exposure, and regulatory readiness before deployment risk becomes legal or operational debt. This assessment uses 190 checkpoints to give teams a fast remediation direction and a clearer view of which controls need work first.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mb-10">

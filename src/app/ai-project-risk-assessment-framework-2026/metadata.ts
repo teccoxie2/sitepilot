@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 const pageTitle = 'AI Project Risk Assessment Framework 2026 | SitePilot'
 const pageDescription =
-  'Enterprise-grade risk assessment framework covering 24 critical AI project risk factors across 6 categories. Identify, quantify, and mitigate AI project risks.'
+  'Assess AI project delivery risk across 24 factors in six categories, including governance, security, data, operations, vendor exposure, and rollout complexity, so teams can prioritize mitigation work before launch approvals, budget commitments, and implementation deadlines lock in.'
 const pageUrl = 'https://sitepilot.co/ai-project-risk-assessment-framework-2026'
 
 export const metadata: Metadata = {

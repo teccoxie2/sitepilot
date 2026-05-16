@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-export const pageTitle = 'Web Hosting Reviews 2026 | SitePilot'
+export const pageTitle = 'Best Web Hosting 2026 | Compare Hosting Reviews, Pricing & Fit'
 export const pageDescription =
-  'Web hosting in 2026 should be evaluated on uptime discipline, support quality, pricing structure, caching stack, security defaults, scaling headroom, and lock-in risk so teams can choose infrastructure that stays reliable after the promotional discount expires.'
+  'Compare the best web hosting in 2026 using uptime discipline, support quality, pricing structure, caching stack, security defaults, scaling headroom, and lock-in risk before you choose a provider.'
 export const pageUrl = 'https://sitepilot.co/web-hosting'
 
 export const metadata: Metadata = {

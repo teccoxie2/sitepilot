@@ -291,8 +291,7 @@ export default function AIImplementationSuccessFramework2026() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                This framework translates enterprise AI transformation into a staged rollout with industry benchmarks,
-                measurable success criteria, failure-mode mitigation, and the governance links needed to scale responsibly.
+                An AI implementation success framework breaks enterprise rollout into sequenced phases covering readiness, pilot scope, adoption targets, governance controls, and ROI checkpoints so leaders can fund, deploy, and scale AI programs without losing control of timeline, risk, or operating ownership.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

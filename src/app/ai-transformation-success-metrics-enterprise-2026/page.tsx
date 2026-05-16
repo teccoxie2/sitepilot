@@ -244,7 +244,7 @@ export default function AITransformationSuccessMetrics() {
                   <span className="brand-gradient-text block">not reporting decoration, but operating guardrails.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Comprehensive framework for measuring and optimizing AI transformation success in enterprise environments. This page keeps the original KPI categories, phase model, industry benchmarks, 90-day action plan, and internal links while aligning the shell to the current light Stripe-ish system.
+                  AI transformation success metrics should measure financial impact, process improvement, adoption depth, model risk, and delivery speed against a pre-AI baseline. Enterprise KPI frameworks fail when dashboards celebrate activity but cannot show whether a rollout deserves more budget, tighter controls, or an immediate reset.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#benchmarks" className="btn-brand inline-flex items-center gap-2">

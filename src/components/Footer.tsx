@@ -32,7 +32,7 @@ const footerGroups = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.88)_0%,rgba(248,250,255,0.95)_100%)]">
+    <footer data-nosnippet className="relative border-t border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.88)_0%,rgba(248,250,255,0.95)_100%)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr] mb-12">
           <div className="max-w-md">

@@ -213,6 +213,18 @@ const relatedResources = [
     description: 'Policy and control structure for AI rollout.',
     icon: Shield,
   },
+  {
+    href: '/ai-vendor-due-diligence-checklist-enterprise-2026',
+    title: 'Vendor due diligence checklist',
+    description: 'Validate supplier claims, controls, and delivery risk before rollout.',
+    icon: AlertTriangle,
+  },
+  {
+    href: '/enterprise-ai-vendor-pilot-evaluation-checklist-2026',
+    title: 'Pilot evaluation checklist',
+    description: 'Turn adoption pilots into measurable rollout evidence and next-step decisions.',
+    icon: TrendingUp,
+  },
 ]
 
 export default function AIChangeManagementFramework() {
@@ -248,9 +260,9 @@ export default function AIChangeManagementFramework() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Enterprise AI rollout fails when transformation is treated like software deployment only. This framework maps the
-                organizational work required to align leaders, prepare teams, reduce resistance, and build adoption habits that
-                survive beyond the pilot stage.
+                Enterprise AI change management is the operating plan that aligns leaders, managers, and frontline teams before rollout,
+                during pilots, and after launch so adoption targets, training coverage, resistance controls, and governance decisions
+                stay measurable instead of collapsing into tool-led chaos.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

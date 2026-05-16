@@ -320,8 +320,7 @@ export default function AIContentOptimizationFramework2026() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                Run a four-step assessment to estimate engagement lift, productivity gain, cost savings, and implementation risk
-                before you commit to more tools or a larger content team.
+                An AI content optimization framework measures which workflow, targeting, analytics, and automation changes are most likely to improve engagement, reduce production cost, and increase conversion quality before a team spends more budget on extra tools, headcount, or new low-confidence experiments.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

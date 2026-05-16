@@ -16,7 +16,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Security & Risk Management Guide 2026 | SitePilot'
 const pageDescription =
-  'Comprehensive security framework for enterprise AI deployment: Zero-trust architecture, compliance automation, and threat mitigation. Based on 189 enterprise security incidents and Fortune 100 best practices.'
+  'Enterprise AI security and risk management guide covering model integrity, privacy, access, monitoring, compliance, and incident response so buyers can review exposure, approvals, and deployment blockers before rollout.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-security-risk-management-guide-2026'
 
 export const metadata: Metadata = {
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
 }
 
 const heroStats = [
-  { value: '89%', label: 'increase in AI security incidents' },
-  { value: '$4.7M', label: 'average breach cost' },
-  { value: '34 days', label: 'mean detection time' },
-  { value: '189', label: 'incidents analyzed' },
+  { value: '7', label: 'security layers in view' },
+  { value: '1', label: 'goal: expose rollout blockers' },
+  { value: '24/7', label: 'monitoring expectation' },
+  { value: '0', label: 'room for security theater' },
 ]
 
 const layers = [
@@ -109,9 +109,9 @@ const layers = [
 ]
 
 const benchmarkCards = [
-  { label: 'Security incidents', value: '89%', note: 'increase observed in enterprise AI environments.' },
-  { label: 'Average breach cost', value: '$4.7M', note: 'plan for this kind of number before approval.' },
-  { label: 'Detection time', value: '34 days', note: 'mean time to notice AI-specific threats.' },
+  { label: 'Model integrity', value: 'Critical', note: 'Protect training inputs, prompts, outputs, and rollback paths.' },
+  { label: 'Access & privacy', value: 'Mandatory', note: 'Map identity, logging, data handling, and approval controls early.' },
+  { label: 'Response readiness', value: 'Tested', note: 'Runbooks and escalation paths should exist before production launch.' },
 ]
 
 const checklist = [
@@ -127,7 +127,7 @@ const relatedLinks = [
   { href: '/ai-enterprise-security-compliance', title: 'AI enterprise security compliance', note: 'See the broader enterprise security and compliance model.' },
   { href: '/ai-governance-framework-enterprise-2026', title: 'AI governance framework', note: 'Fill in the governance layer around the program.' },
   { href: '/ai-security-framework-enterprise-2026', title: 'AI security framework', note: 'Review the core security framework page.' },
-  { href: '/enterprise-ai-vendor-due-diligence-checklist-2026', title: 'Vendor due diligence checklist', note: 'Do not skip vendor risk review.' },
+  { href: '/ai-vendor-due-diligence-checklist-enterprise-2026', title: 'Vendor due diligence checklist', note: 'Do not skip vendor risk review.' },
   { href: '/enterprise-ai-vendor-rfp-template-2026', title: 'Vendor RFP template', note: 'Write security requirements into the procurement phase.' },
   { href: '/ai-compliance-readiness-assessment-2026', title: 'Compliance readiness assessment', note: 'Check compliance maturity first.' },
 ]
@@ -149,7 +149,7 @@ export default function EnterpriseAISecurityRiskManagementGuidePage() {
               <div className="max-w-3xl">
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI security & risk management</div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI security,<span className="brand-gradient-text block">Do not treat “launch first, patch security later” as an engineering method.</span></h1>
-                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Comprehensive security framework for enterprise AI deployment: Zero-trust architecture, compliance automation, and threat mitigation. This page keeps the 7-layer framework, benchmarks, and checklist, just in the unified light Stripe-ish UI.</p>
+                <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Enterprise AI security and risk management covers model integrity, data privacy, access control, monitoring, compliance, and incident response so teams can review exposure before deployment. Buyers use this guide to find missing safeguards, ownership gaps, and vendor risks before rollout approval.</p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#framework" className="btn-brand inline-flex items-center gap-2">View 7-layer framework <ArrowRight className="h-4 w-4" /></a>
                   <a href="#checklist" className="btn-secondary inline-flex items-center gap-2">View checklist</a>
@@ -178,7 +178,7 @@ export default function EnterpriseAISecurityRiskManagementGuidePage() {
         </section>
 
         <section id="framework" className="mb-16">
-          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Compass className="h-4 w-4 text-[#635bff]" />7-layer framework</div><h2 className="page-title text-3xl md:text-4xl">7-Layer Enterprise AI Security Framework</h2><p className="page-lead mt-3 text-lg">From model integrity to incident recovery, the whole stack stays visible.</p></div>
+          <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Compass className="h-4 w-4 text-[#635bff]" />7-layer framework</div><h2 className="page-title text-3xl md:text-4xl">7-Layer Enterprise AI Security Framework</h2><p className="page-lead mt-3 text-lg">From model integrity to incident recovery, this cluster keeps methodology, governance, checklist, and vendor-review paths connected instead of leaving the page orphaned.</p></div>
           <div className="space-y-5">{layers.map((layer) => { const Icon = layer.step === '1' ? Target : layer.step === '2' ? Layers : layer.step === '3' ? Shield : layer.step === '4' ? Users : layer.step === '5' ? Zap : layer.step === '6' ? Sparkles : AlertTriangle; return (<div key={layer.step} className={`page-card p-6 md:p-8 ${layer.tone}`}><div className="mb-6 flex items-center justify-between gap-3"><div className="flex items-center gap-3"><div className="rounded-2xl bg-white/80 p-3 shadow-sm ring-1 ring-white/80"><Icon className="h-5 w-5 text-slate-800" /></div><div><div className="text-sm uppercase tracking-[0.24em] text-slate-500">Layer {layer.step}</div><h3 className="text-xl font-semibold text-slate-950">{layer.title}</h3></div></div><div className="rounded-full border border-current/15 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-700">{layer.badge}</div></div><div className="grid gap-5 lg:grid-cols-2">{layer.groups.map((group) => (<div key={group.title} className="rounded-3xl border border-white/70 bg-white/70 p-5"><h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{group.title}</h4><ul className="space-y-2 text-sm text-slate-700">{group.bullets.map((bullet) => (<li key={bullet} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><span>{bullet}</span></li>))}</ul></div>))}</div></div>) })}</div>
         </section>
 

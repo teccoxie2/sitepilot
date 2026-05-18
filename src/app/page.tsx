@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { ArrowRight, Shield, Cpu, Gauge, Network, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'SitePilot | Compare Hosting, AI Tools, Website Builders & Proxies'
+const pageTitle = 'SitePilot | Compare Hosting, Website Builders & Proxies'
 const pageDescription =
-  'Compare hosting, AI tools, website builders, and proxy infrastructure using independent audits, buyer-focused comparisons, and decision assets built for real operator and procurement workflows.'
+  'Compare hosting, website builders, and proxy infrastructure using independent audits, buyer-focused comparisons, and decision assets built for real operator and procurement workflows.'
 const pageUrl = 'https://sitepilot.co'
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 }
 
 const operatingSignals = [
-  'Hosting, builders, AI tools, and proxy infrastructure in one editorial system',
+  'Hosting, builders, proxy infrastructure, and domain buying paths in one editorial system',
   'Operator-grade comparisons instead of promo-code theater',
   'Calm Stripe-ish hierarchy that now scales across the whole site',
   'Decision support built for teams buying with technical accountability',
@@ -45,12 +45,6 @@ const capabilityCards = [
       'Selection logic grounded in uptime, maintainability, operating overhead, and realistic long-term fit.',
     icon: Gauge,
   },
-  {
-    title: 'AI procurement frameworks',
-    description:
-      'Structured scorecards, calculators, and rollout guidance for teams adopting AI without buying vague promises.',
-    icon: Cpu,
-  },
 ]
 
 const coverageTracks = [
@@ -67,13 +61,6 @@ const coverageTracks = [
     href: '/website-builders',
     cta: 'Explore builder guides',
     icon: Sparkles,
-  },
-  {
-    title: 'AI tools',
-    note: 'Enterprise planning models, ROI calculators, workflow guides, and product comparisons.',
-    href: '/ai-tools',
-    cta: 'Browse AI coverage',
-    icon: Cpu,
   },
   {
     title: 'Proxy infrastructure',
@@ -99,6 +86,29 @@ const operatingModel = [
   },
 ]
 
+const domainClusterLinks = [
+  {
+    title: 'Best domain registrars 2026',
+    href: '/best-domain-registrars-2026',
+    note: 'Start here when the real question is where to buy and renew the domain.',
+  },
+  {
+    title: 'How to buy a domain name',
+    href: '/how-to-buy-a-domain-name-2026',
+    note: 'Use the step-by-step path when the team is buying its first serious domain.',
+  },
+  {
+    title: 'Domain vs hosting',
+    href: '/domain-vs-hosting-2026',
+    note: 'Useful when buyers are mixing up the naming layer and the infrastructure layer.',
+  },
+  {
+    title: '.com vs .ai vs .co vs .io',
+    href: '/.com-vs-.ai-vs-.co-vs-.io-2026',
+    note: 'Choose the extension with the least long-term confusion and brand drag.',
+  },
+]
+
 export default function HomePage() {
   return (
     <div className="min-h-screen overflow-x-hidden text-slate-900">
@@ -109,7 +119,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
             <div className="max-w-3xl">
               <p className="text-sm md:text-base font-medium text-slate-600 max-w-2xl mb-4">
-                SitePilot compares hosting, website builders, AI tools, and proxy infrastructure using independent audits, commercial analysis, operational risk review, and buyer-path decision assets. Teams use it to move from category discovery into shortlist, diligence, implementation planning, and platform commitment without affiliate fluff or vendor theatre.
+                SitePilot compares hosting, website builders, and proxy infrastructure using independent audits, commercial analysis, operational risk review, and buyer-path decision assets. Teams use it to move from category discovery into shortlist, diligence, implementation planning, and platform commitment without affiliate fluff or vendor theatre.
               </p>
 
               <div className="page-pill mb-6" data-nosnippet>
@@ -123,7 +133,7 @@ export default function HomePage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                SitePilot is a decision system for hosting, website builders, AI tools, and proxy infrastructure that connects methodology, audits, comparisons, and buyer assets so operators can move from category discovery to shortlist, due diligence, and vendor selection without relying on affiliate fluff or glossy vendor positioning.
+                SitePilot is a decision system for hosting, website builders, and proxy infrastructure that connects methodology, audits, comparisons, and buyer assets so operators can move from category discovery to shortlist, due diligence, and vendor selection without relying on affiliate fluff or glossy vendor positioning.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -229,22 +239,43 @@ export default function HomePage() {
           })}
         </section>
 
+        <section className="page-card p-8 md:p-10 mb-16">
+          <div className="max-w-4xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Domain buying path</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              Domain intent is the front door.
+              <span className="block brand-gradient-text">Use it to feed hosting and site-build decisions.</span>
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              Buyers often start with the name first, then figure out registrar choice, extension strategy, hosting, and publishing. These pages now give SitePilot a cleaner path for that earlier-stage intent instead of dropping everyone straight into hosting comparisons.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {domainClusterLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="rounded-2xl border border-slate-200 bg-white px-5 py-5 transition-colors hover:bg-slate-50">
+                <div className="text-lg font-semibold text-slate-950 mb-2">{item.title}</div>
+                <p className="text-sm leading-6 text-slate-600 mb-3">{item.note}</p>
+                <div className="inline-flex items-center text-[#635bff] font-semibold">
+                  Open page
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="page-card-glow p-8 md:p-12 surface-muted">
           <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
             <div className="max-w-2xl">
               <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Operating model</div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
-                One site, four decision systems.
+                One site, three decision systems.
                 <span className="block brand-gradient-text">Built to move buyers from category to evidence.</span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
                 The homepage should explain what SitePilot is, route visitors into the right hub, and connect those hubs to methodology, comparisons, scorecards, and audit paths that can actually support a real buying decision.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/ai-tools" className="btn-brand">
-                  Open AI planning hub
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
                 <Link href="/methodology" className="btn-secondary">
                   See evaluation criteria
                 </Link>

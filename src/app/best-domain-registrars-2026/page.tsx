@@ -83,12 +83,12 @@ export default function Page() {
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
-                <Link href="/best-domain-registrars-2026" className="btn-brand">
-                  Compare domain options
+                <Link href="/how-to-buy-a-domain-name-2026" className="btn-brand">
+                  Follow the buying sequence
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link href="/web-hosting" className="btn-secondary">
-                  See hosting next
+                <Link href="/namecheap-vs-godaddy-2026" className="btn-secondary">
+                  Compare Namecheap vs GoDaddy
                 </Link>
               </div>
 

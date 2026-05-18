@@ -5,9 +5,9 @@ const footerGroups = [
     title: "Web Hosting",
     links: [
       { href: "/web-hosting", label: "Best Web Hosting 2026" },
-      { href: "/cheap-hosting", label: "Cheap Hosting" },
+      { href: "/best-domain-registrars-2026", label: "Best Domain Registrars" },
+      { href: "/domain-vs-hosting-2026", label: "Domain vs Hosting" },
       { href: "/hosting/wordpress-hosting", label: "WordPress Hosting" },
-      { href: "/cloud-hosting-vs-traditional-hosting-2026", label: "Cloud vs Traditional" },
     ],
   },
   {
@@ -20,11 +20,11 @@ const footerGroups = [
     ],
   },
   {
-    title: "AI Tools",
+    title: "AI Strategy",
     links: [
       { href: "/best-ai-seo-tools-2026", label: "AI SEO Tools" },
       { href: "/best-ai-writing-tools-2026", label: "AI Writing Tools" },
-      { href: "/ai-content-generator-comparison", label: "Content Generators" },
+      { href: "/enterprise-ai-vendor-shortlist-scorecard-2026", label: "Vendor Scorecards" },
       { href: "/website-security-checklist-2026", label: "Security Guide" },
     ],
   },

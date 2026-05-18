@@ -58,14 +58,14 @@ const clusterLinks = [
     note: 'Use the shortlist when you want the broader market view before digging into provider-specific audits.',
   },
   {
-    title: 'Hostinger vs Bluehost',
-    href: '/hosting/hostinger-vs-bluehost',
-    note: 'Use a direct comparison when the real buying question is value stack versus beginner familiarity.',
+    title: 'Best domain registrars 2026',
+    href: '/best-domain-registrars-2026',
+    note: 'Start here when the real buying problem is domain ownership before hosting selection.',
   },
   {
-    title: 'Cheap hosting',
-    href: '/cheap-hosting',
-    note: 'For budget-sensitive buying, where low cost matters but you still want to avoid total garbage.',
+    title: 'Domain vs hosting',
+    href: '/domain-vs-hosting-2026',
+    note: 'Useful when the buyer is still mixing up the address layer and the infrastructure layer.',
   },
   {
     title: 'Cloud hosting vs traditional hosting',
@@ -121,11 +121,11 @@ export default function WebHostingHub2026() {
                   Start with a real audit
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link href="/hosting/hostinger-vs-bluehost" className="btn-secondary">
-                  Compare Hostinger vs Bluehost
+                <Link href="/best-domain-registrars-2026" className="btn-secondary">
+                  Compare domain registrars
                 </Link>
-                <Link href="/best-web-hosting-2026" className="btn-secondary">
-                  Review top hosting picks
+                <Link href="/domain-vs-hosting-2026" className="btn-secondary">
+                  Domain vs hosting
                 </Link>
               </div>
 

@@ -32,7 +32,7 @@ export default function Header() {
   const navLinks = [
     { name: "Hosting", href: "/web-hosting" },
     { name: "Builders", href: "/website-builders" },
-    { name: "AI Tools", href: "/ai-tools" },
+    { name: "Domain", href: "/best-domain-registrars-2026" },
     { name: "Proxies", href: "/proxies" }
   ];
 

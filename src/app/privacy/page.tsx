@@ -22,7 +22,7 @@ const sections = [
   {
     title: '2. Information collection',
     body:
-      'We collect minimal data required to provide our services, primarily Google Analytics 4 (GA4) for traffic analysis and server-side logs for security monitoring. No personally identifiable information is stored without explicit consent.',
+      'We collect minimal data required to provide our services. Optional Google Analytics 4 (GA4) loads only after a visitor opts in, while server-side logs support security monitoring. No personally identifiable information is stored without explicit consent.',
     icon: Eye,
   },
   {

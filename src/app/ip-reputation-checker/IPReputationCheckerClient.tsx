@@ -51,6 +51,14 @@ function derivePurity(result: LiveReputationResult) {
     }
   }
 
+  if (result.proxycheck.status !== 'ready' || result.ipapi.status !== 'ready') {
+    return {
+      label: 'Needs review',
+      tone: 'watch' as const,
+      summary: 'One or more external sources are unavailable, so this result cannot be classified as high purity.',
+    }
+  }
+
   if (result.compromised || result.tor) {
     return {
       label: 'Low purity',
@@ -111,10 +119,6 @@ async function requestCheck(target: string): Promise<LiveReputationResult> {
   return payload.result
 }
 
-function safeLabel(value: string | null | undefined) {
-  return cleanOrNull(value) ?? 'Unavailable'
-}
-
 function boolLabel(value: boolean) {
   return value ? 'Yes' : 'No'
 }
@@ -122,6 +126,7 @@ function boolLabel(value: boolean) {
 export default function IPReputationCheckerClient({ initialTarget }: Props) {
   const [target, setTarget] = useState(initialTarget)
   const [checkedTarget, setCheckedTarget] = useState(initialTarget)
+  const [checkRequestId, setCheckRequestId] = useState(0)
   const [result, setResult] = useState<LiveReputationResult | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -129,14 +134,15 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
   useEffect(() => {
     let active = true
 
-    setLoading(true)
-    setError(null)
     requestCheck(checkedTarget)
       .then((next) => {
         if (active) setResult(next)
       })
       .catch((nextError) => {
-        if (active) setError(nextError instanceof Error ? nextError.message : 'Unknown error')
+        if (active) {
+          setResult(null)
+          setError(nextError instanceof Error ? nextError.message : 'Unknown error')
+        }
       })
       .finally(() => {
         if (active) setLoading(false)
@@ -145,7 +151,14 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
     return () => {
       active = false
     }
-  }, [checkedTarget])
+  }, [checkedTarget, checkRequestId])
+
+  const startCheck = () => {
+    setError(null)
+    setLoading(true)
+    setCheckedTarget(target.trim() || initialTarget)
+    setCheckRequestId((value) => value + 1)
+  }
 
   const headline = useMemo(() => {
     if (!result) {
@@ -235,7 +248,7 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
                 value={target}
                 onChange={(event) => setTarget(event.target.value)}
                 onKeyDown={(event) => {
-                  if (event.key === 'Enter') setCheckedTarget(target.trim() || initialTarget)
+                  if (event.key === 'Enter') startCheck()
                 }}
                 placeholder="Enter IP address, hostname, or endpoint"
                 className="h-11 w-full rounded-md border border-slate-300 bg-white pl-10 pr-3 text-sm text-slate-950 outline-none transition focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100"
@@ -243,7 +256,7 @@ export default function IPReputationCheckerClient({ initialTarget }: Props) {
             </div>
             <button
               type="button"
-              onClick={() => setCheckedTarget(target.trim() || initialTarget)}
+              onClick={startCheck}
               className="inline-flex h-11 items-center justify-center rounded-md bg-[#635bff] px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-[#564ee8]"
             >
               <Play className="mr-2 h-4 w-4" />

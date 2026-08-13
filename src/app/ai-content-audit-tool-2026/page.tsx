@@ -205,7 +205,7 @@ export default function AIContentAuditTool() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section id="audit-tool" className="page-card p-8 md:p-10 mb-16">
           <div className="max-w-3xl mb-8">
             <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Assessment</div>
@@ -442,7 +442,7 @@ export default function AIContentAuditTool() {
             <strong>Pro tip:</strong> teams that run quarterly content audits usually see materially better ROI than teams publishing without a systematic feedback loop.
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

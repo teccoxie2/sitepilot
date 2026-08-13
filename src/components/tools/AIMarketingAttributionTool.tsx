@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 interface ChannelData {
   name: string
@@ -36,11 +36,10 @@ const defaultChannels: ChannelData[] = [
 export default function AIMarketingAttributionTool() {
   const [channels, setChannels] = useState<ChannelData[]>(defaultChannels)
   const [results, setResults] = useState<AttributionResult[]>([])
-  const [totalBudget, setTotalBudget] = useState(22300)
   const [analysisMode, setAnalysisMode] = useState<'standard' | 'advanced'>('standard')
   const [isCalculating, setIsCalculating] = useState(false)
 
-  const calculateAttribution = () => {
+  const calculateAttribution = useCallback(() => {
     setIsCalculating(true)
     
     setTimeout(() => {
@@ -62,8 +61,6 @@ export default function AIMarketingAttributionTool() {
         // AI-enhanced attribution considers additional performance signals.
         const ctr = channel.clicks / Math.max(channel.impressions, 1) * 100
         const conversionRate = channel.conversions / Math.max(channel.clicks, 1) * 100
-        const costPerConversion = channel.cost / Math.max(channel.conversions, 1)
-        
         const aiEnhancedAttribution = (
           conversionShare * 0.25 +
           revenueShare * 0.35 +
@@ -109,13 +106,14 @@ export default function AIMarketingAttributionTool() {
       setResults(attributionResults.sort((a, b) => b.aiEnhancedAttribution - a.aiEnhancedAttribution))
       setIsCalculating(false)
     }, 1500)
-  }
-
-  useEffect(() => {
-    calculateAttribution()
   }, [channels])
 
-  const updateChannel = (index: number, field: keyof ChannelData, value: number) => {
+  useEffect(() => {
+    const timeoutId = window.setTimeout(calculateAttribution, 0)
+    return () => window.clearTimeout(timeoutId)
+  }, [calculateAttribution])
+
+  const updateChannel = <K extends keyof ChannelData>(index: number, field: K, value: ChannelData[K]) => {
     const newChannels = [...channels]
     newChannels[index] = { ...newChannels[index], [field]: value }
     setChannels(newChannels)
@@ -176,7 +174,7 @@ export default function AIMarketingAttributionTool() {
                   <input
                     type="text"
                     value={channel.name}
-                    onChange={(e) => updateChannel(index, 'name', e.target.value as any)}
+                    onChange={(e) => updateChannel(index, 'name', e.target.value)}
                     className="font-medium text-gray-900 border-none p-0 focus:ring-0 bg-transparent"
                   />
                   {channels.length > 1 && (

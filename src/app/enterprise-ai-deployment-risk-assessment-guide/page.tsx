@@ -154,7 +154,7 @@ export default function EnterpriseAIDeploymentRiskAssessmentGuidePage() {
         <div className="absolute inset-x-0 top-[30rem] h-[24rem] bg-[radial-gradient(circle_at_22%_22%,rgba(99,91,255,0.05),transparent_24%),radial-gradient(circle_at_76%_26%,rgba(14,165,233,0.05),transparent_22%),radial-gradient(circle_at_50%_82%,rgba(244,114,182,0.04),transparent_28%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+      <section className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-16 pt-10 md:pb-24 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -448,7 +448,7 @@ export default function EnterpriseAIDeploymentRiskAssessmentGuidePage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

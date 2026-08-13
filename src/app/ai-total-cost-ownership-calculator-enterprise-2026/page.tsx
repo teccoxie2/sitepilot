@@ -135,7 +135,7 @@ export default function AITotalCostOwnershipCalculatorPage() {
         <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
@@ -151,7 +151,7 @@ export default function AITotalCostOwnershipCalculatorPage() {
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Enterprise AI total cost of ownership should include software, infrastructure, implementation, training, maintenance, compliance, and hidden organizational drag instead of pretending the subscription line item is the whole story. This page keeps the original TCO structure, five-year cost view, optimization strategy, and internal links while aligning the layout to the current light Stripe-ish UI.
+                  Enterprise AI total cost of ownership should include software, infrastructure, implementation, training, maintenance, compliance, and hidden organizational drag—not just the subscription line item.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
@@ -294,7 +294,7 @@ export default function AITotalCostOwnershipCalculatorPage() {
               <span className="brand-gradient-text block">Both depend on doing the work in the right order.</span>
             </h2>
             <p className="mb-8 text-lg leading-relaxed text-slate-600">
-              The original optimization sequence stays intact: control initial spend first, then focus on high-impact use cases, then optimize continuously. Without that order, many teams burn a lot of real money chasing the phrase "AI transformation."
+              The original optimization sequence stays intact: control initial spend first, then focus on high-impact use cases, then optimize continuously. Without that order, many teams burn a lot of real money chasing the phrase &quot;AI transformation.&quot;
             </p>
             <div className="grid gap-4 md:grid-cols-2">
               {optimizationStrategies.map((group) => {
@@ -375,7 +375,7 @@ export default function AITotalCostOwnershipCalculatorPage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

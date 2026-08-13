@@ -302,7 +302,7 @@ export default function AIContentCalendarTools() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="page-card-glow p-8 md:p-10 surface-muted mb-16">
           <div className="max-w-3xl mb-8">
             <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Executive summary</div>
@@ -579,7 +579,7 @@ export default function AIContentCalendarTools() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

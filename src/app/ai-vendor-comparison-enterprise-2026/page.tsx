@@ -125,7 +125,7 @@ export default function EnterpriseAIVendorComparisonPage() {
         </div>
       </section>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-16 md:py-20">
+      <section className="relative max-w-7xl mx-auto px-4 py-16 md:py-20">
         <ComparisonTool />
 
         <section className="mt-16 rounded-[2rem] border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
@@ -164,7 +164,7 @@ export default function EnterpriseAIVendorComparisonPage() {
             </p>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

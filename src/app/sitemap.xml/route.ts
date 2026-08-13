@@ -4,13 +4,11 @@ import { NextResponse } from 'next/server'
 
 type RouteEntry = {
   url: string
-  lastModified: string
   changeFreq: 'daily' | 'weekly' | 'monthly'
   priority: string
 }
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const revalidate = 3600
 
 const baseUrl = 'https://sitepilot.co'
 const appDir = path.join(process.cwd(), 'src', 'app')
@@ -57,7 +55,6 @@ function getChangeFreq(pathname: string): RouteEntry['changeFreq'] {
 }
 
 async function buildRoutes(): Promise<RouteEntry[]> {
-  const currentDate = new Date().toISOString()
   const pathnames = Array.from(new Set(await collectPageRoutes(appDir))).sort((a, b) => {
     if (a === '/') return -1
     if (b === '/') return 1
@@ -66,7 +63,6 @@ async function buildRoutes(): Promise<RouteEntry[]> {
 
   return pathnames.map((pathname) => ({
     url: pathname === '/' ? baseUrl : `${baseUrl}${pathname}`,
-    lastModified: currentDate,
     changeFreq: getChangeFreq(pathname),
     priority: getPriority(pathname),
   }))
@@ -82,7 +78,6 @@ ${routes
     (route) => `
   <url>
     <loc>${route.url}</loc>
-    <lastmod>${route.lastModified}</lastmod>
     <changefreq>${route.changeFreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>`,
@@ -94,9 +89,7 @@ ${routes
     status: 200,
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
-      Pragma: 'no-cache',
-      Expires: '0',
+      'Cache-Control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
     },
   })
 }

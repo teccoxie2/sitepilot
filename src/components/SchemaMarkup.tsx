@@ -17,7 +17,7 @@ export default function SchemaMarkup({
   title = 'SitePilot - Your Guide to Building Websites That Work',
   description = 'Expert reviews and guides on web hosting, AI tools, and website builders.',
   url = 'https://sitepilot.co',
-  imageUrl = 'https://sitepilot.co/og-image.jpg',
+  imageUrl,
   publishedDate,
   modifiedDate,
   authorName = 'SitePilot Team',
@@ -36,7 +36,7 @@ export default function SchemaMarkup({
         name: title,
         description,
         url,
-        image: imageUrl,
+        ...(imageUrl ? { image: imageUrl } : {}),
         ...data,
       }
     }
@@ -47,15 +47,11 @@ export default function SchemaMarkup({
       name: title,
       description,
       url,
-      image: imageUrl,
+      ...(imageUrl ? { image: imageUrl } : {}),
       publisher: {
         '@type': 'Organization',
         name: 'SitePilot',
         url: 'https://sitepilot.co',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://sitepilot.co/logo.png'
-        }
       }
     }
 
@@ -86,20 +82,6 @@ export default function SchemaMarkup({
             }
           })
         })
-      }
-    }
-
-    if (type === 'website') {
-      return {
-        ...baseSchema,
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: 'https://sitepilot.co/search?q={search_term_string}'
-          },
-          'query-input': 'required name=search_term_string'
-        }
       }
     }
 

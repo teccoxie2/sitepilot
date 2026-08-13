@@ -387,7 +387,7 @@ export default function AIContentWorkflowAutomation() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section id="overview" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="grid lg:grid-cols-2 gap-6">
             <div>
@@ -692,7 +692,7 @@ export default function AIContentWorkflowAutomation() {
             </Link>
           ))}
         </section>
-      </main>
+      </section>
     </div>
   )
 }

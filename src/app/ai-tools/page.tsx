@@ -174,7 +174,7 @@ export default function AiToolsHub2026() {
         </div>
       </section>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <section className="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
         <section className="grid gap-6 md:grid-cols-3 mb-16">
           {cards.map((card) => {
             const Icon = card.icon
@@ -263,7 +263,7 @@ export default function AiToolsHub2026() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

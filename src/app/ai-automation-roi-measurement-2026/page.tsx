@@ -344,7 +344,7 @@ export default function AIAutomationROIMeasurement() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="page-card-glow p-8 md:p-10 mb-16">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
@@ -571,7 +571,7 @@ export default function AIAutomationROIMeasurement() {
             ))}
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

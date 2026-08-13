@@ -29,6 +29,19 @@ export default function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+
+      setToolsMenuOpen(false);
+      setMobileToolsOpen(false);
+      setMobileMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   const navLinks = [
     { name: "Hosting", href: "/web-hosting" },
     { name: "Builders", href: "/website-builders" },
@@ -86,6 +99,12 @@ export default function Header() {
 
   return (
     <header data-nosnippet className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerClasses}`}>
+      <a
+        href="#main-content"
+        className="sr-only z-[60] rounded-md bg-white px-4 py-2 text-sm font-semibold text-slate-950 shadow focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
+      >
+        Skip to content
+      </a>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -115,6 +134,10 @@ export default function Header() {
             >
               <button
                 type="button"
+                id="tools-menu-button"
+                aria-haspopup="menu"
+                aria-expanded={toolsMenuOpen}
+                aria-controls="tools-menu"
                 className={`${desktopNavBase} ${navHoverClasses} transition-all duration-200 inline-flex items-center gap-2`}
                 onClick={() => {
                   if (toolsMenuOpen) {
@@ -133,11 +156,17 @@ export default function Header() {
               {toolsMenuOpen && (
                 <div className="absolute left-0 top-full pt-2">
                   <div aria-hidden="true" className="absolute inset-x-0 -top-2 h-4" />
-                  <div className="w-80 overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-[0_18px_40px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+                  <div
+                    id="tools-menu"
+                    role="menu"
+                    aria-labelledby="tools-menu-button"
+                    className="w-80 overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-[0_18px_40px_rgba(15,23,42,0.12)] backdrop-blur-xl"
+                  >
                     {toolsDropdownLinks.map((link) => (
                       <Link
                         key={link.name}
                         href={link.href}
+                        role="menuitem"
                         className="block rounded-xl px-4 py-3 transition-colors hover:bg-slate-50"
                       >
                         <div className="text-sm font-semibold text-slate-950">{link.name}</div>
@@ -159,6 +188,10 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button 
+            type="button"
+            aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
             className={`lg:hidden p-2 transition-colors ${mobileButtonClasses}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -169,7 +202,12 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className={`lg:hidden p-8 space-y-4 animate-in slide-in-from-top duration-300 ${mobileMenuClasses}`}>
+        <div
+          id="mobile-navigation"
+          role="region"
+          aria-label="Mobile navigation"
+          className={`lg:hidden p-8 space-y-4 animate-in slide-in-from-top duration-300 ${mobileMenuClasses}`}
+        >
           {navLinks.map((link) => (
             <Link 
               key={link.name}
@@ -184,6 +222,8 @@ export default function Header() {
           <div className="rounded-2xl border border-slate-200 bg-white/80">
             <button
               type="button"
+              aria-expanded={mobileToolsOpen}
+              aria-controls="mobile-tools-menu"
               className="flex w-full items-center justify-between px-4 py-3 text-left text-xl font-semibold tracking-tight text-slate-900"
               onClick={() => setMobileToolsOpen((open) => !open)}
             >
@@ -192,7 +232,7 @@ export default function Header() {
             </button>
 
             {mobileToolsOpen && (
-              <div className="space-y-2 px-3 pb-3">
+              <div id="mobile-tools-menu" className="space-y-2 px-3 pb-3">
                 {toolsDropdownLinks.map((link) => (
                   <Link
                     key={link.name}

@@ -52,7 +52,7 @@ export default function EvaluationToolsHubPage() {
           </div>
         </div>
       </section>
-      <main className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="page-card-glow p-1.5"><div className="page-card rounded-[1.6rem] p-7 md:p-8">
             <div className="page-pill mb-4">How to use it</div>
@@ -66,7 +66,7 @@ export default function EvaluationToolsHubPage() {
             <div className="page-card-soft p-6"><div className="text-sm text-slate-500 mb-3">Tools inside</div><ul className="space-y-3 text-sm text-slate-700 leading-6"><li className="flex items-start gap-3"><Wrench className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><span>Practical, evidence-first procurement tools.</span></li><li className="flex items-start gap-3"><Target className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><span>Designed for final decisions, not discovery theater.</span></li></ul></div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

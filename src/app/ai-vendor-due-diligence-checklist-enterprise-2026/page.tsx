@@ -106,7 +106,7 @@ export default function AIVendorDueDiligenceChecklistPage() {
         </div>
       </section>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] mb-16">
           <div className="page-card border border-slate-200 bg-slate-50/70 p-6 md:p-7 lg:col-span-2">
             <div className="mb-3 text-sm uppercase tracking-[0.18em] text-slate-500">Questions procurement should send before the next call</div>
@@ -183,7 +183,7 @@ export default function AIVendorDueDiligenceChecklistPage() {
             ))}
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

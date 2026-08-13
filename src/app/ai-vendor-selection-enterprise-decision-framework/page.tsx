@@ -14,6 +14,8 @@ import {
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
+export { metadata } from './metadata'
+
 const heroStats = [
   { value: '50+', label: 'AI vendors evaluated' },
   { value: '8', label: 'decision criteria in the matrix' },
@@ -231,7 +233,7 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
         <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_54%_82%,rgba(251,191,36,0.05),transparent_28%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
@@ -245,7 +247,7 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
                   <span className="brand-gradient-text block">Do not turn procurement into a blind-box draw.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  This page keeps the original eight-dimension decision framework, market data, scoring matrix, process flow, ROI comparison, and execution steps, and only aligns the presentation to the current light Stripe-ish UI. The core argument is unchanged: systematic selection is far cheaper than cleaning up after the wrong choice.
+                  Use an eight-dimension decision framework, scoring matrix, and execution plan to make vendor selection systematic and reduce the cost of a poor-fit purchase.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#matrix" className="btn-brand inline-flex items-center gap-2">
@@ -521,7 +523,7 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

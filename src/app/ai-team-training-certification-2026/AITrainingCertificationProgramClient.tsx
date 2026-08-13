@@ -74,7 +74,7 @@ export default function AITrainingCertificationProgramClient() {
           <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
         </div>
 
-        <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
           <section className="page-hero relative">
             <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
               <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -90,7 +90,7 @@ export default function AITrainingCertificationProgramClient() {
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    This page keeps the original training paths, certification levels, delivery formats, implementation timeline, and ROI metrics. Only the UI has been aligned to the current light Stripe-ish system.
+                    Plan training paths, certification levels, delivery formats, implementation timing, and measurement for an AI adoption program.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -308,7 +308,7 @@ export default function AITrainingCertificationProgramClient() {
               </div>
             </div>
           </section>
-        </main>
+        </section>
       </div>
     </>
   )

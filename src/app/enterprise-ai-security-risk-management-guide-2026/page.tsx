@@ -142,7 +142,7 @@ export default function EnterpriseAISecurityRiskManagementGuidePage() {
         <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_54%_82%,rgba(251,191,36,0.05),transparent_28%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
@@ -195,7 +195,7 @@ export default function EnterpriseAISecurityRiskManagementGuidePage() {
           <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Zap className="h-4 w-4 text-[#635bff]" />Related resources</div><h2 className="page-title text-3xl md:text-4xl">Internal links kept intact</h2><p className="page-lead mt-3 text-lg">Same cluster, same intent, cleaner UI.</p></div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{relatedLinks.map((link) => (<Link key={link.href} href={link.href} className="page-card group p-6 transition hover:-translate-y-0.5 hover:shadow-lg"><div className="mb-3 text-lg font-semibold text-slate-950 group-hover:text-[#635bff]">{link.title}</div><p className="text-sm leading-6 text-slate-600">{link.note}</p><div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#635bff]">Open resource <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" /></div></Link>))}</div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

@@ -229,7 +229,7 @@ const criticalSuccessFactors = [
 
 const faqs = [
   ['What is the typical timeline for enterprise AI implementation?', 'Most enterprises achieve meaningful results within 6-12 months using this four-phase framework. Full transformation usually extends across the full 52-week model.'],
-  ['How do you measure success in AI implementation?', 'Success is measured across productivity, financial impact, and innovation capability. This page keeps those KPI groups explicit so the rollout is judged on more than tool adoption.'],
+  ['How do you measure success in AI implementation?', 'Measure success across productivity, financial impact, and innovation capability so the rollout is judged on more than tool adoption.'],
   ['What are the most common reasons AI implementations fail?', 'The biggest failure points are lack of executive commitment, poor data quality, weak change management, inadequate infrastructure, and skills gaps. Each phase includes mitigation strategies for those risks.'],
   ['How much should organizations budget for AI implementation?', 'Typical enterprise investments range from roughly $500K to $5M depending on scope, integration complexity, and internal capability. Many mid-size programs aim for payback within 6-18 months.'],
   ['What skills and team structure are needed?', 'High-performing teams usually combine AI/ML engineering, data science, change management, architecture, security, and business operations leadership, often coordinated through a center of excellence model.'],
@@ -355,7 +355,7 @@ export default function AIImplementationSuccessFramework2026() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section id="customize" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="max-w-3xl mb-8">
             <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Customization</div>
@@ -636,7 +636,7 @@ export default function AIImplementationSuccessFramework2026() {
             </Link>
           ))}
         </section>
-      </main>
+      </section>
     </div>
   )
 }

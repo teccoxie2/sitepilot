@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { marked } from 'marked'
+import ReactMarkdown from 'react-markdown'
 import {
   ArrowRight,
   BarChart3,
@@ -48,8 +48,6 @@ export const metadata: Metadata = {
     description: 'Compare AI tool budget planning choices across software, integration, training, security, governance, and support before approval so the budget reflects real rollout cost.',
   },
 }
-
-marked.setOptions({ breaks: true, gfm: true })
 
 const heroStats = [
   { value: '18-25%', label: 'Share of IT budget allocated to AI tools' },
@@ -175,7 +173,6 @@ const relatedLinks = [
 export default function AIToolsBudgetPlanningPage() {
   const contentPath = join(process.cwd(), 'content', 'ai-tools-budget-planning-enterprise-2026.md')
   const fileContent = readFileSync(contentPath, 'utf-8')
-  const htmlContent = marked.parse(fileContent) as string
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
@@ -195,7 +192,7 @@ export default function AIToolsBudgetPlanningPage() {
         <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
@@ -406,8 +403,9 @@ export default function AIToolsBudgetPlanningPage() {
               prose-code:text-[#635bff] prose-code:bg-indigo-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
               prose-pre:bg-slate-950 prose-pre:text-slate-100 prose-pre:border prose-pre:border-slate-800 prose-pre:rounded-2xl
               prose-table:block prose-table:overflow-x-auto prose-th:bg-slate-50 prose-th:text-slate-900 prose-td:text-slate-600 prose-th:border prose-td:border prose-th:border-slate-200 prose-td:border-slate-200"
-              dangerouslySetInnerHTML={{ __html: htmlContent }}
-            />
+              >
+                <ReactMarkdown>{fileContent}</ReactMarkdown>
+              </div>
           </div>
 
           <div className="space-y-6">
@@ -467,7 +465,7 @@ export default function AIToolsBudgetPlanningPage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

@@ -174,7 +174,7 @@ export default function AIToolsForBloggers2026() {
           <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
         </div>
 
-        <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
           <section className="page-hero relative">
             <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
               <div className="grid items-center gap-12 lg:grid-cols-[1.06fr_0.94fr]">
@@ -419,7 +419,7 @@ export default function AIToolsForBloggers2026() {
               ))}
             </div>
           </section>
-        </main>
+        </section>
       </div>
     </>
   )

@@ -230,7 +230,7 @@ export default function AITeamProductivityAssessmentToolClient() {
           <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
         </div>
 
-        <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
           <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
           <section className="page-hero relative">
             <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
@@ -247,7 +247,7 @@ export default function AITeamProductivityAssessmentToolClient() {
                   </h1>
 
                   <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                    This page keeps the original logic for team size, repetitive work, budget, skills, data, and readiness, and only aligns the shell with the current light Stripe-ish system.
+                    Assess team size, repetitive work, budget, skills, data, and readiness before selecting an AI productivity program.
                   </p>
 
                   <div className="mb-10 flex flex-wrap gap-3">
@@ -635,7 +635,7 @@ export default function AITeamProductivityAssessmentToolClient() {
               </div>
             </div>
           </section>
-        </main>
+        </section>
       </div>
     </>
   )

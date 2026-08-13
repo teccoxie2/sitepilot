@@ -411,7 +411,7 @@ export default function AIDigitalTransformationRoadmap2026() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section id="overview" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8">
             <div>
@@ -639,7 +639,7 @@ export default function AIDigitalTransformationRoadmap2026() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

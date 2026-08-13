@@ -176,7 +176,7 @@ export default function ReaddyAiReviewPage() {
         </div>
       </section>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="mb-16">
           <div className="max-w-3xl mb-8">
             <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">How we scored it</div>
@@ -298,7 +298,7 @@ export default function ReaddyAiReviewPage() {
             ...websiteBuilderRelatedLinks.filter((link) => !['/website-builders', '/best-website-builders-2026', '/best-ecommerce-website-builders-2026', '/website-builder-vs-wordpress-2026'].includes(link.href)),
           ]}
         />
-      </main>
+      </section>
     </div>
   )
 }

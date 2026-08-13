@@ -200,7 +200,7 @@ export default function AIRiskAssessmentPage() {
         <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_16%_20%,rgba(251,146,60,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_50%_78%,rgba(14,165,233,0.05),transparent_28%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
@@ -216,7 +216,7 @@ export default function AIRiskAssessmentPage() {
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Enterprise AI risk assessment has to evaluate data security, vendor dependence, technical compatibility, compliance obligations, and adoption friction together. This page keeps the original risk matrix, scoring logic, ROI examples, roadmap, and internal links while moving the visual language into the current light Stripe-ish system.
+                  Enterprise AI risk assessment has to evaluate data security, vendor dependence, technical compatibility, compliance obligations, and adoption friction together.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
@@ -462,7 +462,7 @@ export default function AIRiskAssessmentPage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

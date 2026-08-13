@@ -372,7 +372,7 @@ export default function AIInvestmentDecisionFramework2026Page() {
           </div>
         </section>
 
-        <main className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
+        <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
           <section id="overview" className="space-y-8">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {summaryCards.map((card) => (
@@ -642,7 +642,7 @@ export default function AIInvestmentDecisionFramework2026Page() {
               ))}
             </div>
           </section>
-        </main>
+        </section>
       </div>
     </>
   )

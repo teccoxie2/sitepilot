@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const operatingSignals = [
   'Hosting, builders, proxy infrastructure, and domain buying paths in one editorial system',
   'Operator-grade comparisons instead of promo-code theater',
-  'Calm Stripe-ish hierarchy that now scales across the whole site',
+  'A clear decision path from category research to evidence and action',
   'Decision support built for teams buying with technical accountability',
 ]
 
@@ -199,7 +199,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="grid gap-4 md:grid-cols-3 mb-16">
           {capabilityCards.map((feature) => {
             const Icon = feature.icon
@@ -273,7 +273,7 @@ export default function HomePage() {
                 <span className="block brand-gradient-text">Built to move buyers from category to evidence.</span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                The homepage should explain what SitePilot is, route visitors into the right hub, and connect those hubs to methodology, comparisons, scorecards, and audit paths that can actually support a real buying decision.
+                SitePilot brings category research, evaluation criteria, comparisons, scorecards, and audit paths into one practical decision system for teams buying digital infrastructure.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/methodology" className="btn-secondary">
@@ -295,7 +295,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

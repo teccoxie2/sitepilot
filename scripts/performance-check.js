@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-require-imports */
 
 /**
- * Simple performance monitoring script for SitePilot.co
- * Checks page load times and core web vitals
+ * Simple response-time smoke check for SitePilot.co.
+ * This measures HTML request time only; it is not a Core Web Vitals check.
  */
 
 const https = require('https');

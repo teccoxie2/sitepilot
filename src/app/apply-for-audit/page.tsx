@@ -12,6 +12,8 @@ import {
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
+export { metadata } from './metadata'
+
 const standardAuditItems = [
   '20-hour technical deep-dive',
   'Performance benchmarking (TTFB / CWV)',
@@ -66,7 +68,7 @@ export default function ApplyForAudit() {
         <div className="absolute inset-x-0 top-0 h-[40rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_24%,#ffffff_56%,#fffdf9_100%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-24 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
@@ -259,7 +261,7 @@ export default function ApplyForAudit() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

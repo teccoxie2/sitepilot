@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { marked } from 'marked'
+import ReactMarkdown from 'react-markdown'
 import {
   AlertTriangle,
   ArrowRight,
@@ -50,8 +50,6 @@ export const metadata: Metadata = {
     description: 'An enterprise AI security and compliance checklist that keeps the original regulatory framework and audit logic while aligning the page to the current light Stripe-ish UI.',
   },
 }
-
-marked.setOptions({ breaks: true, gfm: true })
 
 const heroStats = [
   { value: '500+', label: 'Enterprise compliance implementations reviewed' },
@@ -119,7 +117,6 @@ const relatedLinks = [
 export default function AIToolsSecurityComplianceChecklistPage() {
   const contentPath = join(process.cwd(), 'content', 'ai-tools-security-compliance-checklist-2026.md')
   const fileContent = readFileSync(contentPath, 'utf-8')
-  const htmlContent = marked.parse(fileContent) as string
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
@@ -138,7 +135,7 @@ export default function AIToolsSecurityComplianceChecklistPage() {
         <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
@@ -154,7 +151,7 @@ export default function AIToolsSecurityComplianceChecklistPage() {
                 </h1>
 
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Security and compliance audits for enterprise AI tools have to evaluate data residency, access control, regulatory obligations, vendor due diligence, and deployment governance together. This page keeps the original GDPR, SOX, HIPAA, vendor audit, and rollout content while aligning the visual system to the current light Stripe-ish standard.
+                  Security and compliance reviews for enterprise AI tools should evaluate data residency, access control, regulatory obligations, vendor due diligence, and deployment governance together.
                 </p>
 
                 <div className="mb-10 flex flex-wrap gap-3">
@@ -303,8 +300,9 @@ export default function AIToolsSecurityComplianceChecklistPage() {
               prose-code:text-[#635bff] prose-code:bg-indigo-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
               prose-pre:bg-slate-950 prose-pre:text-slate-100 prose-pre:border prose-pre:border-slate-800 prose-pre:rounded-2xl
               prose-table:block prose-table:overflow-x-auto prose-th:bg-slate-50 prose-th:text-slate-900 prose-td:text-slate-600 prose-th:border prose-td:border prose-th:border-slate-200 prose-td:border-slate-200"
-              dangerouslySetInnerHTML={{ __html: htmlContent }}
-            />
+              >
+                <ReactMarkdown>{fileContent}</ReactMarkdown>
+              </div>
           </div>
 
           <div className="space-y-6">
@@ -351,7 +349,7 @@ export default function AIToolsSecurityComplianceChecklistPage() {
                 <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Next step</h2>
               </div>
               <p className="mb-6 text-slate-600 leading-7">
-                If you want to use this page seriously, build a table of the AI tools you already run with the vendor, data types handled, permission model, audit logs, contract terms, and exit path. Without that table, "compliance governance" is usually just meeting notes.
+                If you want to use this page seriously, build a table of the AI tools you already run with the vendor, data types handled, permission model, audit logs, contract terms, and exit path. Without that table, &quot;compliance governance&quot; is usually just meeting notes.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/ai-tools-risk-assessment-enterprise-2026" className="btn-brand inline-flex items-center gap-2">
@@ -365,7 +363,7 @@ export default function AIToolsSecurityComplianceChecklistPage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

@@ -100,7 +100,7 @@ export default function EnterpriseAITransformationRoadmap() {
         <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
@@ -159,7 +159,7 @@ export default function EnterpriseAITransformationRoadmap() {
         <section className="mb-16">
           <div className="page-card-glow rounded-[2rem] p-5 md:p-6">
             <div className="page-card flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Shield className="h-4 w-4 text-[#635bff]" />Success metrics</div><h2 className="page-title text-3xl md:text-4xl">Transformation success metrics</h2><p className="page-lead mt-3 text-lg">If the metrics don't move, the roadmap is just decoration.</p></div>
+              <div className="max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Shield className="h-4 w-4 text-[#635bff]" />Success metrics</div><h2 className="page-title text-3xl md:text-4xl">Transformation success metrics</h2><p className="page-lead mt-3 text-lg">If the metrics don&apos;t move, the roadmap is just decoration.</p></div>
               <div className="grid gap-3 sm:grid-cols-3">
                 {metrics.map((metric) => (<div key={metric.title} className="rounded-2xl border border-slate-200 bg-white/90 p-4"><div className="mb-2 text-sm font-semibold text-slate-900">{metric.title}</div><ul className="space-y-1 text-sm text-slate-600">{metric.items.map((item) => (<li key={item}>- {item}</li>))}</ul></div>))}
               </div>
@@ -171,7 +171,7 @@ export default function EnterpriseAITransformationRoadmap() {
           <div className="mb-8 max-w-2xl"><div className="page-pill mb-3 inline-flex items-center gap-2"><Zap className="h-4 w-4 text-[#635bff]" />Related resources</div><h2 className="page-title text-3xl md:text-4xl">Internal links kept intact</h2><p className="page-lead mt-3 text-lg">Same cluster, same intent, cleaner UI.</p></div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{relatedLinks.map((link) => (<Link key={link.href} href={link.href} className="page-card group p-6 transition hover:-translate-y-0.5 hover:shadow-lg"><div className="mb-3 text-lg font-semibold text-slate-950 group-hover:text-[#635bff]">{link.title}</div><p className="text-sm leading-6 text-slate-600">{link.note}</p><div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#635bff]">Open resource <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" /></div></Link>))}</div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

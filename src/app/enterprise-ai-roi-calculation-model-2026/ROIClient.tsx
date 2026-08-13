@@ -153,7 +153,7 @@ export default function EnterpriseAIROICalculationModelClient() {
         <div className="absolute inset-x-0 top-[34rem] h-[34rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,165,233,0.05),transparent_24%),radial-gradient(circle_at_78%_22%,rgba(99,91,255,0.05),transparent_22%),radial-gradient(circle_at_54%_82%,rgba(251,191,36,0.05),transparent_28%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
@@ -167,7 +167,7 @@ export default function EnterpriseAIROICalculationModelClient() {
                   <span className="brand-gradient-text block">Stop asking finance to trust a vague payback story.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                  Comprehensive ROI calculation model based on analysis of 1,000+ enterprise AI implementations. This page keeps the original calculation logic, industry benchmarks, and detailed breakdowns while aligning the presentation to the current light Stripe-ish UI.
+                  A comprehensive ROI calculation model for comparing investment assumptions, operating costs, payback timing, and value drivers across an enterprise AI program.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#calculator" className="btn-brand inline-flex items-center gap-2">
@@ -411,7 +411,7 @@ export default function EnterpriseAIROICalculationModelClient() {
             ))}
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

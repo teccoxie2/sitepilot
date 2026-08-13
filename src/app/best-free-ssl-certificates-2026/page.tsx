@@ -128,7 +128,7 @@ export default function BestFreeSSLCertificates2026() {
         <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+      <section className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-16 pt-10 md:pb-24 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -199,7 +199,7 @@ export default function BestFreeSSLCertificates2026() {
                     <div className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
                       <div className="flex items-start gap-3">
                         <ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-indigo-500" />
-                        <p className="text-sm leading-6 text-slate-600">If you want the default answer, use Let\'s Encrypt. If you want the least setup friction, use Cloudflare.</p>
+                        <p className="text-sm leading-6 text-slate-600">If you want the default answer, use Let&apos;s Encrypt. If you want the least setup friction, use Cloudflare.</p>
                       </div>
                     </div>
                     <div className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4">
@@ -425,7 +425,7 @@ export default function BestFreeSSLCertificates2026() {
           <div className="page-card-soft rounded-[1.6rem] px-6 py-10 text-center md:px-10">
             <h2 className="page-title mb-4 text-3xl md:text-4xl">Use free SSL. Stop making security harder than it is.</h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg leading-7 text-slate-600">
-              Let\'s Encrypt is the default answer for most sites. Cloudflare is the easiest answer for beginners. The rest are specialty answers.
+              Let&apos;s Encrypt is the default answer for most sites. Cloudflare is the easiest answer for beginners. The rest are specialty answers.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/best-web-hosting-2026" className="btn-brand inline-flex items-center gap-2">
@@ -445,7 +445,7 @@ export default function BestFreeSSLCertificates2026() {
             Free SSL is production-ready. Keep it renewed, keep the chain valid, and stop shipping HTTP in 2026.
           </p>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

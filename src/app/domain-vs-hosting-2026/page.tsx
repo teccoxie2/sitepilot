@@ -129,7 +129,7 @@ export default function Page() {
         </div>
       </section>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] mb-12">
           {sections.map((section) => (
             <div key={section.title} className="page-card p-7 md:p-8">
@@ -163,7 +163,7 @@ export default function Page() {
         </section>
 
         <RelatedLinks title="Keep going" links={relatedArticles} />
-      </main>
+      </section>
     </div>
   )
 }

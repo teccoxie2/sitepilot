@@ -183,7 +183,7 @@ export default function WebHostingHub2026() {
         </div>
       </section>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
         <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
         <section className="grid md:grid-cols-3 gap-6 mb-16">
           {cards.map((card) => {
@@ -267,7 +267,7 @@ export default function WebHostingHub2026() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

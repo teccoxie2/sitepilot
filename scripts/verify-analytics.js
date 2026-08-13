@@ -2,6 +2,7 @@
  * Google Analytics Setup Verification Script
  * Run this to check if GA is properly configured
  */
+/* eslint-disable @typescript-eslint/no-require-imports */
 
 const fs = require('fs');
 const path = require('path');

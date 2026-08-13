@@ -4,6 +4,8 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import AIMarketingAttributionTool from '@/components/tools/AIMarketingAttributionTool'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
+export { metadata } from './metadata'
+
 const heroSignals = [
   'Keeps the original multi-channel attribution, ROI tracking, and customer journey analysis.',
   'Keeps the AI attribution model, budget guidance, and advanced mode toggle.',
@@ -52,7 +54,7 @@ export default function AIMarketingAttributionAnalysisPage() {
           <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
         </div>
 
-        <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+        <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
           <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
           <nav className="mb-6 text-sm text-slate-600" aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2">
@@ -251,7 +253,7 @@ export default function AIMarketingAttributionAnalysisPage() {
               <p className="mt-1">Built on multi-channel attribution methods and industry best practices.</p>
             </div>
           </section>
-        </main>
+        </section>
       </div>
     </>
   )

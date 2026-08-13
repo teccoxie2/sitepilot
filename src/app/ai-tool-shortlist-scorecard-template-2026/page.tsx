@@ -183,7 +183,7 @@ export default function AIToolShortlistScorecardTemplatePage() {
         </div>
       </section>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] mb-16">
           <div className="page-card-glow p-1.5">
             <div className="page-card rounded-[1.6rem] p-7 md:p-8">
@@ -317,7 +317,7 @@ export default function AIToolShortlistScorecardTemplatePage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

@@ -42,7 +42,7 @@ export default async function IPLeakTestPage() {
         authorName="SitePilot Team"
       />
 
-      <main className="mx-auto max-w-7xl px-4 py-6 md:py-8">
+      <section className="mx-auto max-w-7xl px-4 py-6 md:py-8">
         <section className="mb-4 flex flex-col gap-4 rounded-lg border border-slate-200 bg-white px-4 py-4 shadow-sm md:flex-row md:items-center md:justify-between md:px-5">
           <div>
             <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-sky-100 bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-sky-700">
@@ -112,7 +112,7 @@ export default async function IPLeakTestPage() {
             </p>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

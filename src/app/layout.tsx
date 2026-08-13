@@ -21,6 +21,18 @@ export const metadata: Metadata = {
   title: "SitePilot | Global Digital Infrastructure Authority",
   description: "Independent technical audits, infrastructure benchmarks, and AI-driven procurement frameworks for modern enterprises.",
   metadataBase: new URL("https://sitepilot.co"),
+  openGraph: {
+    type: "website",
+    siteName: "SitePilot",
+    title: "SitePilot | Global Digital Infrastructure Authority",
+    description: "Independent technical audits, infrastructure benchmarks, and AI-driven procurement frameworks for modern enterprises.",
+    url: "https://sitepilot.co",
+  },
+  twitter: {
+    card: "summary",
+    title: "SitePilot | Global Digital Infrastructure Authority",
+    description: "Independent technical audits, infrastructure benchmarks, and AI-driven procurement frameworks for modern enterprises.",
+  },
 };
 
 export default function RootLayout({
@@ -33,7 +45,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-slate-900`}>
         <div className="site-shell">
           <Header />
-          <main className="page-wrap min-h-screen">{children}</main>
+          <main id="main-content" className="page-wrap min-h-screen">{children}</main>
           <Footer />
           {gaMeasurementId ? <GoogleAnalytics measurementId={gaMeasurementId} /> : null}
         </div>

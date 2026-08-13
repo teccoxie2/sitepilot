@@ -217,7 +217,7 @@ export default function EnterpriseAIImplementationPage() {
         <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
+      <section className="relative mx-auto max-w-7xl px-4 py-8 md:py-10">
         <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-20 pt-12 md:pb-28 md:pt-16">
@@ -229,7 +229,7 @@ export default function EnterpriseAIImplementationPage() {
                 </div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
                   Enterprise AI implementation,
-                  <span className="brand-gradient-text block">do not mistake "let's just try it" for a strategy.</span>
+                  <span className="brand-gradient-text block">do not mistake &quot;let&apos;s just try it&quot; for a strategy.</span>
                 </h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
                   Enterprise AI implementation best practices should define scope, owners, controls, rollout phases, success metrics, and review points before teams expand beyond a pilot. This framework helps buyers connect governance, tooling, adoption, security, and ROI decisions without treating implementation like improvised experimentation.
@@ -464,7 +464,7 @@ export default function EnterpriseAIImplementationPage() {
             ))}
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

@@ -207,47 +207,56 @@ export default function IPLeakTestClient({ initialTarget }: Props) {
 
   useEffect(() => {
     let active = true
+    const timerId = window.setTimeout(() => {
+      if (!active) return
 
-    setLoading(true)
-    setError(null)
-    requestCheck(checkedTarget)
-      .then((next) => {
-        if (active) setResult(next)
-      })
-      .catch((nextError) => {
-        if (active) setError(nextError instanceof Error ? nextError.message : 'Unknown error')
-      })
-      .finally(() => {
-        if (active) setLoading(false)
-      })
+      setLoading(true)
+      setError(null)
+      requestCheck(checkedTarget)
+        .then((next) => {
+          if (active) setResult(next)
+        })
+        .catch((nextError) => {
+          if (active) setError(nextError instanceof Error ? nextError.message : 'Unknown error')
+        })
+        .finally(() => {
+          if (active) setLoading(false)
+        })
+    }, 0)
 
     return () => {
       active = false
+      window.clearTimeout(timerId)
     }
   }, [checkedTarget])
 
   useEffect(() => {
     let active = true
-    setProbe((current) => ({ ...current, status: 'running' }))
-    probeWebRtc()
-      .then((next) => {
-        if (active) setProbe(next)
-      })
-      .catch(() => {
-        if (active) {
-          setProbe({
-            supported: false,
-            candidates: [],
-            privateCandidates: [],
-            publicCandidates: [],
-            mdnsCandidates: [],
-            status: 'unsupported',
-          })
-        }
-      })
+    const timerId = window.setTimeout(() => {
+      if (!active) return
+
+      setProbe((current) => ({ ...current, status: 'running' }))
+      probeWebRtc()
+        .then((next) => {
+          if (active) setProbe(next)
+        })
+        .catch(() => {
+          if (active) {
+            setProbe({
+              supported: false,
+              candidates: [],
+              privateCandidates: [],
+              publicCandidates: [],
+              mdnsCandidates: [],
+              status: 'unsupported',
+            })
+          }
+        })
+    }, 0)
 
     return () => {
       active = false
+      window.clearTimeout(timerId)
     }
   }, [])
 

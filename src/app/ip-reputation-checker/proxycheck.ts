@@ -5,6 +5,8 @@ import { isIP } from 'node:net'
 import type { IpapiLookupResult } from './ipapi'
 import { LiveReputationResult, type SignalResult } from './types'
 
+const UPSTREAM_TIMEOUT_MS = 8_000
+
 type ProxycheckLocation = {
   city_name?: string | null
   region_name?: string | null
@@ -186,7 +188,6 @@ function formatCurrency(location?: ProxycheckLocation) {
 
 function buildSignals(node: ProxycheckNode): SignalResult[] {
   const detections = node.detections || {}
-  const network = node.network || {}
   const location = node.location || {}
 
   return [
@@ -332,7 +333,9 @@ export async function fetchProxycheckResult(input: string): Promise<LiveReputati
 
   if (!isSpecialUse) {
     const response = await fetch(`https://proxycheck.io/v3/${encodeURIComponent(resolvedIp)}?${params.toString()}`, {
+      // The API key is part of this upstream URL; keep the credential-bearing request out of the Data Cache.
       cache: 'no-store',
+      signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     })
 
     if (!response.ok) {

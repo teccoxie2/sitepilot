@@ -207,7 +207,7 @@ export default function HostingPage() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="grid md:grid-cols-3 gap-6 mb-16">
           {decisionSignals.map((item) => (
             <div key={item.title} className="page-card p-6">
@@ -271,7 +271,7 @@ export default function HostingPage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
 
       <section className="bg-gray-50/70">
         <div className="max-w-7xl mx-auto px-4 py-8">

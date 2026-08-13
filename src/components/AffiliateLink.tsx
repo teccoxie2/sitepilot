@@ -21,7 +21,7 @@ export default function AffiliateLink({
   source = 'content',
   className = '',
   target = '_blank',
-  rel = 'noopener noreferrer nofollow'
+  rel = 'sponsored nofollow noopener noreferrer'
 }: AffiliateLinkProps) {
   
   const handleClick = () => {

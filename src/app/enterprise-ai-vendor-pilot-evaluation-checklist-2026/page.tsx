@@ -243,7 +243,7 @@ export default function PilotEvaluationChecklistPage() {
         </div>
       </section>
 
-      <main className="relative">
+      <section className="relative">
         <section className="page-section surface-muted">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-start">
@@ -495,7 +495,7 @@ export default function PilotEvaluationChecklistPage() {
             />
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

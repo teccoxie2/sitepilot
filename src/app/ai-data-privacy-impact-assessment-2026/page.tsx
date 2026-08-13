@@ -510,7 +510,7 @@ export default function DataPrivacyAssessment() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         {!result ? (
           <>
             <section id="assessment-tool" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
@@ -1146,7 +1146,7 @@ export default function DataPrivacyAssessment() {
             </section>
           </>
         )}
-      </main>
+      </section>
     </div>
   )
 }

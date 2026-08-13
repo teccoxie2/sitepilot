@@ -15,6 +15,8 @@ import {
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
+export { metadata } from './metadata'
+
 const heroSignals = [
   'Keeps the original investment, savings, ROI, and risk narrative',
   'Keeps the 12-dimension framework, benchmark comparisons, and scenario analysis',
@@ -172,7 +174,7 @@ export default function ROICalculatorPage() {
           </div>
         </section>
 
-        <main className="mx-auto max-w-7xl px-4 py-14 md:py-18">
+        <section className="mx-auto max-w-7xl px-4 py-14 md:py-18">
           <section id="overview" className="space-y-8">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {scoreCards.map((card) => (
@@ -375,7 +377,7 @@ export default function ROICalculatorPage() {
               <p className="mt-1">Built on current AI investment data and industry best practices.</p>
             </div>
           </section>
-        </main>
+        </section>
       </div>
     </>
   )

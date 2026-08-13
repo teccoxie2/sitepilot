@@ -293,7 +293,7 @@ export default function AIContentCreationAutomationPage() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="page-card p-7 md:p-10 mb-16">
           <div className="max-w-4xl mb-8">
             <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Content navigation</div>
@@ -355,7 +355,7 @@ export default function AIContentCreationAutomationPage() {
             </Link>
           ))}
         </section>
-      </main>
+      </section>
     </div>
   )
 }

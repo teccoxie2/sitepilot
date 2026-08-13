@@ -189,7 +189,7 @@ export default function PricingGuidePage() {
         </div>
       </section>
 
-      <main className="relative">
+      <section className="relative">
         <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
         <section className="page-section surface-muted">
           <div className="max-w-7xl mx-auto px-4">
@@ -389,7 +389,7 @@ export default function PricingGuidePage() {
             />
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

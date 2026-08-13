@@ -362,7 +362,7 @@ export default function AIDigitalTransformationRoadmapPage() {
         </div>
       </section>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
         <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
         <section id="overview" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8">
@@ -585,7 +585,7 @@ export default function AIDigitalTransformationRoadmapPage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

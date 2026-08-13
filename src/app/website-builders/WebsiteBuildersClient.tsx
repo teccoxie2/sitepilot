@@ -101,7 +101,7 @@ const websiteBuilders: WebsiteBuilder[] = [
       { plan: 'Business', price: '$39/month', features: 'Unlimited pages, form submissions' }
     ],
     bestFor: 'Designers, agencies, businesses needing custom functionality',
-    link: 'https://sitepilot.co/go/webflow'
+    link: 'https://webflow.com/'
   },
   {
     id: 'wix',
@@ -143,7 +143,7 @@ const websiteBuilders: WebsiteBuilder[] = [
       { plan: 'VIP', price: '$39/month', features: 'Priority support' }
     ],
     bestFor: 'Small businesses, portfolios, creative professionals',
-    link: 'https://sitepilot.co/go/wix'
+    link: 'https://www.wix.com/'
   },
   {
     id: 'hostinger',
@@ -182,7 +182,7 @@ const websiteBuilders: WebsiteBuilder[] = [
       { plan: 'Business', price: '$3.99/month', features: 'Advanced features, analytics' }
     ],
     bestFor: 'Budget users, small businesses, beginners',
-    link: 'https://sitepilot.co/go/hostinger'
+    link: 'https://www.hostinger.com/'
   },
   {
     id: 'shopify',
@@ -222,7 +222,7 @@ const websiteBuilders: WebsiteBuilder[] = [
       { plan: 'Advanced', price: '$299/month', features: 'Advanced features, lowest fees' }
     ],
     bestFor: 'E-commerce businesses, online stores',
-    link: 'https://sitepilot.co/go/shopify'
+    link: 'https://www.shopify.com/'
   },
   {
     id: 'squarespace',
@@ -262,7 +262,7 @@ const websiteBuilders: WebsiteBuilder[] = [
       { plan: 'Commerce', price: '$26/month', features: 'E-commerce features' }
     ],
     bestFor: 'Portfolios, creative businesses, mobile-first sites',
-    link: 'https://sitepilot.co/go/squarespace'
+    link: 'https://www.squarespace.com/'
   }
 ]
 
@@ -472,7 +472,7 @@ export default function WebsiteBuildersClient() {
                     <a
                       href={builder.link}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="sponsored nofollow noopener noreferrer"
                       className="btn btn-primary text-sm"
                     >
                       Try now
@@ -613,7 +613,7 @@ export default function WebsiteBuildersClient() {
                         <a
                           href={builder.link}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="sponsored nofollow noopener noreferrer"
                           className={`px-6 py-2 bg-gradient-to-r ${builder.gradient} text-white rounded-lg hover:opacity-90 transition-opacity font-medium`}
                         >
                           Try {builder.name}

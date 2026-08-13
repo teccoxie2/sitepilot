@@ -314,7 +314,7 @@ export default function AIComplianceReadinessAssessment2026() {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-14 md:py-18">
+      <section className="max-w-7xl mx-auto px-4 py-14 md:py-18">
         <section className="grid lg:grid-cols-[1.04fr_0.96fr] gap-6 mb-16">
           <div className="page-card p-8">
             <div className="flex items-center gap-3 mb-6">
@@ -530,7 +530,7 @@ export default function AIComplianceReadinessAssessment2026() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

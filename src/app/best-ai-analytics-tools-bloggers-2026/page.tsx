@@ -307,7 +307,7 @@ export default function AIAnalyticsToolsPage() {
         <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] [background-size:72px_72px]" />
       </div>
 
-      <main className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+      <section className="relative mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
         <section className="page-hero relative">
           <div className="page-hero-inner mx-auto pb-16 pt-10 md:pb-24 md:pt-16">
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -711,7 +711,7 @@ export default function AIAnalyticsToolsPage() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

@@ -276,7 +276,7 @@ export default function AIInvestmentPaybackPeriodCalculatorClient() {
         </div>
       </section>
 
-      <main className="relative mx-auto max-w-7xl px-4 py-14 md:py-18">
+      <section className="relative mx-auto max-w-7xl px-4 py-14 md:py-18">
         <div className="absolute inset-x-0 top-0 h-[24rem] -z-10 bg-[linear-gradient(180deg,rgba(248,250,255,0.95)_0%,rgba(255,255,255,0.92)_58%,rgba(255,252,248,0.55)_100%)]" />
         <section id="payback-tool" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="max-w-3xl mb-8">
@@ -497,7 +497,7 @@ export default function AIInvestmentPaybackPeriodCalculatorClient() {
             </p>
           </div>
         </section>
-      </main>
+      </section>
     </div>
   )
 }

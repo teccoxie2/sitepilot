@@ -3,13 +3,22 @@ import { fetchIpapiResult } from '../../ipapi'
 import { buildCrossChecks, fetchProxycheckResult } from '../../proxycheck'
 import type { CheckApiResponse } from '../../types'
 
+const noStore = { headers: { 'Cache-Control': 'no-store' } }
+
 export async function GET(request: NextRequest) {
   const target = request.nextUrl.searchParams.get('target')?.trim()
 
   if (!target) {
     return NextResponse.json<CheckApiResponse>(
       { ok: false, error: 'Missing target query parameter.' },
-      { status: 400 },
+      { status: 400, ...noStore },
+    )
+  }
+
+  if (target.length > 2048) {
+    return NextResponse.json<CheckApiResponse>(
+      { ok: false, error: 'Target must be 2048 characters or fewer.' },
+      { status: 400, ...noStore },
     )
   }
 
@@ -41,7 +50,7 @@ export async function GET(request: NextRequest) {
         ],
       }
 
-      return NextResponse.json<CheckApiResponse>({ ok: true, result }, { status: 200 })
+      return NextResponse.json<CheckApiResponse>({ ok: true, result }, { status: 200, ...noStore })
     }
 
     try {
@@ -70,7 +79,7 @@ export async function GET(request: NextRequest) {
         crossChecks: buildCrossChecks(riskSnapshot, contextSnapshot),
       }
 
-      return NextResponse.json<CheckApiResponse>({ ok: true, result }, { status: 200 })
+      return NextResponse.json<CheckApiResponse>({ ok: true, result }, { status: 200, ...noStore })
     } catch (contextError) {
       const note = contextError instanceof Error ? contextError.message : 'Context source unavailable.'
       const degraded = {
@@ -97,7 +106,7 @@ export async function GET(request: NextRequest) {
         ],
       }
 
-      return NextResponse.json<CheckApiResponse>({ ok: true, result: degraded }, { status: 200 })
+      return NextResponse.json<CheckApiResponse>({ ok: true, result: degraded }, { status: 200, ...noStore })
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unexpected risk engine error.'
@@ -107,6 +116,6 @@ export async function GET(request: NextRequest) {
         ? 400
         : 500
 
-    return NextResponse.json<CheckApiResponse>({ ok: false, error: message }, { status })
+    return NextResponse.json<CheckApiResponse>({ ok: false, error: message }, { status, ...noStore })
   }
 }

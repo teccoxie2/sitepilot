@@ -1,5 +1,7 @@
 import 'server-only'
 
+const UPSTREAM_TIMEOUT_MS = 8_000
+
 export type IpapiLookupResult = {
   ip: string
   city: string
@@ -38,7 +40,8 @@ function safe(value: string | null | undefined) {
 
 export async function fetchIpapiResult(ip: string): Promise<IpapiLookupResult> {
   const response = await fetch(`https://ipapi.co/${encodeURIComponent(ip)}/json/`, {
-    cache: 'no-store',
+    next: { revalidate: 300 },
+    signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     headers: {
       'User-Agent': 'sitepilot-ip-reputation-checker/1.0',
       Accept: 'application/json',

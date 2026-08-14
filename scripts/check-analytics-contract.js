@@ -60,5 +60,9 @@ if (!analyticsSource.includes('provider,') || !analyticsSource.includes('plan,')
   console.error('Analytics contract failed: affiliate_click does not expose provider, plan, and source parameters')
   process.exit(1)
 }
+if (!analyticsSource.includes('page_path:')) {
+  console.error('Analytics contract failed: events do not expose a query-free page_path parameter')
+  process.exit(1)
+}
 
 console.log(`Analytics contract passed: ${requiredEvents.length} events and ${coreTools.length} core tools covered`)

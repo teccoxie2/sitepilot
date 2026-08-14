@@ -1,0 +1,1607 @@
+{
+  "schema_id": "sitepilot-review-evidence-v1",
+  "version": 1,
+  "description": "Versioned intake template for the 41 provisional Review routes. Null values mean data has not been collected; they are not estimates.",
+  "data_policy": "Populate only from dated production exports. Do not infer demand, conversion, or page decisions from missing values.",
+  "entries": [
+    {
+      "url": "https://sitepilot.co/ai-change-management-framework-enterprise-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-compliance-automation-assessment-tool",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-compliance-readiness-assessment-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-content-audit-tool-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-content-calendar-tools-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-content-creation-automation-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-content-generator-comparison",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-content-marketing-strategy-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-content-optimization-framework-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-content-performance-analytics-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-content-workflow-automation-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-data-privacy-impact-assessment-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-digital-transformation-roadmap-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-enterprise-security-compliance",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-ethics-compliance-checklist-enterprise-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-governance-compliance-framework-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-governance-framework-enterprise-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-governance-monitoring-dashboard-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-integration-timeline-calculator-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-marketing-attribution-analysis-tool-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-performance-monitoring-dashboard-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-performance-monitoring-dashboard-enterprise-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-productivity-tools-comparison-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-risk-management-dashboard-enterprise-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-security-framework-enterprise-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-team-productivity-assessment-tool-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-team-training-certification-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-tool-implementation-strategy-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-tool-shortlist-scorecard-template-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-transformation-roi-calculation-framework-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/best-email-marketing-tools-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/best-free-ssl-certificates-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/best-project-management-tools-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/best-social-media-management-tools-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/best-website-builders-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/com-vs-ai-vs-co-vs-io-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/manufacturing-ai-roi-calculator-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/tools/ai-compliance-audit-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/website-security-checklist-2026",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "not_applicable",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    }
+  ]
+}

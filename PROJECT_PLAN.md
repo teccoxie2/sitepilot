@@ -56,6 +56,8 @@ SitePilot 的产品定位是**以证据为核心的数字基础设施采购决�
 
 当前机器可校验 ledger：`src/data/evidence/sitepilot-claim-ledger-v1.json`；编辑摘要见 `CONTENT_CLAIM_LEDGER.md`，由 `npm run claims:ledger` 校验。
 
+Review 数据接入模板：`CONTENT_REVIEW_EVIDENCE.json`，由 `npm run review:evidence` 校验。缺失值必须保持 `null`，在获得 Search Console、分析和线索导出前不得据此作页面处置决定。
+
 ```text
 claim_id
 页面/组件

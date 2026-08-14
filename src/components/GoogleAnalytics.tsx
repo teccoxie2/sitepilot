@@ -92,6 +92,7 @@ export function trackEvent(
     event_category: category,
     event_label: eventLabel,
     value: eventValue,
+    page_path: typeof window === 'undefined' ? undefined : window.location.pathname,
   }
   const definedParams = Object.fromEntries(
     Object.entries(eventParams).filter(([, paramValue]) => paramValue !== undefined),

@@ -19,6 +19,8 @@ const pageTitle = 'Website Builder Comparison (2026): Wix vs Shopify vs Squaresp
 const pageDescription =
   'Use this website builder comparison to choose Wix, Shopify, Squarespace, Readdy, or WordPress by ecommerce fit, SEO control, editing overhead, migration risk, AI workflow fit, and long-term ownership before you commit.'
 const pageUrl = 'https://sitepilot.co/website-builders'
+const selectionDisclosure =
+  'Quick picks on this page are illustrative SitePilot editorial fit signals, not third-party rankings or performance benchmarks. Verify current pricing, capabilities, and limits on each provider site before committing.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -216,6 +218,9 @@ export default function WebsiteBuildersHub() {
 
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
                 A website builder comparison helps buyers choose Wix, Shopify, Squarespace, Readdy, or WordPress by ecommerce fit, SEO control, editing overhead, migration risk, AI workflow fit, and long-term ownership before platform lock-in gets expensive. Use this page when the real decision is not design style but which builder best fits revenue model, publishing speed, and future control.
+              </p>
+              <p className="mb-8 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {selectionDisclosure}
               </p>
 
               <div className="flex flex-wrap gap-3 mb-6">

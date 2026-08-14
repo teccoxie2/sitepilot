@@ -30,7 +30,7 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const dataDisclosure =
-  'Scores, prices, and performance figures are SitePilot editorial signals from a limited comparison set, not a reproducible third-party benchmark or guarantee. Verify current theme versions, plan terms, and performance on your own stack.'
+  'Scores, prices, and performance figures are illustrative SitePilot editorial signals from a limited comparison set, not a reproducible third-party benchmark or guarantee. Verify current theme versions, plan terms, and performance on your own stack.'
 const relatedArticles = [
   {
     href: '/website-builder-vs-wordpress-2026',
@@ -116,7 +116,7 @@ const themeCategories = [
     themes: [
       {
         name: 'Astra Pro',
-        description: 'The ultimate business theme with 200+ starter templates.',
+        description: 'The ultimate business theme with a large vendor-listed starter-template library.',
         price: '$59/year',
         rating: '4.9/5 editorial fit',
         badges: ['Fast loading', 'WooCommerce ready', 'Page builder compatible'],
@@ -395,7 +395,7 @@ export default function BestWordPressThemes2026() {
                           ))}
                         </div>
                         <div className="text-sm text-slate-500">
-                          <span className="font-semibold text-slate-700">Price:</span> {theme.price}
+                          <span className="font-semibold text-slate-700">Listed price snapshot:</span> {theme.price}
                           <span className="mx-2">•</span>
                           <span className="font-semibold text-slate-700">Rating:</span> {theme.rating}
                         </div>

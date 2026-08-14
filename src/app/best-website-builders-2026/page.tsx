@@ -10,7 +10,7 @@ const pageDescription =
   'Compare the best website builders in 2026, including Webflow, Wix, Shopify, and Squarespace, using design control, ecommerce fit, SEO ownership, and long-term platform flexibility.'
 const pageUrl = 'https://sitepilot.co/best-website-builders-2026'
 const scoreDisclosure =
-  'Scores on this page are SitePilot editorial fit signals, not survey results, universal rankings, or a guarantee of platform performance. Validate current pricing, limits, and portability against your project before committing.'
+  'Scores on this page are illustrative SitePilot editorial fit signals, not survey results, universal rankings, or a guarantee of platform performance. Validate current pricing, limits, and portability against your project before committing.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,

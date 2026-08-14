@@ -244,6 +244,51 @@
       "owner": "SitePilot editorial",
       "review_date": "2026-09-14",
       "status": "example"
+    },
+    {
+      "claim_id": "CL-017",
+      "route": "/best-wordpress-themes-2026",
+      "claim": "Theme prices, 0.8–1.0s directional speed signals, and 98/100-style editorial scores are an illustrative comparison snapshot.",
+      "claim_type": "editorial_snapshot",
+      "source_url": null,
+      "source_location": "src/app/best-wordpress-themes-2026/page.tsx :: winners, performanceGroups, themeCategories",
+      "sample_definition": null,
+      "collected_at": null,
+      "formula": null,
+      "conditions": "Do not present these values as a reproducible third-party benchmark or guarantee; verify theme versions, test stack, test window, plan terms, and production performance before purchase.",
+      "owner": "SitePilot editorial",
+      "review_date": "2026-09-14",
+      "status": "example"
+    },
+    {
+      "claim_id": "CL-018",
+      "route": "/best-web-hosting-2026",
+      "claim": "Provider prices, uptime, load-time, TTFB, support-time signals, and editorial scores are an illustrative comparison snapshot.",
+      "claim_type": "editorial_snapshot",
+      "source_url": null,
+      "source_location": "src/app/best-web-hosting-2026/page.tsx :: providers",
+      "sample_definition": null,
+      "collected_at": null,
+      "formula": null,
+      "conditions": "Do not present these values as a third-party benchmark or guarantee; verify current plans, renewal terms, test windows, support terms, and production performance before purchase.",
+      "owner": "SitePilot editorial",
+      "review_date": "2026-09-14",
+      "status": "example"
+    },
+    {
+      "claim_id": "CL-019",
+      "route": "/best-website-builders-2026",
+      "claim": "Webflow, Wix, Shopify, and Squarespace 8.9–9.8/10 scores are illustrative SitePilot editorial fit signals.",
+      "claim_type": "editorial_scoring_snapshot",
+      "source_url": null,
+      "source_location": "src/app/best-website-builders-2026/page.tsx :: builders",
+      "sample_definition": null,
+      "collected_at": null,
+      "formula": null,
+      "conditions": "Do not present these values as survey results, universal rankings, or a guarantee; verify current pricing, limits, portability, and project fit before committing.",
+      "owner": "SitePilot editorial",
+      "review_date": "2026-09-14",
+      "status": "example"
     }
   ]
 }

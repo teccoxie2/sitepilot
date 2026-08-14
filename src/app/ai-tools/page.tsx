@@ -48,6 +48,7 @@ const evaluationCriteria = [
 ] as const
 
 const resourceLinks = [
+  { href: '/ai-procurement-evidence-benchmark-2026', title: 'AI procurement evidence benchmark', note: 'Use a versioned evidence baseline before approval-stage scoring.' },
   { href: '/ai-tools-cost-benefit-analysis-2026', title: 'Cost-benefit analysis', note: 'Evaluate investment and return in the same frame.' },
   { href: '/ai-tools-budget-planning-enterprise-2026', title: 'Budget planning', note: 'Build a budget with evidence instead of guesswork.' },
   { href: '/ai-budget-template-enterprise-2026', title: 'Enterprise AI budget template', note: 'Start with a reusable budget structure before you set allocation targets.' },

@@ -1,0 +1,245 @@
+{
+  "register_id": "sitepilot-evidence-v1",
+  "version": 1,
+  "checked_at": "2026-08-14",
+  "entries": [
+    {
+      "evidence_id": "procurement.nist-ai-rmf",
+      "tool": "ai_procurement_decision_matrix",
+      "topic": "security_and_governance",
+      "claim": "NIST AI RMF 1.0 provides a voluntary framework for managing AI risks through Govern, Map, Measure, and Manage functions.",
+      "source_url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "source_date": "2023-01-26",
+      "check_date": "2026-08-14",
+      "claim_type": "authority_guidance",
+      "conditions": [
+        "Use as a control-question source, not as a vendor score or market benchmark.",
+        "Map each vendor answer to the buyer's actual workflow and risk owner."
+      ],
+      "owner": "SitePilot editorial",
+      "review_date": "2026-11-14",
+      "status": "verified"
+    },
+    {
+      "evidence_id": "procurement.nist-csf-2",
+      "tool": "ai_procurement_decision_matrix",
+      "topic": "security_and_governance",
+      "claim": "NIST CSF 2.0 supplies a cybersecurity risk-management vocabulary that can structure security and auditability questions in vendor diligence.",
+      "source_url": "https://doi.org/10.6028/NIST.CSWP.29",
+      "source_date": "2024-02-26",
+      "check_date": "2026-08-14",
+      "claim_type": "authority_guidance",
+      "conditions": [
+        "The framework does not certify a vendor or determine a procurement weight.",
+        "Confirm contractual and technical controls with the vendor."
+      ],
+      "owner": "SitePilot editorial",
+      "review_date": "2026-11-14",
+      "status": "verified"
+    },
+    {
+      "evidence_id": "procurement.eu-ai-act",
+      "tool": "ai_procurement_decision_matrix",
+      "topic": "regulatory_fit",
+      "claim": "EU Regulation 2024/1689 establishes harmonised rules for artificial intelligence and is a source for identifying applicable obligations during procurement review.",
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "source_date": "2024-07-12",
+      "check_date": "2026-08-14",
+      "claim_type": "regulatory_source",
+      "conditions": [
+        "Applicability depends on the system, provider or deployer role, use case, and jurisdiction.",
+        "Obtain legal review before treating a control as a pass or fail."
+      ],
+      "owner": "SitePilot editorial",
+      "review_date": "2026-11-14",
+      "status": "verified"
+    },
+    {
+      "evidence_id": "procurement.editorial-weights-v1",
+      "tool": "ai_procurement_decision_matrix",
+      "topic": "scoring_weights",
+      "claim": "The matrix weights strategic fit 25%, security and governance 25%, architecture and integration 20%, commercial risk 15%, and rollout readiness 15%.",
+      "source_url": null,
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "editorial_scoring",
+      "conditions": [
+        "These weights are an internal starting point, not an industry average or validated benchmark.",
+        "Re-weight them with the buying team before using the recommendation for approval."
+      ],
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "unverified"
+    },
+    {
+      "evidence_id": "procurement.blocker-controls-v1",
+      "tool": "ai_procurement_decision_matrix",
+      "topic": "mandatory_controls",
+      "claim": "The matrix treats unresolved training-use, identity, auditability, export, deletion, or rollback evidence as a procurement blocker.",
+      "source_url": null,
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "editorial_control_rule",
+      "conditions": [
+        "The blocker list is a decision aid and does not replace security, privacy, or legal review.",
+        "Add or remove controls to match the organization's threat model and contract requirements."
+      ],
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "unverified"
+    },
+    {
+      "evidence_id": "implementation-cost.nist-ai-rmf-risk",
+      "tool": "ai_implementation_cost_calculator",
+      "topic": "risk_adjustment",
+      "claim": "NIST AI RMF provides risk-management functions that can inform discovery, measurement, controls, and ongoing management work in an implementation budget.",
+      "source_url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "source_date": "2023-01-26",
+      "check_date": "2026-08-14",
+      "claim_type": "authority_guidance",
+      "conditions": [
+        "NIST does not provide the calculator's dollar amounts, uplift factors, or ROI assumptions.",
+        "Translate the required work into quotes, internal rates, and a dated delivery plan."
+      ],
+      "owner": "SitePilot editorial",
+      "review_date": "2026-11-14",
+      "status": "verified"
+    },
+    {
+      "evidence_id": "implementation-cost.base-cost-v1",
+      "tool": "ai_implementation_cost_calculator",
+      "topic": "base_implementation_cost",
+      "claim": "The calculator starts from a USD 1,800,000 base implementation cost as an illustrative planning input.",
+      "source_url": null,
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "editorial_model_input",
+      "conditions": [
+        "This is not a market average, quote, or observed enterprise benchmark.",
+        "Replace it with a vendor statement of work, internal labor rates, infrastructure estimates, and contingency."
+      ],
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "unverified"
+    },
+    {
+      "evidence_id": "implementation-cost.adjustment-factors-v1",
+      "tool": "ai_implementation_cost_calculator",
+      "topic": "scope_and_context_factors",
+      "claim": "Company-size, industry, scope, timeline, and use-case multipliers are editorial adjustment factors used to make the planning model responsive to user inputs.",
+      "source_url": null,
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "editorial_model_input",
+      "conditions": [
+        "The multipliers are illustrative and are not calibrated to a public dataset.",
+        "Validate the result against comparable delivery work and current architecture constraints."
+      ],
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "unverified"
+    },
+    {
+      "evidence_id": "implementation-cost.risk-uplifts-v1",
+      "tool": "ai_implementation_cost_calculator",
+      "topic": "risk_factors",
+      "claim": "Scope creep, integration complexity, data quality, and adoption resistance are represented with illustrative percentage uplifts in the risk view.",
+      "source_url": null,
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "editorial_model_input",
+      "conditions": [
+        "The uplift ranges are scenario assumptions, not measured failure rates or cost benchmarks.",
+        "Replace each uplift with evidence from the proposed program's delivery history and risk register."
+      ],
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "unverified"
+    },
+    {
+      "evidence_id": "hosting-scorecard.google-seo-controls",
+      "tool": "hosting_platform_fit_scorecard",
+      "topic": "seo_and_deployment_control",
+      "claim": "Google Search documentation describes technical SEO fundamentals that a hosting or deployment choice must preserve, including crawlability and serving a usable site.",
+      "source_url": "https://developers.google.com/search/docs/essentials",
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "authority_guidance",
+      "conditions": [
+        "Google's documentation is guidance, not a ranking of hosting providers.",
+        "Verify redirects, caching, deployment access, logs, and robots controls on the selected platform."
+      ],
+      "owner": "SitePilot editorial",
+      "review_date": "2026-11-14",
+      "status": "verified"
+    },
+    {
+      "evidence_id": "hosting-scorecard.wordpress-migration",
+      "tool": "hosting_platform_fit_scorecard",
+      "topic": "migration_fit",
+      "claim": "WordPress documentation treats migration as a task involving files, database content, configuration, and DNS or URL changes that should be validated before cutover.",
+      "source_url": "https://wordpress.org/documentation/article/moving-wordpress/",
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "authority_guidance",
+      "conditions": [
+        "Migration effort varies with the site's data, integrations, redirects, and access constraints.",
+        "The scorecard's migration bands are not a time or cost benchmark."
+      ],
+      "owner": "SitePilot editorial",
+      "review_date": "2026-11-14",
+      "status": "verified"
+    },
+    {
+      "evidence_id": "hosting-scorecard.editorial-weights-v1",
+      "tool": "hosting_platform_fit_scorecard",
+      "topic": "scoring_weights",
+      "claim": "The hosting scorecard weights workload fit 30%, performance headroom 20%, migration fit 15%, SEO and deployment control 20%, and support fit 15%.",
+      "source_url": null,
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "editorial_scoring",
+      "conditions": [
+        "These weights are an internal starting point, not a hosting-industry standard.",
+        "Re-weight them for the site's traffic, business risk, deployment model, and support contract."
+      ],
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "unverified"
+    },
+    {
+      "evidence_id": "hosting-scorecard.traffic-bands-v1",
+      "tool": "hosting_platform_fit_scorecard",
+      "topic": "traffic_input",
+      "claim": "The scorecard uses under 10,000, 10,000–100,000, 100,000–500,000, and over 500,000 visits per month as user-selectable traffic scenarios.",
+      "source_url": null,
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "editorial_input_band",
+      "conditions": [
+        "These are input buckets, not capacity guarantees or provider limits.",
+        "Confirm current traffic, burst behavior, cacheability, and contractual limits with the host."
+      ],
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "unverified"
+    },
+    {
+      "evidence_id": "hosting-scorecard.platform-defaults-v1",
+      "tool": "hosting_platform_fit_scorecard",
+      "topic": "platform_scoring",
+      "claim": "Default platform scores and adjustments in the scorecard are editorial heuristics for managed WordPress, shared hosting, and cloud hosting scenarios.",
+      "source_url": null,
+      "source_date": null,
+      "check_date": "2026-08-14",
+      "claim_type": "editorial_scoring",
+      "conditions": [
+        "The result is a first-pass fit signal, not a provider performance claim.",
+        "Confirm the leading option against a current quote, technical test, migration rehearsal, and support terms."
+      ],
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "unverified"
+    }
+  ]
+}

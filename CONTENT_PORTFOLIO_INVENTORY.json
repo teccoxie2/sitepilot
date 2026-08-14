@@ -1,0 +1,1422 @@
+[
+  {
+    "url": "https://sitepilot.co/",
+    "category": "site-trust",
+    "status": "Keep",
+    "target": "https://sitepilot.co/",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-automation-roi-measurement-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-automation-roi-measurement-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-automation-roi-measurement-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-automation-workflow-templates-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-automation-workflow-templates-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-automation-workflow-templates-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-budget-planning-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-budget-planning-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-budget-planning-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-budget-template-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-budget-template-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-budget-template-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-change-management-framework-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-change-management-framework-enterprise-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-change-management-framework-enterprise-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-compliance-automation-assessment-tool",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-compliance-automation-assessment-tool",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-compliance-automation-assessment-tool/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-compliance-readiness-assessment-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-compliance-readiness-assessment-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-compliance-readiness-assessment-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-audit-tool-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-content-audit-tool-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-content-audit-tool-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-calendar-tools-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-content-calendar-tools-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-content-calendar-tools-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-creation-automation-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-content-creation-automation-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-content-creation-automation-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-generator-comparison",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-content-generator-comparison",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-content-generator-comparison/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-marketing-strategy-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-content-marketing-strategy-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-content-marketing-strategy-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-optimization-framework-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-content-optimization-framework-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-content-optimization-framework-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-performance-analytics-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-content-performance-analytics-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-content-performance-analytics-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-workflow-automation-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-content-workflow-automation-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-content-workflow-automation-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-data-privacy-impact-assessment-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-data-privacy-impact-assessment-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-data-privacy-impact-assessment-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-digital-transformation-roadmap-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-digital-transformation-roadmap-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-digital-transformation-roadmap-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-digital-transformation-roadmap-enterprise-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-enterprise-security-compliance",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-enterprise-security-compliance",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-enterprise-security-compliance/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-ethics-compliance-checklist-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-ethics-compliance-checklist-enterprise-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-ethics-compliance-checklist-enterprise-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-governance-compliance-framework-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-governance-compliance-framework-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-governance-compliance-framework-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-governance-framework-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-governance-framework-enterprise-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-governance-framework-enterprise-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-governance-monitoring-dashboard-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-governance-monitoring-dashboard-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-governance-monitoring-dashboard-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-implementation-checklist-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-implementation-checklist-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-implementation-checklist-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-implementation-cost-calculator-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-implementation-cost-calculator-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-implementation-cost-calculator-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-implementation-success-framework-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-implementation-success-framework-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-implementation-success-framework-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-implementation-success-patterns-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-implementation-success-patterns-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-implementation-success-patterns-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-integration-timeline-calculator-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-integration-timeline-calculator-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-integration-timeline-calculator-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-investment-decision-framework-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-investment-decision-framework-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-investment-decision-framework-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-investment-payback-period-calculator-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-investment-payback-period-calculator-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-investment-payback-period-calculator-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-investment-portfolio-optimizer-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-investment-portfolio-optimizer-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-investment-portfolio-optimizer-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-investment-roi-calculator-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-investment-roi-calculator-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-investment-roi-calculator-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-investment-roi-matrix-calculator-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-investment-roi-matrix-calculator-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-investment-roi-matrix-calculator-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-marketing-attribution-analysis-tool-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-marketing-attribution-analysis-tool-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-marketing-attribution-analysis-tool-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-performance-monitoring-dashboard-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-performance-monitoring-dashboard-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-performance-monitoring-dashboard-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-performance-monitoring-dashboard-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-performance-monitoring-dashboard-enterprise-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-performance-monitoring-dashboard-enterprise-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-procurement-decision-matrix-tool-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-procurement-decision-matrix-tool-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-procurement-decision-matrix-tool-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-procurement-evidence-benchmark-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-procurement-evidence-benchmark-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-procurement-evidence-benchmark-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-productivity-tools-comparison-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-productivity-tools-comparison-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-productivity-tools-comparison-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-project-risk-assessment-framework-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-project-risk-assessment-framework-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-project-risk-assessment-framework-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-risk-management-dashboard-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-risk-management-dashboard-enterprise-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-risk-management-dashboard-enterprise-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-roi-calculator",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-roi-calculator",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-roi-calculator/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-security-framework-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-security-framework-enterprise-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-security-framework-enterprise-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-talent-optimization-calculator-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-talent-optimization-calculator-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-talent-optimization-calculator-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-team-productivity-assessment-tool-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-team-productivity-assessment-tool-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-team-productivity-assessment-tool-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-team-training-certification-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-team-training-certification-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-team-training-certification-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tool-implementation-strategy-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-tool-implementation-strategy-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-tool-implementation-strategy-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tool-shortlist-scorecard-template-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-tool-shortlist-scorecard-template-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-tool-shortlist-scorecard-template-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools-budget-planning-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools-budget-planning-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools-budget-planning-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools-cost-benefit-analysis-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools-cost-benefit-analysis-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools-cost-benefit-analysis-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools-cost-optimization-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools-cost-optimization-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools-cost-optimization-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools-for-bloggers-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools-for-bloggers-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools-for-bloggers-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools-integration-roadmap-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools-integration-roadmap-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools-integration-roadmap-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools-risk-assessment-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools-risk-assessment-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools-risk-assessment-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools-security-compliance-checklist-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools-security-compliance-checklist-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools-security-compliance-checklist-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-tools-usage-tracking-dashboard-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-tools-usage-tracking-dashboard-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-tools-usage-tracking-dashboard-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-total-cost-ownership-calculator-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-total-cost-ownership-calculator-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-total-cost-ownership-calculator-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-training-roi-calculator-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-training-roi-calculator-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-training-roi-calculator-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-transformation-roi-calculation-framework-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-transformation-roi-calculation-framework-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-transformation-roi-calculation-framework-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/ai-transformation-success-metrics-enterprise-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-vendor-comparison-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-vendor-comparison-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-vendor-comparison-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-vendor-contract-red-flags-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-vendor-contract-red-flags-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-vendor-contract-red-flags-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-vendor-due-diligence-checklist-enterprise-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-vendor-due-diligence-checklist-enterprise-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-vendor-due-diligence-checklist-enterprise-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-vendor-risk-evaluation-tool-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-vendor-risk-evaluation-tool-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-vendor-risk-evaluation-tool-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-vendor-selection-enterprise-decision-framework",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-vendor-selection-enterprise-decision-framework",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-vendor-selection-enterprise-decision-framework/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ai-workflow-automation-guide-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ai-workflow-automation-guide-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ai-workflow-automation-guide-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/apply-for-audit",
+    "category": "site-trust",
+    "status": "Keep",
+    "target": "https://sitepilot.co/apply-for-audit",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/apply-for-audit/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-ai-analytics-tools-bloggers-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-ai-analytics-tools-bloggers-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-ai-analytics-tools-bloggers-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-ai-automation-tools-bloggers-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-ai-automation-tools-bloggers-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-ai-automation-tools-bloggers-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-ai-image-tools-bloggers-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-ai-image-tools-bloggers-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-ai-image-tools-bloggers-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-ai-seo-tools-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-ai-seo-tools-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-ai-seo-tools-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-ai-tools-small-business-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-ai-tools-small-business-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-ai-tools-small-business-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-ai-video-tools-bloggers-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-ai-video-tools-bloggers-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-ai-video-tools-bloggers-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-ai-writing-tools-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-ai-writing-tools-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-ai-writing-tools-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-domain-registrars-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-domain-registrars-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-domain-registrars-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-ecommerce-website-builders-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-ecommerce-website-builders-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-ecommerce-website-builders-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-email-marketing-tools-2026",
+    "category": "review",
+    "status": "Review",
+    "target": "https://sitepilot.co/best-email-marketing-tools-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/best-email-marketing-tools-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-free-ssl-certificates-2026",
+    "category": "review",
+    "status": "Review",
+    "target": "https://sitepilot.co/best-free-ssl-certificates-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/best-free-ssl-certificates-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-project-management-tools-2026",
+    "category": "review",
+    "status": "Review",
+    "target": "https://sitepilot.co/best-project-management-tools-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/best-project-management-tools-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-social-media-management-tools-2026",
+    "category": "review",
+    "status": "Review",
+    "target": "https://sitepilot.co/best-social-media-management-tools-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/best-social-media-management-tools-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-web-hosting-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-web-hosting-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-web-hosting-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-website-builders-2026",
+    "category": "web-infrastructure",
+    "status": "Review",
+    "target": "https://sitepilot.co/best-website-builders-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/best-website-builders-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/best-wordpress-themes-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/best-wordpress-themes-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/best-wordpress-themes-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/cheap-hosting",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/cheap-hosting",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/cheap-hosting/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/cloud-hosting-vs-traditional-hosting-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/cloud-hosting-vs-traditional-hosting-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/cloud-hosting-vs-traditional-hosting-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/com-vs-ai-vs-co-vs-io-2026",
+    "category": "review",
+    "status": "Review",
+    "target": "https://sitepilot.co/com-vs-ai-vs-co-vs-io-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/com-vs-ai-vs-co-vs-io-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/contact",
+    "category": "site-trust",
+    "status": "Keep",
+    "target": "https://sitepilot.co/contact",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/contact/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/domain-privacy-protection-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/domain-privacy-protection-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/domain-privacy-protection-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/domain-vs-hosting-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/domain-vs-hosting-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/domain-vs-hosting-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-budget-optimization-calculator",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-budget-optimization-calculator",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-budget-optimization-calculator/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-deployment-risk-assessment-guide",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-deployment-risk-assessment-guide",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-deployment-risk-assessment-guide/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-implementation-best-practices-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-implementation-best-practices-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-implementation-best-practices-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-implementation-budget-planning-guide-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-implementation-budget-planning-guide-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-implementation-budget-planning-guide-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-risk-assessment-tool-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-risk-assessment-tool-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-risk-assessment-tool-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-roi-calculation-model-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-roi-calculation-model-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-roi-calculation-model-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-roi-optimization-framework-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-roi-optimization-framework-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-roi-optimization-framework-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-security-risk-management-guide-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-security-risk-management-guide-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-security-risk-management-guide-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-success-patterns-analysis-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-success-patterns-analysis-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-success-patterns-analysis-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-transformation-roadmap-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-transformation-roadmap-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-transformation-roadmap-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-vendor-comparison-guide-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-vendor-comparison-guide-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-vendor-comparison-guide-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-vendor-pilot-evaluation-checklist-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-vendor-pilot-evaluation-checklist-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-vendor-pilot-evaluation-checklist-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-vendor-pricing-guide-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-vendor-pricing-guide-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-vendor-pricing-guide-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-vendor-rfp-template-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-vendor-rfp-template-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-vendor-rfp-template-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/enterprise-ai-vendor-shortlist-scorecard-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/enterprise-ai-vendor-shortlist-scorecard-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/enterprise-ai-vendor-shortlist-scorecard-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/free-website-builders-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/free-website-builders-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/free-website-builders-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/hosting",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/hosting/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting-platform-fit-scorecard-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/hosting-platform-fit-scorecard-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/hosting-platform-fit-scorecard-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting/best-web-hosting",
+    "category": "web-infrastructure",
+    "status": "Merge",
+    "target": "https://sitepilot.co/best-web-hosting-2026",
+    "reason": "Likely duplicate legacy path; consolidate into /best-web-hosting-2026 after content and link review.",
+    "evidence_source": "src/app/hosting/best-web-hosting/page.tsx :: merge-known-legacy-hosting-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting/cheap-hosting",
+    "category": "web-infrastructure",
+    "status": "Merge",
+    "target": "https://sitepilot.co/cheap-hosting",
+    "reason": "Likely duplicate legacy path; consolidate into /cheap-hosting after content and link review.",
+    "evidence_source": "src/app/hosting/cheap-hosting/page.tsx :: merge-known-legacy-hosting-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting/hostinger-review",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/hosting/hostinger-review",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/hosting/hostinger-review/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting/hostinger-vs-bluehost",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/hosting/hostinger-vs-bluehost",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/hosting/hostinger-vs-bluehost/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting/siteground-review",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/hosting/siteground-review",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/hosting/siteground-review/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting/wordpress-hosting",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/hosting/wordpress-hosting",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/hosting/wordpress-hosting/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/how-to-buy-a-domain-name-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/how-to-buy-a-domain-name-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/how-to-buy-a-domain-name-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ip-leak-test",
+    "category": "review",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ip-leak-test",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ip-leak-test/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/ip-reputation-checker",
+    "category": "review",
+    "status": "Keep",
+    "target": "https://sitepilot.co/ip-reputation-checker",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/ip-reputation-checker/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/manufacturing-ai-roi-calculator-2026",
+    "category": "review",
+    "status": "Review",
+    "target": "https://sitepilot.co/manufacturing-ai-roi-calculator-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/manufacturing-ai-roi-calculator-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/methodology",
+    "category": "site-trust",
+    "status": "Keep",
+    "target": "https://sitepilot.co/methodology",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/methodology/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/namecheap-vs-godaddy-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/namecheap-vs-godaddy-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/namecheap-vs-godaddy-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/privacy",
+    "category": "site-trust",
+    "status": "Noindex",
+    "target": null,
+    "reason": "Thin legal page retained for users but not intended as a search landing page.",
+    "evidence_source": "src/app/privacy/page.tsx :: noindex-low-search-utility",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/best-datacenter-proxies-2026",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/best-datacenter-proxies-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/best-datacenter-proxies-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/best-isp-proxies-2026",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/best-isp-proxies-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/best-isp-proxies-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/best-mobile-proxies-2026",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/best-mobile-proxies-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/best-mobile-proxies-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/best-residential-proxies-2026",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/best-residential-proxies-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/best-residential-proxies-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/developer-hub",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/developer-hub",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/developer-hub/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/mobile-proxy-farm-setup-guide-2026",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/mobile-proxy-farm-setup-guide-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/mobile-proxy-farm-setup-guide-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/mobile-proxy-software-comparison-2026",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/mobile-proxy-software-comparison-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/mobile-proxy-software-comparison-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/proxy-farm-hardware-selection-guide",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/proxy-farm-hardware-selection-guide",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/proxy-farm-hardware-selection-guide/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/recommendation",
+    "category": "proxy-infrastructure",
+    "status": "Noindex",
+    "target": null,
+    "reason": "Interactive recommendation utility should remain accessible from the proxy hub without competing as a standalone search page.",
+    "evidence_source": "src/app/proxies/recommendation/page.tsx :: noindex-low-search-utility",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/proxies/residential-vs-mobile-proxies-comparison-2026",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/residential-vs-mobile-proxies-comparison-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/residential-vs-mobile-proxies-comparison-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/readdy-ai-review",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/readdy-ai-review",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/readdy-ai-review/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/terms",
+    "category": "site-trust",
+    "status": "Noindex",
+    "target": null,
+    "reason": "Thin legal page retained for users but not intended as a search landing page.",
+    "evidence_source": "src/app/terms/page.tsx :: noindex-low-search-utility",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/tools/ai-compliance-audit-2026",
+    "category": "ai-procurement",
+    "status": "Review",
+    "target": "https://sitepilot.co/tools/ai-compliance-audit-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/tools/ai-compliance-audit-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/tools/evaluation-tools-2026",
+    "category": "ai-procurement",
+    "status": "Keep",
+    "target": "https://sitepilot.co/tools/evaluation-tools-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/tools/evaluation-tools-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/trademark-check-before-buying-a-domain-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/trademark-check-before-buying-a-domain-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/trademark-check-before-buying-a-domain-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/web-hosting",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/web-hosting",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/web-hosting/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/website-builder-vs-wordpress-2026",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/website-builder-vs-wordpress-2026",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/website-builder-vs-wordpress-2026/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/website-builders",
+    "category": "web-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/website-builders",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/website-builders/page.tsx :: keep-core-decision-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/website-security-checklist-2026",
+    "category": "review",
+    "status": "Review",
+    "target": "https://sitepilot.co/website-security-checklist-2026",
+    "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
+    "evidence_source": "src/app/website-security-checklist-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  }
+]

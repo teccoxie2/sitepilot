@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
+import evidenceData from '@/data/evidence/sitepilot-evidence-v1.json'
 
 const pageTitle = 'Enterprise AI Vendor Evaluation Methodology 2026 | SitePilot'
 const pageDescription =
@@ -60,6 +61,11 @@ const workflow = [
 
 const relatedLinks = [
   {
+    title: 'AI Procurement Evidence Benchmark 2026',
+    href: '/ai-procurement-evidence-benchmark-2026',
+    description: 'Use a versioned evidence baseline before approval-stage scoring.',
+  },
+  {
     title: 'Enterprise AI Vendor Comparison Guide 2026',
     href: '/enterprise-ai-vendor-comparison-guide-2026',
     description: 'Frame the category before formal procurement begins.',
@@ -95,6 +101,12 @@ const relatedLinks = [
     description: 'Validate live workflow performance before production.',
   },
 ]
+
+const evidenceToolLabels: Record<string, string> = {
+  ai_procurement_decision_matrix: 'AI procurement decision matrix',
+  ai_implementation_cost_calculator: 'AI implementation cost calculator',
+  hosting_platform_fit_scorecard: 'Hosting platform fit scorecard',
+}
 
 export default function MethodologyPage() {
   return (
@@ -136,6 +148,9 @@ export default function MethodologyPage() {
                 <Link href="/enterprise-ai-vendor-rfp-template-2026" className="btn-secondary">
                   Open the RFP template
                 </Link>
+                <a href="#evidence-register" className="btn-secondary">
+                  Evidence register
+                </a>
               </div>
             </div>
 
@@ -211,6 +226,55 @@ export default function MethodologyPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence-register" className="page-section">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-3xl mb-10">
+            <div className="page-pill mb-4">Evidence register</div>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">Trace the inputs behind the core tools.</h2>
+            <p className="page-lead text-lg">
+              This versioned register separates public authority guidance from SitePilot&apos;s editorial model inputs. Unverified entries are deliberately marked so a buying team knows what must be replaced with dated vendor evidence, a quote, or a pilot result.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+            {evidenceData.entries.map((entry) => {
+              const isVerified = entry.status === 'verified'
+              return (
+                <article key={entry.evidence_id} className="page-card p-6">
+                  <div className="mb-4 flex items-start justify-between gap-3">
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.16em] text-slate-400">
+                        {evidenceToolLabels[entry.tool] ?? entry.tool}
+                      </div>
+                      <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-slate-950">{entry.topic.replaceAll('_', ' ')}</h3>
+                    </div>
+                    <span
+                      className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${
+                        isVerified ? 'border border-emerald-200 bg-emerald-50 text-emerald-800' : 'border border-amber-200 bg-amber-50 text-amber-800'
+                      }`}
+                    >
+                      {entry.status}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-6 text-slate-700">{entry.claim}</p>
+                  <div className="mt-5 border-t border-slate-200 pt-4 text-xs leading-5 text-slate-500">
+                    <div>Checked {entry.check_date} · Review {entry.review_date}</div>
+                    {entry.source_url ? (
+                      <a href={entry.source_url} target="_blank" rel="noreferrer" className="mt-2 inline-flex font-semibold text-[#635bff] hover:underline">
+                        Open public source
+                        <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                      </a>
+                    ) : (
+                      <div className="mt-2 font-medium text-amber-800">No public source recorded; replace before treating as evidence.</div>
+                    )}
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </div>
       </section>

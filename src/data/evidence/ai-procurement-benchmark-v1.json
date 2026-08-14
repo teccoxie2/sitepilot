@@ -1,0 +1,72 @@
+{
+  "benchmark_id": "ai-procurement-evidence-benchmark-v1",
+  "version": 1,
+  "checked_at": "2026-08-14",
+  "scope": "Evidence coverage baseline for enterprise AI procurement, not a vendor performance ranking.",
+  "rows": [
+    {
+      "benchmark_id": "governance",
+      "control": "Governance and risk ownership",
+      "buyer_question": "Who owns the AI risk decision, and how are risks mapped, measured, and managed?",
+      "minimum_evidence": "Named risk owner, risk register, review cadence, and escalation path tied to the proposed workflow.",
+      "source_evidence_ids": ["procurement.nist-ai-rmf"],
+      "status": "baseline"
+    },
+    {
+      "benchmark_id": "security",
+      "control": "Security and auditability",
+      "buyer_question": "Can the vendor demonstrate identity, access, logging, incident response, and control ownership?",
+      "minimum_evidence": "Current control documentation, testable access model, audit-log scope, and incident commitments.",
+      "source_evidence_ids": ["procurement.nist-csf-2"],
+      "status": "baseline"
+    },
+    {
+      "benchmark_id": "regulatory-fit",
+      "control": "Regulatory applicability",
+      "buyer_question": "Which provider, deployer, use-case, and jurisdiction obligations apply?",
+      "minimum_evidence": "Documented role and use-case mapping with legal review of applicable obligations.",
+      "source_evidence_ids": ["procurement.eu-ai-act"],
+      "status": "baseline"
+    },
+    {
+      "benchmark_id": "data-controls",
+      "control": "Data use, retention, and deletion",
+      "buyer_question": "What happens to prompts, outputs, telemetry, and customer data during and after the contract?",
+      "minimum_evidence": "Contract language, retention settings, training-use position, deletion procedure, and verification evidence.",
+      "source_evidence_ids": ["procurement.blocker-controls-v1"],
+      "status": "buyer-validation-required"
+    },
+    {
+      "benchmark_id": "architecture",
+      "control": "Architecture and integration fit",
+      "buyer_question": "Does the proposed system fit the existing data flow, identity model, and operating boundaries?",
+      "minimum_evidence": "Current-state and target-state diagrams, integration test, dependency inventory, and rollback path.",
+      "source_evidence_ids": ["procurement.blocker-controls-v1"],
+      "status": "buyer-validation-required"
+    },
+    {
+      "benchmark_id": "pilot",
+      "control": "Pilot acceptance criteria",
+      "buyer_question": "What observable result earns approval to move from pilot to production?",
+      "minimum_evidence": "Workflow baseline, acceptance thresholds, evaluation set, human review method, and stop conditions.",
+      "source_evidence_ids": ["procurement.editorial-weights-v1"],
+      "status": "buyer-validation-required"
+    },
+    {
+      "benchmark_id": "commercial",
+      "control": "Commercial and exit risk",
+      "buyer_question": "What will the total cost, renewal exposure, liability, and exit path look like at production scale?",
+      "minimum_evidence": "Dated quote, usage assumptions, renewal terms, liability language, portability plan, and switching estimate.",
+      "source_evidence_ids": ["procurement.editorial-weights-v1"],
+      "status": "buyer-validation-required"
+    },
+    {
+      "benchmark_id": "decision-record",
+      "control": "Decision record and re-review date",
+      "buyer_question": "Can another stakeholder reproduce the recommendation and see when it must be revisited?",
+      "minimum_evidence": "Versioned scores, source dates, unresolved blockers, recommendation, owner, and next review date.",
+      "source_evidence_ids": ["procurement.editorial-weights-v1"],
+      "status": "baseline"
+    }
+  ]
+}

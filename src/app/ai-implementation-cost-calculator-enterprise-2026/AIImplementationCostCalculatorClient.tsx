@@ -1,18 +1,22 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import {
   AlertTriangle,
   ArrowRight,
   BarChart3,
   Calculator,
+  Check,
   CheckCircle2,
+  Download,
   DollarSign,
   Shield,
+  Share2,
   Sparkles,
   Target,
 } from 'lucide-react'
+import { trackReportExport, trackReportShare, trackToolComplete, trackToolStart } from '@/components/GoogleAnalytics'
 
 type CompanySize = '1000-5000' | '5000-15000' | '15000-50000' | '50000+'
 type Industry =
@@ -169,12 +173,45 @@ function formatRange(low: number, high: number) {
   return `${formatCurrency(low)} - ${formatCurrency(high)}`
 }
 
+function downloadFile(filename: string, content: string, type: string) {
+  const blob = new Blob([content], { type })
+  const url = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = filename
+  anchor.click()
+  URL.revokeObjectURL(url)
+}
+
 export default function AIImplementationCostCalculatorClient() {
   const [companySize, setCompanySize] = useState<CompanySize>('5000-15000')
   const [industry, setIndustry] = useState<Industry>('financial-services')
   const [scope, setScope] = useState<Scope>('enterprise-wide')
   const [timeline, setTimeline] = useState<Timeline>('12')
   const [useCases, setUseCases] = useState<UseCase[]>(['customer-service', 'predictive-analytics', 'process-automation'])
+  const [notice, setNotice] = useState('')
+  const startedRef = useRef(false)
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const params = new URLSearchParams(window.location.search)
+      const sharedUseCases = params.get('useCases')
+      const companySizeParam = params.get('companySize')
+      const industryParam = params.get('industry')
+      const scopeParam = params.get('scope')
+      const timelineParam = params.get('timeline')
+      if (companySizeParam && companySizeParam in sizeFactors) setCompanySize(companySizeParam as CompanySize)
+      if (industryParam && industryParam in industryFactors) setIndustry(industryParam as Industry)
+      if (scopeParam && scopeParam in scopeFactors) setScope(scopeParam as Scope)
+      if (timelineParam && timelineParam in timelineFactors) setTimeline(timelineParam as Timeline)
+      if (sharedUseCases) {
+        const parsed = sharedUseCases.split(',').filter((item): item is UseCase => item in useCaseWeights)
+        if (parsed.length > 0) setUseCases(parsed)
+      }
+    }, 0)
+
+    return () => window.clearTimeout(timer)
+  }, [])
 
   const baseImplementationCost = 1800000
   const useCaseFactor = 1 + useCases.reduce((total, key) => total + useCaseWeights[key], 0)
@@ -220,7 +257,63 @@ export default function AIImplementationCostCalculatorClient() {
     { value: `${breakEvenMonths} months`, label: 'Estimated break-even timing' },
   ]
 
+  function startTracking() {
+    if (startedRef.current) return
+    startedRef.current = true
+    trackToolStart('ai_implementation_cost_roi')
+  }
+
+  function buildShareUrl() {
+    const params = new URLSearchParams({
+      companySize,
+      industry,
+      scope,
+      timeline,
+      useCases: useCases.join(','),
+    })
+    return `${window.location.origin}${window.location.pathname}?${params.toString()}`
+  }
+
+  function handleShare() {
+    startTracking()
+    const url = buildShareUrl()
+    void navigator.clipboard?.writeText(url).catch(() => undefined)
+    window.history.replaceState(null, '', url)
+    setNotice('Share link copied. Anyone with the link can review this planning scenario.')
+    trackReportShare('ai_implementation_cost_roi', 'clipboard')
+  }
+
+  function handleExportMemo() {
+    startTracking()
+    const memo = [
+      '# AI Implementation Cost and ROI Planning Memo',
+      '',
+      `Company size: ${companySize}`,
+      `Industry: ${industry}`,
+      `Scope: ${scope}`,
+      `Timeline: ${timeline} months`,
+      `Use cases: ${useCases.join(', ')}`,
+      '',
+      `Implementation budget: ${formatRange(Math.round(implementationWithContingency * 0.88), Math.round(implementationWithContingency * 1.18))}`,
+      `Annual operating cost: ${formatCurrency(Math.round(annualOperatingCost))}`,
+      `Risk-adjusted 3-year ROI: ${riskAdjustedROI}%`,
+      `Break-even: ${breakEvenMonths} months`,
+      '',
+      'This is an illustrative planning scenario. Replace defaults with dated vendor quotes, internal labor costs, pilot evidence, legal review, and your own baseline before approval.',
+    ].join('\n')
+    downloadFile('sitepilot-ai-implementation-cost-roi-memo.md', memo, 'text/markdown;charset=utf-8')
+    setNotice('AI implementation cost and ROI memo exported.')
+    trackReportExport('ai_implementation_cost_roi', 'markdown_memo')
+  }
+
+  function handleComplete() {
+    startTracking()
+    trackToolComplete('ai_implementation_cost_roi')
+    setNotice('Planning scenario marked complete. Export or share it with the buying team.')
+  }
+
   function toggleUseCase(useCase: UseCase) {
+    startTracking()
     setUseCases((current) => {
       if (current.includes(useCase)) {
         if (current.length === 1) {
@@ -230,6 +323,7 @@ export default function AIImplementationCostCalculatorClient() {
       }
       return [...current, useCase]
     })
+    setNotice('')
   }
 
   return (
@@ -350,10 +444,15 @@ export default function AIImplementationCostCalculatorClient() {
             <div className="page-card p-8">
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">Company size</label>
+                  <label htmlFor="company-size" className="mb-2 block text-sm font-semibold text-slate-700">Company size</label>
                   <select
+                    id="company-size"
                     value={companySize}
-                    onChange={(event) => setCompanySize(event.target.value as CompanySize)}
+                    onChange={(event) => {
+                      startTracking()
+                      setCompanySize(event.target.value as CompanySize)
+                      setNotice('')
+                    }}
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#635bff]/20"
                   >
                     <option value="1000-5000">1,000-5,000 employees</option>
@@ -364,10 +463,15 @@ export default function AIImplementationCostCalculatorClient() {
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">Industry</label>
+                  <label htmlFor="industry" className="mb-2 block text-sm font-semibold text-slate-700">Industry</label>
                   <select
+                    id="industry"
                     value={industry}
-                    onChange={(event) => setIndustry(event.target.value as Industry)}
+                    onChange={(event) => {
+                      startTracking()
+                      setIndustry(event.target.value as Industry)
+                      setNotice('')
+                    }}
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#635bff]/20"
                   >
                     <option value="financial-services">Financial services</option>
@@ -382,10 +486,15 @@ export default function AIImplementationCostCalculatorClient() {
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">Implementation scope</label>
+                  <label htmlFor="implementation-scope" className="mb-2 block text-sm font-semibold text-slate-700">Implementation scope</label>
                   <select
+                    id="implementation-scope"
                     value={scope}
-                    onChange={(event) => setScope(event.target.value as Scope)}
+                    onChange={(event) => {
+                      startTracking()
+                      setScope(event.target.value as Scope)
+                      setNotice('')
+                    }}
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#635bff]/20"
                   >
                     <option value="pilot">Single department pilot</option>
@@ -398,10 +507,15 @@ export default function AIImplementationCostCalculatorClient() {
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">Expected timeline</label>
+                  <label htmlFor="expected-timeline" className="mb-2 block text-sm font-semibold text-slate-700">Expected timeline</label>
                   <select
+                    id="expected-timeline"
                     value={timeline}
-                    onChange={(event) => setTimeline(event.target.value as Timeline)}
+                    onChange={(event) => {
+                      startTracking()
+                      setTimeline(event.target.value as Timeline)
+                      setNotice('')
+                    }}
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#635bff]/20"
                   >
                     <option value="6">6 months</option>
@@ -475,6 +589,27 @@ export default function AIImplementationCostCalculatorClient() {
                   </p>
                 </div>
               </div>
+              <p className="mt-5 text-xs leading-5 text-slate-500">
+                Evidence standard v1.0 · checked 2026-08-14 · outputs are illustrative planning scenarios, not external benchmarks.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <button type="button" onClick={handleComplete} className="btn-secondary gap-2">
+                  <Check className="h-4 w-4" /> Mark complete
+                </button>
+                <button type="button" onClick={handleShare} className="btn-secondary gap-2">
+                  <Share2 className="h-4 w-4" /> Copy share link
+                </button>
+                <button type="button" onClick={handleExportMemo} className="btn-secondary gap-2">
+                  <Download className="h-4 w-4" /> Export memo
+                </button>
+                <Link href="/apply-for-audit" className="btn-brand gap-2">
+                  Request a tailored audit
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+              <p className="mt-4 text-sm leading-6 text-slate-500" role="status">
+                {notice || 'Replace the defaults with dated quotes, internal costs, and pilot evidence before using this estimate for approval.'}
+              </p>
             </div>
           </div>
         </div>

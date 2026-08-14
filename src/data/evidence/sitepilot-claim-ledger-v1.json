@@ -214,6 +214,21 @@
       "owner": "SitePilot product",
       "review_date": "2026-11-14",
       "status": "example"
+    },
+    {
+      "claim_id": "CL-015",
+      "route": "/cheap-hosting",
+      "claim": "Listed prices, renewal prices, directional performance signals, and editorial scores are an illustrative comparison snapshot.",
+      "claim_type": "editorial_snapshot",
+      "source_url": null,
+      "source_location": "src/app/cheap-hosting/page.tsx :: providers",
+      "sample_definition": null,
+      "collected_at": null,
+      "formula": null,
+      "conditions": "Do not present these values as a third-party benchmark or guarantee; verify current plans, renewal terms, test windows, and production performance before purchase.",
+      "owner": "SitePilot editorial",
+      "review_date": "2026-09-14",
+      "status": "example"
     }
   ]
 }

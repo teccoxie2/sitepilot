@@ -10,7 +10,7 @@ const pageDescription =
   'Compare cheap web hosting under $5 by renewal pricing, speed, support, hidden costs, and long-term value before choosing a budget host in 2026.'
 const pageUrl = 'https://sitepilot.co/cheap-hosting'
 const dataDisclosure =
-  'Scores, prices, and performance figures are SitePilot editorial signals from a limited comparison snapshot, not a third-party benchmark or guarantee. Verify current plans, renewal terms, and production performance before purchase.'
+  'Scores, prices, and performance figures are illustrative SitePilot editorial signals from a limited comparison snapshot, not a third-party benchmark or guarantee. Verify current plans, renewal terms, and production performance before purchase.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,

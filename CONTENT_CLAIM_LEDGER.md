@@ -23,6 +23,7 @@
 | CL-012 | `/ai-procurement-decision-matrix-tool-2026` | 25% / 25% / 20% / 15% / 15% editorial weights | `example`：页面明确为 planning aid，模型版本固定 | 由买方批准权重并以 dated vendor evidence 替换内部起点 |
 | CL-013 | `/ai-implementation-cost-calculator-enterprise-2026` | `$1.8M` base input 与调整因子 | `estimate`：页面明确为 illustrative planning scenario | 用 dated quotes、内部成本和 pilot evidence 替换默认值 |
 | CL-014 | `/hosting-platform-fit-scorecard-2026` | 30% / 20% / 15% / 20% / 15% weights 与平台 scenario defaults | `example`：页面明确为 illustrative fit signal | 用实测流量、迁移清单、支持条款和当前报价复核 |
+| CL-015 | `/cheap-hosting` | 价格、续费、性能信号和 editorial scores | `example`：页面明确为 illustrative editorial snapshot | 补当前报价、测试窗口、原始测量和供应商来源后再升级为 verified |
 
 ## 字段要求
 

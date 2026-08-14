@@ -61,6 +61,24 @@ test.describe('SitePilot smoke tests', () => {
     await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit')
   })
 
+  test('shares and exports the hosting platform fit scenario', async ({ page }) => {
+    const response = await page.goto('/hosting-platform-fit-scorecard-2026')
+
+    expect(response?.status()).toBe(200)
+    await page.getByLabel('Site type').selectOption('application')
+    await page.getByLabel('Monthly traffic').selectOption('100k-500k')
+    await page.getByRole('button', { name: /copy share link/i }).click()
+    await expect(page).toHaveURL(/siteType=application/)
+    await page.reload()
+    await expect(page.getByLabel('Site type')).toHaveValue('application')
+
+    const downloadPromise = page.waitForEvent('download')
+    await page.getByRole('button', { name: /export memo/i }).click()
+    const download = await downloadPromise
+    expect(download.suggestedFilename()).toBe('sitepilot-hosting-platform-fit-memo.md')
+    await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit')
+  })
+
   test('opens the mobile navigation', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 })
     await page.goto('/')

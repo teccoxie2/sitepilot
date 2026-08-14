@@ -72,6 +72,11 @@ const clusterLinks = [
     href: '/cloud-hosting-vs-traditional-hosting-2026',
     note: 'Helpful when the real decision is infrastructure model rather than brand comparison.',
   },
+  {
+    title: 'Hosting platform fit scorecard',
+    href: '/hosting-platform-fit-scorecard-2026',
+    note: 'Turn site type, traffic, migration complexity, SEO control, and support needs into a shortlist signal.',
+  },
 ]
 
 export default function WebHostingHub2026() {
@@ -122,6 +127,9 @@ export default function WebHostingHub2026() {
                 <Link href="/hosting/hostinger-review" className="btn-brand">
                   Start with a real audit
                   <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/hosting-platform-fit-scorecard-2026" className="btn-secondary">
+                  Run the fit scorecard
                 </Link>
                 <Link href="/best-domain-registrars-2026" className="btn-secondary">
                   Compare domain registrars

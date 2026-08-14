@@ -9,6 +9,7 @@ export const pageUrl = 'https://sitepilot.co/ai-tools'
 const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
+  authors: [{ name: 'SitePilot Team' }],
   alternates: { canonical: pageUrl },
   openGraph: {
     title: pageTitle,

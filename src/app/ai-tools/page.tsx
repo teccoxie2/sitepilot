@@ -130,6 +130,10 @@ export default function AiToolsHub2026() {
                 </Link>
               </div>
 
+              <p className="mb-6 text-xs leading-5 text-slate-500">
+                Editorial owner: SitePilot Team · evaluation criteria checked 2026-08-14 · <Link href="/methodology" className="text-[#635bff] hover:underline">see evidence methodology</Link>
+              </p>
+
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
                 {hubSignals.map((signal) => (
                   <div

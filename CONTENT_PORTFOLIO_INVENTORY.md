@@ -61,7 +61,7 @@
 
 - URL、状态、目标页面（如适用）；
 - 处置依据和证据来源；
-- 是否有工具启动、完成、导出或审计申请；
+- 行为证据状态（`instrumented`、`unverified` 或 `not_applicable`）及其来源；
 - 负责人和下次复核日期；
 - sitemap、canonical、站内链接和生产状态检查结果。
 

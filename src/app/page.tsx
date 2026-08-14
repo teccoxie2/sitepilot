@@ -12,6 +12,7 @@ const pageUrl = 'https://sitepilot.co'
 const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
+  authors: [{ name: 'SitePilot Team' }],
   alternates: { canonical: pageUrl },
   openGraph: {
     title: pageTitle,
@@ -150,6 +151,10 @@ export default function HomePage() {
                   Review methodology
                 </Link>
               </div>
+
+              <p className="mb-6 text-xs leading-5 text-slate-500">
+                Editorial owner: SitePilot Team · evidence and positioning checked 2026-08-14 · <Link href="/methodology" className="text-[#635bff] hover:underline">read the method</Link>
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
                 {operatingSignals.map((item) => (

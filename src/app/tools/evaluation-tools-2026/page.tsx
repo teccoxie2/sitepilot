@@ -49,6 +49,9 @@ export default function EvaluationToolsHubPage() {
                 <Link href="/ai-procurement-decision-matrix-tool-2026" className="btn-secondary">Decision matrix</Link>
                 <Link href="/apply-for-audit" className="btn-secondary">Request an audit</Link>
               </div>
+              <p className="mb-6 text-xs leading-5 text-slate-500">
+                Editorial owner: SitePilot Team · procurement workflow checked 2026-08-14 · <Link href="/methodology" className="text-[#635bff] hover:underline">open evidence methodology</Link>
+              </p>
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">{notes.map((item) => <div key={item} className="page-card flex items-start gap-3 px-4 py-4"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><span className="text-sm leading-6 text-slate-700">{item}</span></div>)}</div>
             </div>
             <div className="relative">

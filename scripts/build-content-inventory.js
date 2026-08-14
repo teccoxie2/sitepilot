@@ -12,8 +12,14 @@ const expectedActiveRouteCount = 140
 const expectedInventoryEntryCount = 142
 const owner = 'SitePilot editorial'
 const reviewDate = '2026-09-14'
-const requiredFields = ['url', 'category', 'status', 'target', 'reason', 'evidence_source', 'owner', 'review_date']
+const requiredFields = ['url', 'category', 'status', 'target', 'reason', 'evidence_source', 'behavior_signal', 'behavior_source', 'owner', 'review_date']
 const allowedStatuses = new Set(['Keep', 'Merge', 'Noindex', 'Remove', 'Review'])
+const allowedBehaviorSignals = new Set(['instrumented', 'unverified', 'not_applicable'])
+const instrumentedToolRoutes = new Set([
+  '/ai-procurement-decision-matrix-tool-2026',
+  '/ai-implementation-cost-calculator-enterprise-2026',
+  '/hosting-platform-fit-scorecard-2026',
+])
 
 const mergeTargets = new Map([
   ['/hosting/best-web-hosting', '/best-web-hosting-2026'],
@@ -167,6 +173,27 @@ function classify(pathname) {
   }
 }
 
+function behaviorFor(pathname, status) {
+  if (instrumentedToolRoutes.has(pathname)) {
+    return {
+      behavior_signal: 'instrumented',
+      behavior_source: 'Analytics contract + route component; usage volume pending production data.',
+    }
+  }
+
+  if (status === 'Review') {
+    return {
+      behavior_signal: 'unverified',
+      behavior_source: 'Search Console, analytics, and lead data export pending.',
+    }
+  }
+
+  return {
+    behavior_signal: 'not_applicable',
+    behavior_source: 'No direct tool event expected for this page type.',
+  }
+}
+
 function buildInventory() {
   const routes = walk(appDirectory)
     .map((filePath) => ({ filePath, pathname: routeFromPageFile(filePath) }))
@@ -182,6 +209,7 @@ function buildInventory() {
     seen.add(pathname)
 
     const classification = classify(pathname)
+    const behavior = behaviorFor(pathname, classification.status)
     return {
       url: `${baseUrl}${pathname}`,
       category: categoryFor(pathname),
@@ -189,6 +217,7 @@ function buildInventory() {
       target: classification.target,
       reason: classification.reason,
       evidence_source: `${path.relative(projectRoot, filePath)} :: ${classification.rule}`,
+      ...behavior,
       owner,
       review_date: reviewDate,
     }
@@ -201,6 +230,8 @@ function buildInventory() {
     target: `${baseUrl}${target}`,
     reason: `Retired legacy route; its decision content now lives at ${target}.`,
     evidence_source: 'retired route manifest :: merge-known-legacy-hosting-path',
+    behavior_signal: 'not_applicable',
+    behavior_source: 'Retired route; no live behavior measurement retained.',
     owner,
     review_date: reviewDate,
   }))
@@ -224,6 +255,8 @@ function verifyInventory(inventory, expectedRoutes = buildInventory()) {
     if (seen.has(entry.url)) failures.push(`Duplicate inventory URL: ${entry.url}`)
     seen.add(entry.url)
     if (!allowedStatuses.has(entry.status)) failures.push(`Entry ${index} has invalid status: ${entry.status}`)
+    if (!allowedBehaviorSignals.has(entry.behavior_signal)) failures.push(`Entry ${index} has invalid behavior_signal: ${entry.behavior_signal}`)
+    if (typeof entry.behavior_source !== 'string' || entry.behavior_source.trim() === '') failures.push(`Entry ${index} has empty behavior_source`)
     if (entry.status === 'Review' && !/^provisional\b/i.test(String(entry.reason || '').trim())) failures.push(`Review entry ${entry.url} must be explicitly provisional`)
     if ((entry.status === 'Keep' || entry.status === 'Review') && entry.target !== entry.url) failures.push(`${entry.status} entry ${entry.url} must target itself`)
     if ((entry.status === 'Noindex' || entry.status === 'Remove') && entry.target !== null) failures.push(`${entry.status} entry ${entry.url} must have a null target`)
@@ -232,6 +265,10 @@ function verifyInventory(inventory, expectedRoutes = buildInventory()) {
     if (!expectedByUrl.has(entry.url)) failures.push(`Unexpected inventory URL: ${entry.url}`)
   }
   for (const expectedUrl of expectedByUrl.keys()) if (!seen.has(expectedUrl)) failures.push(`Missing inventory URL: ${expectedUrl}`)
+  for (const route of instrumentedToolRoutes) {
+    const entry = inventory.find((item) => item.url === `${baseUrl}${route}`)
+    if (!entry || entry.behavior_signal !== 'instrumented') failures.push(`Core tool behavior must be instrumented: ${route}`)
+  }
   return failures
 }
 

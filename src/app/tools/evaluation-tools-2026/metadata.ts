@@ -5,6 +5,7 @@ const metadataConfig: Metadata = {
   title: 'AI Vendor Evaluation Tools: RFP, Due Diligence, Scorecard & Decision Matrix (2026)',
   description:
     'Use these AI vendor evaluation tools to compare suppliers, verify risk, score finalists, and decide whether to approve, hold, or reject before contract work starts.',
+  authors: [{ name: 'SitePilot Team' }],
   keywords: [
     'evaluation tools',
     'vendor audit tool',

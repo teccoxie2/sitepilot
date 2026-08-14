@@ -65,21 +65,21 @@ const rankedTools = [
     rank: '01',
     name: 'Surfer SEO',
     subtitle: 'Best overall performance',
-    roi: '340% ROI',
+    roi: '340% ROI scenario',
     price: '$59-219/month',
     summary:
       'Surfer SEO stays in the top spot because it balances workflow usability, content optimization depth, and measurable ranking improvement better than the field.',
     strengths: [
-      'Content Editor with 500+ ranking factors',
-      'SERP analysis with 94% observed accuracy',
+      'Content Editor with 500+ illustrative ranking factors',
+      'SERP analysis with a 94% illustrative accuracy assumption',
       '1B+ keyword database for research and planning',
       'Team collaboration that fits repeatable editorial workflows',
     ],
     results: [
-      '23.7 average position improvement',
-      '187% organic traffic increase in the strongest test cohort',
-      '3.2x faster content creation',
-      '94% user satisfaction in working teams',
+      '23.7 illustrative position improvement',
+      '187% illustrative organic traffic increase in a strong scenario',
+      '3.2x illustrative content-creation speedup',
+      '94% illustrative user satisfaction in working teams',
     ],
     href: 'https://surferseo.com?fpr=sitepilot',
     cta: 'Try Surfer SEO',
@@ -88,7 +88,7 @@ const rankedTools = [
     rank: '02',
     name: 'Clearscope',
     subtitle: 'Best for agencies and premium content teams',
-    roi: '285% ROI',
+    roi: '285% ROI scenario',
     price: '$170-540/month',
     summary:
       'Clearscope is the stronger premium choice when quality control, briefs, and editorial collaboration matter more than cost minimization.',
@@ -97,7 +97,7 @@ const rankedTools = [
     rank: '03',
     name: 'MarketMuse',
     subtitle: 'Best for content strategy depth',
-    roi: '267% ROI',
+    roi: '267% ROI scenario',
     price: '$99-399/month',
     summary:
       'MarketMuse earns its place when topical authority planning and content strategy are more important than rapid content throughput alone.',
@@ -106,7 +106,7 @@ const rankedTools = [
     rank: '04',
     name: 'Frase',
     subtitle: 'Best for question-led optimization',
-    roi: '234% ROI',
+    roi: '234% ROI scenario',
     price: '$45-115/month',
     summary:
       'Frase is useful for teams building around search intent, answer structures, and faster article brief creation.',
@@ -115,7 +115,7 @@ const rankedTools = [
     rank: '05',
     name: 'ContentKing',
     subtitle: 'Best for technical SEO monitoring',
-    roi: '298% ROI',
+    roi: '298% ROI scenario',
     price: '$99-299/month',
     summary:
       'ContentKing becomes more compelling when live monitoring, alerts, and technical site hygiene are core SEO priorities.',
@@ -125,15 +125,15 @@ const rankedTools = [
 const methodology = [
   {
     title: 'Content creation',
-    description: '50+ articles per tool across SaaS, e-commerce, and B2B workflows.',
+    description: 'Illustrative 50+ article scenario per tool across SaaS, e-commerce, and B2B workflows.',
   },
   {
     title: 'Performance tracking',
-    description: 'Six-month minimum monitoring with analytics, search data, and ranking movement.',
+    description: 'Illustrative six-month monitoring scenario with analytics, search data, and ranking movement.',
   },
   {
     title: 'ROI analysis',
-    description: 'Direct revenue attribution, production time savings, and team efficiency checks.',
+    description: 'Scenario-based revenue attribution, production time savings, and team efficiency checks.',
   },
 ]
 
@@ -251,7 +251,7 @@ export default function BestAISEOTools2026() {
                   <div className="flex items-center justify-between gap-4 mb-6">
                     <div>
                       <div className="text-sm text-slate-500 mb-1">Executive summary</div>
-                      <div className="text-xl font-semibold text-slate-950">What the testing said</div>
+                      <div className="text-xl font-semibold text-slate-950">What the comparison model shows</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
                       No sponsored ranking
@@ -278,11 +278,11 @@ export default function BestAISEOTools2026() {
                     </div>
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
                       <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">Keywords tracked</div>
-                      <div className="font-semibold text-slate-950">2,847 targets</div>
+                      <div className="font-semibold text-slate-950">2,847 illustrative targets</div>
                     </div>
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
                       <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">Best result</div>
-                      <div className="font-semibold text-slate-950">187% traffic lift</div>
+                      <div className="font-semibold text-slate-950">187% illustrative traffic lift</div>
                     </div>
                   </div>
                 </div>

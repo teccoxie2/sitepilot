@@ -17,7 +17,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'AI Transformation Success Metrics & KPIs for Enterprise 2026 | SitePilot'
 const pageDescription =
-  'Comprehensive guide to measuring AI transformation success in enterprise environments. Essential KPIs, benchmarks, and ROI metrics for C-suite executives and transformation leaders.'
+  'A practical guide to measuring AI transformation success in enterprise environments with illustrative KPI scenarios, baseline definitions, and ROI measurement guidance.'
 const pageUrl = 'https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026'
 
 const metadataConfig: Metadata = {
@@ -34,7 +34,7 @@ const metadataConfig: Metadata = {
   openGraph: {
     title: 'AI Transformation Success Metrics & KPIs for Enterprise 2026',
     description:
-      'Essential metrics and KPIs for measuring AI transformation success in enterprise environments. Data-driven insights for C-suite decision makers.',
+      'Illustrative metrics and KPI scenarios for measuring AI transformation success in enterprise environments. Use your own baseline before making investment decisions.',
     type: 'article',
     url: pageUrl,
   },
@@ -42,7 +42,7 @@ const metadataConfig: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description:
-      'Essential metrics and KPIs for measuring AI transformation success in enterprise environments.',
+      'Illustrative metrics and KPI scenarios for measuring AI transformation success in enterprise environments.',
   },
   alternates: {
     canonical: pageUrl,
@@ -52,9 +52,9 @@ const metadataConfig: Metadata = {
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '25', label: 'core KPIs across 5 categories' },
-  { value: '67%', label: 'average ROI improvement with metric tracking' },
-  { value: '45%', label: 'faster transformation timeline' },
-  { value: '$2.3M', label: 'average annual cost optimization' },
+  { value: '67%', label: 'illustrative ROI improvement with metric tracking' },
+  { value: '45%', label: 'illustrative transformation timeline improvement' },
+  { value: '$2.3M', label: 'illustrative annual cost optimization' },
 ]
 
 const metricSignals = [
@@ -69,9 +69,9 @@ const categoryCards = [
     title: 'Financial impact',
     icon: DollarSign,
     points: [
-      'TCO reduction target: 15-25% in 18 months',
-      'Revenue impact target: 8-15% uplift attribution',
-      'Operational savings target: $500K-$5M annually',
+      'Illustrative TCO reduction target: 15-25% in 18 months',
+      'Illustrative revenue impact target: 8-15% uplift attribution',
+      'Illustrative operational savings target: $500K-$5M annually',
       'Risk-adjusted ROI and break-even timeline stay in scope',
     ],
   },
@@ -79,9 +79,9 @@ const categoryCards = [
     title: 'Operational excellence',
     icon: Gauge,
     points: [
-      'Automation rate: 60-85%',
-      'Processing time reduction: 40-70%',
-      'Error rate decrease: 80-95%',
+      'Illustrative automation-rate target: 60-85%',
+      'Illustrative processing-time reduction: 40-70%',
+      'Illustrative error-rate decrease: 80-95%',
       'System uptime and data quality remain core measures',
     ],
   },
@@ -89,9 +89,9 @@ const categoryCards = [
     title: 'Innovation & growth',
     icon: TrendingUp,
     points: [
-      'Time-to-market improvement: 50-70%',
-      'Feature cycle compression: 40-60%',
-      '3-5x more ideas in development pipeline',
+      'Illustrative time-to-market improvement: 50-70%',
+      'Illustrative feature-cycle compression: 40-60%',
+      'Illustrative pipeline scenario: 3-5x more ideas in development',
       'Market-share and new-revenue signals still matter',
     ],
   },
@@ -99,7 +99,7 @@ const categoryCards = [
     title: 'People & adoption',
     icon: Users,
     points: [
-      'Stakeholder satisfaction increase: 89%',
+      'Illustrative stakeholder-satisfaction increase: 89%',
       'Training completion and capability lift must be tracked',
       'Adoption by team and workflow determines real ROI',
       'Change resistance is a metric problem, not just a comms problem',
@@ -368,13 +368,13 @@ export default function AITransformationSuccessMetrics() {
 
         <section id="benchmarks" className="mb-16 page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
           <div className="mb-8 max-w-3xl">
-            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Industry success benchmarks</div>
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Illustrative success benchmarks</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
               Benchmarks are not armor,
               <span className="brand-gradient-text block">but they do stop you from making things up.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              The original benchmark tiers remain: laggards, average, leaders, and best practice target. At minimum, they tell you whether you are building real momentum or flattering yourself.
+              The comparison tiers are illustrative planning scenarios: laggards, average, leaders, and a best-practice target. Validate them against your own baseline before using them for funding decisions.
             </p>
           </div>
           <div className="overflow-x-auto">
@@ -382,10 +382,10 @@ export default function AITransformationSuccessMetrics() {
               <thead className="bg-slate-50 text-left text-sm text-slate-600">
                 <tr>
                   <th className="px-5 py-4 font-semibold">Metric category</th>
-                  <th className="px-5 py-4 font-semibold">Industry laggards</th>
-                  <th className="px-5 py-4 font-semibold">Industry average</th>
-                  <th className="px-5 py-4 font-semibold">Industry leaders</th>
-                  <th className="px-5 py-4 font-semibold">Best practice target</th>
+                  <th className="px-5 py-4 font-semibold">Illustrative laggard scenario</th>
+                  <th className="px-5 py-4 font-semibold">Illustrative average scenario</th>
+                  <th className="px-5 py-4 font-semibold">Illustrative leader scenario</th>
+                  <th className="px-5 py-4 font-semibold">Illustrative best-practice target</th>
                 </tr>
               </thead>
               <tbody>

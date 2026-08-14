@@ -112,19 +112,19 @@ const frameworks = [
 
 const benefits = [
   {
-    title: '85% faster assessment',
+    title: 'Illustrative 85% faster assessment',
     before: '4-6 weeks',
     after: '2-3 days',
     note: 'Automated scoring collapses manual compliance review cycles.',
   },
   {
-    title: '95% risk accuracy',
+    title: 'Illustrative 95% risk accuracy',
     before: '72%',
     after: '95%',
     note: 'AI-assisted detection reduces false positives and missed gaps.',
   },
   {
-    title: '70% cost reduction',
+    title: 'Illustrative 70% cost reduction',
     before: '$850K',
     after: '$255K',
     note: 'Automation cuts recurring legal and consulting cost while improving coverage.',

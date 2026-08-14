@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Columns3, FileText, Scale, Sparkles, Target, Workflow } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { metadata as pageMetadata, pageDescription, pageTitle, pageUrl } from './metadata'
+import AIProcurementDecisionMatrixClient from './AIProcurementDecisionMatrixClient'
 
 export const metadata: Metadata = pageMetadata
 
@@ -132,6 +133,10 @@ export default function AIProcurementDecisionMatrixToolPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">
+        <AIProcurementDecisionMatrixClient />
       </section>
 
       <section className="relative max-w-7xl mx-auto px-4 py-14 md:py-18">

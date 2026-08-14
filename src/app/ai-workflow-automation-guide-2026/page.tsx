@@ -17,10 +17,10 @@ import { pageDescription, pageTitle, pageUrl } from './metadata'
 export { metadata } from './metadata'
 
 const heroStats = [
-  { value: '60-80%', label: 'manual processing time reduction' },
-  { value: '$50K-$500K', label: 'annual savings per automated workflow' },
-  { value: '95%+', label: 'accuracy in automated tasks' },
-  { value: '10x', label: 'volume handling potential without proportional staff growth' },
+  { value: '60-80%', label: 'illustrative manual processing time reduction' },
+  { value: '$50K-$500K', label: 'illustrative annual savings scenario per automated workflow' },
+  { value: '95%+', label: 'illustrative accuracy scenario for automated tasks' },
+  { value: '10x', label: 'illustrative volume handling scenario without proportional staff growth' },
 ]
 
 const phaseCards = [
@@ -158,10 +158,10 @@ const implementationPatterns = [
 ]
 
 const kpiRows = [
-  ['Efficiency', 'Processing time per task, throughput volume, manual intervention rate', '60-80% time reduction, 200-500% volume increase, <5% manual intervention', 'Platform analytics, time tracking tools, exception monitoring'],
-  ['Quality', 'Error rate, rework percentage, customer satisfaction', '<1% error rate, 90% reduction in rework, 15%+ CSAT improvement', 'Quality audits, exception tracking, survey feedback'],
-  ['Financial', 'Cost per transaction, labor cost savings, revenue per employee', '50-70% cost reduction, $50K-500K annual savings, 20-40% productivity gain', 'Cost accounting, time-based costing, performance ratios'],
-  ['Strategic', 'Time to market, compliance score, innovation capacity', '30-50% faster delivery, 95%+ compliance rate, 2x innovation projects', 'Project tracking, audit results, portfolio analysis'],
+  ['Efficiency', 'Processing time per task, throughput volume, manual intervention rate', 'Illustrative planning range: 60-80% time reduction, 200-500% volume increase, <5% manual intervention', 'Platform analytics, time tracking tools, exception monitoring'],
+  ['Quality', 'Error rate, rework percentage, customer satisfaction', 'Illustrative planning range: <1% error rate, 90% reduction in rework, 15%+ CSAT improvement', 'Quality audits, exception tracking, survey feedback'],
+  ['Financial', 'Cost per transaction, labor cost savings, revenue per employee', 'Illustrative planning range: 50-70% cost reduction, $50K-500K annual savings, 20-40% productivity gain', 'Cost accounting, time-based costing, performance ratios'],
+  ['Strategic', 'Time to market, compliance score, innovation capacity', 'Illustrative planning range: 30-50% faster delivery, 95%+ compliance rate, 2x innovation projects', 'Project tracking, audit results, portfolio analysis'],
 ]
 
 const roiFormula = [
@@ -237,9 +237,9 @@ const checklistColumns = [
 ]
 
 const serviceStats = [
-  { value: '90%', label: 'implementation success rate' },
-  { value: '6-12mo', label: 'average ROI realization' },
-  { value: '300%', label: 'average first-year ROI' },
+  { value: '90%', label: 'illustrative implementation success rate' },
+  { value: '6-12mo', label: 'illustrative ROI realization window' },
+  { value: '300%', label: 'illustrative first-year ROI' },
 ]
 
 const serviceBullets = [
@@ -385,10 +385,10 @@ export default function AIWorkflowAutomationGuide() {
             </div>
             <h2 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">Implementation benefits</h2>
             <div className="space-y-3 text-sm leading-6 text-slate-700">
-              <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">Efficiency gains: 60-80% reduction in manual processing time</div>
-              <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">Cost savings: $50,000-$500,000 annually per automated workflow</div>
-              <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">Quality improvement: 95%+ accuracy in automated tasks</div>
-              <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">Employee satisfaction: 40% improvement when repetitive work drops</div>
+              <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">Illustrative efficiency scenario: 60-80% reduction in manual processing time</div>
+              <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">Illustrative cost scenario: $50,000-$500,000 annually per automated workflow</div>
+              <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">Illustrative quality scenario: 95%+ accuracy in automated tasks</div>
+              <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-4">Illustrative employee-satisfaction scenario: 40% improvement when repetitive work drops</div>
             </div>
           </div>
         </section>

@@ -7,7 +7,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 const metadataConfig: Metadata = {
   title: 'Best AI Writing Tools 2026: Complete Comparison & Reviews - SitePilot',
   description:
-    'After testing 25+ AI writing platforms with real projects, discover the top AI writing tools for 2026. Jasper, Copy.ai, Writesonic & more compared.',
+    'Compare an illustrative set of AI writing platforms using real workflow criteria. Use the 2026 shortlist as a starting point, then validate fit, cost, and output quality for your own team.',
   keywords: [
     'best AI writing tools 2026',
     'AI content generator',
@@ -20,7 +20,7 @@ const metadataConfig: Metadata = {
   openGraph: {
     title: 'Best AI Writing Tools 2026: Complete Comparison & Reviews',
     description:
-      'After testing 25+ AI writing platforms with real projects, discover the top AI writing tools for 2026. Jasper, Copy.ai, Writesonic & more compared.',
+      'Compare an illustrative set of AI writing platforms using real workflow criteria. Use the shortlist as a starting point, then validate fit, cost, and output quality for your own team.',
     url: 'https://sitepilot.co/best-ai-writing-tools-2026',
     type: 'article',
   },
@@ -31,7 +31,7 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
-  { value: '25+', label: 'Platforms tested' },
+  { value: '25+', label: 'Illustrative platform set' },
   { value: '8', label: 'Scoring criteria' },
   { value: '3', label: 'Clear top picks' },
   { value: '2026', label: 'Current recommendation set' },
@@ -207,7 +207,7 @@ export default function BestAIWritingTools2026() {
       <SchemaMarkup
         type="article"
         title="Best AI Writing Tools 2026: Complete Comparison & Reviews"
-        description="After testing 25+ AI writing platforms with real projects, discover the top AI writing tools for 2026. Jasper, Copy.ai, Writesonic & more compared."
+        description="Compare an illustrative set of AI writing platforms using real workflow criteria; validate the shortlist against your own team and budget."
         url="https://sitepilot.co/best-ai-writing-tools-2026"
         publishedDate="2026-02-14T00:00:00Z"
         modifiedDate="2026-03-03T00:00:00Z"

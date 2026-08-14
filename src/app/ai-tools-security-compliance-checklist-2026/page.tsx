@@ -54,10 +54,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
-  { value: '500+', label: 'Enterprise compliance implementations reviewed' },
-  { value: '$1.2M', label: 'Average annual exposure to compliance-related losses' },
-  { value: '15', label: 'Regulatory frameworks and oversight bodies covered' },
-  { value: '90 days', label: 'Typical enterprise governance rollout cadence' },
+  { value: '500+', label: 'Illustrative compliance implementation pool' },
+  { value: '$1.2M', label: 'Illustrative annual exposure scenario' },
+  { value: '15', label: 'Frameworks covered in the checklist model' },
+  { value: '90 days', label: 'Illustrative governance rollout cadence' },
 ]
 
 const auditSignals = [
@@ -92,10 +92,10 @@ const auditLevels = [
 ]
 
 const riskExamples = [
-  'GDPR fine example: manufacturing data breach, $2.3M in losses',
-  'SOX remediation example: financial services firm incurred an extra $850K',
-  'HIPAA penalty example: healthcare organization absorbed $420K in non-compliance costs',
-  'Vendor outage example: a 72-hour disruption created $420K in business loss',
+  'Illustrative GDPR fine scenario: manufacturing data breach, $2.3M in losses',
+  'Illustrative SOX remediation scenario: financial services firm incurred an extra $850K',
+  'Illustrative HIPAA penalty scenario: healthcare organization absorbed $420K in non-compliance costs',
+  'Illustrative vendor outage scenario: a 72-hour disruption created $420K in business loss',
 ]
 
 const relatedLinks = [

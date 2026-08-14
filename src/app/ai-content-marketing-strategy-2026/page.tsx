@@ -144,9 +144,9 @@ const workflowStages = [
 ]
 
 const roiCards = [
-  { value: '267%', label: 'Content production increase', note: 'Output growth when repeatable AI-assisted workflows replace manual bottlenecks.' },
-  { value: '84%', label: 'Time reduction', note: 'Average drop in content cycle time across briefing, drafting, and adaptation.' },
-  { value: '156%', label: 'Engagement improvement', note: 'Observed lift once optimization and personalization loops are active.' },
+  { value: '267%', label: 'Illustrative content production increase', note: 'Scenario output growth when repeatable AI-assisted workflows replace manual bottlenecks.' },
+  { value: '84%', label: 'Illustrative time reduction', note: 'Scenario drop in content cycle time across briefing, drafting, and adaptation.' },
+  { value: '156%', label: 'Illustrative engagement improvement', note: 'Scenario lift once optimization and personalization loops are active.' },
   { value: '$2.4M', label: 'Annual cost savings', note: 'Illustrative enterprise value from operational efficiency gains.' },
 ]
 

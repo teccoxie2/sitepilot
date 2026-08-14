@@ -4,9 +4,9 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 export { metadata } from './metadata'
 
-const pageTitle = 'Best AI Tools 2026 | SitePilot'
+const pageTitle = 'AI Tools & Procurement Evaluation 2026 | SitePilot'
 const pageDescription =
-  'AI tools in 2026 should be compared on workflow automation depth, output quality, integration fit, privacy risk, pricing discipline, and operator control so buyers can separate durable business value from demo-stage novelty.'
+  'AI tools in 2026 should be evaluated on workflow automation depth, output quality, integration fit, privacy risk, pricing discipline, and operator control before a procurement decision.'
 const pageUrl = 'https://sitepilot.co/ai-tools'
 
 const cards = [
@@ -74,8 +74,6 @@ export default function AiToolsHub2026() {
           headline: pageTitle,
           description: pageDescription,
           url: pageUrl,
-          datePublished: '2026-04-19',
-          dateModified: '2026-05-02',
         }}
       />
 
@@ -95,11 +93,11 @@ export default function AiToolsHub2026() {
 
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 mb-6 shadow-sm backdrop-blur-xl" data-nosnippet>
                 <Sparkles className="h-4 w-4 text-indigo-500" />
-                2026 AI tools hub
+                2026 AI procurement hub
               </div>
 
               <h1 className="text-5xl md:text-7xl font-semibold tracking-[-0.05em] leading-[0.96] mb-6 text-slate-950">
-                Best AI tools 2026,
+                AI tools and procurement evaluation 2026,
                 <span className="block bg-gradient-to-r from-slate-950 via-indigo-700 to-sky-600 bg-clip-text text-transparent">
                   compared for real business workflows.
                 </span>

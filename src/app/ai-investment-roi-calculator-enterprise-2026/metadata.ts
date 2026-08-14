@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 const pageTitle = 'Enterprise AI Investment ROI Calculator 2026 | SitePilot'
 const pageDescription =
-  'An enterprise AI ROI calculator built on real-world data from 179 Fortune 500 companies. Evaluates financial return, risk factors, and investment recommendations with CFO-level modeling.'
+  'An enterprise AI ROI calculator for testing financial return, risk factors, and investment recommendations with CFO-level modeling. Replace the illustrative defaults with verified internal data before making a funding decision.'
 const pageUrl = 'https://sitepilot.co/ai-investment-roi-calculator-enterprise-2026'
 
 const metadataConfig: Metadata = {

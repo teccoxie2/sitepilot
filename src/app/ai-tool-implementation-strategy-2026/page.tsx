@@ -9,7 +9,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Ultimate AI Tool Implementation Strategy Guide for 2026 | SitePilot'
 const pageDescription =
-  'A proven AI tool implementation strategy built from a $25,000 real-world investment and research across 500+ companies. Covers phased rollout, ROI-led selection, and risk mitigation.'
+  'An AI tool implementation strategy illustrated with a $25,000 planning scenario and a broad comparison model. Covers phased rollout, ROI-led selection, and risk mitigation without presenting modeled outcomes as a reported benchmark.'
 const pageUrl = 'https://sitepilot.co/ai-tool-implementation-strategy-2026'
 
 const metadataConfig: Metadata = {
@@ -54,8 +54,8 @@ const heroSignals = [
 ]
 
 const statCards = [
-  { label: 'Tools tested', value: '78', note: 'The original testing conclusions remain visible.' },
-  { label: 'ROI uplift', value: '245%', note: 'The outcome narrative stays intact.' },
+  { label: 'Illustrative tool set', value: '78', note: 'Use this comparison size as a planning assumption.' },
+  { label: 'Scenario ROI uplift', value: '245%', note: 'Model output only; validate with your own baseline.' },
   { label: 'Deployment style', value: 'Phased', note: 'Roll out in stages instead of forcing a big-bang launch.' },
   { label: 'Decision layer', value: 'Executive', note: 'Built for the leaders making the call.' },
 ]

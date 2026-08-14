@@ -19,7 +19,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI ROI Optimization Framework 2026 - CFO Financial Analysis Guide'
 const pageDescription =
-  'CFO-oriented enterprise AI investment analysis framework based on an 18-month ROI tracking study of 50 Fortune 500 companies, including a seven-step ROI method, risk assessment, and industry benchmarks.'
+  'CFO-oriented enterprise AI investment analysis framework using an illustrative 18-month ROI planning scenario. It covers a seven-step ROI method, risk assessment, and industry benchmark assumptions that should be replaced with verified internal data.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-roi-optimization-framework-2026'
 
 const metadataConfig: Metadata = {
@@ -33,10 +33,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
-  { value: '83%', label: 'successful enterprises use structured financial planning' },
-  { value: '18 mo', label: 'average payback window' },
-  { value: '35-50%', label: 'hidden cost share to plan for' },
-  { value: '47%', label: 'overall success rate without discipline' },
+  { value: '83%', label: 'Illustrative structured-planning share' },
+  { value: '18 mo', label: 'Illustrative payback window' },
+  { value: '35-50%', label: 'Illustrative hidden-cost share' },
+  { value: '47%', label: 'Illustrative success-rate scenario' },
 ]
 
 const steps = [

@@ -26,7 +26,7 @@ const metadataConfig: Metadata = {
   ],
   openGraph: {
     title: pageTitle,
-    description: 'Analysis of 500+ successful enterprise AI implementations. Data-driven success patterns and ROI achievement methodologies.',
+    description: 'Illustrative analysis of enterprise AI implementation patterns. Use the success metrics and ROI ranges as planning scenarios, then validate them against your own evidence.',
     type: 'article',
     url: pageUrl,
   },
@@ -37,10 +37,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const summaryCards = [
-  ['73%', 'Industry average failure rate for AI projects without proven execution patterns.'],
-  ['27%', 'Typical success rate before organizations adopt structured transformation patterns.'],
-  ['$31M', 'Average ROI cited across successful large-scale enterprise implementations.'],
-  ['18 months', 'Typical time to ROI for organizations that follow the validated pattern set.'],
+  ['73%', 'Illustrative failure-rate scenario without structured execution patterns.'],
+  ['27%', 'Illustrative baseline success-rate scenario before structured patterns.'],
+  ['$31M', 'Illustrative ROI scenario for a large-scale enterprise program.'],
+  ['18 months', 'Illustrative time-to-ROI assumption for the pattern set.'],
 ]
 
 const accelerators = [
@@ -72,7 +72,7 @@ const successPatterns = [
       'Dedicated transformation budget',
     ],
     rightTitle: 'Success metrics',
-    rightItems: ['89% implementation success rate', '347% average ROI achievement', '14 months average time to value'],
+    rightItems: ['Illustrative 89% implementation success', 'Illustrative 347% ROI scenario', 'Illustrative 14-month time to value'],
   },
   {
     number: '2',
@@ -86,15 +86,15 @@ const successPatterns = [
       'Compliance-ready infrastructure',
     ],
     rightTitle: 'Success insight',
-    rightItems: ['3.2x higher AI ROI', '85% faster model development', '60% higher model accuracy', '40% lower implementation costs'],
+    rightItems: ['Illustrative 3.2x AI ROI difference', 'Illustrative 85% faster model development', 'Illustrative 60% model-accuracy lift', 'Illustrative 40% lower implementation cost'],
   },
   {
     number: '3',
     title: 'Phased Value Delivery Pattern',
     leftTitle: 'Quick wins',
-    leftItems: ['3-5 high-impact use cases', '90-day implementation', '150-300% ROI targets', 'Low technical complexity'],
+    leftItems: ['3-5 high-impact use cases', '90-day implementation assumption', '150-300% illustrative ROI targets', 'Low technical complexity'],
     rightTitle: 'Strategic scale and transformation',
-    rightItems: ['8-12 core processes in scale phase', '6-18 month value progression', '200-1000% ROI targets', 'AI-native operating model at maturity'],
+    rightItems: ['8-12 core processes in scale phase', '6-18 month illustrative value progression', '200-1000% illustrative ROI targets', 'AI-native operating model at maturity'],
   },
   {
     number: '4',
@@ -108,7 +108,7 @@ const successPatterns = [
       'Incentive alignment tied to adoption',
     ],
     rightTitle: 'Adoption metrics',
-    rightItems: ['87% employee AI readiness', '82% active AI tool usage', '91% change satisfaction'],
+    rightItems: ['Illustrative 87% employee AI readiness', 'Illustrative 82% active AI tool usage', 'Illustrative 91% change satisfaction'],
   },
   {
     number: '5',
@@ -122,7 +122,7 @@ const successPatterns = [
       'Data portability and exit strategies',
     ],
     rightTitle: 'Success advantages',
-    rightItems: ['67% lower lock-in risk', '34% lower total cost of ownership', '89% faster new capability adoption', '45% higher system performance'],
+    rightItems: ['Illustrative 67% lower lock-in risk', 'Illustrative 34% lower total cost of ownership', 'Illustrative 89% faster capability adoption', 'Illustrative 45% higher system performance'],
   },
   {
     number: '6',
@@ -136,7 +136,7 @@ const successPatterns = [
       'Cross-team best-practice sharing',
     ],
     rightTitle: 'Improvement metrics',
-    rightItems: ['12% monthly performance gain', '8% user satisfaction growth', '25% faster innovation cycles'],
+    rightItems: ['Illustrative 12% monthly performance gain', 'Illustrative 8% user satisfaction growth', 'Illustrative 25% faster innovation cycles'],
   },
   {
     number: '7',
@@ -161,17 +161,17 @@ const implementationFramework = [
 ]
 
 const probabilityCards = [
-  ['0-2 patterns', '15% success probability'],
-  ['3-4 patterns', '45% success probability'],
-  ['5-6 patterns', '76% success probability'],
-  ['All 7 patterns', '89% success probability'],
+  ['0-2 patterns', 'Illustrative 15% success probability'],
+  ['3-4 patterns', 'Illustrative 45% success probability'],
+  ['5-6 patterns', 'Illustrative 76% success probability'],
+  ['All 7 patterns', 'Illustrative 89% success probability'],
 ]
 
 const roiTimeline = [
   ['Months 1-6', 'Foundation investment period'],
-  ['Months 7-12', 'Early returns: 150-300% ROI'],
-  ['Months 13-18', 'Scale returns: 300-600% ROI'],
-  ['Months 19-24', 'Transformation returns: 500-1200% ROI'],
+  ['Months 7-12', 'Illustrative early returns: 150-300% ROI'],
+  ['Months 13-18', 'Illustrative scale returns: 300-600% ROI'],
+  ['Months 19-24', 'Illustrative transformation returns: 500-1200% ROI'],
 ]
 
 const industryBenchmarks = [
@@ -265,7 +265,7 @@ export default function AIImplementationSuccessPatterns() {
                       <div className="text-xl font-semibold text-slate-950">Failure vs acceleration</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                      500+ implementations
+                      Illustrative 500+ implementation pool
                     </div>
                   </div>
 
@@ -437,7 +437,7 @@ export default function AIImplementationSuccessPatterns() {
                 <div className="text-3xl font-semibold text-[#635bff] mb-2">{successRate}</div>
                 <div className="text-sm text-slate-500 mb-4">Success rate with patterns</div>
                 <div className="text-sm text-slate-600">
-                  Average ROI: {roi}
+                  Illustrative ROI scenario: {roi}
                   <br />
                   Time to value: {timeToValue}
                 </div>

@@ -49,10 +49,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
-  { value: '87%', label: 'Enterprises without a formal AI risk assessment process' },
-  { value: '$2.5M', label: 'Annual AI investment often left exposed to avoidable risk' },
-  { value: '43%', label: 'AI projects that fail because risk was handled poorly' },
-  { value: '$680K', label: 'Average loss from choosing the wrong tools' },
+  { value: '87%', label: 'Illustrative share without a formal risk process' },
+  { value: '$2.5M', label: 'Illustrative annual exposure scenario' },
+  { value: '43%', label: 'Illustrative failure-rate scenario' },
+  { value: '$680K', label: 'Illustrative loss scenario from poor tool fit' },
 ]
 
 const riskPrinciples = [
@@ -128,9 +128,9 @@ const riskBands = [
 ]
 
 const roiCards = [
-  { value: '$3.2M', label: 'Initial risk exposure' },
-  { value: '$450K', label: 'Mitigation investment' },
-  { value: '433%', label: 'Risk mitigation ROI' },
+  { value: '$3.2M', label: 'Illustrative initial risk exposure' },
+  { value: '$450K', label: 'Illustrative mitigation investment' },
+  { value: '433%', label: 'Illustrative risk mitigation ROI' },
 ]
 
 const roadmapPhases = [

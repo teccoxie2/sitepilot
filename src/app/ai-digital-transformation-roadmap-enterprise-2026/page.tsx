@@ -6,7 +6,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Digital Transformation Roadmap Guide 2026 | SitePilot'
 const pageDescription =
-  'An 18-month enterprise AI digital transformation roadmap based on Fortune 500 execution patterns, covering phased rollout, budget planning, risk controls, and success metrics.'
+  'An 18-month enterprise AI digital transformation roadmap using illustrative rollout, budget, risk, and success-metric scenarios. Replace the assumptions with evidence from your own program before committing capital.'
 const pageUrl = 'https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026'
 
 const metadataConfig: Metadata = {
@@ -47,12 +47,12 @@ const quickNav = [
 const summaryStats = [
   { value: '18 months', label: 'Full transformation timeline' },
   { value: '236', label: 'Execution steps' },
-  { value: '$2.4M-$4.8M', label: 'Total investment for a mid-market enterprise' },
-  { value: '242%-425%', label: 'Net ROI range' },
+  { value: '$2.4M-$4.8M', label: 'Illustrative mid-market investment range' },
+  { value: '242%-425%', label: 'Illustrative net ROI range' },
 ]
 
 const executiveHighlights = [
-  'Average operating efficiency improves by 47%, while critical decision time drops by 62% in this class of Fortune 500 transformation program.',
+  'Illustrative planning scenario: operating efficiency improves by 47%, while critical decision time drops by 62% when the transformation foundation is in place.',
   'The 18-month roadmap runs in three phases: foundation building, scaled deployment, and intelligent innovation, each with a different organizational and investment focus.',
   'Transformation success is rarely about the model alone. It depends on whether data governance, cross-functional alignment, skill development, and change management keep up.',
   'The most dangerous mistake is not moving slowly. It is trying to scale high-complexity AI programs before the core operating foundation is stable.',
@@ -175,12 +175,12 @@ const phaseOneTracks = [
 ]
 
 const businessPriorityRows = [
-  ['Customer service', 'Conversational AI + sentiment analysis', '425%', 'Medium', 'High'],
-  ['Sales forecasting', 'Predictive analytics + recommendation engine', '380%', 'Low', 'High'],
-  ['Supply chain optimization', 'Demand forecasting + inventory optimization', '315%', 'High', 'Medium'],
-  ['Financial analysis', 'Intelligent reporting + anomaly detection', '290%', 'Medium', 'Medium'],
-  ['Human resources', 'Recruiting triage + employee development', '235%', 'Low', 'Medium'],
-  ['Product development', 'AI-assisted design + test automation', '185%', 'High', 'Low'],
+  ['Customer service', 'Conversational AI + sentiment analysis', '425% scenario', 'Medium', 'High'],
+  ['Sales forecasting', 'Predictive analytics + recommendation engine', '380% scenario', 'Low', 'High'],
+  ['Supply chain optimization', 'Demand forecasting + inventory optimization', '315% scenario', 'High', 'Medium'],
+  ['Financial analysis', 'Intelligent reporting + anomaly detection', '290% scenario', 'Medium', 'Medium'],
+  ['Human resources', 'Recruiting triage + employee development', '235% scenario', 'Low', 'Medium'],
+  ['Product development', 'AI-assisted design + test automation', '185% scenario', 'High', 'Low'],
 ]
 
 const innovationTracks = [

@@ -4,7 +4,7 @@ import EnterpriseAIROICalculationModelClient from './ROIClient'
 
 const pageTitle = 'Enterprise AI ROI Calculation Model 2026 | SitePilot'
 const pageDescription =
-  'Comprehensive ROI calculation model based on analysis of 1,000+ enterprise AI implementations. Achieve accurate financial projections with industry-specific benchmarks and risk factors.'
+  'Comprehensive ROI calculation model for testing enterprise AI investment assumptions, payback timing, value drivers, and risk factors. Use the outputs as planning scenarios and replace defaults with verified internal data.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-roi-calculation-model-2026'
 
 const metadataConfig: Metadata = {

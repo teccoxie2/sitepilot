@@ -19,7 +19,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'AI Tools Cost-Benefit Analysis: Smart Investment Guide for SMBs 2026 | SitePilot'
 const pageDescription =
-  'A deep cost-benefit analysis of AI tools grounded in a $25,000 real-world investment. Built for SMBs that need a practical investment strategy, ROI model, and risk framework backed by research across 500+ companies and testing on 78 tools.'
+  'A practical cost-benefit analysis of AI tools using an illustrative $25,000 investment scenario and a comparison model spanning 78 tools. Built for SMBs that need a planning framework for ROI, risk, and implementation assumptions.'
 const pageUrl = 'https://sitepilot.co/ai-tools-cost-benefit-analysis-2026'
 
 const metadataConfig: Metadata = {
@@ -39,14 +39,14 @@ const metadataConfig: Metadata = {
   ],
   openGraph: {
     title: 'AI Tools Cost-Benefit Analysis: Smart Investment Guide for SMBs 2026',
-    description: 'Results from a $25,000 real-world AI tools investment across 78 products, with research from 500+ companies and a 245% average ROI uplift.',
+    description: 'Illustrative results from a $25,000 AI tools investment scenario across 78 products. Treat the modeled ROI uplift as a planning assumption, not a reported average.',
     type: 'article',
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
     title: 'AI Tools Cost-Benefit Analysis: Smart Investment Guide for SMBs 2026',
-    description: 'Results from a $25,000 real-world test of 78 AI tools with a 245% average ROI uplift.',
+    description: 'Illustrative results from a $25,000 AI tools scenario across 78 products; use the ROI uplift as a planning assumption.',
     creator: '@sitepilot',
   },
   alternates: {
@@ -56,10 +56,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
-  { value: '78', label: 'Tools deeply tested' },
-  { value: '500+', label: 'Companies in the research sample' },
-  { value: '245%', label: 'Average ROI uplift' },
-  { value: '18 months', label: 'Investment payback tracking window' },
+  { value: '78', label: 'Illustrative tool set' },
+  { value: '500+', label: 'Illustrative company pool' },
+  { value: '245%', label: 'Scenario ROI uplift' },
+  { value: '18 months', label: 'Illustrative tracking window' },
 ]
 
 const evaluationSignals = [
@@ -74,19 +74,19 @@ const investmentBands = [
     title: 'Micro businesses',
     range: '1-5 employees · $100-$300 / month',
     note: 'Start with a low-cost, high-certainty core stack that lifts team efficiency quickly.',
-    roi: 'Expected ROI 312%',
+    roi: 'Illustrative ROI 312%',
   },
   {
     title: 'Small businesses',
     range: '6-25 employees · $500-$1,500 / month',
     note: 'Focus on workflow integration, team collaboration, and depth of cross-functional usage.',
-    roi: 'Expected ROI 425%',
+    roi: 'Illustrative ROI 425%',
   },
   {
     title: 'Mid-sized businesses',
     range: '26-100 employees · $2,000-$8,000 / month',
     note: 'Platform capabilities, analytics, and cross-team collaboration begin to drive total return.',
-    roi: 'Expected ROI 380%',
+    roi: 'Illustrative ROI 380%',
   },
 ]
 

@@ -57,7 +57,7 @@ const categories = [
   {
     title: 'Content distribution automation',
     strap: 'Core workflow layer',
-    rating: '95% success rate',
+    rating: 'Illustrative 95% success scenario',
     accent: 'from-sky-50 via-white to-indigo-50',
     bestFor: 'Pushing blog posts across social, email, and storage workflows without manual copy-paste work.',
     features: [
@@ -74,7 +74,7 @@ const categories = [
   {
     title: 'Social media automation',
     strap: 'Distribution amplifier',
-    rating: '92% time savings',
+    rating: 'Illustrative 92% time-savings scenario',
     accent: 'from-violet-50 via-white to-fuchsia-50',
     bestFor: 'Scheduling, repurposing, and timing content distribution across social channels.',
     features: [
@@ -92,7 +92,7 @@ const categories = [
   {
     title: 'Email marketing automation',
     strap: 'Creator funnel layer',
-    rating: '89% engagement rate',
+    rating: 'Illustrative 89% engagement scenario',
     accent: 'from-amber-50 via-white to-orange-50',
     bestFor: 'Welcome sequences, lead magnet delivery, and content upgrade workflows.',
     features: [
@@ -109,7 +109,7 @@ const categories = [
   {
     title: 'SEO and analytics automation',
     strap: 'Insight layer',
-    rating: '100% uptime monitoring',
+    rating: 'Illustrative 100% monitoring coverage',
     accent: 'from-indigo-50 via-white to-sky-50',
     bestFor: 'Automated ranking alerts, reporting summaries, and performance monitoring.',
     features: [
@@ -127,7 +127,7 @@ const categories = [
   {
     title: 'Customer support and engagement',
     strap: 'Retention layer',
-    rating: '78% support automation',
+    rating: 'Illustrative 78% support-automation scenario',
     accent: 'from-blue-50 via-white to-sky-50',
     bestFor: 'Chat automation, handoff, and engagement flows that stop support from becoming a time sink.',
     features: [
@@ -150,7 +150,7 @@ const stacks = [
     tone: 'from-indigo-50 to-sky-50',
     items: ['Zapier Starter', 'Buffer Essentials', 'ConvertKit Creator', 'Google Analytics free tier'],
     note: 'Best for new bloggers who want to automate the repetitive stuff first.',
-    roi: 'Saves 20+ hours/month',
+    roi: 'Illustrative savings: 20+ hours/month',
   },
   {
     title: 'Professional stack',
@@ -158,7 +158,7 @@ const stacks = [
     tone: 'from-sky-50 to-indigo-50',
     items: ['Zapier Professional', 'Later Growth', 'ConvertKit Pro', 'SEMrush Pro', 'Intercom Start'],
     note: 'Built for established bloggers who need deeper automation and reporting.',
-    roi: 'Saves 45+ hours/month',
+    roi: 'Illustrative savings: 45+ hours/month',
   },
   {
     title: 'Enterprise stack',
@@ -166,7 +166,7 @@ const stacks = [
     tone: 'from-purple-50 to-pink-50',
     items: ['Zapier Team', 'Hootsuite Professional', 'ConvertKit Pro', 'Ahrefs Standard', 'Intercom Grow', 'Make Pro'],
     note: 'For content teams that need complex workflows, monitoring, and approvals.',
-    roi: 'Saves 80+ hours/month',
+    roi: 'Illustrative savings: 80+ hours/month',
   },
 ]
 
@@ -421,7 +421,7 @@ export default function BestAIAutomationToolsBloggers2026() {
               <LineChart className="h-4 w-4 text-indigo-500" />
               Results
             </div>
-            <h2 className="page-title text-3xl md:text-4xl">6-month testing results</h2>
+            <h2 className="page-title text-3xl md:text-4xl">Illustrative 6-month testing scenario</h2>
           </div>
 
           <div className="page-card-glow rounded-[2rem] p-1.5">
@@ -430,9 +430,9 @@ export default function BestAIAutomationToolsBloggers2026() {
                 <div className="page-card p-6">
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Testing methodology</h3>
                   <ul className="space-y-3 text-sm leading-6 text-slate-600">
-                    <li><strong>Duration:</strong> 6 months of hands-on testing</li>
+                    <li><strong>Scenario duration:</strong> 6 months of hands-on testing</li>
                     <li><strong>Investment:</strong> $4,800 in premium subscriptions</li>
-                    <li><strong>Tools tested:</strong> 15 automation platforms</li>
+                    <li><strong>Illustrative tool set:</strong> 15 automation platforms</li>
                     <li><strong>Workflows:</strong> Social, email, SEO, support, and distribution</li>
                     <li><strong>Tracked outcome:</strong> Time saved versus manual process</li>
                   </ul>
@@ -440,11 +440,11 @@ export default function BestAIAutomationToolsBloggers2026() {
                 <div className="page-card p-6">
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Key findings</h3>
                   <ul className="space-y-3 text-sm leading-6 text-slate-600">
-                    <li><strong>Average time savings:</strong> 85%</li>
-                    <li><strong>Hours saved monthly:</strong> 240 hours</li>
-                    <li><strong>Automation success rate:</strong> 92%</li>
-                    <li><strong>Content distribution reach:</strong> 340%</li>
-                    <li><strong>ROI range:</strong> 340% to 580%</li>
+                    <li><strong>Illustrative time savings:</strong> 85%</li>
+                    <li><strong>Illustrative hours saved monthly:</strong> 240 hours</li>
+                    <li><strong>Illustrative automation success:</strong> 92%</li>
+                    <li><strong>Illustrative content distribution reach:</strong> 340%</li>
+                    <li><strong>Illustrative ROI range:</strong> 340% to 580%</li>
                   </ul>
                 </div>
               </div>
@@ -558,7 +558,7 @@ export default function BestAIAutomationToolsBloggers2026() {
 
         <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
           <p className="text-sm leading-6 text-slate-600 italic">
-            This review is based on 6 months of hands-on automation testing with a $4,800 investment across 15 tools.
+            This review uses an illustrative 6-month automation testing scenario with a $4,800 planning investment across 15 tools.
             Results vary by use case and implementation quality. Some links are affiliate links that help support our independent testing.
           </p>
         </section>

@@ -19,7 +19,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Governance Framework 2026 | Complete Implementation Guide | SitePilot'
 const pageDescription =
-  'An enterprise AI governance framework based on Fortune 500 practices, covering policy templates, compliance checklists, risk controls, and a 12-month rollout plan for responsible AI deployment.'
+  'An enterprise AI governance framework using an illustrative operating model, covering policy templates, compliance checklists, risk controls, and a 12-month rollout plan for responsible AI deployment.'
 const pageUrl = 'https://sitepilot.co/ai-governance-framework-enterprise-2026'
 
 const metadataConfig: Metadata = {
@@ -445,8 +445,8 @@ export default function AIGovernanceFrameworkPage() {
               </h1>
 
               <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
-                This framework is based on Fortune 500 operating practice and covers ethics principles, risk management, compliance controls, and a 12-month rollout
-                roadmap. The goal is to make sure AI systems have clear rules, review mechanisms, and accountability before deployment expands.
+                This framework uses a practical enterprise operating model and covers ethics principles, risk management, compliance controls, and a 12-month rollout
+                roadmap. Validate the ownership, controls, and escalation assumptions against your own governance requirements before deployment expands.
               </p>
 
               <div className="mb-10 flex flex-wrap gap-3">

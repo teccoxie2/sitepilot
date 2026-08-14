@@ -226,16 +226,16 @@ export default function AITrainingCertificationProgramClient() {
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950">When training is done right, the return is not mysterious.</h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                This section keeps the original ROI, implementation timeline, and outcome framing. Only the presentation changed.
+                This section uses illustrative ROI, implementation-timeline, and outcome scenarios. Replace the defaults with measured program data before making a funding decision.
               </p>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-4">
               {[
-                ['Productivity Increase', '78%', 'After 3 months'],
-                ['Faster Implementation', '45%', 'AI project delivery'],
-                ['Employee Confidence', '92%', 'In AI tool usage'],
-                ['Annual Savings', '$2.3M', 'Average enterprise'],
+                ['Illustrative productivity increase', '78%', 'After 3 months scenario'],
+                ['Illustrative faster implementation', '45%', 'AI project delivery scenario'],
+                ['Illustrative employee confidence', '92%', 'AI tool usage scenario'],
+                ['Illustrative annual savings', '$2.3M', 'Enterprise planning scenario'],
               ].map(([label, value, note]) => (
                 <div key={label} className="page-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                   <div className="text-sm text-slate-500">{label}</div>

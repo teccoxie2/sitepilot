@@ -47,7 +47,7 @@ const metadataConfig: Metadata = {
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '$13.5T', label: 'Global AI economic impact by 2030' },
-  { value: '156%', label: 'Average enterprise AI ROI' },
+  { value: '156%', label: 'Illustrative enterprise AI ROI' },
   { value: '67%', label: 'Organizations struggling with measurement' },
   { value: '24 months', label: 'Typical AI payback period' },
 ]
@@ -245,13 +245,13 @@ export default function AITransformationROICalculationFramework2026Page() {
 
         <section className="mb-16 page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
           <div className="mb-8 max-w-3xl">
-            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Industry benchmarks</div>
+            <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Illustrative industry benchmarks</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
               Benchmarks are not the answer,
               <span className="brand-gradient-text block">but they cut down a lot of empty talk.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              The original benchmark table keeps its core figures and industry notes. It is not a guarantee, but it does put guardrails around your assumptions.
+              The table provides illustrative industry scenarios and notes. It is not a guarantee; replace each figure with a verified baseline before using it for budget or approval decisions.
             </p>
           </div>
           <div className="overflow-x-auto">

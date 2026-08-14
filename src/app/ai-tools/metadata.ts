@@ -1,9 +1,9 @@
 import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const pageTitle = 'Best AI Tools 2026 | Compare AI Software for Business, SEO & Content'
+export const pageTitle = 'AI Tools & Procurement Evaluation 2026 | SitePilot'
 export const pageDescription =
-  'Compare the best AI tools in 2026 for business, SEO, and content workflows using output quality, workflow fit, privacy risk, pricing discipline, and operator control before you shortlist software.'
+  'Evaluate AI tools for business, SEO, and content workflows using output quality, workflow fit, privacy risk, pricing discipline, and operator control before procurement.'
 export const pageUrl = 'https://sitepilot.co/ai-tools'
 
 const metadataConfig: Metadata = {

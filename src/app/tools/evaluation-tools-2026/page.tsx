@@ -41,10 +41,11 @@ export default function EvaluationToolsHubPage() {
               <h1 className="page-title text-5xl md:text-7xl mb-6">AI vendor evaluation tools 2026,<span className="brand-gradient-text block">for approve-or-reject decisions.</span></h1>
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">AI vendor evaluation tools are approval-stage buyer controls used to review RFP responses, verify diligence evidence, score finalists, test pilot conditions, and catch contract risk before signature. This hub gives procurement, security, and business owners one BOFU path from comparison to approve, hold, or reject.</p>
               <div className="flex flex-wrap gap-3 mb-10">
-                <Link href="/enterprise-ai-vendor-comparison-guide-2026" className="btn-brand inline-flex items-center gap-2">Start with comparison guide <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/ai-procurement-decision-matrix-tool-2026" className="btn-brand inline-flex items-center gap-2">Run the decision matrix <ArrowRight className="h-4 w-4" /></Link>
                 <Link href="/enterprise-ai-vendor-rfp-template-2026" className="btn-secondary">RFP template</Link>
                 <Link href="/ai-vendor-contract-red-flags-2026" className="btn-secondary">Contract red flags</Link>
                 <Link href="/ai-procurement-decision-matrix-tool-2026" className="btn-secondary">Decision matrix</Link>
+                <Link href="/apply-for-audit" className="btn-secondary">Request an audit</Link>
               </div>
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">{notes.map((item) => <div key={item} className="page-card flex items-start gap-3 px-4 py-4"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><span className="text-sm leading-6 text-slate-700">{item}</span></div>)}</div>
             </div>

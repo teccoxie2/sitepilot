@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { ArrowRight, Shield, Cpu, Gauge, Network, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'SitePilot | Compare Hosting, Website Builders & Proxies'
+const pageTitle = 'SitePilot | Digital Infrastructure Buying Intelligence'
 const pageDescription =
-  'Compare hosting, website builders, and proxy infrastructure using independent audits, buyer-focused comparisons, and decision assets built for real operator and procurement workflows.'
+  'Evidence-first decision support for AI procurement, web infrastructure, and proxy operations using independent audits, buyer-focused comparisons, and practical decision assets.'
 const pageUrl = 'https://sitepilot.co'
 
 const metadataConfig: Metadata = {
@@ -28,10 +28,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const operatingSignals = [
-  'Hosting, builders, proxy infrastructure, and domain buying paths in one editorial system',
+  'AI procurement and implementation tools for accountable buying teams',
+  'Web infrastructure comparisons across hosting, builders, and domain decisions',
+  'Proxy infrastructure guidance with explicit operational and compliance boundaries',
   'Operator-grade comparisons instead of promo-code theater',
-  'A clear decision path from category research to evidence and action',
-  'Decision support built for teams buying with technical accountability',
 ]
 
 const capabilityCards = [
@@ -51,22 +51,22 @@ const capabilityCards = [
 
 const coverageTracks = [
   {
-    title: 'Web hosting',
-    note: 'Performance audits, provider reviews, renewal-pricing traps, and long-term infrastructure fit.',
+    title: 'AI procurement',
+    note: 'Vendor shortlists, due diligence, cost models, risk review, and decision matrices for implementation teams.',
+    href: '/ai-tools',
+    cta: 'Open AI buying tools',
+    icon: Cpu,
+  },
+  {
+    title: 'Web infrastructure',
+    note: 'Hosting, website builders, and domains compared across performance, ownership, cost, and lock-in risk.',
     href: '/web-hosting',
-    cta: 'Explore hosting audits',
+    cta: 'Explore infrastructure',
     icon: Gauge,
   },
   {
-    title: 'Website builders',
-    note: 'Platform comparisons across design control, ecommerce fit, SEO ownership, and lock-in risk.',
-    href: '/website-builders',
-    cta: 'Explore builder guides',
-    icon: Sparkles,
-  },
-  {
     title: 'Proxy infrastructure',
-    note: 'Deployment-model comparisons, farm setup guidance, and operational planning for mobile proxies.',
+    note: 'Deployment-model comparisons and operating guidance for legitimate, compliant proxy use cases.',
     href: '/proxies',
     cta: 'Open proxy hub',
     icon: Network,
@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 items-center">
             <div className="max-w-3xl">
               <p className="text-sm md:text-base font-medium text-slate-600 max-w-2xl mb-4">
-                SitePilot compares hosting, website builders, and proxy infrastructure using independent audits, commercial analysis, operational risk review, and buyer-path decision assets. Teams use it to move from category discovery into shortlist, diligence, implementation planning, and platform commitment without affiliate fluff or vendor theatre.
+                SitePilot helps technical operators and procurement teams move from category discovery into evidence, shortlist, implementation planning, and platform commitment without affiliate fluff or vendor theatre.
               </p>
 
               <div className="page-pill mb-6" data-nosnippet>
@@ -135,19 +135,19 @@ export default function HomePage() {
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
-                SitePilot is a decision system for hosting, website builders, and proxy infrastructure that connects methodology, audits, comparisons, and buyer assets so operators can move from category discovery to shortlist, due diligence, and vendor selection without relying on affiliate fluff or glossy vendor positioning.
+                SitePilot is a decision system for AI procurement and web infrastructure, with a separate proxy operations track. It connects methodology, audits, comparisons, scorecards, and buyer assets so teams can defend a vendor decision with evidence instead of glossy positioning.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
-                <Link href="/web-hosting" className="btn-brand">
-                  Start with live audits
+                <Link href="/ai-tools" className="btn-brand">
+                  Start with AI procurement
                   <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link href="/web-hosting" className="btn-secondary">
+                  Explore web infrastructure
                 </Link>
                 <Link href="/methodology" className="btn-secondary">
                   Review methodology
-                </Link>
-                <Link href="/apply-for-audit" className="btn-secondary">
-                  Apply for an audit
                 </Link>
               </div>
 
@@ -280,6 +280,9 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3">
                 <Link href="/methodology" className="btn-secondary">
                   See evaluation criteria
+                </Link>
+                <Link href="/apply-for-audit" className="btn-brand">
+                  Request an audit
                 </Link>
               </div>
             </div>

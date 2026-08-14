@@ -9,7 +9,7 @@ test.describe('SitePilot smoke tests', () => {
     await expect(page.locator('h1')).toBeVisible()
     await expect(page.locator('header')).toBeVisible()
     await expect(page.locator('footer')).toBeVisible()
-    await expect(page.getByRole('link', { name: /start with live audits/i })).toBeVisible()
+    await expect(page.getByRole('link', { name: /start with ai procurement/i })).toBeVisible()
   })
 
   test('serves the core coverage hubs', async ({ page }) => {
@@ -19,6 +19,28 @@ test.describe('SitePilot smoke tests', () => {
       expect(response?.status(), `${route} should return HTTP 200`).toBe(200)
       await expect(page.locator('h1')).toBeVisible()
     }
+  })
+
+  test('runs the procurement matrix and exports a decision artifact', async ({ page }) => {
+    const response = await page.goto('/ai-procurement-decision-matrix-tool-2026')
+
+    expect(response?.status()).toBe(200)
+    await page.getByLabel(/Vendor A Strategic fit score/i).fill('4')
+    await page.getByLabel(/Vendor B Strategic fit score/i).fill('3')
+    await page.getByRole('button', { name: /mark complete/i }).click()
+    await expect(page.getByRole('status')).toContainText(/matrix marked complete/i)
+
+    await page.getByRole('button', { name: /copy share link/i }).click()
+    await expect(page).toHaveURL(/scores=/)
+    await page.reload()
+    await expect(page.getByLabel(/Vendor A Strategic fit score/i)).toHaveValue('4')
+    await expect(page.getByLabel(/Vendor B Strategic fit score/i)).toHaveValue('3')
+
+    const downloadPromise = page.waitForEvent('download')
+    await page.getByRole('button', { name: /export csv/i }).click()
+    const download = await downloadPromise
+    expect(download.suggestedFilename()).toBe('sitepilot-ai-procurement-matrix.csv')
+    await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit')
   })
 
   test('opens the mobile navigation', async ({ page }) => {

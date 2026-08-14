@@ -380,7 +380,7 @@ export default function BestAIVideoToolsBloggers2026() {
               <Film className="h-4 w-4 text-indigo-500" />
               Results
             </div>
-            <h2 className="page-title text-3xl md:text-4xl">6-month testing results</h2>
+            <h2 className="page-title text-3xl md:text-4xl">Illustrative 6-month testing scenario</h2>
           </div>
 
           <div className="page-card-glow rounded-[2rem] p-1.5">
@@ -389,17 +389,17 @@ export default function BestAIVideoToolsBloggers2026() {
                 <div className="page-card p-6">
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Testing methodology</h3>
                   <ul className="space-y-3 text-sm leading-6 text-slate-600">
-                    <li><strong>Duration:</strong> 6 months of hands-on testing</li>
-                    <li><strong>Videos created:</strong> 200+ pieces</li>
-                    <li><strong>Tools tested:</strong> 15+ AI video platforms</li>
+                    <li><strong>Scenario duration:</strong> 6 months of hands-on testing</li>
+                    <li><strong>Illustrative video pool:</strong> 200+ pieces</li>
+                    <li><strong>Illustrative tool set:</strong> 15+ AI video platforms</li>
                     <li><strong>Tracked outcome:</strong> Time, cost, quality, and workflow speed</li>
                   </ul>
                 </div>
                 <div className="page-card p-6">
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Key findings</h3>
                   <ul className="space-y-3 text-sm leading-6 text-slate-600">
-                    <li><strong>Average time savings:</strong> 85-90%</li>
-                    <li><strong>Cost reduction:</strong> 80%</li>
+                    <li><strong>Illustrative time savings:</strong> 85-90%</li>
+                    <li><strong>Illustrative cost reduction:</strong> 80%</li>
                     <li><strong>Typical output time:</strong> 1-3 hours versus 10-27 hours traditional</li>
                     <li><strong>Commercial readiness:</strong> Strong enough for regular publishing</li>
                   </ul>
@@ -514,7 +514,7 @@ export default function BestAIVideoToolsBloggers2026() {
 
         <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
           <p className="text-sm leading-6 text-slate-600 italic">
-            This review is based on 6 months of hands-on testing across 200+ videos and 15+ AI video tools. Results vary by use case,
+            This review uses an illustrative 6-month testing scenario across 200+ videos and 15+ AI video tools. Results vary by use case,
             prompt quality, and the amount of manual editing you’re willing to do. Some links are affiliate links that help support our work.
           </p>
         </section>

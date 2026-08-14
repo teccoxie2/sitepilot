@@ -43,10 +43,10 @@ const relatedArticles = [
 ]
 
 const headlineStats = [
-  { label: 'Sites tested', value: '1,200+' },
-  { label: 'Builders compared', value: '25' },
-  { label: 'Faster launch with builders', value: '47%' },
-  { label: 'Testing investment', value: '$24K' },
+  { label: 'Illustrative site pool', value: '1,200+' },
+  { label: 'Illustrative builders compared', value: '25' },
+  { label: 'Illustrative faster-launch scenario', value: '47%' },
+  { label: 'Illustrative testing budget', value: '$24K' },
 ]
 
 const verdictCards = [
@@ -161,7 +161,7 @@ export default function WebsiteBuilderVsWordPress() {
       <SchemaMarkup
         type="article"
         title="Website Builder vs WordPress 2026: Complete Decision Guide"
-        description="Comprehensive analysis of website builders vs WordPress based on real testing data from 1,200+ sites"
+        description="Comprehensive analysis of website builders vs WordPress using an illustrative site-comparison scenario; validate the assumptions against your own requirements."
         url={pageUrl}
         publishedDate="2026-03-04"
         modifiedDate="2026-04-17"

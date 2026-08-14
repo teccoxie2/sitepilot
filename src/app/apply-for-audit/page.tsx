@@ -10,6 +10,7 @@ import {
   Zap,
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
+import TrackedMailtoLink from '@/components/TrackedMailtoLink'
 import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 export { metadata } from './metadata'
@@ -85,13 +86,13 @@ export default function ApplyForAudit() {
                   A SitePilot infrastructure audit application is for hosting, proxy, or software platforms that want technical benchmarking, transparent review coverage, and a defined invoice path before publication. Teams should use this page when they need scope clarity, verification terms, and a buyer-trust review process instead of vague sponsorship language.
                 </p>
                 <div className="mb-10 flex flex-wrap gap-3">
-                  <a
+                  <TrackedMailtoLink
                     href="mailto:office@xentech.co.nz?subject=Technical Audit Request - SitePilot"
                     className="btn-brand inline-flex items-center gap-2"
                   >
                     Request audit invoice
                     <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </TrackedMailtoLink>
                   <Link href="/contact" className="btn-secondary inline-flex items-center gap-2">
                     Contact BD team
                   </Link>
@@ -165,13 +166,13 @@ export default function ApplyForAudit() {
                 ))}
               </div>
 
-              <a
+              <TrackedMailtoLink
                 href="mailto:office@xentech.co.nz?subject=Technical Audit Request - SitePilot"
                 className="btn-brand mt-8 inline-flex w-full items-center justify-center gap-2"
               >
                 Request audit invoice
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </TrackedMailtoLink>
 
               <div className="mt-6 flex items-center justify-center gap-5 text-slate-500">
                 <CreditCard className="h-5 w-5" />
@@ -236,12 +237,12 @@ export default function ApplyForAudit() {
                 If your platform can stand up to technical scrutiny, ask for the invoice. If the scope is unusual, talk to the BD team. Keep it simple and direct.
               </p>
               <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-                <a
+                <TrackedMailtoLink
                   href="mailto:office@xentech.co.nz?subject=Technical Audit Request - SitePilot"
                   className="btn-brand bg-white text-slate-950 hover:bg-slate-100"
                 >
                   Request invoice
-                </a>
+                </TrackedMailtoLink>
                 <Link href="/contact" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15">
                   Contact BD
                 </Link>

@@ -17,17 +17,17 @@ import { pageDescription, pageTitle, pageUrl } from './metadata'
 export { metadata } from './metadata'
 
 const heroStats = [
-  { value: '50+', label: 'AI vendors evaluated' },
+  { value: '50+', label: 'Illustrative vendor shortlist' },
   { value: '8', label: 'decision criteria in the matrix' },
-  { value: '94%', label: 'selection success rate cited on the page' },
-  { value: '$2.1M', label: 'average switching cost per vendor' },
+  { value: '94%', label: 'Scenario selection success rate' },
+  { value: '$2.1M', label: 'Illustrative switching cost' },
 ]
 
 const marketCards = [
-  { value: '250+', label: 'Active enterprise AI vendors' },
-  { value: '$127B', label: 'Enterprise AI market size 2026' },
-  { value: '73%', label: 'Vendor selection decisions regretted' },
-  { value: '$2.1M', label: 'Average switching cost per vendor' },
+  { value: '250+', label: 'Illustrative vendor universe' },
+  { value: '$127B', label: 'Market-context planning estimate' },
+  { value: '73%', label: 'Scenario regret rate' },
+  { value: '$2.1M', label: 'Illustrative switching cost' },
 ]
 
 const frameworkCards = [
@@ -150,23 +150,23 @@ const analysisCards = [
 
 const roiCards = [
   {
-    title: 'Optimized vendor selection',
+    title: 'Illustrative optimized-selection scenario',
     tone: 'border-indigo-100 bg-indigo-50/80',
     rows: [
       ['Implementation success rate', '94%'],
       ['Time to value', '4.2 months'],
       ['3-year TCO savings', '$1.8M'],
-      ['ROI achievement', '267%'],
+      ['ROI achievement (illustrative scenario)', '267%'],
     ],
   },
   {
-    title: 'Poor vendor selection',
+    title: 'Illustrative poor-selection scenario',
     tone: 'border-rose-100 bg-rose-50/80',
     rows: [
       ['Implementation success rate', '27%'],
       ['Time to value', '14.7 months'],
       ['3-year additional costs', '$3.2M'],
-      ['ROI achievement', '-23%'],
+      ['ROI achievement (illustrative scenario)', '-23%'],
     ],
   },
 ]

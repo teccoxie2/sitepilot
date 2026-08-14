@@ -361,7 +361,7 @@ export default function EnterpriseAIBudgetCalculatorPage() {
           <div className="mb-8 max-w-2xl">
             <div className="page-pill mb-3 inline-flex items-center gap-2">
               <TrendingUp className="h-4 w-4 text-indigo-500" />
-              Benchmarks
+              Illustrative benchmarks
             </div>
             <h2 className="page-title text-3xl md:text-4xl">2026 enterprise AI budget benchmarks by industry</h2>
           </div>
@@ -440,7 +440,7 @@ export default function EnterpriseAIBudgetCalculatorPage() {
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Projected ROI analysis</h3>
                   <div className="space-y-4 text-sm text-slate-600">
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 flex items-center justify-between">
-                      <span>3-year ROI</span>
+                      <span>Illustrative 3-year ROI</span>
                       <span className="font-semibold text-indigo-600">285%</span>
                     </div>
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 flex items-center justify-between">
@@ -448,12 +448,12 @@ export default function EnterpriseAIBudgetCalculatorPage() {
                       <span className="font-semibold text-slate-950">14 months</span>
                     </div>
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 flex items-center justify-between">
-                      <span>Annual cost savings</span>
+                      <span>Illustrative annual cost savings</span>
                       <span className="font-semibold text-slate-950">$12.5M</span>
                     </div>
                     <div className="rounded-2xl border border-indigo-200 bg-indigo-50/70 px-4 py-3 flex items-center gap-3 text-indigo-900">
                       <CheckCircle className="h-4 w-4 text-indigo-600" />
-                      Strong ROI projection - recommended for implementation
+                      Illustrative ROI projection - validate before implementation
                     </div>
                   </div>
                 </div>

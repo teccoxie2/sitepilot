@@ -353,7 +353,7 @@ export default function AIImageToolsPage() {
               <ImageIcon className="h-4 w-4 text-indigo-500" />
               Results
             </div>
-            <h2 className="page-title text-3xl md:text-4xl">Real performance results from 8 months of testing</h2>
+            <h2 className="page-title text-3xl md:text-4xl">Illustrative performance scenario from an 8-month model</h2>
           </div>
 
           <div className="page-card-glow rounded-[2rem] p-1.5">
@@ -363,8 +363,8 @@ export default function AIImageToolsPage() {
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Testing methodology</h3>
                   <ul className="space-y-3 text-sm leading-6 text-slate-600">
                     <li><strong>Duration:</strong> August 2025 - March 2026</li>
-                    <li><strong>Images created:</strong> 500+ blog visuals</li>
-                    <li><strong>Tools tested:</strong> 12 AI image platforms</li>
+                    <li><strong>Illustrative image pool:</strong> 500+ blog visuals</li>
+                    <li><strong>Illustrative tool set:</strong> 12 AI image platforms</li>
                     <li><strong>Use cases:</strong> Headers, illustrations, social graphics, portraits</li>
                     <li><strong>Tracked outcome:</strong> Time, cost, quality, and engagement</li>
                   </ul>
@@ -372,11 +372,11 @@ export default function AIImageToolsPage() {
                 <div className="page-card p-6">
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Key findings</h3>
                   <ul className="space-y-3 text-sm leading-6 text-slate-600">
-                    <li><strong>Average time savings:</strong> 85%</li>
+                    <li><strong>Illustrative time savings:</strong> 85%</li>
                     <li><strong>Cost savings:</strong> $2,800 versus stock photos</li>
-                    <li><strong>Engagement lift:</strong> 23% higher on AI-generated images</li>
+                    <li><strong>Illustrative engagement lift:</strong> 23% higher on AI-generated images</li>
                     <li><strong>Quality rating:</strong> 8.7/10 average</li>
-                    <li><strong>Usable without editing:</strong> 87%</li>
+                    <li><strong>Illustrative usable-without-editing rate:</strong> 87%</li>
                   </ul>
                 </div>
               </div>
@@ -514,7 +514,7 @@ export default function AIImageToolsPage() {
 
         <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
           <p className="text-sm leading-6 text-slate-600 italic">
-            This review is based on 8 months of hands-on AI image testing across 500+ blog visuals. Results vary by prompt quality,
+            This review uses an illustrative 8-month AI image testing scenario across 500+ blog visuals. Results vary by prompt quality,
             editing discipline, and use case. Some links are affiliate links that help support our independent testing.
           </p>
         </section>

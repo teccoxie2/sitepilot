@@ -37,10 +37,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const overviewStats = [
-  { value: '$47M', label: 'Typical AI budget', note: 'Fortune 500 annual baseline' },
-  { value: '38%', label: 'Budget growth', note: 'Year-over-year increase in 2026' },
-  { value: '24', label: 'Months to ROI', note: 'Average payback window' },
-  { value: '67%', label: 'Budget utilization', note: 'Industry average' },
+  { value: '$47M', label: 'Illustrative AI budget', note: 'Planning baseline; replace with internal data' },
+  { value: '38%', label: 'Illustrative budget growth', note: 'Scenario for 2026 planning' },
+  { value: '24', label: 'Illustrative months to ROI', note: 'Planning payback assumption' },
+  { value: '67%', label: 'Illustrative budget utilization', note: 'Scenario input for modeling' },
 ]
 
 const costCategories = [

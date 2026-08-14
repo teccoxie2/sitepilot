@@ -551,7 +551,7 @@ export default function AITrainingROICalculator() {
             {[
               { value: '68%', label: 'Average increase in learning completion rates', Icon: GraduationCap },
               { value: '45%', label: 'Reduction in training delivery time', Icon: Clock },
-              { value: '280%', label: 'Average ROI within first year', Icon: TrendingUp },
+              { value: '280%', label: 'Illustrative ROI within first year', Icon: TrendingUp },
             ].map(({ value, label, Icon }) => (
               <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10">

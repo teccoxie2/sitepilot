@@ -309,13 +309,13 @@ export default function AIImplementationCostCalculatorClient() {
                   </div>
 
                   <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
-                    <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Benchmark snapshot</div>
+                    <div className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-600">Illustrative benchmark snapshot</div>
                     <div className="grid gap-3 sm:grid-cols-2">
                       {[
-                        '$2.5M average enterprise implementation',
-                        '245% average 3-year ROI',
-                        '18-month average break-even',
-                        '85% success rate with planning discipline',
+                        '$2.5M illustrative enterprise implementation',
+                        '245% illustrative 3-year ROI',
+                        '18-month illustrative break-even',
+                        '85% illustrative success rate with planning discipline',
                       ].map((item) => (
                         <div key={item} className="rounded-2xl border border-white/80 bg-white px-4 py-3 text-sm text-slate-700">
                           {item}

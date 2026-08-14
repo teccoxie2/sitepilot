@@ -19,7 +19,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Transformation Roadmap 2026 | SitePilot'
 const pageDescription =
-  'Complete enterprise AI transformation roadmap for 2026. 18-month strategic implementation framework, change management protocols, and $2M-50M ROI validation methods for Fortune 500 digital transformation.'
+  'Complete enterprise AI transformation roadmap for 2026. It uses an 18-month strategic implementation framework, change management protocols, and illustrative ROI validation scenarios that teams should replace with verified internal data.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-transformation-roadmap-2026'
 
 const metadataConfig: Metadata = {
@@ -33,10 +33,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
-  { value: '73%', label: 'fail due to poor change management' },
-  { value: '$47M', label: 'average ROI in successful cases' },
-  { value: '18 mo', label: 'optimal transformation timeline' },
-  { value: '150+', label: 'enterprise implementations studied' },
+  { value: '73%', label: 'Illustrative change-management failure scenario' },
+  { value: '$47M', label: 'Illustrative ROI scenario' },
+  { value: '18 mo', label: 'Illustrative transformation timeline' },
+  { value: '150+', label: 'Illustrative implementation pool' },
 ]
 
 const phases = [
@@ -77,9 +77,9 @@ const changeMgmt = [
 ]
 
 const metrics = [
-  { title: 'Foundation', items: ['>85% executive alignment', '>80% infrastructure readiness', '95% key staff trained'] },
-  { title: 'Pilot', items: ['>200% pilot ROI', '>80% active usage', '>30% efficiency gains'] },
-  { title: 'Scale', items: ['$20M-$100M 3-year ROI', 'Level 4/5 AI maturity', 'Top 10% adoption position'] },
+  { title: 'Foundation', items: ['Illustrative >85% executive alignment', 'Illustrative >80% infrastructure readiness', 'Illustrative 95% key staff trained'] },
+  { title: 'Pilot', items: ['Illustrative >200% pilot ROI', 'Illustrative >80% active usage', 'Illustrative >30% efficiency gains'] },
+  { title: 'Scale', items: ['Illustrative $20M-$100M 3-year ROI', 'Level 4/5 AI maturity assumption', 'Illustrative top-10% adoption position'] },
 ]
 
 const relatedLinks = [

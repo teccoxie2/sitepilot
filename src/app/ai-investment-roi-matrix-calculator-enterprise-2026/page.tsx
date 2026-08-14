@@ -25,9 +25,9 @@ const heroSignals = [
 ]
 
 const scoreCards = [
-  { label: 'Average ROI', value: '327%', note: 'The core conclusion from the original page stays intact.' },
-  { label: 'Average payback period', value: '18 months', note: 'Still framed for CFO-level decision making.' },
-  { label: 'Fortune 500 validation', value: '189 companies', note: 'The benchmark-data narrative remains fully intact.' },
+  { label: 'Illustrative ROI scenario', value: '327%', note: 'Replace the scenario with your verified project baseline.' },
+  { label: 'Illustrative payback period', value: '18 months', note: 'Use as a planning input for CFO-level decisions.' },
+  { label: 'Illustrative comparison pool', value: '189 companies', note: 'Treat the pool size as a modeling assumption.' },
   { label: 'Analysis dimensions', value: '12', note: 'Covers everything from finance to implementation.' },
 ]
 
@@ -41,26 +41,26 @@ const frameworkCards = [
 ]
 
 const benchmarkCards = [
-  { label: 'Industry average ROI', value: '285%', compare: 'vs your 327%' },
-  { label: 'Industry average payback', value: '15 months', compare: 'vs your 18 months' },
-  { label: 'Industry success rate', value: '68%', compare: 'vs your higher-end configuration' },
-  { label: 'Industry average investment', value: '$3.2M', compare: 'vs your target budget range' },
+  { label: 'Illustrative industry ROI', value: '285%', compare: 'vs your 327% scenario' },
+  { label: 'Illustrative industry payback', value: '15 months', compare: 'vs your 18-month scenario' },
+  { label: 'Illustrative industry success rate', value: '68%', compare: 'vs your higher-end configuration' },
+  { label: 'Illustrative industry investment', value: '$3.2M', compare: 'vs your target budget range' },
 ]
 
 const scenarioCards = [
   {
     tone: 'border-indigo-200 bg-indigo-50 text-indigo-900',
-    title: 'Upside case (30% probability)',
+    title: 'Illustrative upside case (30% planning probability)',
     points: ['Benefits exceed plan by 20%', 'Implementation finishes three months faster', '3-year ROI: 485%', 'Payback period: 8 months'],
   },
   {
     tone: 'border-amber-200 bg-amber-50 text-amber-900',
-    title: 'Baseline case (55% probability)',
+    title: 'Illustrative baseline case (55% planning probability)',
     points: ['Benefits match plan', 'Implementation stays on schedule', '3-year ROI: 385%', 'Payback period: 11 months'],
   },
   {
     tone: 'border-rose-200 bg-rose-50 text-rose-900',
-    title: 'Downside case (15% probability)',
+    title: 'Illustrative downside case (15% planning probability)',
     points: ['Benefits land 25% below plan', 'Implementation slips by six months', '3-year ROI: 210%', 'Payback period: 18 months'],
   },
 ]
@@ -99,7 +99,7 @@ export default function ROICalculatorPage() {
               <div className="max-w-3xl">
                 <div className="page-pill mb-6">
                   <Sparkles className="h-4 w-4 text-[#635bff]" />
-                  Fortune 500 AI ROI analysis
+                  Illustrative enterprise AI ROI analysis
                 </div>
 
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">
@@ -239,10 +239,10 @@ export default function ROICalculatorPage() {
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <div className="text-sm text-slate-500">Benchmarks</div>
-                        <div className="text-xl font-semibold text-slate-950">Fortune 500 comparison</div>
+                  <div className="text-xl font-semibold text-slate-950">Illustrative enterprise comparison</div>
                       </div>
                       <div className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
-                        189 companies
+                        189-company illustrative pool
                       </div>
                     </div>
 
@@ -261,7 +261,7 @@ export default function ROICalculatorPage() {
                         Recommendation
                       </div>
                       <p className="text-sm leading-7 text-slate-700">
-                        Based on data from 189 Fortune 500 companies, this configuration sits in the high-value, fast-payback zone. It is worth doing, but it still needs disciplined execution.
+                        In this illustrative 189-company comparison scenario, the configuration sits in the high-value, fast-payback zone. Replace the assumptions with verified evidence before approval.
                       </p>
                     </div>
                   </div>

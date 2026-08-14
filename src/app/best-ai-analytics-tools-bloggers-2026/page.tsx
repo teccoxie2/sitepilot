@@ -90,10 +90,10 @@ const tools = [
     ],
     case: 'Perfect for understanding which content drives the most valuable traffic and where to optimize next.',
     result: [
-      'Insight generation time: 5-10 seconds vs. 2-3 hours manual analysis',
-      'Accuracy rate: 89% for traffic pattern predictions',
-      '15-20 actionable recommendations per week',
-      '25% improvement in content strategy decisions',
+      'Illustrative insight-generation time: 5-10 seconds vs. 2-3 hours manual analysis',
+      'Illustrative accuracy assumption: 89% for traffic pattern predictions',
+      'Illustrative 15-20 actionable recommendations per week',
+      'Illustrative 25% improvement in content strategy decisions',
     ],
     accent: 'from-sky-50 via-white to-indigo-50',
   },
@@ -157,7 +157,7 @@ const tools = [
     benefits: [
       '65% improvement in content topic selection',
       '2-3x higher social sharing rates',
-      '40% reduction in content research time',
+      'Illustrative 40% reduction in content research time',
       '23% increase in organic traffic from better topics',
     ],
     case: 'Strong when the job is finding topics worth writing before everybody else does.',
@@ -268,17 +268,17 @@ const results = [
     rows: [
       ['Manual analytics (weekly)', '8-12 hours'],
       ['AI analytics (weekly)', '1-2 hours'],
-      ['Time savings', '85%'],
-      ['Monthly value', '$1,200-2,000'],
+      ['Illustrative time savings', '85%'],
+      ['Illustrative monthly value', '$1,200-2,000'],
     ],
   },
   {
     title: 'Performance improvements',
     rows: [
-      ['Content performance', '+150-300%'],
-      ['Strategic decision quality', '+240%'],
-      ['Content-driven conversions', '+180%'],
-      ['Overall ROI', '480%'],
+      ['Illustrative content performance', '+150-300%'],
+      ['Illustrative strategic decision quality', '+240%'],
+      ['Illustrative content-driven conversions', '+180%'],
+      ['Illustrative overall ROI', '480%'],
     ],
   },
 ]
@@ -541,7 +541,7 @@ export default function AIAnalyticsToolsPage() {
               <LineChart className="h-4 w-4 text-indigo-500" />
               Results
             </div>
-            <h2 className="page-title text-3xl md:text-4xl">Real performance results: 6-month testing</h2>
+            <h2 className="page-title text-3xl md:text-4xl">Illustrative performance scenario: 6-month model</h2>
           </div>
 
           <div className="page-card-glow rounded-[2rem] p-1.5">
@@ -551,20 +551,20 @@ export default function AIAnalyticsToolsPage() {
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Testing methodology</h3>
                   <ul className="space-y-3 text-sm leading-6 text-slate-600">
                     <li><strong>Duration:</strong> September 2025 - March 2026</li>
-                    <li><strong>Content analyzed:</strong> 1,000+ blog posts</li>
-                    <li><strong>AI tools tested:</strong> 8 analytics platforms</li>
-                    <li><strong>Blog niches:</strong> 3 different verticals tested</li>
-                    <li><strong>Metrics tracked:</strong> Traffic, engagement, conversions, time savings</li>
+                    <li><strong>Illustrative content pool:</strong> 1,000+ blog posts</li>
+                    <li><strong>Illustrative tool set:</strong> 8 analytics platforms</li>
+                    <li><strong>Illustrative blog niches:</strong> 3 different verticals</li>
+                    <li><strong>Scenario metrics:</strong> Traffic, engagement, conversions, time savings</li>
                   </ul>
                 </div>
                 <div className="page-card p-6">
                   <h3 className="mb-4 text-xl font-semibold text-slate-950">Key findings</h3>
                   <ul className="space-y-3 text-sm leading-6 text-slate-600">
-                    <li><strong>Performance improvement:</strong> 150-300% average boost</li>
-                    <li><strong>Analysis time savings:</strong> 85% reduction in manual work</li>
-                    <li><strong>Prediction accuracy:</strong> 78% for content performance forecasting</li>
-                    <li><strong>Content strategy ROI:</strong> 240% improvement in strategic decisions</li>
-                    <li><strong>Revenue impact:</strong> 180% increase in content-driven conversions</li>
+                    <li><strong>Illustrative performance improvement:</strong> 150-300% scenario range</li>
+                    <li><strong>Illustrative analysis time savings:</strong> 85% reduction in manual work</li>
+                    <li><strong>Illustrative prediction accuracy:</strong> 78% for content performance forecasting</li>
+                    <li><strong>Illustrative content strategy ROI:</strong> 240% improvement in strategic decisions</li>
+                    <li><strong>Illustrative revenue impact:</strong> 180% increase in content-driven conversions</li>
                   </ul>
                 </div>
               </div>

@@ -19,7 +19,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Success Patterns Analysis 2026 | SitePilot'
 const pageDescription =
-  'Enterprise AI success patterns analysis based on 50 Fortune 500 companies and 18 months of tracking. Learn the 7 key patterns that separate successful implementations from failures.'
+  'Enterprise AI success patterns analysis using an illustrative 18-month planning scenario. Learn the 7 operating patterns that can separate successful implementations from failures, then validate each assumption against your own evidence.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-success-patterns-analysis-2026'
 
 const metadataConfig: Metadata = {
@@ -33,17 +33,17 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
-  { value: '50', label: 'Fortune 500 companies studied' },
-  { value: '18 mo', label: 'tracking period' },
-  { value: '83%', label: 'successful projects share' },
-  { value: '$250K-$15M', label: 'investment range' },
+  { value: '50', label: 'Illustrative company pool' },
+  { value: '18 mo', label: 'Illustrative tracking period' },
+  { value: '83%', label: 'Illustrative successful-project share' },
+  { value: '$250K-$15M', label: 'Illustrative investment range' },
 ]
 
 const patterns = [
   {
     step: '1',
     title: 'Business pain point first, technology second',
-    badge: '95% success',
+    badge: 'Illustrative 95% success',
     tone: 'border-indigo-100 bg-indigo-50/80',
     success: [
       'Start from a concrete business problem',
@@ -61,7 +61,7 @@ const patterns = [
   {
     step: '2',
     title: 'CFO involvement throughout',
-    badge: '89% success',
+    badge: 'Illustrative 89% success',
     tone: 'border-sky-100 bg-sky-50/80',
     success: ['CFO joins kickoff', 'Monthly ROI review', 'Budget milestone gates', 'Capital allocation alignment'],
     fail: ['IT runs it alone', 'Budget drift goes unnoticed', 'No financial monitoring', 'ROI gets discovered too late'],
@@ -69,7 +69,7 @@ const patterns = [
   {
     step: '3',
     title: 'Iterative rollout over big-bang deployment',
-    badge: '91% success',
+    badge: 'Illustrative 91% success',
     tone: 'border-violet-100 bg-violet-50/80',
     success: ['Sprint 1: core capability', 'Sprint 2: expansion', 'Sprint 3: integration', 'Sprint 4: optimization'],
     fail: ['18-month monster plan', 'One shot to solve everything', 'Changing requirements midstream', 'High abandonment rates'],
@@ -77,7 +77,7 @@ const patterns = [
   {
     step: '4',
     title: 'Strong data readiness before launch',
-    badge: '82% success',
+    badge: 'Illustrative 82% success',
     tone: 'border-amber-100 bg-amber-50/80',
     success: ['Clean data pipeline', 'Governance and lineage', 'Data quality ownership', 'Prep before model work'],
     fail: ['AI launched on messy data', 'Manual cleanup after launch', 'Bad inputs become bad outputs', 'Costly rework'],
@@ -85,7 +85,7 @@ const patterns = [
   {
     step: '5',
     title: 'Change management is funded, not hoped for',
-    badge: '87% success',
+    badge: 'Illustrative 87% success',
     tone: 'border-rose-100 bg-rose-50/80',
     success: ['Training is budgeted', 'Champions are named', 'Adoption is measured', 'Feedback loops stay open'],
     fail: ['Users are surprised after launch', 'Training is an afterthought', 'Adoption stalls', 'Everyone blames the tool'],
@@ -93,7 +93,7 @@ const patterns = [
   {
     step: '6',
     title: 'Security and compliance are built in',
-    badge: '88% success',
+    badge: 'Illustrative 88% success',
     tone: 'border-slate-200 bg-slate-50/80',
     success: ['Security requirements are defined early', 'Compliance reviews happen in plan', 'Access is role-based', 'Audit trails are kept'],
     fail: ['Security is bolted on later', 'Legal gets looped in at the end', 'Permissions are messy', 'Risk exposure grows'],
@@ -101,7 +101,7 @@ const patterns = [
   {
     step: '7',
     title: 'Governance, metrics, and escalation are explicit',
-    badge: '90% success',
+    badge: 'Illustrative 90% success',
     tone: 'border-indigo-100 bg-indigo-50/80',
     success: ['Monthly governance review', 'Escalation path is known', 'Metrics are visible', 'Rollback plan exists'],
     fail: ['Nobody owns exceptions', 'Metrics are buried in slides', 'Incidents are ad hoc', 'Learnings never stick'],
@@ -109,8 +109,8 @@ const patterns = [
 ]
 
 const roiCards = [
-  { title: 'Quick ROI projects', tone: 'bg-indigo-50', items: [['Customer service automation', '280% ROI', '8 months'], ['Inventory optimization', '220% ROI', '10 months'], ['Fraud detection', '450% ROI', '6 months']] },
-  { title: 'Mid-term value projects', tone: 'bg-sky-50', items: [['Supply chain optimization', '180% ROI', '18 months'], ['Personalization', '240% ROI', '15 months'], ['Risk management', '320% ROI', '16 months']] },
+  { title: 'Illustrative quick-ROI scenarios', tone: 'bg-indigo-50', items: [['Customer service automation', '280% ROI scenario', '8 months'], ['Inventory optimization', '220% ROI scenario', '10 months'], ['Fraud detection', '450% ROI scenario', '6 months']] },
+  { title: 'Illustrative mid-term scenarios', tone: 'bg-sky-50', items: [['Supply chain optimization', '180% ROI scenario', '18 months'], ['Personalization', '240% ROI scenario', '15 months'], ['Risk management', '320% ROI scenario', '16 months']] },
 ]
 
 const checklist = [

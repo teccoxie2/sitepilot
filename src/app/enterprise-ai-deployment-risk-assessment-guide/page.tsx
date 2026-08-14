@@ -50,7 +50,7 @@ export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const overviewStats = [
   ['Risk factors covered', '12'],
   ['Assessment phases', '3'],
-  ['Mitigation success target', '94%'],
+  ['Illustrative mitigation success target', '94%'],
   ['Implementation timeline', '8 weeks'],
 ]
 
@@ -125,10 +125,10 @@ const mitigation = [
 ]
 
 const successMetrics = [
-  ['Project failure rate', '<5%'],
-  ['System uptime', '98.5%'],
-  ['Faster ROI achievement', '73%'],
-  ['Stakeholder satisfaction', '89%'],
+  ['Illustrative project failure-rate target', '<5%'],
+  ['Illustrative system uptime target', '98.5%'],
+  ['Illustrative faster-ROI scenario', '73%'],
+  ['Illustrative stakeholder-satisfaction target', '89%'],
 ]
 
 const timeline = [
@@ -340,7 +340,7 @@ export default function EnterpriseAIDeploymentRiskAssessmentGuidePage() {
               <ShieldCheck className="h-4 w-4 text-indigo-500" />
               Success metrics
             </div>
-            <h2 className="page-title text-3xl md:text-4xl">Risk management success metrics</h2>
+            <h2 className="page-title text-3xl md:text-4xl">Illustrative risk management success metrics</h2>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">

@@ -6,7 +6,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'AI Digital Transformation Roadmap 2026: Enterprise Implementation Guide | SitePilot'
 const pageDescription =
-  'Complete 12-month AI digital transformation roadmap for enterprises in 2026, including phased implementation, budget planning, risk mitigation, and ROI benchmarks.'
+  'Complete 12-month AI digital transformation roadmap for enterprises in 2026, including phased implementation, budget planning, risk mitigation, and illustrative ROI assumptions.'
 const pageUrl = 'https://sitepilot.co/ai-digital-transformation-roadmap-2026'
 
 const metadataConfig: Metadata = {
@@ -47,13 +47,13 @@ const quickNav = [
 
 const summaryStats = [
   { value: '12 months', label: 'Core roadmap duration' },
-  { value: '$1.9M-$2.9M', label: 'Typical total investment range' },
-  { value: '267%-394%', label: '18-month ROI range' },
-  { value: '89%', label: 'Enterprise adoption momentum' },
+  { value: '$1.9M-$2.9M', label: 'Illustrative total investment range' },
+  { value: '267%-394%', label: 'Illustrative 18-month ROI range' },
+  { value: '89%', label: 'Adoption planning scenario' },
 ]
 
 const executiveHighlights = [
-  '89% of enterprises are accelerating AI adoption as digital-first operating models become permanent.',
+  'Illustrative planning assumption: adoption accelerates when digital-first operating models become permanent.',
   'The roadmap is phased: Assessment (months 1-2), Foundation (months 3-5), Implementation (months 6-9), and Scale (months 10-12).',
   'Organizations usually need coordinated changes across infrastructure, data, governance, training, and operating metrics to realize ROI.',
   'The fastest failures come from trying to deploy AI before cleaning up process ownership, data quality, and change management.',
@@ -138,7 +138,7 @@ const phaseDetails = [
     ],
   },
   {
-    title: 'Phase 3 expected results',
+    title: 'Phase 3 illustrative scenario results',
     tone: 'bg-violet-50 border-violet-200',
     items: [
       '35-50% process automation',
@@ -148,7 +148,7 @@ const phaseDetails = [
     ],
   },
   {
-    title: 'Phase 4 target achievements',
+    title: 'Phase 4 illustrative target achievements',
     tone: 'bg-amber-50 border-amber-200',
     items: [
       '85-95% process automation',
@@ -225,14 +225,14 @@ const riskGroups = [
 ]
 
 const kpiCards = [
-  ['47%', 'Cost reduction'],
-  ['156%', 'Productivity gain'],
-  ['89%', 'Process automation'],
-  ['73%', 'Error reduction'],
-  ['267%', 'ROI over 18 months'],
-  ['32%', 'Revenue growth'],
-  ['78%', 'Customer satisfaction improvement'],
-  ['12 months', 'Typical payback'],
+  ['47%', 'Illustrative cost reduction'],
+  ['156%', 'Illustrative productivity gain'],
+  ['89%', 'Illustrative process automation'],
+  ['73%', 'Illustrative error reduction'],
+  ['267%', 'Illustrative ROI over 18 months'],
+  ['32%', 'Illustrative revenue growth'],
+  ['78%', 'Illustrative customer satisfaction improvement'],
+  ['12 months', 'Illustrative payback assumption'],
 ]
 
 const supportCards = [
@@ -436,10 +436,10 @@ export default function AIDigitalTransformationRoadmap2026() {
               <h3 className="text-2xl font-semibold text-slate-950 mb-5">Success metrics preview</h3>
               <div className="space-y-4">
                 {[
-                  ['Operational cost reduction', '47%'],
-                  ['Employee productivity increase', '156%'],
-                  ['Customer satisfaction improvement', '89%'],
-                  ['Payback timing', '12-18 months'],
+                    ['Illustrative operational cost reduction', '47%'],
+                    ['Illustrative employee productivity increase', '156%'],
+                    ['Illustrative customer satisfaction improvement', '89%'],
+                    ['Illustrative payback timing', '12-18 months'],
                 ].map(([label, value]) => (
                   <div key={label} className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-4">
                     <span className="text-slate-600">{label}</span>
@@ -505,7 +505,7 @@ export default function AIDigitalTransformationRoadmap2026() {
 
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="page-card-soft p-6">
-              <h3 className="text-2xl font-semibold text-slate-950 mb-5">12-month investment breakdown</h3>
+              <h3 className="text-2xl font-semibold text-slate-950 mb-5">12-month illustrative investment scenario</h3>
               <div className="space-y-4">
                 {investmentBreakdown.map(([label, value]) => (
                   <div key={label} className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-4">
@@ -521,7 +521,7 @@ export default function AIDigitalTransformationRoadmap2026() {
             </div>
 
             <div className="page-card-soft p-6">
-              <h3 className="text-2xl font-semibold text-slate-950 mb-5">ROI timeline</h3>
+              <h3 className="text-2xl font-semibold text-slate-950 mb-5">Illustrative ROI timeline</h3>
               <div className="space-y-4">
                 {roiTimeline.map((period) => (
                   <div key={period.title} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
@@ -536,7 +536,7 @@ export default function AIDigitalTransformationRoadmap2026() {
                   </div>
                 ))}
                 <div className="rounded-2xl border border-indigo-200 bg-indigo-50 px-4 py-4">
-                  <div className="text-sm text-indigo-700 mb-1">18-month total ROI</div>
+                  <div className="text-sm text-indigo-700 mb-1">Illustrative 18-month total ROI</div>
                   <div className="text-2xl font-semibold text-indigo-700">267%-394%</div>
                 </div>
               </div>

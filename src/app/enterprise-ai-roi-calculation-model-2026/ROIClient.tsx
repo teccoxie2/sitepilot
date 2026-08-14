@@ -47,7 +47,7 @@ interface CostBreakdown {
 
 const pageTitle = 'Enterprise AI ROI Calculation Model 2026 | SitePilot'
 const pageDescription =
-  'Comprehensive ROI calculation model based on analysis of 1,000+ enterprise AI implementations. Achieve accurate financial projections with industry-specific benchmarks and risk factors.'
+  'Comprehensive ROI calculation model for testing enterprise AI investment assumptions, payback timing, value drivers, and risk factors. Use the outputs as planning scenarios and replace defaults with verified internal data.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-roi-calculation-model-2026'
 
 export default function EnterpriseAIROICalculationModelClient() {
@@ -180,10 +180,10 @@ export default function EnterpriseAIROICalculationModelClient() {
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 max-w-2xl lg:grid-cols-4">
                   {[
-                    ['315%', 'Avg. Enterprise ROI'],
-                    ['11.2M', 'Avg. Payback (Months)'],
-                    ['$3.8M', 'Avg. Annual Benefit'],
-                    ['1000+', 'Projects Analyzed'],
+                    ['315%', 'Illustrative enterprise ROI'],
+                    ['11.2M', 'Illustrative payback input'],
+                    ['$3.8M', 'Illustrative annual benefit'],
+                    ['1000+', 'Illustrative project pool'],
                   ].map(([value, label]) => (
                     <div key={label} className="page-card bg-white/90 p-4">
                       <div className="text-2xl font-semibold text-slate-950 md:text-3xl">{value}</div>

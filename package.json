@@ -17,6 +17,7 @@
     "benchmark:check": "node scripts/check-ai-procurement-benchmark.js",
     "analytics:contract": "node scripts/check-analytics-contract.js",
     "indexing:contract": "node scripts/check-indexing-contract.js",
+    "production:seo": "node scripts/check-production-seo.js",
     "deploy": "npm run lint && npm run typecheck && npm run content:claims && npm run content:inventory -- --verify && npm run evidence:check && npm run benchmark:check && npm run analytics:contract && npm run indexing:contract && npm run build && npm run perf",
     "verify-analytics": "node scripts/verify-analytics.js"
   },

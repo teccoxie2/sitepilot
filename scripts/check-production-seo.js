@@ -12,6 +12,10 @@ function hasNoindex(html) {
   return /<meta name="robots" content="noindex/i.test(html)
 }
 
+function h1Count(html) {
+  return (html.match(/<h1\b/gi) || []).length
+}
+
 async function fetchPage(url) {
   const response = await fetch(url, { redirect: 'manual' })
   return { response, html: await response.text() }
@@ -34,6 +38,7 @@ async function main() {
       if (response.status !== 200) failures.push(`${url} returned ${response.status}`)
       if (canonicalFrom(html) !== url) failures.push(`${url} does not have a self-referencing canonical`)
       if (hasNoindex(html)) failures.push(`${url} is in sitemap but returns noindex`)
+      if (h1Count(html) !== 1) failures.push(`${url} must have exactly one h1 (found ${h1Count(html)})`)
     }
   }
 
@@ -45,6 +50,7 @@ async function main() {
     const { response, html } = await fetchPage(url)
     if (response.status !== 200) failures.push(`${route} should remain accessible, got ${response.status}`)
     if (!hasNoindex(html)) failures.push(`${route} should return noindex`)
+    if (h1Count(html) !== 1) failures.push(`${route} must have exactly one h1 (found ${h1Count(html)})`)
   }
 
   for (const route of retiredRoutes) {

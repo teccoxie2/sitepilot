@@ -54,6 +54,8 @@ SitePilot 的产品定位是**以证据为核心的数字基础设施采购决�
 
 所有重要页面和工具共用一个版本化 claim ledger（先用静态 JSON/CSV 即可，不引入数据库）。每条高确定性数字必须记录：
 
+当前机器可校验 ledger：`src/data/evidence/sitepilot-claim-ledger-v1.json`；编辑摘要见 `CONTENT_CLAIM_LEDGER.md`，由 `npm run claims:ledger` 校验。
+
 ```text
 claim_id
 页面/组件
@@ -179,6 +181,7 @@ claim_id
 ## 工作节奏
 
 - 每周一次检查指标、证据逾期和页面处置状态；
+- 每次 Review 队列变更先运行 `npm run content:review-signals -- --verify`，将源码信号与 Search Console/线索证据分开记录；
 - 每次发布必须附验证结果和影响范围；
 - 所有新增工作都要指向两个主航道、claim ledger 或核心工具闭环；
 - 优先修复真实用户路径，不以“更多页面”替代产品证据。

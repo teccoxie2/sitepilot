@@ -5,9 +5,9 @@ import { AlertTriangle, ArrowRight, CheckCircle2, Coins, Gauge, Headphones, Spar
 import RelatedLinks, { hostingRelatedLinks } from '@/components/RelatedLinks'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Cheap Hosting Comparison: Which Budget Web Host Is Actually Worth It Under $5? (2026)'
+const pageTitle = 'Cheap Web Hosting Under $5: Best Budget Hosts 2026'
 const pageDescription =
-  'Use this cheap hosting comparison to choose a budget web host under $5 by renewal pricing, support quality, speed, hidden costs, and long-term operating risk before you lock into the wrong plan.'
+  'Compare cheap web hosting under $5 by renewal pricing, speed, support, hidden costs, and long-term value before choosing a budget host in 2026.'
 const pageUrl = 'https://sitepilot.co/cheap-hosting'
 const dataDisclosure =
   'Scores, prices, and performance figures are SitePilot editorial signals from a limited comparison snapshot, not a third-party benchmark or guarantee. Verify current plans, renewal terms, and production performance before purchase.'
@@ -173,11 +173,11 @@ export default function CheapHostingPage() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Cheap Hosting Comparison: Which Budget Web Host Is Actually Worth It Under $5? (2026)"
+        title={pageTitle}
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-02-14T00:00:00Z"
-        modifiedDate="2026-05-03T00:00:00Z"
+        modifiedDate="2026-08-15T00:00:00Z"
         authorName="SitePilot Team"
       />
 

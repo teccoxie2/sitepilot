@@ -7,14 +7,14 @@
     {
       "url": "https://sitepilot.co/ai-change-management-framework-enterprise-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "average_position": 6.7
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -41,7 +41,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-compliance-automation-assessment-tool",
@@ -202,14 +202,14 @@
     {
       "url": "https://sitepilot.co/ai-content-creation-automation-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "average_position": 6.3
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -236,19 +236,19 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-content-generator-comparison",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 337,
+        "ctr": 0,
+        "average_position": 9
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -275,7 +275,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-content-marketing-strategy-2026",
@@ -515,13 +515,13 @@
       "url": "https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026",
       "search_console": {
         "status": "available",
-        "source": "GA4 linked Search Console report: Google organic search traffic",
-        "period_start": "2026-07-17",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
         "period_end": "2026-08-13",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 29,
         "ctr": 0,
-        "average_position": 98
+        "average_position": 68.1
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -548,19 +548,19 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console snapshot is available for 2026-07-17 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-enterprise-security-compliance",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "average_position": 81.2
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -587,19 +587,19 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-ethics-compliance-checklist-enterprise-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 8
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -626,19 +626,19 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-governance-compliance-framework-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "average_position": 36.7
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -665,7 +665,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-governance-framework-enterprise-2026",
@@ -826,14 +826,14 @@
     {
       "url": "https://sitepilot.co/ai-performance-monitoring-dashboard-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 8
       },
       "tool_behavior": {
         "status": "missing",
@@ -860,7 +860,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-performance-monitoring-dashboard-enterprise-2026",
@@ -904,14 +904,14 @@
     {
       "url": "https://sitepilot.co/ai-productivity-tools-comparison-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 1
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -938,7 +938,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-risk-management-dashboard-enterprise-2026",
@@ -982,14 +982,14 @@
     {
       "url": "https://sitepilot.co/ai-security-framework-enterprise-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 8
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -1016,7 +1016,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-team-productivity-assessment-tool-2026",
@@ -1177,14 +1177,14 @@
     {
       "url": "https://sitepilot.co/ai-transformation-roi-calculation-framework-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 4
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -1211,19 +1211,19 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "average_position": 6
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -1250,7 +1250,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/best-email-marketing-tools-2026",
@@ -1294,14 +1294,14 @@
     {
       "url": "https://sitepilot.co/best-free-ssl-certificates-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "average_position": 45.8
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -1328,7 +1328,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/best-project-management-tools-2026",
@@ -1373,8 +1373,8 @@
       "url": "https://sitepilot.co/best-social-media-management-tools-2026",
       "search_console": {
         "status": "available",
-        "source": "GA4 linked Search Console report: Google organic search traffic",
-        "period_start": "2026-07-17",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
         "period_end": "2026-08-13",
         "clicks": 0,
         "impressions": 1,
@@ -1406,7 +1406,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console snapshot is available for 2026-07-17 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/best-website-builders-2026",
@@ -1489,14 +1489,14 @@
     {
       "url": "https://sitepilot.co/manufacturing-ai-roi-calculator-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "Google Search Console Performance report (Web / Pages)",
+        "period_start": "2026-05-14",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 8.5
       },
       "tool_behavior": {
         "status": "missing",
@@ -1523,7 +1523,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-05-14 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/tools/ai-compliance-audit-2026",

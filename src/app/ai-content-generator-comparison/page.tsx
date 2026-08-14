@@ -5,9 +5,9 @@ import { ArrowRight, CheckCircle2, Sparkles, Star, Target, Zap } from 'lucide-re
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 const metadataConfig: Metadata = {
-  title: 'Best AI Content Generator? ChatGPT vs Claude vs Jasper vs Writesonic for SEO Teams (2026)',
+  title: 'AI Content Generator Comparison 2026: ChatGPT vs Claude vs Jasper',
   description:
-    'Compare ChatGPT, Claude, Jasper, and Writesonic to find the best AI content generator for SEO teams based on editing load, factual reliability, workflow fit, approvals, and total cost before you buy.',
+    'Compare AI content generators for SEO teams by editing load, factual reliability, workflow fit, approvals, and listed pricing snapshots before you buy.',
   keywords: [
     'AI content generator comparison 2026',
     'best AI writing tools',
@@ -21,17 +21,17 @@ const metadataConfig: Metadata = {
     'AI writing assistant comparison',
   ],
   openGraph: {
-    title: 'Best AI Content Generator? ChatGPT vs Claude vs Jasper vs Writesonic for SEO Teams (2026)',
+    title: 'AI Content Generator Comparison 2026: ChatGPT vs Claude vs Jasper',
     description:
-      'Compare ChatGPT, Claude, Jasper, and Writesonic to find the best AI content generator for SEO teams based on editing load, factual reliability, workflow fit, approvals, and total cost before you buy.',
+      'Compare AI content generators for SEO teams by editing load, factual reliability, workflow fit, approvals, and listed pricing snapshots before you buy.',
     type: 'article',
     url: 'https://sitepilot.co/ai-content-generator-comparison',
     siteName: 'SitePilot',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best AI Content Generator? ChatGPT vs Claude vs Jasper (2026)',
-    description: 'Compare ChatGPT, Claude, Jasper, and Writesonic by editing load, factual reliability, workflow fit, approvals, and total cost for SEO teams.',
+    title: 'AI Content Generator Comparison 2026: ChatGPT vs Claude vs Jasper',
+    description: 'Compare AI content generators by editing load, factual reliability, workflow fit, approvals, and listed pricing snapshots.',
   },
   alternates: {
     canonical: 'https://sitepilot.co/ai-content-generator-comparison',
@@ -182,11 +182,11 @@ export default function AIContentGeneratorComparison() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Best AI Content Generator? ChatGPT vs Claude vs Jasper vs Writesonic for SEO Teams (2026)"
-        description="Buyer-focused AI content generator comparison covering editing load, factual reliability, workflow fit, approvals, pricing, and production stack fit."
+        title="AI Content Generator Comparison 2026: ChatGPT vs Claude vs Jasper"
+        description="Buyer-focused AI content generator comparison covering editing load, factual reliability, workflow fit, approvals, pricing snapshots, and production stack fit."
         url="https://sitepilot.co/ai-content-generator-comparison"
         publishedDate="2026-03-11"
-        modifiedDate="2026-05-12"
+        modifiedDate="2026-08-14"
       />
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

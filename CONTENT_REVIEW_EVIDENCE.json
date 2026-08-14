@@ -3,6 +3,9 @@
   "version": 1,
   "description": "Versioned intake template for the 41 provisional Review routes. Null values mean data has not been collected; they are not estimates.",
   "data_policy": "Populate only from dated production exports. Do not infer demand, conversion, or page decisions from missing values.",
+  "source_registry": {
+    "search_console_pages": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Asitepilot.co (Pages tab, Web search, 2026-05-14 to 2026-08-13)"
+  },
   "entries": [
     {
       "url": "https://sitepilot.co/ai-change-management-framework-enterprise-2026",

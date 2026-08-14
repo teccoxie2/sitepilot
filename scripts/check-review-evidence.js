@@ -65,6 +65,9 @@ function verifyEvidence(evidence) {
   if (!isPlainObject(evidence)) return ['Review evidence must be a JSON object']
   if (evidence.schema_id !== 'sitepilot-review-evidence-v1') failures.push('Invalid review evidence schema_id')
   if (evidence.version !== 1) failures.push('Review evidence version must be 1')
+  if (!isPlainObject(evidence.source_registry) || typeof evidence.source_registry.search_console_pages !== 'string' || !evidence.source_registry.search_console_pages.includes('search.google.com/search-console')) {
+    failures.push('Review evidence needs a reproducible Search Console source_registry URL')
+  }
   if (!Array.isArray(evidence.entries)) return ['Review evidence entries must be a JSON array']
   if (evidence.entries.length !== expectedReviewCount) failures.push(`Expected ${expectedReviewCount} Review evidence entries, found ${evidence.entries.length}`)
 

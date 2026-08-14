@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -21,15 +22,16 @@ const pageDescription =
   'Enterprise AI success patterns analysis based on 50 Fortune 500 companies and 18 months of tracking. Learn the 7 key patterns that separate successful implementations from failures.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-success-patterns-analysis-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: ['enterprise AI success patterns', 'AI implementation framework', 'AI project success', 'enterprise digital transformation', 'AI ROI analysis'],
   alternates: { canonical: pageUrl },
   openGraph: { title: pageTitle, description: pageDescription, type: 'article', url: pageUrl },
   twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '50', label: 'Fortune 500 companies studied' },
   { value: '18 mo', label: 'tracking period' },

@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BarChart3, CheckCircle2, DollarSign, Mail, Shield, Sparkles, Users, Zap } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best Email Marketing Tools 2026: Complete Guide & Comparison',
   description:
     'Discover the top 15 email marketing tools for 2026. In-depth reviews, pricing comparison, and expert recommendations for businesses of all sizes. Find your perfect email marketing solution.',
@@ -19,8 +20,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/best-email-marketing-tools-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
   { value: '15', label: 'Platforms tested' },
   { value: '$12K', label: 'Testing investment' },

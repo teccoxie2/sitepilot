@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Bot, CheckCircle2, Gauge, Sparkles, Workflow, Palette, ShieldCheck } from 'lucide-react'
@@ -9,7 +10,7 @@ const pageDescription =
   'Readdy.ai is an AI-first website builder focused on fast prompt-to-page generation, polished first drafts, and buyer-friendly launch speed. This review explains how SitePilot scored Readdy.ai, where it performs well, and what trade-offs buyers should understand before choosing it.'
 const pageUrl = 'https://sitepilot.co/readdy-ai-review'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -24,8 +25,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const scorecard = [
   {
     title: 'Ease of use',
@@ -112,7 +114,7 @@ export default function ReaddyAiReviewPage() {
                 <a
                   href="https://readdy.ai/?via=sitepilot"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
                 >
                   Visit Readdy.ai
@@ -282,7 +284,7 @@ export default function ReaddyAiReviewPage() {
             <Link href="/website-builders" className="inline-flex items-center rounded-full bg-[#635bff] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(99,91,255,0.18)] hover:bg-[#564ee8] transition-colors">
               Back to builder hub
             </Link>
-            <a href="https://readdy.ai/?via=sitepilot" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors">
+            <a href="https://readdy.ai/?via=sitepilot" target="_blank" rel="sponsored nofollow noopener noreferrer" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors">
               Visit Readdy.ai
             </a>
           </div>

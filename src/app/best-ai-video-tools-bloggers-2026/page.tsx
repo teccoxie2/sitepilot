@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, ChevronRight, Film, ImageIcon, Sparkles, Workflow } from 'lucide-react'
@@ -10,7 +11,7 @@ const pageDescription =
   'Compare the best AI video tools for bloggers in 2026 across avatar videos, text-to-video, screen recording, editing, cost, and workflow speed.'
 const pageUrl = 'https://sitepilot.co/best-ai-video-tools-bloggers-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -25,8 +26,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const signals = [
   'Light Stripe-ish palette',
   'Cleaner editorial hierarchy',

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import RelatedLinks from '@/components/RelatedLinks'
@@ -7,7 +8,7 @@ const pageTitle = 'Enterprise AI Vendor Pilot Evaluation Checklist 2026 | SitePi
 const pageDescription = 'A structured evaluation checklist to validate enterprise AI vendors during the pilot phase using measurable acceptance criteria.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-vendor-pilot-evaluation-checklist-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -22,8 +23,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const pilotWorkstreams = [
   {
     title: 'Business workflow validation',

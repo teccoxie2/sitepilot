@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BarChart3, Calendar, CheckCircle2, Eye, Sparkles, Target, TrendingUp, Users } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best Social Media Management Tools 2026 - Complete Guide & Comparison',
   description:
     'Comprehensive review of the best social media management tools in 2026. Compare features, pricing, and performance across all major platforms for businesses, agencies, and influencers.',
@@ -19,8 +20,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/best-social-media-management-tools-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
   { value: '50+', label: 'Tools tested' },
   { value: '3', label: 'Editor picks' },

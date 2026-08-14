@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles, Star, Target, Zap } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best AI Content Generator? ChatGPT vs Claude vs Jasper vs Writesonic for SEO Teams (2026)',
   description:
     'Compare ChatGPT, Claude, Jasper, and Writesonic to find the best AI content generator for SEO teams based on editing load, factual reliability, workflow fit, approvals, and total cost before you buy.',
@@ -35,8 +36,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/ai-content-generator-comparison',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const comparisonTools = [
   {
     name: 'ChatGPT-4',

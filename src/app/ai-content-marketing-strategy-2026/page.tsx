@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -16,7 +17,7 @@ const pageDescription =
   'Use this AI content marketing strategy guide to plan workflow design, governance, performance measurement, and rollout priorities for enterprise content teams in 2026.'
 const pageUrl = 'https://sitepilot.co/ai-content-marketing-strategy-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -35,8 +36,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const summaryCards = [
   { label: 'Planning', note: 'Map audience, content goals, approvals, and channel priorities before automating production.' },
   { label: 'Workflow', note: 'Standardize research, drafting, review, publishing, and reporting instead of adding random tools.' },

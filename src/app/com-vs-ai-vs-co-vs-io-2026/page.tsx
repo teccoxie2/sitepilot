@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -6,9 +7,9 @@ import RelatedLinks from '@/components/RelatedLinks'
 
 const pageTitle = '.com vs .ai vs .co vs .io 2026 | Which Domain Extension Should You Choose? | SitePilot'
 const pageDescription = 'Compare .com vs .ai vs .co vs .io in 2026 using trust, memorability, cost, typo risk, and business fit before you choose a domain extension.'
-const pageUrl = 'https://sitepilot.co/.com-vs-.ai-vs-.co-vs-.io-2026'
+const pageUrl = 'https://sitepilot.co/com-vs-ai-vs-co-vs-io-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickTake = [
   { label: 'Safest default', value: '.com', note: 'Still the most familiar and least explanation-heavy choice for most businesses.' },
   { label: 'Best for explicit AI positioning', value: '.ai', note: 'Useful when AI is central to the brand and the price premium is acceptable.' },

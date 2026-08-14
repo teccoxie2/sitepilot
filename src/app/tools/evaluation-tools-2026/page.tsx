@@ -26,7 +26,13 @@ const notes = [
 export default function EvaluationToolsHubPage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
-      <SchemaMarkup type="article" title="AI Vendor Evaluation Tools: RFP, Due Diligence, Scorecard & Decision Matrix (2026)" description={pageMetadata.description as string} url="https://sitepilot.co/tools/evaluation-tools-2026" />
+      <SchemaMarkup
+        type="custom"
+        title="AI Vendor Evaluation Tools: RFP, Due Diligence, Scorecard & Decision Matrix (2026)"
+        description={pageMetadata.description as string}
+        url="https://sitepilot.co/tools/evaluation-tools-2026"
+        data={{ '@type': 'CollectionPage' }}
+      />
       <section className="page-hero relative">
         <div className="page-hero-inner max-w-7xl mx-auto px-4 pt-24 pb-20 md:pt-32 md:pb-28">
           <div className="grid lg:grid-cols-[1.06fr_0.94fr] gap-12 items-center">

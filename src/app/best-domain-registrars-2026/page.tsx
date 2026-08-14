@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageTitle = 'Best Domain Registrars 2026 | SitePilot'
 const pageDescription = 'Compare the best domain registrars in 2026 using renewal pricing, WHOIS privacy, transfer friction, DNS control, and support quality before you buy.'
 const pageUrl = 'https://sitepilot.co/best-domain-registrars-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickTake = [
   { label: 'Best for low-friction cost control', value: 'Cloudflare Registrar', note: 'Closest thing to boring, transparent registrar pricing if you already know what you are doing.' },
   { label: 'Best overall retail balance', value: 'Porkbun', note: 'Strong pricing, free WHOIS privacy, and less nonsense than legacy upsell-heavy registrars.' },

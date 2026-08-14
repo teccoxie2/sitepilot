@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -21,15 +22,16 @@ const pageDescription =
   'Complete enterprise AI transformation roadmap for 2026. 18-month strategic implementation framework, change management protocols, and $2M-50M ROI validation methods for Fortune 500 digital transformation.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-transformation-roadmap-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: ['enterprise AI transformation', 'AI transformation roadmap 2026', 'enterprise digital transformation', 'AI implementation strategy', 'AI change management'],
   alternates: { canonical: pageUrl },
   openGraph: { title: pageTitle, description: pageDescription, type: 'article', url: pageUrl },
   twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '73%', label: 'fail due to poor change management' },
   { value: '$47M', label: 'average ROI in successful cases' },
@@ -83,6 +85,8 @@ const metrics = [
 const relatedLinks = [
   { href: '/enterprise-ai-implementation-best-practices-2026', title: 'Implementation best practices', note: 'Start with the implementation playbook.' },
   { href: '/enterprise-ai-implementation-budget-planning-guide-2026', title: 'Budget planning guide', note: 'Budget planning and the roadmap need to move together.' },
+  { href: '/ai-digital-transformation-roadmap-enterprise-2026', title: 'Digital transformation roadmap', note: 'Use the detailed enterprise roadmap when the transformation program needs phase-by-phase actions.' },
+  { href: '/ai-implementation-success-patterns-2026', title: 'Implementation success patterns', note: 'Compare the operating patterns that make enterprise rollouts stick.' },
   { href: '/enterprise-ai-security-risk-management-guide-2026', title: 'Security & risk guide', note: 'Security and governance cannot fall behind.' },
   { href: '/enterprise-ai-success-patterns-analysis-2026', title: 'Success patterns analysis', note: 'Success patterns and the roadmap are built to work together.' },
   { href: '/enterprise-ai-roi-optimization-framework-2026', title: 'ROI optimization framework', note: 'Use the ROI framework to complete the financial logic.' },

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import AIImplementationCostCalculatorClient from './AIImplementationCostCalculatorClient'
@@ -7,7 +8,7 @@ const pageDescription =
   'Calculate enterprise AI implementation cost, annual operating expense, risk-adjusted ROI, and break-even timing with a practical 3-year planning model.'
 const pageUrl = 'https://sitepilot.co/ai-implementation-cost-calculator-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -39,8 +40,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 export default function AIImplementationCostCalculatorPage() {
   return (
     <>

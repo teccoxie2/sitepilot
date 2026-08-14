@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BarChart3, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'AI content performance analytics tools help teams measure reporting quality, workflow bottlenecks, content ROI, and optimization priorities before they add another dashboard or automation layer. Compare platforms by insight quality, implementation overhead, integrations, and decision support for content operations in 2026.'
 const pageUrl = 'https://sitepilot.co/ai-content-performance-analytics-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -48,8 +49,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#overview', title: 'Analytics overview', note: 'Why the market matters now' },
   { href: '#metrics', title: 'Key metrics', note: 'Signals worth tracking' },

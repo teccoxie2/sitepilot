@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -22,7 +23,7 @@ const pageDescription =
   'Enterprise AI budget planning should map infrastructure, staffing, integration, security, and contingency costs before approval. Use this guide to structure pilot, department, or transformation budgets so finance and delivery teams can compare scope, risk, and expected return with the same model.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-implementation-budget-planning-guide-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -45,8 +46,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '5', label: 'budget layers' },
   { value: '3', label: 'project templates' },

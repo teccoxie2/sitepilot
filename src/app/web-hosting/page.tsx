@@ -78,8 +78,10 @@ export default function WebHostingHub2026() {
   return (
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
-        type="article"
+        type="custom"
         data={{
+          '@type': 'CollectionPage',
+          name: pageTitle,
           headline: pageTitle,
           description: pageDescription,
           url: pageUrl,

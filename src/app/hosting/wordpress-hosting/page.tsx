@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -18,7 +19,7 @@ const pageDescription =
   'A practical 2026 guide to WordPress hosting. Compare SiteGround, Hostinger, and managed WordPress options on caching, staging, CDN efficiency, Core Web Vitals, and operational fit.'
 const pageUrl = 'https://sitepilot.co/hosting/wordpress-hosting'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -28,8 +29,9 @@ export const metadata: Metadata = {
     url: pageUrl,
     type: 'article',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Best overall WP host',

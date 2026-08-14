@@ -1,15 +1,17 @@
+import { normalizeMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: '404 - Page Not Found | SitePilot',
   description: 'The page you are looking for could not be found. Browse our web hosting guides and AI tools reviews.',
   robots: {
     index: false,
     follow: true,
   }
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">

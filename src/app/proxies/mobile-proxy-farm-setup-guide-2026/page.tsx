@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Cpu, Network, Shield, Sparkles, Zap } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Mobile Proxy Farm Setup Guide 2026 | SitePilot',
   description:
     'Learn how to plan a mobile proxy farm in 2026 across Android devices, SIM strategy, controller layout, and management software. Use this SitePilot guide to evaluate deployment fit before scaling a 4G or 5G proxy operation.',
@@ -21,8 +22,9 @@ export const metadata: Metadata = {
     description:
       'Learn how to plan a mobile proxy farm in 2026 across Android devices, SIM strategy, controller layout, and management software. Use this SitePilot guide to evaluate deployment fit before scaling a 4G or 5G proxy operation.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const capabilityCards = [
   {
     title: 'Carrier-issued network access',
@@ -120,6 +122,8 @@ export default function MobileProxyFarmGuide() {
               <div className="flex flex-wrap gap-3 mb-10">
                 <a
                   href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201"
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
                   className="btn-brand"
                 >
                   Get Coronium OS
@@ -232,11 +236,13 @@ export default function MobileProxyFarmGuide() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <a href="https://ltespace.com/sitepilot" className="btn-secondary">
+                  <a href="https://ltespace.com/sitepilot" target="_blank" rel="sponsored nofollow noopener noreferrer" className="btn-secondary">
                     Visit LTESpace
                   </a>
                   <a
                     href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201"
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
                     className="btn-brand"
                   >
                     Visit Coronium
@@ -309,6 +315,8 @@ curl -X POST "https://api.coronium.io/rotate" \\
               <div className="flex flex-wrap gap-3">
                 <a
                   href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201"
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
                   className="btn-brand"
                 >
                   Start building now

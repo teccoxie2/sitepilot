@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Cpu, Smartphone, Sparkles, Usb, Zap } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Proxy Farm Hardware Selection Guide 2026 | SitePilot',
   description:
     'Review proxy farm hardware in 2026 across Android devices, powered USB hubs, cables, controller hosts, power delivery, and thermal stability. Use this SitePilot guide to validate hardware fit before building a mobile proxy cluster.',
@@ -21,8 +22,9 @@ export const metadata: Metadata = {
     description:
       'Review proxy farm hardware in 2026 across Android devices, powered USB hubs, cables, controller hosts, power delivery, and thermal stability. Use this SitePilot guide to validate hardware fit before building a mobile proxy cluster.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const checklist = [
   {
     title: 'Android devices',
@@ -272,6 +274,8 @@ export default function HardwareGuide() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201"
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
                   className="btn-brand"
                 >
                   Get Coronium OS

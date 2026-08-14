@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -21,15 +22,16 @@ const pageDescription =
   'CFO-oriented enterprise AI investment analysis framework based on an 18-month ROI tracking study of 50 Fortune 500 companies, including a seven-step ROI method, risk assessment, and industry benchmarks.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-roi-optimization-framework-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: ['enterprise AI ROI', 'CFO analysis', 'AI investment framework', 'business value', 'ROI calculation', 'enterprise consulting'],
   alternates: { canonical: pageUrl },
   openGraph: { title: pageTitle, description: pageDescription, type: 'article', url: pageUrl },
   twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '83%', label: 'successful enterprises use structured financial planning' },
   { value: '18 mo', label: 'average payback window' },

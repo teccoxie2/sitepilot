@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 const pageTitle = 'AI Implementation Success Framework 2026 | SitePilot'
@@ -5,7 +6,7 @@ const pageDescription =
   'Proven 4-phase enterprise AI implementation framework with industry benchmarks, success metrics, risk mitigation guidance, and ROI planning.'
 const pageUrl = 'https://sitepilot.co/ai-implementation-success-framework-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -24,4 +25,6 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

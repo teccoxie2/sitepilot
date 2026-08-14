@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Code2, Globe2, Server, ShieldCheck, Sparkles, Terminal } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Proxy Developer Hub: Automation, API & Agent Integration - SitePilot',
   description:
     'Integrate residential and mobile proxies into Puppeteer, Playwright, Scrapy, and modern AI agents (Skyvern, Firecrawl). Copy-paste code snippets for reliable automation.',
@@ -24,8 +25,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/proxies/developer-hub',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const nodeAutomationGuides = [
   {
     title: 'Puppeteer',

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -19,7 +20,7 @@ const pageDescription =
   'Complete enterprise AI governance framework covering EU AI Act, NIST AI RMF, global standards, operating models, risk controls, and responsible AI implementation.'
 const pageUrl = 'https://sitepilot.co/ai-governance-compliance-framework-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -53,8 +54,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#landscape', title: 'Regulatory landscape', note: 'EU AI Act, NIST, and standards' },
   { href: '#framework', title: 'Framework pillars', note: 'Governance, compliance, risk, ethics' },

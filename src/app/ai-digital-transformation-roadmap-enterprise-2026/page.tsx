@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'An 18-month enterprise AI digital transformation roadmap based on Fortune 500 execution patterns, covering phased rollout, budget planning, risk controls, and success metrics.'
 const pageUrl = 'https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -32,8 +33,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#overview', title: 'Executive summary', note: 'Transformation outcomes, investment, and overall judgment' },
   { href: '#framework', title: 'Three-phase framework', note: 'Foundation, scaled deployment, and intelligent innovation' },

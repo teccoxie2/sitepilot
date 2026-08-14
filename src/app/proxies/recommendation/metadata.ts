@@ -1,11 +1,12 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-const pageTitle = 'Proxy Network Recommendation Tool | SitePilot'
-const pageDescription =
+export const pageTitle = 'Proxy Network Recommendation Tool | SitePilot'
+export const pageDescription =
   'Get a proxy network recommendation based on your use case, scale, and budget across residential, datacenter, and mobile options.'
-const pageUrl = 'https://sitepilot.co/proxies/recommendation'
+export const pageUrl = 'https://sitepilot.co/proxies/recommendation'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -20,4 +21,6 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

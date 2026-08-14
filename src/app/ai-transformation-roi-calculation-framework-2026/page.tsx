@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -18,7 +19,7 @@ const pageDescription =
   'Enterprise AI transformation ROI should be measured across financial returns, operational improvements, strategic advantage, and human capital impact instead of pretending one headline savings number is enough.'
 const pageUrl = 'https://sitepilot.co/ai-transformation-roi-calculation-framework-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -41,8 +42,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: 'Comprehensive enterprise AI transformation ROI framework for 2026.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '$13.5T', label: 'Global AI economic impact by 2030' },
   { value: '156%', label: 'Average enterprise AI ROI' },

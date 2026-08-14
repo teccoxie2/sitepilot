@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import fs from 'fs'
 import path from 'path'
 import type { Metadata } from 'next'
@@ -6,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 import { ArrowRight, BarChart3, CheckCircle2, Sparkles, TrendingUp, Zap } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'AI Productivity Tools Comparison Guide (2026): Compare Workflow Fit, Cost, and Operating Load',
   description:
     'Use this AI productivity tools comparison to evaluate workflow fit, operating load, software cost, and implementation overhead before adding another AI tool to the stack.',
@@ -25,8 +26,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/ai-productivity-tools-comparison-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
   { value: 'ROI', label: 'compare financial return against tool sprawl' },
   { value: 'Workflow', label: 'judge handoff fit before adding another app' },
@@ -231,7 +233,7 @@ export default function AIProductivityToolsComparison() {
                   prose-th:text-slate-950 prose-td:text-slate-600">
                   <ReactMarkdown
                     components={{
-                      h1: ({ children }) => <h1 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 mb-6">{children}</h1>,
+                      h1: ({ children }) => <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 mb-6">{children}</h2>,
                       h2: ({ children }) => <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-slate-950 mt-12 mb-5">{children}</h2>,
                       h3: ({ children }) => <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mt-8 mb-4">{children}</h3>,
                       p: ({ children }) => <p className="text-slate-600 leading-8 mb-5">{children}</p>,

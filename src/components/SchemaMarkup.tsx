@@ -26,11 +26,19 @@ export default function SchemaMarkup({
   data,
 }: SchemaMarkupProps) {
   
-  const schemaType = type === 'website' ? 'WebSite' : type === 'article' ? 'Article' : 'Review'
+  const schemaType = type === 'website'
+    ? 'WebSite'
+    : type === 'article'
+      ? 'Article'
+      : type === 'review'
+        ? 'Review'
+        : typeof data?.['@type'] === 'string'
+          ? data['@type']
+          : 'WebPage'
 
   const getSchemaData = () => {
     if (data) {
-      return {
+      const customSchema = {
         '@context': 'https://schema.org',
         '@type': schemaType,
         name: title,
@@ -39,6 +47,23 @@ export default function SchemaMarkup({
         ...(imageUrl ? { image: imageUrl } : {}),
         ...data,
       }
+
+      if (schemaType === 'Article' || schemaType === 'Review') {
+        return {
+          ...customSchema,
+          author: data.author || {
+            '@type': 'Person',
+            name: authorName,
+          },
+          publisher: data.publisher || {
+            '@type': 'Organization',
+            name: 'SitePilot',
+            url: 'https://sitepilot.co',
+          },
+        }
+      }
+
+      return customSchema
     }
 
     const baseSchema = {

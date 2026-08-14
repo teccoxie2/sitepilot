@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, FileSearch, Shield, Sparkles, Target } from 'lucide-react'
@@ -8,14 +9,15 @@ const pageDescription =
   'Use this AI vendor due diligence checklist to verify security controls, data rights, pricing, architecture, and contract risk before shortlist approval, legal review, or procurement sign-off.'
 const pageUrl = 'https://sitepilot.co/ai-vendor-due-diligence-checklist-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
   openGraph: { title: pageTitle, description: pageDescription, url: pageUrl, type: 'article' },
   twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const checks = [
   'Confirm the vendor can prove identity controls, audit logging, and role boundaries in writing.',
   'Ask whether customer data, prompts, files, or telemetry are used for model training or product tuning.',

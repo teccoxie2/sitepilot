@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles, Target, TriangleAlert } from 'lucide-react'
@@ -9,7 +10,7 @@ const pageDescription =
   'A comprehensive guide to understanding enterprise AI vendor pricing models, hidden costs, and contract traps before moving to pilot or production.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-vendor-pricing-guide-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -24,8 +25,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const pricingModels = [
   {
     title: 'Consumption-based pricing',

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -21,7 +22,7 @@ const pageDescription =
   'An enterprise AI governance framework based on Fortune 500 practices, covering policy templates, compliance checklists, risk controls, and a 12-month rollout plan for responsible AI deployment.'
 const pageUrl = 'https://sitepilot.co/ai-governance-framework-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -54,8 +55,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#overview', title: 'Overview', note: 'Why enterprises need AI governance now' },
   { href: '#framework', title: 'Framework modules', note: 'Policy, risk, compliance, and operating model' },

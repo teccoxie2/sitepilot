@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageTitle = 'How to Buy a Domain Name 2026 | SitePilot'
 const pageDescription = 'A practical 2026 guide to buying a domain name, from name selection and registrar choice to privacy, DNS, and launch-day setup.'
 const pageUrl = 'https://sitepilot.co/how-to-buy-a-domain-name-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickTake = [
   { label: 'Step 1', value: 'Choose the actual name', note: 'Short, clear, pronounceable, and not legally stupid beats clever every time.' },
   { label: 'Step 2', value: 'Check trademark risk', note: 'Do this before payment, not after printing business cards.' },

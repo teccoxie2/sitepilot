@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -20,7 +21,7 @@ const pageDescription =
   'Enterprise AI total cost of ownership should include software, infrastructure, implementation, training, maintenance, compliance, and hidden organizational drag instead of pretending the subscription line item is the whole story.'
 const pageUrl = 'https://sitepilot.co/ai-total-cost-ownership-calculator-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -44,8 +45,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: 'Enterprise AI TCO planning page with hidden costs, break-even framing, and related financial tools.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '$670K', label: 'Example year-one total cost' },
   { value: '$1.405M', label: 'Example five-year TCO' },

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -20,7 +21,7 @@ const pageDescription =
   'Enterprise AI implementation best practices should define scope, owners, controls, rollout phases, and success metrics before teams expand beyond a pilot. Use this framework to sequence adoption, manage delivery risk, and connect governance, tooling, and ROI decisions.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-implementation-best-practices-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -45,8 +46,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '4', label: 'implementation phases' },
   { value: '6', label: 'best-practice areas' },

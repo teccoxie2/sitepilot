@@ -1,6 +1,7 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Residential vs Mobile Proxies Comparison 2026 | SitePilot',
   description:
     'Compare residential and mobile proxies in 2026 across IP source, rotation behavior, operating complexity, and workload fit. Use this SitePilot guide to decide when a mobile proxy stack is justified over simpler residential supply.',
@@ -18,4 +19,6 @@ export const metadata: Metadata = {
     description:
       'Compare residential and mobile proxies in 2026 across IP source, rotation behavior, operating complexity, and workload fit. Use this SitePilot guide to decide when a mobile proxy stack is justified over simpler residential supply.',
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

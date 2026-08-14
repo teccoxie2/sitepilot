@@ -50,6 +50,11 @@ const evaluationCriteria = [
 const resourceLinks = [
   { href: '/ai-tools-cost-benefit-analysis-2026', title: 'Cost-benefit analysis', note: 'Evaluate investment and return in the same frame.' },
   { href: '/ai-tools-budget-planning-enterprise-2026', title: 'Budget planning', note: 'Build a budget with evidence instead of guesswork.' },
+  { href: '/ai-budget-template-enterprise-2026', title: 'Enterprise AI budget template', note: 'Start with a reusable budget structure before you set allocation targets.' },
+  { href: '/ai-total-cost-ownership-calculator-enterprise-2026', title: 'Total cost of ownership calculator', note: 'Model hidden implementation and operating costs across the full lifecycle.' },
+  { href: '/ai-training-roi-calculator-2026', title: 'AI training ROI calculator', note: 'Estimate enablement value before rollout turns into an adoption problem.' },
+  { href: '/ai-talent-optimization-calculator-2026', title: 'AI talent optimization calculator', note: 'Connect workforce capacity and capability planning to the AI buying decision.' },
+  { href: '/ai-workflow-automation-guide-2026', title: 'AI workflow automation guide', note: 'Move from tool discovery into workflow design and implementation sequencing.' },
   { href: '/ai-tools-risk-assessment-enterprise-2026', title: 'Risk framework', note: 'Score risk before you chase hype.' },
   { href: '/ai-vendor-due-diligence-checklist-enterprise-2026', title: 'Vendor due diligence', note: 'Pressure-test security, governance, and rollout claims before shortlist decisions.' },
   { href: '/enterprise-ai-vendor-shortlist-scorecard-2026', title: 'Shortlist scorecard template', note: 'Rank finalists with a weighted buying rubric instead of demo energy.' },
@@ -62,8 +67,10 @@ export default function AiToolsHub2026() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
       <SchemaMarkup
-        type="article"
+        type="custom"
         data={{
+          '@type': 'CollectionPage',
+          name: pageTitle,
           headline: pageTitle,
           description: pageDescription,
           url: pageUrl,

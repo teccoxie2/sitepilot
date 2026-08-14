@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AlertTriangle, ArrowRight, CheckCircle2, Coins, Gauge, Headphones, Sparkles, Wallet, XCircle } from 'lucide-react'
@@ -9,7 +10,7 @@ const pageDescription =
   'Use this cheap hosting comparison to choose a budget web host under $5 by renewal pricing, support quality, speed, hidden costs, and long-term operating risk before you lock into the wrong plan.'
 const pageUrl = 'https://sitepilot.co/cheap-hosting'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: 'cheap web hosting, budget hosting under $5, best cheap hosting 2026, affordable web hosting',
@@ -26,8 +27,9 @@ export const metadata: Metadata = {
       'Use this cheap hosting comparison to choose a budget host under $5 by renewal pricing, speed, support quality, and the traps that make “cheap” expensive later.',
   },
   alternates: { canonical: pageUrl },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Best overall value',

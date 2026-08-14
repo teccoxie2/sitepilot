@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 const pageTitle = 'AI Investment ROI Matrix Calculator - Enterprise Decision Tool 2026 | SitePilot'
@@ -5,7 +6,7 @@ const pageDescription =
   'A professional AI investment ROI tool with a 12-dimension evaluation framework, a validated 327% average return benchmark, and CFO-level financial modeling grounded in Fortune 500 decision standards.'
 const pageUrl = 'https://sitepilot.co/ai-investment-roi-matrix-calculator-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -37,6 +38,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 export { pageTitle, pageDescription, pageUrl }

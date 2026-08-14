@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -19,7 +20,7 @@ const pageDescription =
   'Comprehensive guide to measuring AI transformation success in enterprise environments. Essential KPIs, benchmarks, and ROI metrics for C-suite executives and transformation leaders.'
 const pageUrl = 'https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -46,8 +47,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: pageUrl,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '25', label: 'core KPIs across 5 categories' },
   { value: '67%', label: 'average ROI improvement with metric tracking' },

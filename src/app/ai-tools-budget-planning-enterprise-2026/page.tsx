@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import type { Metadata } from 'next'
@@ -21,7 +22,7 @@ const pageDescription =
   'Compare AI tools budget planning options for enterprise teams by modeling software, integration, training, security, governance, and support costs before approval so buyers can set realistic ROI targets and avoid stack overlap.'
 const pageUrl = 'https://sitepilot.co/ai-tools-budget-planning-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -47,8 +48,9 @@ export const metadata: Metadata = {
     title: 'AI Tools Budget Planning for Enterprise Teams (2026): Cost Model, ROI, Governance Checklist',
     description: 'Compare AI tool budget planning choices across software, integration, training, security, governance, and support before approval so the budget reflects real rollout cost.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '18-25%', label: 'Share of IT budget allocated to AI tools' },
   { value: '47%', label: 'Budget growth trend in 2026' },
@@ -404,7 +406,9 @@ export default function AIToolsBudgetPlanningPage() {
               prose-pre:bg-slate-950 prose-pre:text-slate-100 prose-pre:border prose-pre:border-slate-800 prose-pre:rounded-2xl
               prose-table:block prose-table:overflow-x-auto prose-th:bg-slate-50 prose-th:text-slate-900 prose-td:text-slate-600 prose-th:border prose-td:border prose-th:border-slate-200 prose-td:border-slate-200"
               >
-                <ReactMarkdown>{fileContent}</ReactMarkdown>
+                <ReactMarkdown components={{
+                  h1: ({ children }) => <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 mt-10 mb-4">{children}</h2>,
+                }}>{fileContent}</ReactMarkdown>
               </div>
           </div>
 

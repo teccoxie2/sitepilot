@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
+import { pageDescription, pageTitle, pageUrl } from './metadata'
 
 const recommend = (budget: string, useCase: string, scale: string) => {
   if (useCase === 'social') {
@@ -53,7 +54,22 @@ export default function ProxyRecommendationTool() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebApplication',
+            name: pageTitle,
+            description: pageDescription,
+            url: pageUrl,
+            applicationCategory: 'BusinessApplication',
+            operatingSystem: 'Web',
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
         <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
@@ -272,6 +288,7 @@ export default function ProxyRecommendationTool() {
           )}
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }

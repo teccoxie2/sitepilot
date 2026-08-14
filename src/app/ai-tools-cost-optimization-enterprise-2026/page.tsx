@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import fs from 'fs'
 import path from 'path'
 import type { Metadata } from 'next'
@@ -20,7 +21,7 @@ const pageDescription =
   'Reduce enterprise AI tool waste by auditing overlap, usage governance, contract structure, and platform fit so teams can decide what to keep, cut, consolidate, or renegotiate before annual budget cycles and procurement renewals.'
 const pageUrl = 'https://sitepilot.co/ai-tools-cost-optimization-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: ['AI cost optimization', 'enterprise AI investment', 'ROI optimization', 'cost control', 'AI budget management', '2026 AI strategy'],
@@ -38,8 +39,9 @@ export const metadata: Metadata = {
     title: 'Enterprise AI Tools Cost Optimization Guide | SitePilot',
     description: 'A cost optimization strategy based on testing across 78 AI tools, with 30-50% savings and a framework for 550% ROI gains.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '4', label: 'Optimization quadrants' },
   { value: '3', label: 'Team-size playbooks' },
@@ -273,7 +275,9 @@ export default function AIToolsCostOptimizationPage() {
               prose-code:text-[#635bff] prose-code:bg-indigo-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
               prose-pre:bg-slate-950 prose-pre:text-slate-100 prose-pre:border prose-pre:border-slate-800 prose-pre:rounded-2xl"
             >
-              <ReactMarkdown>{content}</ReactMarkdown>
+              <ReactMarkdown components={{
+                h1: ({ children }) => <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 mt-10 mb-4">{children}</h2>,
+              }}>{content}</ReactMarkdown>
             </div>
           </div>
 

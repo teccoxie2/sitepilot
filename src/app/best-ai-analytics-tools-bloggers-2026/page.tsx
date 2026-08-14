@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -20,7 +21,7 @@ const pageDescription =
   'Compare the best AI analytics tools for bloggers in 2026 across insight quality, automation depth, reporting speed, optimization workflows, and WordPress fit.'
 const pageUrl = 'https://sitepilot.co/best-ai-analytics-tools-bloggers-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -35,8 +36,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Best free baseline',

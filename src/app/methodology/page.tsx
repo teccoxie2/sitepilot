@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import SchemaMarkup from '@/components/SchemaMarkup'
@@ -8,7 +9,7 @@ const pageDescription =
   'How SitePilot evaluates enterprise AI vendors using evidence-first research, weighted decision criteria, and procurement-ready validation.'
 const pageUrl = 'https://sitepilot.co/methodology'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const principles = [
   {
     title: '1. Evidence-first, not demo-first',

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import EnterpriseAIRiskAssessmentToolClient from './RiskAssessmentClient'
 
@@ -6,7 +7,7 @@ const pageDescription =
   'Evaluate financial risks, hidden costs, and success probability for your enterprise AI investment. Get CFO-ready risk assessment with mitigation strategies.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-risk-assessment-tool-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -28,8 +29,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 export default function EnterpriseAIRiskAssessmentToolPage() {
   return <EnterpriseAIRiskAssessmentToolClient />
 }

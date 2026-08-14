@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 /* <p>AI automation workflow templates help teams compare repeatable process designs across customer service, sales, content, finance, and operations. This guide is for buyers who need to judge workflow fit, implementation effort, cost assumptions, and likely payback before changing process design or adding new automation software.</p> */
@@ -13,7 +14,7 @@ const pageDescription =
   'Review 25 AI automation workflow templates for customer service, sales, content marketing, finance, and operations. This guide helps teams compare workflow fit, implementation effort, cost assumptions, and expected payback before they change process design or buy more automation software.'
 const pageUrl = 'https://sitepilot.co/ai-automation-workflow-templates-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -30,8 +31,9 @@ export const metadata: Metadata = {
     title: '25 AI Automation Workflow Templates - Business Process Comparison Guide',
     description: 'Compare 25 AI automation workflow templates by workflow fit, implementation effort, cost assumptions, and expected payback before changing operations or tool spend.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const summaryCards = [
   {
     label: '25 templates',

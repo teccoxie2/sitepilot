@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Signal, Smartphone, Sparkles, XCircle, Zap } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best Mobile Proxies 2026: Top 4G and 5G Providers Compared - SitePilot',
   description:
     'Compare the best mobile proxies in 2026 for sticky sessions, geo realism, social automation, and sensitive target access. Review NodeMaven, AirProxy, ProxyLTE, and mobile proxy farm options.',
@@ -25,8 +26,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/proxies/best-mobile-proxies-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Best sticky sessions',

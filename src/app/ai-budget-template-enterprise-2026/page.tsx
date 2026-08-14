@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -19,7 +20,7 @@ const pageDescription =
   'Comprehensive AI budget template for enterprise organizations, including cost categories, ROI calculations, financial projections, and phased rollout assumptions.'
 const pageUrl = 'https://sitepilot.co/ai-budget-template-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -36,8 +37,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const summaryCards = [
   { value: '$500K - $50M', label: 'Total investment range' },
   { value: '12-24 months', label: 'Typical path to positive ROI' },

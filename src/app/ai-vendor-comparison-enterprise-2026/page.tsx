@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles, Target } from 'lucide-react'
@@ -9,7 +10,7 @@ const pageDescription =
   'Compare two AI vendors side by side on workflow fit, risk, cost, support, and proof, then get a live recommendation that shows which one should win.'
 const pageUrl = 'https://sitepilot.co/ai-vendor-comparison-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -24,8 +25,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const launchNotes = [
   'Compare two vendors in the browser.',
   'See the winner change as scores change.',
@@ -78,6 +80,9 @@ export default function EnterpriseAIVendorComparisonPage() {
                 </Link>
                 <Link href="/tools/evaluation-tools-2026" className="btn-secondary">
                   Back to hub
+                </Link>
+                <Link href="/ai-vendor-selection-enterprise-decision-framework" className="btn-secondary">
+                  Open selection framework
                 </Link>
               </div>
 

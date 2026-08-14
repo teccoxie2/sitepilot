@@ -1,6 +1,7 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Mobile Proxy Farm Setup Guide 2026 | SitePilot',
   description:
     'Learn how to plan a mobile proxy farm in 2026 across Android devices, SIM strategy, controller layout, and management software. Use this SitePilot guide to evaluate deployment fit before scaling a 4G or 5G proxy operation.',
@@ -18,4 +19,6 @@ export const metadata: Metadata = {
     description:
       'Learn how to plan a mobile proxy farm in 2026 across Android devices, SIM strategy, controller layout, and management software. Use this SitePilot guide to evaluate deployment fit before scaling a 4G or 5G proxy operation.',
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Sparkles } from 'lucide-react'
@@ -7,12 +8,13 @@ const pageTitle = 'Contact Us | SitePilot'
 const pageDescription = 'Get in touch with the SitePilot team for enterprise AI consulting, partnership inquiries, or feedback.'
 const pageUrl = 'https://sitepilot.co/contact'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">

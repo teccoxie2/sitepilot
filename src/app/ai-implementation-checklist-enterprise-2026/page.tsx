@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -20,7 +21,7 @@ const pageDescription =
   'Use this AI implementation checklist to sequence strategy, architecture, governance, pilot design, rollout, and optimization so enterprise teams can reduce delivery risk before scaling AI tools across departments.'
 const pageUrl = 'https://sitepilot.co/ai-implementation-checklist-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -52,8 +53,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#overview', title: 'Overview', note: 'What this checklist is designed to control' },
   { href: '#phases', title: 'Implementation phases', note: 'Five stages from readiness to scaling' },

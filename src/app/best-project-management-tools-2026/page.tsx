@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BarChart3, CheckCircle2, Kanban, Shield, Sparkles, Target, Users } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best Project Management Tools 2026 - Complete Guide & Comparison',
   description:
     'Comprehensive review of the best project management software in 2026. Compare features, pricing, and performance across all major platforms for teams, agencies, and enterprises.',
@@ -19,8 +20,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/best-project-management-tools-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
   { value: '40+', label: 'Tools analyzed' },
   { value: '3', label: 'Editor picks' },

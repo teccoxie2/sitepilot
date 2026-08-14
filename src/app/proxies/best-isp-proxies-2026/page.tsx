@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Clock3, Gauge, ShieldCheck, Sparkles, XCircle } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best ISP Proxies 2026: Static Residential Options Compared - SitePilot',
   description:
     'Compare the best ISP proxies in 2026 for static sessions, account continuity, and lower-latency residential trust. Review Bright Data, Oxylabs, NetNut, and Decodo before choosing static residential supply.',
@@ -25,8 +26,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/proxies/best-isp-proxies-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Best long-lived sessions',

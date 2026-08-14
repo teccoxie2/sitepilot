@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AlertCircle, ArrowRight, Eye, HardDrive, Shield, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'A website security checklist in 2026 should verify web application firewall coverage, enforced multi-factor authentication, encrypted off-site backups, TLS hardening, malware detection, least-privilege admin access, patch discipline, and tested incident recovery so the site can keep payments, customer data, and backend systems resilient under routine attack pressure.'
 const pageUrl = 'https://sitepilot.co/website-security-checklist-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
   { label: 'Checkpoints', value: '20 points' },
   { label: 'Threat intel', value: 'Live' },

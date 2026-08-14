@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -24,7 +25,7 @@ const pageDescription =
   'Plan enterprise AI budgets with 12-month allocation guidance, ROI tracking, industry benchmarks, and implementation checkpoints.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-budget-optimization-calculator'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -48,8 +49,9 @@ export const metadata: Metadata = {
     description: pageDescription,
   },
   alternates: { canonical: pageUrl },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const highlights = [
   {
     title: '12-month financial planning',

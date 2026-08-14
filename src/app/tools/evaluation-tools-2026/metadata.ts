@@ -1,6 +1,7 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'AI Vendor Evaluation Tools: RFP, Due Diligence, Scorecard & Decision Matrix (2026)',
   description:
     'Use these AI vendor evaluation tools to compare suppliers, verify risk, score finalists, and decide whether to approve, hold, or reject before contract work starts.',
@@ -29,4 +30,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/tools/evaluation-tools-2026',
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

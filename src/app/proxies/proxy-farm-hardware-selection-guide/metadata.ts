@@ -1,6 +1,7 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Proxy Farm Hardware Selection Guide 2026 | SitePilot',
   description:
     'Review proxy farm hardware in 2026 across Android devices, powered USB hubs, cables, controller hosts, power delivery, and thermal stability. Use this SitePilot guide to validate hardware fit before building a mobile proxy cluster.',
@@ -18,4 +19,6 @@ export const metadata: Metadata = {
     description:
       'Review proxy farm hardware in 2026 across Android devices, powered USB hubs, cables, controller hosts, power delivery, and thermal stability. Use this SitePilot guide to validate hardware fit before building a mobile proxy cluster.',
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

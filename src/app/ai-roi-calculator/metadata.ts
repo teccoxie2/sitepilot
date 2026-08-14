@@ -1,6 +1,7 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'AI ROI Calculator 2026 | SitePilot',
   description:
     'Calculate your AI tool investment returns with a tested methodology based on real small-business implementations and ROI tracking.',
@@ -21,4 +22,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/ai-roi-calculator',
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

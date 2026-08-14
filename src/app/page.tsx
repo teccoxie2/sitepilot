@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Shield, Cpu, Gauge, Network, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'Compare hosting, website builders, and proxy infrastructure using independent audits, buyer-focused comparisons, and decision assets built for real operator and procurement workflows.'
 const pageUrl = 'https://sitepilot.co'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const operatingSignals = [
   'Hosting, builders, proxy infrastructure, and domain buying paths in one editorial system',
   'Operator-grade comparisons instead of promo-code theater',
@@ -104,7 +106,7 @@ const domainClusterLinks = [
   },
   {
     title: '.com vs .ai vs .co vs .io',
-    href: '/.com-vs-.ai-vs-.co-vs-.io-2026',
+    href: '/com-vs-ai-vs-co-vs-io-2026',
     note: 'Choose the extension with the least long-term confusion and brand drag.',
   },
 ]

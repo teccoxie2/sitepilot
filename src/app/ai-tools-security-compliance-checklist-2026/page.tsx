@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import type { Metadata } from 'next'
@@ -18,10 +19,10 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'Enterprise AI Tools Security and Compliance Audit Checklist 2026 | SitePilot'
 const pageDescription =
-  'Security and compliance audits for enterprise AI tools need to review data residency, access control, regulatory obligations, vendor due diligence, and deployment governance together. This 2026 checklist keeps the original GDPR, SOX, HIPAA, vendor audit, and rollout content intact.'
+  'Use this enterprise AI security and compliance checklist to review data residency, access controls, vendor risk, regulatory duties, and rollout governance.'
 const pageUrl = 'https://sitepilot.co/ai-tools-security-compliance-checklist-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -47,10 +48,11 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: pageTitle,
-    description: 'An enterprise AI security and compliance checklist that keeps the original regulatory framework and audit logic while aligning the page to the current light Stripe-ish UI.',
+    description: 'An enterprise AI security and compliance checklist covering data residency, access controls, vendor diligence, regulation, and rollout governance.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '500+', label: 'Enterprise compliance implementations reviewed' },
   { value: '$1.2M', label: 'Average annual exposure to compliance-related losses' },
@@ -301,7 +303,9 @@ export default function AIToolsSecurityComplianceChecklistPage() {
               prose-pre:bg-slate-950 prose-pre:text-slate-100 prose-pre:border prose-pre:border-slate-800 prose-pre:rounded-2xl
               prose-table:block prose-table:overflow-x-auto prose-th:bg-slate-50 prose-th:text-slate-900 prose-td:text-slate-600 prose-th:border prose-td:border prose-th:border-slate-200 prose-td:border-slate-200"
               >
-                <ReactMarkdown>{fileContent}</ReactMarkdown>
+                <ReactMarkdown components={{
+                  h1: ({ children }) => <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 mt-10 mb-4">{children}</h2>,
+                }}>{fileContent}</ReactMarkdown>
               </div>
           </div>
 

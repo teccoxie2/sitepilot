@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageTitle = 'Namecheap vs GoDaddy 2026 | Which Registrar Is Better? | Site
 const pageDescription = 'Compare Namecheap vs GoDaddy in 2026 using renewals, upsells, privacy, DNS control, and transfer experience before you choose a registrar.'
 const pageUrl = 'https://sitepilot.co/namecheap-vs-godaddy-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickTake = [
   { label: 'Cleaner retail default', value: 'Namecheap', note: 'Usually the easier answer if you want fewer sales traps and more acceptable defaults.' },
   { label: 'Bigger brand machine', value: 'GoDaddy', note: 'Massive reach, but that does not mean it is the most buyer-friendly ownership experience.' },

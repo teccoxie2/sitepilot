@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, ClipboardList, FileCheck2, Shield, Sparkles, Target, TriangleAlert } from 'lucide-react'
@@ -9,7 +10,7 @@ const pageDescription =
   'A practical enterprise AI vendor RFP template for procurement, security, architecture, legal, and business teams evaluating AI vendors in 2026.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-vendor-rfp-template-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -28,8 +29,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const sections = [
   {
     title: '1. Vendor Profile',

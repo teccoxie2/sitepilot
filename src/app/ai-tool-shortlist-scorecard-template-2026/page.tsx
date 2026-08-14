@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BarChart3, CheckCircle2, Shield, Sparkles, Target, Workflow } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'An AI tool shortlist scorecard template is a weighted framework for ranking finalists across workflow value, security, data governance, integration fit, operating control, and commercial discipline before purchase.'
 const pageUrl = 'https://sitepilot.co/ai-tool-shortlist-scorecard-template-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const dimensions = [
   {
     title: 'Workflow value',

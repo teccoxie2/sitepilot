@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '../../components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best WordPress Themes 2026 | Astra vs GeneratePress vs Divi vs Flatsome',
   description:
     'Compare Astra, GeneratePress, Divi, and Flatsome by speed, SEO control, design flexibility, WooCommerce fit, and long-term maintenance cost before choosing a WordPress theme in 2026.',
@@ -25,8 +26,9 @@ export const metadata: Metadata = {
     description:
       'Choose a WordPress theme by speed, SEO control, design flexibility, WooCommerce fit, and maintenance cost instead of demo hype.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const relatedArticles = [
   {
     href: '/website-builder-vs-wordpress-2026',

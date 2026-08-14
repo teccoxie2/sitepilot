@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageTitle = 'Domain Privacy Protection 2026 | Do You Need It? | SitePilot'
 const pageDescription = 'Domain privacy protection in 2026 should be judged by what data is exposed, when privacy is included, and when a business should still use it.'
 const pageUrl = 'https://sitepilot.co/domain-privacy-protection-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickTake = [
   { label: 'Usually worth it', value: 'Yes', note: 'For most retail domain buyers, privacy is cheap protection against unnecessary exposure and junk contact abuse.' },
   { label: 'Best case', value: 'Included free', note: 'A registrar that bakes privacy in is less annoying and usually more trustworthy.' },

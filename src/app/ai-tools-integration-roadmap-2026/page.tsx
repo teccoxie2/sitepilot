@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -19,7 +20,7 @@ const pageDescription =
   'AI tools integration roadmap for enterprise teams planning a 16-week rollout across monitoring, ROI, risk, productivity, and executive reporting workflows.'
 const pageUrl = 'https://sitepilot.co/ai-tools-integration-roadmap-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
@@ -36,8 +37,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '16 weeks', label: 'full integration roadmap' },
   { value: '4 phases', label: 'sequenced rollout plan' },

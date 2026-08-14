@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -21,7 +22,7 @@ const pageDescription =
   'Compare the best ecommerce website builder in 2026 using buyer-first criteria: checkout maturity, catalog complexity, B2B fit, integration flexibility, operating overhead, and long-term ownership tradeoffs across Shopify, BigCommerce, and WooCommerce.'
 const pageUrl = 'https://sitepilot.co/best-ecommerce-website-builders-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -40,8 +41,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const scorecard = [
   {
     label: 'Best default answer',

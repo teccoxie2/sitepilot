@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Coins, Gauge, ShieldCheck, Sparkles, XCircle, Layers3, TerminalSquare } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best Datacenter Proxies 2026: Speed, Scale, and Cost Compared - SitePilot',
   description:
     'Compare the best datacenter proxies in 2026 for speed, concurrency, and cost efficiency. Review Bright Data, Decodo, Proxy-Seller, and Rayobyte for scraping and automation workloads that do not require residential trust.',
@@ -24,8 +25,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/proxies/best-datacenter-proxies-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Best budget scale',

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 const pageTitle = 'AI Risk Management Dashboard Enterprise 2026 | SitePilot'
@@ -5,7 +6,7 @@ const pageDescription =
   'Use this enterprise AI risk management dashboard to review security exposure, compliance status, threat activity, control coverage, and operational risk before weak governance becomes an audit or service problem.'
 const pageUrl = 'https://sitepilot.co/ai-risk-management-dashboard-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -37,6 +38,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 export { pageTitle, pageDescription, pageUrl }

@@ -1,10 +1,11 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Smartphone, Network, Cpu, Shield, Sparkles, CheckCircle2, Globe, Server, Radio } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Mobile Proxies 2026 | Compare Proxy Infrastructure, Farms & Software',
   description:
     'Compare mobile proxy infrastructure in 2026 across proxy model, farm setup, hardware selection, and control software before you build or buy a mobile proxy stack.',
@@ -22,8 +23,9 @@ export const metadata: Metadata = {
     description:
       'Compare mobile proxy infrastructure in 2026 across network model, farm setup, hardware selection, and control software.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const pageTitle = 'Mobile Proxy Infrastructure Guides 2026 | SitePilot'
 const pageDescription =
   'Compare mobile proxy infrastructure in 2026 across network model, farm setup, hardware selection, and control software. Use this SitePilot hub to navigate residential vs mobile decisions, Android farm design, and operator tooling.'
@@ -82,6 +84,11 @@ const clusterLinks = [
     title: 'Developer hub',
     desc: 'Technical guidance for operators who care about workflow design, automation fit, and implementation details.',
     href: '/proxies/developer-hub',
+  },
+  {
+    title: 'IP leak test',
+    desc: 'Check whether a proxy setup exposes the wrong network identity before using it in a live workflow.',
+    href: '/ip-leak-test',
   },
 ]
 

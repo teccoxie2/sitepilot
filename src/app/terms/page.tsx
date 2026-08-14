@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import { Metadata } from 'next'
 import { FileText, LockKeyhole, Scale, Shield, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
@@ -6,12 +7,13 @@ const pageTitle = 'Terms of Service | SitePilot'
 const pageDescription = 'Terms and conditions for using the SitePilot platform, guides, and technical infrastructure auditing tools.'
 const pageUrl = 'https://sitepilot.co/terms'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const sections = [
   {
     title: '1. Operating entity',

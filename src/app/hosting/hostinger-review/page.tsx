@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -21,7 +22,7 @@ const pageDescription =
   'A practical 2026 Hostinger review covering LiteSpeed performance, renewal pricing, support quality, WordPress fit, and whether the budget proposition still holds up after the intro offer ends.'
 const pageUrl = 'https://sitepilot.co/hosting/hostinger-review'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -36,8 +37,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Verdict',

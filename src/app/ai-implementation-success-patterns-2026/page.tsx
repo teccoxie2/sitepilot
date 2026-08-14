@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'Review AI implementation success patterns by comparing executive ownership, data readiness, phased rollout design, adoption discipline, and vendor strategy so enterprise teams can judge where ROI survives and where deployment risk usually compounds.'
 const pageUrl = 'https://sitepilot.co/ai-implementation-success-patterns-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -32,8 +33,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: pageUrl,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const summaryCards = [
   ['73%', 'Industry average failure rate for AI projects without proven execution patterns.'],
   ['27%', 'Typical success rate before organizations adopt structured transformation patterns.'],

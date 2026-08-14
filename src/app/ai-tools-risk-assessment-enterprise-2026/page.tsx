@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -17,7 +18,7 @@ const pageDescription =
   'An enterprise AI tools risk assessment framework covering data security, vendor dependence, technical compatibility, compliance, and adoption risk so teams can control exposure before rollout.'
 const pageUrl = 'https://sitepilot.co/ai-tools-risk-assessment-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -44,8 +45,9 @@ export const metadata: Metadata = {
     description: 'Live risk scoring, practical mitigation strategy, and CFO-friendly ROI analysis.',
   },
 
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '87%', label: 'Enterprises without a formal AI risk assessment process' },
   { value: '$2.5M', label: 'Annual AI investment often left exposed to avoidable risk' },
@@ -163,6 +165,11 @@ const relatedLinks = [
     href: '/ai-tools-usage-tracking-dashboard-2026',
     title: 'AI Tools Usage Tracking Dashboard',
     description: 'Connect adoption, waste, and actual ROI in one operating view.',
+  },
+  {
+    href: '/ai-project-risk-assessment-framework-2026',
+    title: 'AI project risk assessment framework',
+    description: 'Translate the enterprise risk score into a project-level review and mitigation plan.',
   },
   {
     href: '/ai-tools-cost-optimization-enterprise-2026',

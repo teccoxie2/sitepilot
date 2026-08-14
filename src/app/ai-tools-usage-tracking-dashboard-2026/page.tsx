@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -16,10 +17,10 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'AI Tools Usage Tracking Dashboard 2026 | SitePilot'
 const pageDescription =
-  'AI tools usage tracking for enterprises needs to measure adoption, cost, ROI, feature overlap, and alert priority together or budget optimization never leaves the slide deck. This 2026 dashboard keeps the original examples, ROI results, rollout logic, and internal links while aligning the page to the current light Stripe-ish UI.'
+  'Track enterprise AI tool adoption, cost, ROI, feature overlap, and alert priority in one dashboard before renewing licenses or expanding the stack.'
 const pageUrl = 'https://sitepilot.co/ai-tools-usage-tracking-dashboard-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -43,10 +44,11 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: pageTitle,
-    description: 'An AI tools usage tracking dashboard that keeps the original ROI and rollout logic while aligning the interface to the current light Stripe-ish UI.',
+    description: 'An enterprise AI usage dashboard for measuring adoption, wasted spend, feature overlap, ROI, and rollout decisions.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '87%', label: 'Enterprises unable to measure AI tool ROI accurately' },
   { value: '44%', label: 'Average budget savings opportunity' },

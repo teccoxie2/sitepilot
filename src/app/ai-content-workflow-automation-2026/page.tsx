@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -7,9 +8,8 @@ const pageTitle = 'AI Content Workflow Automation for Marketing Teams (2026): To
 const pageDescription =
   'Compare AI content workflow automation tools and operating models for marketing teams in 2026. Use this buyer-focused guide to evaluate research, drafting, approvals, scheduling, reporting, editing overhead, and integration risk before rebuilding your content stack.'
 const pageUrl = 'https://sitepilot.co/ai-content-workflow-automation-2026'
-const pageImage = 'https://sitepilot.co/images/ai-content-workflow-automation-og.webp'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -22,23 +22,15 @@ export const metadata: Metadata = {
     description: 'Compare AI content workflow automation tools, approval flows, and reporting models for content teams that need speed without handoff chaos.',
     type: 'article',
     url: pageUrl,
-    images: [
-      {
-        url: pageImage,
-        width: 1200,
-        height: 630,
-        alt: 'AI Content Workflow Automation Guide 2026',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'AI Content Workflow Automation for Marketing Teams (2026)',
     description: 'Buyer-focused guide to compare content workflow automation tools, approvals, reporting, and integration risk.',
-    images: [pageImage],
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#overview', title: 'Workflow overview', note: 'Why automate and where value appears' },
   { href: '#creation', title: 'Content creation', note: 'Research, writing, and visual tools' },
@@ -306,7 +298,6 @@ export default function AIContentWorkflowAutomation() {
         title={pageTitle}
         description="Comprehensive guide to AI-powered content workflow automation, covering tools, strategies, and implementation frameworks for content teams."
         url={pageUrl}
-        imageUrl={pageImage}
         publishedDate="2026-03-06"
         modifiedDate="2026-05-14"
         authorName="SitePilot Content Team"

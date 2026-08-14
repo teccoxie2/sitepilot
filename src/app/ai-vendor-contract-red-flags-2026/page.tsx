@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, ShieldAlert, FileText, CheckCircle2, Scale, Target } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'Spot AI vendor contract red flags before signing by checking training-use language, deletion rights, export terms, security obligations, liability caps, and model-change clauses.'
 const pageUrl = 'https://sitepilot.co/ai-vendor-contract-red-flags-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
@@ -28,8 +29,9 @@ export const metadata: Metadata = {
     description:
       'A buyer-focused AI vendor contract checklist covering data rights, deletion, export, security, liability, and change-control language.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const relatedLinks = [
   {
     href: '/ai-vendor-due-diligence-checklist-enterprise-2026',

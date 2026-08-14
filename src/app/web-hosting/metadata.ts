@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 export const pageTitle = 'Best Web Hosting 2026 | Compare Hosting Reviews, Pricing & Fit'
@@ -5,7 +6,7 @@ export const pageDescription =
   'Compare the best web hosting in 2026 using uptime discipline, support quality, pricing structure, caching stack, security defaults, scaling headroom, and lock-in risk before you choose a provider.'
 export const pageUrl = 'https://sitepilot.co/web-hosting'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -20,4 +21,6 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageTitle = 'Domain vs Hosting 2026 | What Is the Difference? | SitePilot'
 const pageDescription = 'Understand the difference between a domain and hosting in 2026, what each one does, and what you need to buy first.'
 const pageUrl = 'https://sitepilot.co/domain-vs-hosting-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickTake = [
   { label: 'Domain', value: 'The address', note: 'It is the name people use to reach you, like yourbrand.com.' },
   { label: 'Hosting', value: 'The infrastructure', note: 'It is the server or platform that stores and serves the website.' },

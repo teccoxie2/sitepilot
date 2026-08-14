@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 const pageTitle = 'AI Marketing Attribution Analysis Tool (2026): Multi-Channel ROI and Journey Review'
@@ -5,7 +6,7 @@ const pageDescription =
   'Use this AI marketing attribution analysis tool to review multi-channel ROI, customer journeys, assisted conversions, and budget allocation before reporting channel performance or changing spend.'
 const pageUrl = 'https://sitepilot.co/ai-marketing-attribution-analysis-tool-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 export { pageTitle, pageDescription, pageUrl }

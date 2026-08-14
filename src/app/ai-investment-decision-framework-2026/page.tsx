@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -23,7 +24,7 @@ const pageDescription =
   'Use a practical enterprise AI investment decision framework to evaluate ROI, prioritize capital allocation, balance portfolio risk, and sequence implementation in 2026.'
 const pageUrl = 'https://sitepilot.co/ai-investment-decision-framework-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -55,8 +56,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#overview', title: 'Overview', note: 'What this framework is designed to decide' },
   { href: '#decision-matrix', title: 'Decision matrix', note: 'How to score impact, feasibility, and timing' },

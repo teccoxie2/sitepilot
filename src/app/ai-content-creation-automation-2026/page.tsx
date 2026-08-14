@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import { readFileSync } from 'fs'
 /* <p>AI content creation automation combines strategy, drafting, distribution, monetization, and reporting into one operating model. This guide helps teams compare tool roles, approval overhead, workflow design, and ROI planning before they rebuild a content operation around automation instead of adding another isolated writing tool.</p> */
 import type { ReactNode } from 'react'
@@ -13,10 +14,8 @@ const pageTitle = 'Complete Guide to AI Content Creation Automation (2026) | Sit
 const pageDescription =
   'Review AI content creation automation for strategy, drafting, distribution, monetization, and reporting. This guide helps teams compare workflow design, tool roles, approval overhead, and ROI planning before they rebuild a content operation around automation.'
 const pageUrl = 'https://sitepilot.co/ai-content-creation-automation-2026'
-const ogImage = 'https://sitepilot.co/og-ai-content-automation.png'
-const twitterImage = 'https://sitepilot.co/twitter-ai-content-automation.png'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: ['AI content creation', 'AI automation', 'content creation tools', 'social media automation', 'AI writing tools', 'content monetization', 'audience growth'],
@@ -28,14 +27,6 @@ export const metadata: Metadata = {
     description: 'Review AI content creation automation for strategy, drafting, distribution, monetization, and reporting before rebuilding a content workflow or tool stack.',
     url: pageUrl,
     siteName: 'SitePilot',
-    images: [
-      {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: 'AI content creation automation guide',
-      },
-    ],
     locale: 'en_US',
     type: 'article',
   },
@@ -43,7 +34,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Complete Guide to AI Content Creation Automation (2026)',
     description: 'Review AI content creation automation for strategy, drafting, distribution, monetization, and reporting before rebuilding a content workflow or tool stack.',
-    images: [twitterImage],
   },
   robots: {
     index: true,
@@ -56,8 +46,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#data-insights', title: 'Efficiency data insights', note: 'Upside and case signals' },
   { href: '#four-step-method', title: 'Four-step automation method', note: 'Strategy through optimization' },
@@ -206,7 +197,6 @@ export default function AIContentCreationAutomationPage() {
         title={pageTitle}
         description={pageDescription}
         url={pageUrl}
-        imageUrl={ogImage}
         publishedDate="2026-03-06"
         modifiedDate="2026-05-14"
         authorName="SitePilot Team"

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Shield, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'Use this AI compliance readiness assessment to score enterprise rollout risk across governance, data handling, oversight, documentation, and remediation priorities before legal review or production approval.'
 const pageUrl = 'https://sitepilot.co/ai-compliance-readiness-assessment-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const summaryCards = [
   { value: '$4.2M', label: 'Average compliance cost', note: 'Per major violation event' },
   { value: '73%', label: 'Non-compliance rate', note: 'Enterprise AI systems in the market' },

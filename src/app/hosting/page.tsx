@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -12,7 +13,7 @@ import {
 import RelatedLinks, { hostingRelatedLinks } from '@/components/RelatedLinks'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Web Hosting Reviews & Comparisons 2026 | SitePilot',
   description:
     'In-depth web hosting reviews based on real testing. Compare performance, pricing, support quality, and use-case fit across top providers.',
@@ -26,8 +27,9 @@ export const metadata: Metadata = {
     url: 'https://sitepilot.co/hosting',
     type: 'website',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const cards = [
   {
     title: 'Premium hosting',

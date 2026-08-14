@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles, Zap } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Residential vs Mobile Proxies Comparison 2026 | SitePilot',
   description:
     'Compare residential proxies and mobile proxies in 2026 across IP source, rotation behavior, operating complexity, and workload fit. Use this SitePilot guide to decide when mobile infrastructure is justified over residential supply.',
@@ -21,8 +22,9 @@ export const metadata: Metadata = {
     description:
       'Compare residential proxies and mobile proxies in 2026 across IP source, rotation behavior, operating complexity, and workload fit. Use this SitePilot guide to decide when mobile infrastructure is justified over residential supply.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const comparisonRows = [
   {
     feature: 'IP source',
@@ -286,6 +288,8 @@ export default function ProxyComparison() {
               </p>
               <a
                 href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
                 className="btn-brand"
               >
                 Start with Coronium.io

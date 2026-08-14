@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -19,7 +20,7 @@ const pageDescription =
   'Use this website builder comparison to choose Wix, Shopify, Squarespace, Readdy, or WordPress by ecommerce fit, SEO control, editing overhead, migration risk, AI workflow fit, and long-term ownership before you commit.'
 const pageUrl = 'https://sitepilot.co/website-builders'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -34,8 +35,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Fastest AI-first draft',
@@ -112,6 +114,17 @@ const builders: {
     href: '/best-ecommerce-website-builders-2026',
     cta: 'Read ecommerce analysis',
     accent: 'indigo',
+  },
+  {
+    rank: '05',
+    name: 'WordPress themes',
+    strap: 'Best for long-term ownership and SEO control',
+    description:
+      'A theme-led WordPress build makes sense when portability, content ownership, and structural SEO control matter more than the fastest no-code launch.',
+    bullets: ['Broad theme ecosystem', 'Deep content ownership', 'Strong SEO extensibility'],
+    href: '/best-wordpress-themes-2026',
+    cta: 'Compare WordPress themes',
+    accent: 'blue',
   },
 ]
 
@@ -223,7 +236,7 @@ export default function WebsiteBuildersHub() {
                 <a
                   href="https://readdy.ai/?via=sitepilot"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-5 py-3 text-sm font-semibold text-indigo-700 shadow-sm hover:bg-indigo-100 transition-colors"
                 >
                   Visit Readdy.ai
@@ -449,7 +462,7 @@ export default function WebsiteBuildersHub() {
               <a
                 href="https://readdy.ai/?via=sitepilot"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="sponsored nofollow noopener noreferrer"
                 className="mt-4 inline-flex items-center rounded-full bg-[#635bff] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#564ee8] transition-colors"
               >
                 Open Readdy.ai

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -19,7 +20,7 @@ const pageDescription =
   'Use this AI ethics and compliance checklist to review privacy controls, transparency standards, bias mitigation, and human oversight before enterprise deployment, audit, or policy approval.'
 const pageUrl = 'https://sitepilot.co/ai-ethics-compliance-checklist-enterprise-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -52,8 +53,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const complianceAreas = [
   {
     category: 'Data protection and privacy',

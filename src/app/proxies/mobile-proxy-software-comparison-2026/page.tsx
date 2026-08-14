@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Mobile Proxy Software Comparison (2026): Coronium vs LTESpace vs DIY for Proxy Farms',
   description:
     'Use this mobile proxy software comparison to choose Coronium, LTESpace, or a DIY stack based on rotation control, recovery speed, device visibility, operator workload, and failure-handling risk before you scale a proxy farm.',
@@ -21,8 +22,9 @@ export const metadata: Metadata = {
     description:
       'Choose Coronium, LTESpace, or DIY mobile proxy software by recovery speed, device visibility, operator workload, and failure-handling risk.',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const rows = [
   {
     feature: 'Primary fit',
@@ -314,12 +316,14 @@ export default function MobileProxySoftwareComparisonPage() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="https://dashboard.coronium.io/en/sign-up#bc2924ccac1eae657b6fe8daf1e97201"
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
                   className="btn-brand"
                 >
                   Review Coronium
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
-                <a href="https://ltespace.com/sitepilot" className="btn-secondary">
+                <a href="https://ltespace.com/sitepilot" target="_blank" rel="sponsored nofollow noopener noreferrer" className="btn-secondary">
                   Review LTESpace
                 </a>
               </div>

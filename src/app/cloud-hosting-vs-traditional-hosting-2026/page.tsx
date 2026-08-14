@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -20,7 +21,7 @@ const pageDescription =
   'A practical 2026 comparison of cloud hosting vs traditional hosting. Compare scalability, redundancy, cost behavior, support implications, and when each model still makes sense.'
 const pageUrl = 'https://sitepilot.co/cloud-hosting-vs-traditional-hosting-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   openGraph: {
@@ -37,8 +38,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: pageUrl,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickTake = [
   {
     label: 'Best for growth',

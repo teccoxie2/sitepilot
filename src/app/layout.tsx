@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: "SitePilot | Global Digital Infrastructure Authority",
   description: "Independent technical audits, infrastructure benchmarks, and AI-driven procurement frameworks for modern enterprises.",
   metadataBase: new URL("https://sitepilot.co"),
@@ -34,6 +35,9 @@ export const metadata: Metadata = {
     description: "Independent technical audits, infrastructure benchmarks, and AI-driven procurement frameworks for modern enterprises.",
   },
 };
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
+
 
 export default function RootLayout({
   children,

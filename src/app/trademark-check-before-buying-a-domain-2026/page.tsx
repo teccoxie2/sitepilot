@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageTitle = 'Trademark Check Before Buying a Domain 2026 | SitePilot'
 const pageDescription = 'A practical guide to trademark checking before buying a domain name so you can avoid obvious branding and legal mistakes early.'
 const pageUrl = 'https://sitepilot.co/trademark-check-before-buying-a-domain-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickTake = [
   { label: 'Core rule', value: 'Available does not mean safe', note: 'Registry availability and trademark conflict are different systems.' },
   { label: 'Best timing', value: 'Before purchase', note: 'Cheap caution early beats expensive cleanup later.' },
@@ -41,7 +43,7 @@ const sections = [
 const relatedArticles = [
   { href: '/how-to-buy-a-domain-name-2026', title: 'How to Buy a Domain Name', description: 'Use the full buying sequence once the name passes a sanity check.', category: 'guide' as const },
   { href: '/best-domain-registrars-2026', title: 'Best Domain Registrars', description: 'Pick the registrar after deciding the name is worth owning.', category: 'guide' as const },
-  { href: '/.com-vs-.ai-vs-.co-vs-.io-2026', title: '.com vs .ai vs .co vs .io', description: 'Choose the extension after the brand itself is viable.', category: 'guide' as const },
+  { href: '/com-vs-ai-vs-co-vs-io-2026', title: '.com vs .ai vs .co vs .io', description: 'Choose the extension after the brand itself is viable.', category: 'guide' as const },
   { href: '/domain-privacy-protection-2026', title: 'Domain Privacy Protection', description: 'Useful after purchase, but not a substitute for legal caution.', category: 'guide' as const }
 ]
 

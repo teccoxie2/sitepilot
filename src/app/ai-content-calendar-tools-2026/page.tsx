@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
@@ -9,7 +10,7 @@ const pageDescription =
   'Compare AI content calendar tools for content ops teams that need planning, approvals, scheduling, and workflow control before changing software, staffing, or channel mix.'
 const pageUrl = 'https://sitepilot.co/ai-content-calendar-tools-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -26,8 +27,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#top-picks', title: 'Top picks 2026', note: 'Best overall tools' },
   { href: '#ai-features', title: 'AI features', note: 'Smart automation' },

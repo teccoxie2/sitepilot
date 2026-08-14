@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Shield, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'Use this AI compliance automation assessment tool to review GDPR, CCPA, HIPAA, and SOX exposure across data handling, access controls, vendor obligations, audit evidence, and remediation priorities before procurement or rollout.'
 const pageUrl = 'https://sitepilot.co/ai-compliance-automation-assessment-tool'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -25,8 +26,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const summaryCards = [
   { value: '4', label: 'Core frameworks', note: 'GDPR, CCPA, HIPAA, and SOX in one buyer workflow.' },
   { value: '5', label: 'Review layers', note: 'Data handling, access, vendor terms, audit evidence, and remediation.' },

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 const pageTitle = 'AI Investment Payback Period Calculator 2026 | SitePilot'
@@ -5,7 +6,7 @@ const pageDescription =
   'Calculate AI investment payback period, monthly net savings, and 3-year ROI with a practical enterprise planning model.'
 const pageUrl = 'https://sitepilot.co/ai-investment-payback-period-calculator-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -37,6 +38,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 export { pageTitle, pageDescription, pageUrl }

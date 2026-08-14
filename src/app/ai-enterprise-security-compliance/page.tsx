@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Shield, Sparkles } from 'lucide-react'
@@ -8,7 +9,7 @@ const pageDescription =
   'Comprehensive enterprise AI security and compliance framework covering GDPR, SOX, HIPAA, ISO 27001, and practical security architecture controls.'
 const pageUrl = 'https://sitepilot.co/ai-enterprise-security-compliance'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -35,8 +36,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickNav = [
   { href: '#overview', title: 'Executive summary', note: 'What the framework is for' },
   { href: '#frameworks', title: 'Compliance frameworks', note: 'GDPR, SOX, HIPAA, ISO 27001, PCI DSS' },

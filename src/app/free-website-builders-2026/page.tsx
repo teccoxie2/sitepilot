@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -20,7 +21,7 @@ const pageDescription =
   'A practical 2026 guide to free website builders. Compare Wix, Framer, and Weebly on branding limits, domains, SEO control, and when free plans stop making sense.'
 const pageUrl = 'https://sitepilot.co/free-website-builders-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
@@ -37,8 +38,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickFacts = [
   'Free plans are fine for prototypes, student work, and internal mockups.',
   'The real cost usually shows up as forced branding, weak domains, and limited SEO control.',

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
@@ -11,7 +12,7 @@ const pageDescription =
   'A proven AI tool implementation strategy built from a $25,000 real-world investment and research across 500+ companies. Covers phased rollout, ROI-led selection, and risk mitigation.'
 const pageUrl = 'https://sitepilot.co/ai-tool-implementation-strategy-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
@@ -42,8 +43,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroSignals = [
   'Keeps the original article, section anchors, and internal links intact',
   'Preserves the ROI, risk, and implementation narrative',
@@ -229,7 +231,9 @@ export default function AIToolImplementationStrategyPage() {
               </aside>
 
               <div className="prose prose-lg max-w-none prose-headings:text-slate-900 prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-700 prose-p:leading-relaxed prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:space-y-1 prose-li:text-slate-700 prose-a:text-sky-700 prose-a:no-underline hover:prose-a:text-sky-900">
-                <ReactMarkdown>{content}</ReactMarkdown>
+                <ReactMarkdown components={{
+                  h1: ({ children }) => <h2 className="text-2xl font-bold tracking-tight text-slate-900 mt-8 mb-4">{children}</h2>,
+                }}>{content}</ReactMarkdown>
               </div>
             </div>
           </section>

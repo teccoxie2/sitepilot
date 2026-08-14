@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import { Metadata } from 'next'
 import { Database, Eye, Globe, LockKeyhole, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
@@ -6,12 +7,13 @@ const pageTitle = 'Privacy Policy | SitePilot'
 const pageDescription = 'Our commitment to data privacy, transparency, and secure infrastructure auditing for our global audience.'
 const pageUrl = 'https://sitepilot.co/privacy'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const sections = [
   {
     title: '1. Data stewardship',

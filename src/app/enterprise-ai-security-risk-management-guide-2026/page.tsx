@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -19,15 +20,16 @@ const pageDescription =
   'Enterprise AI security and risk management guide covering model integrity, privacy, access, monitoring, compliance, and incident response so buyers can review exposure, approvals, and deployment blockers before rollout.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-security-risk-management-guide-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: ['enterprise AI security', 'AI risk management', 'zero trust AI', 'AI compliance automation', 'model security'],
   alternates: { canonical: pageUrl },
   openGraph: { title: pageTitle, description: pageDescription, type: 'article', url: pageUrl },
   twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '7', label: 'security layers in view' },
   { value: '1', label: 'goal: expose rollout blockers' },

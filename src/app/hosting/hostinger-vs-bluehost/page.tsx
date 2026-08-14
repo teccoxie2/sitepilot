@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -18,7 +19,7 @@ const pageDescription =
   'A practical 2026 comparison of Hostinger vs Bluehost covering LiteSpeed performance, WordPress onboarding, total cost of ownership, support quality, and which host makes more sense for different site types.'
 const pageUrl = 'https://sitepilot.co/hosting/hostinger-vs-bluehost'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -33,8 +34,9 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Winner on raw value',

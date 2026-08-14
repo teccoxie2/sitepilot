@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Bot, CheckCircle2, Clock, DollarSign, Shield, Sparkles, Users, Workflow } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best AI Tools for Small Business 2026: ROI-Tested Solutions That Actually Work',
   description:
     'Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data for businesses under $1M revenue.',
@@ -19,8 +20,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/best-ai-tools-small-business-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
   { value: '50+', label: 'AI tools tested' },
   { value: '25', label: 'Small businesses involved' },

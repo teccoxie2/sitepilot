@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -20,7 +21,7 @@ const pageDescription =
   'Use this cheap hosting comparison to choose a budget web host by total cost, renewal pricing, support quality, security baseline, and long-term operating risk before a low intro price turns into an expensive mistake.'
 const pageUrl = 'https://sitepilot.co/hosting/cheap-hosting'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -30,8 +31,9 @@ export const metadata: Metadata = {
     url: pageUrl,
     type: 'article',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Best value overall',

@@ -1,9 +1,10 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BarChart3, CheckCircle2, Search, Sparkles, Target, TrendingUp } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Best AI SEO Tools 2026: Comparison for Content, Briefs, and Monitoring - SitePilot',
   description:
     'Best AI SEO tools in 2026 should be compared by content optimization depth, briefing workflow, technical monitoring, pricing, and team fit. Use this comparison to shortlist platforms for editorial production, search visibility, and operational SEO control.',
@@ -26,8 +27,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitepilot.co/best-ai-seo-tools-2026',
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
   { value: '5', label: 'ranked platforms' },
   { value: '4', label: 'decision angles' },
@@ -346,7 +348,7 @@ export default function BestAISEOTools2026() {
                     <a
                       href={rankedTools[0].href}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="sponsored nofollow noopener noreferrer"
                       className="btn-brand w-full"
                     >
                       {rankedTools[0].cta}
@@ -460,7 +462,7 @@ export default function BestAISEOTools2026() {
               <a
                 href="https://surferseo.com?fpr=sitepilot"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="sponsored nofollow noopener noreferrer"
                 className="btn-brand"
               >
                 Try Surfer SEO

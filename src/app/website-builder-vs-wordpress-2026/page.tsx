@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Gauge, Layers3, ShieldCheck, Sparkles, Wrench, XCircle } from 'lucide-react'
@@ -9,7 +10,7 @@ const pageDescription =
   'Compare website builders vs WordPress in 2026 using launch speed, maintenance burden, customization depth, SEO headroom, and total cost before you choose a platform.'
 const pageUrl = 'https://sitepilot.co/website-builder-vs-wordpress-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -17,8 +18,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: pageUrl,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const relatedArticles = [
   {
     href: '/best-website-builders-2026',

@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
@@ -16,7 +17,7 @@ const pageDescription =
   'Complete guide to AI tools that boost blogger productivity. From content creation to SEO optimization, discover the tools that save time and increase quality.'
 const pageUrl = 'https://sitepilot.co/ai-tools-for-bloggers-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
@@ -31,8 +32,9 @@ export const metadata: Metadata = {
     title: '17 Best AI Tools for Bloggers in 2026 (Tested & Reviewed)',
     description: pageDescription,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
   { value: '17', label: 'Tools tested' },
   { value: '8 months', label: 'Hands-on research' },
@@ -154,6 +156,21 @@ const relatedGuides = [
     href: '/website-security-checklist-2026',
     title: 'Website Security Checklist',
     description: 'Protect the blog once you start growing it.',
+  },
+  {
+    href: '/best-ai-automation-tools-bloggers-2026',
+    title: 'Best AI Automation Tools for Bloggers',
+    description: 'Automate distribution, email, SEO, and audience workflows after the content stack is in place.',
+  },
+  {
+    href: '/best-ai-video-tools-bloggers-2026',
+    title: 'Best AI Video Tools for Bloggers',
+    description: 'Repurpose written posts into video and tutorial formats without rebuilding the workflow from scratch.',
+  },
+  {
+    href: '/best-social-media-management-tools-2026',
+    title: 'Best Social Media Management Tools',
+    description: 'Connect publishing, scheduling, and audience operations to the broader blogger tool stack.',
   },
 ]
 

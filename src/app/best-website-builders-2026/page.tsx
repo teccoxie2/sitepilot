@@ -1,3 +1,4 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Bot, CheckCircle2, Palette, ShieldCheck, ShoppingCart, Sparkles, Workflow, XCircle } from 'lucide-react'
@@ -9,7 +10,7 @@ const pageDescription =
   'Compare the best website builders in 2026, including Webflow, Wix, Shopify, and Squarespace, using design control, ecommerce fit, SEO ownership, and long-term platform flexibility.'
 const pageUrl = 'https://sitepilot.co/best-website-builders-2026'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords:
@@ -29,8 +30,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: pageUrl,
   },
-}
+};
 
+export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const quickPicks = [
   {
     label: 'Best overall for pros',

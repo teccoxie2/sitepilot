@@ -1,6 +1,7 @@
+import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadataConfig: Metadata = {
   title: 'Mobile Proxy Software Comparison: Coronium vs LTESpace vs DIY (2026)',
   description:
     'Compare Coronium, LTESpace, and DIY mobile proxy software by rotation control, recovery speed, device visibility, and operator overhead before you scale the wrong control stack.',
@@ -18,4 +19,6 @@ export const metadata: Metadata = {
     description:
       'Compare Coronium, LTESpace, and DIY mobile proxy software by rotation control, recovery speed, device visibility, and operator overhead before you scale the wrong control stack.',
   },
-}
+};
+
+export const metadata: Metadata = normalizeMetadata(metadataConfig);

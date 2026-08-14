@@ -40,7 +40,7 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const comparisonDisclosure =
-  'Prices are listed snapshots and the 1–10 values are SitePilot editorial fit signals, not lab scores or universal rankings. Confirm current plans and test representative prompts in your own workflow before purchase.'
+  'Prices are illustrative listed snapshots and the 1–10 values are SitePilot editorial fit signals, not lab scores or universal rankings. Confirm current plans and test representative prompts in your own workflow before purchase.'
 const comparisonTools = [
   {
     name: 'ChatGPT-4',

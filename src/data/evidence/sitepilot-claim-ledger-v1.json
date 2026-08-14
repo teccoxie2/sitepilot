@@ -229,6 +229,21 @@
       "owner": "SitePilot editorial",
       "review_date": "2026-09-14",
       "status": "example"
+    },
+    {
+      "claim_id": "CL-016",
+      "route": "/ai-content-generator-comparison",
+      "claim": "Listed provider prices and 1–10 fit values are an illustrative comparison snapshot, not lab scores or universal rankings.",
+      "claim_type": "editorial_snapshot",
+      "source_url": null,
+      "source_location": "src/app/ai-content-generator-comparison/page.tsx :: comparisonTools",
+      "sample_definition": null,
+      "collected_at": null,
+      "formula": null,
+      "conditions": "Confirm current plans and test representative prompts; do not present the values as a third-party benchmark or universal ranking.",
+      "owner": "SitePilot editorial",
+      "review_date": "2026-09-14",
+      "status": "example"
     }
   ]
 }

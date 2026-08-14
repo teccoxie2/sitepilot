@@ -120,13 +120,13 @@ const decisionGuide = [
 const related = [
   {
     title: 'Best Web Hosting 2026',
-    href: '/hosting/best-web-hosting',
+    href: '/best-web-hosting-2026',
     description: 'The top hosting shortlist across broader use cases.',
     category: 'hosting',
   },
   {
     title: 'Cheap Hosting',
-    href: '/hosting/cheap-hosting',
+    href: '/cheap-hosting',
     description: 'Budget-friendly hosting options with fewer fake bargains.',
     category: 'hosting',
   },
@@ -165,7 +165,7 @@ export default function WordPressHosting2026() {
                   Review the top pick
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link href="/hosting/best-web-hosting" className="btn-secondary">
+                <Link href="/best-web-hosting-2026" className="btn-secondary">
                   Back to hosting shortlist
                 </Link>
               </div>

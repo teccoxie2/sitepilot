@@ -13,6 +13,7 @@ export const revalidate = 3600
 const baseUrl = 'https://sitepilot.co'
 const appDir = path.join(process.cwd(), 'src', 'app')
 const excludedSegments = new Set(['sitemap.xml', 'robots.txt'])
+const excludedRoutes = new Set(['/privacy', '/terms', '/proxies/recommendation'])
 
 function isIgnorableSegment(segment: string) {
   return segment.startsWith('(') || segment.startsWith('_') || excludedSegments.has(segment)
@@ -55,11 +56,13 @@ function getChangeFreq(pathname: string): RouteEntry['changeFreq'] {
 }
 
 async function buildRoutes(): Promise<RouteEntry[]> {
-  const pathnames = Array.from(new Set(await collectPageRoutes(appDir))).sort((a, b) => {
-    if (a === '/') return -1
-    if (b === '/') return 1
-    return a.localeCompare(b)
-  })
+  const pathnames = Array.from(new Set(await collectPageRoutes(appDir)))
+    .filter((pathname) => !excludedRoutes.has(pathname))
+    .sort((a, b) => {
+      if (a === '/') return -1
+      if (b === '/') return 1
+      return a.localeCompare(b)
+    })
 
   return pathnames.map((pathname) => ({
     url: pathname === '/' ? baseUrl : `${baseUrl}${pathname}`,

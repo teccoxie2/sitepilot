@@ -146,7 +146,7 @@ const related = [
   },
   {
     title: 'Cheap Hosting Guide',
-    href: '/hosting/cheap-hosting',
+    href: '/cheap-hosting',
     description: 'Review the broader cheap-hosting shortlist before locking into one provider.',
     category: 'hosting',
   },
@@ -194,7 +194,7 @@ export default function HostingerReview2026() {
                   Compare against Bluehost
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link href="/hosting/cheap-hosting" className="btn-secondary">
+                <Link href="/cheap-hosting" className="btn-secondary">
                   See cheap-hosting shortlist
                 </Link>
               </div>

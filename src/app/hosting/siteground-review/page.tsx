@@ -145,7 +145,7 @@ const related = [
   },
   {
     title: 'Best Web Hosting',
-    href: '/hosting/best-web-hosting',
+    href: '/best-web-hosting-2026',
     description: 'Return to the shortlist view across broader hosting use cases.',
     category: 'hosting',
   },

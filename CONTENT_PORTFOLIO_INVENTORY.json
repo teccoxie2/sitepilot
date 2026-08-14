@@ -1090,26 +1090,6 @@
     "review_date": "2026-09-14"
   },
   {
-    "url": "https://sitepilot.co/hosting/best-web-hosting",
-    "category": "web-infrastructure",
-    "status": "Merge",
-    "target": "https://sitepilot.co/best-web-hosting-2026",
-    "reason": "Likely duplicate legacy path; consolidate into /best-web-hosting-2026 after content and link review.",
-    "evidence_source": "src/app/hosting/best-web-hosting/page.tsx :: merge-known-legacy-hosting-path",
-    "owner": "SitePilot editorial",
-    "review_date": "2026-09-14"
-  },
-  {
-    "url": "https://sitepilot.co/hosting/cheap-hosting",
-    "category": "web-infrastructure",
-    "status": "Merge",
-    "target": "https://sitepilot.co/cheap-hosting",
-    "reason": "Likely duplicate legacy path; consolidate into /cheap-hosting after content and link review.",
-    "evidence_source": "src/app/hosting/cheap-hosting/page.tsx :: merge-known-legacy-hosting-path",
-    "owner": "SitePilot editorial",
-    "review_date": "2026-09-14"
-  },
-  {
     "url": "https://sitepilot.co/hosting/hostinger-review",
     "category": "web-infrastructure",
     "status": "Keep",
@@ -1416,6 +1396,26 @@
     "target": "https://sitepilot.co/website-security-checklist-2026",
     "reason": "Provisional classification pending evidence, search-intent, and decision-path review.",
     "evidence_source": "src/app/website-security-checklist-2026/page.tsx :: review-provisional-unclassified",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting/best-web-hosting",
+    "category": "web-infrastructure",
+    "status": "Merge",
+    "target": "https://sitepilot.co/best-web-hosting-2026",
+    "reason": "Retired legacy route; its decision content now lives at /best-web-hosting-2026.",
+    "evidence_source": "retired route manifest :: merge-known-legacy-hosting-path",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/hosting/cheap-hosting",
+    "category": "web-infrastructure",
+    "status": "Merge",
+    "target": "https://sitepilot.co/cheap-hosting",
+    "reason": "Retired legacy route; its decision content now lives at /cheap-hosting.",
+    "evidence_source": "retired route manifest :: merge-known-legacy-hosting-path",
     "owner": "SitePilot editorial",
     "review_date": "2026-09-14"
   }

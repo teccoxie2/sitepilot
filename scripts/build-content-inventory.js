@@ -8,7 +8,8 @@ const projectRoot = process.cwd()
 const appDirectory = path.join(projectRoot, 'src', 'app')
 const outputPath = path.join(projectRoot, 'CONTENT_PORTFOLIO_INVENTORY.json')
 const baseUrl = 'https://sitepilot.co'
-const expectedRouteCount = 142
+const expectedActiveRouteCount = 140
+const expectedInventoryEntryCount = 142
 const owner = 'SitePilot editorial'
 const reviewDate = '2026-09-14'
 const requiredFields = ['url', 'category', 'status', 'target', 'reason', 'evidence_source', 'owner', 'review_date']
@@ -171,8 +172,12 @@ function buildInventory() {
     .map((filePath) => ({ filePath, pathname: routeFromPageFile(filePath) }))
     .sort((a, b) => (a.pathname === '/' ? -1 : b.pathname === '/' ? 1 : a.pathname.localeCompare(b.pathname)))
 
+  if (routes.length !== expectedActiveRouteCount) {
+    throw new Error(`Expected ${expectedActiveRouteCount} active page routes, found ${routes.length}`)
+  }
+
   const seen = new Set()
-  return routes.map(({ filePath, pathname }) => {
+  const activeEntries = routes.map(({ filePath, pathname }) => {
     if (seen.has(pathname)) throw new Error(`Duplicate route generated for inventory: ${pathname}`)
     seen.add(pathname)
 
@@ -188,13 +193,26 @@ function buildInventory() {
       review_date: reviewDate,
     }
   })
+
+  const retiredEntries = Array.from(mergeTargets.entries()).map(([pathname, target]) => ({
+    url: `${baseUrl}${pathname}`,
+    category: categoryFor(pathname),
+    status: 'Merge',
+    target: `${baseUrl}${target}`,
+    reason: `Retired legacy route; its decision content now lives at ${target}.`,
+    evidence_source: 'retired route manifest :: merge-known-legacy-hosting-path',
+    owner,
+    review_date: reviewDate,
+  }))
+
+  return [...activeEntries, ...retiredEntries]
 }
 
 function verifyInventory(inventory, expectedRoutes = buildInventory()) {
   const failures = []
   if (!Array.isArray(inventory)) failures.push('Inventory must be a JSON array')
   if (!Array.isArray(inventory)) return failures
-  if (inventory.length !== expectedRouteCount) failures.push(`Expected ${expectedRouteCount} routes, found ${inventory.length}`)
+  if (inventory.length !== expectedInventoryEntryCount) failures.push(`Expected ${expectedInventoryEntryCount} inventory entries, found ${inventory.length}`)
 
   const expectedByUrl = new Map(expectedRoutes.map((entry) => [entry.url, entry]))
   const seen = new Set()

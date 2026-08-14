@@ -11,6 +11,7 @@ const metadataConfig: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
+  robots: { index: false, follow: true },
 };
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);

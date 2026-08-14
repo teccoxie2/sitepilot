@@ -3,7 +3,7 @@
 最后更新：2026-08-14
 数据来源：`src/app/**/page.tsx` 路由扫描与当前生产 sitemap
 
-当前共有 **140 个 sitemap 页面**。本清单先完成主题分层和处置优先级；每个 URL 在有 Search Console 数据和工具行为数据后，再决定最终 `Keep / Merge / Noindex / Remove`，不凭关键词数量直接删除页面。
+当前源码保留 **140 个页面路由**；其中 3 个低搜索价值入口标记为 `noindex,follow`，因此当前 sitemap 应包含 137 个可索引 URL。另保留 2 条已退役的 legacy URL 记录在 JSON 清单中，状态为 `Merge`，但不再提供兼容路由。
 
 ## 当前主题分布
 
@@ -64,3 +64,5 @@
 - 是否有工具启动、完成、导出或审计申请；
 - 负责人和下次复核日期；
 - sitemap、canonical、站内链接和生产状态检查结果。
+
+当前实现状态：2 条 hosting legacy 路由已从源码和 sitemap 移除；privacy、terms、proxy recommendation 保留访问但输出 `noindex,follow`，且不进入 sitemap。其余 Review 页面仍保持 provisional，等待 Search Console 与真实工具/线索数据后再做最终取舍。

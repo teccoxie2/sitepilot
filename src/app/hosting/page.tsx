@@ -56,7 +56,7 @@ const cards = [
 
 const featuredLinks = [
   {
-    href: '/hosting/best-web-hosting',
+    href: '/best-web-hosting-2026',
     label: 'Featured guide',
     title: 'The best web hosting services for 2026',
     description:
@@ -77,7 +77,7 @@ const featuredLinks = [
       'A direct comparison of two popular budget hosts on performance, support, and real operational value.',
   },
   {
-    href: '/hosting/cheap-hosting',
+    href: '/cheap-hosting',
     label: 'Guide',
     title: 'Best cheap web hosting under $5/month',
     description:

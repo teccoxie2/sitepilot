@@ -44,7 +44,7 @@ const relatedLinks = [
     note: 'Use this path for custom scope or enterprise partnership discussions.',
   },
   {
-    href: '/hosting/best-web-hosting',
+    href: '/best-web-hosting-2026',
     title: 'Best web hosting coverage',
     note: 'Review how current SitePilot hosting coverage is framed.',
   },

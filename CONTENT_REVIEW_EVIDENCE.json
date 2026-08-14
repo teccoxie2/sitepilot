@@ -514,14 +514,14 @@
     {
       "url": "https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "GA4 linked Search Console report: Google organic search traffic",
+        "period_start": "2026-07-17",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 98
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -548,7 +548,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-07-17 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/ai-enterprise-security-compliance",
@@ -1372,14 +1372,14 @@
     {
       "url": "https://sitepilot.co/best-social-media-management-tools-2026",
       "search_console": {
-        "status": "missing",
-        "source": null,
-        "period_start": null,
-        "period_end": null,
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null
+        "status": "available",
+        "source": "GA4 linked Search Console report: Google organic search traffic",
+        "period_start": "2026-07-17",
+        "period_end": "2026-08-13",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 17
       },
       "tool_behavior": {
         "status": "not_applicable",
@@ -1406,7 +1406,7 @@
       "decision": null,
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
-      "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+      "missing_data_note": "Search Console snapshot is available for 2026-07-17 to 2026-08-13; tool behavior, apply, and affiliate data remain pending production export. Null values are intentional and not estimates."
     },
     {
       "url": "https://sitepilot.co/best-website-builders-2026",

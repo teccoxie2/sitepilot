@@ -8,6 +8,10 @@ function canonicalFrom(html) {
   return (html.match(/<link rel="canonical" href="([^"]+)"/i) || [])[1] || null
 }
 
+function ogImageFrom(html) {
+  return (html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/i) || [])[1] || null
+}
+
 function hasNoindex(html) {
   return /<meta name="robots" content="noindex/i.test(html)
 }
@@ -28,6 +32,7 @@ async function main() {
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
   const failures = []
   const queue = [...urls]
+  const ogImages = new Set()
   let checked = 0
 
   async function worker() {
@@ -39,10 +44,18 @@ async function main() {
       if (canonicalFrom(html) !== url) failures.push(`${url} does not have a self-referencing canonical`)
       if (hasNoindex(html)) failures.push(`${url} is in sitemap but returns noindex`)
       if (h1Count(html) !== 1) failures.push(`${url} must have exactly one h1 (found ${h1Count(html)})`)
+      const ogImage = ogImageFrom(html)
+      if (!ogImage) failures.push(`${url} is missing og:image`)
+      else ogImages.add(new URL(ogImage, baseUrl).href)
     }
   }
 
   await Promise.all(Array.from({ length: 8 }, () => worker()))
+
+  for (const imageUrl of ogImages) {
+    const imageResponse = await fetch(imageUrl, { redirect: 'manual' })
+    if (imageResponse.status !== 200) failures.push(`${imageUrl} returned ${imageResponse.status}`)
+  }
 
   for (const route of noindexRoutes) {
     const url = `${baseUrl}${route}`

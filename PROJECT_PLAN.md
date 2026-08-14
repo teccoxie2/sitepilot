@@ -157,7 +157,7 @@ claim_id
 
 - sitemap 每个 URL 都是 200、可索引、canonical 自指，并有至少一个相关内容页入链；
 - 每个内容页只有一个 H1；`npm run seo:check` 在构建后的 HTML 上验证 H1 数量、title/description 长度和 OG image；
-- 可分享页面的 OG/Twitter 图片返回 200；
+- 可分享页面的 OG/Twitter 图片返回 200；`npm run production:seo` 会提取线上 OG 图片并验证资源状态；
 - Keep 页面有证据入口，Merge/Noindex/Remove 页面没有残留的错误内链。
 
 ### 证据门槛

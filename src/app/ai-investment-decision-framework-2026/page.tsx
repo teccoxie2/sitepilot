@@ -69,10 +69,11 @@ const quickNav = [
 
 const summaryCards = [
   { value: '$47M', label: 'Average AI investment', note: 'Illustrative Fortune 500 benchmark for 2026 planning cycles.' },
-  { value: '342%', label: 'Mean ROI', note: 'Long-horizon return for enterprises with disciplined portfolio governance.' },
-  { value: '18', label: 'Months payback', note: 'Median period for proven operational and customer-facing programs.' },
-  { value: '73%', label: 'Structured success rate', note: 'Observed when allocation decisions are linked to readiness and governance.' },
+  { value: '342%', label: 'Illustrative portfolio ROI', note: 'Illustrative long-horizon scenario for enterprises with disciplined portfolio governance.' },
+  { value: '18', label: 'Illustrative payback window', note: 'Illustrative planning scenario for operational and customer-facing programs.' },
+  { value: '73%', label: 'Illustrative structured-planning scenario', note: 'Use as a planning input, then replace with observed allocation and governance data.' },
 ] as const
+const scenarioDisclosure = 'Illustrative portfolio scenario: investment, ROI, payback, allocation weights, and success probabilities are planning inputs—not measured outcomes or a third-party benchmark. Replace them with dated internal baselines, pilot results, and current portfolio data.'
 
 const impactDimensions = [
   {
@@ -192,10 +193,10 @@ const portfolioBuckets = [
 ] as const
 
 const portfolioMetrics = [
-  { label: 'Portfolio ROI', value: '298%', note: 'Weighted average', accent: 'text-sky-600' },
+  { label: 'Illustrative portfolio ROI', value: '298%', note: 'Illustrative weighted scenario', accent: 'text-sky-600' },
   { label: 'Risk score', value: '6.2', note: 'Balanced portfolio', accent: 'text-amber-600' },
-  { label: 'Time to value', value: '14', note: 'Months average', accent: 'text-indigo-600' },
-  { label: 'Success probability', value: '78%', note: 'Overall portfolio', accent: 'text-violet-600' },
+  { label: 'Illustrative time to value', value: '14', note: 'Illustrative planning window in months', accent: 'text-indigo-600' },
+  { label: 'Illustrative success probability', value: '78%', note: 'Illustrative portfolio scenario', accent: 'text-violet-600' },
 ] as const
 
 const roadmapPhases = [
@@ -332,6 +333,7 @@ export default function AIInvestmentDecisionFramework2026Page() {
                   payback period, risk, and portfolio fit so capital moves toward initiatives that can scale, survive
                   governance review, and produce measurable operating returns instead of demo-stage enthusiasm.
                 </p>
+                <div className="mt-6 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm leading-6 text-amber-950">{scenarioDisclosure}</div>
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link href="/ai-investment-roi-matrix-calculator-enterprise-2026" className="btn-brand inline-flex items-center gap-2">

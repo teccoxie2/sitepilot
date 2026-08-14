@@ -68,8 +68,9 @@ const summaryCards = [
   { value: '26', label: 'Implementation weeks', note: 'Structured rollout through initial enterprise deployment.' },
   { value: '90+', label: 'Checklist items', note: 'Across strategy, technology, people, and governance.' },
   { value: '5', label: 'Phases', note: 'Readiness, planning, pilot, rollout, and optimization.' },
-  { value: '87%', label: 'Success rate', note: 'For organizations that keep governance and adoption aligned.' },
+  { value: '87%', label: 'Illustrative adoption scenario', note: 'Planning target for organizations that keep governance and adoption aligned.' },
 ] as const
+const scenarioDisclosure = 'Illustrative rollout scenario: the 26-week timeline, item count, and 87% adoption figure are planning targets, not measured implementation outcomes. Replace them with your own baseline, pilot evidence, and governance data.'
 
 const phases = [
   {
@@ -382,6 +383,7 @@ export default function AIImplementationChecklistPage() {
               <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
                 An AI implementation checklist helps enterprise teams sequence strategy, architecture, governance, pilot design, rollout, and optimization before deployment expands. Use it to reduce ownership gaps, integration delays, approval friction, training drift, and measurement failures that usually appear when programs scale faster than operating discipline.
               </p>
+              <div className="mb-8 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm leading-6 text-amber-950">{scenarioDisclosure}</div>
 
               <div className="mb-10 flex flex-wrap gap-3">
                 <a href="#phases" className="btn-brand">

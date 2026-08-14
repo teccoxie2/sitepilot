@@ -9,7 +9,7 @@ const pageDescription =
   'Compare AI content workflow automation tools and operating models for marketing teams in 2026. Use this buyer-focused guide to evaluate research, drafting, approvals, scheduling, reporting, editing overhead, and integration risk before rebuilding your content stack.'
 const pageUrl = 'https://sitepilot.co/ai-content-workflow-automation-2026'
 const comparisonDisclosure =
-  'Prices are listed snapshots and 1–10 values are SitePilot editorial fit signals, not universal rankings. Validate current plans, limits, integrations, and workflow results against your own requirements.'
+  'Prices are listed snapshots and 1–10 values are illustrative SitePilot editorial fit signals, not universal rankings. Stack totals and 40–120 hour implementation ranges are illustrative planning assumptions. Validate current plans, limits, integrations, and workflow results against your own requirements.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -139,7 +139,7 @@ const distributionSections = [
       {
         heading: 'WordPress automation',
         items: [
-          ['Jetpack Social', 'Auto-share to 30+ social platforms', '$10/month'],
+          ['Jetpack Social', 'Vendor-listed social platform integrations; verify current coverage', '$10/month'],
           ['Uncanny Automator', 'Complex WordPress workflow automation', '$149/year'],
           ['WP Scheduled Posts', 'AI-powered posting optimization', '$79/year'],
         ],
@@ -609,7 +609,7 @@ export default function AIContentWorkflowAutomation() {
 
             <div className="grid lg:grid-cols-2 gap-6 mt-8">
               <div className="page-card-soft p-6">
-                <h3 className="text-2xl font-semibold text-slate-950 mb-5">ROI calculation framework</h3>
+                <h3 className="text-2xl font-semibold text-slate-950 mb-5">Illustrative planning ranges</h3>
                 <div className="space-y-3 text-sm">
                   {roiCards.map(([label, value]) => (
                     <div key={label} className="flex items-center justify-between gap-4">
@@ -655,8 +655,8 @@ export default function AIContentWorkflowAutomation() {
                   ))}
                 </ul>
                 <div className="mt-5 pt-5 border-t border-slate-200">
-                  <div className="font-semibold text-slate-950">Total cost: {stack.total}</div>
-                  <div className="text-sm text-indigo-600">ROI: {stack.roi}</div>
+                  <div className="font-semibold text-slate-950">Illustrative total cost: {stack.total}</div>
+                  <div className="text-sm text-indigo-600">Planning fit: {stack.roi}</div>
                 </div>
               </div>
             ))}

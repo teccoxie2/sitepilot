@@ -38,6 +38,7 @@ const heroStats = [
   { value: '83%', label: 'Illustrative successful-project share' },
   { value: '$250K-$15M', label: 'Illustrative investment range' },
 ]
+const scenarioDisclosure = 'Illustrative planning scenario: these percentages and investment ranges are editorial assumptions, not measured case studies or third-party research. Replace them with dated internal baselines, pilot evidence, or vendor documentation before making a decision.'
 
 const patterns = [
   {
@@ -153,6 +154,7 @@ export default function EnterpriseAISuccessPatternsPage() {
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI success patterns analysis</div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">7 critical patterns,<span className="brand-gradient-text block">understand the success path before the project turns into an incident.</span></h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">Enterprise AI success patterns analysis identifies the operating choices that separate projects with measurable ROI, controlled rollout risk, funded change management, and visible governance from projects that stall after demos, drift on budget, or collapse during deployment. This page turns those patterns into a buyer and operator reference model.</p>
+                <div className="mb-8 rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm leading-6 text-amber-950">{scenarioDisclosure}</div>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#patterns" className="btn-brand inline-flex items-center gap-2">View 7 patterns <ArrowRight className="h-4 w-4" /></a>
                   <a href="#checklist" className="btn-secondary inline-flex items-center gap-2">View checklist</a>
@@ -165,7 +167,7 @@ export default function EnterpriseAISuccessPatternsPage() {
                 <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-sky-50/35 to-white blur-2xl" />
                 <div className="relative page-card-glow p-5 md:p-6">
                   <div className="page-card bg-white/95 p-6">
-                    <div className="mb-6 flex items-center justify-between"><div><div className="mb-1 text-sm text-slate-500">What the research says</div><div className="text-xl font-semibold text-slate-950">Patterns beat optimism</div></div><div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">Evidence-based</div></div>
+                    <div className="mb-6 flex items-center justify-between"><div><div className="mb-1 text-sm text-slate-500">What the planning scenario models</div><div className="text-xl font-semibold text-slate-950">Patterns beat optimism</div></div><div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">Scenario model</div></div>
                     <div className="space-y-3">{['Business pain first', 'CFO in the loop', 'Iterate small', 'Governance on paper and in practice'].map((item) => (<div key={item} className="rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 px-4 py-4"><div className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" /><p className="text-sm leading-6 text-slate-600">{item}</p></div></div>))}</div>
                   </div>
                 </div>
@@ -176,7 +178,7 @@ export default function EnterpriseAISuccessPatternsPage() {
 
         <section className="mb-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ['Success rate', '83% of tracked projects followed the same core operating patterns.'],
+            ['Success rate', 'Illustrative scenario: 83% of modeled projects follow the same core operating patterns.'],
             ['Decision quality', 'Patterns reduce guesswork and stop strategy theater.'],
             ['ROI direction', 'Good patterns make payback visible earlier.'],
             ['Failure prevention', 'Weak patterns show up before the budget gets cooked.'],

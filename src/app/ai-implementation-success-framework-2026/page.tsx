@@ -23,8 +23,9 @@ type SuccessMetric = {
 
 const pageTitle = 'AI Implementation Success Framework 2026 | SitePilot'
 const pageDescription =
-  'Proven 4-phase enterprise AI implementation framework with industry benchmarks, success metrics, risk mitigation guidance, and ROI planning.'
+  'A 4-phase enterprise AI implementation framework with illustrative planning ranges, success metrics, risk mitigation guidance, and ROI planning.'
 const pageUrl = 'https://sitepilot.co/ai-implementation-success-framework-2026'
+const scenarioDisclosure = 'Illustrative planning scenarios: the timelines, adoption targets, ROI ranges, industry figures, and savings assumptions are editorial inputs—not measured SitePilot results or third-party benchmarks. Replace them with dated internal baselines, pilot evidence, and current vendor data before approval.'
 
 const implementationPhases: ImplementationPhase[] = [
   {
@@ -293,6 +294,7 @@ export default function AIImplementationSuccessFramework2026() {
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
                 An AI implementation success framework breaks enterprise rollout into sequenced phases covering readiness, pilot scope, adoption targets, governance controls, and ROI checkpoints so leaders can fund, deploy, and scale AI programs without losing control of timeline, risk, or operating ownership.
               </p>
+              <div className="mb-8 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm leading-6 text-amber-950">{scenarioDisclosure}</div>
 
               <div className="flex flex-wrap gap-3 mb-10">
                 <a href="#customize" className="btn-brand">
@@ -335,7 +337,7 @@ export default function AIImplementationSuccessFramework2026() {
 
                   <div className="space-y-3">
                     {[
-                      'Industry benchmark selector for ROI, time-to-value, and success factors',
+                      'Illustrative industry planning selector for ROI, time-to-value, and success factors',
                       'Four implementation phases with activities, criteria, challenges, and mitigations',
                       'Success metrics across productivity, financial impact, and innovation capability',
                       'Direct links to governance, ROI, and compliance resources for adjacent planning',

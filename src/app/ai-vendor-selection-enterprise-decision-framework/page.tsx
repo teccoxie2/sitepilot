@@ -22,6 +22,7 @@ const heroStats = [
   { value: '94%', label: 'Scenario selection success rate' },
   { value: '$2.1M', label: 'Illustrative switching cost' },
 ]
+const selectionDisclosure = 'Illustrative editorial comparison: vendor counts, scores, market context, switching costs, and ROI statements are planning assumptions—not a live procurement benchmark or controlled test. Verify current pricing, contracts, security evidence, and pilot results before selecting a vendor.'
 
 const marketCards = [
   { value: '250+', label: 'Illustrative vendor universe' },
@@ -249,6 +250,7 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">
                   Use an eight-dimension decision framework, scoring matrix, and execution plan to make vendor selection systematic and reduce the cost of a poor-fit purchase.
                 </p>
+                <div className="mb-8 rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm leading-6 text-amber-950">{selectionDisclosure}</div>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#matrix" className="btn-brand inline-flex items-center gap-2">
                     View scoring matrix
@@ -314,7 +316,7 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
               <span className="brand-gradient-text block">and wrong selection is still expensive.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              The original market data and switching-cost logic stay intact. The difference is that the page now reads like a real decision surface instead of an oversized promo sheet.
+              The editorial market context and switching-cost assumptions stay visible. The difference is that the page now reads like a real decision surface instead of an oversized promo sheet.
             </p>
           </div>
 
@@ -483,7 +485,7 @@ export default function AIVendorSelectionEnterpriseDecisionFrameworkPage() {
               ROI impact kept from the original page
             </div>
             <p className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 md:text-3xl">
-              Systematic vendor selection increases success probability by 3.5x and reduces TCO by $5M over 3 years.
+              Illustrative scenario: systematic vendor selection increases success probability by 3.5x and reduces TCO by $5M over 3 years.
             </p>
           </div>
         </section>

@@ -38,6 +38,7 @@ const heroStats = [
   { value: '35-50%', label: 'Illustrative hidden-cost share' },
   { value: '47%', label: 'Illustrative success-rate scenario' },
 ]
+const scenarioDisclosure = 'Illustrative planning scenario: the rates, ranges, and industry figures below are assumptions for structuring a CFO conversation, not measured portfolio outcomes or third-party benchmarks. Replace them with dated internal baselines, pilot evidence, and current vendor costs.'
 
 const steps = [
   {
@@ -142,6 +143,7 @@ export default function EnterpriseAIROIFrameworkPage() {
                 <div className="page-pill mb-6 inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#635bff]" />Enterprise AI ROI optimization framework</div>
                 <h1 className="page-title mb-6 text-5xl md:text-7xl">Enterprise AI ROI framework,<span className="brand-gradient-text block">Do not let finance buy a “payback is coming soon” story.</span></h1>
                 <p className="page-lead mb-8 max-w-2xl text-lg md:text-xl">A CFO-oriented enterprise AI investment analysis framework with a seven-step method, benchmark assumptions, and a decision checklist for disciplined payback planning.</p>
+                <div className="mb-8 rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm leading-6 text-amber-950">{scenarioDisclosure}</div>
                 <div className="mb-10 flex flex-wrap gap-3">
                   <a href="#framework" className="btn-brand inline-flex items-center gap-2">View 7-step framework <ArrowRight className="h-4 w-4" /></a>
                   <a href="#benchmarks" className="btn-secondary inline-flex items-center gap-2">View industry benchmarks</a>
@@ -174,10 +176,10 @@ export default function EnterpriseAIROIFrameworkPage() {
 
         <section className="mb-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ['Success rate', 'Only 47% of AI projects succeed without financial discipline.'],
-            ['Planning advantage', '83% of successful firms use structured financial modeling.'],
-            ['Payback window', 'Typical ROI returns show up in 6-24 months.'],
-            ['Hidden cost share', 'Plan for 35-50% of the budget before launch.'],
+            ['Success rate', 'Illustrative scenario: 47% of AI projects succeed without financial discipline.'],
+            ['Planning advantage', 'Illustrative scenario: 83% of successful firms use structured financial modeling.'],
+            ['Payback window', 'Illustrative planning range: ROI returns appear in 6-24 months.'],
+            ['Hidden cost share', 'Illustrative planning range: reserve 35-50% of the budget before launch.'],
           ].map(([title, body]) => (
             <div key={title} className="page-card p-5"><div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900"><BarChart3 className="h-4 w-4 text-indigo-500" />{title}</div><p className="text-sm leading-6 text-slate-600">{body}</p></div>
           ))}

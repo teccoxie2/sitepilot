@@ -5,15 +5,15 @@ import { ArrowRight, BarChart3, CheckCircle2, DollarSign, Mail, Shield, Sparkles
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 const metadataConfig: Metadata = {
-  title: 'Best Email Marketing Tools 2026: Complete Guide & Comparison',
+  title: 'Best Email Marketing Tools 2026: Workflow and Pricing Comparison',
   description:
-    'Discover the top 15 email marketing tools for 2026. In-depth reviews, pricing comparison, and expert recommendations for businesses of all sizes. Find your perfect email marketing solution.',
+    'Compare email marketing platforms in 2026 by automation depth, deliverability, pricing, reporting, and operating fit before migration or renewal.',
   keywords:
     'best email marketing tools 2026, email marketing software, email automation, newsletter tools, email campaigns, mailchimp alternatives, convertkit review, email marketing platforms',
   openGraph: {
-    title: 'Best Email Marketing Tools 2026: Complete Guide & Comparison',
+    title: 'Best Email Marketing Tools 2026: Workflow and Pricing Comparison',
     description:
-      'Expert reviews of 15 top email marketing tools. Compare features, pricing & performance. Find the perfect email marketing solution for your business.',
+      'Compare email marketing platforms by workflow fit, pricing snapshots, automation, and reporting needs.',
     type: 'article',
     url: 'https://sitepilot.co/best-email-marketing-tools-2026',
   },
@@ -23,11 +23,13 @@ const metadataConfig: Metadata = {
 };
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
+const comparisonDisclosure =
+  'Prices are listed snapshots and ratings are illustrative SitePilot editorial fit signals, not deliverability tests, survey results, or a third-party benchmark. Verify current plans, list limits, and inbox performance before committing.'
 const stats = [
-  { value: '15', label: 'Platforms tested' },
-  { value: '$12K', label: 'Testing investment' },
-  { value: '50K+', label: 'Subscribers in campaigns' },
-  { value: '2026', label: 'Feature set reviewed' },
+  { value: '15', label: 'Platforms in editorial set' },
+  { value: '4', label: 'Buyer dimensions' },
+  { value: '6', label: 'Detailed comparison rows' },
+  { value: '2026', label: 'Pricing snapshot year' },
 ]
 
 const winners = [
@@ -99,7 +101,7 @@ export default function BestEmailMarketingTools2026() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Best Email Marketing Tools 2026: Complete Guide & Comparison"
+        title="Best Email Marketing Tools 2026: Workflow and Pricing Comparison"
         description="Expert reviews of top email marketing tools with pricing, workflow fit, and practical recommendations."
         url="https://sitepilot.co/best-email-marketing-tools-2026"
         publishedDate="2026-03-07"
@@ -127,6 +129,10 @@ export default function BestEmailMarketingTools2026() {
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
                 Email marketing tools in 2026 differ most on automation depth, deliverability, pricing, reporting, and operating fit. This comparison helps businesses choose the right platform for newsletters, lifecycle campaigns, and retention workflows by matching team complexity, list economics, and channel goals before migration or renewal.
+              </p>
+
+              <p className="mb-8 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {comparisonDisclosure}
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -185,13 +191,13 @@ export default function BestEmailMarketingTools2026() {
             <div className="page-card-glow p-1.5">
               <div className="page-card rounded-[1.8rem] p-7 h-full">
                 <div className="page-pill mb-4">Methodology</div>
-                <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-5">How the tools were tested.</h2>
+                <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 mb-5">How the tools are compared.</h2>
                 <div className="space-y-4">
                   {[
-                    'Real business campaigns across 50,000+ subscribers',
-                    'Six-month testing period per platform',
-                    'Deliverability and inbox placement checks',
-                    'ROI review against actual operating workflows',
+                    'Editorial workflow comparison across creator, SMB, and ecommerce use cases',
+                    'Listed pricing and plan-limit checks; verify current terms before purchase',
+                    'Deliverability and inbox placement are buyer validation steps, not SitePilot test results',
+                    'Use your own list baseline and operating workflow for ROI review',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-indigo-500 mt-0.5 shrink-0" />
@@ -239,7 +245,7 @@ export default function BestEmailMarketingTools2026() {
                       <h3 className="text-xl font-semibold text-slate-950">{tool.name}</h3>
                       <div className="text-slate-500">{tool.note}</div>
                     </div>
-                    <div className="text-sm font-semibold text-slate-700">{tool.price}</div>
+                    <div className="text-sm font-semibold text-slate-700">Listed snapshot {tool.price}</div>
                   </div>
                 </div>
               ))}
@@ -264,7 +270,7 @@ export default function BestEmailMarketingTools2026() {
                     <Shield className="h-5 w-5 text-indigo-500" />
                     <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">{tool.name}</h3>
                   </div>
-                  <div className="text-sm font-semibold text-slate-700 mb-3">{tool.price}</div>
+                  <div className="text-sm font-semibold text-slate-700 mb-3">Listed snapshot {tool.price}</div>
                   <p className="text-slate-600 leading-7">{tool.note}</p>
                 </div>
               </div>
@@ -298,8 +304,8 @@ export default function BestEmailMarketingTools2026() {
                   {comparisonRows.map((row) => (
                     <tr key={row.tool}>
                       <td className="px-6 py-4 font-medium border-b border-slate-200 text-slate-950">{row.tool}</td>
-                      <td className="px-6 py-4 border-b border-slate-200 text-slate-600">{row.rating}</td>
-                      <td className="px-6 py-4 border-b border-slate-200 text-slate-600">{row.price}</td>
+                      <td className="px-6 py-4 border-b border-slate-200 text-slate-600">Editorial fit {row.rating}</td>
+                      <td className="px-6 py-4 border-b border-slate-200 text-slate-600">Listed snapshot {row.price}</td>
                       <td className="px-6 py-4 border-b border-slate-200 text-slate-600">{row.bestFor}</td>
                       <td className="px-6 py-4 border-b border-slate-200 text-slate-600">{row.trial}</td>
                       <td className="px-6 py-4 border-b border-slate-200 text-indigo-600 font-semibold">{row.automation}</td>

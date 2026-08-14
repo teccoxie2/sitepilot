@@ -30,6 +30,8 @@ const metadataConfig: Metadata = {
 };
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
+const comparisonDisclosure =
+  'Prices are listed snapshots; ratings, ROI ranges, keyword counts, and performance figures are illustrative SitePilot editorial/scenario signals, not controlled production tests or vendor guarantees. Verify current plan scope and validate lift against a dated baseline.'
 const stats = [
   { value: '5', label: 'ranked platforms' },
   { value: '4', label: 'decision angles' },
@@ -72,7 +74,7 @@ const rankedTools = [
     strengths: [
       'Content Editor with 500+ illustrative ranking factors',
       'SERP analysis with a 94% illustrative accuracy assumption',
-      '1B+ keyword database for research and planning',
+      'Vendor-listed keyword database; verify current scope and limits',
       'Team collaboration that fits repeatable editorial workflows',
     ],
     results: [
@@ -192,7 +194,7 @@ export default function BestAISEOTools2026() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Best AI SEO Tools 2026: Expert Reviews & Comparisons"
+        title="Best AI SEO Tools 2026: Editorial Comparison"
         description="Best AI SEO tools in 2026 should be compared by content optimization depth, briefing workflow, technical monitoring, pricing, and team fit. Use this comparison to shortlist platforms for editorial production, search visibility, and operational SEO control."
         url="https://sitepilot.co/best-ai-seo-tools-2026"
         publishedDate="2026-02-15T00:00:00Z"
@@ -222,6 +224,10 @@ export default function BestAISEOTools2026() {
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
                 Best AI SEO tools in 2026 should be compared by optimization depth, briefing workflow, technical monitoring, pricing, and team fit. This shortlist helps buyers separate writing assistants from true SEO operating systems so content, technical, and reporting needs are evaluated in the same decision frame.
+              </p>
+
+              <p className="mb-8 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {comparisonDisclosure}
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -273,8 +279,8 @@ export default function BestAISEOTools2026() {
 
                   <div className="mt-6 grid gap-3 sm:grid-cols-3">
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
-                      <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">Testing period</div>
-                      <div className="font-semibold text-slate-950">Mar 2025 to Feb 2026</div>
+                      <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">Editorial review window</div>
+                      <div className="font-semibold text-slate-950">Illustrative Mar 2025 to Feb 2026 snapshot</div>
                     </div>
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
                       <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">Keywords tracked</div>
@@ -344,7 +350,7 @@ export default function BestAISEOTools2026() {
 
                   <div className="rounded-2xl border border-slate-200 bg-white px-5 py-5">
                     <div className="font-semibold text-slate-950 mb-4">Pricing snapshot</div>
-                    <div className="text-sm text-slate-600 mb-6">{rankedTools[0].price}</div>
+                    <div className="text-sm text-slate-600 mb-6">Listed snapshot {rankedTools[0].price}</div>
                     <a
                       href={rankedTools[0].href}
                       target="_blank"
@@ -375,7 +381,7 @@ export default function BestAISEOTools2026() {
                     </div>
                     <p className="text-slate-600 leading-7 mb-5">{tool.summary}</p>
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-600">
-                      <span className="font-semibold text-slate-900">Pricing:</span> {tool.price}
+                      <span className="font-semibold text-slate-900">Listed pricing snapshot:</span> {tool.price}
                     </div>
                   </div>
                 </div>
@@ -389,9 +395,9 @@ export default function BestAISEOTools2026() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-2xl mb-10">
             <div className="page-pill mb-4">Methodology</div>
-            <h2 className="page-title text-3xl md:text-5xl mb-4">How the testing was run.</h2>
+            <h2 className="page-title text-3xl md:text-5xl mb-4">How the editorial comparison was built.</h2>
             <p className="page-lead text-lg">
-              The scoring prioritized real production behavior over feature sheets and demo environments.
+              This is an editorial comparison model, not a controlled production test. Use the criteria to structure your own baseline, trial, and verification work.
             </p>
           </div>
 

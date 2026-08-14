@@ -20,6 +20,8 @@ const pageTitle = 'Enterprise AI Implementation Best Practices 2026 | SitePilot'
 const pageDescription =
   'Enterprise AI implementation best practices should define scope, owners, controls, rollout phases, and success metrics before teams expand beyond a pilot. Use this framework to sequence adoption, manage delivery risk, and connect governance, tooling, and ROI decisions.'
 const pageUrl = 'https://sitepilot.co/enterprise-ai-implementation-best-practices-2026'
+const scenarioDisclosure =
+  'The outcomes below are illustrative planning scenarios, not customer case studies or measured SitePilot results. Replace every investment, savings, adoption, and quality assumption with dated internal or vendor evidence before approval.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -144,7 +146,7 @@ const successStories = [
   {
     label: 'Manufacturing',
     title: 'Production optimization',
-    bullets: ['Predictive maintenance reduced downtime by 31%', 'Quality control automation improved accuracy by 94%', 'Supply chain optimization cut inventory costs by 23%'],
+    bullets: ['Illustrative scenario: predictive maintenance reduces downtime by 31%', 'Illustrative scenario: quality control automation improves accuracy by 94%', 'Illustrative scenario: supply chain optimization cuts inventory costs by 23%'],
     investment: '$47K',
     outcome: '$2.1M annual savings',
     tone: 'border-sky-100 bg-sky-50/70 text-sky-800',
@@ -152,7 +154,7 @@ const successStories = [
   {
     label: 'Professional services',
     title: 'Service transformation',
-    bullets: ['Document automation saved 87% processing time', 'Client communication improved by 156% speed', 'Proposal automation increased win rate by 43%'],
+    bullets: ['Illustrative scenario: document automation saves 87% processing time', 'Illustrative scenario: client communication improves by 156% speed', 'Illustrative scenario: proposal automation increases win rate by 43%'],
     investment: '$23K',
     outcome: '$890K/year revenue increase',
     tone: 'border-violet-100 bg-violet-50/70 text-violet-800',
@@ -160,7 +162,7 @@ const successStories = [
   {
     label: 'Healthcare',
     title: 'Operational excellence',
-    bullets: ['Medical documentation saved 5.2 hours/doctor/week', 'Patient queries response time reduced by 78%', 'Appointment optimization improved utilization by 91%'],
+    bullets: ['Illustrative scenario: medical documentation saves 5.2 hours/doctor/week', 'Illustrative scenario: patient query response time falls by 78%', 'Illustrative scenario: appointment optimization improves utilization by 91%'],
     investment: '$61K',
     outcome: '$2.8M annual savings',
     tone: 'border-indigo-100 bg-indigo-50/70 text-indigo-800',
@@ -245,7 +247,11 @@ export default function EnterpriseAIImplementationPage() {
                     View best practices
                   </a>
                 </div>
-                <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
+                    <p className="mb-8 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                      {scenarioDisclosure}
+                    </p>
+
+                    <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
                   {heroStats.map((stat) => (
                     <div key={stat.label} className="page-card bg-white/90 p-4">
                       <div className="text-2xl font-semibold text-slate-950 md:text-3xl">{stat.value}</div>
@@ -292,7 +298,7 @@ export default function EnterpriseAIImplementationPage() {
 
         <section id="framework" className="mb-16">
           <div className="mb-8 max-w-2xl">
-            <div className="page-pill mb-3 inline-flex items-center gap-2">
+              <div className="page-pill mb-3 inline-flex items-center gap-2">
               <Compass className="h-4 w-4 text-[#635bff]" />
               Implementation framework
             </div>
@@ -343,7 +349,7 @@ export default function EnterpriseAIImplementationPage() {
           <div className="mb-8 max-w-2xl">
             <div className="page-pill mb-3 inline-flex items-center gap-2">
               <Zap className="h-4 w-4 text-[#635bff]" />
-              Proven best practices
+                  Implementation practices
             </div>
             <h2 className="page-title text-3xl md:text-4xl">What actually keeps enterprise AI from going sideways</h2>
             <p className="page-lead mt-3 text-lg">
@@ -380,11 +386,11 @@ export default function EnterpriseAIImplementationPage() {
           <div className="mb-8 max-w-2xl">
             <div className="page-pill mb-3 inline-flex items-center gap-2">
               <Users className="h-4 w-4 text-[#635bff]" />
-              Success stories
+                  Illustrative scenarios
             </div>
-            <h2 className="page-title text-3xl md:text-4xl">Enterprise success stories</h2>
+            <h2 className="page-title text-3xl md:text-4xl">Enterprise implementation scenarios</h2>
             <p className="page-lead mt-3 text-lg">
-              Same story, different vertical: clear use case, disciplined rollout, measured outcome.
+              Same planning pattern, different vertical: clear use case, disciplined rollout, and an outcome that still needs buyer validation.
             </p>
           </div>
 
@@ -402,11 +408,11 @@ export default function EnterpriseAIImplementationPage() {
                 </div>
                 <div className="mt-5 border-t border-slate-200/70 pt-4 text-sm text-slate-700">
                   <div className="flex items-center justify-between gap-4">
-                    <span className="text-slate-500">Investment</span>
+                    <span className="text-slate-500">Scenario investment</span>
                     <span className="font-semibold text-slate-950">{story.investment}</span>
                   </div>
                   <div className="mt-2 flex items-center justify-between gap-4">
-                    <span className="text-slate-500">Outcome</span>
+                    <span className="text-slate-500">Scenario outcome</span>
                     <span className="font-semibold text-indigo-700">{story.outcome}</span>
                   </div>
                 </div>
@@ -425,7 +431,7 @@ export default function EnterpriseAIImplementationPage() {
                 </div>
                 <h2 className="page-title text-3xl md:text-4xl">Ready to transform your enterprise?</h2>
                 <p className="page-lead mt-3 text-lg">
-                  Get your customized AI implementation strategy based on proven frameworks and real enterprise data from our $25K investment research.
+                  Get a customized AI implementation planning framework grounded in your operating baseline, evidence, and pilot requirements.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

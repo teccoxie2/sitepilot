@@ -9,8 +9,12 @@ function trimToWordBoundary(value: string, maxLength: number) {
   const normalized = value.replace(/\s+/g, ' ').trim()
   if (normalized.length <= maxLength) return normalized
 
-  const truncated = normalized.slice(0, maxLength + 1).replace(/\s+\S*$/, '').trim()
-  return truncated.replace(/[,:;|–—-]+$/, '').trim()
+  const sentence = normalized.slice(0, maxLength).match(/^.*[.!?](?=\s|$)/)?.[0]?.trim()
+  if (sentence && sentence.length >= Math.floor(maxLength * 0.65)) return sentence
+
+  const truncated = normalized.slice(0, maxLength - 1).replace(/\s+\S*$/, '').trim()
+  const clean = truncated.replace(/[,:;|&–—-]+$/, '').trim()
+  return `${clean}…`
 }
 
 export function normalizeSeoText(value: string, maxLength: number) {

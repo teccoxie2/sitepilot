@@ -19,6 +19,8 @@ const pageTitle = 'AI Governance and Compliance Framework for Enterprises 2026 |
 const pageDescription =
   'Complete enterprise AI governance framework covering EU AI Act, NIST AI RMF, global standards, operating models, risk controls, and responsible AI implementation.'
 const pageUrl = 'https://sitepilot.co/ai-governance-compliance-framework-2026'
+const numericDisclosure =
+  'Regulatory thresholds and financial values are directional references only. Verify the current law, jurisdiction, organization scope, and source date with qualified counsel; the governance value range is an illustrative planning scenario.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -68,16 +70,16 @@ const quickNav = [
 const summaryCards = [
   { value: '4', label: 'Core governance pillars' },
   { value: '12', label: 'Weeks to first operating model' },
-  { value: '€35M', label: 'Maximum EU AI Act fine cited on the page' },
-  { value: '$5M-$50M+', label: 'Typical annual governance value range' },
+  { value: 'Verify current text', label: 'EU AI Act penalty reference' },
+  { value: 'Illustrative $5M-$50M+', label: 'Scenario annual governance value range' },
 ] as const
 
 const regulations = [
   {
     title: 'EU AI Act',
     accent: 'text-blue-600',
-    metric: '€35M',
-    note: 'Maximum penalty or 7% of global revenue for the most serious non-compliance scenarios.',
+    metric: 'Legal ceiling varies',
+    note: 'Confirm the current penalty text, scope, and applicability with qualified counsel before relying on it.',
     items: [
       'High-risk AI system requirements',
       'Prohibited AI practices',
@@ -923,6 +925,10 @@ export default function AIGovernanceComplianceFramework2026Page() {
                   Check readiness
                 </Link>
               </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
             </div>
           </div>
         </div>

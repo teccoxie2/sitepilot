@@ -29,15 +29,15 @@ const metadataConfig: Metadata = {
     canonical: pageUrl,
   },
   openGraph: {
-    title: 'Enterprise AI Tools Cost Optimization Guide - Deliver 30-50% Savings',
-    description: 'A practical path from $50,000 to $28,000 in annual spend, with a four-quadrant cost matrix, size-based optimization strategy, and quantified ROI model.',
+    title: 'Enterprise AI Tools Cost Optimization Guide - Illustrative 30-50% Savings Scenario',
+    description: 'An illustrative path from $50,000 to $28,000 in annual spend, with a four-quadrant cost matrix, size-based optimization strategy, and ROI planning model.',
     type: 'article',
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Enterprise AI Tools Cost Optimization Guide | SitePilot',
-    description: 'A cost optimization strategy based on testing across 78 AI tools, with 30-50% savings and a framework for 550% ROI gains.',
+    description: 'An illustrative cost optimization scenario across 78 AI tools, with 30-50% savings and a framework for planning ROI gains.',
   },
 };
 
@@ -59,21 +59,21 @@ const optimizationSignals = [
 const strategyCards = [
   {
     title: 'Smaller teams',
-    range: '10-50 employees · $5,000-$12,000 / year',
+    range: 'Illustrative: 10-50 employees · $5,000-$12,000 / year',
     note: 'Start with consolidation and eliminate overlapping functionality first.',
-    outcome: 'Example savings: $8,000 to $5,500',
+    outcome: 'Illustrative example savings: $8,000 to $5,500',
   },
   {
     title: 'Mid-sized teams',
-    range: '50-200 employees · $15,000-$35,000 / year',
+    range: 'Illustrative: 50-200 employees · $15,000-$35,000 / year',
     note: 'Combine enterprise platforms with a small set of specialized tools and active usage governance.',
-    outcome: 'Enterprise discounting can typically save 25-35%',
+    outcome: 'Illustrative discounting scenario: 25-35% savings',
   },
   {
     title: 'Large enterprises',
-    range: '200+ employees · $50,000-$150,000 / year',
+    range: 'Illustrative: 200+ employees · $50,000-$150,000 / year',
     note: 'Blend internal development, strategic procurement, and deep integration to keep the budget under control.',
-    outcome: 'Core platforms 60% + specialized tools 30% + innovation 10%',
+    outcome: 'Illustrative allocation scenario: core 60% + specialized 30% + innovation 10%',
   },
 ]
 

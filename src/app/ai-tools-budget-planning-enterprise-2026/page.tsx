@@ -52,10 +52,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
-  { value: '18-25%', label: 'Share of IT budget allocated to AI tools' },
-  { value: '47%', label: 'Budget growth trend in 2026' },
-  { value: '$680K', label: 'Average avoidable annual budget waste' },
-  { value: '12-18 months', label: 'Typical ROI payback window' },
+  { value: '18-25%', label: 'Illustrative share of IT budget allocated to AI tools' },
+  { value: '47%', label: 'Illustrative 2026 budget-growth scenario' },
+  { value: '$680K', label: 'Illustrative avoidable annual budget-waste scenario' },
+  { value: '12-18 months', label: 'Illustrative ROI payback scenario' },
 ]
 
 const planningSignals = [
@@ -76,7 +76,7 @@ const budgetBands = [
       'Analytics tools 20%',
       'Other or buffer 10%',
     ],
-    roi: 'Target 200% ROI within 18 months',
+    roi: 'Target scenario: 200% ROI within 18 months',
   },
   {
     title: 'Mid-market enterprises',
@@ -88,7 +88,7 @@ const budgetBands = [
       'Data analysis and insight tools 25%',
       'Integration and security 15%',
     ],
-    roi: 'Target 150% ROI within 12 months',
+    roi: 'Target scenario: 150% ROI within 12 months',
   },
   {
     title: 'Large enterprises',
@@ -100,7 +100,7 @@ const budgetBands = [
       'Security and compliance 20%',
       'Training and support 10%',
     ],
-    roi: 'Target 300% ROI within 8-12 months',
+    roi: 'Target scenario: 300% ROI within 8-12 months',
   },
 ]
 

@@ -169,6 +169,51 @@
       "owner": "SitePilot editorial",
       "review_date": "2026-09-14",
       "status": "review"
+    },
+    {
+      "claim_id": "CL-012",
+      "route": "/ai-procurement-decision-matrix-tool-2026",
+      "claim": "The procurement matrix uses editorial weights of 25%, 25%, 20%, 15%, and 15% across five decision dimensions.",
+      "claim_type": "editorial_scoring_model",
+      "source_url": null,
+      "source_location": "src/data/evidence/sitepilot-tool-model-v1.json :: tools.ai_procurement_decision_matrix.dimensions",
+      "sample_definition": null,
+      "collected_at": null,
+      "formula": "weighted total = sum(score / 5 * dimension weight)",
+      "conditions": "Internal starting weights only; replace with buyer-approved criteria and dated evidence before approval.",
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "example"
+    },
+    {
+      "claim_id": "CL-013",
+      "route": "/ai-implementation-cost-calculator-enterprise-2026",
+      "claim": "The cost calculator starts with a USD 1,800,000 illustrative base implementation input and editorial adjustment factors.",
+      "claim_type": "editorial_model_input",
+      "source_url": null,
+      "source_location": "src/data/evidence/sitepilot-tool-model-v1.json :: tools.ai_implementation_cost_roi",
+      "sample_definition": null,
+      "collected_at": null,
+      "formula": "base input × size × industry × scope × timeline × use-case factors",
+      "conditions": "This is a planning scenario, not a quote or market benchmark; replace defaults with dated vendor quotes and internal costs.",
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "estimate"
+    },
+    {
+      "claim_id": "CL-014",
+      "route": "/hosting-platform-fit-scorecard-2026",
+      "claim": "The hosting scorecard uses editorial weights of 30%, 20%, 15%, 20%, and 15% with scenario defaults for managed WordPress, shared, and cloud hosting.",
+      "claim_type": "editorial_scoring_model",
+      "source_url": null,
+      "source_location": "src/data/evidence/sitepilot-tool-model-v1.json :: tools.hosting_platform_fit_scorecard",
+      "sample_definition": null,
+      "collected_at": null,
+      "formula": "weighted total = sum(platform score / 5 * dimension weight)",
+      "conditions": "Illustrative fit signal only; validate with measured traffic, migration inventory, support terms, and a current quote.",
+      "owner": "SitePilot product",
+      "review_date": "2026-11-14",
+      "status": "example"
     }
   ]
 }

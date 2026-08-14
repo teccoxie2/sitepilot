@@ -35,40 +35,40 @@ const packages: Record<PackageKey, PackageConfig> = {
     cost: 35,
     efficiency: 0.6,
     name: 'Basic Package',
-    badge: '280% ROI',
+    badge: 'Illustrative 280% ROI scenario',
     includes: [
       'ChatGPT Plus ($20/month)',
       'Grammarly Business ($15/month)',
       'Basic implementation guide',
       'Template library access',
     ],
-    savings: ['8-12 hours/week saved', '$800-1,200/month labor savings', 'Around 3-month payback'],
+    savings: ['Illustrative scenario: 8-12 hours/week saved', 'Illustrative scenario: $800-1,200/month labor savings', 'Illustrative scenario: around 3-month payback'],
   },
   standard: {
     cost: 99,
     efficiency: 0.75,
     name: 'Standard Package',
-    badge: '380% ROI',
+    badge: 'Illustrative 380% ROI scenario',
     includes: [
       'Everything in Basic',
       'Zapier Professional',
       'Advanced automation templates',
       'CRM and email workflow setup',
     ],
-    savings: ['15-20 hours/week saved', '$1,500-2,500/month labor savings', 'Around 2-month payback'],
+    savings: ['Illustrative scenario: 15-20 hours/week saved', 'Illustrative scenario: $1,500-2,500/month labor savings', 'Illustrative scenario: around 2-month payback'],
   },
   premium: {
     cost: 199,
     efficiency: 0.85,
     name: 'Premium Package',
-    badge: '450% ROI',
+    badge: 'Illustrative 450% ROI scenario',
     includes: [
       'Everything in Standard',
       'Copy.ai Pro',
       'Canva Pro and Buffer Publish',
       'Advanced analytics support',
     ],
-    savings: ['20-25 hours/week saved', '$2,500-4,000/month labor savings', 'Around 1.5-month payback'],
+    savings: ['Illustrative scenario: 20-25 hours/week saved', 'Illustrative scenario: $2,500-4,000/month labor savings', 'Illustrative scenario: around 1.5-month payback'],
   },
   enterprise: {
     cost: 399,
@@ -81,7 +81,7 @@ const packages: Record<PackageKey, PackageConfig> = {
       'Higher-volume collaboration setup',
       'Deeper implementation support',
     ],
-    savings: ['25+ hours/week saved', '$4,000+/month labor savings', 'Fastest payback when usage is broad'],
+    savings: ['Illustrative scenario: 25+ hours/week saved', 'Illustrative scenario: $4,000+/month labor savings', 'Illustrative payback scenario when usage is broad'],
   },
 }
 
@@ -202,7 +202,7 @@ export default function AIROICalculator() {
       <SchemaMarkup
         type="article"
         title="AI ROI Calculator 2026"
-        description="Calculate AI tool investment returns with a tested methodology based on real small-business implementations."
+        description="Calculate AI tool investment returns with a scenario-based methodology using the inputs you provide."
         url="https://sitepilot.co/ai-roi-calculator"
         publishedDate="2026-03-07"
         modifiedDate="2026-03-07"

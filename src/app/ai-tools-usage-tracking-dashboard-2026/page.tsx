@@ -50,10 +50,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const heroStats = [
-  { value: '87%', label: 'Enterprises unable to measure AI tool ROI accurately' },
-  { value: '44%', label: 'Average budget savings opportunity' },
-  { value: '467%', label: 'Average first-year ROI' },
-  { value: '3.2 months', label: 'Average payback period' },
+  { value: '87%', label: 'Illustrative planning assumption: enterprises unable to measure AI tool ROI accurately' },
+  { value: '44%', label: 'Illustrative budget savings scenario' },
+  { value: '467%', label: 'Illustrative first-year ROI scenario' },
+  { value: '3.2 months', label: 'Illustrative payback scenario' },
 ]
 
 const dashboardSignals = [
@@ -65,18 +65,18 @@ const dashboardSignals = [
 
 const problemCards = [
   {
-    title: '37% budget waste',
-    description: 'Average usage sits at just 31%, while overlapping functionality and idle licenses quietly eat the budget.',
+    title: 'Illustrative 37% budget waste scenario',
+    description: 'Illustrative usage assumption of 31% shows how overlapping functionality and idle licenses can eat the budget.',
     icon: AlertTriangle,
   },
   {
     title: 'Weak data foundation',
-    description: '87% of enterprises cannot quantify real adoption, ROI, or depth of cross-team usage accurately.',
+    description: 'Illustrative 87% planning assumption: enterprises may lack accurate adoption, ROI, or cross-team usage data.',
     icon: BarChart3,
   },
   {
     title: 'Hidden costs stay high',
-    description: 'Training, integration, and maintenance add an average of $2,400 per tool per year, and many teams never model it.',
+    description: 'Illustrative $2,400-per-tool annual hidden-cost scenario covering training, integration, and maintenance.',
     icon: Shield,
   },
 ]
@@ -121,17 +121,17 @@ const alertLevels = [
 ]
 
 const beforeItems = [
-  '23 AI tool subscriptions with annual cost of $127,000',
-  'Average usage at 31% with heavy feature overlap',
-  'Training cost of $18,000 per year with high employee confusion',
-  '120 hours of IT maintenance work each month',
+  'Illustrative scenario: 23 AI tool subscriptions with annual cost of $127,000',
+  'Illustrative scenario: usage at 31% with heavy feature overlap',
+  'Illustrative scenario: training cost of $18,000 per year with high employee confusion',
+  'Illustrative scenario: 120 hours of IT maintenance work each month',
 ]
 
 const afterItems = [
-  '9 core tools with annual cost of $71,000, a 44% reduction',
-  'Average usage raised to 78% with a tighter functional stack',
-  'Training cost cut to $6,000 per year with satisfaction at 8.7 out of 10',
-  'IT maintenance reduced to 45 hours each month',
+  'Illustrative scenario: 9 core tools with annual cost of $71,000, a 44% reduction',
+  'Illustrative scenario: usage raised to 78% with a tighter functional stack',
+  'Illustrative scenario: training cost cut to $6,000 per year with satisfaction at 8.7 out of 10',
+  'Illustrative scenario: IT maintenance reduced to 45 hours each month',
 ]
 
 const serviceCards = [
@@ -320,8 +320,8 @@ export default function AIToolsUsageTrackingDashboardPage() {
           <div className="mb-8 max-w-3xl">
             <div className="mb-3 text-sm uppercase tracking-[0.22em] text-indigo-600/80">Case study</div>
             <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-              Case study: a 500-person company
-              <span className="brand-gradient-text block">From 23 tools down to 9 core tools.</span>
+              Illustrative case study: a 500-person company
+              <span className="brand-gradient-text block">Scenario: from 23 tools down to 9 core tools.</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
               The most valuable part of the page is not the headline. It is the before-and-after comparison: cost, usage, training spend, and maintenance hours are all there. That is what makes the page usable for actual decisions.
@@ -347,7 +347,7 @@ export default function AIToolsUsageTrackingDashboardPage() {
 
             <div className="page-card rounded-[1.8rem] border border-indigo-100 bg-white p-8">
               <div className="mb-6 inline-flex rounded-full border border-indigo-100 bg-indigo-50/80 px-3 py-1 text-xs font-semibold text-indigo-700">
-                Results after six months
+                Illustrative results scenario after six months
               </div>
               <div className="space-y-3">
                 {afterItems.map((item) => (
@@ -365,9 +365,9 @@ export default function AIToolsUsageTrackingDashboardPage() {
           <div className="page-card-glow overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
             <div className="grid gap-6 md:grid-cols-3">
               {[
-                ['467%', 'Total ROI in year one'],
-                ['3.2 months', 'Payback period'],
-                ['$84,000', 'Annual net benefit'],
+                ['467%', 'Illustrative total ROI scenario in year one'],
+                ['3.2 months', 'Illustrative payback scenario'],
+                ['$84,000', 'Illustrative annual net benefit scenario'],
               ].map(([value, label]) => (
                 <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 text-center">
                   <div className="mb-2 text-4xl font-semibold tracking-[-0.04em] text-slate-950">{value}</div>
@@ -394,7 +394,7 @@ export default function AIToolsUsageTrackingDashboardPage() {
                   ['10-50', 'Smaller teams'],
                   ['50-200', 'Mid-sized teams'],
                   ['200+', 'Large enterprises'],
-                  ['44%', 'Average savings rate'],
+                  ['44%', 'Illustrative savings-rate scenario'],
                 ].map(([value, label]) => (
                   <div key={label} className="page-card bg-white/90 p-4 text-center">
                     <div className="mb-1 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{value}</div>
@@ -505,10 +505,10 @@ export default function AIToolsUsageTrackingDashboardPage() {
                 Final CTA
               </div>
               <h2 className="mb-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-4xl">
-                Do not let another 37% of the AI budget evaporate.
+                Do not let an illustrative 37% of the AI budget evaporate.
               </h2>
               <p className="text-lg leading-8 text-slate-600">
-                The optimization logic based on a $25,000 investment and validation across 500 companies is still intact. The page now finally looks like it belongs to the same product family instead of a recycled 2023 B2B template.
+                The optimization logic is an illustrative $25,000 planning scenario, not a validated study across 500 companies. Replace every input with your own ledger before making a renewal decision.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">

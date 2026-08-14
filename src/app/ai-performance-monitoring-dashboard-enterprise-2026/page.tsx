@@ -24,6 +24,9 @@ const heroSignals = [
   'Preserves internal links, canonical, metadata, and schema.',
 ]
 
+const snapshotDisclosure =
+  'All dashboard values are fixed illustrative sample data for the interface. They are not current customer telemetry, uptime evidence, ROI results, or a live monitoring feed; connect your own logs and measurement window before relying on them.'
+
 const kpiMetrics = [
   { name: 'Model Accuracy', value: '94.2%', change: '+2.1%' },
   { name: 'Response Time', value: '0.8s', change: '-0.2s' },
@@ -99,6 +102,10 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
                     </Link>
                   </div>
 
+                  <p className="mb-6 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                    {snapshotDisclosure}
+                  </p>
+
                   <div className="grid gap-4 sm:grid-cols-2">
                     {heroSignals.map((item) => (
                       <div key={item} className="page-card flex items-start gap-3 bg-white/90 p-4">
@@ -119,14 +126,14 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
                           <div className="text-xl font-semibold text-slate-950">Same enterprise metrics, cleaner shell</div>
                         </div>
                         <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                          live ops
+                          sample data
                         </div>
                       </div>
 
                       <div className="grid gap-3">
                         {[
                           ['KPI metrics', 'Model accuracy, response time, API uptime, cost, and adoption.'],
-                          ['Charts', 'Real-time performance, throughput, success rate, and hourly cost.'],
+                          ['Charts', 'Sample performance, throughput, success-rate, and hourly-cost views.'],
                           ['Alerts', 'Latency, cost, model updates, and security status remain visible.'],
                           ['UI system', 'Aligned with the current light Stripe-ish cards and gradients.'],
                         ].map(([title, note]) => (
@@ -155,10 +162,10 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
           <section className="space-y-8">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {[
-                { value: '$2.4M', label: 'AI-Generated ROI', note: 'Net return for the current month.' },
-                { value: '1.2M', label: 'API Requests', note: 'Request volume over the last 24 hours.' },
-                { value: '94.2%', label: 'Avg Accuracy', note: 'Current average model accuracy.' },
-                { value: '1.2s', label: 'Response Time', note: 'P95 response time.' },
+                { value: 'Scenario $2.4M', label: 'Illustrative AI-generated ROI', note: 'Sample net return; replace with measured period data.' },
+                { value: 'Sample 1.2M', label: 'Illustrative API requests', note: 'Sample volume; replace with observed telemetry.' },
+                { value: 'Sample 94.2%', label: 'Illustrative average accuracy', note: 'Sample model metric; define your test set.' },
+                { value: 'Sample 1.2s', label: 'Illustrative response time', note: 'Sample P95; define endpoint and window.' },
               ].map((card) => (
                 <div key={card.label} className="page-card rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                   <div className="text-3xl font-semibold tracking-tight text-slate-950">{card.value}</div>
@@ -339,10 +346,10 @@ export default function AIPerformanceMonitoringDashboardEnterprisePage() {
               </div>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {[
-                  ['$47K', 'Monthly Spend', 'down $3K vs budget'],
-                  ['$0.003', 'Cost Per Query', 'down 15% after optimization'],
-                  ['340%', 'ROI Current', 'up 18% vs Q3'],
-                  ['18m', 'Payback Period', '3m ahead of plan'],
+                  ['Scenario $47K', 'Illustrative monthly spend', 'Sample variance vs budget'],
+                  ['Scenario $0.003', 'Illustrative cost per query', 'Sample variance after optimization'],
+                  ['Scenario 340%', 'Illustrative ROI', 'Sample comparison period'],
+                  ['Scenario 18m', 'Illustrative payback period', 'Sample planning assumption'],
                 ].map(([value, label, note]) => (
                   <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 text-center">
                     <div className="text-2xl font-semibold text-slate-950">{value}</div>

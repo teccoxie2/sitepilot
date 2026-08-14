@@ -15,11 +15,29 @@ export default function TrackedMailtoLink({
   className = '',
   formName = 'technical_audit_request',
 }: TrackedMailtoLinkProps) {
+  function handleClick() {
+    const params = new URLSearchParams(window.location.search)
+    const source = params.get('source')
+    let sourcePage: string | undefined
+    if (document.referrer) {
+      try {
+        sourcePage = new URL(document.referrer).pathname
+      } catch {
+        sourcePage = undefined
+      }
+    }
+    trackApplySubmit(formName, {
+      channel: 'mailto',
+      source: source ?? undefined,
+      source_page: sourcePage,
+    })
+  }
+
   return (
     <a
       href={href}
       className={className}
-      onClick={() => trackApplySubmit(formName, { channel: 'mailto' })}
+      onClick={handleClick}
     >
       {children}
     </a>

@@ -60,7 +60,7 @@ const featuredLinks = [
     label: 'Featured guide',
     title: 'The best web hosting services for 2026',
     description:
-      'A practical ranking of the strongest hosting options after real-world testing, uptime review, and support evaluation.',
+      'A practical comparison of hosting options by editorial fit, uptime evidence to verify, and support questions to ask.',
   },
   {
     href: '/hosting/hostinger-review',

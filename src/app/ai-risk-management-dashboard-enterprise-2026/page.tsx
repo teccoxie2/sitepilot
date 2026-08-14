@@ -12,11 +12,14 @@ const heroSignals = [
   'Preserves the internal links and risk-information structure',
 ]
 
+const snapshotDisclosure =
+  'This page displays a fixed illustrative risk snapshot for the interface. Compliance scores, asset counts, threat blocks, and event timings are not live telemetry or customer evidence; connect your own logs and review window before relying on them.'
+
 const statCards = [
-  { value: 'Low risk', label: 'Risk Rating', note: 'No high-risk events in the last 7 days.' },
-  { value: '98.5%', label: 'Compliance', note: 'GDPR, SOX, and HIPAA tracking remains active.' },
-  { value: '247', label: 'Assets Monitored', note: 'Models and endpoints stay under continuous monitoring.' },
-  { value: '1,247', label: 'Threat Blocks', note: 'Blocks recorded this month.' },
+  { value: 'Sample: low risk', label: 'Illustrative risk rating', note: 'Replace with your dated risk register.' },
+  { value: 'Sample: 98.5%', label: 'Illustrative compliance', note: 'Map to current GDPR, SOX, and HIPAA evidence.' },
+  { value: 'Sample: 247', label: 'Illustrative assets', note: 'Replace with observed models and endpoints.' },
+  { value: 'Sample: 1,247', label: 'Illustrative threat blocks', note: 'Replace with a measured reporting period.' },
 ]
 
 const relatedLinks = [
@@ -76,6 +79,10 @@ export default function AIRiskManagementDashboardPage() {
                       Compliance audit
                     </Link>
                   </div>
+
+                  <p className="mb-6 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                    {snapshotDisclosure}
+                  </p>
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     {heroSignals.map((item) => (
@@ -162,10 +169,10 @@ export default function AIRiskManagementDashboardPage() {
                   <h3 className="text-2xl font-semibold text-slate-950">Risk metrics snapshot</h3>
                   <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                     {[
-                      ['Risk Rating', 'Low risk', 'No high-risk events in the last 7 days'],
-                      ['Compliance', '98.5%', 'GDPR, SOX, HIPAA'],
-                      ['Assets Monitored', '247', 'AI models and endpoints'],
-                      ['Threat Blocks', '1,247', 'Blocks this month'],
+                      ['Risk Rating', 'Sample: low risk', 'Illustrative state; connect your own register'],
+                      ['Compliance', 'Sample: 98.5%', 'Illustrative GDPR, SOX, HIPAA view'],
+                      ['Assets Monitored', 'Sample: 247', 'Illustrative AI models and endpoints'],
+                      ['Threat Blocks', 'Sample: 1,247', 'Illustrative reporting-period count'],
                     ].map(([label, value, note]) => (
                       <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
                         <div className="text-sm text-slate-600">{label}</div>
@@ -210,10 +217,10 @@ export default function AIRiskManagementDashboardPage() {
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <div className="text-sm text-slate-500">Latest events</div>
-                        <div className="text-xl font-semibold text-slate-950">Real-time threat monitoring</div>
+                        <div className="text-xl font-semibold text-slate-950">Sample threat monitoring</div>
                       </div>
                       <div className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
-                        live feed
+                        sample feed
                       </div>
                     </div>
 
@@ -269,10 +276,10 @@ export default function AIRiskManagementDashboardPage() {
               </div>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {[
-                  ['Threat detection rate', '99.8%'],
-                  ['Average response time', '<30 sec'],
-                  ['24/7 monitoring', 'Always on'],
-                  ['Data leakage events', '0'],
+                  ['Illustrative threat detection rate', 'Sample 99.8%'],
+                  ['Illustrative response time', 'Sample <30 sec'],
+                  ['Illustrative monitoring rhythm', 'Sample 24/7'],
+                  ['Illustrative data leakage events', 'Sample 0'],
                 ].map(([label, value]) => (
                   <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 text-center">
                     <div className="text-2xl font-semibold text-slate-950">{value}</div>

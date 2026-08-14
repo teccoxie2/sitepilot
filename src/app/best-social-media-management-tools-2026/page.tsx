@@ -7,13 +7,13 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 const metadataConfig: Metadata = {
   title: 'Best Social Media Management Tools 2026 - Complete Guide & Comparison',
   description:
-    'Comprehensive review of the best social media management tools in 2026. Compare features, pricing, and performance across all major platforms for businesses, agencies, and influencers.',
+    'Compare selected social media management tools in 2026 by features, listed pricing, workflow fit, analytics, and evidence to validate for businesses, agencies, and influencers.',
   keywords:
     'best social media management tools 2026, social media scheduler, content planning tools, social media automation, hootsuite alternatives, buffer alternatives, social media analytics',
   openGraph: {
     title: 'Best Social Media Management Tools 2026 - Expert Reviews & Comparisons',
     description:
-      'Find the perfect social media management tool for your needs. In-depth reviews, feature comparisons, and real-world performance data.',
+      'Compare social media management tools by workflow fit, publishing controls, analytics, integrations, and the evidence you should validate before purchase.',
     type: 'article',
     url: 'https://sitepilot.co/best-social-media-management-tools-2026',
   },
@@ -24,7 +24,7 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
-  { value: '50+', label: 'Tools tested' },
+  { value: 'Selected', label: 'Tools compared' },
   { value: '3', label: 'Editor picks' },
   { value: '6', label: 'Key alternatives tracked' },
   { value: '2026', label: 'Current platform view' },

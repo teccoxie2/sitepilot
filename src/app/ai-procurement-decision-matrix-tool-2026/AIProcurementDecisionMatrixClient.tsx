@@ -9,41 +9,11 @@ import {
   trackToolComplete,
   trackToolStart,
 } from '@/components/GoogleAnalytics'
+import toolModel from '@/data/evidence/sitepilot-tool-model-v1.json'
 
-const dimensions = [
-  {
-    id: 'fit',
-    label: 'Strategic fit',
-    weight: 25,
-    description: 'Business outcome and workflow value',
-  },
-  {
-    id: 'security',
-    label: 'Security and governance',
-    weight: 25,
-    description: 'Control maturity, privacy, and auditability',
-  },
-  {
-    id: 'architecture',
-    label: 'Architecture and integration',
-    weight: 20,
-    description: 'Stack fit, data flow, and dependencies',
-  },
-  {
-    id: 'commercial',
-    label: 'Commercial and contract risk',
-    weight: 15,
-    description: 'Pricing, renewal, liability, and exit terms',
-  },
-  {
-    id: 'rollout',
-    label: 'Rollout readiness',
-    weight: 15,
-    description: 'Implementation, adoption, and operating overhead',
-  },
-] as const
-
-type DimensionId = (typeof dimensions)[number]['id']
+type DimensionId = 'fit' | 'security' | 'architecture' | 'commercial' | 'rollout'
+type Dimension = { id: DimensionId; label: string; weight: number; description: string }
+const dimensions = toolModel.tools.ai_procurement_decision_matrix.dimensions as readonly Dimension[]
 type Scores = Record<DimensionId, { a: number; b: number }>
 
 const defaultScores: Scores = {
@@ -70,8 +40,11 @@ function downloadFile(filename: string, content: string, type: string) {
   const anchor = document.createElement('a')
   anchor.href = url
   anchor.download = filename
+  anchor.style.display = 'none'
+  document.body.appendChild(anchor)
   anchor.click()
-  URL.revokeObjectURL(url)
+  anchor.remove()
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
 function buildShareUrl(vendorA: string, vendorB: string, scores: Scores, blockers: { a: boolean; b: boolean }) {
@@ -167,15 +140,17 @@ export default function AIProcurementDecisionMatrixClient() {
     setNotice('')
   }
 
-  function handleShare() {
+  async function handleShare() {
     startTracking()
     const url = buildShareUrl(vendorA, vendorB, scores, blockers)
-    if (navigator.clipboard) {
-      void navigator.clipboard.writeText(url).catch(() => undefined)
-    }
+    const copied = navigator.clipboard
+      ? await navigator.clipboard.writeText(url).then(() => true).catch(() => false)
+      : false
     window.history.replaceState(null, '', url)
-    setNotice('Share link copied. Anyone with the link can review this matrix.')
-    trackReportShare('ai_procurement_decision_matrix', 'clipboard')
+    setNotice(copied
+      ? 'Share link copied. Anyone with the link can review this matrix.'
+      : 'Share URL prepared in the address bar. Copy it manually to share this matrix.')
+    trackReportShare('ai_procurement_decision_matrix', copied ? 'clipboard' : 'address_bar')
   }
 
   function handleExportCsv() {
@@ -235,11 +210,11 @@ export default function AIProcurementDecisionMatrixClient() {
               Score each finalist from 0–5. The weighted result is a planning aid, not a vendor endorsement. Missing evidence should stay visible as unresolved risk.
             </p>
             <p className="mt-3 text-xs leading-5 text-slate-500">
-              Evidence standard v1.0 · checked 2026-08-14 · editorial scores must be replaced with dated vendor evidence, pilot results, and legal review.
+              Evidence standard v1.0 · decision model v{toolModel.version}.0 · checked {toolModel.checked_at} · editorial scores must be replaced with dated vendor evidence, pilot results, and legal review.
             </p>
           </div>
           <div className="rounded-2xl border border-indigo-100 bg-indigo-50/80 px-4 py-3 text-sm text-indigo-900">
-            Weights: 25 / 25 / 20 / 15 / 15
+            Weights: {dimensions.map((dimension) => dimension.weight).join(' / ')}
           </div>
         </div>
 
@@ -383,7 +358,7 @@ export default function AIProcurementDecisionMatrixClient() {
           >
             <Clipboard className="h-4 w-4" /> Copy recommendation
           </button>
-          <Link href="/apply-for-audit" className="btn-brand gap-2">
+          <Link href="/apply-for-audit?source=ai_procurement_decision_matrix" className="btn-brand gap-2">
             Request a tailored audit
           </Link>
         </div>

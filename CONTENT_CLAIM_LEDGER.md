@@ -20,6 +20,9 @@
 | CL-009 | `/ai-transformation-success-metrics-enterprise-2026` | KPI、ROI、benchmark tiers | `example`：页面明确为 illustrative benchmark scenarios | 先记录组织 baseline、测量窗口和业务口径 |
 | CL-010 | `/enterprise-ai-deployment-risk-assessment-guide` | mitigation success、uptime、ROI、satisfaction | `estimate`：页面明确为 target/scenario | 补风险登记、服务级别和复核日期后再发布实测结果 |
 | CL-011 | 其他 ROI/成本计算器 | 行业比例、回收期、收益提升 | `review`：按同一规则检查 | 每次新增数字先登记，再决定是 verified、estimate、example 或 remove |
+| CL-012 | `/ai-procurement-decision-matrix-tool-2026` | 25% / 25% / 20% / 15% / 15% editorial weights | `example`：页面明确为 planning aid，模型版本固定 | 由买方批准权重并以 dated vendor evidence 替换内部起点 |
+| CL-013 | `/ai-implementation-cost-calculator-enterprise-2026` | `$1.8M` base input 与调整因子 | `estimate`：页面明确为 illustrative planning scenario | 用 dated quotes、内部成本和 pilot evidence 替换默认值 |
+| CL-014 | `/hosting-platform-fit-scorecard-2026` | 30% / 20% / 15% / 20% / 15% weights 与平台 scenario defaults | `example`：页面明确为 illustrative fit signal | 用实测流量、迁移清单、支持条款和当前报价复核 |
 
 ## 字段要求
 

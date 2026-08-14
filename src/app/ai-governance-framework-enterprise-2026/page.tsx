@@ -21,6 +21,8 @@ const pageTitle = 'Enterprise AI Governance Framework 2026 | Complete Implementa
 const pageDescription =
   'An enterprise AI governance framework using an illustrative operating model, covering policy templates, compliance checklists, risk controls, and a 12-month rollout plan for responsible AI deployment.'
 const pageUrl = 'https://sitepilot.co/ai-governance-framework-enterprise-2026'
+const numericDisclosure =
+  'The counts, targets, and dollar values below are illustrative planning assumptions, not compliance results or average savings. Replace them with your control inventory, baseline, evidence, and review date.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -67,10 +69,10 @@ const quickNav = [
 ] as const
 
 const summaryCards = [
-  { value: '15+', label: 'Deployable policy templates' },
-  { value: '12', label: 'Month rollout plan' },
-  { value: '95%', label: 'Target compliance success rate' },
-  { value: '$2.5M', label: 'Average annual risk mitigation value' },
+  { value: 'Illustrative 15+', label: 'Policy template set' },
+  { value: 'Planning: 12 months', label: 'Rollout plan' },
+  { value: 'Target scenario: 95%', label: 'Compliance posture' },
+  { value: 'Illustrative $2.5M', label: 'Annual risk mitigation value' },
 ] as const
 
 const coreGoals = [
@@ -348,7 +350,7 @@ const impactGroups = [
 const economicImpact = [
   { value: '$2.5M', label: 'Average risk mitigation value' },
   { value: '$1.8M', label: 'Annual efficiency gains' },
-  { value: '320%', label: 'Average 3-year ROI' },
+  { value: '320%', label: 'Illustrative 3-year ROI scenario' },
 ] as const
 
 const faqs = [
@@ -458,6 +460,10 @@ export default function AIGovernanceFrameworkPage() {
                   Supporting compliance checklist
                 </Link>
               </div>
+
+              <p className="mb-6 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {summaryCards.map((card) => (

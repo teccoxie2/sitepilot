@@ -8,6 +8,8 @@ const pageTitle = 'AI Content Workflow Automation for Marketing Teams (2026): To
 const pageDescription =
   'Compare AI content workflow automation tools and operating models for marketing teams in 2026. Use this buyer-focused guide to evaluate research, drafting, approvals, scheduling, reporting, editing overhead, and integration risk before rebuilding your content stack.'
 const pageUrl = 'https://sitepilot.co/ai-content-workflow-automation-2026'
+const comparisonDisclosure =
+  'Prices are listed snapshots and 1–10 values are SitePilot editorial fit signals, not universal rankings. Validate current plans, limits, integrations, and workflow results against your own requirements.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -339,6 +341,10 @@ export default function AIContentWorkflowAutomation() {
                 </Link>
               </div>
 
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {comparisonDisclosure}
+              </p>
+
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
                 {summaryCards.map((item) => (
                   <div key={item.label} className="page-card p-4 bg-white/90">
@@ -439,10 +445,10 @@ export default function AIContentWorkflowAutomation() {
                       <div key={tool.name} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
                         <div className="flex items-center justify-between gap-4 mb-2">
                           <div className="font-semibold text-slate-950">{tool.name}</div>
-                          <div className="text-sm font-semibold text-indigo-600">{tool.rating}</div>
+                          <div className="text-sm font-semibold text-indigo-600">Editorial fit {tool.rating}</div>
                         </div>
                         <p className="text-sm text-slate-600 mb-2">{tool.note}</p>
-                        <div className="text-sm font-medium text-[#635bff]">{tool.price}</div>
+                        <div className="text-sm font-medium text-[#635bff]">Listed: {tool.price}</div>
                       </div>
                     ))}
                   </div>
@@ -472,7 +478,7 @@ export default function AIContentWorkflowAutomation() {
                         <div key={name} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
                           <div className="flex items-center justify-between gap-3 mb-1">
                             <div className="font-medium text-slate-950">{name}</div>
-                            <div className="text-sm font-semibold text-indigo-600">{rating}</div>
+                            <div className="text-sm font-semibold text-indigo-600">Editorial fit {rating}</div>
                           </div>
                           <div className="text-sm text-slate-600">{note}</div>
                         </div>
@@ -506,10 +512,10 @@ export default function AIContentWorkflowAutomation() {
                     <div key={name} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
                       <div className="flex items-center justify-between gap-4 mb-2">
                         <div className="font-semibold text-slate-950">{name}</div>
-                        <div className="text-sm font-semibold text-indigo-600">{rating}</div>
+                        <div className="text-sm font-semibold text-indigo-600">Editorial fit {rating}</div>
                       </div>
                       <div className="text-sm text-slate-600 mb-2">{note}</div>
-                      <div className="text-sm font-medium text-[#635bff]">{price}</div>
+                      <div className="text-sm font-medium text-[#635bff]">Listed: {price}</div>
                     </div>
                   ))}
                 </div>
@@ -553,7 +559,7 @@ export default function AIContentWorkflowAutomation() {
                           <div key={`${column.heading}-${name}-${note}`} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
                             {name ? <div className="font-medium text-slate-950 mb-1">{name}</div> : null}
                             <div className="text-sm text-slate-600">{note}</div>
-                            {price ? <div className="text-sm font-medium text-[#635bff] mt-2">{price}</div> : null}
+                            {price ? <div className="text-sm font-medium text-[#635bff] mt-2">Listed: {price}</div> : null}
                           </div>
                         ))}
                       </div>

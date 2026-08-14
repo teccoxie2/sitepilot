@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 const metadataConfig: Metadata = {
   title: 'AI ROI Calculator 2026 | SitePilot',
   description:
-    'Calculate your AI tool investment returns with a tested methodology based on real small-business implementations and ROI tracking.',
+    'Calculate your AI tool investment returns with a scenario-based methodology using the inputs and assumptions you provide.',
   keywords: [
     'AI ROI calculator',
     'AI investment calculator',
@@ -15,7 +15,7 @@ const metadataConfig: Metadata = {
   openGraph: {
     title: 'AI ROI Calculator 2026 | SitePilot',
     description:
-      'Calculate your AI tool investment returns with a tested methodology based on real small-business implementations and ROI tracking.',
+      'Calculate your AI tool investment returns with a scenario-based methodology using the inputs and assumptions you provide.',
     url: 'https://sitepilot.co/ai-roi-calculator',
     type: 'article',
   },

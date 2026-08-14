@@ -42,6 +42,8 @@ const pageTitle = 'AI Content Optimization Framework 2026 | SitePilot'
 const pageDescription =
   'Advanced content performance optimization using AI-driven insights, automation workflows, and predictive analytics.'
 const pageUrl = 'https://sitepilot.co/ai-content-optimization-framework-2026'
+const numericDisclosure =
+  'All percentages, savings, ROI, and timelines are model outputs or illustrative planning ranges. They are not measured market benchmarks; use your own baseline, measurement window, and cost assumptions before acting.'
 
 const contentTypeOptions = [
   'Blog Posts',
@@ -162,7 +164,7 @@ export default function AIContentOptimizationFramework2026() {
         type: 'AI Tools',
         priority: 'High',
         description: 'Implement a broader AI content suite with drafting, editing, and workflow automation layers.',
-        impact: 'Increase productivity by 40-60%',
+        impact: 'Illustrative productivity scenario: 40-60%',
       })
     }
 
@@ -171,7 +173,7 @@ export default function AIContentOptimizationFramework2026() {
         type: 'Content Diversity',
         priority: 'Medium',
         description: 'Expand into video, interactive assets, and lifecycle content to reduce format concentration risk.',
-        impact: 'Boost engagement by 25-35%',
+        impact: 'Illustrative engagement scenario: 25-35%',
       })
     }
 
@@ -180,7 +182,7 @@ export default function AIContentOptimizationFramework2026() {
         type: 'Workflow Automation',
         priority: 'High',
         description: 'Implement automated distribution, review checkpoints, and performance tracking.',
-        impact: 'Reduce manual work by 50-70%',
+        impact: 'Illustrative manual-work reduction: 50-70%',
       })
     }
 
@@ -189,7 +191,7 @@ export default function AIContentOptimizationFramework2026() {
         type: 'Audience Targeting',
         priority: 'Medium',
         description: 'Develop audience-specific personas and content sequences instead of using one generic editorial stream.',
-        impact: 'Improve conversion rates by 30-45%',
+        impact: 'Illustrative conversion scenario: 30-45%',
       })
     }
 
@@ -198,7 +200,7 @@ export default function AIContentOptimizationFramework2026() {
         type: 'Advanced Analytics',
         priority: 'Low',
         description: 'Add predictive analytics and real-time optimization once the core workflow is stable.',
-        impact: 'Optimize performance continuously with an additional 15-20% ROI uplift',
+        impact: 'Illustrative ROI uplift scenario: 15-20%',
       })
     }
 
@@ -332,6 +334,10 @@ export default function AIContentOptimizationFramework2026() {
                   Strategy overview
                 </Link>
               </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
                 {[
@@ -610,8 +616,11 @@ export default function AIContentOptimizationFramework2026() {
                 <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Results</div>
                 <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
                   Your AI content optimization framework,
-                  <span className="block brand-gradient-text">translated into measurable upside.</span>
+                  <span className="block brand-gradient-text">translated into an editable planning scenario.</span>
                 </h2>
+                <p className="rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                  {numericDisclosure}
+                </p>
               </div>
 
               <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">

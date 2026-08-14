@@ -39,12 +39,25 @@ for (const [toolId, relativePath] of coreTools) {
     console.error(`Analytics contract failed: ${relativePath} does not identify ${toolId}`)
     process.exit(1)
   }
+  if (!source.includes(`/apply-for-audit?source=${toolId}`)) {
+    console.error(`Analytics contract failed: ${relativePath} CTA does not preserve ${toolId} attribution`)
+    process.exit(1)
+  }
+  if (!source.includes("'address_bar'")) {
+    console.error(`Analytics contract failed: ${relativePath} does not label clipboard-unavailable sharing`)
+    process.exit(1)
+  }
 }
 
 const auditSource = read('src/app/apply-for-audit/page.tsx')
 const trackedMailSource = read('src/components/TrackedMailtoLink.tsx')
-if (!auditSource.includes('TrackedMailtoLink') || !trackedMailSource.includes('trackApplySubmit')) {
+if (!auditSource.includes('TrackedMailtoLink') || !trackedMailSource.includes('trackApplySubmit') || !trackedMailSource.includes('source_page')) {
   console.error('Analytics contract failed: apply-for-audit does not expose the apply_submit mailto path')
+  process.exit(1)
+}
+
+if (!analyticsSource.includes('provider,') || !analyticsSource.includes('plan,') || !analyticsSource.includes('source,')) {
+  console.error('Analytics contract failed: affiliate_click does not expose provider, plan, and source parameters')
   process.exit(1)
 }
 

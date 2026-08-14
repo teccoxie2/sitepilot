@@ -9,6 +9,8 @@ const pageTitle = 'AI Content Audit Tool for SEO and Content Ops Teams (2026) | 
 const pageDescription =
   'Use this AI content audit tool to score content quality, workflow efficiency, channel mix, and ROI potential before teams change tooling, staffing, or publishing priorities.'
 const pageUrl = 'https://sitepilot.co/ai-content-audit-tool-2026'
+const numericDisclosure =
+  'The calculator returns editorial planning scenarios from your inputs. Percentages, savings, timelines, and ROI are not measured market results or guarantees; replace defaults with your baseline before making a budget decision.'
 
 type Recommendation = {
   priority: string
@@ -53,7 +55,7 @@ export default function AIContentAuditTool() {
       recommendations.push({
         priority: 'High',
         action: 'Start with AI content optimization',
-        impact: 'Immediate 40% efficiency gain',
+        impact: 'Illustrative 40% efficiency scenario',
         timeframe: '1-2 weeks',
       })
     }
@@ -62,7 +64,7 @@ export default function AIContentAuditTool() {
       recommendations.push({
         priority: 'High',
         action: 'Content quality assessment and improvement',
-        impact: `Potential ${100 - quality}% quality increase`,
+        impact: `Illustrative potential ${100 - quality}% quality increase`,
         timeframe: '2-4 weeks',
       })
     }
@@ -80,7 +82,7 @@ export default function AIContentAuditTool() {
       recommendations.push({
         priority: 'High',
         action: 'Implement AI workflow automation',
-        impact: 'Reduce production time by 50%',
+        impact: 'Illustrative 50% production-time reduction',
         timeframe: '2-3 weeks',
       })
     }
@@ -155,6 +157,10 @@ export default function AIContentAuditTool() {
                   Review workflow automation
                 </Link>
               </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
                 {[
@@ -317,7 +323,10 @@ export default function AIContentAuditTool() {
                 <span className="block brand-gradient-text">an operational plan.</span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed">
-                These outputs show the likely upside of AI optimization based on your current publishing load, performance, and workflow maturity.
+                These outputs are editorial scenarios based on your current publishing load, performance, and workflow maturity.
+              </p>
+              <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
               </p>
             </div>
 
@@ -420,10 +429,10 @@ export default function AIContentAuditTool() {
             <div className="rounded-[1.75rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-6">
               <h3 className="text-xl font-semibold text-slate-950 mb-4">Current market reality</h3>
               <ul className="space-y-3 text-slate-600">
-                <li>87% of businesses still struggle with content ROI measurement.</li>
-                <li>Average content marketing costs are still rising year over year.</li>
-                <li>AI-optimized content tends to outperform traditional workflows materially.</li>
-                <li>Most teams still lack a systematic content-audit process.</li>
+                <li>Content ROI measurement is often inconsistent across teams.</li>
+                <li>Content costs should be tracked against a defined production baseline.</li>
+                <li>AI-assisted workflows still require human review and quality controls.</li>
+                <li>A repeatable content-audit process makes trade-offs easier to inspect.</li>
               </ul>
             </div>
 

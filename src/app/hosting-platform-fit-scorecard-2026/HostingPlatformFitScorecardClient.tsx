@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Check, Clipboard, Download, FileText, Printer, Share2 } from 'lucide-react'
 import { trackReportExport, trackReportShare, trackToolComplete, trackToolStart } from '@/components/GoogleAnalytics'
+import toolModel from '@/data/evidence/sitepilot-tool-model-v1.json'
 
 type SiteType = 'brochure' | 'wordpress' | 'commerce' | 'application'
 type Traffic = 'under-10k' | '10k-100k' | '100k-500k' | 'over-500k'
@@ -55,16 +56,15 @@ const platformDescriptions: Record<PlatformId, string> = {
   cloud: 'A more flexible path for traffic sensitivity, custom stacks, and higher operational control.',
 }
 
-const dimensions = [
-  { id: 'workload', label: 'Workload fit', weight: 30 },
-  { id: 'headroom', label: 'Performance headroom', weight: 20 },
-  { id: 'migration', label: 'Migration fit', weight: 15 },
-  { id: 'seo', label: 'SEO and deployment control', weight: 20 },
-  { id: 'support', label: 'Support fit', weight: 15 },
-] as const
-
-type DimensionId = (typeof dimensions)[number]['id']
+type DimensionId = 'workload' | 'headroom' | 'migration' | 'seo' | 'support'
+type Dimension = { id: DimensionId; label: string; weight: number }
+const hostingModel = toolModel.tools.hosting_platform_fit_scorecard
+const dimensions = hostingModel.dimensions as readonly Dimension[]
 type Scores = Record<PlatformId, Record<DimensionId, number>>
+type AdjustmentMap = Record<string, Record<string, Partial<Record<PlatformId, Partial<Record<DimensionId, number>>>>>>
+
+const platformDefaults = hostingModel.platform_defaults as Scores
+const adjustments = hostingModel.adjustments as AdjustmentMap
 
 const defaultState = {
   siteType: 'wordpress' as SiteType,
@@ -84,8 +84,11 @@ function downloadFile(filename: string, content: string, type: string) {
   const anchor = document.createElement('a')
   anchor.href = url
   anchor.download = filename
+  anchor.style.display = 'none'
+  document.body.appendChild(anchor)
   anchor.click()
-  URL.revokeObjectURL(url)
+  anchor.remove()
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
 function escapeCsv(value: string | number) {
@@ -117,56 +120,24 @@ export default function HostingPlatformFitScorecardClient() {
   }, [])
 
   const scores = useMemo<Scores>(() => {
-    const result: Scores = {
-      'managed-wordpress': { workload: 3, headroom: 3, migration: 3, seo: 4, support: 4 },
-      shared: { workload: 3, headroom: 2, migration: 4, seo: 3, support: 2 },
-      cloud: { workload: 3, headroom: 5, migration: 2, seo: 5, support: 2 },
+    const result = Object.fromEntries(
+      Object.entries(platformDefaults).map(([platform, values]) => [platform, { ...values }]),
+    ) as Scores
+
+    function applyAdjustments(group: string, key: string) {
+      const updates = adjustments[group]?.[key] ?? {}
+      for (const [platform, dimensionsForPlatform] of Object.entries(updates) as [PlatformId, Partial<Record<DimensionId, number>>][]) {
+        for (const [dimension, adjustment] of Object.entries(dimensionsForPlatform) as [DimensionId, number][]) {
+          result[platform][dimension] += adjustment
+        }
+      }
     }
 
-    if (state.siteType === 'wordpress') {
-      result['managed-wordpress'].workload += 2
-      result.shared.workload += 1
-      result.cloud.workload -= 1
-    }
-    if (state.siteType === 'application') {
-      result.cloud.workload += 2
-      result['managed-wordpress'].workload -= 2
-      result.shared.workload -= 2
-    }
-    if (state.siteType === 'commerce') {
-      result.cloud.headroom += 1
-      result['managed-wordpress'].workload += 1
-      result.shared.headroom -= 1
-    }
-    if (state.siteType === 'brochure') result.shared.migration += 1
-
-    const trafficBoost: Record<Traffic, { managed: number; shared: number; cloud: number }> = {
-      'under-10k': { managed: 0, shared: 1, cloud: -1 },
-      '10k-100k': { managed: 1, shared: 0, cloud: 0 },
-      '100k-500k': { managed: 0, shared: -1, cloud: 2 },
-      'over-500k': { managed: -1, shared: -2, cloud: 2 },
-    }
-    const traffic = trafficBoost[state.traffic]
-    result['managed-wordpress'].headroom += traffic.managed
-    result.shared.headroom += traffic.shared
-    result.cloud.headroom += traffic.cloud
-
-    if (state.migration === 'high') {
-      result['managed-wordpress'].migration += 1
-      result.shared.migration += 1
-      result.cloud.migration -= 1
-    }
-    if (state.migration === 'low') result.cloud.migration += 1
-    if (state.seoControl === 'advanced') {
-      result.cloud.seo += 1
-      result.shared.seo -= 1
-    }
-    if (state.support === 'managed') {
-      result['managed-wordpress'].support += 1
-      result.shared.support -= 1
-      result.cloud.support -= 1
-    }
-    if (state.support === 'self-serve') result.cloud.support += 1
+    applyAdjustments('site_type', state.siteType)
+    applyAdjustments('traffic', state.traffic)
+    applyAdjustments('migration', state.migration)
+    applyAdjustments('seo_control', state.seoControl)
+    applyAdjustments('support', state.support)
 
     for (const platform of Object.keys(result) as PlatformId[]) {
       for (const dimension of dimensions) result[platform][dimension.id] = clamp(result[platform][dimension.id])
@@ -201,13 +172,17 @@ export default function HostingPlatformFitScorecardClient() {
     return `${window.location.origin}${window.location.pathname}?${params.toString()}`
   }
 
-  function handleShare() {
+  async function handleShare() {
     startTracking()
     const url = buildShareUrl()
-    void navigator.clipboard?.writeText(url).catch(() => undefined)
+    const copied = navigator.clipboard
+      ? await navigator.clipboard.writeText(url).then(() => true).catch(() => false)
+      : false
     window.history.replaceState(null, '', url)
-    setNotice('Share link copied. Anyone with the link can review this scenario.')
-    trackReportShare('hosting_platform_fit_scorecard', 'clipboard')
+    setNotice(copied
+      ? 'Share link copied. Anyone with the link can review this scenario.'
+      : 'Share URL prepared in the address bar. Copy it manually to share this scenario.')
+    trackReportShare('hosting_platform_fit_scorecard', copied ? 'clipboard' : 'address_bar')
   }
 
   function handleExportMemo() {
@@ -259,9 +234,9 @@ export default function HostingPlatformFitScorecardClient() {
               <div className="page-pill mb-4">Run the scorecard</div>
               <h2 id="hosting-scorecard-title" className="page-title text-3xl md:text-5xl">Make hosting fit explainable.</h2>
               <p className="page-lead mt-4 max-w-3xl text-base md:text-lg">Choose the workload constraints first. The weighted result is an illustrative shortlist signal, not a provider endorsement.</p>
-              <p className="mt-3 text-xs leading-5 text-slate-500">Evidence standard v1.0 · checked 2026-08-14 · validate with measured traffic, migration inventory, and current vendor terms.</p>
+              <p className="mt-3 text-xs leading-5 text-slate-500">Evidence standard v1.0 · decision model v{toolModel.version}.0 · checked {toolModel.checked_at} · validate with measured traffic, migration inventory, and current vendor terms.</p>
             </div>
-            <div className="rounded-2xl border border-indigo-100 bg-indigo-50/80 px-4 py-3 text-sm text-indigo-900">Weights: 30 / 20 / 15 / 20 / 15</div>
+            <div className="rounded-2xl border border-indigo-100 bg-indigo-50/80 px-4 py-3 text-sm text-indigo-900">Weights: {dimensions.map((dimension) => dimension.weight).join(' / ')}</div>
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -318,7 +293,7 @@ export default function HostingPlatformFitScorecardClient() {
 
       <div className="page-card flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
         <div><div className="text-sm text-slate-500">Current recommendation</div><div className="mt-1 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{platformLabels[leadingPlatform]} · {totals[leadingPlatform].toFixed(1)} / 100</div><p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Confirm the result against a migration plan, real support terms, and a dated quote before moving production.</p></div>
-        <Link href="/apply-for-audit" className="btn-brand inline-flex shrink-0 items-center gap-2">Request a tailored audit <span aria-hidden="true">→</span></Link>
+        <Link href="/apply-for-audit?source=hosting_platform_fit_scorecard" className="btn-brand inline-flex shrink-0 items-center gap-2">Request a tailored audit <span aria-hidden="true">→</span></Link>
       </div>
     </div>
   )

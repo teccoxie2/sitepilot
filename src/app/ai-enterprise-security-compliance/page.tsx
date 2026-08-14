@@ -8,6 +8,8 @@ const pageTitle = 'Enterprise AI Security & Compliance Framework | SitePilot'
 const pageDescription =
   'Comprehensive enterprise AI security and compliance framework covering GDPR, SOX, HIPAA, ISO 27001, and practical security architecture controls.'
 const pageUrl = 'https://sitepilot.co/ai-enterprise-security-compliance'
+const numericDisclosure =
+  'The figures below are editorial planning targets, not compliance results or uptime guarantees. Set measurable controls, owners, and review windows for your own environment.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -49,9 +51,9 @@ const quickNav = [
 
 const summaryStats = [
   { value: '5', label: 'Core regulatory and control domains' },
-  { value: '99.9%', label: 'Target compliance coverage posture' },
-  { value: 'Zero', label: 'Target tolerance for preventable incidents' },
-  { value: '24/7', label: 'Expected monitoring rhythm' },
+  { value: 'Target: 99.9%', label: 'Illustrative compliance coverage posture' },
+  { value: 'Target: zero', label: 'Illustrative tolerance for preventable incidents' },
+  { value: 'Planning: 24/7', label: 'Illustrative monitoring rhythm' },
 ]
 
 const executiveHighlights = [
@@ -453,8 +455,12 @@ export default function EnterpriseAISecurityCompliancePage() {
                   </Link>
                   <Link href="/ai-tools" className="btn-secondary">
                     Browse AI security tools
-                  </Link>
-                </div>
+                </Link>
+              </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">

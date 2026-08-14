@@ -8,6 +8,8 @@ const pageTitle = 'AI Content Performance Analytics Tools 2026: Compare Platform
 const pageDescription =
   'AI content performance analytics tools help teams measure reporting quality, workflow bottlenecks, content ROI, and optimization priorities before they add another dashboard or automation layer. Compare platforms by insight quality, implementation overhead, integrations, and decision support for content operations in 2026.'
 const pageUrl = 'https://sitepilot.co/ai-content-performance-analytics-2026'
+const numericDisclosure =
+  'Prices are listed snapshots; ratings and ROI ranges are SitePilot editorial/scenario signals, not verified vendor benchmarks or case-study results. Confirm current pricing and validate lift with a dated baseline before procurement.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -58,7 +60,7 @@ const quickNav = [
   { href: '#tools', title: 'Tool comparison', note: 'Best-fit platforms by tier' },
   { href: '#implementation', title: 'Implementation', note: '8-week rollout guide' },
   { href: '#roi', title: 'ROI model', note: 'Value and payback framing' },
-  { href: '#case-studies', title: 'Case studies', note: 'Real operating outcomes' },
+  { href: '#case-studies', title: 'Case models', note: 'Illustrative operating scenarios' },
 ]
 
 const summaryCards = [
@@ -237,29 +239,29 @@ const implementationPhases = [
     ],
     rightTitle: 'Optimization targets',
     rightItems: [
-      '25-40% improvement in engagement metrics',
-      '30-50% reduction in analysis time',
-      '15-25% increase in content performance',
-      '200-400% ROI on analytics investment',
-      '50-70% faster content optimization',
-      '80% team adoption of AI recommendations',
+      'Scenario: 25-40% improvement in engagement metrics',
+      'Scenario: 30-50% reduction in analysis time',
+      'Scenario: 15-25% increase in content performance',
+      'Scenario: 200-400% ROI on analytics investment',
+      'Scenario: 50-70% faster content optimization',
+      'Scenario: 80% team adoption of AI recommendations',
       'Documented best practices established',
     ],
   },
 ]
 
 const roiCards = [
-  { title: 'Time savings', value: '60-80%', note: 'Typical reduction in manual analysis and optimization time.' },
-  { title: 'Performance improvement', value: '200-400%', note: 'Typical return range per dollar invested in analytics capability.' },
-  { title: 'Content quality', value: '35-60%', note: 'Improvement in content scores and engagement signals.' },
-  { title: 'Revenue impact', value: '150-300%', note: 'Typical content-driven revenue growth after optimization maturity.' },
+  { title: 'Scenario time savings', value: '60-80%', note: 'Illustrative reduction in manual analysis and optimization time.' },
+  { title: 'Scenario performance', value: '200-400%', note: 'Illustrative return range per dollar invested in analytics capability.' },
+  { title: 'Scenario content quality', value: '35-60%', note: 'Illustrative movement in content scores and engagement signals.' },
+  { title: 'Scenario revenue impact', value: '150-300%', note: 'Illustrative content-driven value after optimization maturity.' },
 ]
 
 const caseStudies = [
   {
     name: 'TechCorp B2B SaaS',
     subtitle: 'Mid-market software company, 50+ employees',
-    roi: '425% ROI',
+    roi: 'Scenario 425% ROI',
     period: '12-month period',
     challenge: ['Low content engagement rates (1.2%)', '40+ hours/week spent on manual analysis', 'Inconsistent content performance', 'Limited customer journey visibility'],
     solution: ['Implemented Conductor Searchlight', 'AI content optimization workflow', 'Automated performance monitoring', 'Predictive content recommendations'],
@@ -268,7 +270,7 @@ const caseStudies = [
   {
     name: 'E-commerce Fashion Brand',
     subtitle: 'Direct-to-consumer retailer, $25M annual revenue',
-    roi: '580% ROI',
+    roi: 'Scenario 580% ROI',
     period: '18-month period',
     challenge: ['Seasonal content performance variance', 'Complex multi-channel attribution', 'Limited predictive insights', 'Manual optimization processes'],
     solution: ['BrightEdge ContentIQ implementation', 'AI-powered seasonal forecasting', 'Multi-channel attribution modeling', 'Automated content optimization'],
@@ -277,7 +279,7 @@ const caseStudies = [
   {
     name: 'Healthcare Content Publisher',
     subtitle: 'Medical information website, 2M monthly visitors',
-    roi: '340% ROI',
+    roi: 'Scenario 340% ROI',
     period: '8-month period',
     challenge: ['Complex medical content optimization', 'YMYL quality requirements', 'Time-sensitive health information updates', '10K+ article footprint'],
     solution: ['MarketMuse content intelligence', 'AI content gap analysis', 'Automated quality scoring', 'Expertise authority monitoring'],
@@ -294,7 +296,7 @@ const faqs = [
   {
     question: 'How long does it take to see ROI from AI content analytics?',
     answer:
-      'Most teams see early improvements within 4-6 weeks. Meaningful ROI often appears in 3-4 months, with full optimization benefits landing across 6-12 months depending on scale and maturity.',
+      'Timing depends on baseline quality, implementation scope, and measurement design. Use a dated pilot window rather than assuming a universal 4-6 week, 3-4 month, or 6-12 month result.',
   },
   {
     question: 'Do I need technical expertise to implement these tools?',
@@ -309,7 +311,7 @@ const faqs = [
   {
     question: 'How accurate are AI content performance predictions?',
     answer:
-      'Well-trained enterprise tools often land in the 75-85% accuracy range, and accuracy improves as the system learns from your audience and historical content patterns.',
+      'There is no universal accuracy range. Validate predictions against your own holdout set and document the model, sample, and measurement window before treating a score as evidence.',
   },
   {
     question: 'Can AI analytics tools integrate with existing marketing stacks?',
@@ -382,6 +384,10 @@ export default function AIContentAnalyticsPage() {
                   See implementation plan
                 </a>
               </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
                 {summaryCards.map((item) => (
@@ -459,13 +465,13 @@ export default function AIContentAnalyticsPage() {
             </div>
 
             <div className="page-card-soft p-7">
-              <h3 className="text-2xl font-semibold text-slate-950 mb-5">2026 analytics market stats</h3>
+              <h3 className="text-2xl font-semibold text-slate-950 mb-5">2026 analytics evidence slots</h3>
               <div className="space-y-4">
                 {[
-                  ['AI analytics market growth', '+185% YoY'],
-                  ['Content ROI improvement', '+340% average'],
-                  ['Enterprise AI analytics adoption', '78% of companies'],
-                  ['Time savings in analysis', '60-80% reduction'],
+                  ['AI analytics market growth', 'Source required'],
+                  ['Content ROI improvement', 'Baseline required'],
+                  ['Enterprise AI analytics adoption', 'Sample required'],
+                  ['Time savings in analysis', 'Model-dependent'],
                 ].map(([label, value]) => (
                   <div key={label} className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-4">
                     <span className="text-slate-600">{label}</span>
@@ -524,18 +530,18 @@ export default function AIContentAnalyticsPage() {
                     <p className="text-sm text-slate-500 mt-1">{tool.subtitle}</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-lg font-semibold text-indigo-600">{tool.rating}</div>
+                    <div className="text-lg font-semibold text-indigo-600">Editorial fit {tool.rating}</div>
                     <div className="text-xs text-slate-500">{tool.badge}</div>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-5">
                   <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
-                    <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">Price</div>
+                    <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">Listed price snapshot</div>
                     <div className="font-semibold text-slate-950">{tool.price}</div>
                   </div>
                   <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
-                    <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">ROI range</div>
+                    <div className="text-xs uppercase tracking-[0.16em] text-slate-500 mb-2">ROI scenario</div>
                     <div className="font-semibold text-indigo-600">{tool.roi}</div>
                   </div>
                 </div>
@@ -565,7 +571,7 @@ export default function AIContentAnalyticsPage() {
             <table className="min-w-full text-left">
               <thead className="bg-slate-50">
                 <tr>
-                  {['Tool', 'Rating', 'Starting Price', 'AI Features', 'Enterprise', 'Best For'].map((header) => (
+                  {['Tool', 'Editorial fit', 'Listed price snapshot', 'AI Features', 'Enterprise', 'Best For'].map((header) => (
                     <th key={header} className="px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                       {header}
                     </th>
@@ -644,8 +650,9 @@ export default function AIContentAnalyticsPage() {
               </div>
 
               <div className="page-card-soft p-6">
-                <div className="text-sm uppercase tracking-[0.16em] text-indigo-500 mb-3">ROI Calculator Example</div>
-                <h3 className="text-2xl font-semibold text-slate-950 mb-5">Mid-size company case study</h3>
+                <div className="text-sm uppercase tracking-[0.16em] text-indigo-500 mb-3">Illustrative ROI model</div>
+                <h3 className="text-2xl font-semibold text-slate-950 mb-5">Editable mid-size company scenario</h3>
+                <p className="mb-5 text-sm leading-6 text-slate-600">These values are placeholders for model structure, not a customer case study or promised return.</p>
                 <div className="space-y-3 text-sm">
                   {[
                     ['Team size', '5 content marketers'],
@@ -672,7 +679,7 @@ export default function AIContentAnalyticsPage() {
 
         <section id="case-studies" className="page-card p-8 md:p-10 mb-16 scroll-mt-28">
           <div className="max-w-3xl mb-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Case Studies</div>
+                <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Illustrative case models</div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
               What strong analytics programs
               <span className="block brand-gradient-text">actually change in practice.</span>
@@ -703,7 +710,7 @@ export default function AIContentAnalyticsPage() {
                       <div className="font-semibold text-slate-950 mb-3">{section.title}</div>
                       <ul className="space-y-2 text-slate-600">
                         {section.items.map((item) => (
-                          <li key={item}>{item}</li>
+                          <li key={item}>{/[0-9%$]/.test(item) ? `Scenario: ${item}` : item}</li>
                         ))}
                       </ul>
                     </div>

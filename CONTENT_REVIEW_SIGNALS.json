@@ -234,7 +234,7 @@
     "local_signal": "tool",
     "interactive": true,
     "decision_path": false,
-    "evidence_markers": false,
+    "evidence_markers": true,
     "source_files": [
       "src/app/ai-content-optimization-framework-2026/layout.tsx",
       "src/app/ai-content-optimization-framework-2026/metadata.ts",
@@ -653,7 +653,7 @@
     "local_signal": "decision_path",
     "interactive": false,
     "decision_path": true,
-    "evidence_markers": false,
+    "evidence_markers": true,
     "source_files": [
       "src/app/ai-performance-monitoring-dashboard-enterprise-2026/metadata.ts",
       "src/app/ai-performance-monitoring-dashboard-enterprise-2026/page.tsx"
@@ -682,10 +682,10 @@
   },
   {
     "url": "https://sitepilot.co/ai-productivity-tools-comparison-2026",
-    "local_signal": "content_only",
+    "local_signal": "evidence",
     "interactive": false,
     "decision_path": false,
-    "evidence_markers": false,
+    "evidence_markers": true,
     "source_files": [
       "src/app/ai-productivity-tools-comparison-2026/page.tsx"
     ],
@@ -705,14 +705,14 @@
       "client_boundaries": 0,
       "client_imports": 0
     },
-    "review_action": "No local decision or evidence signal is proven; inspect for consolidation or noindex after production data is available."
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
   },
   {
     "url": "https://sitepilot.co/ai-risk-management-dashboard-enterprise-2026",
     "local_signal": "decision_path",
     "interactive": false,
     "decision_path": true,
-    "evidence_markers": false,
+    "evidence_markers": true,
     "source_files": [
       "src/app/ai-risk-management-dashboard-enterprise-2026/metadata.ts",
       "src/app/ai-risk-management-dashboard-enterprise-2026/page.tsx"
@@ -1032,10 +1032,10 @@
   },
   {
     "url": "https://sitepilot.co/best-social-media-management-tools-2026",
-    "local_signal": "content_only",
+    "local_signal": "evidence",
     "interactive": false,
     "decision_path": false,
-    "evidence_markers": false,
+    "evidence_markers": true,
     "source_files": [
       "src/app/best-social-media-management-tools-2026/page.tsx"
     ],
@@ -1055,7 +1055,7 @@
       "client_boundaries": 0,
       "client_imports": 0
     },
-    "review_action": "No local decision or evidence signal is proven; inspect for consolidation or noindex after production data is available."
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
   },
   {
     "url": "https://sitepilot.co/best-website-builders-2026",

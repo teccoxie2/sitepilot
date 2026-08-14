@@ -7,13 +7,13 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 const metadataConfig: Metadata = {
   title: 'Best Project Management Tools 2026 - Complete Guide & Comparison',
   description:
-    'Comprehensive review of the best project management software in 2026. Compare features, pricing, and performance across all major platforms for teams, agencies, and enterprises.',
+    'Compare selected project management software in 2026 by features, listed pricing, workflow fit, and evidence to validate for teams, agencies, and enterprises.',
   keywords:
     'best project management tools 2026, project management software, team collaboration tools, task management, asana alternatives, monday alternatives, project tracking',
   openGraph: {
     title: 'Best Project Management Tools 2026 - Expert Reviews & Comparisons',
     description:
-      'Find the perfect project management solution for your team. In-depth reviews, feature comparisons, and real-world performance data.',
+      'Compare project management solutions by workflow fit, feature coverage, integrations, and the evidence you should validate before purchase.',
     type: 'article',
     url: 'https://sitepilot.co/best-project-management-tools-2026',
   },
@@ -24,7 +24,7 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
-  { value: '40+', label: 'Tools analyzed' },
+  { value: 'Selected', label: 'Tools compared' },
   { value: '3', label: 'Editor picks' },
   { value: '4', label: 'Methodology paths' },
   { value: '2026', label: 'Current market view' },

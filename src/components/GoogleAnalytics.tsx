@@ -148,5 +148,10 @@ export function trackApplySubmit(formName: string, params: AnalyticsEventParams 
 
 // Helper function to track affiliate link clicks.
 export function trackAffiliateClick(provider: string, plan: string, source: string) {
-  trackEvent(ANALYTICS_EVENTS.AFFILIATE_CLICK, 'affiliate', `${provider}_${plan}_${source}`)
+  trackNamedEvent(ANALYTICS_EVENTS.AFFILIATE_CLICK, {
+    label: `${provider}_${plan}_${source}`,
+    provider,
+    plan,
+    source,
+  })
 }

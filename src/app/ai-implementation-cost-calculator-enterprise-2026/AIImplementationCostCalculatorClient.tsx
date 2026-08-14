@@ -17,6 +17,7 @@ import {
   Target,
 } from 'lucide-react'
 import { trackReportExport, trackReportShare, trackToolComplete, trackToolStart } from '@/components/GoogleAnalytics'
+import toolModel from '@/data/evidence/sitepilot-tool-model-v1.json'
 
 type CompanySize = '1000-5000' | '5000-15000' | '15000-50000' | '50000+'
 type Industry =
@@ -44,48 +45,12 @@ type UseCase =
   | 'personalization'
   | 'document-processing'
 
-const sizeFactors: Record<CompanySize, number> = {
-  '1000-5000': 1,
-  '5000-15000': 1.22,
-  '15000-50000': 1.52,
-  '50000+': 1.95,
-}
-
-const industryFactors: Record<Industry, number> = {
-  'financial-services': 1.25,
-  healthcare: 1.3,
-  manufacturing: 1.08,
-  technology: 1.05,
-  retail: 1,
-  energy: 1.15,
-  government: 1.2,
-  other: 1,
-}
-
-const scopeFactors: Record<Scope, number> = {
-  pilot: 0.62,
-  'multi-department': 0.95,
-  'enterprise-wide': 1.25,
-  'customer-facing': 0.92,
-  'internal-operations': 0.85,
-  'full-transformation': 1.5,
-}
-
-const timelineFactors: Record<Timeline, number> = {
-  '6': 1.18,
-  '12': 1,
-  '18': 0.94,
-  '24': 0.9,
-}
-
-const useCaseWeights: Record<UseCase, number> = {
-  'customer-service': 0.1,
-  'predictive-analytics': 0.12,
-  'process-automation': 0.11,
-  'fraud-detection': 0.14,
-  personalization: 0.1,
-  'document-processing': 0.09,
-}
+const implementationModel = toolModel.tools.ai_implementation_cost_roi
+const sizeFactors = implementationModel.size_factors as Record<CompanySize, number>
+const industryFactors = implementationModel.industry_factors as Record<Industry, number>
+const scopeFactors = implementationModel.scope_factors as Record<Scope, number>
+const timelineFactors = implementationModel.timeline_factors as Record<Timeline, number>
+const useCaseWeights = implementationModel.use_case_weights as Record<UseCase, number>
 
 const useCaseLabels: { value: UseCase; label: string }[] = [
   { value: 'customer-service', label: 'Customer service automation' },
@@ -104,32 +69,12 @@ const quickNav = [
   { href: '#next-steps', title: 'Next steps', note: 'How to turn the estimate into a real budget plan' },
 ] as const
 
-const riskFactors = [
-  {
-    title: 'Scope creep',
-    impact: '+25% to +40%',
-    note: 'New use cases and stakeholder requests appear after build work has already started.',
-    tone: 'border-rose-200 bg-rose-50 text-rose-900',
-  },
-  {
-    title: 'Integration complexity',
-    impact: '+15% to +30%',
-    note: 'Legacy systems, security reviews, and workflow mapping often take longer than expected.',
-    tone: 'border-rose-200 bg-rose-50 text-rose-900',
-  },
-  {
-    title: 'Data quality issues',
-    impact: '+10% to +25%',
-    note: 'Unplanned data cleaning, lineage work, and access remediation expand both timeline and spend.',
-    tone: 'border-amber-200 bg-amber-50 text-amber-900',
-  },
-  {
-    title: 'Adoption resistance',
-    impact: '+10% to +20%',
-    note: 'Training, support, and redesign effort rises when teams are not prepared for workflow change.',
-    tone: 'border-amber-200 bg-amber-50 text-amber-900',
-  },
-] as const
+const riskFactors = implementationModel.risk_factors.map((factor, index) => ({
+  title: factor.title,
+  impact: `+${factor.low_percent}% to +${factor.high_percent}%`,
+  note: factor.note,
+  tone: index < 2 ? 'border-rose-200 bg-rose-50 text-rose-900' : 'border-amber-200 bg-amber-50 text-amber-900',
+}))
 
 const costControlPractices = [
   'Invest 15% to 20% of budget in planning and requirements discovery',
@@ -179,8 +124,11 @@ function downloadFile(filename: string, content: string, type: string) {
   const anchor = document.createElement('a')
   anchor.href = url
   anchor.download = filename
+  anchor.style.display = 'none'
+  document.body.appendChild(anchor)
   anchor.click()
-  URL.revokeObjectURL(url)
+  anchor.remove()
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
 export default function AIImplementationCostCalculatorClient() {
@@ -213,7 +161,7 @@ export default function AIImplementationCostCalculatorClient() {
     return () => window.clearTimeout(timer)
   }, [])
 
-  const baseImplementationCost = 1800000
+  const baseImplementationCost = implementationModel.base_implementation_cost_usd
   const useCaseFactor = 1 + useCases.reduce((total, key) => total + useCaseWeights[key], 0)
   const totalImplementationCost =
     baseImplementationCost *
@@ -223,32 +171,31 @@ export default function AIImplementationCostCalculatorClient() {
     timelineFactors[timeline] *
     useCaseFactor
 
-  const softwareCost = totalImplementationCost * 0.24
-  const servicesCost = totalImplementationCost * 0.31
-  const infrastructureCost = totalImplementationCost * 0.16
-  const trainingCost = totalImplementationCost * 0.12
-  const integrationCost = totalImplementationCost * 0.17
-  const contingencyCost = totalImplementationCost * 0.15
+  const softwareCost = totalImplementationCost * implementationModel.cost_allocations.software
+  const servicesCost = totalImplementationCost * implementationModel.cost_allocations.services
+  const infrastructureCost = totalImplementationCost * implementationModel.cost_allocations.infrastructure
+  const trainingCost = totalImplementationCost * implementationModel.cost_allocations.training
+  const integrationCost = totalImplementationCost * implementationModel.cost_allocations.integration
+  const contingencyCost = totalImplementationCost * implementationModel.cost_allocations.contingency
   const implementationWithContingency = totalImplementationCost + contingencyCost
 
-  const annualOperatingCost = implementationWithContingency * 0.42
-  const annualCostSavings = totalImplementationCost * 0.56
-  const annualRevenueLift = totalImplementationCost * 0.31
+  const annualOperatingCost = implementationWithContingency * implementationModel.operating_cost_factor
+  const annualCostSavings = totalImplementationCost * implementationModel.annual_cost_savings_factor
+  const annualRevenueLift = totalImplementationCost * implementationModel.annual_revenue_lift_factor
   const annualBenefit = annualCostSavings + annualRevenueLift
 
-  const complexityScore =
-    scope === 'full-transformation' ? 0.18 : scope === 'enterprise-wide' ? 0.12 : scope === 'multi-department' ? 0.08 : 0.05
-  const timelinePenalty = timeline === '6' ? 0.08 : timeline === '12' ? 0.04 : 0.02
-  const riskAdjustment = Math.max(0.68, 0.92 - complexityScore - timelinePenalty)
+  const complexityScore = (implementationModel.risk_adjustment.scope as Record<string, number>)[scope] ?? implementationModel.risk_adjustment.scope.default
+  const timelinePenalty = (implementationModel.risk_adjustment.timeline as Record<string, number>)[timeline] ?? implementationModel.risk_adjustment.timeline.default
+  const riskAdjustment = Math.max(implementationModel.risk_adjustment.minimum, implementationModel.risk_adjustment.base - complexityScore - timelinePenalty)
 
-  const year1Net = -(implementationWithContingency + annualOperatingCost) + annualBenefit * 0.38
-  const year2Net = annualBenefit * 0.78 - annualOperatingCost
-  const year3Net = annualBenefit - annualOperatingCost
+  const year1Net = -(implementationWithContingency + annualOperatingCost) + annualBenefit * implementationModel.benefit_ramp.year_1
+  const year2Net = annualBenefit * implementationModel.benefit_ramp.year_2 - annualOperatingCost
+  const year3Net = annualBenefit * implementationModel.benefit_ramp.year_3 - annualOperatingCost
   const totalNetBenefit = year1Net + year2Net + year3Net
   const roi = Math.round((totalNetBenefit / (implementationWithContingency + annualOperatingCost * 3)) * 100)
   const riskAdjustedROI = Math.round(roi * riskAdjustment)
   const monthlyNetBenefit = (annualBenefit - annualOperatingCost) / 12
-  const breakEvenMonths = Math.max(9, Math.round(implementationWithContingency / Math.max(monthlyNetBenefit, 1)))
+  const breakEvenMonths = Math.max(implementationModel.break_even_minimum_months, Math.round(implementationWithContingency / Math.max(monthlyNetBenefit, 1)))
 
   const summaryCards = [
     { value: formatCurrency(Math.round(implementationWithContingency)), label: 'Estimated implementation budget' },
@@ -274,13 +221,17 @@ export default function AIImplementationCostCalculatorClient() {
     return `${window.location.origin}${window.location.pathname}?${params.toString()}`
   }
 
-  function handleShare() {
+  async function handleShare() {
     startTracking()
     const url = buildShareUrl()
-    void navigator.clipboard?.writeText(url).catch(() => undefined)
+    const copied = navigator.clipboard
+      ? await navigator.clipboard.writeText(url).then(() => true).catch(() => false)
+      : false
     window.history.replaceState(null, '', url)
-    setNotice('Share link copied. Anyone with the link can review this planning scenario.')
-    trackReportShare('ai_implementation_cost_roi', 'clipboard')
+    setNotice(copied
+      ? 'Share link copied. Anyone with the link can review this planning scenario.'
+      : 'Share URL prepared in the address bar. Copy it manually to share this planning scenario.')
+    trackReportShare('ai_implementation_cost_roi', copied ? 'clipboard' : 'address_bar')
   }
 
   function handleExportMemo() {
@@ -294,7 +245,7 @@ export default function AIImplementationCostCalculatorClient() {
       `Timeline: ${timeline} months`,
       `Use cases: ${useCases.join(', ')}`,
       '',
-      `Implementation budget: ${formatRange(Math.round(implementationWithContingency * 0.88), Math.round(implementationWithContingency * 1.18))}`,
+      `Implementation budget: ${formatRange(Math.round(implementationWithContingency * implementationModel.estimate_range.low), Math.round(implementationWithContingency * implementationModel.estimate_range.high))}`,
       `Annual operating cost: ${formatCurrency(Math.round(annualOperatingCost))}`,
       `Risk-adjusted 3-year ROI: ${riskAdjustedROI}%`,
       `Break-even: ${breakEvenMonths} months`,
@@ -564,7 +515,7 @@ export default function AIImplementationCostCalculatorClient() {
                 <div className="rounded-[1.5rem] border border-white/80 bg-white p-5">
                   <div className="text-sm text-slate-500">Estimated implementation budget</div>
                   <div className="mt-2 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
-                    {formatRange(Math.round(implementationWithContingency * 0.88), Math.round(implementationWithContingency * 1.18))}
+                    {formatRange(Math.round(implementationWithContingency * implementationModel.estimate_range.low), Math.round(implementationWithContingency * implementationModel.estimate_range.high))}
                   </div>
                 </div>
                 <div className="rounded-[1.5rem] border border-white/80 bg-white p-5">
@@ -590,7 +541,7 @@ export default function AIImplementationCostCalculatorClient() {
                 </div>
               </div>
               <p className="mt-5 text-xs leading-5 text-slate-500">
-                Evidence standard v1.0 · checked 2026-08-14 · outputs are illustrative planning scenarios, not external benchmarks.
+                Evidence standard v1.0 · decision model v{toolModel.version}.0 · checked {toolModel.checked_at} · outputs are illustrative planning scenarios, not external benchmarks.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <button type="button" onClick={handleComplete} className="btn-secondary gap-2">
@@ -602,7 +553,7 @@ export default function AIImplementationCostCalculatorClient() {
                 <button type="button" onClick={handleExportMemo} className="btn-secondary gap-2">
                   <Download className="h-4 w-4" /> Export memo
                 </button>
-                <Link href="/apply-for-audit" className="btn-brand gap-2">
+                <Link href="/apply-for-audit?source=ai_implementation_cost_roi" className="btn-brand gap-2">
                   Request a tailored audit
                   <ArrowRight className="h-4 w-4" />
                 </Link>

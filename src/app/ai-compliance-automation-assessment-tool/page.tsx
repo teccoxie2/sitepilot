@@ -8,6 +8,8 @@ const pageTitle = 'AI Compliance Automation Assessment Tool (2026): GDPR, HIPAA,
 const pageDescription =
   'Use this AI compliance automation assessment tool to review GDPR, CCPA, HIPAA, and SOX exposure across data handling, access controls, vendor obligations, audit evidence, and remediation priorities before procurement or rollout.'
 const pageUrl = 'https://sitepilot.co/ai-compliance-automation-assessment-tool'
+const numericDisclosure =
+  'Scores, timing, accuracy, and cost figures on this page are illustrative planning scenarios. They are not audit results, legal advice, or measured performance; replace them with current evidence before approval.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -77,10 +79,10 @@ const priorityActions = [
 ]
 
 const frameworkScores = [
-  { name: 'GDPR', detail: 'EU General Data Protection Regulation', score: '8.5/10', width: '85%', tone: 'bg-rose-600' },
-  { name: 'CCPA', detail: 'California Consumer Privacy Act', score: '7.0/10', width: '70%', tone: 'bg-orange-500' },
-  { name: 'HIPAA', detail: 'Healthcare Information', score: '9.0/10', width: '90%', tone: 'bg-rose-600' },
-  { name: 'SOX', detail: 'Sarbanes-Oxley Financial', score: '6.0/10', width: '60%', tone: 'bg-amber-500' },
+  { name: 'GDPR', detail: 'EU General Data Protection Regulation', score: 'Sample 8.5/10', width: '85%', tone: 'bg-rose-600' },
+  { name: 'CCPA', detail: 'California Consumer Privacy Act', score: 'Sample 7.0/10', width: '70%', tone: 'bg-orange-500' },
+  { name: 'HIPAA', detail: 'Healthcare Information', score: 'Sample 9.0/10', width: '90%', tone: 'bg-rose-600' },
+  { name: 'SOX', detail: 'Sarbanes-Oxley Financial', score: 'Sample 6.0/10', width: '60%', tone: 'bg-amber-500' },
 ]
 
 const frameworks = [
@@ -197,6 +199,10 @@ export default function AIComplianceAutomationAssessmentPage() {
                   Ethics checklist
                 </Link>
               </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
                 {summaryCards.map((item) => (

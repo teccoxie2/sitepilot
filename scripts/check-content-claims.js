@@ -17,6 +17,15 @@ const forbiddenClaims = [
   'successful enterprise ai implementations',
   'based on analysis of 1,000+',
   'selection success rate cited on the page',
+  'tested methodology',
+  'real-world performance data',
+  'real-world testing',
+  'testing across 78 ai tools',
+  'average ai roi',
+  'average first-year roi',
+  'average 3-year roi',
+  'average annual savings',
+  'typical roi payback',
 ]
 
 function walk(directory) {

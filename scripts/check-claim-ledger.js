@@ -10,6 +10,11 @@ const ledgerJsonPath = path.join(projectRoot, 'src', 'data', 'evidence', 'sitepi
 const appDirectory = path.join(projectRoot, 'src', 'app')
 const allowedStatuses = new Set(['verified', 'estimate', 'example', 'remove', 'review'])
 const qualifierPattern = /(illustrative|scenario|assumption|estimate|example|planning)/i
+const requiredCoreToolRoutes = new Set([
+  '/ai-procurement-decision-matrix-tool-2026',
+  '/ai-implementation-cost-calculator-enterprise-2026',
+  '/hosting-platform-fit-scorecard-2026',
+])
 
 if (!fs.existsSync(ledgerPath)) throw new Error('CONTENT_CLAIM_LEDGER.md is missing')
 
@@ -19,11 +24,22 @@ const rows = fs.readFileSync(ledgerPath, 'utf8')
 
 const failures = []
 const claimIds = new Set()
+const ledgerRoutes = new Set()
+function routeSource(routePath) {
+  const routeDirectory = path.join(appDirectory, routePath.slice(1))
+  if (!fs.existsSync(routeDirectory)) return null
+  return fs.readdirSync(routeDirectory, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && /\.(ts|tsx)$/.test(entry.name))
+    .map((entry) => fs.readFileSync(path.join(routeDirectory, entry.name), 'utf8'))
+    .join('\n')
+}
+
 for (const row of rows) {
   const columns = row.split('|').slice(1, -1).map((column) => column.trim())
   const [claimId, route, , statusColumn] = columns
   if (!claimId || claimIds.has(claimId)) failures.push(`Missing or duplicate claim id: ${claimId || '(empty)'}`)
   claimIds.add(claimId)
+  if (route?.startsWith('`/')) ledgerRoutes.add(route.replaceAll('`', ''))
 
   const statusMatch = statusColumn?.match(/`(verified|estimate|example|remove|review)`/i)
   const status = statusMatch?.[1]?.toLowerCase()
@@ -31,14 +47,17 @@ for (const row of rows) {
 
   if (route?.startsWith('`/') && !route.includes('*')) {
     const routePath = route.replaceAll('`', '')
-    const sourcePath = path.join(appDirectory, routePath.slice(1), 'page.tsx')
-    if (!fs.existsSync(sourcePath)) {
+    const source = routeSource(routePath)
+    if (!source) {
       failures.push(`${claimId} points to a missing route: ${routePath}`)
     } else if (['estimate', 'example', 'review'].includes(status)) {
-      const source = fs.readFileSync(sourcePath, 'utf8')
       if (!qualifierPattern.test(source)) failures.push(`${claimId} status ${status} lacks an explicit assumption/scenario qualifier: ${routePath}`)
     }
   }
+}
+
+for (const route of requiredCoreToolRoutes) {
+  if (!ledgerRoutes.has(route)) failures.push(`Core tool route is missing a claim ledger entry: ${route}`)
 }
 
 if (rows.length < 10) failures.push(`Expected at least 10 ledger entries, found ${rows.length}`)

@@ -21,8 +21,10 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'AI Governance Monitoring Dashboard 2026 | SitePilot'
 const pageDescription =
-  'Monitor enterprise AI governance health, compliance posture, live risk alerts, and operational KPIs with a dashboard built for AI oversight teams.'
+  'Use a sample enterprise AI governance dashboard to inspect compliance posture, risk alerts, and operational KPIs before connecting your own evidence.'
 const pageUrl = 'https://sitepilot.co/ai-governance-monitoring-dashboard-2026'
+const snapshotDisclosure =
+  'This dashboard uses a fixed illustrative snapshot for interaction design. Scores, alerts, timestamps, and trends are not live SitePilot telemetry; connect your own logs, owners, evidence, and review window before relying on them.'
 
 type Timeframe = '1d' | '7d' | '30d' | '90d'
 
@@ -470,13 +472,17 @@ export default function AIGovernanceMonitoringDashboard() {
 
               <div className="mb-10 flex flex-wrap gap-3">
                 <a href="#live-dashboard" className="btn-brand">
-                  Open live dashboard
+                  Open sample dashboard
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
                 <Link href="/ai-governance-framework-enterprise-2026" className="btn-secondary">
                   Review governance framework
                 </Link>
               </div>
+
+              <p className="mb-6 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {snapshotDisclosure}
+              </p>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {summaryCards.map((card) => (
@@ -499,7 +505,7 @@ export default function AIGovernanceMonitoringDashboard() {
                       <div className="text-xl font-semibold text-slate-950">Dashboard controls</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                      Live posture
+                      Sample posture
                     </div>
                   </div>
 
@@ -569,7 +575,7 @@ export default function AIGovernanceMonitoringDashboard() {
                   </h2>
                 </div>
                 <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">
-                  Updated {snapshot.updatedAt}
+                  Sample timestamp: {snapshot.updatedAt}
                 </div>
               </div>
 

@@ -174,9 +174,9 @@ const phases = [
 ]
 
 const benchmarks = [
-  { value: '156%', label: 'Average AI ROI', note: 'Enterprise implementations' },
-  { value: '8.3 months', label: 'Payback period', note: 'Typical break-even timing' },
-  { value: '34%', label: 'Cost reduction', note: 'Process automation impact' },
+  { value: '156%', label: 'Illustrative AI ROI scenario', note: 'Replace with a dated enterprise baseline' },
+  { value: '8.3 months', label: 'Illustrative payback scenario', note: 'Validate against your delivery plan' },
+  { value: '34%', label: 'Illustrative cost-reduction scenario', note: 'Model process automation impact' },
 ]
 
 const toolGroups = [

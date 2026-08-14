@@ -5,15 +5,15 @@ import { ArrowRight, Bot, CheckCircle2, Clock, DollarSign, Shield, Sparkles, Use
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 const metadataConfig: Metadata = {
-  title: 'Best AI Tools for Small Business 2026: ROI-Tested Solutions That Actually Work',
+  title: 'Best AI Tools for Small Business 2026: Scenario-Based Solutions to Compare',
   description:
-    'Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data for businesses under $1M revenue.',
+    'Illustrative small-business planning scenario covering 50+ AI tools over an 8-month window, with cost, implementation, and ROI assumptions for teams under $1M revenue.',
   keywords:
     'best AI tools small business, AI for small business, small business automation, affordable AI tools, AI productivity tools, business AI software',
   openGraph: {
-    title: 'Best AI Tools for Small Business 2026: ROI-Tested Solutions That Actually Work',
+    title: 'Best AI Tools for Small Business 2026: Scenario-Based Solutions to Compare',
     description:
-      'Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data.',
+      'Illustrative small-business planning scenario covering 50+ AI tools over an 8-month window, with cost and ROI assumptions.',
     url: 'https://sitepilot.co/best-ai-tools-small-business-2026',
     type: 'article',
   },
@@ -24,10 +24,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const stats = [
-  { value: '50+', label: 'AI tools tested' },
-  { value: '25', label: 'Small businesses involved' },
-  { value: '450%', label: 'Best ROI achieved' },
-  { value: '$18K', label: 'Average annual savings' },
+  { value: '50+', label: 'Illustrative tools in planning set' },
+  { value: '25', label: 'Illustrative businesses in scenario' },
+  { value: '450%', label: 'Illustrative best-ROI scenario' },
+  { value: '$18K', label: 'Illustrative annual-savings scenario' },
 ]
 
 const summaryCards = [
@@ -36,12 +36,12 @@ const summaryCards = [
     note: 'ChatGPT Plus, Zapier, and Grammarly Business produced the clearest repeatable ROI.',
   },
   {
-    label: 'Typical impact',
-    note: '15-25 hours saved per week, with $1,200-3,500/month in total cost reduction.',
+    label: 'Illustrative impact',
+    note: 'Illustrative scenario: 15-25 hours saved per week, with $1,200-3,500/month in modeled cost reduction.',
   },
   {
-    label: 'Typical payback',
-    note: 'Most successful implementations reached payback in roughly 1.8 to 3.2 months.',
+    label: 'Illustrative payback',
+    note: 'Illustrative payback scenario: 1.8 to 3.2 months when adoption assumptions hold.',
   },
   {
     label: 'Implementation rule',
@@ -51,15 +51,15 @@ const summaryCards = [
 
 const methodology = [
   {
-    title: '25 real businesses',
+    title: 'Illustrative 25-business scenario',
     description:
-      'Restaurants, service businesses, e-commerce operators, consultants, and retailers between $50K and $950K in annual revenue.',
+      'Planning examples for restaurants, service businesses, e-commerce operators, consultants, and retailers between $50K and $950K in annual revenue.',
     icon: Users,
   },
   {
-    title: '8-month testing window',
+    title: 'Illustrative 8-month testing window',
     description:
-      'Each tool ran for at least 60 days with actual implementation, training, and usage tracking across core functions.',
+      'Each tool is modeled over at least 60 days with implementation, training, and usage-tracking assumptions across core functions.',
     icon: Clock,
   },
   {
@@ -78,14 +78,14 @@ const toolCategories = [
       {
         name: 'ChatGPT Plus',
         price: '$20/month',
-        roi: '380% ROI',
-        score: '9.4/10',
+        roi: 'Illustrative 380% ROI scenario',
+        score: 'Editorial 9.4/10',
         summary:
           'The strongest default AI layer for small businesses because it covers content, support responses, drafting, and lightweight strategy work in one place.',
         bullets: [
-          'Saves 12 hours/week on content creation',
-          'Cuts copywriting costs by about $800/month',
-          'Improves response time by roughly 65%',
+          'Illustrative scenario: 12 hours/week saved on content creation',
+          'Illustrative scenario: copywriting costs cut by about $800/month',
+          'Illustrative scenario: response time improved by roughly 65%',
           'Short onboarding and low implementation risk',
         ],
         href: 'https://chat.openai.com/plus',
@@ -94,14 +94,14 @@ const toolCategories = [
       {
         name: 'Copy.ai',
         price: '$36/month',
-        roi: '280% ROI',
-        score: '8.8/10',
+        roi: 'Illustrative 280% ROI scenario',
+        score: 'Editorial 8.8/10',
         summary:
           'A stronger fit when marketing copy, ad creative, launch messaging, and campaign speed are more important than broad general-purpose AI usage.',
         bullets: [
-          '34% higher ad click-through in testing',
-          '28% lift in email open rates',
-          '3.2x faster campaign creation',
+          'Illustrative scenario: 34% higher ad click-through',
+          'Illustrative scenario: 28% lift in email open rates',
+          'Illustrative scenario: 3.2x faster campaign creation',
           'Lower dependence on freelance copy support',
         ],
         href: 'https://copy.ai',
@@ -116,15 +116,15 @@ const toolCategories = [
       {
         name: 'Zapier',
         price: '$29/month',
-        roi: '290% ROI',
-        score: '9.2/10',
+        roi: 'Illustrative 290% ROI scenario',
+        score: 'Editorial 9.2/10',
         summary:
           'Zapier remains the practical automation backbone for small businesses that need better process reliability without hiring developers.',
         bullets: [
-          'Saves 8-15 hours/week of manual work',
-          'Cuts data entry errors by 94%',
+          'Illustrative scenario: 8-15 hours/week of manual work saved',
+          'Illustrative scenario: data entry errors cut by 94%',
           'Replaces a meaningful chunk of VA workload',
-          'Improves customer response time by 78%',
+          'Illustrative scenario: customer response time improved by 78%',
         ],
         href: 'https://zapier.com',
         cta: 'Try Zapier',
@@ -138,13 +138,13 @@ const toolCategories = [
       {
         name: 'Grammarly Business',
         price: '$15/month',
-        roi: '240% ROI',
-        score: '8.9/10',
+        roi: 'Illustrative 240% ROI scenario',
+        score: 'Editorial 8.9/10',
         summary:
           'This is the easiest way to improve email quality, proposal clarity, and customer-facing writing consistency across a small team.',
         bullets: [
-          '42% fewer communication errors',
-          '2.8x faster email composition',
+          'Illustrative scenario: 42% fewer communication errors',
+          'Illustrative scenario: 2.8x faster email composition',
           'Improved customer-facing professionalism',
           'Useful across proposals, marketing, and support',
         ],
@@ -160,7 +160,7 @@ const phases = [
     title: 'Phase 1: Foundation',
     timing: 'Month 1-2',
     investment: '$35/month',
-    roi: 'Expected ROI: 280%',
+    roi: 'Target scenario: 280% ROI',
     steps: [
       'Start with ChatGPT Plus as the low-risk, high-impact entry point',
       'Add Grammarly Business for immediate communication quality gains',
@@ -170,7 +170,7 @@ const phases = [
     title: 'Phase 2: Automation',
     timing: 'Month 3-4',
     investment: '$64/month',
-    roi: 'Expected ROI: 320%',
+    roi: 'Target scenario: 320% ROI',
     steps: [
       'Implement Zapier to remove repetitive manual workflows',
       'Add specialized tools only where measurable gaps exist',
@@ -180,7 +180,7 @@ const phases = [
     title: 'Phase 3: Optimization',
     timing: 'Month 5+',
     investment: '$120+/month',
-    roi: 'Expected ROI: 400%+',
+    roi: 'Target scenario: 400%+ ROI',
     steps: [
       'Layer in more advanced integrations and operating routines',
       'Scale only the tools already proving adoption and savings',
@@ -246,8 +246,8 @@ export default function BestAIToolsSmallBusiness() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Best AI Tools for Small Business 2026: ROI-Tested Solutions That Actually Work"
-        description="Real small business owners tested 50+ AI tools over 8 months. Complete cost-benefit analysis, implementation guides, and ROI data."
+        title="Best AI Tools for Small Business 2026: Scenario-Based Solutions to Compare"
+        description="Illustrative small-business planning scenario covering 50+ AI tools over an 8-month window, with cost and ROI assumptions."
         url="https://sitepilot.co/best-ai-tools-small-business-2026"
         publishedDate="2026-03-07"
         modifiedDate="2026-03-07"
@@ -270,7 +270,7 @@ export default function BestAIToolsSmallBusiness() {
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
                 Best AI tools for small business,
-                <span className="brand-gradient-text block">ranked by real ROI, not hype.</span>
+                <span className="brand-gradient-text block">ranked by illustrative ROI scenarios, not hype.</span>
               </h1>
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
@@ -307,7 +307,7 @@ export default function BestAIToolsSmallBusiness() {
                       <div className="text-xl font-semibold text-slate-950">What actually moved the needle</div>
                     </div>
                     <div className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                      ROI tested
+                      Scenario model
                     </div>
                   </div>
 
@@ -335,7 +335,7 @@ export default function BestAIToolsSmallBusiness() {
             <div className="page-pill mb-4">Methodology</div>
             <h2 className="page-title text-3xl md:text-5xl mb-4">How the testing was structured.</h2>
             <p className="page-lead text-lg">
-              Recommendations came from live small-business use, not feature list speculation.
+              Recommendations use transparent planning assumptions, not a claim of controlled live-user research.
             </p>
           </div>
 
@@ -475,7 +475,7 @@ export default function BestAIToolsSmallBusiness() {
                   A realistic savings picture.
                 </h2>
                 <p className="text-slate-600 text-lg leading-7 mb-6">
-                  The test cohort showed that even a relatively small stack could produce meaningful labor savings when paired with actual usage discipline.
+                  This illustrative cohort scenario shows how a relatively small stack could produce labor savings when paired with usage discipline.
                 </p>
                 <div className="space-y-3">
                   {roiRows.map((row) => (
@@ -541,7 +541,7 @@ export default function BestAIToolsSmallBusiness() {
                     <div className="text-slate-600">{item.solution}</div>
                   </div>
                   <div>
-                    <div className="text-sm uppercase tracking-[0.16em] text-slate-500 mb-2">Typical cost</div>
+                    <div className="text-sm uppercase tracking-[0.16em] text-slate-500 mb-2">Listed cost snapshot</div>
                     <div className="text-slate-600">{item.cost}</div>
                   </div>
                 </div>

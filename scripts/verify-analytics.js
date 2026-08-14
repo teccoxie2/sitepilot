@@ -52,6 +52,7 @@ function checkGoogleAnalyticsComponent() {
 
 function checkLayoutIntegration() {
   const layoutPath = path.join(process.cwd(), 'src/app/layout.tsx');
+  const consentPath = path.join(process.cwd(), 'src/components/AnalyticsConsent.tsx');
   
   if (!fs.existsSync(layoutPath)) {
     console.log('❌ Layout file not found');
@@ -60,8 +61,8 @@ function checkLayoutIntegration() {
   
   const layoutContent = fs.readFileSync(layoutPath, 'utf8');
   
-  if (!layoutContent.includes('GoogleAnalytics')) {
-    console.log('❌ GoogleAnalytics not imported in layout');
+  if (!layoutContent.includes('AnalyticsConsent')) {
+    console.log('❌ AnalyticsConsent not mounted in layout');
     return false;
   }
 
@@ -70,7 +71,12 @@ function checkLayoutIntegration() {
     return false;
   }
   
-  console.log('✅ GoogleAnalytics integrated in layout and wired to env');
+  if (!fs.existsSync(consentPath) || !fs.readFileSync(consentPath, 'utf8').includes('GoogleAnalytics')) {
+    console.log('❌ AnalyticsConsent does not load GoogleAnalytics after consent');
+    return false;
+  }
+
+  console.log('✅ AnalyticsConsent integrated in layout and wired to env');
   return true;
 }
 

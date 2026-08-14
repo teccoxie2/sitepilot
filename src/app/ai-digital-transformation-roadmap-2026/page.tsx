@@ -8,6 +8,8 @@ const pageTitle = 'AI Digital Transformation Roadmap 2026: Enterprise Implementa
 const pageDescription =
   'Complete 12-month AI digital transformation roadmap for enterprises in 2026, including phased implementation, budget planning, risk mitigation, and illustrative ROI assumptions.'
 const pageUrl = 'https://sitepilot.co/ai-digital-transformation-roadmap-2026'
+const numericDisclosure =
+  'Investment, ROI, adoption, and efficiency figures are illustrative planning assumptions—not SitePilot research or a forecast. Replace them with your organization’s baseline, scope, cost model, and measurement window.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -131,10 +133,10 @@ const phaseDetails = [
     title: 'Phase 2 investment breakdown',
     tone: 'bg-indigo-50 border-indigo-200',
     items: [
-      'Infrastructure: $680K-$920K',
-      'Platform licenses: $340K-$580K',
-      'Team and training: $290K-$450K',
-      'Consulting services: $180K-$280K',
+      'Scenario infrastructure: $680K-$920K',
+      'Scenario platform licenses: $340K-$580K',
+      'Scenario team and training: $290K-$450K',
+      'Scenario consulting services: $180K-$280K',
     ],
   },
   {
@@ -172,27 +174,27 @@ const roiTimeline = [
     title: 'Months 1-6',
     subtitle: 'Foundation ROI',
     items: [
-      '15-25% operational efficiency gains',
-      '20-30% decision-making acceleration',
-      '$180K-$340K in early savings',
+      'Scenario: 15-25% operational efficiency gains',
+      'Scenario: 20-30% decision-making acceleration',
+      'Scenario: $180K-$340K in early savings',
     ],
   },
   {
     title: 'Months 7-12',
     subtitle: 'Implementation ROI',
     items: [
-      '35-50% process automation',
-      '40-60% productivity improvement',
-      '$580K-$920K in additional savings',
+      'Scenario: 35-50% process automation',
+      'Scenario: 40-60% productivity improvement',
+      'Scenario: $580K-$920K in additional savings',
     ],
   },
   {
     title: 'Months 13-18',
     subtitle: 'Scale ROI',
     items: [
-      '60-80% automation maturity',
-      '25-40% revenue growth',
-      '$1.2M-$2.1M in total value creation',
+      'Scenario: 60-80% automation maturity',
+      'Scenario: 25-40% revenue growth',
+      'Scenario: $1.2M-$2.1M in total value creation',
     ],
   },
 ]
@@ -360,6 +362,10 @@ export default function AIDigitalTransformationRoadmap2026() {
                   Calculate AI ROI
                 </Link>
               </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
                 {summaryStats.map((stat) => (

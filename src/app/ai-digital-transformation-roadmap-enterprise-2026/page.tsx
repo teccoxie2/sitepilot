@@ -8,6 +8,8 @@ const pageTitle = 'Enterprise AI Digital Transformation Roadmap Guide 2026 | Sit
 const pageDescription =
   'An 18-month enterprise AI digital transformation roadmap using illustrative rollout, budget, risk, and success-metric scenarios. Replace the assumptions with evidence from your own program before committing capital.'
 const pageUrl = 'https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026'
+const numericDisclosure =
+  'All budgets, timelines, ROI, and operating improvements are illustrative planning scenarios. They are not customer results or forecasts; replace them with your program baseline, scope, and evidence before committing capital.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -320,6 +322,10 @@ export default function AIDigitalTransformationRoadmapPage() {
                   Model ROI first
                 </Link>
               </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
                 {summaryStats.map((stat) => (

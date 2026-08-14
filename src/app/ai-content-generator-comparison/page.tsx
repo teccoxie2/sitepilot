@@ -39,6 +39,8 @@ const metadataConfig: Metadata = {
 };
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
+const comparisonDisclosure =
+  'Prices are listed snapshots and the 1–10 values are SitePilot editorial fit signals, not lab scores or universal rankings. Confirm current plans and test representative prompts in your own workflow before purchase.'
 const comparisonTools = [
   {
     name: 'ChatGPT-4',
@@ -220,6 +222,10 @@ export default function AIContentGeneratorComparison() {
                 </Link>
               </div>
 
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {comparisonDisclosure}
+              </p>
+
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
                 <div className="page-card px-4 py-4">
                   <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">4</div>
@@ -291,7 +297,7 @@ export default function AIContentGeneratorComparison() {
             <div className="page-pill mb-4">Comparison table</div>
             <h2 className="page-title text-3xl md:text-5xl mb-4">The shortlist at a glance.</h2>
             <p className="page-lead text-lg">
-              This matrix captures the top-performing tools without forcing the full article read first.
+              This matrix captures a selected shortlist without forcing the full article read first.
             </p>
           </div>
 
@@ -302,10 +308,10 @@ export default function AIContentGeneratorComparison() {
                   <tr className="bg-slate-50">
                     <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Tool</th>
                     <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Best for</th>
-                    <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Price</th>
-                    <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Quality</th>
-                    <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Ease of use</th>
-                    <th className="px-6 py-4 text-left font-semibold text-indigo-700 border-b border-slate-200">Integrations</th>
+                    <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Listed price snapshot</th>
+                    <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Editorial quality fit</th>
+                    <th className="px-6 py-4 text-left font-semibold text-slate-950 border-b border-slate-200">Editorial ease fit</th>
+                    <th className="px-6 py-4 text-left font-semibold text-indigo-700 border-b border-slate-200">Editorial integration fit</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -332,7 +338,7 @@ export default function AIContentGeneratorComparison() {
             <div className="page-pill mb-4">Evaluation framework</div>
             <h2 className="page-title text-3xl md:text-5xl mb-4">What separates useful tools from noisy ones.</h2>
             <p className="page-lead text-lg">
-              These are the factors that mattered most once the testing moved from demos into repeated real-world use.
+              These are the factors to validate when a shortlist moves from demos into repeated real-world use.
             </p>
           </div>
 

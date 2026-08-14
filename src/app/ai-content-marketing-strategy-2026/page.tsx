@@ -147,7 +147,7 @@ const roiCards = [
   { value: '267%', label: 'Illustrative content production increase', note: 'Scenario output growth when repeatable AI-assisted workflows replace manual bottlenecks.' },
   { value: '84%', label: 'Illustrative time reduction', note: 'Scenario drop in content cycle time across briefing, drafting, and adaptation.' },
   { value: '156%', label: 'Illustrative engagement improvement', note: 'Scenario lift once optimization and personalization loops are active.' },
-  { value: '$2.4M', label: 'Annual cost savings', note: 'Illustrative enterprise value from operational efficiency gains.' },
+  { value: '$2.4M', label: 'Illustrative annual cost savings', note: 'Scenario value from operational efficiency gains; validate with your baseline.' },
 ]
 
 const roadmap = [
@@ -165,7 +165,7 @@ const roadmap = [
     accent: 'border-indigo-500 text-indigo-600',
     note: 'Scale content production with AI automation systems.',
     activities: ['Automated workflow deployment', 'Content calendar optimization', 'Quality assurance systems', 'Performance monitoring setup'],
-    metrics: ['200% production increase', 'Quality scores maintained', 'Efficiency gains measured', 'Team adaptation complete'],
+    metrics: ['Scenario: 200% production increase', 'Quality scores maintained', 'Efficiency gains measured', 'Team adaptation complete'],
   },
   {
     phase: 'Phase 3',
@@ -173,7 +173,7 @@ const roadmap = [
     accent: 'border-violet-500 text-violet-600',
     note: 'Advanced optimization and performance enhancement.',
     activities: ['Advanced AI features deployment', 'Personalization implementation', 'Cross-channel optimization', 'ROI maximization strategies'],
-    metrics: ['150% engagement improvement', '75% cost reduction achieved', 'ROI targets exceeded', 'Scaling capacity established'],
+    metrics: ['Scenario: 150% engagement improvement', 'Scenario: 75% cost reduction', 'ROI targets exceeded', 'Scaling capacity established'],
   },
 ]
 

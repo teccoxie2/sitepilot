@@ -40,7 +40,7 @@ test.describe('SitePilot smoke tests', () => {
     await page.getByRole('button', { name: /export csv/i }).click()
     const download = await downloadPromise
     expect(download.suggestedFilename()).toBe('sitepilot-ai-procurement-matrix.csv')
-    await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit')
+    await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit?source=ai_procurement_decision_matrix')
   })
 
   test('shares and exports the AI implementation cost scenario', async ({ page }) => {
@@ -58,7 +58,7 @@ test.describe('SitePilot smoke tests', () => {
     await page.getByRole('button', { name: /export memo/i }).click()
     const download = await downloadPromise
     expect(download.suggestedFilename()).toBe('sitepilot-ai-implementation-cost-roi-memo.md')
-    await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit')
+    await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit?source=ai_implementation_cost_roi')
   })
 
   test('shares and exports the hosting platform fit scenario', async ({ page }) => {
@@ -76,7 +76,7 @@ test.describe('SitePilot smoke tests', () => {
     await page.getByRole('button', { name: /export memo/i }).click()
     const download = await downloadPromise
     expect(download.suggestedFilename()).toBe('sitepilot-hosting-platform-fit-memo.md')
-    await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit')
+    await expect(page.getByRole('link', { name: /request a tailored audit/i })).toHaveAttribute('href', '/apply-for-audit?source=hosting_platform_fit_scorecard')
   })
 
   test('opens the mobile navigation', async ({ page }) => {

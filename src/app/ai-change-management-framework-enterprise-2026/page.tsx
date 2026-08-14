@@ -196,10 +196,10 @@ const mitigationStrategies = [
 ]
 
 const successMetrics = [
-  { value: '85%', label: 'Adoption rate', note: 'Target: above 80% within 6 months', icon: TrendingUp },
-  { value: '92%', label: 'Employee satisfaction', note: 'Target: above 85% satisfaction with AI tools', icon: Users },
-  { value: '78%', label: 'Training completion', note: 'Target: above 75% completion across modules', icon: CheckCircle },
-  { value: '4.2m', label: 'Time to proficiency', note: 'Target: under 6 months average', icon: Clock },
+  { value: 'Target: 85%', label: 'Illustrative adoption target', note: 'Set against your baseline; not a reported average.', icon: TrendingUp },
+  { value: 'Target: 92%', label: 'Illustrative satisfaction target', note: 'Set against your baseline; not a survey result.', icon: Users },
+  { value: 'Target: 78%', label: 'Illustrative training target', note: 'Set against your baseline; not a benchmark claim.', icon: CheckCircle },
+  { value: 'Target: <6 months', label: 'Illustrative proficiency target', note: 'Planning range; validate with your rollout capacity.', icon: Clock },
 ]
 
 const relatedResources = [
@@ -570,6 +570,9 @@ export default function AIChangeManagementFramework() {
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
               Adoption, satisfaction, training completion, and time-to-proficiency are the core signals that the AI rollout is becoming operational instead of performative.
+            </p>
+            <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+              The percentages and timelines below are editorial planning targets, not measured SitePilot results or industry averages. Replace them with your baseline and review window before using them for approval.
             </p>
           </div>
 

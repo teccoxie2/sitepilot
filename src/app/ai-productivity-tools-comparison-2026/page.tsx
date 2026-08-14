@@ -29,6 +29,8 @@ const metadataConfig: Metadata = {
 };
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
+const comparisonDisclosure =
+  'This page uses editable scenario inputs and listed-price snapshots. ROI and efficiency figures are not measured SitePilot results, customer case studies, or industry averages; replace them with a dated baseline before making a purchase decision.'
 const stats = [
   { value: 'ROI', label: 'compare financial return against tool sprawl' },
   { value: 'Workflow', label: 'judge handoff fit before adding another app' },
@@ -90,7 +92,7 @@ export default function AIProductivityToolsComparison() {
       <SchemaMarkup
         type="article"
         title="AI Productivity Tools Comparison Guide 2026"
-        description="Productivity tool ROI analysis and implementation guidance based on 53 AI tools, five months of testing, and $15K in spend."
+        description="Scenario-based AI productivity tool comparison covering workflow fit, listed cost, and implementation assumptions."
         url="https://sitepilot.co/ai-productivity-tools-comparison-2026"
         publishedDate="2026-03-07"
         modifiedDate="2026-03-07"
@@ -129,6 +131,10 @@ export default function AIProductivityToolsComparison() {
                   Small business AI picks
                 </Link>
               </div>
+
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {comparisonDisclosure}
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
                 {stats.map((stat) => (
@@ -200,9 +206,9 @@ export default function AIProductivityToolsComparison() {
             {topCombos.map((combo) => (
               <div key={combo.title} className="page-card-glow p-1.5">
                 <div className="page-card rounded-[1.8rem] p-7 h-full">
-                  <div className="text-sm uppercase tracking-[0.16em] text-indigo-500 mb-2">{combo.cost}</div>
+                  <div className="text-sm uppercase tracking-[0.16em] text-indigo-500 mb-2">Listed snapshot: {combo.cost}</div>
                   <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 mb-3">{combo.title}</h3>
-                  <div className="text-3xl font-semibold tracking-[-0.05em] text-indigo-600 mb-4">{combo.roi}</div>
+                  <div className="text-3xl font-semibold tracking-[-0.05em] text-indigo-600 mb-4">Scenario ROI: {combo.roi}</div>
                   <p className="text-slate-600 leading-7">{combo.note}</p>
                 </div>
               </div>

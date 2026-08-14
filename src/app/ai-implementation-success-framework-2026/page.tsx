@@ -154,7 +154,7 @@ const successMetrics: SuccessMetric[] = [
   {
     category: 'Financial Impact',
     metrics: ['Return on Investment (ROI)', 'Cost reduction achievements', 'Revenue growth attribution', 'Time to value realization'],
-    targets: ['200-400% ROI within 18 months', '$500K-5M annual cost savings', '10-25% AI-attributed revenue growth', 'Break-even within 6-12 months'],
+    targets: ['Illustrative 200-400% ROI scenario within 18 months', 'Illustrative $500K-5M annual savings scenario', 'Illustrative 10-25% AI-attributed revenue scenario', 'Illustrative break-even scenario within 6-12 months'],
     measurementMethod: 'Financial reporting, cost center analysis, revenue attribution modeling',
   },
   {
@@ -306,10 +306,10 @@ export default function AIImplementationSuccessFramework2026() {
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
                 {[
-                  ['78%', 'Success rate across benchmarked enterprise implementations'],
-                  ['6-18M', 'Average time to ROI depending on scope and industry'],
-                  ['$2.5M', 'Average annual savings for mid-size enterprise programs'],
-                  ['52W', 'Full transformation horizon in the complete framework'],
+                  ['78%', 'Illustrative success-rate scenario for enterprise implementations'],
+                  ['6-18M', 'Illustrative time-to-ROI scenario depending on scope and industry'],
+                  ['$2.5M', 'Illustrative annual-savings scenario for mid-size programs'],
+                  ['52W', 'Illustrative full-transformation horizon'],
                 ].map(([value, note]) => (
                   <div key={value} className="page-card p-4 bg-white/90">
                     <div className="text-2xl font-semibold tracking-[-0.04em] text-slate-950 mb-1">{value}</div>

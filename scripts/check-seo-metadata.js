@@ -52,10 +52,12 @@ for (const filePath of builtHtml) {
   const title = decodeHtml(source.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/\s+/g, ' ').trim()
   const description = getMetaContent(source, 'name', 'description')
   const ogImage = getMetaContent(source, 'property', 'og:image')
+  const h1Count = (source.match(/<h1\b/gi) || []).length
   const route = path.relative(buildDirectory, filePath)
   if (title.length > 60) failures.push(`${route} title exceeds 60 characters (${title.length})`)
   if (description.length > 155) failures.push(`${route} description exceeds 155 characters (${description.length})`)
   if (!ogImage) failures.push(`${route} is missing og:image`)
+  if (h1Count !== 1) failures.push(`${route} must have exactly one h1 (found ${h1Count})`)
 }
 
 if (failures.length > 0) {

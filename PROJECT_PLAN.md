@@ -156,7 +156,7 @@ claim_id
 ### 页面与索引门槛
 
 - sitemap 每个 URL 都是 200、可索引、canonical 自指，并有至少一个相关内容页入链；
-- 每个内容页只有一个 H1；title/description 经过长度和 SERP 展示复核；
+- 每个内容页只有一个 H1；`npm run seo:check` 在构建后的 HTML 上验证 H1 数量、title/description 长度和 OG image；
 - 可分享页面的 OG/Twitter 图片返回 200；
 - Keep 页面有证据入口，Merge/Noindex/Remove 页面没有残留的错误内链。
 

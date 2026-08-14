@@ -13,6 +13,8 @@ const tools = [
   ['Shortlist scorecard', '/enterprise-ai-vendor-shortlist-scorecard-2026'],
   ['Contract red flags', '/ai-vendor-contract-red-flags-2026'],
   ['Decision matrix', '/ai-procurement-decision-matrix-tool-2026'],
+  ['Evidence benchmark', '/ai-procurement-evidence-benchmark-2026'],
+  ['Implementation cost + ROI', '/ai-implementation-cost-calculator-enterprise-2026'],
   ['Pilot evaluation checklist', '/enterprise-ai-vendor-pilot-evaluation-checklist-2026'],
 ]
 

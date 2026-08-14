@@ -13,7 +13,7 @@ test.describe('SitePilot smoke tests', () => {
   })
 
   test('serves the core coverage hubs', async ({ page }) => {
-    for (const route of ['/web-hosting', '/website-builders', '/proxies', '/ai-tools']) {
+    for (const route of ['/web-hosting', '/website-builders', '/proxies', '/ai-tools', '/ai-procurement-evidence-benchmark-2026']) {
       const response = await page.goto(route)
 
       expect(response?.status(), `${route} should return HTTP 200`).toBe(200)

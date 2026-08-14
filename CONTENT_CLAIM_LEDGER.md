@@ -3,6 +3,8 @@
 最后更新：2026-08-14
 范围：第一轮战略收敛涉及的高风险量化主张
 
+机器可校验版本：`src/data/evidence/sitepilot-claim-ledger-v1.json`。Markdown 表格用于编辑阅读，JSON 记录完整的来源、样本、日期、公式、适用条件、负责人、复核日期和状态字段；两者由 `npm run claims:ledger` 校验一致。
+
 本台账记录当前页面中容易被理解为外部研究结果的数字。没有可公开复核的来源、样本、日期和公式时，页面已经改为明确的 illustrative / scenario / planning assumption 表述；在补齐证据前，不得恢复成“实测”“平均值”“研究发现”或“行业基准”。
 
 | Claim ID | 页面 | 当前主张类型 | 当前状态 | 下一步 |

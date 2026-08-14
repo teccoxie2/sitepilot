@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable @typescript-eslint/no-require-imports */
-
 const baseUrl = 'https://sitepilot.co'
 const sitemapUrl = `${baseUrl}/sitemap.xml`
 const noindexRoutes = ['/privacy', '/terms', '/proxies/recommendation']

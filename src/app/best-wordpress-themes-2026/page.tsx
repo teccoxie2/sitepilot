@@ -29,16 +29,18 @@ const metadataConfig: Metadata = {
 };
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
+const dataDisclosure =
+  'Scores, prices, and performance figures are SitePilot editorial signals from a limited comparison set, not a reproducible third-party benchmark or guarantee. Verify current theme versions, plan terms, and performance on your own stack.'
 const relatedArticles = [
   {
     href: '/website-builder-vs-wordpress-2026',
     title: 'Website Builder vs WordPress 2026',
-    description: 'Complete decision guide with real testing data',
+    description: 'Buyer-focused decision guide for theme selection',
   },
   {
     href: '/best-website-builders-2026',
     title: 'Best Website Builders 2026',
-    description: 'Top website builders compared and tested',
+    description: 'Top website builders compared by operating fit',
   },
   {
     href: '/best-web-hosting-2026',
@@ -48,36 +50,36 @@ const relatedArticles = [
 ]
 
 const stats = [
-  { value: '25+', label: 'Themes tested' },
-  { value: '0.8s', label: 'Fastest load time' },
-  { value: '100+', label: 'Performance tests' },
-  { value: '6', label: 'Months testing' },
+  { value: '25+', label: 'Themes in editorial comparison set' },
+  { value: '0.8s', label: 'Fastest directional load signal' },
+  { value: '100+', label: 'Illustrative test checks' },
+  { value: '6 mo', label: 'Editorial review window' },
 ]
 
 const winners = [
   {
     label: 'Overall winner',
     name: 'Astra Pro',
-    note: '0.8s load time',
-    price: '$59/year',
+    note: '0.8s directional load signal',
+    price: 'Listed price snapshot: $59/year',
   },
   {
     label: 'Best free',
     name: 'GeneratePress',
-    note: '0.9s load time',
-    price: '100% free',
+    note: '0.9s directional load signal',
+    price: 'Listed free tier; verify current terms',
   },
   {
     label: 'Best design',
     name: 'Divi',
-    note: 'Visual builder',
-    price: '$89/year',
+    note: 'Visual builder fit',
+    price: 'Listed price snapshot: $89/year',
   },
   {
     label: 'Best e-commerce',
     name: 'Flatsome',
-    note: 'WooCommerce focused',
-    price: '$59 one-time',
+    note: 'WooCommerce-focused fit',
+    price: 'Listed price snapshot: $59 one-time',
   },
 ]
 
@@ -85,25 +87,25 @@ const performanceGroups = [
   {
     title: 'Speed champions',
     items: [
-      { name: 'Astra Pro', score: '0.8s', width: '95%' },
-      { name: 'GeneratePress', score: '0.9s', width: '90%' },
-      { name: 'Neve', score: '1.0s', width: '85%' },
+      { name: 'Astra Pro', score: '0.8s directional signal', width: '95%' },
+      { name: 'GeneratePress', score: '0.9s directional signal', width: '90%' },
+      { name: 'Neve', score: '1.0s directional signal', width: '85%' },
     ],
   },
   {
     title: 'SEO scores',
     items: [
-      { name: 'Schema Pro', score: '98/100', width: '98%' },
-      { name: 'Astra Pro', score: '96/100', width: '96%' },
-      { name: 'GeneratePress', score: '94/100', width: '94%' },
+      { name: 'Schema Pro', score: '98/100 editorial signal', width: '98%' },
+      { name: 'Astra Pro', score: '96/100 editorial signal', width: '96%' },
+      { name: 'GeneratePress', score: '94/100 editorial signal', width: '94%' },
     ],
   },
   {
     title: 'Mobile scores',
     items: [
-      { name: 'OceanWP', score: '95/100', width: '95%' },
-      { name: 'Kadence', score: '93/100', width: '93%' },
-      { name: 'Blocksy', score: '91/100', width: '91%' },
+      { name: 'OceanWP', score: '95/100 editorial signal', width: '95%' },
+      { name: 'Kadence', score: '93/100 editorial signal', width: '93%' },
+      { name: 'Blocksy', score: '91/100 editorial signal', width: '91%' },
     ],
   },
 ]
@@ -116,21 +118,21 @@ const themeCategories = [
         name: 'Astra Pro',
         description: 'The ultimate business theme with 200+ starter templates.',
         price: '$59/year',
-        rating: '4.9/5',
+        rating: '4.9/5 editorial fit',
         badges: ['Fast loading', 'WooCommerce ready', 'Page builder compatible'],
       },
       {
         name: 'OceanWP',
         description: 'Highly customizable with excellent header options.',
         price: 'Free + $39/year Pro',
-        rating: '4.7/5',
+        rating: '4.7/5 editorial fit',
         badges: ['SEO optimized', 'Free + premium', 'Header builder'],
       },
       {
         name: 'Kadence',
         description: 'Modern design with advanced customization options.',
         price: 'Free + $129/year Pro',
-        rating: '4.8/5',
+        rating: '4.8/5 editorial fit',
         badges: ['Gutenberg optimized', 'Mobile first', 'Typography control'],
       },
     ],
@@ -142,21 +144,21 @@ const themeCategories = [
         name: 'GeneratePress',
         description: 'Lightweight, fast, and perfect for content-heavy sites.',
         price: 'Free + $59/year Pro',
-        rating: '4.9/5',
+        rating: '4.9/5 editorial fit',
         badges: ['Fastest loading', 'Clean code', 'Accessibility ready'],
       },
       {
         name: 'Neve',
         description: 'AMP-ready theme perfect for speed-focused blogs.',
         price: 'Free + $69/year Pro',
-        rating: '4.6/5',
+        rating: '4.6/5 editorial fit',
         badges: ['AMP ready', 'Schema markup', 'Gutenberg blocks'],
       },
       {
         name: 'Blocksy',
         description: 'Modern block-based theme with excellent typography.',
         price: 'Free + $49/year Pro',
-        rating: '4.7/5',
+        rating: '4.7/5 editorial fit',
         badges: ['Block editor', 'Dynamic content', 'Custom post types'],
       },
     ],
@@ -331,8 +333,11 @@ export default function BestWordPressThemes2026() {
           <div className="max-w-2xl mb-10">
             <div className="page-pill mb-4">Performance data</div>
             <h2 className="page-title text-3xl md:text-5xl mb-4">What the testing showed.</h2>
-            <p className="page-lead text-lg">
-              We checked load times, SEO posture, and mobile responsiveness to separate themes that look good in demos from themes that behave well in production.
+              <p className="page-lead text-lg">
+              The comparison model looks at load times, SEO posture, and mobile responsiveness to separate themes that look good in demos from themes that are more likely to behave well in production.
+            </p>
+            <p className="mt-4 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+              {dataDisclosure}
             </p>
           </div>
 

@@ -9,6 +9,8 @@ const pageTitle = 'Cheap Hosting Comparison: Which Budget Web Host Is Actually W
 const pageDescription =
   'Use this cheap hosting comparison to choose a budget web host under $5 by renewal pricing, support quality, speed, hidden costs, and long-term operating risk before you lock into the wrong plan.'
 const pageUrl = 'https://sitepilot.co/cheap-hosting'
+const dataDisclosure =
+  'Scores, prices, and performance figures are SitePilot editorial signals from a limited comparison snapshot, not a third-party benchmark or guarantee. Verify current plans, renewal terms, and production performance before purchase.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -80,12 +82,12 @@ const providers = [
   {
     name: 'Hostinger',
     badge: 'Best overall value',
-    score: '9.2/10',
-    price: '$2.99/month intro',
-    renewal: '$7.99/month',
+    score: '9.2/10 editorial fit',
+    price: 'Listed intro price: $2.99/month',
+    renewal: 'Listed renewal: $7.99/month',
     description:
       'Hostinger wins this category because it manages to stay cheap without becoming obviously miserable. It is not premium hosting, but for many small sites it is the smartest low-cost answer.',
-    metrics: ['Uptime: 99.97%', 'Load time: 780ms', 'Support: < 3 min', 'PageSpeed: 84/100'],
+    metrics: ['Directional uptime signal: 99.97%', 'Directional load-time signal: 780ms', 'Directional support signal: < 3 min', 'Editorial performance signal: 84/100'],
     pros: ['Strong balance of price and actual usability', 'Good beginner path', 'Global CDN and weekly backups included'],
     cons: ['Renewals jump hard', 'Entry plan constraints still exist'],
     summary: 'Choose Hostinger when you want the best shot at cheap hosting that still feels professionally workable.',
@@ -95,12 +97,12 @@ const providers = [
   {
     name: 'Namecheap Shared Hosting',
     badge: 'Most transparent pricing feel',
-    score: '8.4/10',
-    price: '$2.88/month intro',
-    renewal: '$4.88/month',
+    score: '8.4/10 editorial fit',
+    price: 'Listed intro price: $2.88/month',
+    renewal: 'Listed renewal: $4.88/month',
     description:
       'Namecheap is not winning on speed, but it earns points for being more predictable and less theatrical on pricing. That matters if you hate bait-and-switch economics.',
-    metrics: ['Uptime: 99.94%', 'Load time: 1,240ms', 'Support: 5–15 min', 'PageSpeed: 76/100'],
+    metrics: ['Directional uptime signal: 99.94%', 'Directional load-time signal: 1,240ms', 'Directional support signal: 5–15 min', 'Editorial performance signal: 76/100'],
     pros: ['More honest renewal profile', 'Solid security baseline', 'Lower pricing drama'],
     cons: ['Noticeably slower than the top two', 'Support is merely okay'],
     summary: 'Pick Namecheap when pricing honesty matters more to you than shaving every last millisecond off performance.',
@@ -110,12 +112,12 @@ const providers = [
   {
     name: 'A2 Hosting',
     badge: 'Fastest budget option',
-    score: '8.8/10',
-    price: '$3.92/month intro',
-    renewal: '$10.99/month',
+    score: '8.8/10 editorial fit',
+    price: 'Listed intro price: $3.92/month',
+    renewal: 'Listed renewal: $10.99/month',
     description:
       'A2 Hosting is the speed-first option in the budget bracket. The trade-off is obvious: you pay for that advantage later through steeper renewals and more pricing friction.',
-    metrics: ['Uptime: 99.96%', 'Load time: 650ms', 'Support: < 2 min', 'PageSpeed: 91/100'],
+    metrics: ['Directional uptime signal: 99.96%', 'Directional load-time signal: 650ms', 'Directional support signal: < 2 min', 'Editorial performance signal: 91/100'],
     pros: ['Fastest budget performer here', 'Good support response times', 'Developer-friendly enough'],
     cons: ['Higher renewal rates', 'More upsell pressure than it should have'],
     summary: 'Choose A2 when you care more about budget-tier speed than long-term pricing smoothness.',
@@ -307,6 +309,9 @@ export default function CheapHostingPage() {
               <h2 className="page-title text-3xl md:text-5xl mb-4">Three cheap hosts that are at least worth considering.</h2>
               <p className="page-lead text-lg">
                 Not all under-$5 hosts deserve oxygen. These three cover the most defensible routes depending on what you value most.
+              </p>
+              <p className="mt-4 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {dataDisclosure}
               </p>
             </div>
 

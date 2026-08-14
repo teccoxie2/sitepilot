@@ -55,6 +55,8 @@
 
 处理原则：如果页面能提供独立实测、真实工具使用或明确的 Web/AI 采购决策动作，则归入 `Keep`；否则合并到主航道页面或进入 `Noindex`/`Remove` 评估。
 
+本地 Review 信号：`CONTENT_REVIEW_SIGNALS.json` 由 `npm run content:review-signals -- --verify` 生成，只记录源码可证明的信号，不替代生产需求证据。当前 41 个 Review 页面分为 9 个 `tool`、17 个 `decision_path`、9 个 `evidence`、6 个 `content_only`；tool 页面下一步补事件，decision/evidence 页面下一步补真实行为或证据来源，content_only 页面优先检查合并或不索引。
+
 ## 验收要求
 
 每个最终处置记录都要包含：

@@ -20,6 +20,8 @@ const pageTitle = 'Best Web Hosting 2026: Top Providers Ranked by Real-World Fit
 const pageDescription =
   'A practical 2026 guide to the best web hosting providers. Compare SiteGround, Hostinger, and WPX on uptime, support quality, speed, pricing traps, and business fit.'
 const pageUrl = 'https://sitepilot.co/best-web-hosting-2026'
+const dataDisclosure =
+  'Scores, prices, and performance figures are SitePilot editorial signals from a limited comparison snapshot, not a third-party benchmark or guarantee. Verify current plans, renewal terms, and production performance before purchase.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -99,15 +101,15 @@ const providers = [
   {
     name: 'SiteGround',
     badge: 'Best overall for serious business sites',
-    score: '9.6/10',
-    price: 'From $3.99/mo intro',
+    score: '9.6/10 editorial fit',
+    price: 'Listed intro price: from $3.99/mo',
     description:
       'SiteGround is still the most balanced answer when you want strong support, solid WordPress handling, and a hosting experience that feels less chaotic than bargain-first providers.',
     metrics: [
-      'Uptime: 99.98%',
-      'Average load time: 210ms',
-      'TTFB: 89ms',
-      'Support response: ~2 minutes',
+      'Directional uptime signal: 99.98%',
+      'Directional load-time signal: 210ms',
+      'Directional TTFB signal: 89ms',
+      'Directional support signal: ~2 minutes',
     ],
     pros: [
       'Best support quality in this group',
@@ -123,15 +125,15 @@ const providers = [
   {
     name: 'Hostinger',
     badge: 'Best value without turning stupid later',
-    score: '9.1/10',
-    price: 'From $1.99/mo intro',
+    score: '9.1/10 editorial fit',
+    price: 'Listed intro price: from $1.99/mo',
     description:
       'Hostinger wins because it offers real budget value without collapsing into total junk. It is not the most premium host, but it is often the smartest low-cost recommendation for smaller sites and early-stage projects.',
     metrics: [
-      'Uptime: 99.95%',
-      'Average load time: 298ms',
-      'TTFB: 145ms',
-      'Support response: ~8 minutes',
+      'Directional uptime signal: 99.95%',
+      'Directional load-time signal: 298ms',
+      'Directional TTFB signal: 145ms',
+      'Directional support signal: ~8 minutes',
     ],
     pros: ['Excellent price-to-feature ratio', 'Cleaner beginner path', 'Strong value for smaller sites'],
     cons: ['Support is weaker than SiteGround', 'Still subject to promo-vs-renewal tension'],
@@ -143,15 +145,15 @@ const providers = [
   {
     name: 'WPX Hosting',
     badge: 'Best premium WordPress speed play',
-    score: '9.0/10',
-    price: 'From $24.99/mo',
+    score: '9.0/10 editorial fit',
+    price: 'Listed price: from $24.99/mo',
     description:
       'WPX is the premium answer for teams that care about WordPress speed, tighter support response, and a more focused hosting setup. It is not cheap, but it is not pretending to be.',
     metrics: [
-      'Uptime: 99.99%',
-      'Average load time: 178ms',
-      'TTFB: 72ms',
-      'Support response: ~45 seconds',
+      'Directional uptime signal: 99.99%',
+      'Directional load-time signal: 178ms',
+      'Directional TTFB signal: 72ms',
+      'Directional support signal: ~45 seconds',
     ],
     pros: ['Fastest in this group', 'Excellent support speed', 'Good WordPress specialization'],
     cons: ['Higher monthly cost', 'Overkill for very small brochure sites'],
@@ -336,6 +338,9 @@ export default function BestWebHosting2026() {
             <h2 className="page-title text-3xl md:text-5xl mb-4">Three hosting providers worth talking about.</h2>
             <p className="page-lead text-lg">
               Not every host deserves equal airtime. These three cover the most useful lanes for most people choosing hosting in 2026.
+            </p>
+            <p className="mt-4 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+              {dataDisclosure}
             </p>
           </div>
 

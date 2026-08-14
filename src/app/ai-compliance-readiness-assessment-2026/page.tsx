@@ -8,6 +8,8 @@ const pageTitle = 'AI Compliance Readiness Assessment for Enterprise Rollouts (2
 const pageDescription =
   'Use this AI compliance readiness assessment to score enterprise rollout risk across governance, data handling, oversight, documentation, and remediation priorities before legal review or production approval.'
 const pageUrl = 'https://sitepilot.co/ai-compliance-readiness-assessment-2026'
+const numericDisclosure =
+  'Numeric values on this page are illustrative planning scenarios, not market averages, legal advice, or a completed assessment. Replace them with current internal evidence before approval.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -28,10 +30,10 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const summaryCards = [
-  { value: '$4.2M', label: 'Average compliance cost', note: 'Per major violation event' },
-  { value: '73%', label: 'Non-compliance rate', note: 'Enterprise AI systems in the market' },
-  { value: '8', label: 'Major frameworks', note: 'Active compliance regimes in 2026' },
-  { value: '18 months', label: 'Typical timeline', note: 'Average path to stronger readiness' },
+  { value: '$4.2M', label: 'Illustrative compliance exposure', note: 'Scenario input, not a reported average' },
+  { value: '73%', label: 'Illustrative non-compliance signal', note: 'Scenario input, not a prevalence estimate' },
+  { value: '8', label: 'Frameworks in scope', note: 'Example coverage set; map to applicable regimes' },
+  { value: '18 months', label: 'Illustrative program horizon', note: 'Planning assumption; replace with your delivery plan' },
 ]
 
 const frameworks = [
@@ -74,10 +76,10 @@ const frameworks = [
 ]
 
 const scoringCards = [
-  { label: 'Overall compliance score', value: '67/100', note: 'Moderate risk level' },
-  { label: 'EU AI Act', value: '42/100', note: 'High risk' },
-  { label: 'GDPR', value: '74/100', note: 'Medium risk' },
-  { label: 'ISO27001', value: '85/100', note: 'Low risk' },
+  { label: 'Illustrative overall compliance score', value: '67/100', note: 'Example output; calculate from current controls' },
+  { label: 'Illustrative EU AI Act signal', value: '42/100', note: 'Example output; confirm applicable classification' },
+  { label: 'Illustrative GDPR signal', value: '74/100', note: 'Example output; confirm data-processing scope' },
+  { label: 'Illustrative ISO 27001 signal', value: '85/100', note: 'Example output; confirm control evidence' },
 ]
 
 const priorityRisks = [
@@ -113,7 +115,7 @@ const priorityRisks = [
 const riskTiers = [
   {
     title: 'High-risk AI systems',
-    status: '38/100',
+    status: 'Illustrative 38/100',
     note: 'Immediate remediation required',
     items: [
       'Credit scoring AI: prohibited/high-risk territory in the EU AI Act',
@@ -124,7 +126,7 @@ const riskTiers = [
   },
   {
     title: 'Medium-risk AI systems',
-    status: '71/100',
+    status: 'Illustrative 71/100',
     note: 'Improvements needed within 90 days',
     items: [
       'Customer service AI: privacy and disclosure controls',
@@ -135,7 +137,7 @@ const riskTiers = [
   },
   {
     title: 'Low-risk AI systems',
-    status: '89/100',
+    status: 'Illustrative 89/100',
     note: 'Mostly compliant, minor updates',
     items: [
       'Content generation AI: lighter regulatory burden',
@@ -147,10 +149,10 @@ const riskTiers = [
 ]
 
 const gapAnalysis = [
-  { label: 'Critical gaps', value: '12', note: 'Immediate action' },
-  { label: 'High priority', value: '27', note: '90-day timeline' },
-  { label: 'Medium priority', value: '34', note: '180-day timeline' },
-  { label: 'Total cost', value: '$12.8M', note: 'Remediation budget' },
+  { label: 'Critical gaps (illustrative)', value: '12', note: 'Scenario backlog; verify in assessment' },
+  { label: 'High priority (illustrative)', value: '27', note: 'Scenario backlog; verify in assessment' },
+  { label: 'Medium priority (illustrative)', value: '34', note: 'Scenario backlog; verify in assessment' },
+  { label: 'Illustrative total cost', value: '$12.8M', note: 'Scenario budget, not a quote' },
 ]
 
 const roadmap = [
@@ -192,36 +194,36 @@ const roadmap = [
 const investmentCards = [
   {
     title: 'Technology and infrastructure',
-    value: '$5.2M',
-    note: 'Compliance monitoring systems and data-governance platforms.',
+    value: 'Illustrative $5.2M',
+    note: 'Scenario allocation for monitoring systems and data-governance platforms.',
   },
   {
     title: 'Professional services and training',
-    value: '$4.1M',
-    note: 'Legal consultation, staff training, and process redesign.',
+    value: 'Illustrative $4.1M',
+    note: 'Scenario allocation for legal consultation, staff training, and process redesign.',
   },
   {
     title: 'Documentation and processes',
-    value: '$2.3M',
-    note: 'Policy development, procedures, and audit preparation.',
+    value: 'Illustrative $2.3M',
+    note: 'Scenario allocation for policy development, procedures, and audit preparation.',
   },
   {
     title: 'Ongoing compliance operations',
-    value: '$1.2M annually',
-    note: 'Recurring monitoring, updates, and reassessments.',
+    value: 'Illustrative $1.2M annually',
+    note: 'Scenario allocation for recurring monitoring, updates, and reassessments.',
   },
 ]
 
 const riskValueCards = [
   {
     title: 'Regulatory penalty avoidance',
-    value: '$127M',
-    note: 'Potential exposure across EU AI Act, GDPR, and sector regimes.',
+    value: 'Illustrative $127M',
+    note: 'Scenario exposure across selected regimes; confirm applicable thresholds with counsel.',
   },
   {
     title: 'Litigation risk reduction',
-    value: '$45M',
-    note: 'Bias claims, privacy violations, and discrimination exposure.',
+    value: 'Illustrative $45M',
+    note: 'Scenario exposure for bias claims, privacy violations, and discrimination risk.',
   },
   {
     title: 'Operational trust preservation',
@@ -276,6 +278,10 @@ export default function AIComplianceReadinessAssessment2026() {
                 </Link>
               </div>
 
+              <p className="max-w-2xl mb-6 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {numericDisclosure}
+              </p>
+
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
                 {summaryCards.map((item) => (
                   <div key={item.label} className="page-card p-4 bg-white/90">
@@ -325,6 +331,9 @@ export default function AIComplianceReadinessAssessment2026() {
               </div>
               <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">Multi-framework assessment</h2>
             </div>
+            <p className="mb-4 text-sm leading-6 text-slate-500">
+              Penalty labels are directional reminders only. Confirm the current text, scope, and thresholds of each applicable regime with qualified counsel.
+            </p>
             <div className="space-y-4">
               {frameworks.map((framework) => (
                 <div key={framework.title} className="rounded-[1.5rem] border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-5">
@@ -423,7 +432,7 @@ export default function AIComplianceReadinessAssessment2026() {
               <span className="block brand-gradient-text">sequencing, not panic.</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              The roadmap below stages enterprise work so the most dangerous regulatory exposure is reduced first, then operationalized.
+              The roadmap below stages enterprise work so the most dangerous regulatory exposure is reduced first, then operationalized. Investment figures are illustrative budget scenarios, not vendor quotes.
             </p>
           </div>
 
@@ -439,7 +448,7 @@ export default function AIComplianceReadinessAssessment2026() {
                     {phase.timing}
                   </div>
                   <div className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
-                    Investment: {phase.investment}
+                    Investment scenario: {phase.investment}
                   </div>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">

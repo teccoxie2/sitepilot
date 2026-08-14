@@ -9,6 +9,8 @@ const pageTitle = 'Best Website Builders 2026 | Webflow vs Wix vs Shopify vs Squ
 const pageDescription =
   'Compare the best website builders in 2026, including Webflow, Wix, Shopify, and Squarespace, using design control, ecommerce fit, SEO ownership, and long-term platform flexibility.'
 const pageUrl = 'https://sitepilot.co/best-website-builders-2026'
+const scoreDisclosure =
+  'Scores on this page are SitePilot editorial fit signals, not survey results, universal rankings, or a guarantee of platform performance. Validate current pricing, limits, and portability against your project before committing.'
 
 const metadataConfig: Metadata = {
   title: pageTitle,
@@ -84,7 +86,7 @@ const builders = [
     rank: '01',
     name: 'Webflow',
     badge: 'Best overall for serious site quality',
-    score: '9.8/10',
+    score: '9.8/10 editorial fit',
     description:
       'Webflow remains the most complete answer for teams that care about visual precision, cleaner output, and a more professional path between design and production. It asks more from the user, but gives more back.',
     bestFor: 'Design-led teams, agencies, advanced marketing sites',
@@ -98,7 +100,7 @@ const builders = [
     rank: '02',
     name: 'Wix',
     badge: 'Best for speed and accessibility',
-    score: '9.4/10',
+    score: '9.4/10 editorial fit',
     description:
       'Wix is still a strong pick for teams that want to move quickly without learning a more advanced production tool. The platform balances editing freedom, onboarding ease, and a large ecosystem well.',
     bestFor: 'Small businesses, creator sites, fast launches',
@@ -112,7 +114,7 @@ const builders = [
     rank: '03',
     name: 'Shopify',
     badge: 'Best for ecommerce-first sites',
-    score: '9.6/10',
+    score: '9.6/10 editorial fit',
     description:
       'Shopify belongs on any builder ranking because it solves a different class of problem: revenue operations. If the site is primarily a store, Shopify is often the least foolish answer.',
     bestFor: 'Stores, product-led brands, revenue-focused teams',
@@ -126,7 +128,7 @@ const builders = [
     rank: '04',
     name: 'Squarespace',
     badge: 'Best for clean presentation',
-    score: '8.9/10',
+    score: '8.9/10 editorial fit',
     description:
       'Squarespace stays relevant because not every site needs complexity. For presentation-first brands, consultants, and content-light sites, it offers a cleaner and calmer publishing experience.',
     bestFor: 'Service sites, portfolios, smaller polished brands',
@@ -174,6 +176,9 @@ export default function BestWebsiteBuilders2026() {
 
               <p className="page-lead text-lg md:text-xl max-w-2xl mb-8">
                 The best website builders in 2026 depend on whether you need design control, ecommerce operations, easier publishing, or stronger SEO ownership. This guide compares Webflow, Wix, Shopify, and Squarespace so buyers can choose a platform that fits the real job instead of the slickest demo.
+              </p>
+              <p className="mb-8 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm leading-6 text-amber-950">
+                {scoreDisclosure}
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">

@@ -1,0 +1,1212 @@
+[
+  {
+    "url": "https://sitepilot.co/ai-change-management-framework-enterprise-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-change-management-framework-enterprise-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-governance-framework-enterprise-2026",
+      "/ai-implementation-checklist-enterprise-2026",
+      "/ai-vendor-due-diligence-checklist-enterprise-2026",
+      "/apply-for-audit",
+      "/enterprise-ai-vendor-pilot-evaluation-checklist-2026"
+    ],
+    "decision_path_links": [
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-compliance-automation-assessment-tool",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-compliance-automation-assessment-tool/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-enterprise-security-compliance",
+      "/ai-ethics-compliance-checklist-enterprise-2026",
+      "/ai-governance-compliance-framework-2026",
+      "/apply-for-audit",
+      "/tools/ai-compliance-audit-2026"
+    ],
+    "decision_path_links": [
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 4,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-compliance-readiness-assessment-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-compliance-readiness-assessment-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-compliance-automation-assessment-tool",
+      "/ai-governance-compliance-framework-2026",
+      "/tools/ai-compliance-audit-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-audit-tool-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-content-audit-tool-2026/layout.tsx",
+      "src/app/ai-content-audit-tool-2026/metadata.ts",
+      "src/app/ai-content-audit-tool-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-workflow-automation-2026",
+      "/best-ai-writing-tools-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 6,
+      "state_hooks": 1,
+      "event_handlers": 6,
+      "client_boundaries": 1,
+      "client_imports": 0
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-calendar-tools-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-content-calendar-tools-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-performance-analytics-2026",
+      "/ai-content-workflow-automation-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [
+      "https://contentcal.io",
+      "https://coschedule.com",
+      "https://lately.ai"
+    ],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-creation-automation-2026",
+    "local_signal": "content_only",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-content-creation-automation-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-performance-analytics-2026",
+      "/ai-content-workflow-automation-2026",
+      "/ai-roi-calculator",
+      "/best-ai-writing-tools-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "No local decision or evidence signal is proven; inspect for consolidation or noindex after production data is available."
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-generator-comparison",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-content-generator-comparison/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-audit-tool-2026",
+      "/ai-content-workflow-automation-2026",
+      "/ai-tools",
+      "/best-ai-seo-tools-2026",
+      "/best-ai-writing-tools-2026"
+    ],
+    "decision_path_links": [
+      "/ai-tools"
+    ],
+    "source_links": [
+      "https://claude.ai",
+      "https://jasper.ai",
+      "https://openai.com/chatgpt"
+    ],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-marketing-strategy-2026",
+    "local_signal": "content_only",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-content-marketing-strategy-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-creation-automation-2026",
+      "/ai-content-optimization-framework-2026",
+      "/ai-marketing-attribution-analysis-tool-2026",
+      "/ai-roi-calculator"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "No local decision or evidence signal is proven; inspect for consolidation or noindex after production data is available."
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-optimization-framework-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-content-optimization-framework-2026/layout.tsx",
+      "src/app/ai-content-optimization-framework-2026/metadata.ts",
+      "src/app/ai-content-optimization-framework-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-marketing-strategy-2026",
+      "/ai-content-performance-analytics-2026",
+      "/ai-marketing-attribution-analysis-tool-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 17,
+      "state_hooks": 1,
+      "event_handlers": 17,
+      "client_boundaries": 1,
+      "client_imports": 0
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-performance-analytics-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-content-performance-analytics-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-calendar-tools-2026",
+      "/ai-content-workflow-automation-2026",
+      "/best-ai-seo-tools-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/ai-content-workflow-automation-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-content-workflow-automation-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-calendar-tools-2026",
+      "/ai-content-generator-comparison",
+      "/best-ai-analytics-tools-bloggers-2026",
+      "/best-ai-writing-tools-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/ai-data-privacy-impact-assessment-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-data-privacy-impact-assessment-2026/layout.tsx",
+      "src/app/ai-data-privacy-impact-assessment-2026/metadata.ts",
+      "src/app/ai-data-privacy-impact-assessment-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-enterprise-security-compliance",
+      "/ai-tools-budget-planning-enterprise-2026",
+      "/ai-tools-risk-assessment-enterprise-2026",
+      "/ai-tools-security-compliance-checklist-2026",
+      "/contact",
+      "/enterprise-ai-implementation-best-practices-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 19,
+      "state_hooks": 3,
+      "event_handlers": 18,
+      "client_boundaries": 1,
+      "client_imports": 0
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/ai-digital-transformation-roadmap-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-digital-transformation-roadmap-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-governance-compliance-framework-2026",
+      "/ai-roi-calculator",
+      "/ai-team-training-certification-2026",
+      "/ai-tools",
+      "/ai-tools-cost-benefit-analysis-2026",
+      "/enterprise-ai-implementation-best-practices-2026",
+      "/manufacturing-ai-roi-calculator-2026"
+    ],
+    "decision_path_links": [
+      "/ai-tools"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-digital-transformation-roadmap-enterprise-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-digital-transformation-roadmap-enterprise-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-governance-compliance-framework-2026",
+      "/ai-roi-calculator",
+      "/ai-team-training-certification-2026",
+      "/ai-tools",
+      "/ai-tools-budget-planning-enterprise-2026",
+      "/enterprise-ai-implementation-best-practices-2026",
+      "/enterprise-ai-vendor-comparison-guide-2026"
+    ],
+    "decision_path_links": [
+      "/ai-tools"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-enterprise-security-compliance",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-enterprise-security-compliance/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-data-privacy-impact-assessment-2026",
+      "/ai-governance-compliance-framework-2026",
+      "/ai-tools",
+      "/ai-tools-security-compliance-checklist-2026",
+      "/contact",
+      "/enterprise-ai-security-risk-management-guide-2026"
+    ],
+    "decision_path_links": [
+      "/ai-tools"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-ethics-compliance-checklist-enterprise-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-ethics-compliance-checklist-enterprise-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-data-privacy-impact-assessment-2026",
+      "/ai-governance-compliance-framework-2026",
+      "/ai-governance-framework-enterprise-2026",
+      "/ai-tools-security-compliance-checklist-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/ai-governance-compliance-framework-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-governance-compliance-framework-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-compliance-readiness-assessment-2026",
+      "/ai-ethics-compliance-checklist-enterprise-2026",
+      "/ai-governance-framework-enterprise-2026",
+      "/ai-governance-monitoring-dashboard-2026",
+      "/contact"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/ai-governance-framework-enterprise-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-governance-framework-enterprise-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-data-privacy-impact-assessment-2026",
+      "/ai-ethics-compliance-checklist-enterprise-2026",
+      "/ai-governance-compliance-framework-2026",
+      "/ai-security-framework-enterprise-2026",
+      "/contact"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/ai-governance-monitoring-dashboard-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-governance-monitoring-dashboard-2026/layout.tsx",
+      "src/app/ai-governance-monitoring-dashboard-2026/metadata.ts",
+      "src/app/ai-governance-monitoring-dashboard-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-governance-framework-enterprise-2026",
+      "/ai-investment-payback-period-calculator-2026",
+      "/contact",
+      "/enterprise-ai-risk-assessment-tool-2026",
+      "/enterprise-ai-vendor-comparison-guide-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 2,
+      "state_hooks": 0,
+      "event_handlers": 1,
+      "client_boundaries": 1,
+      "client_imports": 0
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/ai-integration-timeline-calculator-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-integration-timeline-calculator-2026/layout.tsx",
+      "src/app/ai-integration-timeline-calculator-2026/metadata.ts",
+      "src/app/ai-integration-timeline-calculator-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-implementation-checklist-enterprise-2026",
+      "/ai-implementation-cost-calculator-enterprise-2026",
+      "/apply-for-audit",
+      "/enterprise-ai-risk-assessment-tool-2026",
+      "/enterprise-ai-transformation-roadmap-2026"
+    ],
+    "decision_path_links": [
+      "/ai-implementation-cost-calculator-enterprise-2026",
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 6,
+      "state_hooks": 2,
+      "event_handlers": 6,
+      "client_boundaries": 1,
+      "client_imports": 0
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/ai-marketing-attribution-analysis-tool-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-marketing-attribution-analysis-tool-2026/metadata.ts",
+      "src/app/ai-marketing-attribution-analysis-tool-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/",
+      "/ai-content-optimization-framework-2026",
+      "/ai-content-performance-analytics-2026",
+      "/ai-roi-calculator",
+      "/ai-tools",
+      "/apply-for-audit"
+    ],
+    "decision_path_links": [
+      "/ai-tools",
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 1
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-performance-monitoring-dashboard-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-performance-monitoring-dashboard-2026/AIPerformanceMonitoringDashboardClient.tsx",
+      "src/app/ai-performance-monitoring-dashboard-2026/metadata.ts",
+      "src/app/ai-performance-monitoring-dashboard-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-performance-monitoring-dashboard-enterprise-2026",
+      "/ai-roi-calculator",
+      "/ai-tools",
+      "/ai-transformation-success-metrics-enterprise-2026",
+      "/apply-for-audit"
+    ],
+    "decision_path_links": [
+      "/ai-tools",
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 2,
+      "state_hooks": 0,
+      "event_handlers": 2,
+      "client_boundaries": 1,
+      "client_imports": 1
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/ai-performance-monitoring-dashboard-enterprise-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-performance-monitoring-dashboard-enterprise-2026/metadata.ts",
+      "src/app/ai-performance-monitoring-dashboard-enterprise-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-automation-roi-measurement-2026",
+      "/ai-governance-monitoring-dashboard-2026",
+      "/ai-performance-monitoring-dashboard-2026",
+      "/ai-tools",
+      "/apply-for-audit"
+    ],
+    "decision_path_links": [
+      "/ai-tools",
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-productivity-tools-comparison-2026",
+    "local_signal": "content_only",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-productivity-tools-comparison-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-automation-workflow-templates-2026",
+      "/ai-roi-calculator",
+      "/ai-tools-cost-benefit-analysis-2026",
+      "/best-ai-tools-small-business-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "No local decision or evidence signal is proven; inspect for consolidation or noindex after production data is available."
+  },
+  {
+    "url": "https://sitepilot.co/ai-risk-management-dashboard-enterprise-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-risk-management-dashboard-enterprise-2026/metadata.ts",
+      "src/app/ai-risk-management-dashboard-enterprise-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-governance-compliance-framework-2026",
+      "/ai-implementation-success-framework-2026",
+      "/ai-security-framework-enterprise-2026",
+      "/apply-for-audit",
+      "/tools/ai-compliance-audit-2026"
+    ],
+    "decision_path_links": [
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-security-framework-enterprise-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-security-framework-enterprise-2026/metadata.ts",
+      "src/app/ai-security-framework-enterprise-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-governance-compliance-framework-2026",
+      "/ai-risk-management-dashboard-enterprise-2026",
+      "/apply-for-audit",
+      "/enterprise-ai-security-risk-management-guide-2026",
+      "/tools/ai-compliance-audit-2026"
+    ],
+    "decision_path_links": [
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-team-productivity-assessment-tool-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-team-productivity-assessment-tool-2026/AITeamProductivityAssessmentToolClient.tsx",
+      "src/app/ai-team-productivity-assessment-tool-2026/metadata.ts",
+      "src/app/ai-team-productivity-assessment-tool-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-roi-calculator",
+      "/ai-tool-implementation-strategy-2026",
+      "/ai-tools",
+      "/apply-for-audit",
+      "/enterprise-ai-implementation-best-practices-2026"
+    ],
+    "decision_path_links": [
+      "/ai-tools",
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 10,
+      "state_hooks": 1,
+      "event_handlers": 10,
+      "client_boundaries": 1,
+      "client_imports": 1
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/ai-team-training-certification-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-team-training-certification-2026/AITrainingCertificationProgramClient.tsx",
+      "src/app/ai-team-training-certification-2026/metadata.ts",
+      "src/app/ai-team-training-certification-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-change-management-framework-enterprise-2026",
+      "/ai-implementation-checklist-enterprise-2026",
+      "/ai-team-productivity-assessment-tool-2026",
+      "/ai-tool-implementation-strategy-2026",
+      "/apply-for-audit"
+    ],
+    "decision_path_links": [
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 1,
+      "client_imports": 1
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-tool-implementation-strategy-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-tool-implementation-strategy-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-roi-calculator",
+      "/ai-tool-implementation-strategy-2026",
+      "/ai-tools",
+      "/apply-for-audit",
+      "/enterprise-ai-implementation-best-practices-2026"
+    ],
+    "decision_path_links": [
+      "/ai-tools",
+      "/apply-for-audit"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-tool-shortlist-scorecard-template-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/ai-tool-shortlist-scorecard-template-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-tools",
+      "/ai-tools-risk-assessment-enterprise-2026",
+      "/ai-vendor-due-diligence-checklist-enterprise-2026",
+      "/best-ai-seo-tools-2026",
+      "/enterprise-ai-vendor-shortlist-scorecard-2026",
+      "/methodology"
+    ],
+    "decision_path_links": [
+      "/ai-tools",
+      "/methodology"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/ai-transformation-roi-calculation-framework-2026",
+    "local_signal": "content_only",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-transformation-roi-calculation-framework-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/contact"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "No local decision or evidence signal is proven; inspect for consolidation or noindex after production data is available."
+  },
+  {
+    "url": "https://sitepilot.co/ai-transformation-success-metrics-enterprise-2026",
+    "local_signal": "content_only",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/ai-transformation-success-metrics-enterprise-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-governance-framework-enterprise-2026",
+      "/ai-transformation-roi-calculation-framework-2026",
+      "/contact",
+      "/enterprise-ai-vendor-shortlist-scorecard-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "No local decision or evidence signal is proven; inspect for consolidation or noindex after production data is available."
+  },
+  {
+    "url": "https://sitepilot.co/best-email-marketing-tools-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/best-email-marketing-tools-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-generator-comparison",
+      "/ai-content-workflow-automation-2026",
+      "/best-ai-seo-tools-2026",
+      "/best-ai-tools-small-business-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/best-free-ssl-certificates-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/best-free-ssl-certificates-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/best-web-hosting-2026",
+      "/best-website-builders-2026",
+      "/cloud-hosting-vs-traditional-hosting-2026"
+    ],
+    "decision_path_links": [
+      "/best-web-hosting-2026",
+      "/best-website-builders-2026"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/best-project-management-tools-2026",
+    "local_signal": "evidence",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/best-project-management-tools-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-workflow-automation-2026",
+      "/best-ai-tools-small-business-2026",
+      "/best-email-marketing-tools-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Attach explicit source records to the evidence register; local source text or links alone do not prove claim quality."
+  },
+  {
+    "url": "https://sitepilot.co/best-social-media-management-tools-2026",
+    "local_signal": "content_only",
+    "interactive": false,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/best-social-media-management-tools-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-content-calendar-tools-2026",
+      "/ai-content-generator-comparison",
+      "/best-ai-tools-small-business-2026",
+      "/best-email-marketing-tools-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "No local decision or evidence signal is proven; inspect for consolidation or noindex after production data is available."
+  },
+  {
+    "url": "https://sitepilot.co/best-website-builders-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/best-website-builders-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/best-ecommerce-website-builders-2026",
+      "/free-website-builders-2026",
+      "/website-builder-vs-wordpress-2026",
+      "/website-builders"
+    ],
+    "decision_path_links": [
+      "/website-builders"
+    ],
+    "source_links": [
+      "https://webflow.com/",
+      "https://www.wix.com/"
+    ],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/com-vs-ai-vs-co-vs-io-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/com-vs-ai-vs-co-vs-io-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/best-domain-registrars-2026",
+      "/best-web-hosting-2026",
+      "/domain-vs-hosting-2026",
+      "/how-to-buy-a-domain-name-2026",
+      "/trademark-check-before-buying-a-domain-2026",
+      "/web-hosting",
+      "/website-builders"
+    ],
+    "decision_path_links": [
+      "/best-web-hosting-2026",
+      "/web-hosting",
+      "/website-builders"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  },
+  {
+    "url": "https://sitepilot.co/manufacturing-ai-roi-calculator-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": false,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/manufacturing-ai-roi-calculator-2026/ManufacturingAIROICalculatorClient.tsx",
+      "src/app/manufacturing-ai-roi-calculator-2026/metadata.ts",
+      "src/app/manufacturing-ai-roi-calculator-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-digital-transformation-roadmap-2026",
+      "/ai-roi-calculator",
+      "/ai-tools-cost-benefit-analysis-2026",
+      "/enterprise-ai-roi-optimization-framework-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 1,
+      "state_hooks": 1,
+      "event_handlers": 1,
+      "client_boundaries": 1,
+      "client_imports": 1
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/tools/ai-compliance-audit-2026",
+    "local_signal": "tool",
+    "interactive": true,
+    "decision_path": false,
+    "evidence_markers": true,
+    "source_files": [
+      "src/app/tools/ai-compliance-audit-2026/layout.tsx",
+      "src/app/tools/ai-compliance-audit-2026/metadata.ts",
+      "src/app/tools/ai-compliance-audit-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/ai-governance-framework-enterprise-2026",
+      "/enterprise-ai-vendor-comparison-guide-2026"
+    ],
+    "decision_path_links": [],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 21,
+      "state_hooks": 3,
+      "event_handlers": 19,
+      "client_boundaries": 1,
+      "client_imports": 0
+    },
+    "review_action": "Instrument tool_start, tool_complete, report_export, and report_share before deciding portfolio status."
+  },
+  {
+    "url": "https://sitepilot.co/website-security-checklist-2026",
+    "local_signal": "decision_path",
+    "interactive": false,
+    "decision_path": true,
+    "evidence_markers": false,
+    "source_files": [
+      "src/app/website-security-checklist-2026/page.tsx"
+    ],
+    "internal_links": [
+      "/best-free-ssl-certificates-2026",
+      "/best-web-hosting-2026",
+      "/web-hosting",
+      "/website-builder-vs-wordpress-2026"
+    ],
+    "decision_path_links": [
+      "/best-web-hosting-2026",
+      "/web-hosting"
+    ],
+    "source_links": [],
+    "official_source_links": [],
+    "interactive_counts": {
+      "controls": 0,
+      "state_hooks": 0,
+      "event_handlers": 0,
+      "client_boundaries": 0,
+      "client_imports": 0
+    },
+    "review_action": "Validate search, click-through, completion, and lead behavior; local links show a decision path but do not prove demand."
+  }
+]

@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '../../components/SchemaMarkup'
 
 const metadataConfig: Metadata = {
-  title: 'Best WordPress Themes 2026 | Astra vs GeneratePress vs Divi vs Flatsome',
+  title: 'Best WordPress Themes 2026: Astra vs GeneratePress vs Divi',
   description:
     'Compare Astra, GeneratePress, Divi, and Flatsome by speed, SEO control, design flexibility, WooCommerce fit, and long-term maintenance cost before choosing a WordPress theme in 2026.',
   keywords:
@@ -14,7 +14,7 @@ const metadataConfig: Metadata = {
     canonical: 'https://sitepilot.co/best-wordpress-themes-2026',
   },
   openGraph: {
-    title: 'Best WordPress Themes 2026 | Astra vs GeneratePress vs Divi vs Flatsome',
+    title: 'Best WordPress Themes 2026: Astra vs GeneratePress vs Divi',
     description:
       'Compare Astra, GeneratePress, Divi, and Flatsome by speed, SEO control, design flexibility, WooCommerce fit, and maintenance cost before choosing a WordPress theme.',
     url: 'https://sitepilot.co/best-wordpress-themes-2026',
@@ -22,7 +22,7 @@ const metadataConfig: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best WordPress Themes 2026 | Astra vs GeneratePress vs Divi vs Flatsome',
+    title: 'Best WordPress Themes 2026: Astra vs GeneratePress vs Divi',
     description:
       'Choose a WordPress theme by speed, SEO control, design flexibility, WooCommerce fit, and maintenance cost instead of demo hype.',
   },
@@ -214,11 +214,11 @@ export default function BestWordPressThemes2026() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Best WordPress Themes 2026: Astra vs GeneratePress vs Divi vs Flatsome"
+        title="Best WordPress Themes 2026: Astra vs GeneratePress vs Divi"
         description="Buyer-focused comparison of the best WordPress themes based on speed, SEO control, design flexibility, WooCommerce fit, and maintenance trade-offs."
         url="https://sitepilot.co/best-wordpress-themes-2026"
         publishedDate="2026-03-05"
-        modifiedDate="2026-04-27"
+        modifiedDate="2026-08-27"
       />
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

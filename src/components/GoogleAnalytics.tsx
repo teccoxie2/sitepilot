@@ -40,6 +40,7 @@ const eventCategories: Record<AnalyticsEventName, string> = {
 declare global {
   interface Window {
     gtag?: GtagFunction
+    dataLayer?: unknown[]
   }
 }
 
@@ -80,8 +81,6 @@ export function trackEvent(
   label?: string,
   value?: number,
 ) {
-  if (typeof window === 'undefined' || !window.gtag) return
-
   const params: AnalyticsEventParams =
     typeof categoryOrParams === 'string'
       ? { category: categoryOrParams, label, value }
@@ -98,7 +97,17 @@ export function trackEvent(
     Object.entries(eventParams).filter(([, paramValue]) => paramValue !== undefined),
   ) as AnalyticsEventParams
 
-  window.gtag('event', action, definedParams)
+  if (typeof window === 'undefined') return
+
+  if (window.gtag) {
+    window.gtag('event', action, definedParams)
+    return
+  }
+
+  // The consent-gated script can take a moment to attach gtag after the user
+  // enables analytics. Keep consented events in Google's standard queue so
+  // the first interaction is not lost during that loading window.
+  window.dataLayer?.push(['event', action, definedParams])
 }
 
 function trackNamedEvent(eventName: AnalyticsEventName, params: AnalyticsEventParams = {}) {

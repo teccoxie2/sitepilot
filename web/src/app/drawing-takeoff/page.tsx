@@ -18,11 +18,3 @@ export default function DrawingTakeoffPage() {
     </div>
   );
 }
-
-
-export const dynamic = "force-dynamic";
-export const maxDuration = 180;
-
-export default function DrawingTakeoffPage() {
-  return <DrawingVerify />;
-}

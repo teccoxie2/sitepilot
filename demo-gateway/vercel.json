@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "https://size-pipeline-vaccine-perfectly.trycloudflare.com/"
+      "destination": "https://vsense-auckland-dev-cost.fly.dev/"
     },
     {
       "source": "/:path*",
-      "destination": "https://size-pipeline-vaccine-perfectly.trycloudflare.com/:path*"
+      "destination": "https://vsense-auckland-dev-cost.fly.dev/:path*"
     }
   ],
   "headers": [

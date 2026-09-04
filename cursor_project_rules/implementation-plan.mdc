@@ -162,7 +162,7 @@ Done
 
 ## 公网链接改为常驻 Fly 源站
 
-未完成
+Done
 
-用户跳过了 Fly CLI 与 Vercel CLI 授权。Cloud Agent 环境仍用本机 FastAPI + Next 启动脚本；`demo-cost.vsense.co.nz` 继续依赖会消失的虚拟机隧道，无法改成常驻 `*.fly.dev`。
+Fly 应用 `vsense-auckland-dev-cost` 已 remote-only 部署到 Sydney，源站 `https://vsense-auckland-dev-cost.fly.dev`。Vercel 项目 `temporary-fast-rowan-7ti4bm3` 的网关改写指向该 fly.dev；公网入口保持 `https://demo-cost.vsense.co.nz`，不改 Microsoft 365 DNS nameserver。
 

@@ -1,0 +1,20 @@
+{
+  "source_name": "VSense Cost V2 产品与技术设计文档附录 A.1",
+  "retrieved_at": "2026-09-05",
+  "project": "574 Remuera Road, Remuera, Auckland",
+  "consent_number": "BCO10374183",
+  "architectural": {
+    "filename": "architectural.pdf",
+    "pages": 21,
+    "has_text_layer": false
+  },
+  "structural": {
+    "filename": "structural.pdf",
+    "pages": 11,
+    "has_text_layer": false
+  },
+  "units": 3,
+  "known_floor_areas_m2": [270, 303, 287],
+  "documents_status": "missing",
+  "note": "页数与面积摘自设计文档附录。原 PDF 未放入 documents/ 之前，eval runner 只能报缺项，不能把这些数字当成已对原图核对通过。"
+}

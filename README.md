@@ -13,6 +13,7 @@
 - 法定费用含建工许可押金、BRANZ/MBIE/BCA 征费、CCC 基础费、占道检查费；有资源许可时计入 RC 押金；IGC/DC 按净增单元
 - 第二阶段：在项目页上传 RC / BC PDF，按文字层门窗表和面积套同一价库（扫描件无文字层会失败）
 - 图纸物料验证页 `/drawing-takeoff`：不经过选址，上传 RC/BC 后按页读文字层。门窗表、面积表、覆盖率表按行列抽出并在页面上列出每一行；几乎无文字的图页会标出且**不做 OCR**。正则与大模型结果合并；送给模型时优先保留表页，证据核对应全文。数量由服务器按公式、窗表或原文件数重算，单价只走价库。扫描件没有文字层或未配置 `OPENAI_API_KEY` / `CPA_API_KEY` 会失败。
+- **V2 Estimator** `/estimator`：并行图纸取量工作区。上传建筑图/结构图后做 SHA256 预检、分页渲染、Manifest、证据框、Floor Area / Beam / Roof 取量、审核队列与绑定价表版本的报价。无文字层且未配视觉密钥时不编造图号。金额仍只走价表；`MODEL` 费率不启用。574 Remuera 评测目录在 `evals/574-remuera/`，原 PDF 未入库则 eval 报缺项。
 
 ## 报价源（2026-08-24 检索）
 
@@ -156,6 +157,7 @@ LangGraph 地址流：`geocode → land → rules → lim → site_vision → ty
 - 金额必须来自带链接与取价日期的价表或官方费率表；禁止大模型定价，禁止编造单价或总价。视觉模型不得改写地籍面积、区划或坡度数字。LIM 订购费由客户在议会支付，不计入本页造价。图纸物料验证页可以把文字层送给大模型抽取字段/门窗表并选择已有 SKU，但**数量必须由服务器按公式或窗表重算**，模型输出的金额一律丢弃。
 - 没有可核对来源的科目标成缺项（`missing`），不要用估算、经验值、mock、默认地块或缓存值把页面凑完整。
 - 图纸和 LIM 只读 PDF 文字层；读不到面积就不要套户型模板的 110 m²，读不到厨卫就不要套模板洁具；读不到 LIM 栏就标未写明，不要用附图识别。
+- V2 Estimator：无文字层可走 OCR/Vision，但提取必须带页/bbox/confidence；Vision 读数不得标 `VERIFIED`；`CALCULATED` 必须有公式；金额禁止 LLM 定价。
 - 单测可以给纯函数喂显式数字或**标明来源的正式 LIM 正文摘录**；不得把假 GIS / 假价源当成议会或供应商返回值。
 
 Agent 实现时遵守 `.cursor/rules/no-fake-data.mdc` 与 `cursor_project_rules/development-requirements.mdc`。

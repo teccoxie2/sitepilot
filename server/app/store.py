@@ -12,6 +12,7 @@ from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session, sessionmaker
 
 from .data_loader import pricebook
+from .estimator import models as _estimator_models  # noqa: F401
 from .models import Base, CostEstimate, DocumentSet, PriceBookVersion, Project, SchemeOption, SiteSnapshot
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"

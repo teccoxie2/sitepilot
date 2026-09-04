@@ -9,6 +9,8 @@ server/data/*.sqlite
 server/data/*.sqlite-*
 server/data/drawings/
 server/data/lim/
+server/data/estimator/
+evals/574-remuera/documents/*.pdf
 .DS_Store
 agent-tools
 .env

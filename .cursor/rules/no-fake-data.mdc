@@ -16,10 +16,12 @@ alwaysApply: true
 - 用 Nominatim 或其他非议会门牌库冒充 Auckland Council 选址结果
 - Mock / stub / fixture JSON 充当 GIS、价源、Council 费用，并当作真实结果展示
 - 大模型输出或改写任何金额、单价、费率，或改写地籍面积、区划、坡度
-- 大模型在没有文字层原文证据时填写工程量或门窗尺寸
+- 大模型在没有文字层原文证据时填写工程量或门窗尺寸，并把结果标成已核实
+- 把 Vision / OCR 读数标成 `VERIFIED`（除非与文字层、尺寸标注或表单元格证据一致）
+- 启用 `MODEL` 费率，或让大模型写单价 / 总价
 - 无 SKU、无官方表、无检索日期的「估算价」「市场价」「经验值」
 - 界面 lorem、示例项目、假客户、假图纸读数
-- 用图像识别或大模型从扫描件猜门窗毫米、建筑面积
+- 在 V1 选址、LIM、航拍流程里用图像识别或大模型从扫描件猜门窗毫米、建筑面积、洪水范围
 - 用户型模板的默认 GFA/厨卫数量冒充图纸工程量
 - 外部接口失败时用上一份缓存编造值或默认地块顶上
 
@@ -28,7 +30,8 @@ alwaysApply: true
 - 现场调用 Auckland Council / LINZ 等公开接口；失败则空列表、错误或 `missing`
 - `server/app/data/*.json` 中带 `source_url` 与 `retrieved_at` 的已检索公开标价与官方费率
 - 无公开总价的科目用 `status: "missing"`，金额为 0，并写明缺项原因
-- 图纸物料验证页：在已有 PDF 文字层时，大模型只摘录能在正文找到的字段/门窗表并选择价库已有 SKU；数量由服务器按公式或窗表件数重算；禁止采用模型写的单价
+- 图纸物料验证页（V1）：在已有 PDF 文字层时，大模型只摘录能在正文找到的字段/门窗表并选择价库已有 SKU；数量由服务器按公式或窗表件数重算；禁止采用模型写的单价
+- V2 Estimator 图纸管线：无文字层可走 OCR/Vision，但每条提取必须落到 Evidence（文件、页、drawing、bbox、extraction_method、confidence）。数量只能是 `VERIFIED` / `CALCULATED`（须有公式和输入），否则标 `INFERRED` / `UNPRICED` / `UNRESOLVED`。人工修正只追加记录，不覆盖原 AI 值。金额仍只走价库，禁止 LLM 定价
 - 纯函数单测用**显式数字入参**（例如给定 `area_m2=110` 测覆盖率），入参不得冒充议会图层返回值
 - 打真实外部接口的测试（如 `AC_Address` 检索 `55 Nelson Street`）
 - 图纸单测用**写明字段的日程文字**或自造文字层 PDF；不得把虚构窗表标成某份议会批准图的读数
@@ -40,4 +43,6 @@ alwaysApply: true
 - 地块 / 区划 / DEM：只走 `server/app/gis.py` 中的公开图层与 OpenTopodata
 - 金额：只走 `pricing.py` / `costing.py` 与价表；禁止在 graph 的说明节点里写数字
 - 正式 LIM：只走客户上传 PDF 的文字层；地址必须与当前项目一致
+- V1 地块 / 区划 / DEM / LIM / 航拍：规则不因 V2 放宽
+- V2 数量状态：`VERIFIED` | `CALCULATED` | `INFERRED` | `ALLOWANCE` | `UNPRICED` | `UNRESOLVED`
 - 新数据源：先能在浏览器打开官方 URL，再写入代码；写不进价表就标缺项

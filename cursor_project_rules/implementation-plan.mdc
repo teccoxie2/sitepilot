@@ -166,3 +166,51 @@ Done
 
 Fly 应用 `vsense-auckland-dev-cost` 已 remote-only 部署到 Sydney，源站 `https://vsense-auckland-dev-cost.fly.dev`。Vercel 项目 `temporary-fast-rowan-7ti4bm3` 的网关改写指向该 fly.dev；公网入口保持 `https://demo-cost.vsense.co.nz`，不改 Microsoft 365 DNS nameserver。
 
+## V2 Sprint 0：规则例外与 574 评测目录
+
+Done
+
+写入 V2 OCR/Vision 例外与六种数量状态；`evals/574-remuera/` 只放设计文档附录真值。原 PDF 未入库时 eval 报 `missing`，不编造图号。
+
+## V2 Sprint 1：Document Intelligence
+
+Done
+
+`server/app/estimator/` 做 SHA256、PyMuPDF 预检、150DPI 渲染、文字层检测、页分类与 title block。无文字层且无视觉密钥时图号保持空，不编造。
+
+## V2 Sprint 2：Completeness
+
+Done
+
+封面 Drawing Index 解析 expected vs supplied；缺失 sheet 进入 UNRESOLVED。交叉引用目标不在本套图内则标 Missing Document。
+
+## V2 Sprint 3：Evidence 与图纸查看器
+
+Done
+
+Evidence 带 normalized bbox；`/estimator/[id]` DOCUMENTS Tab 叠框。人工改框只追加 MANUAL 证据与 correction_event，不覆盖原提取。
+
+## V2 Sprint 4：Floor Area / Beam / Roof
+
+Done
+
+只从文字层证据生成这三类 takeoff。`CALCULATED` 屋面延米带 `roof_m2 / cover_width_m`。扫描件无提取则工程量为空。
+
+## V2 Sprint 5：Scope 与确定性成本
+
+Done
+
+Scope 05/07 映射现有价表。Quote line 绑定 pricebook id 与图纸集版本。无单价的钢梁标 UNPRICED，不进确定总价。
+
+## V2 Sprint 6–7：Review 与 Estimate UX
+
+Done
+
+Review Queue 分 AUTO_ACCEPTED / NEEDS_REVIEW / UNRESOLVED，Accept/Reject 只追加历史。Estimate Tab 展示 Expected、Range、Completeness 与 Not Included。
+
+## V2 Sprint 8：574 回归 runner
+
+Done
+
+`GET /estimator/evals/574-remuera` 与 `run_574_eval()`：无原 PDF 则 documents_status=missing、passed=false。`unsupported_ai_generated_rate` 固定为 0。
+

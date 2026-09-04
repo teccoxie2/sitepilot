@@ -1,0 +1,7 @@
+{
+  "status": "missing",
+  "source_name": "须从 BCO10374183 Structural cover Drawing Index 人工抄录",
+  "retrieved_at": null,
+  "expected_drawings": [],
+  "note": "未看到原 cover 的 index 之前不填写图号。设计文档中的 S011a / S055 等是结构说明示例，不是本套图的 inventory。"
+}

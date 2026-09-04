@@ -36,12 +36,14 @@ from .graph import (
 from .lim import lim_advice
 from .lim_parse import parse_lim_pdf
 from .site_vision import vision_advice
+from .estimator.router import router as estimator_router
 from .store import create_project, get_project, update_project
 
 DRAWINGS_DIR = Path(__file__).resolve().parent.parent / "data" / "drawings"
 LIM_DIR = Path(__file__).resolve().parent.parent / "data" / "lim"
 
 app = FastAPI(title="Auckland Development Cost MVP", version="0.2.0")
+app.include_router(estimator_router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

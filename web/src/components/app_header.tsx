@@ -8,6 +8,9 @@ export default function AppHeader() {
           奥克兰开发核算台
         </Link>
         <nav className="flex items-center gap-3">
+          <Link href="/estimator" className="text-xs text-[#2f4a32] hover:underline sm:text-sm">
+            图纸取量 V2
+          </Link>
           <Link href="/drawing-takeoff" className="text-xs text-[#2f4a32] hover:underline sm:text-sm">
             图纸物料验证
           </Link>

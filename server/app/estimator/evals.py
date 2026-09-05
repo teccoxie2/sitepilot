@@ -1,21 +1,35 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
-EVAL_ROOT = Path(__file__).resolve().parents[3] / "evals" / "574-remuera"
+
+def eval_root() -> Path:
+    configured = os.environ.get("EVAL_ROOT", "").strip()
+    if configured:
+        return Path(configured)
+    here = Path(__file__).resolve()
+    candidates = [
+        here.parents[3] / "evals" / "574-remuera",
+        here.parents[2] / "evals" / "574-remuera",
+    ]
+    for candidate in candidates:
+        if (candidate / "ground_truth.json").is_file():
+            return candidate
+    return candidates[0]
 
 
 def load_json(name: str) -> dict[str, Any]:
-    path = EVAL_ROOT / name
+    path = eval_root() / name
     if not path.exists():
         return {"status": "missing", "note": f"缺少 {name}"}
     return json.loads(path.read_text(encoding="utf-8"))
 
 
 def golden_pdfs() -> dict[str, Path | None]:
-    folder = EVAL_ROOT / "documents"
+    folder = eval_root() / "documents"
     return {
         "architectural": _existing(folder / "architectural.pdf"),
         "structural": _existing(folder / "structural.pdf"),

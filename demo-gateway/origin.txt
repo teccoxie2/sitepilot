@@ -1,1 +1,1 @@
-https://vsense-auckland-dev-cost.fly.dev
+retired — public origin is the existing Vercel project (repo-root vercel.json), not Fly

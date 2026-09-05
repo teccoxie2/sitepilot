@@ -1,5 +1,5 @@
-# Persistent origin for https://demo-cost.vsense.co.nz
-# Vercel keeps the custom-domain certificate; this app is the always-on process.
+# Retired: Fly personal trial ended. Public origin is the existing Vercel project.
+# Do not deploy this file.
 app = "vsense-auckland-dev-cost"
 primary_region = "syd"
 

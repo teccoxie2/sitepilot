@@ -37,10 +37,11 @@ from .lim import lim_advice
 from .lim_parse import parse_lim_pdf
 from .site_vision import vision_advice
 from .estimator.router import router as estimator_router
+from .runtime_paths import writable_root
 from .store import create_project, get_project, update_project
 
-DRAWINGS_DIR = Path(__file__).resolve().parent.parent / "data" / "drawings"
-LIM_DIR = Path(__file__).resolve().parent.parent / "data" / "lim"
+DRAWINGS_DIR = writable_root() / "drawings"
+LIM_DIR = writable_root() / "lim"
 
 app = FastAPI(title="Auckland Development Cost MVP", version="0.2.0")
 app.include_router(estimator_router)
@@ -50,6 +51,24 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+def _strip_public_engine_prefix(scope: dict[str, Any]) -> None:
+    path = scope.get("path") or ""
+    if path != "/engine" and not path.startswith("/engine/"):
+        return
+    scope["path"] = path[len("/engine") :] or "/"
+    raw_path = scope.get("raw_path")
+    if isinstance(raw_path, (bytes, bytearray)):
+        text = raw_path.decode("latin-1")
+        if text == "/engine" or text.startswith("/engine/"):
+            scope["raw_path"] = (text[len("/engine") :] or "/").encode("latin-1")
+
+
+@app.middleware("http")
+async def strip_public_engine_prefix(request: Request, call_next) -> Response:
+    _strip_public_engine_prefix(request.scope)
+    return await call_next(request)
 
 
 @app.middleware("http")

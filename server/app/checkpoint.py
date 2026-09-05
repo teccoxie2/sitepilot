@@ -2,12 +2,11 @@ from __future__ import annotations
 
 import os
 import sqlite3
-from pathlib import Path
 from typing import Any
 
 from langgraph.checkpoint.sqlite import SqliteSaver
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+from .runtime_paths import writable_root
 
 _checkpointer: Any = None
 _sqlite_conn: sqlite3.Connection | None = None
@@ -20,11 +19,12 @@ def get_checkpointer() -> Any:
     if _checkpointer is not None:
         return _checkpointer
     url = os.environ.get("DATABASE_URL", "").strip()
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    root = writable_root()
+    root.mkdir(parents=True, exist_ok=True)
     if url.startswith("postgres"):
         _checkpointer = _postgres_saver(url)
         return _checkpointer
-    path = DATA_DIR / "langgraph-checkpoints.sqlite"
+    path = root / "langgraph-checkpoints.sqlite"
     _sqlite_conn = sqlite3.connect(str(path), check_same_thread=False)
     saver = SqliteSaver(_sqlite_conn)
     saver.setup()

@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
 const ENGINE_URL = process.env.ENGINE_URL || "http://127.0.0.1:8764";
+const isVercel = Boolean(process.env.VERCEL);
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  ...(isVercel ? {} : { output: "standalone" as const }),
   experimental: {
     serverActions: {
       bodySizeLimit: "20mb",
@@ -29,6 +30,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async rewrites() {
+    if (isVercel) return [];
     return [
       {
         source: "/engine/:path*",

@@ -1,0 +1,9 @@
+.venv
+**/__pycache__
+**/*.pyc
+tests
+data/*.sqlite
+data/*.sqlite-*
+data/drawings
+data/lim
+data/estimator

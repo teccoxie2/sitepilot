@@ -1,14 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "https://vsense-auckland-dev-cost.fly.dev/"
-    },
-    {
-      "source": "/:path*",
-      "destination": "https://vsense-auckland-dev-cost.fly.dev/:path*"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",

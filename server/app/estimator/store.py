@@ -9,6 +9,7 @@ from typing import Any
 from sqlalchemy import select
 
 from ..data_loader import pricebook
+from ..runtime_paths import writable_root
 from ..store import session
 from .models import (
     EstimatorCorrectionEvent,
@@ -24,7 +25,7 @@ from .models import (
     EstimatorTakeoffItem,
 )
 
-DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "estimator"
+DATA_DIR = writable_root() / "estimator"
 
 
 def now_iso() -> str:

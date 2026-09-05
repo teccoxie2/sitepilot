@@ -16,3 +16,5 @@ agent-tools
 .env
 .env.*
 cpa-tunnel/.env
+.vercel/*
+!.vercel/project.json

@@ -326,6 +326,24 @@ def test_ready_endpoint_reports_missing_key(monkeypatch):
     assert body["configured"] is False
 
 
+def test_public_engine_prefix_reaches_health():
+    client = TestClient(app)
+    direct = client.get("/health")
+    prefixed = client.get("/engine/health")
+    assert direct.status_code == 200
+    assert prefixed.status_code == 200
+    assert prefixed.json() == {"status": "ok"}
+
+
+def test_public_engine_prefix_reaches_ready(monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.delenv("CPA_API_KEY", raising=False)
+    client = TestClient(app)
+    response = client.get("/engine/drawings/verify/ready")
+    assert response.status_code == 200
+    assert response.json()["configured"] is False
+
+
 def test_default_drawing_model_is_gpt_56_luna(monkeypatch):
     monkeypatch.delenv("DRAWING_LLM_MODEL", raising=False)
     monkeypatch.delenv("SITE_VISION_MODEL", raising=False)
@@ -340,9 +358,9 @@ def test_cpa_base_url_from_management_page(monkeypatch):
     assert llm_base_url() == "http://192.168.52.81:8317/v1"
 
 
-def test_cpa_base_url_from_fly_internal_tunnel(monkeypatch):
-    monkeypatch.setenv("CPA_BASE_URL", "http://vsense-cpa-tunnel.internal:8317")
-    assert llm_base_url() == "http://vsense-cpa-tunnel.internal:8317/v1"
+def test_cpa_base_url_keeps_v1_suffix(monkeypatch):
+    monkeypatch.setenv("CPA_BASE_URL", "https://127.0.0.1/v1")
+    assert llm_base_url() == "https://127.0.0.1/v1"
 
 
 def test_cpa_api_key_marks_llm_configured(monkeypatch):

@@ -4,7 +4,6 @@ import json
 import os
 import uuid
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 
 from sqlalchemy import create_engine, delete, select
@@ -14,9 +13,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from .data_loader import pricebook
 from .estimator import models as _estimator_models  # noqa: F401
 from .models import Base, CostEstimate, DocumentSet, PriceBookVersion, Project, SchemeOption, SiteSnapshot
-
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-DB_PATH = DATA_DIR / "projects.sqlite"
+from .runtime_paths import writable_root
 
 _engine: Engine | None = None
 _SessionLocal: sessionmaker[Session] | None = None
@@ -26,8 +23,9 @@ def database_url() -> str:
     env = os.environ.get("DATABASE_URL", "").strip()
     if env:
         return env
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    return f"sqlite:///{DB_PATH}"
+    root = writable_root()
+    root.mkdir(parents=True, exist_ok=True)
+    return f"sqlite:///{root / 'projects.sqlite'}"
 
 
 def get_engine() -> Engine:

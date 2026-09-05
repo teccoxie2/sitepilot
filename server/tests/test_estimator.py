@@ -226,6 +226,8 @@ def test_574_eval_reports_missing_pdfs():
     assert result["documents_status"] == "missing"
     assert result["passed"] is False
     assert result["unsupported_ai_generated_rate"] == 0
+    assert result["ground_truth"].get("status") != "missing"
+    assert "architectural" in result["ground_truth"]
     assert any(item["id"] == "documents_present" and item["status"] == "missing" for item in result["assertions"])
 
 
@@ -234,3 +236,6 @@ def test_estimator_ready_endpoint():
     assert response.status_code == 200
     assert "note" in response.json()
     assert "vision" in response.json()
+    prefixed = client.get("/engine/estimator/ready")
+    assert prefixed.status_code == 200
+    assert prefixed.json()["vision"] == response.json()["vision"]

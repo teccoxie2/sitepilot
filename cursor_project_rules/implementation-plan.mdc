@@ -218,5 +218,11 @@ Done
 
 Done
 
-独立应用 `vsense-cpa-tunnel` 跑 rathole 服务端（Noise + token，公网只开 4443）。核算台 `CPA_BASE_URL` 指向 `http://vsense-cpa-tunnel.internal:8317`。局域网用 `cpa-tunnel/docker-compose.client.yml` 常驻连出；8317 不映射到公网。CPA_API_KEY 仍须单独设置，不把管理页密码当密钥。
+独立应用 `vsense-cpa-tunnel` 跑 rathole 服务端（Noise + token，公网只开 4443）。核算台 `CPA_BASE_URL` 指向 `http://vsense-cpa-tunnel.internal:8317`。局域网用 `cpa-tunnel/docker-compose.client.yml` 常驻连出；8317 不映射到公网。CPA_API_KEY 仍须单独设置，不把管理页密码当密钥。该方案随后因 Fly 个人试用结束而停用，见下一节。
+
+## 公网源站改为现有 Vercel 项目，停用 Fly
+
+Done
+
+仓库根目录 `vercel.json` 用 Vercel Services：`web/` 为 Next.js，`engine` 为 FastAPI 容器（`Dockerfile.vercel`）。公开入口仍是 `https://demo-cost.vsense.co.nz`，绑定原项目，不改 DNS nameserver。`DATA_DIR` 指向 `/tmp`；CPA 需另配公网 `/v1`，未配置则 ready 为未配置。不再部署 Fly 或 `demo-gateway` 反代。
 

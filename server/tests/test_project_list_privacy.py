@@ -13,3 +13,29 @@ def test_http_project_list_stays_empty(tmp_path, monkeypatch):
     assert response.status_code == 200
     assert response.json() == {"projects": []}
     assert "no-store" in response.headers.get("cache-control", "")
+
+
+def test_runtime_egress_does_not_invent_ip_on_failure(monkeypatch):
+    import httpx
+
+    class BoomClient:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def get(self, url):
+            raise httpx.ConnectError("unreachable")
+
+    monkeypatch.setattr("httpx.Client", BoomClient)
+    client = TestClient(app)
+    response = client.get("/runtime/egress")
+    assert response.status_code == 502
+    body = response.json()
+    assert "egress_ip" not in body
+    detail = body.get("detail") or ""
+    assert "无法读取出口 IP" in detail

@@ -140,6 +140,24 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
+@app.get("/runtime/egress")
+def runtime_egress() -> dict[str, str]:
+    try:
+        import httpx
+
+        with httpx.Client(timeout=8.0) as client:
+            ip = client.get("https://api.ipify.org").text.strip()
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(status_code=502, detail=f"无法读取出口 IP：{exc}") from exc
+    if not ip:
+        raise HTTPException(status_code=502, detail="出口 IP 接口没有返回地址，未编造。")
+    return {
+        "egress_ip": ip,
+        "source_url": "https://api.ipify.org",
+        "note": "这是本进程访问公网时的出口 IP，用来填 CPA 白名单；不是议会或价源数据。",
+    }
+
+
 @app.get("/addresses")
 def get_addresses(q: str = "") -> dict[str, Any]:
     try:

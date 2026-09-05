@@ -1,5 +1,7 @@
 services:
   cpa-cloudflared:
+    env_file:
+      - .env
     command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
     environment:
       TUNNEL_TOKEN: ${TUNNEL_TOKEN}

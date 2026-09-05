@@ -358,6 +358,11 @@ def test_cpa_base_url_from_management_page(monkeypatch):
     assert llm_base_url() == "http://192.168.52.81:8317/v1"
 
 
+def test_cpa_base_url_from_lan_origin(monkeypatch):
+    monkeypatch.setenv("CPA_BASE_URL", "http://192.168.52.81:8317")
+    assert llm_base_url() == "http://192.168.52.81:8317/v1"
+
+
 def test_cpa_base_url_keeps_v1_suffix(monkeypatch):
     monkeypatch.setenv("CPA_BASE_URL", "https://127.0.0.1/v1")
     assert llm_base_url() == "https://127.0.0.1/v1"

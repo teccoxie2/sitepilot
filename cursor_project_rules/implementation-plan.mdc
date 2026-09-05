@@ -226,3 +226,9 @@ Done
 
 仓库根目录 `vercel.json` 用 Vercel Services：`web/` 为 Next.js，`engine` 为 FastAPI 容器（`Dockerfile.vercel`）。公开入口仍是 `https://demo-cost.vsense.co.nz`，绑定原项目，不改 DNS nameserver。`DATA_DIR` 指向 `/tmp`；CPA 需另配公网 `/v1`，未配置则 ready 为未配置。不再部署 Fly 或 `demo-gateway` 反代。
 
+## 用 Cloudflare Tunnel 把局域网 CPA 接到 Vercel
+
+Done
+
+在能访问 `192.168.52.81:8317` 的机器上跑 `cpa-tunnel/docker-compose.cloudflared.yml`（Quick Tunnel 或 Named Tunnel）。`scripts/link-public-cpa.sh` 先探测公网 `/v1/models`，再写入现有 Vercel 项目的 `CPA_BASE_URL` / `CPA_API_KEY` 并重新发布。不把管理页密码当客户端密钥；探测失败不写环境变量。
+

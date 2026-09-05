@@ -105,7 +105,7 @@ pnpm dev
 - `PRICE_API_URL`：价源第二实现；未设置时只用价表。
 - `ENGINE_URL`：前端服务端请求核算 API，默认 `http://127.0.0.1:8764`。
 - `OPENAI_API_KEY`：可选（航拍视觉）/ 图纸物料验证也认这个密钥。航拍：设置后会把最多两张公开航拍送给视觉模型，只描述可见场地，**不得改面积/区划/坡度，不得定价**。
-- `CPA_BASE_URL` / `CPA_API_KEY`：本地 [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)（管理页如 `http://192.168.52.81:8317/management.html`）。核算台会改写成 OpenAI 兼容入口 `…/v1`，用客户端密钥调 `/v1/models` 与 `/v1/chat/completions`。管理页登录密码不要当成模型密钥。图纸推导默认模型为 `gpt-5.6-luna`。Vercel 生产环境打不到局域网 `192.168.52.81`，必须把公网可达的 `https://…/v1` 和客户端密钥写进该项目的 Environment Variables；未配置时就绪接口保持 `configured: false`，不编造模型结果。
+- `CPA_BASE_URL` / `CPA_API_KEY`：本地 [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)（管理页如 `http://192.168.52.81:8317/management.html`）。核算台会改写成 OpenAI 兼容入口 `…/v1`，用客户端密钥调 `/v1/models` 与 `/v1/chat/completions`。管理页登录密码不要当成模型密钥。图纸推导默认模型为 `gpt-5.6-luna`。Vercel 生产环境打不到局域网 `192.168.52.81`；在能访问该地址的机器上用 `cpa-tunnel/docker-compose.cloudflared.yml` 暴露为 HTTPS 后，用 `scripts/link-public-cpa.sh` 写入项目环境变量。未配置时就绪接口保持 `configured: false`，不编造模型结果。
 - `OPENAI_BASE_URL` / `SITE_VISION_MODEL` / `DRAWING_LLM_MODEL`：接口与模型名。`DRAWING_LLM_MODEL` 可覆盖默认的 `gpt-5.6-luna`。未走 CPA 时视觉默认 `https://api.openai.com/v1` 与 `gpt-4o-mini`。
 
 浏览器打开 `http://127.0.0.1:43124`。输入 `55 Nelson Street` 会列出 Howick 与 Auckland Central 等多条议会地址，必须点选一条。输入 `115 Bruce Road Glenfield` 时议会已无整宗 115，只会列出拆分后的 115A–F；点选其中一户后，页面只显示该户的议会地籍，并筛掉需要整宗地的方案。本机安全软件（如 Bitdefender）若给 DOM 注入属性，开发态错误浮层会被拦截，不影响核算。
@@ -126,16 +126,15 @@ npx vercel deploy --prod --yes --scope xentechs-projects
 
 `ENGINE_URL` 由 Vercel service binding 注入，指向同一次部署里的 FastAPI 容器。浏览器 `/engine/*` 由根目录 `vercel.json` 改写到该容器；容器内 SQLite 与上传文件写在 `/tmp`，实例回收后会丢失，不会用缓存或假数据顶上。
 
-图纸 / Estimator 的大模型需要公网可达的 CPA `/v1`：
+图纸 / Estimator 的大模型需要公网可达的 CPA `/v1`。Vercel 访问不到 `192.168.52.81:8317`。在能访问该地址的电脑上用 Cloudflare Tunnel 暴露（见 `cpa-tunnel/README.md`，不用 Fly），然后：
 
 ```bash
-npx vercel env add CPA_BASE_URL production
-npx vercel env add CPA_API_KEY production
+CPA_BASE_URL='https://你的公网主机名' CPA_API_KEY='客户端密钥' ./scripts/link-public-cpa.sh
 ```
 
-`CPA_BASE_URL` 填 `https://…/v1`（可用 Cloudflare 具名隧道把局域网 8317 暴露为 HTTPS）。`CPA_API_KEY` 是 CPA **客户端密钥**，不是管理页登录密码。未配置时 `GET /engine/drawings/verify/ready` 为 `configured: false`。
+脚本会先请求公网 `/v1/models`；失败则退出，不会写入假地址。`CPA_API_KEY` 是 CPA **客户端密钥**，不是管理页登录密码。未配置时 `GET /engine/drawings/verify/ready` 为 `configured: false`。
 
-`demo-gateway/` 与 `cpa-tunnel/` 是停用的 Fly 反代 / rathole 配置，不要再部署。
+`demo-gateway/` 是停用的 Fly 反代。`cpa-tunnel/` 里的 rathole / Fly 配置同样停用，改用 `docker-compose.cloudflared.yml`。
 
 本机构建前端，再同时拉起 API 与 Next：
 

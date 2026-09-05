@@ -9,6 +9,7 @@ primary_region = "syd"
 [env]
   ENGINE_URL = "http://127.0.0.1:8764"
   PORT = "43124"
+  CPA_BASE_URL = "http://vsense-cpa-tunnel.internal:8317"
 
 [http_service]
   internal_port = 43124

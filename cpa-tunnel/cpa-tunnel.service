@@ -1,0 +1,15 @@
+[Unit]
+Description=VSense CPA reverse tunnel to Fly
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/vsense-cpa-tunnel.env
+ExecStart=/usr/local/bin/python3 /opt/vsense-cpa-tunnel/write_config.py --mode client --run
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

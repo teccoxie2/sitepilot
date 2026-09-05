@@ -214,3 +214,9 @@ Done
 
 `GET /estimator/evals/574-remuera` 与 `run_574_eval()`：无原 PDF 则 documents_status=missing、passed=false。`unsupported_ai_generated_rate` 固定为 0。
 
+## Fly 持久反向隧道调用局域网 CPA
+
+Done
+
+独立应用 `vsense-cpa-tunnel` 跑 rathole 服务端（Noise + token，公网只开 4443）。核算台 `CPA_BASE_URL` 指向 `http://vsense-cpa-tunnel.internal:8317`。局域网用 `cpa-tunnel/docker-compose.client.yml` 常驻连出；8317 不映射到公网。CPA_API_KEY 仍须单独设置，不把管理页密码当密钥。
+

@@ -105,7 +105,7 @@ pnpm dev
 - `PRICE_API_URL`：价源第二实现；未设置时只用价表。
 - `ENGINE_URL`：前端服务端请求核算 API，默认 `http://127.0.0.1:8764`。
 - `OPENAI_API_KEY`：可选（航拍视觉）/ 图纸物料验证也认这个密钥。航拍：设置后会把最多两张公开航拍送给视觉模型，只描述可见场地，**不得改面积/区划/坡度，不得定价**。
-- `CPA_BASE_URL` / `CPA_API_KEY`：本地 [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)（管理页如 `http://192.168.52.81:8317/management.html`）。核算台会改写成 OpenAI 兼容入口 `…/v1`，用客户端密钥调 `/v1/models` 与 `/v1/chat/completions`。管理页登录密码不要当成模型密钥。图纸推导默认模型为 `gpt-5.6-luna`。
+- `CPA_BASE_URL` / `CPA_API_KEY`：本地 [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)（管理页如 `http://192.168.52.81:8317/management.html`）。核算台会改写成 OpenAI 兼容入口 `…/v1`，用客户端密钥调 `/v1/models` 与 `/v1/chat/completions`。管理页登录密码不要当成模型密钥。图纸推导默认模型为 `gpt-5.6-luna`。公网 Fly 源站默认 `CPA_BASE_URL=http://vsense-cpa-tunnel.internal:8317`，由局域网 rathole 客户端把 CPA 反代进 Fly 6PN；密钥仍用 `fly secrets set CPA_API_KEY=…`，不要把管理页密码当 Bearer。
 - `OPENAI_BASE_URL` / `SITE_VISION_MODEL` / `DRAWING_LLM_MODEL`：接口与模型名。`DRAWING_LLM_MODEL` 可覆盖默认的 `gpt-5.6-luna`。未走 CPA 时视觉默认 `https://api.openai.com/v1` 与 `gpt-4o-mini`。
 
 浏览器打开 `http://127.0.0.1:43124`。输入 `55 Nelson Street` 会列出 Howick 与 Auckland Central 等多条议会地址，必须点选一条。输入 `115 Bruce Road Glenfield` 时议会已无整宗 115，只会列出拆分后的 115A–F；点选其中一户后，页面只显示该户的议会地籍，并筛掉需要整宗地的方案。本机安全软件（如 Bitdefender）若给 DOM 注入属性，开发态错误浮层会被拦截，不影响核算。
@@ -142,6 +142,33 @@ docker run --rm -p 43124:43124 auckland-dev-cost
 ```
 
 `ENGINE_URL` 默认 `http://127.0.0.1:8764`。不要把 GitHub PAT 或议会密钥写进镜像。
+
+### 让 Fly 调用局域网 CPA（持久反向隧道）
+
+Fly 在 Sydney，打不到 `192.168.52.81:8317`。仓库里的 `cpa-tunnel/` 在 Fly 上跑 **一台常驻 rathole 服务端**（`vsense-cpa-tunnel`），只公开 TCP **4443** 给客户端连入。CPA 的 HTTP **8317** 绑在 Fly 6PN 上，核算台用 `http://vsense-cpa-tunnel.internal:8317/v1` 调用，公网扫不到。
+
+```bash
+cd cpa-tunnel
+flyctl deploy --remote-only --yes --ha=false
+flyctl scale count 1 --yes -a vsense-cpa-tunnel
+```
+
+隧道应用必须保持 **1 台机器**（客户端只连上一台，8317 在那台的 6PN 上）。局域网启动客户端：
+
+```bash
+cd cpa-tunnel
+cp client.env.example .env
+# 填入 RATHOLE_TOKEN（与 Fly secret 相同；不要提交 .env）
+docker compose -f docker-compose.client.yml up -d --build
+```
+
+客户端会自动重连。隧道通了之后还要在核算台设置 **CPA 客户端密钥**（不是管理页登录密码）：
+
+```bash
+flyctl secrets set CPA_API_KEY='…' -a vsense-auckland-dev-cost
+```
+
+就绪检查：`https://demo-cost.vsense.co.nz/engine/drawings/verify/ready`。`configured: false` 是没密钥；`reachable: false` 是局域网客户端没连上。
 
 第二阶段在项目页上传 RC/BC PDF。正式 LIM 也在项目页由客户上传议会 PDF，只读文字层。仓库不附带某块地的批准图或 LIM；没有文字层的扫描件无法量尺寸或核对 LIR。门窗表对得上公开尺寸（例如 1800×1200、1200×1200 新铝窗，或 Hume 860 门扇）才计价，其余樘标缺项。
 

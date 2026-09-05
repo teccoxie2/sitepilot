@@ -1,0 +1,38 @@
+# Persistent reverse-tunnel server for the LAN CLIProxyAPI (CPA).
+# Public TCP 4443 is the rathole control channel only.
+# CPA HTTP (8317) binds to the Fly 6PN address and is not published.
+# Keep exactly one machine: flyctl scale count 1 -a vsense-cpa-tunnel
+app = "vsense-cpa-tunnel"
+primary_region = "syd"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  RATHOLE_MODE = "server"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 4443
+  auto_stop_machines = "off"
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 20
+    soft_limit = 10
+
+  [[services.ports]]
+    port = 4443
+
+  [[services.tcp_checks]]
+    grace_period = "10s"
+    interval = "15s"
+    timeout = "2s"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256

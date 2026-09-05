@@ -1,0 +1,13 @@
+# Run this on a host that can reach the LAN CPA (default 192.168.52.81:8317).
+# Copy client.env.example to .env and fill RATHOLE_TOKEN from the Fly secret.
+services:
+  cpa-tunnel-client:
+    build: .
+    restart: unless-stopped
+    command: ["--mode", "client", "--run"]
+    env_file:
+      - .env
+    environment:
+      RATHOLE_MODE: client
+      RATHOLE_REMOTE: ${RATHOLE_REMOTE:-vsense-cpa-tunnel.fly.dev:4443}
+      CPA_LOCAL: ${CPA_LOCAL:-192.168.52.81:8317}

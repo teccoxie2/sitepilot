@@ -340,6 +340,11 @@ def test_cpa_base_url_from_management_page(monkeypatch):
     assert llm_base_url() == "http://192.168.52.81:8317/v1"
 
 
+def test_cpa_base_url_from_fly_internal_tunnel(monkeypatch):
+    monkeypatch.setenv("CPA_BASE_URL", "http://vsense-cpa-tunnel.internal:8317")
+    assert llm_base_url() == "http://vsense-cpa-tunnel.internal:8317/v1"
+
+
 def test_cpa_api_key_marks_llm_configured(monkeypatch):
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.setenv("CPA_API_KEY", "cpa-test")

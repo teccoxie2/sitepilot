@@ -42,6 +42,16 @@ docker compose -f docker-compose.cloudflared.yml -f docker-compose.cloudflared.n
 
 ## 接到核算台
 
+当前演示也可以直连路由器映射的 CPA（不经过本目录 gate，IP 白名单之后再加）：
+
+```bash
+CPA_BASE_URL='http://182.48.141.208:38317/v1' \
+CPA_API_KEY='客户端密钥' \
+./scripts/link-public-cpa.sh
+```
+
+走本目录 gate 时再带上门禁：
+
 ```bash
 CPA_BASE_URL='https://你的公网主机名' \
 CPA_API_KEY='客户端密钥' \
@@ -49,4 +59,4 @@ CPA_GATE_TOKEN='与 .env 相同的门禁令牌' \
 ./scripts/link-public-cpa.sh
 ```
 
-脚本会带上门禁请求公网 `/v1/models`；失败则退出，不会写入假地址。
+脚本会先请求公网 `/v1/models`；失败则退出，不会写入假地址。有 `CPA_GATE_TOKEN` 时才会写该变量并带 `X-CPA-Gate`。

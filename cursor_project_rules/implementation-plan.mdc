@@ -244,3 +244,9 @@ Done
 
 实测公网 `http://182.48.141.208:38317/management.html` 为 CPA 管理页 200，`/v1/models` 无密钥返回 401。`GET /runtime/egress` 读到 Vercel 容器出口 `54.209.172.110`（api.ipify.org），写入 `allowlist.txt` 仅这一条。路由器白名单只能填一个时用该地址；加完后本机浏览器将打不开公网管理页。
 
+## 直连公网映射 CPA，暂不加 IP 白名单
+
+Done
+
+按指示先不配路由器 IP 白名单。`scripts/link-public-cpa.sh` 在未设 `CPA_GATE_TOKEN` 时可直连 CPA：探测 `/v1/models` 成功后只写入 `CPA_BASE_URL` 与客户端 `CPA_API_KEY`，再 `--prod` 发布。不把管理页密码当 `/v1` Bearer，不强制 gate。
+

@@ -5,7 +5,7 @@ import time
 from fastapi.testclient import TestClient
 
 from app.drawing_llm import evidence_in_source, parse_llm_json, combined_drawing_text, charts_prompt_block, call_drawing_llm, shrink_packed_text
-from app.drawing_llm import llm_base_url, probe_llm
+from app.drawing_llm import llm_base_url, llm_headers, probe_llm
 from app.drawing_parse import extract_from_text
 from app.drawing_verify import group_lines_by_zone, verify_drawing_parts, verify_drawing_parts_rules, zone_for_line
 from app.main import app
@@ -361,6 +361,18 @@ def test_cpa_base_url_from_management_page(monkeypatch):
 def test_cpa_base_url_from_lan_origin(monkeypatch):
     monkeypatch.setenv("CPA_BASE_URL", "http://192.168.52.81:8317")
     assert llm_base_url() == "http://192.168.52.81:8317/v1"
+
+
+def test_llm_headers_include_gate_and_access_tokens(monkeypatch):
+    monkeypatch.setenv("CPA_API_KEY", "cpa-client")
+    monkeypatch.setenv("CPA_GATE_TOKEN", "gate-token")
+    monkeypatch.setenv("CF_ACCESS_CLIENT_ID", "access-id")
+    monkeypatch.setenv("CF_ACCESS_CLIENT_SECRET", "access-secret")
+    headers = llm_headers()
+    assert headers["Authorization"] == "Bearer cpa-client"
+    assert headers["X-CPA-Gate"] == "gate-token"
+    assert headers["CF-Access-Client-Id"] == "access-id"
+    assert headers["CF-Access-Client-Secret"] == "access-secret"
 
 
 def test_cpa_base_url_keeps_v1_suffix(monkeypatch):

@@ -232,3 +232,9 @@ Done
 
 在能访问 `192.168.52.81:8317` 的机器上跑 `cpa-tunnel/docker-compose.cloudflared.yml`（Quick Tunnel 或 Named Tunnel）。`scripts/link-public-cpa.sh` 先探测公网 `/v1/models`，再写入现有 Vercel 项目的 `CPA_BASE_URL` / `CPA_API_KEY` 并重新发布。不把管理页密码当客户端密钥；探测失败不写环境变量。
 
+## 公网 CPA 增加路径与门禁白名单
+
+Done
+
+`cpa-tunnel/gate.py` 挡在 Cloudflare Tunnel 与 `192.168.52.81:8317` 之间：只转发 `/v1`，校验 `X-CPA-Gate`，`allowlist.txt` 可再限制 IP/CIDR。核算台 `llm_headers()` 发送门禁令牌；可选 Cloudflare Access Service Token。管理页不从公网暴露。
+

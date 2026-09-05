@@ -102,7 +102,16 @@ def llm_model_name(available: list[str] | None = None) -> str:
 
 
 def llm_headers() -> dict[str, str]:
-    return {"Authorization": f"Bearer {llm_api_key()}", "Content-Type": "application/json"}
+    headers = {"Authorization": f"Bearer {llm_api_key()}", "Content-Type": "application/json"}
+    gate = os.environ.get("CPA_GATE_TOKEN", "").strip()
+    if gate:
+        headers["X-CPA-Gate"] = gate
+    access_id = os.environ.get("CF_ACCESS_CLIENT_ID", "").strip()
+    access_secret = os.environ.get("CF_ACCESS_CLIENT_SECRET", "").strip()
+    if access_id and access_secret:
+        headers["CF-Access-Client-Id"] = access_id
+        headers["CF-Access-Client-Secret"] = access_secret
+    return headers
 
 
 def catalog_for_prompt() -> list[dict[str, Any]]:

@@ -1,19 +1,30 @@
-# Expose LAN CPA (192.168.52.81:8317) with Cloudflare Tunnel. No Fly.
-# Run this on a host that can reach that address (same LAN as CLIProxyAPI).
+# Expose LAN CPA via Cloudflare Tunnel, behind the local allowlist gate. No Fly.
+# Run on a host that can reach 192.168.52.81:8317.
 #
-# Quick tunnel (hostname is printed in logs, changes if you recreate the container):
-#   docker compose -f docker-compose.cloudflared.yml up
+#   cp cloudflared.env.example .env
+#   # set CPA_GATE_TOKEN=$(openssl rand -hex 32)
+#   docker compose -f docker-compose.cloudflared.yml --env-file .env up --build
 #
-# Named tunnel (stable hostname configured in Cloudflare Zero Trust):
-#   copy cloudflared.env.example to .env, set TUNNEL_TOKEN
-#   docker compose -f docker-compose.cloudflared.yml -f docker-compose.cloudflared.named.yml up -d
-#
-# Then set Vercel env with the public https origin and the CPA *client* API key
-# (never the management.html login password):
-#   CPA_BASE_URL=https://….trycloudflare.com CPA_API_KEY=… ./scripts/link-public-cpa.sh
+# Optional IP/CIDR lines go in allowlist.txt. Empty file = token + /v1 only.
 
 services:
+  cpa-gate:
+    build:
+      context: .
+      dockerfile: Dockerfile.gate
+    restart: unless-stopped
+    environment:
+      CPA_ORIGIN: ${CPA_ORIGIN:-http://192.168.52.81:8317}
+      CPA_GATE_TOKEN: ${CPA_GATE_TOKEN}
+      CPA_ALLOWLIST_FILE: /allowlist/allowlist.txt
+      PORT: "8318"
+    volumes:
+      - ./allowlist.txt:/allowlist/allowlist.txt:ro
+    ports:
+      - "127.0.0.1:8318:8318"
   cpa-cloudflared:
     image: cloudflare/cloudflared:latest
     restart: unless-stopped
-    command: tunnel --no-autoupdate --url ${CPA_ORIGIN:-http://192.168.52.81:8317}
+    depends_on:
+      - cpa-gate
+    command: tunnel --no-autoupdate --url http://cpa-gate:8318

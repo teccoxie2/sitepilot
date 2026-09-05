@@ -21,6 +21,12 @@ docker compose -f docker-compose.cloudflared.yml --env-file .env up --build
 
 需要按办公室出口 IP 收紧时，把 CIDR 写入 `allowlist.txt` 后重启 gate。本机探测可加 `127.0.0.1`。
 
+路由器端口映射 `182.48.141.208:38317` 若只能加 **一个** 白名单 IP，填核算台刚测到的出口：
+
+`54.209.172.110`
+
+来源：`https://demo-cost.vsense.co.nz/engine/runtime/egress`（api.ipify.org，2026-09-05）。加完后公网管理页从你家浏览器会打不开；管理请继续用局域网 `192.168.52.81:8317`。
+
 ## 固定主机名（Named Tunnel）
 
 Zero Trust 源站填 **gate**，不要直连 8317：

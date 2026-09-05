@@ -238,3 +238,9 @@ Done
 
 `cpa-tunnel/gate.py` 挡在 Cloudflare Tunnel 与 `192.168.52.81:8317` 之间：只转发 `/v1`，校验 `X-CPA-Gate`，`allowlist.txt` 可再限制 IP/CIDR。核算台 `llm_headers()` 发送门禁令牌；可选 Cloudflare Access Service Token。管理页不从公网暴露。
 
+## 读取生产出口 IP 以便 CPA 只加一条白名单
+
+Done
+
+实测公网 `http://182.48.141.208:38317/management.html` 为 CPA 管理页 200，`/v1/models` 无密钥返回 401。`GET /runtime/egress` 读到 Vercel 容器出口 `54.209.172.110`（api.ipify.org），写入 `allowlist.txt` 仅这一条。路由器白名单只能填一个时用该地址；加完后本机浏览器将打不开公网管理页。
+

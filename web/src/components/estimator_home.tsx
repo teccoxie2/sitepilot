@@ -1,19 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { EstimatorSummary } from "@/lib/estimator";
+import { listEstimatorMetas, metaToSummary, rememberEstimatorMeta } from "@/lib/estimator_cache";
 import { readEngineJson } from "@/lib/engine_upload";
 
 export default function EstimatorHome() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [projects, setProjects] = useState<EstimatorSummary[]>([]);
+  const [localProjects, setLocalProjects] = useState<EstimatorSummary[]>([]);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
   const load = () => {
+    setLocalProjects(listEstimatorMetas().map(metaToSummary));
     fetch("/engine/estimator/projects", { cache: "no-store" })
       .then(async (response) => {
         const payload = await readEngineJson(response, "无法列出 Estimator 项目");
@@ -39,12 +42,28 @@ export default function EstimatorHome() {
         body: JSON.stringify({ name: name.trim(), address: address.trim() || null }),
       });
       const payload = await readEngineJson(response, "无法创建项目");
-      window.location.href = `/estimator/${payload.id}`;
+      const projectId = String(payload.id || "");
+      if (!projectId) throw new Error("创建工作区后没有返回编号。");
+      rememberEstimatorMeta({
+        id: projectId,
+        name: typeof payload.name === "string" ? payload.name : name.trim(),
+        address: typeof payload.address === "string" ? payload.address : address.trim(),
+        created_at: typeof payload.created_at === "string" ? payload.created_at : new Date().toISOString(),
+        status: typeof payload.status === "string" ? payload.status : "UPLOADED",
+      });
+      window.location.href = `/estimator/${projectId}`;
     } catch (caught: unknown) {
       setError(caught instanceof Error ? caught.message : "无法创建项目");
       setBusy(false);
     }
   };
+
+  const visibleProjects = useMemo(() => {
+    const byId = new Map<string, EstimatorSummary>();
+    for (const item of localProjects) byId.set(item.id, item);
+    for (const item of projects) byId.set(item.id, item);
+    return [...byId.values()];
+  }, [localProjects, projects]);
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
@@ -84,12 +103,12 @@ export default function EstimatorHome() {
         ) : null}
       </form>
       <section className="mt-10">
-        <h2 className="text-lg font-semibold">当前引擎上的工作区</h2>
-        {projects.length === 0 ? (
-          <p className="mt-2 text-sm text-[#5c6754]">还没有 Estimator 项目。演示容器重启后列表会空，不会用缓存顶上。</p>
+        <h2 className="text-lg font-semibold">工作区</h2>
+        {visibleProjects.length === 0 ? (
+          <p className="mt-2 text-sm text-[#5c6754]">还没有 Estimator 项目。创建后会记在这台浏览器里，引擎换实例也能再打开。</p>
         ) : (
           <ul className="mt-3 space-y-2">
-            {projects.map((project) => (
+            {visibleProjects.map((project) => (
               <li key={project.id}>
                 <Link href={`/estimator/${project.id}`} className="block rounded-xl border border-[#d9d0c0] bg-white px-4 py-3 hover:border-[#2f4a32]">
                   <p className="font-medium">{project.name}</p>

@@ -4,6 +4,14 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
 import type { EstimatorProject } from "@/lib/estimator";
+import {
+  filesFromOriginals,
+  loadStoredWorkspace,
+  originalsFromFiles,
+  readEstimatorMeta,
+  rememberEstimatorMeta,
+  saveStoredWorkspace,
+} from "@/lib/estimator_cache";
 import { nzdExact } from "@/lib/money";
 import { readEngineJson, uploadPdfsToEngine } from "@/lib/engine_upload";
 
@@ -16,10 +24,11 @@ const TABS = [
   { id: "history", label: "HISTORY" },
 ];
 
-function emptyWorkspace(projectId: string): EstimatorProject {
+function emptyWorkspace(projectId: string, name?: string, address?: string): EstimatorProject {
   return {
     id: projectId,
-    name: "未命名图纸项目",
+    name: name?.trim() || "未命名图纸项目",
+    address: address?.trim() || null,
     created_at: "",
     status: "UPLOADED",
     document_set_version: 0,
@@ -46,34 +55,6 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
   const [selectedEvidenceId, setSelectedEvidenceId] = useState<string | null>(null);
   const [pageFailed, setPageFailed] = useState(false);
 
-  const load = async () => {
-    const response = await fetch(`/engine/estimator/projects/${projectId}`, { cache: "no-store" });
-    if (response.status === 404) {
-      await response.text().catch(() => "");
-      setProject(emptyWorkspace(projectId));
-      setTab("documents");
-      setError(
-        "这份工作区不在当前引擎磁盘上。演示容器重启或换实例后记录会消失，不会用缓存顶上。请重新上传图纸。",
-      );
-      return;
-    }
-    const payload = (await readEngineJson(response, "无法读取工作区")) as unknown as EstimatorProject;
-    setProject(payload);
-    setError("");
-    if (!selectedDrawingId && payload.drawings?.[0]) setSelectedDrawingId(payload.drawings[0].id);
-  };
-
-  useEffect(() => {
-    fetch("/engine/estimator/ready", { cache: "no-store" })
-      .then(async (response) => {
-        const payload = await readEngineJson(response, "无法确认视觉密钥。");
-        setReadyNote(typeof payload.note === "string" ? payload.note : "");
-      })
-      .catch(() => setReadyNote("无法确认视觉密钥。"));
-    load().catch((caught: unknown) => setError(caught instanceof Error ? caught.message : "无法读取工作区"));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projectId]);
-
   const drawings = project?.drawings || [];
   const expectedDrawings = project?.expected_drawings || [];
   const takeoff = project?.takeoff || [];
@@ -95,6 +76,13 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
   const applyProject = (next: EstimatorProject) => {
     setProject(next);
+    rememberEstimatorMeta({
+      id: next.id,
+      name: next.name,
+      address: next.address,
+      created_at: next.created_at,
+      status: next.status,
+    });
     if (next.drawings?.[0]) {
       setSelectedDrawingId((current) => current || next.drawings[0].id);
     }
@@ -166,6 +154,109 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     throw new Error("处理超时。未编造数量或金额。");
   };
 
+  const processFiles = async (
+    files: File[],
+    kinds: string[],
+    options: { name: string; address: string; restore?: boolean },
+  ) => {
+    setBusy(options.restore ? "当前引擎没有这份工作区，正在用本机保存的原件恢复…" : "正在上传原件（只读副本，不改写）…");
+    setError("");
+    await saveStoredWorkspace({
+      projectId,
+      name: options.name,
+      address: options.address,
+      originals: await originalsFromFiles(files, kinds),
+    });
+    const uploaded = await uploadPdfsToEngine({
+      files,
+      kinds,
+      extraFields: {
+        workspace_name: options.name,
+        workspace_address: options.address,
+      },
+      directUrl: `/engine/estimator/projects/${projectId}/documents`,
+      completeUrl: `/engine/estimator/projects/${projectId}/documents/from-session`,
+      onNote: setBusy,
+    });
+    const uploadedProject = uploaded.project;
+    if (uploadedProject && typeof uploadedProject === "object" && "id" in uploadedProject) {
+      applyProject(uploadedProject as EstimatorProject);
+    } else if (typeof uploaded.id === "string") {
+      applyProject(uploaded as unknown as EstimatorProject);
+    }
+    let jobId = typeof uploaded.job_id === "string" ? uploaded.job_id : "";
+    if (!jobId) {
+      const started = await fetch(`/engine/estimator/projects/${projectId}/process`, { method: "POST" });
+      const job = await readEngineJson(started, "无法开始处理");
+      jobId = typeof job.job_id === "string" ? job.job_id : "";
+    }
+    if (!jobId) throw new Error("上传已收到，但没有返回处理任务编号。请重新上传。");
+    const finished = await waitJob(jobId);
+    if (finished) {
+      applyProject(finished);
+      await saveStoredWorkspace({
+        projectId,
+        name: finished.name,
+        address: finished.address || options.address,
+        project: finished,
+      });
+    }
+  };
+
+  const load = async () => {
+    const meta = readEstimatorMeta(projectId);
+    const stored = await loadStoredWorkspace(projectId);
+    const fallbackName = stored?.name || meta?.name || "未命名图纸项目";
+    const fallbackAddress = stored?.address || meta?.address || "";
+    const remote = await fetch(`/engine/estimator/projects/${projectId}`, { cache: "no-store" });
+    if (remote.ok) {
+      const payload = (await readEngineJson(remote, "无法读取工作区")) as unknown as EstimatorProject;
+      applyProject(payload);
+      setError("");
+      if (payload.documents?.length) {
+        await saveStoredWorkspace({
+          projectId,
+          name: payload.name,
+          address: payload.address || "",
+          project: payload,
+        });
+        return;
+      }
+    } else {
+      await remote.text().catch(() => "");
+      if (remote.status !== 404) throw new Error("无法读取工作区");
+    }
+    if (stored?.project?.documents?.length) {
+      applyProject(stored.project);
+      setError("");
+    } else {
+      applyProject(emptyWorkspace(projectId, fallbackName, fallbackAddress));
+      setTab("documents");
+      setError("");
+    }
+    if (stored?.originals?.length) {
+      const restored = filesFromOriginals(stored.originals);
+      await processFiles(restored.files, restored.kinds, {
+        name: fallbackName,
+        address: fallbackAddress,
+        restore: true,
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetch("/engine/estimator/ready", { cache: "no-store" })
+      .then(async (response) => {
+        const payload = await readEngineJson(response, "无法确认视觉密钥。");
+        setReadyNote(typeof payload.note === "string" ? payload.note : "");
+      })
+      .catch(() => setReadyNote("无法确认视觉密钥。"));
+    load()
+      .catch((caught: unknown) => setError(caught instanceof Error ? caught.message : "无法读取工作区"))
+      .finally(() => setBusy(""));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projectId]);
+
   const handleUpload = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -192,35 +283,11 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
       setError("请至少上传一份 PDF。");
       return;
     }
-    setBusy("正在上传原件（只读副本，不改写）…");
-    setError("");
     try {
-      const uploaded = await uploadPdfsToEngine({
-        files,
-        kinds,
-        extraFields: {
-          workspace_name: project?.name || "未命名图纸项目",
-          workspace_address: project?.address || "",
-        },
-        directUrl: `/engine/estimator/projects/${projectId}/documents`,
-        completeUrl: `/engine/estimator/projects/${projectId}/documents/from-session`,
-        onNote: setBusy,
+      await processFiles(files, kinds, {
+        name: project?.name || readEstimatorMeta(projectId)?.name || "未命名图纸项目",
+        address: project?.address || readEstimatorMeta(projectId)?.address || "",
       });
-      const uploadedProject = uploaded.project;
-      if (uploadedProject && typeof uploadedProject === "object" && "id" in uploadedProject) {
-        applyProject(uploadedProject as EstimatorProject);
-      } else if (typeof uploaded.id === "string") {
-        applyProject(uploaded as unknown as EstimatorProject);
-      }
-      let jobId = typeof uploaded.job_id === "string" ? uploaded.job_id : "";
-      if (!jobId) {
-        const started = await fetch(`/engine/estimator/projects/${projectId}/process`, { method: "POST" });
-        const job = await readEngineJson(started, "无法开始处理");
-        jobId = typeof job.job_id === "string" ? job.job_id : "";
-      }
-      if (!jobId) throw new Error("上传已收到，但没有返回处理任务编号。请重新上传。");
-      const finished = await waitJob(jobId);
-      if (finished) applyProject(finished);
     } catch (caught: unknown) {
       setError(caught instanceof Error ? caught.message : "处理失败");
     } finally {
@@ -259,9 +326,10 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
   };
 
   if (!project) {
+    const waiting = !error || /项目不存在|当前引擎磁盘/.test(error);
     return (
       <div className="mx-auto max-w-6xl px-4 py-10">
-        <p>{error || "正在读取工作区…"}</p>
+        <p>{waiting ? busy || "正在读取工作区…" : error}</p>
       </div>
     );
   }
@@ -283,11 +351,9 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
           {busy}
         </p>
       ) : null}
-      {error ? (
+      {error && !/项目不存在|当前引擎磁盘/.test(error) ? (
         <p className="mt-3 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm text-[#8a3b1d]" role="alert">
-            {/项目不存在|当前引擎磁盘/.test(error)
-            ? "这份工作区不在当前引擎磁盘上。演示容器重启或换实例后记录会消失，不会用缓存顶上。图纸仍在表单里的话，请再点一次上传。"
-            : error}
+          {error}
         </p>
       ) : null}
 
@@ -336,7 +402,9 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                 <input name="extras" type="file" accept="application/pdf" multiple aria-label="其他 PDF" />
               </label>
             </div>
-            <p className="mt-3 text-xs leading-5 text-[#7b8474]">单份不超过 15MB；大于约 3.5MB 会自动分片。</p>
+            <p className="mt-3 text-xs leading-5 text-[#7b8474]">
+              单份不超过 15MB；大于约 3.5MB 会自动分片。原件会保存在这台浏览器里，引擎换实例后会自动送回当前引擎，不编造图号或金额。
+            </p>
             <Button type="submit" className="mt-4" disabled={Boolean(busy)}>
               上传并生成 Manifest
             </Button>

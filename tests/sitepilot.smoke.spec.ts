@@ -9,7 +9,7 @@ test.describe('SitePilot smoke tests', () => {
     await expect(page.locator('h1')).toBeVisible()
     await expect(page.locator('header')).toBeVisible()
     await expect(page.locator('footer')).toBeVisible()
-    await expect(page.getByRole('link', { name: /start with ai procurement/i })).toBeVisible()
+    await expect(page.getByRole('link', { name: /start with web infrastructure/i })).toBeVisible()
   })
 
   test('serves the core coverage hubs', async ({ page }) => {

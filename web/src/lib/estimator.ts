@@ -1,3 +1,20 @@
+export function processingStatusLabel(status: string): string {
+  if (status === "AWAITING_UPLOAD") return "待上传";
+  if (status === "UPLOADED") return "已上传，待解析";
+  if (status === "PREFLIGHT") return "预检中";
+  if (status === "RENDERING") return "渲染中";
+  if (status === "READY") return "已就绪";
+  if (status === "FAILED") return "失败";
+  return status;
+}
+
+export function disciplineHealthLabel(status: string): string {
+  if (status === "FOUND") return "已发现相关页（不等于该专业齐备）";
+  if (status === "NONE") return "未见该专业图纸";
+  if (status === "Available") return "已发现相关页（不等于该专业齐备）";
+  return status;
+}
+
 export interface EstimatorSummary {
   id: string;
   name: string;
@@ -23,6 +40,20 @@ export interface EstimatorProject {
   document_set_version: number;
   pricebook_version?: string;
   document_health?: Record<string, string>;
+  coverage?: Array<{
+    drawing_id: string;
+    page_number?: number | null;
+    drawing_number?: string | null;
+    page_type?: string | null;
+    discipline?: string | null;
+    expected_content?: string[];
+    extract_status?: string;
+    evidence_rows?: number;
+    opening_rows?: number;
+    floor_area_rows?: number;
+    ignore_reason?: string | null;
+    page_type_candidates?: string[];
+  }>;
   review_counts?: Record<string, number>;
   documents: Array<{
     id: string;

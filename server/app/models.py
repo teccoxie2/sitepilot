@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from sqlalchemy import Float, ForeignKey, Integer, String, Text
+from sqlalchemy import Float, ForeignKey, Integer, LargeBinary, String, Text
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.types import JSON
 
@@ -94,3 +94,24 @@ class PriceBookVersion(Base):
     source_name: Mapped[str | None] = mapped_column(String, nullable=True)
     item_count: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
     payload: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+
+
+class StoredBlob(Base):
+    __tablename__ = "stored_blobs"
+
+    key: Mapped[str] = mapped_column(String, primary_key=True)
+    content_type: Mapped[str] = mapped_column(String, nullable=False, default="application/octet-stream")
+    data: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+    created_at: Mapped[str] = mapped_column(String, nullable=False)
+
+
+class BackgroundJob(Base):
+    __tablename__ = "background_jobs"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True)
+    kind: Mapped[str] = mapped_column(String, nullable=False, default="estimator")
+    status: Mapped[str] = mapped_column(String, nullable=False)
+    note: Mapped[str | None] = mapped_column(Text, nullable=True)
+    detail: Mapped[str | None] = mapped_column(Text, nullable=True)
+    result: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
+    created_at: Mapped[float] = mapped_column(Float, nullable=False)

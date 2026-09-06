@@ -8,10 +8,12 @@ from typing import Any
 
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm.attributes import flag_modified
 
 from ..data_loader import pricebook
 from ..runtime_paths import writable_root
 from ..store import session
+from .completeness import build_coverage, discipline_health
 from .models import (
     EstimatorCorrectionEvent,
     EstimatorDocument,
@@ -58,7 +60,7 @@ def _insert_project(project_id: str, name: str | None, address: str | None) -> N
                 name=(name or "").strip() or "未命名图纸项目",
                 address=(address or "").strip() or None,
                 created_at=now_iso(),
-                status="UPLOADED",
+                status="AWAITING_UPLOAD",
                 document_set_version=1,
             )
         )
@@ -142,6 +144,18 @@ def add_document(
         )
         db.commit()
     return document_id
+
+
+def patch_document_payload(document_id: str, extra: dict[str, Any]) -> None:
+    with session() as db:
+        row = db.get(EstimatorDocument, document_id)
+        if not row:
+            return
+        payload = dict(row.payload or {})
+        payload.update(extra)
+        row.payload = payload
+        flag_modified(row, "payload")
+        db.commit()
 
 
 def set_document_status(document_id: str, status: str, error_message: str | None = None) -> None:
@@ -503,12 +517,10 @@ def assemble_project(project_id: str) -> dict[str, Any] | None:
 
         supplied = [row.drawing_number for row in drawings if row.drawing_number]
         missing_refs = [row for row in refs if not row.found]
-        discipline_health: dict[str, str] = {}
-        for row in drawings:
-            discipline_health[row.discipline] = "Available"
-        for kind in ("ARCHITECTURAL", "STRUCTURAL", "CIVIL", "PLUMBING", "ELECTRICAL", "MECHANICAL"):
-            if kind not in discipline_health:
-                discipline_health[kind] = "NONE"
+        drawing_dicts = [_drawing_dict(row) for row in drawings]
+        evidence_dicts = [_evidence_dict(row) for row in evidence]
+        health = discipline_health(drawing_dicts)
+        coverage = build_coverage(drawing_dicts, evidence_dicts)
 
         auto = sum(1 for item in review if item.queue_status == "AUTO_ACCEPTED")
         needs = sum(1 for item in review if item.queue_status == "NEEDS_REVIEW")
@@ -522,7 +534,8 @@ def assemble_project(project_id: str) -> dict[str, Any] | None:
             "status": project.status,
             "document_set_version": project.document_set_version,
             "pricebook_version": (pricebook() or {}).get("version"),
-            "document_health": discipline_health,
+            "document_health": health,
+            "coverage": coverage,
             "review_counts": {
                 "AUTO_ACCEPTED": auto,
                 "NEEDS_REVIEW": needs,
@@ -543,7 +556,7 @@ def assemble_project(project_id: str) -> dict[str, Any] | None:
                 }
                 for row in documents
             ],
-            "drawings": [_drawing_dict(row) for row in drawings],
+            "drawings": drawing_dicts,
             "expected_drawings": [
                 {
                     "id": row.id,
@@ -575,7 +588,7 @@ def assemble_project(project_id: str) -> dict[str, Any] | None:
                 }
                 for row in missing_refs
             ],
-            "evidence": [_evidence_dict(row) for row in evidence],
+            "evidence": evidence_dicts,
             "takeoff": [_takeoff_dict(row) for row in takeoff],
             "review": [_review_dict(row) for row in review],
             "correction_events": [

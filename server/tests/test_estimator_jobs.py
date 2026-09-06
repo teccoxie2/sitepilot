@@ -1,10 +1,14 @@
 import time
 
 from app.estimator import jobs
+from app.job_store import create_job, read_job
+from app.store import reset_engine
 
 
-def test_job_survives_memory_loss(tmp_path, monkeypatch):
+def test_estimator_job_survives_engine_reset(tmp_path, monkeypatch):
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{tmp_path / 'jobs.sqlite'}")
     monkeypatch.setenv("DATA_DIR", str(tmp_path / "data"))
+    reset_engine()
 
     def worker(note):
         note("running fixture")
@@ -22,8 +26,18 @@ def test_job_survives_memory_loss(tmp_path, monkeypatch):
     assert payload is not None
     assert payload["status"] == "ok"
     assert payload["result"]["id"] == "fixture"
-    jobs._JOBS.clear()
+    reset_engine()
     restored = jobs.get_job(job_id)
     assert restored["status"] == "ok"
     assert restored["result"]["id"] == "fixture"
-    assert (tmp_path / "data" / "estimator-jobs" / f"{job_id}.json").is_file()
+
+
+def test_drawing_verify_job_readable_after_engine_reset(tmp_path, monkeypatch):
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{tmp_path / 'drawing-jobs.sqlite'}")
+    monkeypatch.setenv("DATA_DIR", str(tmp_path / "data"))
+    reset_engine()
+    job = create_job("drawing-verify", "已排队，正在读取文字层。")
+    reset_engine()
+    payload = read_job(job["job_id"], "核对任务不存在或已过期，请重新上传。", kind="drawing-verify")
+    assert payload["status"] == "pending"
+    assert payload["kind"] == "drawing-verify"

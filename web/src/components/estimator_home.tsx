@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { EstimatorSummary } from "@/lib/estimator";
+import { processingStatusLabel } from "@/lib/estimator";
 import { listEstimatorMetas, metaToSummary, rememberEstimatorMeta } from "@/lib/estimator_cache";
 import { readEngineJson } from "@/lib/engine_upload";
 
@@ -49,7 +50,7 @@ export default function EstimatorHome() {
         name: typeof payload.name === "string" ? payload.name : name.trim(),
         address: typeof payload.address === "string" ? payload.address : address.trim(),
         created_at: typeof payload.created_at === "string" ? payload.created_at : new Date().toISOString(),
-        status: typeof payload.status === "string" ? payload.status : "UPLOADED",
+        status: typeof payload.status === "string" ? payload.status : "AWAITING_UPLOAD",
       });
       window.location.href = `/estimator/${projectId}`;
     } catch (caught: unknown) {
@@ -113,7 +114,7 @@ export default function EstimatorHome() {
                 <Link href={`/estimator/${project.id}`} className="block rounded-xl border border-[#d9d0c0] bg-white px-4 py-3 hover:border-[#2f4a32]">
                   <p className="font-medium">{project.name}</p>
                   <p className="text-xs text-[#7b8474]">
-                    {project.status} · {project.address || "未填地址"}
+                    {processingStatusLabel(project.status)} · {project.address || "未填地址"}
                   </p>
                 </Link>
               </li>

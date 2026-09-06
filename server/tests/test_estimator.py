@@ -7,9 +7,16 @@ from fastapi.testclient import TestClient
 
 from app.estimator.completeness import completeness
 from app.estimator.evals import run_574_eval
-from app.estimator.extract import classify_page, extract_title_block, parse_drawing_index, parse_floor_areas
+from app.estimator.extract import (
+    classify_page,
+    extract_title_block,
+    parse_drawing_index,
+    parse_floor_areas,
+    parse_opening_schedule,
+)
 from app.estimator.pdf import preflight_pdf
 from app.estimator.pipeline import ingest_document, process_project
+from app.estimator import store as estimator_store
 from app.estimator.takeoff import apply_review_action, build_estimate
 from app.main import app
 from app.store import reset_engine
@@ -247,7 +254,7 @@ def test_get_missing_workspace_is_explicit_404(tmp_path, monkeypatch):
     _isolated_db(tmp_path, monkeypatch)
     response = client.get(f"/estimator/projects/{uuid.uuid4()}")
     assert response.status_code == 404
-    assert "当前引擎磁盘" in response.json()["detail"]
+    assert "找不到这个图纸工作区" in response.json()["detail"]
 
 
 def _wait_estimator_job(job_id: str, timeout_sec: float = 30.0) -> dict:
@@ -288,6 +295,166 @@ def test_upload_recreates_workspace_on_this_instance(tmp_path, monkeypatch):
     assert result["id"] == project_id
     assert result["status"] == "READY"
     assert result["documents"][0]["filename"] == "architectural.pdf"
+
+
+def test_create_survives_engine_reset_and_empty_estimate_is_blocked(tmp_path, monkeypatch):
+    db = tmp_path / "shared.sqlite"
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{db}")
+    reset_engine()
+    created = client.post("/estimator/projects", json={"name": "跨进程夹具"}).json()
+    project_id = created["id"]
+    assert created["status"] == "AWAITING_UPLOAD"
+    reset_engine()
+    fetched = client.get(f"/estimator/projects/{project_id}")
+    assert fetched.status_code == 200
+    assert fetched.json()["id"] == project_id
+    assert fetched.json()["status"] == "AWAITING_UPLOAD"
+    listed = client.get("/estimator/projects").json()["projects"]
+    assert any(item["id"] == project_id for item in listed)
+    blocked = client.post(f"/estimator/projects/{project_id}/estimate")
+    assert blocked.status_code == 409
+    assert "尚未上传图纸" in blocked.json()["detail"]
+
+
+def test_process_reads_shared_blob_when_local_file_gone(tmp_path, monkeypatch):
+    _isolated_db(tmp_path, monkeypatch)
+    created = client.post("/estimator/projects", json={"name": "原件落库夹具"}).json()
+    path = tmp_path / "architectural.pdf"
+    _pdf(path, [ARCH_TEXT])
+    document_id = ingest_document(created["id"], path, "architectural.pdf", "ARCHITECTURAL")
+    row = estimator_store.get_document(document_id)
+    assert row is not None
+    Path(row.stored_path).unlink()
+    assert not Path(row.stored_path).is_file()
+    reset_engine()
+    project = process_project(created["id"])
+    assert project["status"] == "READY"
+    assert any("建筑面积" in item["description"] for item in project["takeoff"])
+
+
+A101_FIXTURE = """
+SYNTHETIC QA FIXTURE / NOT FOR CONSTRUCTION
+Drawing No: A101
+Ground Floor Plan
+Drawing Index
+A101 Ground Floor Plan
+A601 Door and Window Schedules
+Plan rectangle 10000 mm x 10000 mm
+Building area: 100.00 m2
+Floor finish thickness 100 mm
+"""
+
+A601_FIXTURE = """
+SYNTHETIC QA FIXTURE / NOT FOR CONSTRUCTION
+Drawing No: A601
+Door and Window Schedules
+Mark Width (mm) Height (mm) Qty Description
+W01 1200 1200 2 Aluminium window
+W02 1800 1200 1 Aluminium window
+D01 820 2040 3 Internal door
+D02 920 2040 1 External door
+"""
+
+A601_EMPTY_SCHEDULE = """
+SYNTHETIC QA FIXTURE / NOT FOR CONSTRUCTION
+Drawing No: A601
+Door and Window Schedules
+Mark Width (mm) Height (mm) Qty Description
+"""
+
+
+def test_opening_schedule_parser_reads_fixture_rows():
+    rows = parse_opening_schedule(A601_FIXTURE)
+    by_mark = {item["mark"]: item for item in rows}
+    assert by_mark["W01"]["quantity"] == 2
+    assert by_mark["W01"]["width_mm"] == 1200
+    assert by_mark["W02"]["quantity"] == 1
+    assert by_mark["D01"]["quantity"] == 3
+    assert by_mark["D02"]["kind"] == "door_unit"
+    assert sum(item["quantity"] for item in rows if item["kind"] == "window_unit") == 3
+    assert sum(item["quantity"] for item in rows if item["kind"] == "door_unit") == 4
+
+
+def test_fixture_page_is_floor_plan_not_structural_cover():
+    classified = classify_page(A101_FIXTURE, filename="synthetic-qa.pdf")
+    assert classified["page_type"] == "FLOOR_PLAN"
+    assert classified["discipline"] == "ARCHITECTURAL"
+    assert classified["page_type"] != "COVER"
+    assert "COVER" in classified["page_type_candidates"]
+
+
+def test_synthetic_qa_fixture_area_and_openings(tmp_path, monkeypatch):
+    _isolated_db(tmp_path, monkeypatch)
+    created = client.post("/estimator/projects", json={"name": "合成验收夹具"}).json()
+    path = tmp_path / "synthetic-qa.pdf"
+    _pdf(path, [A101_FIXTURE, A601_FIXTURE])
+    ingest_document(created["id"], path, "synthetic-qa.pdf", "ARCHITECTURAL")
+    project = process_project(created["id"])
+    assert project["status"] == "READY"
+    numbers = {item["drawing_number"] for item in project["drawings"] if item["drawing_number"]}
+    assert numbers == {"A101", "A601"}
+    a101 = next(item for item in project["drawings"] if item["drawing_number"] == "A101")
+    assert a101["page_type"] == "FLOOR_PLAN"
+    assert a101["discipline"] == "ARCHITECTURAL"
+    assert project["document_health"]["ARCHITECTURAL"] == "FOUND"
+    assert project["document_health"]["STRUCTURAL"] == "NONE"
+    floor = next(item for item in project["takeoff"] if "建筑面积" in item["description"])
+    assert floor["quantity"] == 100.0
+    assert floor["status"] == "VERIFIED"
+    window_qty = sum(
+        int(item["quantity"])
+        for item in project["takeoff"]
+        if item["unit"] == "ea" and "窗" in item["description"]
+    )
+    door_qty = sum(
+        int(item["quantity"])
+        for item in project["takeoff"]
+        if item["unit"] == "ea" and "门" in item["description"]
+    )
+    window_area = round(
+        sum(
+            float(item["quantity"])
+            for item in project["takeoff"]
+            if item["unit"] == "m2" and "窗面积" in item["description"]
+        ),
+        4,
+    )
+    assert window_qty == 3
+    assert door_qty == 4
+    assert window_area == 5.04
+    w01 = next(item for item in project["takeoff"] if item["description"].startswith("W01 窗"))
+    assert w01["sku"] == "window_alu_1200x1200_dg"
+    d01 = next(item for item in project["takeoff"] if item["description"].startswith("D01 门"))
+    assert d01["sku"] is None
+    coverage_a601 = next(item for item in project["coverage"] if item["drawing_number"] == "A601")
+    assert coverage_a601["opening_rows"] == 4
+    assert coverage_a601["extract_status"] == "EXTRACTED"
+    assert not any(item["reason_code"] == "MISSING_SCHEDULE_ROWS" for item in project["review"])
+    estimate = client.post(f"/estimator/projects/{created['id']}/estimate")
+    assert estimate.status_code == 200
+    quote = estimate.json()["estimate"]
+    door_line = next(item for item in quote["quote_lines"] if item["description"].startswith("D01 门"))
+    assert door_line["status"] == "UNPRICED"
+    assert door_line["amount_incl_gst"] == 0
+    window_line = next(item for item in quote["quote_lines"] if item["rate_id"] == "window_alu_1200x1200_dg")
+    assert window_line["amount_incl_gst"] > 0
+    assert window_line["payload"]["source_url"]
+
+
+def test_empty_opening_schedule_goes_to_review(tmp_path, monkeypatch):
+    _isolated_db(tmp_path, monkeypatch)
+    created = client.post("/estimator/projects", json={"name": "空门窗表夹具"}).json()
+    path = tmp_path / "empty-schedule.pdf"
+    _pdf(path, [A601_EMPTY_SCHEDULE])
+    ingest_document(created["id"], path, "empty-schedule.pdf", "ARCHITECTURAL")
+    project = process_project(created["id"])
+    assert not any(item["unit"] == "ea" and ("窗" in item["description"] or "门" in item["description"]) for item in project["takeoff"])
+    review = next(item for item in project["review"] if item["reason_code"] == "MISSING_SCHEDULE_ROWS")
+    assert review["queue_status"] == "NEEDS_REVIEW"
+    coverage = next(item for item in project["coverage"] if item["drawing_number"] == "A601")
+    assert coverage["extract_status"] == "MISSING_SCHEDULE_ROWS"
+    assert coverage["opening_rows"] == 0
+
 
 
 def test_upload_rejects_non_uuid_workspace_id(tmp_path, monkeypatch):

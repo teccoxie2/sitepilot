@@ -21,11 +21,15 @@ _SessionLocal: sessionmaker[Session] | None = None
 
 def database_url() -> str:
     env = os.environ.get("DATABASE_URL", "").strip()
-    if env:
-        return env
-    root = writable_root()
-    root.mkdir(parents=True, exist_ok=True)
-    return f"sqlite:///{root / 'projects.sqlite'}"
+    if not env:
+        root = writable_root()
+        root.mkdir(parents=True, exist_ok=True)
+        return f"sqlite:///{root / 'projects.sqlite'}"
+    if env.startswith("postgres://"):
+        return "postgresql+psycopg://" + env[len("postgres://") :]
+    if env.startswith("postgresql://") and "+psycopg" not in env.split("://", 1)[0]:
+        return "postgresql+psycopg://" + env[len("postgresql://") :]
+    return env
 
 
 def get_engine() -> Engine:
@@ -35,6 +39,8 @@ def get_engine() -> Engine:
         kwargs: dict[str, Any] = {}
         if url.startswith("sqlite"):
             kwargs["connect_args"] = {"check_same_thread": False}
+        else:
+            kwargs["pool_pre_ping"] = True
         _engine = create_engine(url, **kwargs)
         Base.metadata.create_all(_engine)
         _SessionLocal = sessionmaker(_engine, expire_on_commit=False)

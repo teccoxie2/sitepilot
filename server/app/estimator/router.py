@@ -11,7 +11,7 @@ from ..drawing_parse import MAX_PDF_BYTES
 from ..upload_chunks import assemble_session, delete_session
 from . import jobs, store
 from .evals import run_574_eval
-from .pipeline import ingest_document, process_project
+from .pipeline import ensure_document_pdf, ingest_document, process_project
 from .takeoff import apply_review_action, build_estimate, build_takeoff_and_review
 from .vision import vision_available
 
@@ -39,9 +39,7 @@ class EvidenceCorrectBody(BaseModel):
     comment: str | None = None
 
 
-MISSING_WORKSPACE = (
-    "这份工作区不在当前引擎磁盘上。演示容器重启或换实例后记录会消失，不会用缓存顶上。请重新上传图纸。"
-)
+MISSING_WORKSPACE = "找不到这个图纸工作区。请从列表重新打开，或重新创建。"
 
 
 def _project_or_404(project_id: str) -> dict[str, Any]:
@@ -193,6 +191,19 @@ def get_page_image(project_id: str, document_id: str, page_number: int) -> FileR
         raise HTTPException(status_code=404, detail="该页尚未渲染")
     path = Path(drawing["rendered_path"])
     if not path.is_file():
+        document = store.get_document(document_id)
+        if not document or document.project_id != project_id:
+            raise HTTPException(status_code=404, detail="图纸文件不存在")
+        try:
+            pdf_path = ensure_document_pdf(document)
+        except FileNotFoundError as exc:
+            raise HTTPException(status_code=404, detail=str(exc)) from exc
+        from .enums import RENDER_DPI
+        from .pdf import render_page_png
+
+        path.parent.mkdir(parents=True, exist_ok=True)
+        render_page_png(pdf_path, page_number, path, dpi=RENDER_DPI)
+    if not path.is_file():
         raise HTTPException(status_code=404, detail="渲染文件不在磁盘上")
     return FileResponse(path, media_type="image/png")
 
@@ -206,7 +217,11 @@ def post_takeoff(project_id: str) -> dict[str, Any]:
 
 @router.post("/projects/{project_id}/estimate")
 def post_estimate(project_id: str) -> dict[str, Any]:
-    _project_or_404(project_id)
+    record = _project_or_404(project_id)
+    if not record.get("documents"):
+        raise HTTPException(status_code=409, detail="尚未上传图纸，不能生成报价。")
+    if record.get("status") != "READY":
+        raise HTTPException(status_code=409, detail="图纸尚未解析完成，不能生成报价。")
     return build_estimate(project_id)
 
 

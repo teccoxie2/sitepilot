@@ -4,7 +4,6 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PORT=80 \
     DATA_DIR=/tmp/auckland-dev-cost \
-    DATABASE_URL=sqlite:////tmp/auckland-dev-cost/projects.sqlite \
     EVAL_ROOT=/app/evals/574-remuera
 
 RUN apt-get update \

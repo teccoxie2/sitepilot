@@ -36,7 +36,7 @@ function asMeta(row: unknown): EstimatorMeta | null {
     name: typeof item.name === "string" && item.name.trim() ? item.name : "未命名图纸项目",
     address: typeof item.address === "string" ? item.address : "",
     created_at: typeof item.created_at === "string" ? item.created_at : "",
-    status: typeof item.status === "string" ? item.status : "UPLOADED",
+    status: typeof item.status === "string" ? item.status : "AWAITING_UPLOAD",
   };
 }
 
@@ -71,7 +71,7 @@ export function rememberEstimatorMeta(input: {
     name: (input.name || current?.name || "").trim() || "未命名图纸项目",
     address: (input.address || current?.address || "").trim(),
     created_at: input.created_at || current?.created_at || new Date().toISOString(),
-    status: input.status || current?.status || "UPLOADED",
+    status: input.status || current?.status || "AWAITING_UPLOAD",
   };
   const rows = [next, ...listEstimatorMetas().filter((item) => item.id !== input.id)].slice(0, 30);
   window.localStorage.setItem(META_KEY, JSON.stringify(rows));

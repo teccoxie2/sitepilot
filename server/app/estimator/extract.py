@@ -44,27 +44,50 @@ BEAM_RE = re.compile(
 BEAM_COUNT_RE = re.compile(r"\b(?:qty|quantity|no\.?)\s*[:=]?\s*(\d+)\b", re.I)
 
 PAGE_TYPE_HINTS: tuple[tuple[str, tuple[str, ...]], ...] = (
-    ("COVER", ("cover sheet", "drawing index", "title sheet", "cover page")),
-    ("SCHEDULE", ("window schedule", "door schedule", "area schedule", "drawing index")),
-    ("FOUNDATION_PLAN", ("foundation plan", "foundation", "waffle", "ribraft")),
+    ("FLOOR_PLAN", ("floor plan", "ground floor", "first floor", "level 1")),
+    ("FOUNDATION_PLAN", ("foundation plan", "waffle", "ribraft")),
     ("FRAMING_PLAN", ("framing plan", "floor framing", "roof framing")),
     ("ROOF_PLAN", ("roof plan",)),
-    ("FLOOR_PLAN", ("floor plan", "ground floor", "first floor", "level 1")),
     ("SITE_PLAN", ("site plan", "location plan")),
     ("SECTION", ("section a", "section b", "cross section")),
     ("ELEVATION", ("elevation", "north elevation")),
     ("DETAIL", ("detail", "typical detail")),
+    ("SCHEDULE", ("window schedule", "door schedule", "door and window schedule", "area schedule")),
     ("SPECIFICATION", ("specification", "notes and specs")),
+    ("COVER", ("cover sheet", "title sheet", "cover page", "drawing index")),
 )
 
 DISCIPLINE_HINTS: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("ARCHITECTURAL", ("architectural", "floor plan", "elevation", "window schedule", "door schedule")),
     ("STRUCTURAL", ("structural", "foundation plan", "framing plan", "s0", "engineer")),
-    ("ARCHITECTURAL", ("architectural", "floor plan", "elevation", "window schedule")),
     ("CIVIL", ("civil", "drainage plan", "earthworks")),
     ("PLUMBING", ("plumbing", "sanitary")),
     ("ELECTRICAL", ("electrical", "lighting layout")),
     ("MECHANICAL", ("mechanical", "hvac")),
     ("LANDSCAPE", ("landscape", "planting")),
+)
+
+OPENING_SCHEDULE_HEAD_RE = re.compile(
+    r"(?:door\s+and\s+window|window\s+and\s+door|window|door)\s+schedules?",
+    re.I,
+)
+OPENING_ROW_X_RE = re.compile(
+    r"^(?P<code>(?:EW|ED|DW|SL|RS|W|D)[-\s]?\d+)\s+"
+    r"(?:(?P<desc_prefix>[A-Za-z][A-Za-z +/.-]{2,48})\s+)?"
+    r"(?P<width>\d{3,4})\s*[xX×]\s*(?P<height>\d{3,4})"
+    r"(?:\s*mm)?"
+    r"(?:\s+(?:qty|no\.?|×|x)\s*)?(?P<qty>\d{1,2})"
+    r"(?:\s+(?P<desc_suffix>.+))?$",
+    re.I,
+)
+OPENING_ROW_SPACE_RE = re.compile(
+    r"^(?P<code>(?:EW|ED|DW|SL|RS|W|D)[-\s]?\d+)\s+"
+    r"(?:(?P<desc_prefix>[A-Za-z][A-Za-z +/.-]{2,48})\s+)?"
+    r"(?P<width>\d{3,4})(?:\s*mm)?\s+"
+    r"(?P<height>\d{3,4})(?:\s*mm)?"
+    r"\s+(?P<qty>\d{1,2})"
+    r"(?:\s+(?P<desc_suffix>.+))?$",
+    re.I,
 )
 
 
@@ -83,20 +106,18 @@ def _first_match(pattern: re.Pattern[str], text: str) -> str | None:
 
 def classify_page(text: str, filename: str = "", kind: str = "") -> dict[str, Any]:
     lowered = text.lower()
-    page_type = "UNKNOWN"
-    type_conf = 0.0
+    matched_types: list[str] = []
     for candidate, hints in PAGE_TYPE_HINTS:
         if any(hint in lowered for hint in hints):
-            page_type = candidate
-            type_conf = 0.86
-            break
-    discipline = "UNKNOWN"
-    disc_conf = 0.0
+            matched_types.append(candidate)
+    page_type = matched_types[0] if matched_types else "UNKNOWN"
+    type_conf = 0.86 if matched_types else 0.0
+    matched_disciplines: list[str] = []
     for candidate, hints in DISCIPLINE_HINTS:
         if any(hint in lowered for hint in hints):
-            discipline = candidate
-            disc_conf = 0.86
-            break
+            matched_disciplines.append(candidate)
+    discipline = matched_disciplines[0] if matched_disciplines else "UNKNOWN"
+    disc_conf = 0.86 if matched_disciplines else 0.0
     kind_upper = (kind or "").upper()
     file_lower = filename.lower()
     if discipline == "UNKNOWN":
@@ -117,6 +138,8 @@ def classify_page(text: str, filename: str = "", kind: str = "") -> dict[str, An
         "discipline": discipline if discipline in DISCIPLINES else "UNKNOWN",
         "confidence": confidence,
         "source": "native_text" if text.strip() else "filename",
+        "page_type_candidates": matched_types,
+        "discipline_candidates": matched_disciplines,
     }
 
 
@@ -249,6 +272,74 @@ def parse_footprints(text: str) -> list[dict[str, Any]]:
                 "quantity": float(match.group(1)),
                 "unit": "m2",
                 "evidence": match.group(0).strip(),
+            }
+        )
+    return items
+
+
+def looks_like_opening_schedule(text: str) -> bool:
+    return bool(OPENING_SCHEDULE_HEAD_RE.search(text or ""))
+
+
+def is_opening_schedule_page(text: str, page_type: str | None = None) -> bool:
+    if page_type == "SCHEDULE":
+        return True
+    if page_type in {
+        "FLOOR_PLAN",
+        "COVER",
+        "SITE_PLAN",
+        "FOUNDATION_PLAN",
+        "FRAMING_PLAN",
+        "ROOF_PLAN",
+        "SECTION",
+        "ELEVATION",
+        "DETAIL",
+    }:
+        return False
+    return looks_like_opening_schedule(text)
+
+
+def _opening_kind(code: str, description: str) -> str:
+    blob = f"{code} {description}".lower()
+    if re.match(r"^(w|ew|sl|rs)", code, re.I) or "window" in blob:
+        return "window_unit"
+    if re.match(r"^(d|ed|dw)", code, re.I) or "door" in blob:
+        return "door_unit"
+    return "window_unit"
+
+
+def parse_opening_schedule(text: str) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for raw in (text or "").splitlines():
+        line = raw.strip()
+        if len(line) < 6:
+            continue
+        match = OPENING_ROW_X_RE.match(line) or OPENING_ROW_SPACE_RE.match(line)
+        if not match:
+            continue
+        code = re.sub(r"\s+", "", match.group("code")).upper()
+        width = int(match.group("width"))
+        height = int(match.group("height"))
+        qty = int(match.group("qty") or 1)
+        if width < 400 or height < 350 or width > 7000 or height > 4000 or qty < 1:
+            continue
+        description = (match.group("desc_prefix") or match.group("desc_suffix") or "").strip()
+        key = f"{code}:{width}x{height}"
+        if key in seen:
+            continue
+        seen.add(key)
+        kind = _opening_kind(code, description)
+        items.append(
+            {
+                "kind": kind,
+                "mark": code,
+                "width_mm": width,
+                "height_mm": height,
+                "quantity": qty,
+                "unit": "ea",
+                "description": description,
+                "evidence": line,
             }
         )
     return items

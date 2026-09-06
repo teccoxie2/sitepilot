@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from ..blobs import original_key, put_bytes, materialize
 from . import store
 from .enums import NATIVE_TEXT_MIN_CHARS, RENDER_DPI
 from .extract import (
@@ -13,6 +14,7 @@ from .extract import (
     parse_drawing_index,
     parse_floor_areas,
     parse_footprints,
+    parse_opening_schedule,
     parse_references,
     parse_roof_areas,
 )
@@ -39,7 +41,8 @@ def ingest_document(project_id: str, source: Path, filename: str, kind: str | No
     dest = dest_dir / filename
     if dest.exists():
         dest = dest_dir / f"{source.stem}-{store.new_id()[:8]}{source.suffix}"
-    dest.write_bytes(source.read_bytes())
+    pdf_bytes = source.read_bytes()
+    dest.write_bytes(pdf_bytes)
     preflight = preflight_pdf(dest)
     document_id = store.add_document(
         project_id,
@@ -52,8 +55,22 @@ def ingest_document(project_id: str, source: Path, filename: str, kind: str | No
         processing_mode=str(preflight["processing_mode"]),
         payload=preflight,
     )
+    blob_key = original_key(project_id, document_id)
+    put_bytes(blob_key, pdf_bytes, "application/pdf")
+    store.patch_document_payload(document_id, {"blob_key": blob_key})
     store.set_project_status(project_id, "PREFLIGHT")
     return document_id
+
+
+def ensure_document_pdf(document: Any) -> Path:
+    stored = Path(getattr(document, "stored_path", "") or "")
+    payload = getattr(document, "payload", None) or {}
+    blob_key = payload.get("blob_key") if isinstance(payload, dict) else None
+    if stored.is_file() and stored.stat().st_size > 0:
+        return stored
+    if blob_key:
+        return materialize(str(blob_key), stored)
+    raise FileNotFoundError("原件不在本机且共享库没有副本，请重新上传图纸。")
 
 
 def process_project(project_id: str, note=lambda _m: None) -> dict[str, Any]:
@@ -61,14 +78,18 @@ def process_project(project_id: str, note=lambda _m: None) -> dict[str, Any]:
     if not project:
         raise KeyError(project_id)
     store.set_project_status(project_id, "RENDERING")
-    for document in project["documents"]:
-        note(f"正在处理 {document['filename']}…")
-        process_document(project_id, document["id"], note=note)
-    note("正在生成工程量…")
-    from .takeoff import build_takeoff_and_review
+    try:
+        for document in project["documents"]:
+            note(f"正在处理 {document['filename']}…")
+            process_document(project_id, document["id"], note=note)
+        note("正在生成工程量…")
+        from .takeoff import build_takeoff_and_review
 
-    build_takeoff_and_review(project_id)
-    store.set_project_status(project_id, "READY")
+        build_takeoff_and_review(project_id)
+        store.set_project_status(project_id, "READY")
+    except FileNotFoundError as exc:
+        store.set_project_status(project_id, "FAILED")
+        raise RuntimeError(str(exc) or "原件不在共享库中，请重新上传图纸。") from exc
     return store.get_project(project_id) or {}
 
 
@@ -76,7 +97,7 @@ def process_document(project_id: str, document_id: str, note=lambda _m: None) ->
     row = store.get_document(document_id)
     if not row or row.project_id != project_id:
         raise KeyError(document_id)
-    path = Path(row.stored_path)
+    path = ensure_document_pdf(row)
     store.set_document_status(document_id, "RENDERING")
     drawings: list[dict[str, Any]] = []
     evidence_rows: list[dict[str, Any]] = []
@@ -123,6 +144,8 @@ def process_document(project_id: str, document_id: str, note=lambda _m: None) ->
                 "classification_source": classified.get("source"),
                 "has_native_text": has_text,
                 "vision_available": vision_available(),
+                "page_type_candidates": classified.get("page_type_candidates") or [],
+                "discipline_candidates": classified.get("discipline_candidates") or [],
             },
         }
         drawings.append(drawing)
@@ -184,7 +207,13 @@ def _measurement_evidence(
     text: str,
 ) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    parsed = parse_floor_areas(text) + parse_roof_areas(text) + parse_footprints(text) + parse_beams(text)
+    parsed = (
+        parse_floor_areas(text)
+        + parse_roof_areas(text)
+        + parse_footprints(text)
+        + parse_beams(text)
+        + parse_opening_schedule(text)
+    )
     for item in parsed:
         bbox = search_text_bbox(path, page_number, str(item.get("evidence") or ""))
         rows.append(

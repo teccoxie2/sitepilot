@@ -9,4 +9,5 @@ pypdf==6.4.0
 pymupdf==1.26.4
 cryptography==50.0.0
 sqlalchemy==2.0.43
+psycopg[binary]==3.2.9
 langgraph-checkpoint-sqlite==2.0.11

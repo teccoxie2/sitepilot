@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
 import type { EstimatorProject } from "@/lib/estimator";
+import { disciplineHealthLabel, processingStatusLabel } from "@/lib/estimator";
 import {
   filesFromOriginals,
   loadStoredWorkspace,
@@ -30,7 +31,7 @@ function emptyWorkspace(projectId: string, name?: string, address?: string): Est
     name: name?.trim() || "未命名图纸项目",
     address: address?.trim() || null,
     created_at: "",
-    status: "UPLOADED",
+    status: "AWAITING_UPLOAD",
     document_set_version: 0,
     documents: [],
     drawings: [],
@@ -339,7 +340,8 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
       <p className="text-sm tracking-[0.18em] text-[#7a5a2b]">ESTIMATOR V2</p>
       <h1 className="mt-2 text-3xl font-semibold">{project.name}</h1>
       <p className="mt-2 text-sm text-[#5c6754]">
-        状态 {project.status} · 图纸集版本 {project.document_set_version} · 价表 {project.pricebook_version || "未读"}
+        状态 {processingStatusLabel(project.status)} · 图纸集版本 {project.document_set_version} · 价表{" "}
+        {project.pricebook_version || "未读"}
       </p>
       {readyNote ? (
         <p className="mt-3 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm text-[#8a3b1d]" role="status">
@@ -367,7 +369,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
             {Object.entries(project.document_health || {}).map(([discipline, status]) => (
               <div key={discipline} className="rounded-2xl border border-[#d9d0c0] bg-[#fffaf3] p-4">
                 <p className="text-xs text-[#7b8474]">{discipline}</p>
-                <p className="mt-1 font-medium">{status}</p>
+                <p className="mt-1 font-medium">{disciplineHealthLabel(status)}</p>
               </div>
             ))}
           </div>
@@ -375,6 +377,19 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
             审核队列：自动接受 {project.review_counts?.AUTO_ACCEPTED || 0} · 待审 {project.review_counts?.NEEDS_REVIEW || 0} ·
             未解决 {project.review_counts?.UNRESOLVED || 0}
           </p>
+          {(project.coverage || []).length ? (
+            <div className="rounded-2xl border border-[#d9d0c0] bg-white p-4">
+              <p className="text-sm font-medium">覆盖检查</p>
+              <ul className="mt-2 space-y-1 text-sm text-[#5c6754]">
+                {(project.coverage || []).map((item) => (
+                  <li key={item.drawing_id}>
+                    {item.drawing_number || "无图号"} · p.{item.page_number} · {item.page_type} · {item.extract_status}
+                    {item.ignore_reason ? ` · ${item.ignore_reason}` : ""}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           {expectedDrawings.length ? (
             <p className="text-sm text-[#9a6b12]">
               Drawing Index 期望 {expectedDrawings.length} 张；缺图请到 DOCUMENTS 查看，不把缺图包装成完整报价。
@@ -569,9 +584,18 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
       {tab === "estimate" ? (
         <section className="mt-6 space-y-4">
-          <Button type="button" onClick={handleEstimate} disabled={Boolean(busy)}>
+          <Button
+            type="button"
+            onClick={handleEstimate}
+            disabled={Boolean(busy) || project.status !== "READY"}
+          >
             生成 / 刷新报价版本
           </Button>
+          {project.status !== "READY" ? (
+            <p className="text-sm text-[#9a6b12]">
+              {project.status === "AWAITING_UPLOAD" ? "请先上传图纸。" : "图纸尚未解析完成，不能生成报价。"}
+            </p>
+          ) : null}
           {project.estimate ? (
             <>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

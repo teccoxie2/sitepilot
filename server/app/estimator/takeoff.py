@@ -5,8 +5,9 @@ from typing import Any
 from ..data_loader import pricebook
 from ..price_provider import get_price_provider
 from . import store
-from .completeness import completeness
+from .completeness import build_coverage, completeness, discipline_health
 from .enums import ROOF_COVER_WIDTH_M, SCOPE_TAXONOMY, UNCERTAINTY_BY_STATUS
+from .extract import is_opening_schedule_page
 
 PRICE = get_price_provider()
 
@@ -15,6 +16,14 @@ SCOPE_BY_KIND = {
     "footprint": "05",
     "structural_beam": "05",
     "roof_area": "07",
+    "window_unit": "08",
+    "door_unit": "08",
+}
+
+WINDOW_SKU_BY_MM = {
+    (1200, 1200): "window_alu_1200x1200_dg",
+    (1800, 1200): "window_alu_1800x1200_dg",
+    (1800, 600): "window_alu_1800x600_dg",
 }
 
 SKU_BY_KIND = {
@@ -22,6 +31,8 @@ SKU_BY_KIND = {
     "structural_beam": "steel_lintel_ub",
     "floor_area": None,
     "footprint": None,
+    "window_unit": None,
+    "door_unit": None,
 }
 
 DESCRIPTION_BY_KIND = {
@@ -29,6 +40,8 @@ DESCRIPTION_BY_KIND = {
     "footprint": "底层占地（图纸标注）",
     "structural_beam": "结构梁",
     "roof_area": "屋面斜面积（图纸标注）",
+    "window_unit": "窗（门窗表）",
+    "door_unit": "门（门窗表）",
 }
 
 
@@ -47,6 +60,7 @@ def build_takeoff_and_review(project_id: str) -> dict[str, Any]:
         item = _takeoff_from_evidence(evidence, value, kind)
         takeoff_items.append(item)
     _add_calculated_roof_cover(takeoff_items)
+    _add_calculated_window_area(takeoff_items)
     store.replace_takeoff(project_id, takeoff_items)
     review_items = _build_review(project, takeoff_items)
     store.replace_review(project_id, review_items)
@@ -67,6 +81,14 @@ def _takeoff_from_evidence(evidence: dict[str, Any], value: dict[str, Any], kind
         description = f"结构梁 {value['size']}"
     if kind == "floor_area" and value.get("unit_index"):
         description = f"Unit {value['unit_index']} 建筑面积"
+    if kind in {"window_unit", "door_unit"}:
+        mark = value.get("mark") or ""
+        width = value.get("width_mm")
+        height = value.get("height_mm")
+        label = "窗" if kind == "window_unit" else "门"
+        description = f"{mark} {label} {width}×{height} mm".strip()
+        if kind == "window_unit" and width is not None and height is not None:
+            sku = WINDOW_SKU_BY_MM.get((int(width), int(height)))
     if status == "VERIFIED" and quantity is None:
         status = "UNRESOLVED"
     return {
@@ -132,9 +154,90 @@ def _add_calculated_roof_cover(items: list[dict[str, Any]]) -> None:
         )
 
 
+def _add_calculated_window_area(items: list[dict[str, Any]]) -> None:
+    for item in list(items):
+        inputs = item.get("calculation_inputs") or {}
+        if inputs.get("evidence_kind") != "window_unit":
+            continue
+        width = inputs.get("width_mm")
+        height = inputs.get("height_mm")
+        quantity = item.get("quantity")
+        if width is None or height is None or quantity is None:
+            continue
+        area = round(float(quantity) * (float(width) / 1000.0) * (float(height) / 1000.0), 4)
+        mark = inputs.get("mark") or ""
+        items.append(
+            {
+                "id": store.new_id(),
+                "scope_code": "08",
+                "description": f"{mark} 窗面积".strip(),
+                "quantity": area,
+                "unit": "m2",
+                "status": "CALCULATED",
+                "confidence": item.get("confidence") or 0,
+                "source_method": "GEOMETRY",
+                "calculation_formula": "qty * (width_mm/1000) * (height_mm/1000)",
+                "calculation_inputs": {
+                    "qty": quantity,
+                    "width_mm": width,
+                    "height_mm": height,
+                    "mark": mark,
+                },
+                "evidence_ids": list(item.get("evidence_ids") or []),
+                "sku": None,
+                "created_at": store.now_iso(),
+            }
+        )
+
+
 def _build_review(project: dict[str, Any], takeoff_items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
+    opening_by_drawing: dict[str, int] = {}
+    for evidence in project.get("evidence") or []:
+        kind = (evidence.get("structured_value") or {}).get("kind")
+        if kind not in {"window_unit", "door_unit"}:
+            continue
+        drawing_id = str(evidence.get("drawing_id") or "")
+        if drawing_id:
+            opening_by_drawing[drawing_id] = opening_by_drawing.get(drawing_id, 0) + 1
     for drawing in project.get("drawings") or []:
+        text = drawing.get("native_text") or ""
+        candidates = (drawing.get("payload") or {}).get("page_type_candidates") or []
+        if is_opening_schedule_page(text, drawing.get("page_type")) and opening_by_drawing.get(drawing["id"], 0) == 0:
+            items.append(
+                {
+                    "id": store.new_id(),
+                    "entity_type": "drawing",
+                    "entity_id": drawing["id"],
+                    "queue_status": "NEEDS_REVIEW",
+                    "reason_code": "MISSING_SCHEDULE_ROWS",
+                    "payload": {
+                        "page_number": drawing.get("page_number"),
+                        "drawing_number": drawing.get("drawing_number"),
+                        "note": "识别到门窗表页但没有解析出行，不能当作没有门窗。",
+                    },
+                    "created_at": store.now_iso(),
+                }
+            )
+            continue
+        if len(candidates) > 1:
+            items.append(
+                {
+                    "id": store.new_id(),
+                    "entity_type": "drawing",
+                    "entity_id": drawing["id"],
+                    "queue_status": "NEEDS_REVIEW",
+                    "reason_code": "DRAWING_CONFLICT",
+                    "payload": {
+                        "page_number": drawing.get("page_number"),
+                        "drawing_number": drawing.get("drawing_number"),
+                        "page_type": drawing.get("page_type"),
+                        "page_type_candidates": candidates,
+                    },
+                    "created_at": store.now_iso(),
+                }
+            )
+            continue
         if drawing.get("page_type") == "UNKNOWN" or not drawing.get("drawing_number"):
             items.append(
                 {
@@ -251,7 +354,7 @@ def build_estimate(project_id: str) -> dict[str, Any]:
         range_low += amount * (1 - uncertainty)
         range_high += amount * (1 + uncertainty)
         lines.append(_quote_line(item, rate, item["status"], amount))
-    v2_scopes = {"05", "07"}
+    v2_scopes = {"05", "07", "08"}
     present_scopes = {item.get("scope_code") for item in project.get("takeoff") or []}
     scope_completeness = len(v2_scopes & present_scopes) / len(v2_scopes) if v2_scopes else 0.0
     pricing_completeness = (priced_count / considered) if considered else 0.0
@@ -275,7 +378,7 @@ def build_estimate(project_id: str) -> dict[str, Any]:
         "status_counts": status_counts,
         "not_included": not_included,
         "scope_taxonomy": [{"code": code, "name": name} for code, name in SCOPE_TAXONOMY],
-        "v2_takeoff_scope": ["Floor Area", "Structural Beam", "Roof"],
+        "v2_takeoff_scope": ["Floor Area", "Structural Beam", "Roof", "Windows & Doors"],
         "note": "未计价与未解决项不进入确定总价。金额只来自价表，不采用模型费率。",
     }
     store.save_estimate(project_id, payload, lines)

@@ -15,9 +15,9 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Website Builder Comparison (2026): Wix vs Shopify vs Squarespace vs Readdy vs WordPress'
+const pageTitle = 'Website Builder Comparison 2026: Wix, Shopify & Squarespace'
 const pageDescription =
-  'Use this website builder comparison to choose Wix, Shopify, Squarespace, Readdy, or WordPress by ecommerce fit, SEO control, editing overhead, migration risk, AI workflow fit, and long-term ownership before you commit.'
+  'Compare Wix, Shopify, Squarespace, Readdy, and WordPress by SEO control, ecommerce fit, publishing speed, and migration risk.'
 const pageUrl = 'https://sitepilot.co/website-builders'
 const selectionDisclosure =
   'Quick picks on this page are illustrative SitePilot editorial fit signals, not third-party rankings or performance benchmarks. Verify current pricing, capabilities, and limits on each provider site before committing.'
@@ -190,7 +190,7 @@ export default function WebsiteBuildersHub() {
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-04-17"
-        modifiedDate="2026-05-12"
+        modifiedDate="2026-09-06"
         authorName="SitePilot Team"
       />
 

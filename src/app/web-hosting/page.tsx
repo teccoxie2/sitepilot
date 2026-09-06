@@ -5,8 +5,8 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 export { metadata } from './metadata'
 
-const pageTitle = 'Web Hosting Reviews 2026 | SitePilot'
-const pageDescription = 'Web hosting in 2026 should be evaluated on uptime discipline, support quality, pricing structure, caching stack, security defaults, scaling headroom, and lock-in risk so teams can choose infrastructure that stays reliable after the promotional discount expires.'
+const pageTitle = 'Best Web Hosting 2026 | Reviews, Pricing & Fit'
+const pageDescription = 'Compare web hosting by uptime discipline, support quality, renewal pricing, security defaults, scaling headroom, and lock-in risk.'
 const pageUrl = 'https://sitepilot.co/web-hosting'
 
 const cards = [
@@ -91,7 +91,7 @@ export default function WebHostingHub2026() {
           description: pageDescription,
           url: pageUrl,
           datePublished: '2026-04-19',
-          dateModified: '2026-04-19',
+          dateModified: '2026-09-06',
         }}
       />
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

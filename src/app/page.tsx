@@ -6,7 +6,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 const pageTitle = 'SitePilot | Digital Infrastructure Buying Intelligence'
 const pageDescription =
-  'Evidence-first decision support for AI procurement, web infrastructure, and proxy operations using independent audits, buyer-focused comparisons, and practical decision assets.'
+  'Evidence-first buying intelligence for AI procurement and web infrastructure: independent comparisons, scorecards, audits, and practical decision tools.'
 const pageUrl = 'https://sitepilot.co'
 
 const metadataConfig: Metadata = {
@@ -29,8 +29,8 @@ const metadataConfig: Metadata = {
 
 export const metadata: Metadata = normalizeMetadata(metadataConfig);
 const operatingSignals = [
-  'AI procurement and implementation tools for accountable buying teams',
   'Web infrastructure comparisons across hosting, builders, and domain decisions',
+  'AI procurement and implementation tools for accountable buying teams',
   'Proxy infrastructure guidance with explicit operational and compliance boundaries',
   'Operator-grade comparisons instead of promo-code theater',
 ]
@@ -52,18 +52,18 @@ const capabilityCards = [
 
 const coverageTracks = [
   {
-    title: 'AI procurement',
-    note: 'Vendor shortlists, due diligence, cost models, risk review, and decision matrices for implementation teams.',
-    href: '/ai-tools',
-    cta: 'Open AI buying tools',
-    icon: Cpu,
-  },
-  {
     title: 'Web infrastructure',
     note: 'Hosting, website builders, and domains compared across performance, ownership, cost, and lock-in risk.',
     href: '/web-hosting',
     cta: 'Explore infrastructure',
     icon: Gauge,
+  },
+  {
+    title: 'AI procurement',
+    note: 'Vendor shortlists, due diligence, cost models, risk review, and decision matrices for implementation teams.',
+    href: '/ai-tools',
+    cta: 'Open AI buying tools',
+    icon: Cpu,
   },
   {
     title: 'Proxy infrastructure',
@@ -112,6 +112,24 @@ const domainClusterLinks = [
   },
 ]
 
+const infrastructureDecisionLinks = [
+  {
+    title: 'Best web hosting 2026',
+    href: '/best-web-hosting-2026',
+    note: 'Start with provider fit, renewal reality, support quality, and operational risk.',
+  },
+  {
+    title: 'Website builder comparison',
+    href: '/website-builders',
+    note: 'Choose between builders by publishing workflow, SEO ownership, commerce, and migration risk.',
+  },
+  {
+    title: 'Hosting platform fit scorecard',
+    href: '/hosting-platform-fit-scorecard-2026',
+    note: 'Turn site type, traffic, migration complexity, and support needs into a shortlist signal.',
+  },
+]
+
 export default function HomePage() {
   return (
     <div className="min-h-screen overflow-x-hidden text-slate-900">
@@ -140,12 +158,12 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
-                <Link href="/ai-tools" className="btn-brand">
-                  Start with AI procurement
+                <Link href="/web-hosting" className="btn-brand">
+                  Start with web infrastructure
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link href="/web-hosting" className="btn-secondary">
-                  Explore web infrastructure
+                <Link href="/ai-tools" className="btn-secondary">
+                  Explore AI procurement
                 </Link>
                 <Link href="/methodology" className="btn-secondary">
                   Review methodology
@@ -244,6 +262,31 @@ export default function HomePage() {
               </Link>
             )
           })}
+        </section>
+
+        <section className="page-card p-8 md:p-10 mb-16">
+          <div className="max-w-4xl mb-8">
+            <div className="text-sm uppercase tracking-[0.22em] text-indigo-600/80 mb-3">Web infrastructure entry points</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-4">
+              Start with the infrastructure decision.
+              <span className="block brand-gradient-text">Then move from shortlist to evidence.</span>
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              These are the highest-intent paths for teams choosing hosting, a website builder, or a platform fit. Each one leads to a focused comparison, a practical decision tool, or a deeper provider review.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {infrastructureDecisionLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="rounded-2xl border border-slate-200 bg-white px-5 py-5 transition-colors hover:bg-slate-50">
+                <div className="text-lg font-semibold text-slate-950 mb-2">{item.title}</div>
+                <p className="text-sm leading-6 text-slate-600 mb-3">{item.note}</p>
+                <div className="inline-flex items-center text-[#635bff] font-semibold">
+                  Open decision path
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
 
         <section className="page-card p-8 md:p-10 mb-16">

@@ -18,7 +18,7 @@ import RelatedLinks, { hostingRelatedLinks } from '@/components/RelatedLinks'
 
 const pageTitle = 'Best Web Hosting 2026: SiteGround vs Hostinger vs WPX'
 const pageDescription =
-  'A practical 2026 guide to the best web hosting providers. Compare SiteGround, Hostinger, and WPX on uptime, support quality, speed, pricing traps, and business fit.'
+  'Compare SiteGround, Hostinger, and WPX on uptime, support quality, speed, renewal pricing, and business fit.'
 const pageUrl = 'https://sitepilot.co/best-web-hosting-2026'
 const dataDisclosure =
   'Scores, prices, and performance figures are illustrative SitePilot editorial signals from a limited comparison snapshot, not a third-party benchmark or guarantee. Verify current plans, renewal terms, and production performance before purchase.'
@@ -196,7 +196,7 @@ export default function BestWebHosting2026() {
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-02-14T00:00:00Z"
-        modifiedDate="2026-04-18T00:00:00Z"
+        modifiedDate="2026-09-06T00:00:00Z"
         authorName="SitePilot Team"
       />
 

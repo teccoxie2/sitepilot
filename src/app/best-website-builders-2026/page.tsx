@@ -5,9 +5,9 @@ import { ArrowRight, Bot, CheckCircle2, Palette, ShieldCheck, ShoppingCart, Spar
 import RelatedLinks, { websiteBuilderRelatedLinks } from '@/components/RelatedLinks'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Best Website Builders 2026 | Webflow vs Wix vs Shopify vs Squarespace'
+const pageTitle = 'Best Website Builders 2026 | Webflow vs Wix vs Shopify'
 const pageDescription =
-  'Compare the best website builders in 2026, including Webflow, Wix, Shopify, and Squarespace, using design control, ecommerce fit, SEO ownership, and long-term platform flexibility.'
+  'Compare Webflow, Wix, Shopify, and Squarespace by design control, ecommerce fit, SEO ownership, and long-term flexibility.'
 const pageUrl = 'https://sitepilot.co/best-website-builders-2026'
 const scoreDisclosure =
   'Scores on this page are illustrative SitePilot editorial fit signals, not survey results, universal rankings, or a guarantee of platform performance. Validate current pricing, limits, and portability against your project before committing.'
@@ -145,11 +145,11 @@ export default function BestWebsiteBuilders2026() {
     <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
       <SchemaMarkup
         type="article"
-        title="Best Website Builders 2026: Complete Guide & Comparisons"
+        title={pageTitle}
         description={pageDescription}
         url={pageUrl}
         publishedDate="2026-03-03T00:00:00Z"
-        modifiedDate="2026-04-17T00:00:00Z"
+        modifiedDate="2026-09-06T00:00:00Z"
         authorName="SitePilot Team"
       />
 

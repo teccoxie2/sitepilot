@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { EstimatorSummary } from "@/lib/estimator";
+import { readEngineJson } from "@/lib/engine_upload";
 
 export default function EstimatorHome() {
   const [name, setName] = useState("");
@@ -15,9 +16,8 @@ export default function EstimatorHome() {
   const load = () => {
     fetch("/engine/estimator/projects", { cache: "no-store" })
       .then(async (response) => {
-        const payload = await response.json();
-        if (!response.ok) throw new Error(payload?.detail || "无法列出 Estimator 项目");
-        setProjects(payload.projects || []);
+        const payload = await readEngineJson(response, "无法列出 Estimator 项目");
+        setProjects((payload.projects as EstimatorSummary[]) || []);
       })
       .catch((caught: unknown) => {
         setError(caught instanceof Error ? caught.message : "无法列出 Estimator 项目");
@@ -38,8 +38,7 @@ export default function EstimatorHome() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ name: name.trim(), address: address.trim() || null }),
       });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload?.detail || "无法创建项目");
+      const payload = await readEngineJson(response, "无法创建项目");
       window.location.href = `/estimator/${payload.id}`;
     } catch (caught: unknown) {
       setError(caught instanceof Error ? caught.message : "无法创建项目");

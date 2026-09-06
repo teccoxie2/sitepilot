@@ -124,7 +124,7 @@ npx vercel whoami
 npx vercel deploy --prod --yes --scope xentechs-projects
 ```
 
-`ENGINE_URL` 由 Vercel service binding 注入，指向同一次部署里的 FastAPI 容器。浏览器 `/engine/*` 由根目录 `vercel.json` 改写到该容器；容器内 SQLite 与上传文件写在 `/tmp`，实例回收后会丢失，不会用缓存或假数据顶上。
+`ENGINE_URL` 由 Vercel service binding 注入，指向同一次部署里的 FastAPI 容器。浏览器 `/engine/*` 由根目录 `vercel.json` 改写到该容器；容器内 SQLite 与上传文件写在 `/tmp`，实例回收后会丢失，不会用缓存或假数据顶上。Vercel 对单次请求正文有约 4.5MB 硬限制（纯文本 `Request Entity Too Large`）。图纸 / LIM 大于约 3.5MB 时，浏览器会分片传到 `/engine/uploads/sessions`，再在容器里拼回原 PDF，单份仍不超过 15MB。
 
 图纸 / Estimator 的大模型需要公网可达的 CPA `/v1`。Vercel 访问不到 `192.168.52.81:8317`。当前演示走路由器端口映射的公网 CPA（`http://182.48.141.208:38317/v1`），**暂不加 IP 白名单、也不强制 gate**。以后要收紧时再开 `cpa-tunnel` 的 gate / Cloudflare Tunnel（见 `cpa-tunnel/README.md`）。写入现有项目：
 

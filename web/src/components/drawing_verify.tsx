@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
 import type { DrawingAudit, DrawingChart, DrawingPageDebug, DrawingVerifyResult, DrawingVerifyZone } from "@/lib/api";
 import { nzdExact } from "@/lib/money";
+import { readEngineJson, uploadPdfsToEngine } from "@/lib/engine_upload";
 
 const FIELD_LABELS: Record<string, string> = {
   gfa_m2: "建筑面积 m²",
@@ -60,22 +61,16 @@ async function waitForVerifyJob(jobId: string, onNote: (note: string) => void) {
   let failures = 0;
   while (Date.now() < deadline) {
     try {
-      const response = await fetch(`/api/drawings/verify/jobs/${encodeURIComponent(jobId)}`, {
+      const response = await fetch(`/engine/drawings/verify/jobs/${encodeURIComponent(jobId)}`, {
         cache: "no-store",
         signal: AbortSignal.timeout(12_000),
       });
-      const payload = (await response.json().catch(() => ({}))) as {
+      const payload = (await readEngineJson(response, "查询核对进度失败")) as {
         status?: string;
         note?: string;
         result?: DrawingVerifyResult;
         detail?: unknown;
       };
-      if (response.status === 404) {
-        throw new Error(errorMessage(payload, "核对任务已过期，请重新上传。"));
-      }
-      if (!response.ok) {
-        throw new Error(errorMessage(payload, "查询核对进度失败"));
-      }
       failures = 0;
       if (payload.note) onNote(payload.note);
       if (payload.status === "ok" && payload.result) return payload.result;
@@ -410,9 +405,9 @@ export default function DrawingVerify() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/drawings/verify/ready", { cache: "no-store", signal: AbortSignal.timeout(12_000) })
+    fetch("/engine/drawings/verify/ready", { cache: "no-store", signal: AbortSignal.timeout(12_000) })
       .then(async (response) => {
-        const payload = (await response.json().catch(() => ({}))) as {
+        const payload = (await readEngineJson(response, "无法确认大模型是否已配置。")) as {
           llm?: boolean;
           configured?: boolean;
           reachable?: boolean;
@@ -437,56 +432,52 @@ export default function DrawingVerify() {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    const forward = new FormData();
+    const files: File[] = [];
     const kinds: string[] = [];
     const rc = data.get("rc");
     const bc = data.get("bc");
     if (rc instanceof File && rc.size > 0) {
-      forward.append("files", rc);
+      files.push(rc);
       kinds.push("rc");
     }
     if (bc instanceof File && bc.size > 0) {
-      forward.append("files", bc);
+      files.push(bc);
       kinds.push("bc");
     }
     for (const extra of data.getAll("extras")) {
       if (extra instanceof File && extra.size > 0) {
-        forward.append("files", extra);
+        files.push(extra);
         kinds.push("unknown");
       }
     }
-    if (!forward.has("files")) {
+    if (!files.length) {
       setError("请至少上传一份 RC 或 BC 的 PDF。");
       return;
     }
-    forward.append("kinds", kinds.join(","));
     setBusy(true);
     setBusyNote("正在上传图纸并排队核对…");
     setError("");
     setResult(null);
     setTab("llm");
     try {
-      const response = await fetch("/api/drawings/verify", {
-        method: "POST",
-        body: forward,
-        cache: "no-store",
-        signal: AbortSignal.timeout(30_000),
-      });
-      const payload = (await response.json().catch(() => ({}))) as DrawingVerifyResult & {
+      const payload = (await uploadPdfsToEngine({
+        files,
+        kinds,
+        directUrl: "/engine/drawings/verify",
+        completeUrl: "/engine/drawings/verify/from-session",
+        onNote: setBusyNote,
+      })) as DrawingVerifyResult & {
         detail?: unknown;
         job_id?: string;
         status?: string;
         note?: string;
         result?: DrawingVerifyResult;
       };
-      if (response.status === 202 && payload.job_id) {
-        if (payload.note) setBusyNote(payload.note);
-        const finished = await waitForVerifyJob(payload.job_id, setBusyNote);
+      if (payload.job_id) {
+        if (payload.note) setBusyNote(String(payload.note));
+        const finished = await waitForVerifyJob(String(payload.job_id), setBusyNote);
         setResult(finished);
         return;
-      }
-      if (!response.ok) {
-        throw new Error(errorMessage(payload, "图纸物料核算失败"));
       }
       setResult(payload);
     } catch (caught) {
@@ -556,7 +547,7 @@ export default function DrawingVerify() {
           </label>
         </div>
         <p className="mt-3 text-xs leading-5 text-[#7b8474]">
-          区域按施工部位分组（厨房、卫生间、门窗、屋面等），不是 CAD 房间多边形。单份不超过 15MB。文件只用于本次核算，不写入项目库。
+          区域按施工部位分组（厨房、卫生间、门窗、屋面等），不是 CAD 房间多边形。单份不超过 15MB；大于约 3.5MB 会自动分片，避免平台 4.5MB 限制。文件只用于本次核算，不写入项目库。
         </p>
         <div className="mt-4">
           <Button type="submit" disabled={busy} aria-busy={busy}>

@@ -250,3 +250,9 @@ Done
 
 按指示先不配路由器 IP 白名单。`scripts/link-public-cpa.sh` 在未设 `CPA_GATE_TOKEN` 时可直连 CPA：探测 `/v1/models` 成功后只写入 `CPA_BASE_URL` 与客户端 `CPA_API_KEY`，再 `--prod` 发布。不把管理页密码当 `/v1` Bearer，不强制 gate。
 
+## 上传 PDF 绕过 Vercel 4.5MB 并给出可读错误
+
+Done
+
+生产上传大 PDF 时平台返回纯文本 `Request Entity Too Large`，前端按 JSON 解析会报 Unexpected token R。改为直连 `/engine`，大于约 3.5MB 自动分片，并把 413 转成中文错误。不编造图纸内容。
+

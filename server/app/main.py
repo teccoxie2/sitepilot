@@ -15,6 +15,7 @@ from .drawing_flow import parse_files, run_drawings
 from .drawing_jobs import get_verify_job, save_upload_dir, submit_verify_job
 from .drawing_llm import probe_llm
 from .drawing_parse import MAX_PDF_BYTES
+from .upload_chunks import assemble_session, create_session, delete_session, put_chunk
 from .gis import (
     ADDRESS_SOURCE_NAME,
     ADDRESS_SOURCE_URL,
@@ -286,49 +287,22 @@ def _http_detail(detail: Any) -> str:
     return str(detail)
 
 
-@app.post("/projects/{project_id}/drawings")
-async def post_drawings(
-    project_id: str,
-    files: list[UploadFile] = File(...),
-    kinds: str | None = Form(default=None),
-) -> dict[str, Any]:
+def _project_ready_for_drawings(project_id: str) -> dict[str, Any]:
     record = get_project(project_id)
     if not record:
         raise HTTPException(status_code=404, detail="项目不存在")
     result = record.get("result") or {}
     if result.get("error") or not result.get("site") or not result.get("rules"):
         raise HTTPException(status_code=400, detail="项目还没有完整地块数据，无法按图纸套价")
+    return record
+
+
+def _commit_project_drawings(project_id: str, record: dict[str, Any], saved: list[dict[str, Any]]) -> dict[str, Any]:
+    result = record.get("result") or {}
     site = attach_subdivision(dict(result["site"]), record.get("address") or "")
     result["site"] = site
     if result.get("rules"):
         result["advice"] = merge_advice(build_advice(site, result["rules"]), vision_advice(site), lim_advice(site))
-    uploads = [item for item in files if item.filename]
-    if not uploads:
-        raise HTTPException(status_code=400, detail="请至少上传一份 PDF")
-    if len(uploads) > 6:
-        raise HTTPException(status_code=400, detail="一次最多上传 6 份 PDF")
-    kind_list = [item.strip().lower() for item in (kinds or "").split(",") if item.strip()]
-    dest = DRAWINGS_DIR / project_id
-    dest.mkdir(parents=True, exist_ok=True)
-    saved: list[dict[str, Any]] = []
-    for index, upload in enumerate(uploads):
-        name = Path(upload.filename or f"drawing-{index}.pdf").name
-        if not name.lower().endswith(".pdf"):
-            raise HTTPException(status_code=400, detail=f"{name} 不是 PDF")
-        blob = await upload.read()
-        if not blob:
-            raise HTTPException(status_code=400, detail=f"{name} 是空文件")
-        if len(blob) > MAX_PDF_BYTES:
-            raise HTTPException(status_code=400, detail=f"{name} 超过 15MB")
-        path = dest / f"{index}-{name}"
-        path.write_bytes(blob)
-        saved.append(
-            {
-                "path": str(path),
-                "filename": name,
-                "kind": kind_list[index] if index < len(kind_list) else None,
-            }
-        )
     try:
         parts = parse_files(saved)
         drawing_state = run_drawings(site, result["rules"], parts)
@@ -363,6 +337,95 @@ async def post_drawings(
     if not updated:
         raise HTTPException(status_code=404, detail="项目不存在")
     return updated
+
+
+@app.post("/uploads/sessions")
+def post_upload_session() -> dict[str, Any]:
+    return create_session()
+
+
+@app.put("/uploads/sessions/{session_id}/chunks")
+async def put_upload_chunk(
+    session_id: str,
+    file_index: int = Form(...),
+    chunk_index: int = Form(...),
+    chunk_count: int = Form(...),
+    filename: str = Form(...),
+    kind: str | None = Form(default=None),
+    chunk: UploadFile = File(...),
+) -> dict[str, Any]:
+    return await put_chunk(
+        session_id,
+        file_index=file_index,
+        chunk_index=chunk_index,
+        chunk_count=chunk_count,
+        filename=filename,
+        kind=kind,
+        chunk=chunk,
+    )
+
+
+@app.delete("/uploads/sessions/{session_id}")
+def delete_upload_session(session_id: str) -> dict[str, str]:
+    delete_session(session_id)
+    return {"status": "ok"}
+
+
+@app.post("/projects/{project_id}/drawings")
+async def post_drawings(
+    project_id: str,
+    files: list[UploadFile] = File(...),
+    kinds: str | None = Form(default=None),
+) -> dict[str, Any]:
+    record = _project_ready_for_drawings(project_id)
+    uploads = [item for item in files if item.filename]
+    if not uploads:
+        raise HTTPException(status_code=400, detail="请至少上传一份 PDF")
+    if len(uploads) > 6:
+        raise HTTPException(status_code=400, detail="一次最多上传 6 份 PDF")
+    kind_list = [item.strip().lower() for item in (kinds or "").split(",") if item.strip()]
+    dest = DRAWINGS_DIR / project_id
+    dest.mkdir(parents=True, exist_ok=True)
+    saved: list[dict[str, Any]] = []
+    for index, upload in enumerate(uploads):
+        name = Path(upload.filename or f"drawing-{index}.pdf").name
+        if not name.lower().endswith(".pdf"):
+            raise HTTPException(status_code=400, detail=f"{name} 不是 PDF")
+        blob = await upload.read()
+        if not blob:
+            raise HTTPException(status_code=400, detail=f"{name} 是空文件")
+        if len(blob) > MAX_PDF_BYTES:
+            raise HTTPException(status_code=400, detail=f"{name} 超过 15MB")
+        path = dest / f"{index}-{name}"
+        path.write_bytes(blob)
+        saved.append(
+            {
+                "path": str(path),
+                "filename": name,
+                "kind": kind_list[index] if index < len(kind_list) else None,
+            }
+        )
+    return _commit_project_drawings(project_id, record, saved)
+
+
+@app.post("/projects/{project_id}/drawings/from-session")
+def post_drawings_from_session(
+    project_id: str,
+    session_id: str = Form(...),
+    kinds: str | None = Form(default=None),
+) -> dict[str, Any]:
+    record = _project_ready_for_drawings(project_id)
+    dest = DRAWINGS_DIR / project_id
+    dest.mkdir(parents=True, exist_ok=True)
+    try:
+        saved = assemble_session(session_id, dest)
+    finally:
+        delete_session(session_id)
+    kind_list = [item.strip().lower() for item in (kinds or "").split(",") if item.strip()]
+    for index, item in enumerate(saved):
+        if not item.get("kind") and index < len(kind_list):
+            item["kind"] = kind_list[index]
+    return _commit_project_drawings(project_id, record, saved)
 
 
 @app.get("/drawings/verify/ready")
@@ -429,6 +492,51 @@ async def post_drawings_verify(
     return JSONResponse(job, status_code=202)
 
 
+@app.post("/drawings/verify/from-session")
+def post_drawings_verify_from_session(
+    session_id: str = Form(...),
+    kinds: str | None = Form(default=None),
+) -> dict[str, Any]:
+    dest = save_upload_dir()
+    try:
+        saved = assemble_session(session_id, dest)
+    except Exception:
+        shutil.rmtree(dest, ignore_errors=True)
+        delete_session(session_id)
+        raise
+    delete_session(session_id)
+    kind_list = [item.strip().lower() for item in (kinds or "").split(",") if item.strip()]
+    for index, item in enumerate(saved):
+        if not item.get("kind") and index < len(kind_list):
+            item["kind"] = kind_list[index]
+    job = submit_verify_job(saved, dest)
+    return JSONResponse(job, status_code=202)
+
+
+def _commit_lim_pdf(project_id: str, record: dict[str, Any], path: Path, filename: str) -> dict[str, Any]:
+    result = record.get("result") or {}
+    parsed = parse_lim_pdf(path, filename=filename)
+    if not parsed.get("ok"):
+        raise HTTPException(status_code=400, detail=parsed.get("error") or "无法读取这份 LIM")
+    updated_result, error = apply_customer_lim(result, parsed, record.get("address") or "")
+    if error:
+        raise HTTPException(status_code=400, detail=error)
+    updated_result["lim_document"] = {
+        "kind": "lim",
+        "filename": filename,
+        "stored_path": str(path),
+        "page_count": parsed.get("page_count"),
+        "char_count": parsed.get("char_count"),
+        "application_number": parsed.get("application_number"),
+        "issued_at": parsed.get("issued_at"),
+        "lim_address": parsed.get("lim_address"),
+    }
+    saved = update_project(project_id, updated_result, record.get("status") or "ready")
+    if not saved:
+        raise HTTPException(status_code=404, detail="项目不存在")
+    return saved
+
+
 @app.post("/projects/{project_id}/lim")
 async def post_lim(
     project_id: str,
@@ -452,23 +560,28 @@ async def post_lim(
     dest.mkdir(parents=True, exist_ok=True)
     path = dest / filename
     path.write_bytes(blob)
-    parsed = parse_lim_pdf(path, filename=filename)
-    if not parsed.get("ok"):
-        raise HTTPException(status_code=400, detail=parsed.get("error") or "无法读取这份 LIM")
-    updated_result, error = apply_customer_lim(result, parsed, record.get("address") or "")
-    if error:
-        raise HTTPException(status_code=400, detail=error)
-    updated_result["lim_document"] = {
-        "kind": "lim",
-        "filename": filename,
-        "stored_path": str(path),
-        "page_count": parsed.get("page_count"),
-        "char_count": parsed.get("char_count"),
-        "application_number": parsed.get("application_number"),
-        "issued_at": parsed.get("issued_at"),
-        "lim_address": parsed.get("lim_address"),
-    }
-    saved = update_project(project_id, updated_result, record.get("status") or "ready")
-    if not saved:
+    return _commit_lim_pdf(project_id, record, path, filename)
+
+
+@app.post("/projects/{project_id}/lim/from-session")
+def post_lim_from_session(
+    project_id: str,
+    session_id: str = Form(...),
+) -> dict[str, Any]:
+    record = get_project(project_id)
+    if not record:
         raise HTTPException(status_code=404, detail="项目不存在")
-    return saved
+    result = record.get("result") or {}
+    if result.get("error") or not result.get("site"):
+        raise HTTPException(status_code=400, detail="项目还没有完整地块数据，无法核对 LIM")
+    dest = LIM_DIR / project_id
+    dest.mkdir(parents=True, exist_ok=True)
+    try:
+        saved = assemble_session(session_id, dest)
+    finally:
+        delete_session(session_id)
+    if len(saved) != 1:
+        raise HTTPException(status_code=400, detail="请上传一份正式 LIM PDF")
+    path = Path(saved[0]["path"])
+    filename = str(saved[0]["filename"])
+    return _commit_lim_pdf(project_id, record, path, filename)

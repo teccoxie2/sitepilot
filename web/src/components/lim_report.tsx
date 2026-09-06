@@ -1,11 +1,10 @@
 "use client";
 
-import { useActionState } from "react";
-import { useFormStatus } from "react-dom";
-import { uploadLimAction } from "@/app/actions";
+import { useState, type FormEvent } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { ProjectRecord } from "@/lib/api";
 import { formatAucklandTime } from "@/lib/datetime";
+import { uploadPdfsToEngine } from "@/lib/engine_upload";
 
 const ORDER_URL =
   "https://www.aucklandcouncil.govt.nz/en/buying-property/order-property-report/order-lim.html";
@@ -117,10 +116,36 @@ export default function LimReport({ project }: { project: ProjectRecord }) {
 }
 
 function UploadForm({ projectId }: { projectId: string }) {
-  const bound = uploadLimAction.bind(null, projectId);
-  const [state, formAction] = useActionState(bound, null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const file = data.get("lim");
+    if (!(file instanceof File) || file.size <= 0) {
+      setError("请上传客户已购买的正式 LIM PDF。");
+      return;
+    }
+    setBusy(true);
+    setError("");
+    try {
+      await uploadPdfsToEngine({
+        files: [file],
+        kinds: ["lim"],
+        fileField: "file",
+        directUrl: `/engine/projects/${encodeURIComponent(projectId)}/lim`,
+        completeUrl: `/engine/projects/${encodeURIComponent(projectId)}/lim/from-session`,
+      });
+      window.location.assign(`/projects/${encodeURIComponent(projectId)}`);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "LIM 读取失败");
+      setBusy(false);
+    }
+  };
+
   return (
-    <form action={formAction} className="rounded-xl bg-[#f3eee4] px-3 py-3">
+    <form onSubmit={handleSubmit} className="rounded-xl bg-[#f3eee4] px-3 py-3">
       <label className="flex flex-col gap-1">
         <span className="text-xs text-[#7b8474]">客户 LIM PDF（文字层）</span>
         <input
@@ -133,30 +158,24 @@ function UploadForm({ projectId }: { projectId: string }) {
         />
       </label>
       <p className="mt-2 text-xs leading-5 text-[#7b8474]">
-        单份不超过 15MB。地址必须与当前项目一致。扫描件没有文字层会报错，不会用图像识别猜附图。
+        单份不超过 15MB；大于约 3.5MB 会自动分片。地址必须与当前项目一致。扫描件没有文字层会报错，不会用图像识别猜附图。
       </p>
       <div className="mt-3">
-        <SubmitButton />
+        <button
+          type="submit"
+          disabled={busy}
+          aria-busy={busy}
+          className="h-11 rounded-xl bg-[#2f4a32] px-5 text-sm font-medium text-white hover:bg-[#3f6b45] disabled:opacity-60"
+        >
+          {busy ? "正在读 LIM 文字层…" : "上传并读取 LIM"}
+        </button>
       </div>
-      {state?.error ? (
+      {error ? (
         <p className="mt-3 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm text-[#8a3b1d]" role="alert">
-          {state.error}
+          {error}
         </p>
       ) : null}
     </form>
-  );
-}
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="h-11 rounded-xl bg-[#2f4a32] px-5 text-sm font-medium text-white hover:bg-[#3f6b45] disabled:opacity-60"
-    >
-      {pending ? "正在读 LIM 文字层…" : "上传并读取 LIM"}
-    </button>
   );
 }
 

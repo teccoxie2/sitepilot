@@ -8,6 +8,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
 from ..drawing_parse import MAX_PDF_BYTES
+from ..upload_chunks import assemble_session, delete_session
 from . import jobs, store
 from .evals import run_574_eval
 from .pipeline import ingest_document, process_project
@@ -96,6 +97,30 @@ async def upload_documents(
             kind = kind_list[index] if index < len(kind_list) else None
             saved.append(ingest_document(project_id, tmp, name, kind))
     finally:
+        for path in work.glob("*"):
+            path.unlink(missing_ok=True)
+    return _project_or_404(project_id) | {"uploaded_document_ids": saved}
+
+
+@router.post("/projects/{project_id}/documents/from-session")
+def upload_documents_from_session(
+    project_id: str,
+    session_id: str = Form(...),
+    kinds: str | None = Form(default=None),
+) -> dict[str, Any]:
+    _project_or_404(project_id)
+    kind_list = [item.strip() for item in (kinds or "").split(",") if item.strip()]
+    work = Path(store.project_dir(project_id)) / "tmp"
+    work.mkdir(parents=True, exist_ok=True)
+    saved: list[str] = []
+    try:
+        assembled = assemble_session(session_id, work)
+        for index, item in enumerate(assembled):
+            name = str(item["filename"])
+            kind = item.get("kind") or (kind_list[index] if index < len(kind_list) else None)
+            saved.append(ingest_document(project_id, Path(item["path"]), name, kind))
+    finally:
+        delete_session(session_id)
         for path in work.glob("*"):
             path.unlink(missing_ok=True)
     return _project_or_404(project_id) | {"uploaded_document_ids": saved}

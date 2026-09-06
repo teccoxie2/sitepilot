@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
 import type { EstimatorProject } from "@/lib/estimator";
 import { nzdExact } from "@/lib/money";
+import { readEngineJson, uploadPdfsToEngine } from "@/lib/engine_upload";
 
 const TABS = [
   { id: "project", label: "PROJECT" },
@@ -26,8 +27,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
   const load = async () => {
     const response = await fetch(`/engine/estimator/projects/${projectId}`, { cache: "no-store" });
-    const payload = await response.json();
-    if (!response.ok) throw new Error(payload?.detail || "无法读取工作区");
+    const payload = (await readEngineJson(response, "无法读取工作区")) as unknown as EstimatorProject;
     setProject(payload);
     if (!selectedDrawingId && payload.drawings?.[0]) setSelectedDrawingId(payload.drawings[0].id);
   };
@@ -54,11 +54,10 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     const deadline = Date.now() + 420_000;
     while (Date.now() < deadline) {
       const response = await fetch(`/engine/estimator/jobs/${jobId}`, { cache: "no-store" });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload?.detail || "查询进度失败");
-      if (payload.note) setBusy(payload.note);
+      const payload = await readEngineJson(response, "查询进度失败");
+      if (payload.note) setBusy(String(payload.note));
       if (payload.status === "ok") return;
-      if (payload.status === "error") throw new Error(payload.detail || "处理失败");
+      if (payload.status === "error") throw new Error(typeof payload.detail === "string" ? payload.detail : "处理失败");
       await new Promise((resolve) => window.setTimeout(resolve, 1500));
     }
     throw new Error("处理超时。未编造数量或金额。");
@@ -68,47 +67,41 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    const files = [
-      data.get("architectural"),
-      data.get("structural"),
-      ...data.getAll("extras"),
-    ].filter((item): item is File => item instanceof File && item.size > 0);
-    if (!files.length) {
-      setError("请至少上传一份 PDF。");
-      return;
-    }
-    const forward = new FormData();
+    const files: File[] = [];
     const kinds: string[] = [];
     const arch = data.get("architectural");
     const struct = data.get("structural");
     if (arch instanceof File && arch.size > 0) {
-      forward.append("files", arch);
+      files.push(arch);
       kinds.push("ARCHITECTURAL");
     }
     if (struct instanceof File && struct.size > 0) {
-      forward.append("files", struct);
+      files.push(struct);
       kinds.push("STRUCTURAL");
     }
     for (const extra of data.getAll("extras")) {
       if (extra instanceof File && extra.size > 0) {
-        forward.append("files", extra);
+        files.push(extra);
         kinds.push("UNKNOWN");
       }
     }
-    forward.append("kinds", kinds.join(","));
+    if (!files.length) {
+      setError("请至少上传一份 PDF。");
+      return;
+    }
     setBusy("正在上传原件（只读副本，不改写）…");
     setError("");
     try {
-      const uploaded = await fetch(`/engine/estimator/projects/${projectId}/documents`, {
-        method: "POST",
-        body: forward,
+      await uploadPdfsToEngine({
+        files,
+        kinds,
+        directUrl: `/engine/estimator/projects/${projectId}/documents`,
+        completeUrl: `/engine/estimator/projects/${projectId}/documents/from-session`,
+        onNote: setBusy,
       });
-      const uploadedPayload = await uploaded.json();
-      if (!uploaded.ok) throw new Error(uploadedPayload?.detail || "上传失败");
       const started = await fetch(`/engine/estimator/projects/${projectId}/process`, { method: "POST" });
-      const job = await started.json();
-      if (started.status !== 202 && !started.ok) throw new Error(job?.detail || "无法开始处理");
-      if (job.job_id) await waitJob(job.job_id);
+      const job = await readEngineJson(started, "无法开始处理");
+      if (job.job_id) await waitJob(String(job.job_id));
       await load();
     } catch (caught: unknown) {
       setError(caught instanceof Error ? caught.message : "处理失败");
@@ -122,8 +115,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     setError("");
     try {
       const response = await fetch(`/engine/estimator/projects/${projectId}/estimate`, { method: "POST" });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload?.detail || "无法生成报价");
+      const payload = (await readEngineJson(response, "无法生成报价")) as unknown as EstimatorProject;
       setProject(payload);
       setTab("estimate");
     } catch (caught: unknown) {
@@ -135,17 +127,17 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
   const handleReview = async (reviewId: string, action: string) => {
     setError("");
-    const response = await fetch(`/engine/estimator/projects/${projectId}/review/${reviewId}/${action}`, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ reason_code: "OTHER" }),
-    });
-    const payload = await response.json();
-    if (!response.ok) {
-      setError(payload?.detail || "审核失败");
-      return;
+    try {
+      const response = await fetch(`/engine/estimator/projects/${projectId}/review/${reviewId}/${action}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ reason_code: "OTHER" }),
+      });
+      const payload = (await readEngineJson(response, "审核失败")) as unknown as EstimatorProject;
+      setProject(payload);
+    } catch (caught: unknown) {
+      setError(caught instanceof Error ? caught.message : "审核失败");
     }
-    setProject(payload);
   };
 
   if (!project) {
@@ -224,6 +216,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                 <input name="extras" type="file" accept="application/pdf" multiple aria-label="其他 PDF" />
               </label>
             </div>
+            <p className="mt-3 text-xs leading-5 text-[#7b8474]">单份不超过 15MB；大于约 3.5MB 会自动分片。</p>
             <Button type="submit" className="mt-4" disabled={Boolean(busy)}>
               上传并生成 Manifest
             </Button>

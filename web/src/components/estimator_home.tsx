@@ -84,9 +84,9 @@ export default function EstimatorHome() {
         ) : null}
       </form>
       <section className="mt-10">
-        <h2 className="text-lg font-semibold">本机工作区</h2>
+        <h2 className="text-lg font-semibold">当前引擎上的工作区</h2>
         {projects.length === 0 ? (
-          <p className="mt-2 text-sm text-[#5c6754]">还没有 Estimator 项目。</p>
+          <p className="mt-2 text-sm text-[#5c6754]">还没有 Estimator 项目。演示容器重启后列表会空，不会用缓存顶上。</p>
         ) : (
           <ul className="mt-3 space-y-2">
             {projects.map((project) => (

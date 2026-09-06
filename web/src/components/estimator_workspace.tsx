@@ -24,6 +24,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
   const [readyNote, setReadyNote] = useState("");
   const [selectedDrawingId, setSelectedDrawingId] = useState<string | null>(null);
   const [selectedEvidenceId, setSelectedEvidenceId] = useState<string | null>(null);
+  const [pageFailed, setPageFailed] = useState(false);
 
   const load = async () => {
     const response = await fetch(`/engine/estimator/projects/${projectId}`, { cache: "no-store" });
@@ -34,27 +35,49 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
   useEffect(() => {
     fetch("/engine/estimator/ready", { cache: "no-store" })
-      .then((response) => response.json())
-      .then((payload) => setReadyNote(payload.note || ""))
+      .then(async (response) => {
+        const payload = await readEngineJson(response, "无法确认视觉密钥。");
+        setReadyNote(typeof payload.note === "string" ? payload.note : "");
+      })
       .catch(() => setReadyNote("无法确认视觉密钥。"));
     load().catch((caught: unknown) => setError(caught instanceof Error ? caught.message : "无法读取工作区"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projectId]);
 
+  const drawings = project?.drawings || [];
+  const expectedDrawings = project?.expected_drawings || [];
+  const takeoff = project?.takeoff || [];
+  const reviewItems = project?.review || [];
+  const correctionEvents = project?.correction_events || [];
+
   const selectedDrawing = useMemo(
-    () => project?.drawings.find((item) => item.id === selectedDrawingId) || project?.drawings[0],
-    [project, selectedDrawingId],
+    () => drawings.find((item) => item.id === selectedDrawingId) || drawings[0],
+    [drawings, selectedDrawingId],
   );
   const pageEvidence = useMemo(
     () => (project?.evidence || []).filter((item) => item.drawing_id === selectedDrawing?.id),
     [project, selectedDrawing],
   );
 
+  useEffect(() => {
+    setPageFailed(false);
+  }, [selectedDrawing?.id]);
+
   const waitJob = async (jobId: string) => {
     const deadline = Date.now() + 420_000;
+    let missing = 0;
     while (Date.now() < deadline) {
       const response = await fetch(`/engine/estimator/jobs/${jobId}`, { cache: "no-store" });
+      if (response.status === 404) {
+        missing += 1;
+        await response.text().catch(() => "");
+        if (missing >= 8) throw new Error("任务不存在或已过期。请重新上传图纸。");
+        setBusy("任务还没出现在当前引擎实例，继续查询…");
+        await new Promise((resolve) => window.setTimeout(resolve, 1500));
+        continue;
+      }
       const payload = await readEngineJson(response, "查询进度失败");
+      missing = 0;
       if (payload.note) setBusy(String(payload.note));
       if (payload.status === "ok") return;
       if (payload.status === "error") throw new Error(typeof payload.detail === "string" ? payload.detail : "处理失败");
@@ -189,9 +212,9 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
             审核队列：自动接受 {project.review_counts?.AUTO_ACCEPTED || 0} · 待审 {project.review_counts?.NEEDS_REVIEW || 0} ·
             未解决 {project.review_counts?.UNRESOLVED || 0}
           </p>
-          {(project.expected_drawings || []).length ? (
+          {expectedDrawings.length ? (
             <p className="text-sm text-[#9a6b12]">
-              Drawing Index 期望 {project.expected_drawings.length} 张；缺图请到 DOCUMENTS 查看，不把缺图包装成完整报价。
+              Drawing Index 期望 {expectedDrawings.length} 张；缺图请到 DOCUMENTS 查看，不把缺图包装成完整报价。
             </p>
           ) : (
             <p className="text-sm text-[#5c6754]">还没有从封面读到 Drawing Index。无文字层时需人工补 index，不会编造图号。</p>
@@ -223,7 +246,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
           </form>
           <div className="grid gap-6 lg:grid-cols-[16rem_1fr]">
             <ul className="space-y-2">
-              {(project.drawings || []).map((drawing) => (
+              {drawings.map((drawing) => (
                 <li key={drawing.id}>
                   <button
                     type="button"
@@ -245,31 +268,47 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
             {selectedDrawing ? (
               <div>
                 <div className="relative overflow-hidden rounded-2xl border border-[#d9d0c0] bg-[#111]">
-                  <img
-                    src={`/engine/estimator/projects/${project.id}/documents/${selectedDrawing.document_id}/pages/${selectedDrawing.page_number}`}
-                    alt={`第 ${selectedDrawing.page_number} 页`}
-                    className="h-auto w-full"
-                  />
-                  {pageEvidence.map((item) => {
-                    const width = Math.max(0.004, item.bbox.x2 - item.bbox.x1);
-                    const height = Math.max(0.004, item.bbox.y2 - item.bbox.y1);
-                    if (width <= 0.004 && height <= 0.004) return null;
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        aria-label={item.raw_text || "证据"}
-                        onClick={() => setSelectedEvidenceId(item.id)}
-                        className={`absolute border-2 ${selectedEvidenceId === item.id ? "border-amber-400" : "border-emerald-400/80"}`}
-                        style={{
-                          left: `${item.bbox.x1 * 100}%`,
-                          top: `${item.bbox.y1 * 100}%`,
-                          width: `${width * 100}%`,
-                          height: `${height * 100}%`,
-                        }}
-                      />
-                    );
-                  })}
+                  {pageFailed ? (
+                    <p className="px-4 py-16 text-center text-sm text-[#f8e7dc]" role="status">
+                      这一页的渲染图不在当前引擎磁盘上。演示容器重启后原图会丢，请重新上传图纸，不会用缓存图顶上。
+                    </p>
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={`/engine/estimator/projects/${project.id}/documents/${selectedDrawing.document_id}/pages/${selectedDrawing.page_number}`}
+                      alt={`第 ${selectedDrawing.page_number} 页`}
+                      className="h-auto w-full"
+                      onError={() => setPageFailed(true)}
+                    />
+                  )}
+                  {pageFailed
+                    ? null
+                    : pageEvidence.map((item) => {
+                        const box = item.bbox;
+                        const x1 = Number(box?.x1);
+                        const y1 = Number(box?.y1);
+                        const x2 = Number(box?.x2);
+                        const y2 = Number(box?.y2);
+                        if (![x1, y1, x2, y2].every(Number.isFinite)) return null;
+                        const width = Math.max(0.004, x2 - x1);
+                        const height = Math.max(0.004, y2 - y1);
+                        if (width <= 0.004 && height <= 0.004) return null;
+                        return (
+                          <button
+                            key={item.id}
+                            type="button"
+                            aria-label={item.raw_text || "证据"}
+                            onClick={() => setSelectedEvidenceId(item.id)}
+                            className={`absolute border-2 ${selectedEvidenceId === item.id ? "border-amber-400" : "border-emerald-400/80"}`}
+                            style={{
+                              left: `${x1 * 100}%`,
+                              top: `${y1 * 100}%`,
+                              width: `${width * 100}%`,
+                              height: `${height * 100}%`,
+                            }}
+                          />
+                        );
+                      })}
                 </div>
                 <div className="mt-4 rounded-2xl border border-[#d9d0c0] bg-white p-4 text-sm">
                   <p className="font-medium">证据</p>
@@ -292,12 +331,12 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
               <p className="text-sm text-[#5c6754]">上传图纸后将在这里显示分页与证据框。</p>
             )}
           </div>
-          {project.expected_drawings.length ? (
+          {expectedDrawings.length ? (
             <div>
               <h3 className="font-medium">期望图纸 / 缺失</h3>
               <ul className="mt-2 text-sm">
-                {project.expected_drawings.map((item) => {
-                  const supplied = project.drawings.some((drawing) => drawing.drawing_number === item.drawing_number);
+                {expectedDrawings.map((item) => {
+                  const supplied = drawings.some((drawing) => drawing.drawing_number === item.drawing_number);
                   return (
                     <li key={item.drawing_number} className={supplied ? "text-[#2f4a32]" : "text-[#9a6b12]"}>
                       {item.drawing_number} {item.drawing_title || ""} {supplied ? "Available" : "Missing"}
@@ -322,7 +361,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
               </tr>
             </thead>
             <tbody>
-              {(project.takeoff || []).map((item) => (
+              {takeoff.map((item) => (
                 <tr key={item.id} className="border-b border-[#f3eee4]">
                   <td className="py-2 pr-3">{item.description}</td>
                   <td className="py-2 pr-3">
@@ -334,13 +373,13 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
               ))}
             </tbody>
           </table>
-          {project.takeoff.length === 0 ? <p className="mt-3 text-sm text-[#5c6754]">还没有可复算的工程量。</p> : null}
+          {takeoff.length === 0 ? <p className="mt-3 text-sm text-[#5c6754]">还没有可复算的工程量。</p> : null}
         </section>
       ) : null}
 
       {tab === "review" ? (
         <section className="mt-6 space-y-3">
-          {(project.review || []).map((item) => (
+          {reviewItems.map((item) => (
             <article key={item.id} className="rounded-2xl border border-[#d9d0c0] bg-white p-4">
               <p className="text-xs text-[#7b8474]">
                 {item.queue_status} · {item.reason_code} · {item.entity_type}
@@ -359,7 +398,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
               </div>
             </article>
           ))}
-          {project.review.length === 0 ? <p className="text-sm text-[#5c6754]">暂无审核项。</p> : null}
+          {reviewItems.length === 0 ? <p className="text-sm text-[#5c6754]">暂无审核项。</p> : null}
         </section>
       ) : null}
 
@@ -393,7 +432,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                   </tr>
                 </thead>
                 <tbody>
-                  {project.estimate.quote_lines.map((line) => (
+                  {(project.estimate.quote_lines || []).map((line) => (
                     <tr key={line.id} className="border-b border-[#f3eee4]">
                       <td className="py-2 pr-3">{line.description}</td>
                       <td className="py-2 pr-3">{nzdExact(line.amount_incl_gst)}</td>
@@ -431,7 +470,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
           </ul>
           <h3 className="font-medium">修正记录（只追加）</h3>
           <ul className="text-sm">
-            {(project.correction_events || []).map((item) => (
+            {(correctionEvents || []).map((item) => (
               <li key={item.id} className="border-b border-[#f3eee4] py-2">
                 {item.created_at} · {item.entity_type}.{item.field_name} · {item.reason_code}
                 <pre className="mt-1 whitespace-pre-wrap text-xs text-[#5c6754]">
@@ -440,7 +479,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
               </li>
             ))}
           </ul>
-          {project.correction_events.length === 0 ? <p className="text-sm text-[#5c6754]">还没有人工修正。</p> : null}
+          {correctionEvents.length === 0 ? <p className="text-sm text-[#5c6754]">还没有人工修正。</p> : null}
         </section>
       ) : null}
     </div>

@@ -59,12 +59,21 @@ function networkErrorMessage(caught: unknown, fallback: string) {
 async function waitForVerifyJob(jobId: string, onNote: (note: string) => void) {
   const deadline = Date.now() + 420_000;
   let failures = 0;
+  let missing = 0;
   while (Date.now() < deadline) {
     try {
       const response = await fetch(`/engine/drawings/verify/jobs/${encodeURIComponent(jobId)}`, {
         cache: "no-store",
         signal: AbortSignal.timeout(12_000),
       });
+      if (response.status === 404) {
+        missing += 1;
+        await response.text().catch(() => "");
+        if (missing >= 8) throw new Error("核对任务不存在或已过期，请重新上传。");
+        onNote("核对任务还没出现在当前引擎实例，继续查询…");
+        await new Promise((resolve) => window.setTimeout(resolve, 2000));
+        continue;
+      }
       const payload = (await readEngineJson(response, "查询核对进度失败")) as {
         status?: string;
         note?: string;
@@ -72,6 +81,7 @@ async function waitForVerifyJob(jobId: string, onNote: (note: string) => void) {
         detail?: unknown;
       };
       failures = 0;
+      missing = 0;
       if (payload.note) onNote(payload.note);
       if (payload.status === "ok" && payload.result) return payload.result;
       if (payload.status === "error") {
@@ -82,6 +92,7 @@ async function waitForVerifyJob(jobId: string, onNote: (note: string) => void) {
     } catch (caught) {
       const name = caught instanceof Error ? caught.name : "";
       const message = caught instanceof Error ? caught.message : "";
+      if (message.includes("核对任务不存在")) throw caught;
       const transient = name === "AbortError" || name === "TimeoutError" || /failed to fetch|networkerror|load failed|fetch failed/i.test(message);
       if (!transient) throw caught;
       failures += 1;
@@ -113,7 +124,7 @@ function ZoneTable({ zone }: { zone: DrawingVerifyZone }) {
             </tr>
           </thead>
           <tbody>
-            {zone.lines.map((line) => (
+            {zone.lines?.map((line) => (
               <tr key={line.id} className="border-b border-[#f3eee4] align-top">
                 <td className="py-2 pr-3">
                   <p className="font-medium">{line.name_zh || line.id}</p>

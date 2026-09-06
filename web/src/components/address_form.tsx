@@ -1,30 +1,18 @@
 "use client";
 
-import { useActionState, useEffect, useId, useRef, useState, type ReactNode } from "react";
-import { useFormStatus } from "react-dom";
-import { createProjectAction } from "@/app/actions";
+import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import type { AddressHit } from "@/lib/api";
+import { readEngineJson } from "@/lib/engine_upload";
 
 const EXAMPLES = ["55 Nelson Street", "115 Bruce Road Glenfield", "115A Bruce Road Glenfield"];
 
-function SubmitButton({ canSubmit }: { canSubmit: boolean }) {
-  const { pending } = useFormStatus();
+function SubmitButton({ canSubmit, pending }: { canSubmit: boolean; pending: boolean }) {
   const disabled = pending || !canSubmit;
   return (
     <Button type="submit" disabled={disabled} className="h-12 w-full px-6 sm:w-auto" aria-busy={pending}>
       {pending ? "正在读地并出初版方案…" : "读取地块并出初版方案"}
     </Button>
-  );
-}
-
-function BusyNote() {
-  const { pending } = useFormStatus();
-  if (!pending) return null;
-  return (
-    <p className="mt-4 rounded-lg bg-[#eef3ea] px-3 py-2 text-sm leading-6 text-[#2f4a32]" role="status" aria-live="polite">
-      正在读取议会地址、地籍、区划和坡度，通常需要十几秒到一分钟。请不要关闭页面。
-    </p>
   );
 }
 
@@ -45,7 +33,8 @@ export default function AddressForm({
   const [searchError, setSearchError] = useState("");
   const [splitNote, setSplitNote] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
-  const [state, formAction] = useActionState(createProjectAction, null);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     const trimmed = query.trim();
@@ -67,14 +56,11 @@ export default function AddressForm({
       setLoading(true);
       setSearchError("");
       try {
-        const response = await fetch(`/api/addresses?q=${encodeURIComponent(trimmed)}`, {
+        const response = await fetch(`/engine/addresses?q=${encodeURIComponent(trimmed)}`, {
           signal: controller.signal,
           cache: "no-store",
         });
-        const data = await response.json();
-        if (!response.ok) {
-          throw new Error(data?.detail?.error?.message || data?.error?.message || "议会地址库暂时读不到");
-        }
+        const data = await readEngineJson(response, "议会地址库暂时读不到");
         const addresses = (data.addresses || []) as AddressHit[];
         setHits(addresses);
         setSplitNote(typeof data.split_note === "string" ? data.split_note : "");
@@ -117,28 +103,50 @@ export default function AddressForm({
     setSearchError("");
   };
 
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!selected) return;
+    const lat = Number(selected.lat);
+    const lon = Number(selected.lon);
+    const inAuckland = lat >= -37.3 && lat <= -35.89 && lon >= 174.15 && lon <= 175.59;
+    if (!Number.isFinite(lat) || !Number.isFinite(lon) || !inAuckland) {
+      setSubmitError("请从下拉列表选择一条奥克兰议会地址。同一门牌可能对应多条记录。");
+      return;
+    }
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const response = await fetch("/engine/projects", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        cache: "no-store",
+        body: JSON.stringify({
+          address: selected.full_address,
+          lat,
+          lon,
+          full_address: selected.full_address,
+          sap_address_id: selected.sap_address_id || null,
+          sap_site_id: selected.sap_site_id || null,
+        }),
+      });
+      const payload = await readEngineJson(response, "核算失败");
+      const projectId = String(payload.id || "");
+      if (!projectId) throw new Error("核算失败：服务没有返回项目编号");
+      window.location.assign(`/projects/${encodeURIComponent(projectId)}`);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "核算失败");
+      setSubmitting(false);
+    }
+  };
+
   const showList = open && query.trim().length >= 3 && !selected;
   const activeHit = hits[activeIndex];
 
   return (
     <form
-      action={formAction}
-      onSubmit={(event) => {
-        if (!selected) event.preventDefault();
-      }}
+      onSubmit={handleSubmit}
       className={embedded ? "" : "rounded-2xl border border-[#d9d0c0] bg-[#fffaf3] p-5 shadow-[0_12px_40px_rgba(40,32,18,0.06)] sm:p-7"}
     >
-      {selected ? (
-        <>
-          <input type="hidden" name="address" value={selected.full_address} />
-          <input type="hidden" name="full_address" value={selected.full_address} />
-          <input type="hidden" name="selected_lat" value={String(selected.lat)} />
-          <input type="hidden" name="selected_lon" value={String(selected.lon)} />
-          <input type="hidden" name="sap_address_id" value={selected.sap_address_id || ""} />
-          <input type="hidden" name="sap_site_id" value={selected.sap_site_id || ""} />
-        </>
-      ) : null}
-
       <label htmlFor="address-search" className="text-sm font-medium">
         物业地址
       </label>
@@ -179,6 +187,7 @@ export default function AddressForm({
             aria-activedescendant={showList && activeHit ? `${listId}-${activeIndex}` : undefined}
             aria-describedby="address-hint"
             autoComplete="off"
+            disabled={submitting}
           />
           {showList ? (
             <ul
@@ -220,7 +229,7 @@ export default function AddressForm({
             </ul>
           ) : null}
         </div>
-        <SubmitButton canSubmit={Boolean(selected)} />
+        <SubmitButton canSubmit={Boolean(selected)} pending={submitting} />
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
         {EXAMPLES.map((example) => (
@@ -243,15 +252,19 @@ export default function AddressForm({
           {splitNote}
         </p>
       ) : null}
-      <BusyNote />
+      {submitting ? (
+        <p className="mt-4 rounded-lg bg-[#eef3ea] px-3 py-2 text-sm leading-6 text-[#2f4a32]" role="status" aria-live="polite">
+          正在读取议会地址、地籍、区划和坡度，通常需要十几秒到一分钟。请不要关闭页面。
+        </p>
+      ) : null}
       {selected ? (
         <p className="mt-4 text-sm text-[#2f6b4f]">已选择 {selected.full_address}</p>
       ) : query.trim().length >= 3 ? (
         <p className="mt-4 text-sm text-[#9a6b12]">还没有选定地址，请从下拉列表点选一条。</p>
       ) : null}
-      {state?.error ? (
+      {submitError ? (
         <p className="mt-4 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm text-[#8a3b1d]" role="alert">
-          {state.error}
+          {submitError}
         </p>
       ) : null}
       {children}

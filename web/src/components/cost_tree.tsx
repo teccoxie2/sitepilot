@@ -50,7 +50,7 @@ function isPriced(line: CostLine): boolean {
 }
 
 export default function CostTree({ lines }: { lines: CostLine[] }) {
-  if (!lines.length) {
+  if (!lines?.length) {
     return <p className="text-sm text-[#9a6b12]">这一版还没有分项行。</p>;
   }
   const groups = new Map<string, CostLine[]>();

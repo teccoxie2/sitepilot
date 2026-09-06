@@ -26,7 +26,7 @@ function readSchemeTab() {
 }
 
 export default function ProjectView({ project }: { project: ProjectRecord }) {
-  const result = project.result;
+  const result = project.result || {};
   const firstId =
     result.selected_id ||
     result.options?.find((item) => item.recommended && item.verdict.status !== "infeasible")?.id ||
@@ -277,7 +277,7 @@ function OptionCard({
         </ul>
       ) : null}
       {blocked ? (
-        <p className="mt-3 text-sm text-[#8a3b1d]">{option.verdict.reasons.join(" ")}</p>
+        <p className="mt-3 text-sm text-[#8a3b1d]">{option.verdict?.reasons?.join(" ")}</p>
       ) : null}
       {option.totals?.confirmed_total_incl_gst != null && (!blocked || option.origin === "drawings") ? (
         <p className="mt-3 text-2xl font-semibold tracking-tight">
@@ -312,7 +312,7 @@ function CostPanel({ option }: { option: SchemeOption }) {
       </div>
       {option.verdict.status === "infeasible" ? (
         <p className="mt-3 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm leading-6 text-[#8a3b1d]" role="alert">
-          {option.verdict.reasons.join(" ")} 下方仍按图纸文字层套价，方便对照。开发完成后只按议会现址本户校核；整宗开发图与当前门牌不符时不会把兄弟地块合计进去。
+          {option.verdict?.reasons?.join(" ")} 下方仍按图纸文字层套价，方便对照。开发完成后只按议会现址本户校核；整宗开发图与当前门牌不符时不会把兄弟地块合计进去。
         </p>
       ) : null}
       {option.totals?.rlb_benchmark_low ? (

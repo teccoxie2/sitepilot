@@ -191,20 +191,24 @@ def get_one_project(project_id: str) -> dict[str, Any]:
     if not record:
         raise HTTPException(status_code=404, detail="项目不存在")
     result = record.get("result") or {}
-    limed = hydrate_lim(result)
-    if limed:
-        result = limed
-    hydrated = hydrate_legacy_result(record.get("address") or "", result)
-    if hydrated:
-        result = hydrated
-    visioned = hydrate_site_analysis(result)
-    if visioned:
-        result = visioned
-    if limed or hydrated or visioned:
-        updated = update_project(project_id, result, record.get("status") or "ready")
-        if updated:
-            return updated
-    return record
+    try:
+        limed = hydrate_lim(result)
+        if limed:
+            result = limed
+        hydrated = hydrate_legacy_result(record.get("address") or "", result)
+        if hydrated:
+            result = hydrated
+        visioned = hydrate_site_analysis(result)
+        if visioned:
+            result = visioned
+        if limed or hydrated or visioned:
+            updated = update_project(project_id, result, record.get("status") or "ready")
+            if updated:
+                return updated
+        return {**record, "result": result}
+    except Exception:  # noqa: BLE001
+        fresh = get_project(project_id)
+        return fresh or record
 
 
 @app.post("/projects")

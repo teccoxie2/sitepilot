@@ -33,20 +33,37 @@ function engineDetail(data: unknown, fallback: string): string {
   return message || fallback;
 }
 
+function gatewayError(status: number, fallback: string): Error {
+  if (status === 413) {
+    return new Error("这份 PDF 超过平台单次请求上限。请重新上传，系统会按约 3.5MB 自动分片。");
+  }
+  if (status === 504) {
+    return new Error("核算服务超时。请稍后重试；未编造结果。");
+  }
+  if (status === 502 || status === 503) {
+    return new Error("核算服务暂时连不上。请稍后重试。");
+  }
+  return new Error(fallback);
+}
+
 export async function readEngineJson(response: Response, fallback: string): Promise<Record<string, unknown>> {
   const text = await response.text();
   if (response.status === 413 || /request entity too large|function_payload_too_large/i.test(text)) {
-    throw new Error("这份 PDF 超过平台单次请求上限。请重新上传，系统会按约 3.5MB 自动分片。");
+    throw gatewayError(413, fallback);
   }
   if (!text.trim()) {
-    if (!response.ok) throw new Error(fallback);
+    if (!response.ok) throw gatewayError(response.status, fallback);
     return {};
+  }
+  const trimmed = text.trim();
+  if (/^<!doctype html/i.test(trimmed) || /^<html[\s>]/i.test(trimmed)) {
+    throw gatewayError(response.status, fallback);
   }
   let data: unknown;
   try {
     data = JSON.parse(text);
   } catch {
-    throw new Error(fallback);
+    throw gatewayError(response.status, fallback);
   }
   if (!response.ok) throw new Error(engineDetail(data, fallback));
   return data && typeof data === "object" ? (data as Record<string, unknown>) : {};
@@ -77,6 +94,22 @@ export async function uploadPdfsToEngine(input: UploadPdfsInput): Promise<Record
     const response = await fetch(input.directUrl, { method: "POST", body, cache: "no-store" });
     return readEngineJson(response, "上传失败");
   }
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      return await uploadChunked(input);
+    } catch (caught) {
+      lastError = caught;
+      const message = caught instanceof Error ? caught.message : "";
+      if (!/上传会话不存在或已过期/.test(message)) throw caught;
+      input.onNote?.("上传会话已失效，正在整单重试…");
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error("上传失败");
+}
+
+async function uploadChunked(input: UploadPdfsInput): Promise<Record<string, unknown>> {
+  const files = input.files;
   input.onNote?.("文件较大，正在分片上传（绕过平台 4.5MB 单次限制）…");
   const created = (await readEngineJson(
     await fetch("/engine/uploads/sessions", { method: "POST", cache: "no-store" }),

@@ -256,3 +256,9 @@ Done
 
 生产上传大 PDF 时平台返回纯文本 `Request Entity Too Large`，前端按 JSON 解析会报 Unexpected token R。改为直连 `/engine`，大于约 3.5MB 自动分片，并把 413 转成中文错误。不编造图纸内容。
 
+## 全量 debug：非 JSON 响应与空值崩溃
+
+Done
+
+选址、建项目、选装改为浏览器直连 `/engine`，统一用 `readEngineJson` 把 413/HTML/502 转成中文。Estimator 对缺数组和缺 bbox 做守卫；打开项目时 hydrate 失败不再 500。不编造地块或金额。
+

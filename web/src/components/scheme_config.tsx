@@ -1,28 +1,14 @@
 "use client";
 
-import { useActionState, useMemo, useState, type ReactNode } from "react";
-import { useFormStatus } from "react-dom";
-import { configureProjectAction } from "@/app/actions";
+import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import type { SchemeOption } from "@/lib/api";
+import { readEngineJson } from "@/lib/engine_upload";
 
 const GFA: Record<string, Record<string, number>> = {
   "1": { "2": 85, "3": 110, "4": 150, "5": 180 },
   "2": { "2": 110, "3": 165, "4": 220, "5": 260 },
   "3": { "2": 130, "3": 180, "4": 240, "5": 280 },
 };
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="h-11 rounded-xl bg-[#2f4a32] px-5 text-sm font-medium text-white hover:bg-[#3f6b45] disabled:opacity-60"
-    >
-      {pending ? "正在按选装重新核算…" : "按选装生成这一版"}
-    </button>
-  );
-}
 
 export default function SchemeConfig({
   projectId,
@@ -31,8 +17,6 @@ export default function SchemeConfig({
   projectId: string;
   option?: SchemeOption;
 }) {
-  const bound = useMemo(() => configureProjectAction.bind(null, projectId), [projectId]);
-  const [state, formAction] = useActionState(bound, null);
   const template = option?.template;
   const [kind, setKind] = useState(template?.kind || "standalone");
   const [dwellings, setDwellings] = useState(template?.dwellings || 1);
@@ -42,6 +26,13 @@ export default function SchemeConfig({
   const [kitchens, setKitchens] = useState(template?.kitchens ?? 1);
   const [gfa, setGfa] = useState(template?.gfa_m2 ?? 110);
   const [gfaTouched, setGfaTouched] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  const startLabel = useMemo(
+    () => (option?.template.name_zh ? `以当前选中的「${option.template.name_zh}」为起点，改套数、层数、户型、厨房和卫生间。` : "改套数、层数、户型、厨房和卫生间。"),
+    [option?.template.name_zh],
+  );
 
   const handleStoreys = (value: number) => {
     setStoreys(value);
@@ -58,13 +49,38 @@ export default function SchemeConfig({
     if (!gfaTouched) setGfa(suggestGfa(bedrooms, storeys, value));
   };
 
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      const response = await fetch(`/engine/projects/${encodeURIComponent(projectId)}/configure`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        cache: "no-store",
+        body: JSON.stringify({
+          kind,
+          dwellings,
+          storeys,
+          bedrooms,
+          bathrooms,
+          kitchens,
+          gfa_m2: gfa,
+        }),
+      });
+      await readEngineJson(response, "选装核算失败");
+      window.location.assign(`/projects/${encodeURIComponent(projectId)}?tab=cards#cost-ledger`);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "选装核算失败");
+      setBusy(false);
+    }
+  };
+
   return (
-    <form action={formAction} className="rounded-2xl border border-[#d9d0c0] bg-[#fffaf3] p-5 sm:p-6">
+    <form onSubmit={handleSubmit} className="rounded-2xl border border-[#d9d0c0] bg-[#fffaf3] p-5 sm:p-6">
       <h3 className="text-base font-semibold">按你的需求选装</h3>
       <p className="mt-1 text-sm leading-6 text-[#5c6754]">
-        {option?.template.name_zh
-          ? `以当前选中的「${option.template.name_zh}」为起点，改套数、层数、户型、厨房和卫生间。`
-          : "改套数、层数、户型、厨房和卫生间。"}
+        {startLabel}
         核算仍用这块地已经读到的区划、面积和坡度。图纸方案改选装后会走户型模板，不再沿用图纸文字层。可先到「方案卡片」点选起点。
       </p>
       <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -75,6 +91,7 @@ export default function SchemeConfig({
             onChange={(event) => setKind(event.target.value)}
             className="h-11 w-full rounded-xl border border-[#cfc4b0] bg-white px-3"
             aria-label="形态"
+            disabled={busy}
           >
             <option value="standalone">独栋</option>
             <option value="duplex">双拼</option>
@@ -82,11 +99,11 @@ export default function SchemeConfig({
             <option value="minor_dwelling">主屋 + 独立住宅</option>
           </select>
         </Field>
-        <NumberField label="套数" name="dwellings" value={dwellings} min={1} max={6} onChange={handleDwellings} />
-        <NumberField label="层数" name="storeys" value={storeys} min={1} max={5} onChange={handleStoreys} />
-        <NumberField label="每套卧室" name="bedrooms" value={bedrooms} min={1} max={6} onChange={handleBedrooms} />
-        <NumberField label="卫生间" name="bathrooms" value={bathrooms} min={1} max={6} onChange={setBathrooms} />
-        <NumberField label="厨房" name="kitchens" value={kitchens} min={1} max={4} onChange={setKitchens} />
+        <NumberField label="套数" name="dwellings" value={dwellings} min={1} max={6} onChange={handleDwellings} disabled={busy} />
+        <NumberField label="层数" name="storeys" value={storeys} min={1} max={5} onChange={handleStoreys} disabled={busy} />
+        <NumberField label="每套卧室" name="bedrooms" value={bedrooms} min={1} max={6} onChange={handleBedrooms} disabled={busy} />
+        <NumberField label="卫生间" name="bathrooms" value={bathrooms} min={1} max={6} onChange={setBathrooms} disabled={busy} />
+        <NumberField label="厨房" name="kitchens" value={kitchens} min={1} max={4} onChange={setKitchens} disabled={busy} />
         <label className="flex flex-col gap-1 sm:col-span-2 lg:col-span-3">
           <span className="text-xs text-[#7b8474]">建筑面积 GFA（m²）</span>
           <input
@@ -96,6 +113,7 @@ export default function SchemeConfig({
             max={450}
             step={5}
             value={gfa}
+            disabled={busy}
             onChange={(event) => {
               setGfaTouched(true);
               setGfa(Number(event.target.value));
@@ -109,11 +127,18 @@ export default function SchemeConfig({
         未手改面积时，按初版规则：单层三房约 110 m²、二层三房 165 m²、二层四房 220 m²。厨房无公开总价，会按套数标缺价。
       </p>
       <div className="mt-4">
-        <SubmitButton />
+        <button
+          type="submit"
+          disabled={busy}
+          aria-busy={busy}
+          className="h-11 rounded-xl bg-[#2f4a32] px-5 text-sm font-medium text-white hover:bg-[#3f6b45] disabled:opacity-60"
+        >
+          {busy ? "正在按选装重新核算…" : "按选装生成这一版"}
+        </button>
       </div>
-      {state?.error ? (
+      {error ? (
         <p className="mt-3 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm text-[#8a3b1d]" role="alert">
-          {state.error}
+          {error}
         </p>
       ) : null}
     </form>
@@ -136,6 +161,7 @@ function NumberField({
   min,
   max,
   onChange,
+  disabled,
 }: {
   label: string;
   name: string;
@@ -143,6 +169,7 @@ function NumberField({
   min: number;
   max: number;
   onChange: (value: number) => void;
+  disabled?: boolean;
 }) {
   return (
     <label className="flex flex-col gap-1">
@@ -153,6 +180,7 @@ function NumberField({
         min={min}
         max={max}
         value={value}
+        disabled={disabled}
         onChange={(event) => onChange(Number(event.target.value))}
         className="h-11 rounded-xl border border-[#cfc4b0] bg-white px-3"
         aria-label={label}

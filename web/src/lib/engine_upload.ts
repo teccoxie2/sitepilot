@@ -101,7 +101,7 @@ export async function uploadPdfsToEngine(input: UploadPdfsInput): Promise<Record
     } catch (caught) {
       lastError = caught;
       const message = caught instanceof Error ? caught.message : "";
-      if (!/上传会话不存在或已过期/.test(message)) throw caught;
+      if (!/上传会话不存在或已过期|工作区不在当前引擎|Estimator 项目不存在/.test(message)) throw caught;
       input.onNote?.("上传会话已失效，正在整单重试…");
     }
   }

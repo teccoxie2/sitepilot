@@ -39,11 +39,27 @@ class EvidenceCorrectBody(BaseModel):
     comment: str | None = None
 
 
+MISSING_WORKSPACE = (
+    "这份工作区不在当前引擎磁盘上。演示容器重启或换实例后记录会消失，不会用缓存顶上。请重新上传图纸。"
+)
+
+
 def _project_or_404(project_id: str) -> dict[str, Any]:
     record = store.get_project(project_id)
     if not record:
-        raise HTTPException(status_code=404, detail="Estimator 项目不存在")
+        raise HTTPException(status_code=404, detail=MISSING_WORKSPACE)
     return record
+
+
+def _ensure_workspace(
+    project_id: str,
+    name: str | None = None,
+    address: str | None = None,
+) -> dict[str, Any]:
+    try:
+        return store.ensure_project(project_id, name, address)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 @router.get("/ready")
@@ -78,8 +94,10 @@ async def upload_documents(
     project_id: str,
     files: list[UploadFile] = File(...),
     kinds: str | None = Form(default=None),
+    workspace_name: str | None = Form(default=None),
+    workspace_address: str | None = Form(default=None),
 ) -> dict[str, Any]:
-    _project_or_404(project_id)
+    _ensure_workspace(project_id, workspace_name, workspace_address)
     kind_list = [item.strip() for item in (kinds or "").split(",") if item.strip()]
     work = Path(store.project_dir(project_id)) / "tmp"
     work.mkdir(parents=True, exist_ok=True)
@@ -107,8 +125,10 @@ def upload_documents_from_session(
     project_id: str,
     session_id: str = Form(...),
     kinds: str | None = Form(default=None),
+    workspace_name: str | None = Form(default=None),
+    workspace_address: str | None = Form(default=None),
 ) -> dict[str, Any]:
-    _project_or_404(project_id)
+    _ensure_workspace(project_id, workspace_name, workspace_address)
     kind_list = [item.strip() for item in (kinds or "").split(",") if item.strip()]
     work = Path(store.project_dir(project_id)) / "tmp"
     work.mkdir(parents=True, exist_ok=True)

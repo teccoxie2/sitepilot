@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 
 from ..data_loader import pricebook
 from ..runtime_paths import writable_root
@@ -42,22 +43,47 @@ def project_dir(project_id: str) -> Path:
     return path
 
 
-def create_project(name: str, address: str | None = None) -> dict[str, Any]:
-    project_id = new_id()
-    created = now_iso()
+def _parse_project_id(project_id: str) -> str:
+    try:
+        return str(uuid.UUID(str(project_id).strip()))
+    except (ValueError, TypeError, AttributeError) as exc:
+        raise ValueError("无效工作区编号") from exc
+
+
+def _insert_project(project_id: str, name: str | None, address: str | None) -> None:
     with session() as db:
         db.add(
             EstimatorProject(
                 id=project_id,
-                name=name.strip() or "未命名图纸项目",
+                name=(name or "").strip() or "未命名图纸项目",
                 address=(address or "").strip() or None,
-                created_at=created,
+                created_at=now_iso(),
                 status="UPLOADED",
                 document_set_version=1,
             )
         )
         db.commit()
+
+
+def create_project(name: str, address: str | None = None) -> dict[str, Any]:
+    project_id = new_id()
+    _insert_project(project_id, name, address)
     return get_project(project_id) or {"id": project_id}
+
+
+def ensure_project(project_id: str, name: str | None = None, address: str | None = None) -> dict[str, Any]:
+    parsed_id = _parse_project_id(project_id)
+    existing = get_project(parsed_id)
+    if existing:
+        return existing
+    try:
+        _insert_project(parsed_id, name, address)
+    except IntegrityError:
+        existing = get_project(parsed_id)
+        if existing:
+            return existing
+        raise
+    return get_project(parsed_id) or {"id": parsed_id}
 
 
 def list_projects() -> list[dict[str, Any]]:

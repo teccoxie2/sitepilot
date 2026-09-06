@@ -1,4 +1,5 @@
 from pathlib import Path
+import uuid
 
 import fitz
 from fastapi.testclient import TestClient
@@ -239,3 +240,43 @@ def test_estimator_ready_endpoint():
     prefixed = client.get("/engine/estimator/ready")
     assert prefixed.status_code == 200
     assert prefixed.json()["vision"] == response.json()["vision"]
+
+
+def test_get_missing_workspace_is_explicit_404(tmp_path, monkeypatch):
+    _isolated_db(tmp_path, monkeypatch)
+    response = client.get(f"/estimator/projects/{uuid.uuid4()}")
+    assert response.status_code == 404
+    assert "当前引擎磁盘" in response.json()["detail"]
+
+
+def test_upload_recreates_workspace_on_this_instance(tmp_path, monkeypatch):
+    _isolated_db(tmp_path, monkeypatch)
+    project_id = str(uuid.uuid4())
+    path = tmp_path / "architectural.pdf"
+    _pdf(path, [ARCH_TEXT])
+    with path.open("rb") as handle:
+        response = client.post(
+            f"/estimator/projects/{project_id}/documents",
+            files=[("files", ("architectural.pdf", handle, "application/pdf"))],
+            data={"kinds": "ARCHITECTURAL", "workspace_name": "574"},
+        )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["id"] == project_id
+    assert body["name"] == "574"
+    assert body["documents"]
+    assert body["documents"][0]["filename"] == "architectural.pdf"
+
+
+def test_upload_rejects_non_uuid_workspace_id(tmp_path, monkeypatch):
+    _isolated_db(tmp_path, monkeypatch)
+    path = tmp_path / "architectural.pdf"
+    _pdf(path, [ARCH_TEXT])
+    with path.open("rb") as handle:
+        response = client.post(
+            "/estimator/projects/574/documents",
+            files=[("files", ("architectural.pdf", handle, "application/pdf"))],
+            data={"kinds": "ARCHITECTURAL", "workspace_name": "574"},
+        )
+    assert response.status_code == 400
+    assert "无效工作区编号" in response.json()["detail"]

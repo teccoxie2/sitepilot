@@ -118,6 +118,10 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
       await uploadPdfsToEngine({
         files,
         kinds,
+        extraFields: {
+          workspace_name: project?.name || "未命名图纸项目",
+          workspace_address: project?.address || "",
+        },
         directUrl: `/engine/estimator/projects/${projectId}/documents`,
         completeUrl: `/engine/estimator/projects/${projectId}/documents/from-session`,
         onNote: setBusy,
@@ -190,7 +194,9 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
       ) : null}
       {error ? (
         <p className="mt-3 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm text-[#8a3b1d]" role="alert">
-          {error}
+          {error === "Estimator 项目不存在"
+            ? "这份工作区不在当前引擎磁盘上。演示容器重启或换实例后记录会消失，不会用缓存顶上。图纸仍在表单里的话，请再点一次上传。"
+            : error}
         </p>
       ) : null}
 

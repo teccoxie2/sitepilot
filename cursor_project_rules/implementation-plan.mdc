@@ -262,3 +262,9 @@ Done
 
 选址、建项目、选装改为浏览器直连 `/engine`，统一用 `readEngineJson` 把 413/HTML/502 转成中文。Estimator 对缺数组和缺 bbox 做守卫；打开项目时 hydrate 失败不再 500。不编造地块或金额。
 
+## Estimator 上传时当前实例没有工作区行
+
+Done
+
+页面能读到 574 工作区，上传却报「Estimator 项目不存在」：SQLite 在容器 `/tmp`，换实例或重启后同一 UUID 不在当前引擎。上传接口按原编号补建工作区行再收 PDF，不编造图号或金额。
+

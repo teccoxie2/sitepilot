@@ -95,7 +95,7 @@ export async function uploadPdfsToEngine(input: UploadPdfsInput): Promise<Record
     return readEngineJson(response, "上传失败");
   }
   let lastError: unknown;
-  for (let attempt = 0; attempt < 2; attempt += 1) {
+  for (let attempt = 0; attempt < 4; attempt += 1) {
     try {
       return await uploadChunked(input);
     } catch (caught) {

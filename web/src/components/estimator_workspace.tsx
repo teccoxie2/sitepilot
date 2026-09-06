@@ -63,24 +63,74 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     setPageFailed(false);
   }, [selectedDrawing?.id]);
 
-  const waitJob = async (jobId: string) => {
+  const applyProject = (next: EstimatorProject) => {
+    setProject(next);
+    if (next.drawings?.[0]) {
+      setSelectedDrawingId((current) => current || next.drawings[0].id);
+    }
+  };
+
+  const tryReadProject = async (): Promise<EstimatorProject | null> => {
+    const response = await fetch(`/engine/estimator/projects/${projectId}`, {
+      cache: "no-store",
+      signal: AbortSignal.timeout(12_000),
+    });
+    if (response.status === 404) {
+      await response.text().catch(() => "");
+      return null;
+    }
+    return (await readEngineJson(response, "无法读取工作区")) as unknown as EstimatorProject;
+  };
+
+  const waitJob = async (jobId: string): Promise<EstimatorProject | null> => {
     const deadline = Date.now() + 420_000;
-    let missing = 0;
+    let failures = 0;
     while (Date.now() < deadline) {
-      const response = await fetch(`/engine/estimator/jobs/${jobId}`, { cache: "no-store" });
-      if (response.status === 404) {
-        missing += 1;
-        await response.text().catch(() => "");
-        if (missing >= 8) throw new Error("任务不存在或已过期。请重新上传图纸。");
-        setBusy("任务还没出现在当前引擎实例，继续查询…");
-        await new Promise((resolve) => window.setTimeout(resolve, 1500));
-        continue;
+      try {
+        const response = await fetch(`/engine/estimator/jobs/${encodeURIComponent(jobId)}`, {
+          cache: "no-store",
+          signal: AbortSignal.timeout(12_000),
+        });
+        if (response.status === 404) {
+          await response.text().catch(() => "");
+          setBusy("任务还没出现在当前引擎实例，继续查询…");
+        } else {
+          const payload = await readEngineJson(response, "查询进度失败");
+          failures = 0;
+          if (payload.note) setBusy(String(payload.note));
+          if (payload.status === "ok") {
+            const result = payload.result;
+            if (result && typeof result === "object" && "id" in result) {
+              return result as unknown as EstimatorProject;
+            }
+            return tryReadProject();
+          }
+          if (payload.status === "error") {
+            throw new Error(typeof payload.detail === "string" ? payload.detail : "处理失败");
+          }
+        }
+        const snapshot = await tryReadProject();
+        if (snapshot) {
+          applyProject(snapshot);
+          if (snapshot.status === "READY" || (snapshot.takeoff && snapshot.takeoff.length > 0)) {
+            return snapshot;
+          }
+          if (snapshot.documents?.length) {
+            setBusy(`已收到图纸（${snapshot.status}），正在当前引擎处理…`);
+          }
+        }
+      } catch (caught) {
+        const name = caught instanceof Error ? caught.name : "";
+        const message = caught instanceof Error ? caught.message : "";
+        const transient =
+          name === "AbortError" ||
+          name === "TimeoutError" ||
+          /failed to fetch|networkerror|load failed|fetch failed/i.test(message);
+        if (!transient) throw caught;
+        failures += 1;
+        if (failures >= 8) throw new Error("无法连上核算服务。请稍后重试；未编造结果。");
+        setBusy("核算服务暂时连不上，继续查询…");
       }
-      const payload = await readEngineJson(response, "查询进度失败");
-      missing = 0;
-      if (payload.note) setBusy(String(payload.note));
-      if (payload.status === "ok") return;
-      if (payload.status === "error") throw new Error(typeof payload.detail === "string" ? payload.detail : "处理失败");
       await new Promise((resolve) => window.setTimeout(resolve, 1500));
     }
     throw new Error("处理超时。未编造数量或金额。");
@@ -115,7 +165,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     setBusy("正在上传原件（只读副本，不改写）…");
     setError("");
     try {
-      await uploadPdfsToEngine({
+      const uploaded = await uploadPdfsToEngine({
         files,
         kinds,
         extraFields: {
@@ -126,10 +176,21 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
         completeUrl: `/engine/estimator/projects/${projectId}/documents/from-session`,
         onNote: setBusy,
       });
-      const started = await fetch(`/engine/estimator/projects/${projectId}/process`, { method: "POST" });
-      const job = await readEngineJson(started, "无法开始处理");
-      if (job.job_id) await waitJob(String(job.job_id));
-      await load();
+      const uploadedProject = uploaded.project;
+      if (uploadedProject && typeof uploadedProject === "object" && "id" in uploadedProject) {
+        applyProject(uploadedProject as EstimatorProject);
+      } else if (typeof uploaded.id === "string") {
+        applyProject(uploaded as unknown as EstimatorProject);
+      }
+      let jobId = typeof uploaded.job_id === "string" ? uploaded.job_id : "";
+      if (!jobId) {
+        const started = await fetch(`/engine/estimator/projects/${projectId}/process`, { method: "POST" });
+        const job = await readEngineJson(started, "无法开始处理");
+        jobId = typeof job.job_id === "string" ? job.job_id : "";
+      }
+      if (!jobId) throw new Error("上传已收到，但没有返回处理任务编号。请重新上传。");
+      const finished = await waitJob(jobId);
+      if (finished) applyProject(finished);
     } catch (caught: unknown) {
       setError(caught instanceof Error ? caught.message : "处理失败");
     } finally {
@@ -194,7 +255,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
       ) : null}
       {error ? (
         <p className="mt-3 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm text-[#8a3b1d]" role="alert">
-          {error === "Estimator 项目不存在"
+            {/项目不存在|当前引擎磁盘/.test(error)
             ? "这份工作区不在当前引擎磁盘上。演示容器重启或换实例后记录会消失，不会用缓存顶上。图纸仍在表单里的话，请再点一次上传。"
             : error}
         </p>

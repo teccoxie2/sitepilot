@@ -89,6 +89,22 @@ def get_estimator_project(project_id: str) -> dict[str, Any]:
     return _project_or_404(project_id)
 
 
+def _queue_process(project_id: str, saved: list[str]) -> dict[str, Any]:
+    record = _project_or_404(project_id)
+
+    def worker(note) -> dict[str, Any]:
+        return process_project(project_id, note=note)
+
+    job = jobs.submit(worker, "已排队，开始预检与渲染。")
+    return {
+        "job_id": job["job_id"],
+        "job_status": job.get("status"),
+        "note": job.get("note"),
+        "uploaded_document_ids": saved,
+        "project": record,
+    }
+
+
 @router.post("/projects/{project_id}/documents")
 async def upload_documents(
     project_id: str,
@@ -96,7 +112,7 @@ async def upload_documents(
     kinds: str | None = Form(default=None),
     workspace_name: str | None = Form(default=None),
     workspace_address: str | None = Form(default=None),
-) -> dict[str, Any]:
+) -> JSONResponse:
     _ensure_workspace(project_id, workspace_name, workspace_address)
     kind_list = [item.strip() for item in (kinds or "").split(",") if item.strip()]
     work = Path(store.project_dir(project_id)) / "tmp"
@@ -117,7 +133,7 @@ async def upload_documents(
     finally:
         for path in work.glob("*"):
             path.unlink(missing_ok=True)
-    return _project_or_404(project_id) | {"uploaded_document_ids": saved}
+    return JSONResponse(status_code=202, content=_queue_process(project_id, saved))
 
 
 @router.post("/projects/{project_id}/documents/from-session")
@@ -127,7 +143,7 @@ def upload_documents_from_session(
     kinds: str | None = Form(default=None),
     workspace_name: str | None = Form(default=None),
     workspace_address: str | None = Form(default=None),
-) -> dict[str, Any]:
+) -> JSONResponse:
     _ensure_workspace(project_id, workspace_name, workspace_address)
     kind_list = [item.strip() for item in (kinds or "").split(",") if item.strip()]
     work = Path(store.project_dir(project_id)) / "tmp"
@@ -143,11 +159,11 @@ def upload_documents_from_session(
         delete_session(session_id)
         for path in work.glob("*"):
             path.unlink(missing_ok=True)
-    return _project_or_404(project_id) | {"uploaded_document_ids": saved}
+    return JSONResponse(status_code=202, content=_queue_process(project_id, saved))
 
 
 @router.post("/projects/{project_id}/process")
-def post_process(project_id: str) -> dict[str, Any]:
+def post_process(project_id: str) -> JSONResponse:
     _project_or_404(project_id)
 
     def worker(note) -> dict[str, Any]:

@@ -100,7 +100,7 @@ pnpm dev
 
 可选环境变量：
 
-- `DATABASE_URL`：默认 SQLite `server/data/projects.sqlite`（关系表：项目、地块快照、方案、成本版本、图纸集、价表版本、Estimator 工作区、后台任务、PDF 原件）。生产必须使用共享 Postgres（`postgres://` 或 `postgresql://` 会改写成 `postgresql+psycopg://`），不能把容器 `/tmp` SQLite 当唯一数据源；换实例或重启后同一 `project_id` / `job_id` 必须仍能读取。LangGraph checkpoint 在 Postgres 时需另装 `langgraph-checkpoint-postgres`。共享给别人用时，先停 API 再运行 `./scripts/purge-query-data.sh`，避免上一轮查询的地址、LIM 和图纸留在磁盘上。`GET /projects` 不返回全库列表。
+- `DATABASE_URL`：默认 SQLite `server/data/projects.sqlite`（关系表：项目、地块快照、方案、成本版本、图纸集、价表版本、Estimator 工作区、后台任务、PDF 原件）。生产必须使用共享 Postgres（`postgres://` 或 `postgresql://` 会改写成 `postgresql+psycopg://`），不能把容器 `/tmp` SQLite 当唯一数据源；换实例或重启后同一 `project_id` / `job_id` 必须仍能读取。LangGraph 选址图 checkpoint 默认仍写本地 SQLite；若要把 checkpoint 也放进 Postgres，另设 `CHECKPOINT_DATABASE_URL` 并安装 `langgraph-checkpoint-postgres`。共享给别人用时，先停 API 再运行 `./scripts/purge-query-data.sh`，避免上一轮查询的地址、LIM 和图纸留在磁盘上。`GET /projects` 不返回全库列表。
 - `PM_HITL=1`：`pm_gate` 调用 `interrupt()`，把最终定价权留给项目经理（第一期屋主界面不画审核面板）。
 - `PRICE_API_URL`：价源第二实现；未设置时只用价表。
 - `ENGINE_URL`：前端服务端请求核算 API，默认 `http://127.0.0.1:8764`。

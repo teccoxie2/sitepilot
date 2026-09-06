@@ -14,11 +14,19 @@ _pg_conn: Any = None
 
 
 def get_checkpointer() -> Any:
-    """LangGraph thread checkpoint. SQLite locally; Postgres when DATABASE_URL is postgresql."""
+    """LangGraph thread checkpoint.
+
+    选址图默认写本地 SQLite。共享 Postgres（DATABASE_URL）只给项目/任务/图纸原件，
+    避免未安装 langgraph-checkpoint-postgres 时引擎起不来。
+    需要把 checkpoint 也放进 Postgres 时，另设 CHECKPOINT_DATABASE_URL。
+    """
     global _checkpointer, _sqlite_conn, _pg_conn
     if _checkpointer is not None:
         return _checkpointer
-    url = os.environ.get("DATABASE_URL", "").strip()
+    url = (
+        os.environ.get("CHECKPOINT_DATABASE_URL", "").strip()
+        or os.environ.get("LANGGRAPH_DATABASE_URL", "").strip()
+    )
     root = writable_root()
     root.mkdir(parents=True, exist_ok=True)
     if url.startswith("postgres"):

@@ -16,6 +16,26 @@ const TABS = [
   { id: "history", label: "HISTORY" },
 ];
 
+function emptyWorkspace(projectId: string): EstimatorProject {
+  return {
+    id: projectId,
+    name: "未命名图纸项目",
+    created_at: "",
+    status: "UPLOADED",
+    document_set_version: 0,
+    documents: [],
+    drawings: [],
+    expected_drawings: [],
+    references: [],
+    evidence: [],
+    takeoff: [],
+    review: [],
+    correction_events: [],
+    estimate: null,
+    estimate_versions: [],
+  };
+}
+
 export default function EstimatorWorkspace({ projectId }: { projectId: string }) {
   const [project, setProject] = useState<EstimatorProject | null>(null);
   const [tab, setTab] = useState("project");
@@ -28,8 +48,18 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
   const load = async () => {
     const response = await fetch(`/engine/estimator/projects/${projectId}`, { cache: "no-store" });
+    if (response.status === 404) {
+      await response.text().catch(() => "");
+      setProject(emptyWorkspace(projectId));
+      setTab("documents");
+      setError(
+        "这份工作区不在当前引擎磁盘上。演示容器重启或换实例后记录会消失，不会用缓存顶上。请重新上传图纸。",
+      );
+      return;
+    }
     const payload = (await readEngineJson(response, "无法读取工作区")) as unknown as EstimatorProject;
     setProject(payload);
+    setError("");
     if (!selectedDrawingId && payload.drawings?.[0]) setSelectedDrawingId(payload.drawings[0].id);
   };
 

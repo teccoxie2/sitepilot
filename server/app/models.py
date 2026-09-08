@@ -115,3 +115,15 @@ class BackgroundJob(Base):
     detail: Mapped[str | None] = mapped_column(Text, nullable=True)
     result: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
     created_at: Mapped[float] = mapped_column(Float, nullable=False)
+    owner_id: Mapped[str | None] = mapped_column(String, nullable=True, index=True)
+
+
+class LlmCallAudit(Base):
+    __tablename__ = "llm_call_audits"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True)
+    owner_id: Mapped[str] = mapped_column(String, nullable=False, index=True)
+    kind: Mapped[str] = mapped_column(String, nullable=False)
+    model_name: Mapped[str | None] = mapped_column(String, nullable=True)
+    status: Mapped[str] = mapped_column(String, nullable=False)
+    created_at: Mapped[str] = mapped_column(String, nullable=False, index=True)

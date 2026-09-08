@@ -18,6 +18,7 @@ class EstimatorProject(Base):
     created_at: Mapped[str] = mapped_column(String, nullable=False)
     status: Mapped[str] = mapped_column(String, nullable=False)
     document_set_version: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
+    owner_id: Mapped[str | None] = mapped_column(String, nullable=True, index=True)
 
     documents: Mapped[list[EstimatorDocument]] = relationship(back_populates="project")
 

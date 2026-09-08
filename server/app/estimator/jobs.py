@@ -4,16 +4,21 @@ from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Callable
 
 from .. import job_store
+from ..identity import get_owner_id
 
 _EXECUTOR = ThreadPoolExecutor(max_workers=1, thread_name_prefix="estimator")
 
 
-def get_job(job_id: str) -> dict[str, Any]:
-    return job_store.read_job(job_id, "任务不存在或已过期。", kind="estimator")
+def get_job(job_id: str, owner_id: str | None = None) -> dict[str, Any]:
+    return job_store.read_job(job_id, "任务不存在或已过期。", kind="estimator", owner_id=owner_id)
 
 
-def submit(worker: Callable[[Callable[[str], None]], Any], note: str) -> dict[str, Any]:
-    job = job_store.create_job("estimator", note)
+def submit(
+    worker: Callable[[Callable[[str], None]], Any],
+    note: str,
+    owner_id: str | None = None,
+) -> dict[str, Any]:
+    job = job_store.create_job("estimator", note, owner_id=owner_id if owner_id is not None else get_owner_id())
     job_id = str(job["job_id"])
 
     def run() -> None:

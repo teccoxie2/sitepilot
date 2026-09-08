@@ -13,7 +13,7 @@
 - 法定费用含建工许可押金、BRANZ/MBIE/BCA 征费、CCC 基础费、占道检查费；有资源许可时计入 RC 押金；IGC/DC 按净增单元
 - 第二阶段：在项目页上传 RC / BC PDF，按文字层门窗表和面积套同一价库（扫描件无文字层会失败）
 - 图纸物料验证页 `/drawing-takeoff`：不经过选址，上传 RC/BC 后按页读文字层。门窗表、面积表、覆盖率表按行列抽出并在页面上列出每一行；几乎无文字的图页会标出且**不做 OCR**。正则与大模型结果合并；送给模型时优先保留表页，证据核对应全文。数量由服务器按公式、窗表或原文件数重算，单价只走价库。扫描件没有文字层或未配置 `OPENAI_API_KEY` / `CPA_API_KEY` 会失败。
-- **V2 Estimator** `/estimator`：并行图纸取量工作区。上传建筑图/结构图后做 SHA256 预检、分页渲染、Manifest、证据框、Floor Area / Beam / Roof 取量、审核队列与绑定价表版本的报价。无文字层且未配视觉密钥时不编造图号。金额仍只走价表；`MODEL` 费率不启用。574 Remuera 评测目录在 `evals/574-remuera/`，原 PDF 未入库则 eval 报缺项。
+- **V2 Estimator** `/estimator`：并行图纸取量工作区。上传建筑图/结构图后做 SHA256 预检、分页渲染、Manifest、证据框、Floor Area / Beam / Roof / 门窗表取量、人工修正（必填理由）、审核队列与绑定价表版本的报价。无文字层且未配视觉密钥时不编造图号。金额仍只走价表；`MODEL` 费率不启用。导出绑定指定报价版本。工作区按浏览器会话隔离，不能打开别人的项目或原图。574 Remuera 评测目录在 `evals/574-remuera/`，原 PDF 未入库则 eval 报缺项。
 
 ## 报价源（2026-08-24 检索）
 
@@ -100,7 +100,7 @@ pnpm dev
 
 可选环境变量：
 
-- `DATABASE_URL`：默认 SQLite `server/data/projects.sqlite`（关系表：项目、地块快照、方案、成本版本、图纸集、价表版本、Estimator 工作区、后台任务、PDF 原件）。生产必须使用共享 Postgres（`postgres://` 或 `postgresql://` 会改写成 `postgresql+psycopg://`），不能把容器 `/tmp` SQLite 当唯一数据源；换实例或重启后同一 `project_id` / `job_id` 必须仍能读取。LangGraph 选址图 checkpoint 默认仍写本地 SQLite；若要把 checkpoint 也放进 Postgres，另设 `CHECKPOINT_DATABASE_URL` 并安装 `langgraph-checkpoint-postgres`。共享给别人用时，先停 API 再运行 `./scripts/purge-query-data.sh`，避免上一轮查询的地址、LIM 和图纸留在磁盘上。`GET /projects` 不返回全库列表。
+- `DATABASE_URL`：默认 SQLite `server/data/projects.sqlite`（关系表：项目、地块快照、方案、成本版本、图纸集、价表版本、Estimator 工作区、后台任务、PDF 原件、模型调用审计）。生产必须使用共享 Postgres（`postgres://` 或 `postgresql://` 会改写成 `postgresql+psycopg://`），不能把容器 `/tmp` SQLite 当唯一数据源；换实例或重启后同一 `project_id` / `job_id` 必须仍能读取。Estimator 按 `vsense_pilot` Cookie 隔离项目，列表不会返回别人的工作区。LangGraph 选址图 checkpoint 默认仍写本地 SQLite；若要把 checkpoint 也放进 Postgres，另设 `CHECKPOINT_DATABASE_URL` 并安装 `langgraph-checkpoint-postgres`。共享给别人用时，先停 API 再运行 `./scripts/purge-query-data.sh`，避免上一轮查询的地址、LIM 和图纸留在磁盘上。`GET /projects` 不返回全库列表。
 - `PM_HITL=1`：`pm_gate` 调用 `interrupt()`，把最终定价权留给项目经理（第一期屋主界面不画审核面板）。
 - `PRICE_API_URL`：价源第二实现；未设置时只用价表。
 - `ENGINE_URL`：前端服务端请求核算 API，默认 `http://127.0.0.1:8764`。
@@ -124,7 +124,7 @@ npx vercel whoami
 npx vercel deploy --prod --yes --scope xentechs-projects
 ```
 
-`ENGINE_URL` 由 Vercel service binding 注入，指向同一次部署里的 FastAPI 容器。浏览器 `/engine/*` 由根目录 `vercel.json` 改写到该容器；容器内 SQLite 与上传文件写在 `/tmp`，实例回收后会丢失，不会用缓存或假数据顶上。Vercel 对单次请求正文有约 4.5MB 硬限制（纯文本 `Request Entity Too Large`）。图纸 / LIM 大于约 3.5MB 时，浏览器会分片传到 `/engine/uploads/sessions`，再在容器里拼回原 PDF，单份仍不超过 15MB。
+`ENGINE_URL` 由 Vercel service binding 注入，指向同一次部署里的 FastAPI 容器。浏览器 `/engine/*` 由根目录 `vercel.json` 改写到该容器。生产 Estimator / 任务 / PDF 原件必须写在共享 Postgres（`DATABASE_URL`），不要依赖容器 `/tmp` SQLite。Vercel 对单次请求正文有约 4.5MB 硬限制（纯文本 `Request Entity Too Large`）。图纸 / LIM 大于约 3.5MB 时，浏览器会分片传到 `/engine/uploads/sessions`，再在容器里拼回原 PDF，单份仍不超过 15MB。
 
 图纸 / Estimator 的大模型需要公网可达的 CPA `/v1`。Vercel 访问不到 `192.168.52.81:8317`。当前演示走路由器端口映射的公网 CPA（`http://182.48.141.208:38317/v1`），**暂不加 IP 白名单、也不强制 gate**。以后要收紧时再开 `cpa-tunnel` 的 gate / Cloudflare Tunnel（见 `cpa-tunnel/README.md`）。写入现有项目：
 
@@ -154,7 +154,7 @@ docker run --rm -p 43124:43124 auckland-dev-cost
 
 `ENGINE_URL` 默认 `http://127.0.0.1:8764`。不要把 GitHub PAT 或议会密钥写进镜像。
 
-就绪检查：`https://demo-cost.vsense.co.nz/engine/drawings/verify/ready`。`configured: false` 表示未配置 `CPA_API_KEY` / `OPENAI_API_KEY`；`reachable: false` 表示公网还打不到 CPA `/v1`。
+就绪检查：`https://demo-cost.vsense.co.nz/engine/drawings/verify/ready`。`configured: false` 表示未配置 `CPA_API_KEY` / `OPENAI_API_KEY`；`reachable: false` 表示公网还打不到 CPA `/v1`。该接口不返回模型服务 URL。
 
 第二阶段在项目页上传 RC/BC PDF。正式 LIM 也在项目页由客户上传议会 PDF，只读文字层。仓库不附带某块地的批准图或 LIM；没有文字层的扫描件无法量尺寸或核对 LIR。门窗表对得上公开尺寸（例如 1800×1200、1200×1200 新铝窗，或 Hume 860 门扇）才计价，其余樘标缺项。
 

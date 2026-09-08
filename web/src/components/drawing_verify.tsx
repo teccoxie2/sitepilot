@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
 import type { DrawingAudit, DrawingChart, DrawingPageDebug, DrawingVerifyResult, DrawingVerifyZone } from "@/lib/api";
 import { nzdExact } from "@/lib/money";
+import { publicServiceNote } from "@/lib/estimator";
 import { readEngineJson, uploadPdfsToEngine } from "@/lib/engine_upload";
 
 const FIELD_LABELS: Record<string, string> = {
@@ -426,7 +427,7 @@ export default function DrawingVerify() {
         };
         if (cancelled) return;
         setLlmReady(Boolean(payload.llm));
-        setLlmNote(payload.note || "");
+        setLlmNote(publicServiceNote(payload.note || ""));
       })
       .catch(() => {
         if (!cancelled) {
@@ -506,7 +507,7 @@ export default function DrawingVerify() {
       <p className="text-sm tracking-[0.18em] text-[#7a5a2b]">VERIFY</p>
       <h1 className="mt-2 text-3xl font-semibold">RC / BC 图纸物料验证</h1>
       <p className="mt-3 max-w-3xl text-[15px] leading-7 text-[#5c6754]">
-        上传可选中文字的 Resource Consent 或 Building Consent PDF。系统按页读文字层：平面图如果几乎没有字会标出来且不做 OCR；门窗表、面积表、覆盖率表按行列抽出，要求每一行都留下核对。正则与大模型结果合并后套价。送给模型时优先保留表页，接地核对应全文。数量按公式、窗表或原文件数重算，单价只走价库。扫描件没有文字层会失败，不会用图像识别猜毫米，也不会采用模型写的金额。
+        这是旧版 RC/BC 文字层套价。系统只读文字层：平面图几乎无字会标出且不做 OCR；门窗表按行列抽出。数量按公式或窗表重算，单价只走价库。扫描件没有文字层会失败。分页、证据框、人工改数量请到图纸取量 V2 同一工作区处理。
       </p>
 
       {llmReady === false ? (

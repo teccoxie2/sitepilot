@@ -3,8 +3,14 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
-import type { EstimatorProject } from "@/lib/estimator";
-import { disciplineHealthLabel, processingStatusLabel } from "@/lib/estimator";
+import type { EstimatorEstimate, EstimatorProject } from "@/lib/estimator";
+import {
+  CORRECTION_REASONS,
+  SCOPE_OPTIONS,
+  disciplineHealthLabel,
+  processingStatusLabel,
+  publicServiceNote,
+} from "@/lib/estimator";
 import {
   filesFromOriginals,
   loadStoredWorkspace,
@@ -55,6 +61,15 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
   const [selectedDrawingId, setSelectedDrawingId] = useState<string | null>(null);
   const [selectedEvidenceId, setSelectedEvidenceId] = useState<string | null>(null);
   const [pageFailed, setPageFailed] = useState(false);
+  const [missingWorkspace, setMissingWorkspace] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editQuantity, setEditQuantity] = useState("");
+  const [editUnit, setEditUnit] = useState("");
+  const [editScope, setEditScope] = useState("08");
+  const [editReason, setEditReason] = useState("WRONG_DIMENSION");
+  const [editComment, setEditComment] = useState("");
+  const [viewedEstimate, setViewedEstimate] = useState<EstimatorEstimate | null>(null);
+  const [viewedFrozen, setViewedFrozen] = useState(false);
 
   const drawings = project?.drawings || [];
   const expectedDrawings = project?.expected_drawings || [];
@@ -77,6 +92,8 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
   const applyProject = (next: EstimatorProject) => {
     setProject(next);
+    setViewedEstimate(next.estimate);
+    setViewedFrozen(false);
     rememberEstimatorMeta({
       id: next.id,
       name: next.name,
@@ -213,6 +230,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     if (remote.ok) {
       const payload = (await readEngineJson(remote, "无法读取工作区")) as unknown as EstimatorProject;
       applyProject(payload);
+      setMissingWorkspace(false);
       setError("");
       if (payload.documents?.length) {
         await saveStoredWorkspace({
@@ -225,7 +243,12 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
       }
     } else {
       await remote.text().catch(() => "");
-      if (remote.status !== 404) throw new Error("无法读取工作区");
+      if (remote.status === 404) {
+        setMissingWorkspace(true);
+        setProject(null);
+        throw new Error("找不到这个图纸工作区。请从列表重新打开，或重新创建。");
+      }
+      throw new Error("无法读取工作区");
     }
     if (stored?.project?.documents?.length) {
       applyProject(stored.project);
@@ -249,7 +272,8 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     fetch("/engine/estimator/ready", { cache: "no-store" })
       .then(async (response) => {
         const payload = await readEngineJson(response, "无法确认视觉密钥。");
-        setReadyNote(typeof payload.note === "string" ? payload.note : "");
+        const note = typeof payload.note === "string" ? payload.note : "";
+        setReadyNote(publicServiceNote(note));
       })
       .catch(() => setReadyNote("无法确认视觉密钥。"));
     load()
@@ -302,7 +326,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     try {
       const response = await fetch(`/engine/estimator/projects/${projectId}/estimate`, { method: "POST" });
       const payload = (await readEngineJson(response, "无法生成报价")) as unknown as EstimatorProject;
-      setProject(payload);
+      applyProject(payload);
       setTab("estimate");
     } catch (caught: unknown) {
       setError(caught instanceof Error ? caught.message : "无法生成报价");
@@ -320,11 +344,114 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
         body: JSON.stringify({ reason_code: "OTHER" }),
       });
       const payload = (await readEngineJson(response, "审核失败")) as unknown as EstimatorProject;
-      setProject(payload);
+      applyProject(payload);
     } catch (caught: unknown) {
       setError(caught instanceof Error ? caught.message : "审核失败");
     }
   };
+
+  const handleOpenEvidence = (item: EstimatorProject["takeoff"][number]) => {
+    const evidence = (project?.evidence || []).find((row) => (item.evidence_ids || []).includes(row.id));
+    if (evidence?.drawing_id) {
+      setSelectedDrawingId(evidence.drawing_id);
+      setSelectedEvidenceId(evidence.id);
+    }
+    setTab("documents");
+  };
+
+  const startEdit = (item: EstimatorProject["takeoff"][number]) => {
+    setEditingId(item.id);
+    setEditQuantity(item.quantity == null ? "" : String(item.quantity));
+    setEditUnit(item.unit);
+    setEditScope(item.scope_code);
+    setEditReason("WRONG_DIMENSION");
+    setEditComment("");
+  };
+
+  const handleCorrectTakeoff = async (itemId: string) => {
+    setError("");
+    setBusy("正在保存修正并生成新报价版本…");
+    try {
+      const body: Record<string, unknown> = {
+        reason_code: editReason,
+        comment: editComment.trim() || null,
+        unit: editUnit.trim(),
+        scope_code: editScope,
+      };
+      if (editQuantity.trim() !== "") body.quantity = Number(editQuantity);
+      const response = await fetch(`/engine/estimator/projects/${projectId}/takeoff/${itemId}/correct`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const payload = (await readEngineJson(response, "无法保存修正")) as unknown as EstimatorProject;
+      applyProject(payload);
+      setEditingId(null);
+    } catch (caught: unknown) {
+      setError(caught instanceof Error ? caught.message : "无法保存修正");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  const handleOpenEstimateVersion = async (estimateId: string, frozen: boolean) => {
+    setError("");
+    try {
+      const response = await fetch(`/engine/estimator/projects/${projectId}/estimates/${estimateId}`, {
+        cache: "no-store",
+      });
+      const payload = await readEngineJson(response, "无法读取报价版本");
+      const estimate = payload.estimate as EstimatorEstimate | undefined;
+      if (!estimate) throw new Error("报价版本不存在");
+      setViewedEstimate(estimate);
+      setViewedFrozen(frozen);
+      setTab("estimate");
+    } catch (caught: unknown) {
+      setError(caught instanceof Error ? caught.message : "无法读取报价版本");
+    }
+  };
+
+  const handleExport = async (exportFormat: "json" | "csv") => {
+    const estimateId = viewedEstimate?.id || project?.estimate?.id;
+    const query = new URLSearchParams({ format: exportFormat });
+    if (estimateId) query.set("estimate_id", estimateId);
+    const response = await fetch(`/engine/estimator/projects/${projectId}/export?${query.toString()}`, {
+      cache: "no-store",
+    });
+    if (exportFormat === "csv") {
+      if (!response.ok) {
+        await readEngineJson(response, "无法导出");
+        return;
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `estimator-${projectId.slice(0, 8)}.csv`;
+      link.click();
+      URL.revokeObjectURL(url);
+      return;
+    }
+    const payload = await readEngineJson(response, "无法导出");
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `estimator-${projectId.slice(0, 8)}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  if (missingWorkspace) {
+    return (
+      <div className="mx-auto max-w-6xl px-4 py-10">
+        <p role="alert">{error || "找不到这个图纸工作区。"}</p>
+        <a href="/estimator" className="mt-4 inline-block text-sm underline">
+          返回工作区列表
+        </a>
+      </div>
+    );
+  }
 
   if (!project) {
     const waiting = !error || /项目不存在|当前引擎磁盘/.test(error);
@@ -377,6 +504,16 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
             审核队列：自动接受 {project.review_counts?.AUTO_ACCEPTED || 0} · 待审 {project.review_counts?.NEEDS_REVIEW || 0} ·
             未解决 {project.review_counts?.UNRESOLVED || 0}
           </p>
+          <div className="rounded-2xl border border-[#d9d0c0] bg-white p-4 text-sm leading-6 text-[#5c6754]">
+            <p className="font-medium text-[#1c2416]">当前能处理什么</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              <li>有文字层的建筑平面：建筑面积、门窗表件数与窗面积公式。</li>
+              <li>屋面斜面积文字，并按价表有效覆盖宽换算延米。</li>
+              <li>结构梁尺寸可进入取量，价表对不上则未计价，不编费率。</li>
+              <li>电气、给排水、暖通、景观等专业：没有文字证据就不生成工程量。</li>
+            </ul>
+            <p className="mt-3">下一步：上传图纸 → DOCUMENTS 核对证据 → TAKEOFF 人工修正（必填理由）→ ESTIMATE 导出绑定版本。</p>
+          </div>
           {(project.coverage || []).length ? (
             <div className="rounded-2xl border border-[#d9d0c0] bg-white p-4">
               <p className="text-sm font-medium">覆盖检查</p>
@@ -531,24 +668,116 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
       {tab === "takeoff" ? (
         <section className="mt-6 overflow-x-auto">
-          <table className="w-full min-w-[40rem] text-left text-sm">
+          <table className="w-full min-w-[48rem] text-left text-sm">
             <thead>
               <tr className="border-b border-[#eee6d8] text-xs text-[#7b8474]">
                 <th className="py-2 pr-3">科目</th>
                 <th className="py-2 pr-3">数量</th>
                 <th className="py-2 pr-3">状态</th>
                 <th className="py-2 pr-3">公式</th>
+                <th className="py-2 pr-3">操作</th>
               </tr>
             </thead>
             <tbody>
               {takeoff.map((item) => (
-                <tr key={item.id} className="border-b border-[#f3eee4]">
-                  <td className="py-2 pr-3">{item.description}</td>
+                <tr key={item.id} className="border-b border-[#f3eee4] align-top">
+                  <td className="py-2 pr-3">
+                    <button type="button" className="text-left hover:underline" onClick={() => handleOpenEvidence(item)}>
+                      {item.description}
+                    </button>
+                    <p className="text-xs text-[#7b8474]">科目 {item.scope_code}</p>
+                  </td>
                   <td className="py-2 pr-3">
                     {item.quantity ?? "—"} {item.unit}
                   </td>
                   <td className="py-2 pr-3">{item.status}</td>
                   <td className="py-2 pr-3 text-xs">{item.calculation_formula || "—"}</td>
+                  <td className="py-2 pr-3">
+                    <div className="flex flex-wrap gap-2">
+                      <Button type="button" variant="outline" className="h-9 px-3" onClick={() => handleOpenEvidence(item)}>
+                        回看证据
+                      </Button>
+                      <Button type="button" variant="ghost" className="h-9 px-3" onClick={() => startEdit(item)}>
+                        修正
+                      </Button>
+                    </div>
+                    {editingId === item.id ? (
+                      <form
+                        className="mt-3 space-y-2 rounded-xl border border-[#d9d0c0] bg-[#fffaf3] p-3"
+                        onSubmit={(event) => {
+                          event.preventDefault();
+                          void handleCorrectTakeoff(item.id);
+                        }}
+                      >
+                        <label className="block text-xs">
+                          数量
+                          <input
+                            value={editQuantity}
+                            onChange={(event) => setEditQuantity(event.target.value)}
+                            className="mt-1 h-9 w-full rounded-lg border border-[#d9d0c0] px-2"
+                            aria-label="修正数量"
+                          />
+                        </label>
+                        <label className="block text-xs">
+                          单位
+                          <input
+                            value={editUnit}
+                            onChange={(event) => setEditUnit(event.target.value)}
+                            className="mt-1 h-9 w-full rounded-lg border border-[#d9d0c0] px-2"
+                            aria-label="修正单位"
+                          />
+                        </label>
+                        <label className="block text-xs">
+                          科目
+                          <select
+                            value={editScope}
+                            onChange={(event) => setEditScope(event.target.value)}
+                            className="mt-1 h-9 w-full rounded-lg border border-[#d9d0c0] px-2"
+                            aria-label="修正科目"
+                          >
+                            {SCOPE_OPTIONS.map(([code, name]) => (
+                              <option key={code} value={code}>
+                                {code} {name}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                        <label className="block text-xs">
+                          理由
+                          <select
+                            value={editReason}
+                            onChange={(event) => setEditReason(event.target.value)}
+                            className="mt-1 h-9 w-full rounded-lg border border-[#d9d0c0] px-2"
+                            aria-label="修正理由"
+                            required
+                          >
+                            {CORRECTION_REASONS.map(([code, label]) => (
+                              <option key={code} value={code}>
+                                {label}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                        <label className="block text-xs">
+                          说明
+                          <input
+                            value={editComment}
+                            onChange={(event) => setEditComment(event.target.value)}
+                            className="mt-1 h-9 w-full rounded-lg border border-[#d9d0c0] px-2"
+                            aria-label="修正说明"
+                          />
+                        </label>
+                        <div className="flex gap-2">
+                          <Button type="submit" className="h-9 px-3" disabled={Boolean(busy)}>
+                            保存并刷新报价
+                          </Button>
+                          <Button type="button" variant="ghost" className="h-9 px-3" onClick={() => setEditingId(null)}>
+                            取消
+                          </Button>
+                        </div>
+                      </form>
+                    ) : null}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -584,32 +813,45 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
 
       {tab === "estimate" ? (
         <section className="mt-6 space-y-4">
-          <Button
-            type="button"
-            onClick={handleEstimate}
-            disabled={Boolean(busy) || project.status !== "READY"}
-          >
-            生成 / 刷新报价版本
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              type="button"
+              onClick={handleEstimate}
+              disabled={Boolean(busy) || project.status !== "READY"}
+            >
+              生成 / 刷新报价版本
+            </Button>
+            <Button type="button" variant="outline" disabled={!viewedEstimate} onClick={() => void handleExport("json")}>
+              导出 JSON
+            </Button>
+            <Button type="button" variant="outline" disabled={!viewedEstimate} onClick={() => void handleExport("csv")}>
+              导出 CSV
+            </Button>
+          </div>
+          {viewedFrozen ? (
+            <p className="text-sm text-[#9a6b12]" role="status">
+              正在查看历史报价版本 v{viewedEstimate?.version}，未按最新价表重算。旧版本金额保持冻结。
+            </p>
+          ) : null}
           {project.status !== "READY" ? (
             <p className="text-sm text-[#9a6b12]">
               {project.status === "AWAITING_UPLOAD" ? "请先上传图纸。" : "图纸尚未解析完成，不能生成报价。"}
             </p>
           ) : null}
-          {project.estimate ? (
+          {viewedEstimate ? (
             <>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                <Stat label="Expected" value={nzdExact(project.estimate.expected_total)} />
+                <Stat label="Expected" value={nzdExact(viewedEstimate.expected_total)} />
                 <Stat
                   label="Range"
-                  value={`${nzdExact(project.estimate.range_low)} – ${nzdExact(project.estimate.range_high)}`}
+                  value={`${nzdExact(viewedEstimate.range_low)} – ${nzdExact(viewedEstimate.range_high)}`}
                 />
-                <Stat label="Scope" value={`${Math.round(project.estimate.scope_completeness * 100)}%`} />
-                <Stat label="Pricing" value={`${Math.round(project.estimate.pricing_completeness * 100)}%`} />
+                <Stat label="Scope" value={`${Math.round(viewedEstimate.scope_completeness * 100)}%`} />
+                <Stat label="Pricing" value={`${Math.round(viewedEstimate.pricing_completeness * 100)}%`} />
               </div>
               <p className="text-sm text-[#5c6754]">
-                Reliability {project.estimate.reliability} · 绑定图纸集 v{project.estimate.document_set_version} · 价表{" "}
-                {project.estimate.pricebook_version}
+                Reliability {viewedEstimate.reliability} · 绑定图纸集 v{viewedEstimate.document_set_version} · 价表{" "}
+                {viewedEstimate.pricebook_version}
               </p>
               <table className="w-full min-w-[40rem] text-left text-sm">
                 <thead>
@@ -621,11 +863,14 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                   </tr>
                 </thead>
                 <tbody>
-                  {(project.estimate.quote_lines || []).map((line) => (
+                  {(viewedEstimate.quote_lines || []).map((line) => (
                     <tr key={line.id} className="border-b border-[#f3eee4]">
                       <td className="py-2 pr-3">{line.description}</td>
                       <td className="py-2 pr-3">{nzdExact(line.amount_incl_gst)}</td>
-                      <td className="py-2 pr-3">{line.status}</td>
+                      <td className="py-2 pr-3">
+                        {line.status}
+                        {line.payload?.unpriced_reason ? ` · ${line.payload.unpriced_reason}` : ""}
+                      </td>
                       <td className="py-2 pr-3 text-xs">
                         {line.payload?.source_url ? (
                           <a href={line.payload.source_url} className="underline">
@@ -634,12 +879,13 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                         ) : (
                           line.rate_id || "无费率"
                         )}
+                        {line.payload?.pack ? <p className="text-[#7b8474]">{line.payload.pack}</p> : null}
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <p className="text-sm text-[#9a6b12]">{project.estimate.payload?.note}</p>
+              <p className="text-sm text-[#9a6b12]">{viewedEstimate.payload?.note}</p>
             </>
           ) : (
             <p className="text-sm text-[#5c6754]">处理图纸后再生成报价。缺图与无价科目不会进入确定总价。</p>
@@ -651,9 +897,11 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
         <section className="mt-6 space-y-4">
           <h3 className="font-medium">报价版本</h3>
           <ul className="text-sm">
-            {(project.estimate_versions || []).map((item) => (
+            {(project.estimate_versions || []).map((item, index) => (
               <li key={item.id}>
-                v{item.version} · 图纸集 {item.document_set_version} · {nzdExact(item.expected_total)} · {item.created_at}
+                <button type="button" className="hover:underline" onClick={() => void handleOpenEstimateVersion(item.id, index > 0)}>
+                  v{item.version} · 图纸集 {item.document_set_version} · {nzdExact(item.expected_total)} · {item.created_at}
+                </button>
               </li>
             ))}
           </ul>

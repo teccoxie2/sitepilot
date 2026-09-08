@@ -5,7 +5,7 @@ from typing import Any
 from ..data_loader import pricebook
 from ..price_provider import get_price_provider
 from . import store
-from .completeness import build_coverage, completeness, discipline_health
+from .completeness import completeness
 from .enums import ROOF_COVER_WIDTH_M, SCOPE_TAXONOMY, UNCERTAINTY_BY_STATUS
 from .extract import is_opening_schedule_page
 
@@ -24,6 +24,20 @@ WINDOW_SKU_BY_MM = {
     (1200, 1200): "window_alu_1200x1200_dg",
     (1800, 1200): "window_alu_1800x1200_dg",
     (1800, 600): "window_alu_1800x600_dg",
+}
+
+EDITABLE_TAKEOFF_FIELDS = {"quantity", "unit", "scope_code"}
+ALLOWED_SCOPE_CODES = {code for code, _name in SCOPE_TAXONOMY}
+UNIT_ALIASES = {
+    "ea": "each",
+    "each": "each",
+    "nr": "each",
+    "item": "each",
+    "m2": "m2",
+    "m²": "m2",
+    "sqm": "m2",
+    "lm": "lm",
+    "m": "lm",
 }
 
 SKU_BY_KIND = {
@@ -342,7 +356,11 @@ def build_estimate(project_id: str) -> dict[str, Any]:
             lines.append(_quote_line(item, None, "UNRESOLVED", 0.0))
             continue
         if rate is None or quantity is None:
-            lines.append(_quote_line(item, None, "UNPRICED", 0.0))
+            reason = "NO_RATE" if rate is None else "NO_QUANTITY"
+            lines.append(_quote_line(item, rate, "UNPRICED", 0.0, unpriced_reason=reason))
+            continue
+        if not units_compatible(item.get("unit"), rate.get("unit")):
+            lines.append(_quote_line(item, rate, "UNPRICED", 0.0, unpriced_reason="UNIT_MISMATCH"))
             continue
         amount = round(float(quantity) * float(rate["unit_price"]), 2)
         uncertainty = UNCERTAINTY_BY_STATUS.get(item["status"])
@@ -379,13 +397,35 @@ def build_estimate(project_id: str) -> dict[str, Any]:
         "not_included": not_included,
         "scope_taxonomy": [{"code": code, "name": name} for code, name in SCOPE_TAXONOMY],
         "v2_takeoff_scope": ["Floor Area", "Structural Beam", "Roof", "Windows & Doors"],
-        "note": "未计价与未解决项不进入确定总价。金额只来自价表，不采用模型费率。",
+        "note": "未计价与未解决项不进入确定总价。金额只来自价表，不采用模型费率。缺价与单位不符不会伪装成 0 成交。",
     }
     store.save_estimate(project_id, payload, lines)
     return store.get_project(project_id) or {}
 
 
-def _quote_line(item: dict[str, Any], rate: dict[str, Any] | None, status: str, amount: float) -> dict[str, Any]:
+def units_compatible(takeoff_unit: str | None, price_unit: str | None) -> bool:
+    takeoff_norm = _normalize_unit(takeoff_unit)
+    price_norm = _normalize_unit(price_unit)
+    if not takeoff_norm or not price_norm:
+        return True
+    return takeoff_norm == price_norm
+
+
+def _normalize_unit(unit: str | None) -> str:
+    raw = str(unit or "").strip().lower().replace(" ", "")
+    if not raw:
+        return ""
+    return UNIT_ALIASES.get(raw, raw)
+
+
+def _quote_line(
+    item: dict[str, Any],
+    rate: dict[str, Any] | None,
+    status: str,
+    amount: float,
+    unpriced_reason: str | None = None,
+) -> dict[str, Any]:
+    book_item = (rate or {}).get("item") or {}
     return {
         "id": store.new_id(),
         "takeoff_id": item["id"],
@@ -393,7 +433,7 @@ def _quote_line(item: dict[str, Any], rate: dict[str, Any] | None, status: str, 
         "description": item["description"],
         "quantity": item.get("quantity"),
         "unit": item["unit"],
-        "rate_id": ((rate or {}).get("item") or {}).get("id") or (rate or {}).get("sku") or item.get("sku"),
+        "rate_id": book_item.get("id") or (rate or {}).get("sku") or item.get("sku"),
         "amount_incl_gst": amount,
         "status": status,
         "payload": {
@@ -402,8 +442,14 @@ def _quote_line(item: dict[str, Any], rate: dict[str, Any] | None, status: str, 
             "retrieved_at": (rate or {}).get("as_of"),
             "unit_price": (rate or {}).get("unit_price"),
             "supplier_sku": (rate or {}).get("sku"),
+            "gst_included": (rate or {}).get("gst_included"),
+            "pack": book_item.get("pack"),
+            "price_unit": (rate or {}).get("unit"),
+            "takeoff_unit": item.get("unit"),
+            "pricebook_version": (rate or {}).get("version"),
             "formula": item.get("calculation_formula"),
             "inputs": item.get("calculation_inputs"),
+            "unpriced_reason": unpriced_reason,
         },
     }
 
@@ -469,20 +515,29 @@ def apply_review_action(
         if not field_name:
             raise ValueError("修正必须指定字段")
         original = _current_field(item.entity_type, item.entity_id, field_name)
-        _apply_field(item.entity_type, item.entity_id, field_name, corrected_value)
+        if item.entity_type == "takeoff":
+            correct_takeoff_item(
+                project_id,
+                item.entity_id,
+                fields={field_name: corrected_value},
+                reason_code=reason_code,
+                comment=comment,
+            )
+        else:
+            _apply_field(item.entity_type, item.entity_id, field_name, corrected_value)
+            store.add_correction(
+                {
+                    "project_id": project_id,
+                    "entity_type": item.entity_type,
+                    "entity_id": item.entity_id,
+                    "field_name": field_name,
+                    "original_value": original,
+                    "corrected_value": corrected_value,
+                    "reason_code": reason_code,
+                    "comment": comment,
+                }
+            )
         store.update_review_status(review_id, "AUTO_ACCEPTED")
-        store.add_correction(
-            {
-                "project_id": project_id,
-                "entity_type": item.entity_type,
-                "entity_id": item.entity_id,
-                "field_name": field_name,
-                "original_value": original,
-                "corrected_value": corrected_value,
-                "reason_code": reason_code,
-                "comment": comment,
-            }
-        )
     else:
         raise ValueError("未知审核动作")
     return store.get_project(project_id) or {}
@@ -516,3 +571,243 @@ def _apply_field(entity_type: str, entity_id: str, field_name: str, value: Any) 
             float(value["x2"]),
             float(value["y2"]),
         )
+
+
+def correct_takeoff_item(
+    project_id: str,
+    item_id: str,
+    *,
+    fields: dict[str, Any],
+    reason_code: str,
+    comment: str | None = None,
+) -> dict[str, Any]:
+    if not str(reason_code or "").strip():
+        raise ValueError("修正必须填写理由")
+    row = store.get_takeoff_item(item_id)
+    if not row or row.project_id != project_id:
+        raise KeyError(item_id)
+    changes = _validated_takeoff_fields(fields)
+    if not changes:
+        raise ValueError("没有可保存的修正字段")
+    for field_name, value in changes.items():
+        original = getattr(row, field_name, None)
+        store.update_takeoff_fields(item_id, {field_name: value})
+        store.add_correction(
+            {
+                "project_id": project_id,
+                "entity_type": "takeoff",
+                "entity_id": item_id,
+                "field_name": field_name,
+                "original_value": original,
+                "corrected_value": value,
+                "reason_code": reason_code,
+                "comment": comment,
+            }
+        )
+    refreshed = store.get_takeoff_item(item_id)
+    if refreshed:
+        refresh_derived_takeoff(project_id, refreshed)
+    project = store.get_project(project_id) or {}
+    if project.get("status") == "READY" and project.get("documents"):
+        build_estimate(project_id)
+    return store.get_project(project_id) or {}
+
+
+def _validated_takeoff_fields(fields: dict[str, Any]) -> dict[str, Any]:
+    changes: dict[str, Any] = {}
+    for key, value in fields.items():
+        if key not in EDITABLE_TAKEOFF_FIELDS:
+            raise ValueError("只能修正数量、单位或科目，不能手写金额")
+        if key == "quantity":
+            if value is None or value == "":
+                changes["quantity"] = None
+            else:
+                changes["quantity"] = float(value)
+        elif key == "unit":
+            unit = str(value or "").strip()
+            if not unit:
+                raise ValueError("单位不能为空")
+            changes["unit"] = unit
+        elif key == "scope_code":
+            code = str(value or "").strip()
+            if code not in ALLOWED_SCOPE_CODES:
+                raise ValueError("科目代码不在分类表中")
+            changes["scope_code"] = code
+    return changes
+
+
+def refresh_derived_takeoff(project_id: str, source: Any) -> None:
+    inputs = dict(getattr(source, "calculation_inputs", None) or {})
+    kind = inputs.get("evidence_kind")
+    evidence_ids = set(getattr(source, "evidence_ids", None) or [])
+    siblings = store.list_takeoff_items(project_id)
+    if kind == "window_unit":
+        width = inputs.get("width_mm")
+        height = inputs.get("height_mm")
+        quantity = getattr(source, "quantity", None)
+        if width is None or height is None or quantity is None:
+            return
+        area = round(float(quantity) * (float(width) / 1000.0) * (float(height) / 1000.0), 4)
+        mark = inputs.get("mark")
+        for other in siblings:
+            if other.id == source.id or other.status != "CALCULATED":
+                continue
+            other_inputs = dict(other.calculation_inputs or {})
+            if other.calculation_formula != "qty * (width_mm/1000) * (height_mm/1000)":
+                continue
+            same_mark = bool(mark) and other_inputs.get("mark") == mark
+            same_evidence = bool(evidence_ids) and set(other.evidence_ids or []) == evidence_ids
+            if not (same_mark or same_evidence):
+                continue
+            other_inputs["qty"] = quantity
+            store.update_takeoff_fields(other.id, {"quantity": area, "calculation_inputs": other_inputs})
+        return
+    if kind == "roof_area" and getattr(source, "quantity", None) is not None:
+        roof_m2 = float(source.quantity)
+        for other in siblings:
+            if other.id == source.id or other.status != "CALCULATED":
+                continue
+            other_inputs = dict(other.calculation_inputs or {})
+            formula = other.calculation_formula
+            if formula == "roof_m2 / cover_width_m":
+                cover = float(other_inputs.get("cover_width_m") or ROOF_COVER_WIDTH_M)
+                other_inputs["roof_m2"] = roof_m2
+                store.update_takeoff_fields(
+                    other.id,
+                    {"quantity": round(roof_m2 / cover, 4), "calculation_inputs": other_inputs},
+                )
+            elif formula == "roof_m2":
+                other_inputs["roof_m2"] = roof_m2
+                store.update_takeoff_fields(other.id, {"quantity": roof_m2, "calculation_inputs": other_inputs})
+
+
+def export_project(project_id: str, estimate_id: str | None = None) -> dict[str, Any]:
+    project = store.get_project(project_id)
+    if not project:
+        raise KeyError(project_id)
+    estimate = None
+    if estimate_id:
+        estimate = store.get_saved_estimate(project_id, estimate_id)
+        if not estimate:
+            raise KeyError(estimate_id)
+    else:
+        estimate = project.get("estimate")
+    unresolved = [item for item in project.get("review") or [] if item.get("queue_status") == "UNRESOLVED"]
+    unpriced = [
+        line
+        for line in (estimate or {}).get("quote_lines") or []
+        if line.get("status") in {"UNPRICED", "UNRESOLVED"}
+    ]
+    return {
+        "project_id": project_id,
+        "exported_at": store.now_iso(),
+        "name": project.get("name"),
+        "status": project.get("status"),
+        "document_set_version": project.get("document_set_version"),
+        "pricebook_version": (estimate or {}).get("pricebook_version") or project.get("pricebook_version"),
+        "estimate": estimate,
+        "current_takeoff": project.get("takeoff") or [],
+        "unpriced": unpriced,
+        "unresolved_review": unresolved,
+        "correction_events": project.get("correction_events") or [],
+        "note": "导出绑定该报价版本的冻结分项，未按最新价重算。当前工程量单独列出，便于对照修正后的取量。",
+    }
+
+
+def quote_lines_csv(estimate: dict[str, Any]) -> str:
+    import csv
+    import io
+
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(
+        [
+            "takeoff_id",
+            "description",
+            "quantity",
+            "unit",
+            "rate_id",
+            "unit_price",
+            "amount_incl_gst",
+            "status",
+            "gst_included",
+            "pack",
+            "source_url",
+            "retrieved_at",
+            "unpriced_reason",
+        ]
+    )
+    for line in estimate.get("quote_lines") or []:
+        payload = line.get("payload") or {}
+        writer.writerow(
+            [
+                line.get("takeoff_id") or "",
+                line.get("description") or "",
+                line.get("quantity") if line.get("quantity") is not None else "",
+                line.get("unit") or "",
+                line.get("rate_id") or "",
+                payload.get("unit_price") if payload.get("unit_price") is not None else "",
+                line.get("amount_incl_gst"),
+                line.get("status") or "",
+                payload.get("gst_included"),
+                payload.get("pack") or "",
+                payload.get("source_url") or "",
+                payload.get("retrieved_at") or "",
+                payload.get("unpriced_reason") or "",
+            ]
+        )
+    return buffer.getvalue()
+
+
+def diff_estimates(project_id: str, estimate_id: str, against_id: str) -> dict[str, Any]:
+    base = store.get_saved_estimate(project_id, estimate_id)
+    other = store.get_saved_estimate(project_id, against_id)
+    if not base or not other:
+        raise KeyError("报价版本不存在")
+    base_map = _line_index(base.get("quote_lines") or [])
+    other_map = _line_index(other.get("quote_lines") or [])
+    keys = list(dict.fromkeys([*base_map.keys(), *other_map.keys()]))
+    lines: list[dict[str, Any]] = []
+    for key in keys:
+        left = base_map.get(key)
+        right = other_map.get(key)
+        left_payload = (left or {}).get("payload") or {}
+        right_payload = (right or {}).get("payload") or {}
+        lines.append(
+            {
+                "key": key,
+                "description": (left or right or {}).get("description"),
+                "base_quantity": None if left is None else left.get("quantity"),
+                "against_quantity": None if right is None else right.get("quantity"),
+                "base_unit_price": left_payload.get("unit_price"),
+                "against_unit_price": right_payload.get("unit_price"),
+                "base_amount": None if left is None else left.get("amount_incl_gst"),
+                "against_amount": None if right is None else right.get("amount_incl_gst"),
+                "base_status": None if left is None else left.get("status"),
+                "against_status": None if right is None else right.get("status"),
+            }
+        )
+    return {
+        "base": {
+            "id": base["id"],
+            "version": base["version"],
+            "expected_total": base["expected_total"],
+            "pricebook_version": base.get("pricebook_version"),
+        },
+        "against": {
+            "id": other["id"],
+            "version": other["version"],
+            "expected_total": other["expected_total"],
+            "pricebook_version": other.get("pricebook_version"),
+        },
+        "lines": lines,
+        "note": "比较冻结报价行，不按当前价表重算。",
+    }
+
+
+def _line_index(lines: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    indexed: dict[str, dict[str, Any]] = {}
+    for line in lines:
+        key = str(line.get("takeoff_id") or line.get("description") or line.get("id"))
+        indexed[key] = line
+    return indexed

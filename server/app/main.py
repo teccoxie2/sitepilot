@@ -15,6 +15,8 @@ from .drawing_flow import parse_files, run_drawings
 from .drawing_jobs import get_verify_job, save_upload_dir, submit_verify_job
 from .drawing_llm import probe_llm
 from .drawing_parse import MAX_PDF_BYTES
+from .identity import attach_pilot_cookie, bind_owner_id, reset_owner_id, resolve_owner_id
+from .llm_audit import public_llm_probe
 from .upload_chunks import assemble_session, create_session, delete_session, put_chunk
 from .gis import (
     ADDRESS_SOURCE_NAME,
@@ -64,6 +66,18 @@ def _strip_public_engine_prefix(scope: dict[str, Any]) -> None:
         text = raw_path.decode("latin-1")
         if text == "/engine" or text.startswith("/engine/"):
             scope["raw_path"] = (text[len("/engine") :] or "/").encode("latin-1")
+
+
+@app.middleware("http")
+async def bind_pilot_identity(request: Request, call_next) -> Response:
+    owner_id = resolve_owner_id(request)
+    token = bind_owner_id(owner_id)
+    try:
+        response = await call_next(request)
+        attach_pilot_cookie(request, response, owner_id)
+        return response
+    finally:
+        reset_owner_id(token)
 
 
 @app.middleware("http")
@@ -434,7 +448,7 @@ def post_drawings_from_session(
 
 @app.get("/drawings/verify/ready")
 def drawings_verify_ready(chat: bool = False) -> dict[str, Any]:
-    probed = probe_llm(ping_chat=chat)
+    probed = public_llm_probe(probe_llm(ping_chat=chat))
     ready = bool(probed.get("configured") and probed.get("reachable") and probed.get("authorized"))
     return {
         "llm": ready,
@@ -443,7 +457,6 @@ def drawings_verify_ready(chat: bool = False) -> dict[str, Any]:
         "authorized": probed.get("authorized"),
         "model": probed.get("model"),
         "models": probed.get("models") or [],
-        "base_url": probed.get("base_url"),
         "chat_ok": probed.get("chat_ok"),
         "note": probed.get("note"),
     }

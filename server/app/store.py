@@ -6,13 +6,14 @@ import uuid
 from datetime import datetime, timezone
 from typing import Any
 
-from sqlalchemy import create_engine, delete, select
+from sqlalchemy import create_engine, delete, inspect, select, text
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session, sessionmaker
 
 from .data_loader import pricebook
 from .estimator import models as _estimator_models  # noqa: F401
 from .models import Base, CostEstimate, DocumentSet, PriceBookVersion, Project, SchemeOption, SiteSnapshot
+from .models import BackgroundJob, LlmCallAudit  # noqa: F401
 from .runtime_paths import writable_root
 
 _engine: Engine | None = None
@@ -43,9 +44,28 @@ def get_engine() -> Engine:
             kwargs["pool_pre_ping"] = True
         _engine = create_engine(url, **kwargs)
         Base.metadata.create_all(_engine)
+        _ensure_columns(_engine)
         _SessionLocal = sessionmaker(_engine, expire_on_commit=False)
     assert _SessionLocal is not None
     return _engine
+
+
+def _ensure_columns(engine: Engine) -> None:
+    inspector = inspect(engine)
+    wanted = {
+        "estimator_projects": {"owner_id": "VARCHAR"},
+        "background_jobs": {"owner_id": "VARCHAR"},
+    }
+    table_names = set(inspector.get_table_names())
+    with engine.begin() as conn:
+        for table, columns in wanted.items():
+            if table not in table_names:
+                continue
+            existing = {item["name"] for item in inspector.get_columns(table)}
+            for name, sql_type in columns.items():
+                if name in existing:
+                    continue
+                conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {name} {sql_type}"))
 
 
 def session() -> Session:

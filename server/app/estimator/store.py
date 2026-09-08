@@ -11,6 +11,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.attributes import flag_modified
 
 from ..data_loader import pricebook
+from ..identity import get_owner_id
 from ..runtime_paths import writable_root
 from ..store import session
 from .completeness import build_coverage, discipline_health
@@ -52,7 +53,7 @@ def _parse_project_id(project_id: str) -> str:
         raise ValueError("无效工作区编号") from exc
 
 
-def _insert_project(project_id: str, name: str | None, address: str | None) -> None:
+def _insert_project(project_id: str, name: str | None, address: str | None, owner_id: str | None) -> None:
     with session() as db:
         db.add(
             EstimatorProject(
@@ -62,14 +63,15 @@ def _insert_project(project_id: str, name: str | None, address: str | None) -> N
                 created_at=now_iso(),
                 status="AWAITING_UPLOAD",
                 document_set_version=1,
+                owner_id=owner_id,
             )
         )
         db.commit()
 
 
-def create_project(name: str, address: str | None = None) -> dict[str, Any]:
+def create_project(name: str, address: str | None = None, owner_id: str | None = None) -> dict[str, Any]:
     project_id = new_id()
-    _insert_project(project_id, name, address)
+    _insert_project(project_id, name, address, owner_id or get_owner_id())
     return get_project(project_id) or {"id": project_id}
 
 
@@ -79,7 +81,7 @@ def ensure_project(project_id: str, name: str | None = None, address: str | None
     if existing:
         return existing
     try:
-        _insert_project(parsed_id, name, address)
+        _insert_project(parsed_id, name, address, get_owner_id())
     except IntegrityError:
         existing = get_project(parsed_id)
         if existing:
@@ -88,9 +90,12 @@ def ensure_project(project_id: str, name: str | None = None, address: str | None
     return get_project(parsed_id) or {"id": parsed_id}
 
 
-def list_projects() -> list[dict[str, Any]]:
+def list_projects(owner_id: str | None = None) -> list[dict[str, Any]]:
     with session() as db:
-        rows = db.scalars(select(EstimatorProject).order_by(EstimatorProject.created_at.desc())).all()
+        query = select(EstimatorProject).order_by(EstimatorProject.created_at.desc())
+        if owner_id:
+            query = query.where(EstimatorProject.owner_id == owner_id)
+        rows = db.scalars(query).all()
     return [
         {
             "id": row.id,
@@ -107,6 +112,11 @@ def list_projects() -> list[dict[str, Any]]:
 def get_project_row(project_id: str) -> EstimatorProject | None:
     with session() as db:
         return db.get(EstimatorProject, project_id)
+
+
+def project_owner_id(project_id: str) -> str | None:
+    row = get_project_row(project_id)
+    return None if row is None else row.owner_id
 
 
 def add_document(
@@ -416,6 +426,34 @@ def get_takeoff_item(item_id: str) -> EstimatorTakeoffItem | None:
         return db.get(EstimatorTakeoffItem, item_id)
 
 
+def list_takeoff_items(project_id: str) -> list[EstimatorTakeoffItem]:
+    with session() as db:
+        return list(db.scalars(select(EstimatorTakeoffItem).where(EstimatorTakeoffItem.project_id == project_id)).all())
+
+
+def get_saved_estimate(project_id: str, estimate_id: str) -> dict[str, Any] | None:
+    with session() as db:
+        row = db.get(EstimatorEstimate, estimate_id)
+        if not row or row.project_id != project_id:
+            return None
+        lines = db.scalars(select(EstimatorQuoteLine).where(EstimatorQuoteLine.estimate_id == estimate_id)).all()
+        return _estimate_dict(row, list(lines))
+
+
+def list_saved_estimates(project_id: str) -> list[dict[str, Any]]:
+    with session() as db:
+        rows = db.scalars(
+            select(EstimatorEstimate)
+            .where(EstimatorEstimate.project_id == project_id)
+            .order_by(EstimatorEstimate.version.desc())
+        ).all()
+        out: list[dict[str, Any]] = []
+        for row in rows:
+            lines = db.scalars(select(EstimatorQuoteLine).where(EstimatorQuoteLine.estimate_id == row.id)).all()
+            out.append(_estimate_dict(row, list(lines)))
+        return out
+
+
 def get_evidence(item_id: str) -> EstimatorEvidence | None:
     with session() as db:
         return db.get(EstimatorEvidence, item_id)
@@ -448,6 +486,8 @@ def update_takeoff_fields(item_id: str, fields: dict[str, Any]) -> None:
         for key, value in fields.items():
             if hasattr(row, key):
                 setattr(row, key, value)
+                if key in {"calculation_inputs", "evidence_ids"}:
+                    flag_modified(row, key)
         db.commit()
 
 

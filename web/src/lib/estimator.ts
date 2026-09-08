@@ -135,43 +135,78 @@ export interface EstimatorProject {
     comment?: string | null;
     created_at: string;
   }>;
-  estimate: {
-    version: number;
-    document_set_version: number;
-    pricebook_version?: string | null;
-    expected_total: number;
-    range_low: number;
-    range_high: number;
-    scope_completeness: number;
-    pricing_completeness: number;
-    reliability: string;
-    quote_lines: Array<{
-      id: string;
-      takeoff_id?: string | null;
-      scope_code: string;
-      description: string;
-      quantity?: number | null;
-      unit: string;
-      rate_id?: string | null;
-      amount_incl_gst: number;
-      status: string;
-      payload?: {
-        source_url?: string | null;
-        source_name?: string | null;
-        formula?: string | null;
-      };
-    }>;
-    payload?: {
-      not_included?: unknown[];
-      note?: string;
-      status_counts?: Record<string, number>;
-    };
-  } | null;
+  estimate: EstimatorEstimate | null;
   estimate_versions: Array<{
     id: string;
     version: number;
     document_set_version: number;
     expected_total: number;
     created_at: string;
+    pricebook_version?: string | null;
   }>;
+}
+
+export interface EstimatorQuoteLine {
+  id: string;
+  takeoff_id?: string | null;
+  scope_code: string;
+  description: string;
+  quantity?: number | null;
+  unit: string;
+  rate_id?: string | null;
+  amount_incl_gst: number;
+  status: string;
+  payload?: {
+    source_url?: string | null;
+    source_name?: string | null;
+    formula?: string | null;
+    unit_price?: number | null;
+    retrieved_at?: string | null;
+    gst_included?: boolean | null;
+    pack?: string | null;
+    price_unit?: string | null;
+    takeoff_unit?: string | null;
+    unpriced_reason?: string | null;
+  };
+}
+
+export interface EstimatorEstimate {
+  id?: string;
+  version: number;
+  document_set_version: number;
+  pricebook_version?: string | null;
+  expected_total: number;
+  range_low: number;
+  range_high: number;
+  scope_completeness: number;
+  pricing_completeness: number;
+  reliability: string;
+  created_at?: string;
+  quote_lines: EstimatorQuoteLine[];
+  payload?: {
+    not_included?: unknown[];
+    note?: string;
+    status_counts?: Record<string, number>;
+  };
+}
+
+export const SCOPE_OPTIONS = [
+  ["05", "Structure"],
+  ["07", "Roofing"],
+  ["08", "Windows & Doors"],
+] as const;
+
+export const CORRECTION_REASONS = [
+  ["WRONG_DIMENSION", "尺寸/数量有误"],
+  ["WRONG_UNIT", "单位有误"],
+  ["WRONG_SCOPE_MAPPING", "科目映射有误"],
+  ["OCR_ERROR", "读数有误"],
+  ["DOUBLE_COUNT", "重复计量"],
+  ["OTHER", "其他（须填写说明）"],
+] as const;
+
+export function publicServiceNote(note: string): string {
+  return note
+    .replace(/https?:\/\/\S+/gi, "已配置的模型服务")
+    .replace(/\b\d{1,3}(?:\.\d{1,3}){3}(?::\d+)?(?:\/\S*)?/g, "已配置的模型服务");
 }

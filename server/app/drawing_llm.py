@@ -435,22 +435,36 @@ def _chat_completion(
         "messages": messages,
     }
     with httpx.Client(timeout=timeout) as client:
-        response = client.post(
-            f"{base}/chat/completions",
-            headers=llm_headers(),
-            json={**body, "response_format": {"type": "json_object"}},
-        )
-        if response.status_code >= 400:
-            retry = client.post(f"{base}/chat/completions", headers=llm_headers(), json=body)
-            retry.raise_for_status()
-            payload = retry.json()
-        else:
-            response.raise_for_status()
-            payload = response.json()
-    content = payload["choices"][0]["message"]["content"]
-    if isinstance(content, list):
-        content = "".join(str(part.get("text") or part) if isinstance(part, dict) else str(part) for part in content)
-    return str(content or ""), str(payload.get("model") or model)
+        from fastapi import HTTPException
+        from .llm_audit import assert_llm_quota, record_llm_call
+
+        assert_llm_quota()
+        try:
+            response = client.post(
+                f"{base}/chat/completions",
+                headers=llm_headers(),
+                json={**body, "response_format": {"type": "json_object"}},
+            )
+            if response.status_code >= 400:
+                retry = client.post(f"{base}/chat/completions", headers=llm_headers(), json=body)
+                retry.raise_for_status()
+                payload = retry.json()
+            else:
+                response.raise_for_status()
+                payload = response.json()
+        except HTTPException:
+            raise
+        except Exception:
+            record_llm_call(kind="drawing-chat", model_name=model, status="error")
+            raise
+        content = payload["choices"][0]["message"]["content"]
+        if isinstance(content, list):
+            content = "".join(
+                str(part.get("text") or part) if isinstance(part, dict) else str(part) for part in content
+            )
+        used = str(payload.get("model") or model)
+        record_llm_call(kind="drawing-chat", model_name=used, status="ok")
+        return str(content or ""), used
 
 
 def charts_prompt_block(charts: list[dict[str, Any]] | None) -> str:

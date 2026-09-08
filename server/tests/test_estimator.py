@@ -1,5 +1,4 @@
 from pathlib import Path
-import time
 import uuid
 
 import fitz
@@ -257,21 +256,7 @@ def test_get_missing_workspace_is_explicit_404(tmp_path, monkeypatch):
     assert "找不到这个图纸工作区" in response.json()["detail"]
 
 
-def _wait_estimator_job(job_id: str, timeout_sec: float = 30.0) -> dict:
-    deadline = time.time() + timeout_sec
-    last = None
-    while time.time() < deadline:
-        last = client.get(f"/estimator/jobs/{job_id}")
-        if last.status_code == 200:
-            payload = last.json()
-            if payload.get("status") in {"ok", "error"}:
-                return payload
-        time.sleep(0.2)
-    assert last is not None
-    raise AssertionError(f"job {job_id} did not finish: {last.status_code} {last.text}")
-
-
-def test_upload_recreates_workspace_on_this_instance(tmp_path, monkeypatch):
+def test_upload_unknown_workspace_is_404(tmp_path, monkeypatch):
     _isolated_db(tmp_path, monkeypatch)
     project_id = str(uuid.uuid4())
     path = tmp_path / "architectural.pdf"
@@ -282,19 +267,8 @@ def test_upload_recreates_workspace_on_this_instance(tmp_path, monkeypatch):
             files=[("files", ("architectural.pdf", handle, "application/pdf"))],
             data={"kinds": "ARCHITECTURAL", "workspace_name": "574"},
         )
-    assert response.status_code == 202
-    body = response.json()
-    assert body["job_id"]
-    assert body["project"]["id"] == project_id
-    assert body["project"]["name"] == "574"
-    assert body["project"]["documents"]
-    assert body["project"]["documents"][0]["filename"] == "architectural.pdf"
-    finished = _wait_estimator_job(body["job_id"])
-    assert finished["status"] == "ok"
-    result = finished["result"]
-    assert result["id"] == project_id
-    assert result["status"] == "READY"
-    assert result["documents"][0]["filename"] == "architectural.pdf"
+    assert response.status_code == 404
+    assert "找不到这个图纸工作区" in response.json()["detail"]
 
 
 def test_create_survives_engine_reset_and_empty_estimate_is_blocked(tmp_path, monkeypatch):

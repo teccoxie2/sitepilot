@@ -8,11 +8,11 @@ export default function DrawingTakeoffPage() {
   return (
     <div>
       <p className="mx-auto max-w-6xl px-4 pt-6 text-sm text-[#5c6754] sm:px-8">
-        文字层套价仍可用本页。扫描件 / Manifest / 证据框请用{" "}
+        这是旧版文字层物料验证，用于对照正则与价库。扫描件、分页 Manifest、证据框和人工修正请用{" "}
         <Link href="/estimator" className="underline">
           图纸取量 V2
         </Link>
-        。
+        ，不要在本页另开一套互不相通的项目。
       </p>
       <DrawingVerify />
     </div>

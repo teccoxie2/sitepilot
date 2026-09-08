@@ -6,6 +6,7 @@ from typing import Any
 
 from fastapi import HTTPException
 
+from .identity import get_owner_id
 from .models import BackgroundJob
 from .store import session
 
@@ -28,8 +29,9 @@ def _safe_job_id(job_id: str) -> str:
     return cleaned
 
 
-def create_job(kind: str, note: str) -> dict[str, Any]:
+def create_job(kind: str, note: str, owner_id: str | None = None) -> dict[str, Any]:
     job_id = uuid.uuid4().hex
+    owner = owner_id if owner_id is not None else get_owner_id()
     with session() as db:
         row = BackgroundJob(
             id=job_id,
@@ -39,6 +41,7 @@ def create_job(kind: str, note: str) -> dict[str, Any]:
             detail=None,
             result=None,
             created_at=time.time(),
+            owner_id=owner,
         )
         db.add(row)
         db.commit()
@@ -61,13 +64,17 @@ def read_job(
     job_id: str,
     missing_detail: str = "任务不存在或已过期。",
     kind: str | None = None,
+    owner_id: str | None = None,
 ) -> dict[str, Any]:
     parsed = _safe_job_id(job_id)
+    requester = owner_id if owner_id is not None else get_owner_id()
     with session() as db:
         row = db.get(BackgroundJob, parsed)
         if not row:
             raise HTTPException(status_code=404, detail=missing_detail)
         if kind and row.kind != kind:
+            raise HTTPException(status_code=404, detail=missing_detail)
+        if row.owner_id and requester and row.owner_id != requester:
             raise HTTPException(status_code=404, detail=missing_detail)
         if time.time() - float(row.created_at or 0) > JOB_TTL_SEC:
             db.delete(row)

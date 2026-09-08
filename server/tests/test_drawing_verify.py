@@ -9,6 +9,7 @@ from app.drawing_llm import llm_base_url, llm_headers, probe_llm
 from app.drawing_parse import extract_from_text
 from app.drawing_verify import group_lines_by_zone, verify_drawing_parts, verify_drawing_parts_rules, zone_for_line
 from app.main import app
+from app.store import reset_engine
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from test_drawing_parse import BC_TEXT, RC_TEXT, write_text_pdf
@@ -271,6 +272,8 @@ def wait_verify_http(client, *, files, data, timeout=8.0):
 
 
 def test_http_verify_requires_llm_key(tmp_path, monkeypatch):
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{tmp_path / 'verify-key.sqlite'}")
+    reset_engine()
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.delenv("CPA_API_KEY", raising=False)
     rc = tmp_path / "rc-notes.pdf"
@@ -286,6 +289,8 @@ def test_http_verify_requires_llm_key(tmp_path, monkeypatch):
 
 
 def test_http_verify_reads_text_pdf(tmp_path, monkeypatch):
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{tmp_path / 'verify-text.sqlite'}")
+    reset_engine()
     monkeypatch.setenv("OPENAI_API_KEY", "test-not-used")
     monkeypatch.setattr(
         "app.drawing_verify.call_drawing_llm",

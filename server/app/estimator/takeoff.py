@@ -76,9 +76,11 @@ def build_takeoff_and_review(project_id: str) -> dict[str, Any]:
     _add_calculated_roof_cover(takeoff_items)
     _add_calculated_window_area(takeoff_items)
     store.replace_takeoff(project_id, takeoff_items)
-    review_items = _build_review(project, takeoff_items)
+    manuals = store.list_manual_takeoff(project_id)
+    combined = takeoff_items + manuals
+    review_items = _build_review(project, combined)
     store.replace_review(project_id, review_items)
-    return {"takeoff": takeoff_items, "review": review_items}
+    return {"takeoff": combined, "review": review_items}
 
 
 def _takeoff_from_evidence(evidence: dict[str, Any], value: dict[str, Any], kind: str) -> dict[str, Any]:
@@ -319,7 +321,7 @@ def _build_review(project: dict[str, Any], takeoff_items: list[dict[str, Any]]) 
                     "created_at": store.now_iso(),
                 }
             )
-        elif item["status"] in {"VERIFIED", "CALCULATED"}:
+        elif item["status"] in {"VERIFIED", "CALCULATED", "ALLOWANCE"}:
             items.append(
                 {
                     "id": store.new_id(),
@@ -571,6 +573,84 @@ def _apply_field(entity_type: str, entity_id: str, field_name: str, value: Any) 
             float(value["x2"]),
             float(value["y2"]),
         )
+
+
+def _sku_in_pricebook(sku: str) -> bool:
+    book = pricebook()
+    for item in book.get("items") or []:
+        if item.get("id") == sku or item.get("sku") == sku:
+            return True
+    return False
+
+
+def add_manual_takeoff_item(
+    project_id: str,
+    *,
+    description: str,
+    quantity: float,
+    unit: str,
+    scope_code: str,
+    reason_code: str,
+    comment: str | None = None,
+    sku: str | None = None,
+) -> dict[str, Any]:
+    if not str(reason_code or "").strip():
+        raise ValueError("补录必须填写理由")
+    desc = str(description or "").strip()
+    if not desc:
+        raise ValueError("补录必须填写科目说明")
+    if len(desc) > 200:
+        raise ValueError("科目说明过长")
+    changes = _validated_takeoff_fields({"quantity": quantity, "unit": unit, "scope_code": scope_code})
+    qty = changes.get("quantity")
+    if qty is None:
+        raise ValueError("补录必须填写数量")
+    if float(qty) < 0:
+        raise ValueError("数量不能为负")
+    sku_clean = str(sku or "").strip() or None
+    if sku_clean and not _sku_in_pricebook(sku_clean):
+        raise ValueError("SKU 不在价表中，不能手写单价")
+    item_id = store.new_id()
+    store.add_takeoff_item(
+        project_id,
+        {
+            "id": item_id,
+            "scope_code": changes["scope_code"],
+            "description": desc,
+            "quantity": float(qty),
+            "unit": changes["unit"],
+            "status": "ALLOWANCE",
+            "confidence": 1.0,
+            "source_method": "MANUAL",
+            "calculation_formula": None,
+            "calculation_inputs": {"source": "manual_missed_item"},
+            "evidence_ids": [],
+            "sku": sku_clean,
+            "created_at": store.now_iso(),
+        },
+    )
+    store.add_correction(
+        {
+            "project_id": project_id,
+            "entity_type": "takeoff",
+            "entity_id": item_id,
+            "field_name": "create",
+            "original_value": None,
+            "corrected_value": {
+                "description": desc,
+                "quantity": float(qty),
+                "unit": changes["unit"],
+                "scope_code": changes["scope_code"],
+                "sku": sku_clean,
+            },
+            "reason_code": reason_code,
+            "comment": comment,
+        }
+    )
+    project = store.get_project(project_id) or {}
+    if project.get("estimate") or (project.get("status") == "READY" and project.get("documents")):
+        build_estimate(project_id)
+    return store.get_project(project_id) or {}
 
 
 def correct_takeoff_item(

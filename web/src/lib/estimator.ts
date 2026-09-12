@@ -118,6 +118,7 @@ export interface EstimatorProject {
     calculation_inputs?: Record<string, unknown>;
     evidence_ids: string[];
     sku?: string | null;
+    source_method?: string | null;
   }>;
   review: Array<{
     id: string;
@@ -194,17 +195,28 @@ export interface EstimatorEstimate {
 }
 
 export const SCOPE_OPTIONS = [
+  ["04", "Foundations"],
   ["05", "Structure"],
+  ["06", "Exterior Envelope"],
   ["07", "Roofing"],
   ["08", "Windows & Doors"],
+  ["09", "Internal Walls"],
+  ["10", "Internal Finishes"],
+  ["11", "Joinery"],
+  ["12", "Plumbing"],
+  ["13", "Electrical"],
+  ["14", "HVAC"],
+  ["15", "External Works"],
 ] as const;
 
 export const CORRECTION_REASONS = [
+  ["MISSED_ITEM", "图纸漏项"],
   ["WRONG_DIMENSION", "尺寸/数量有误"],
   ["WRONG_UNIT", "单位有误"],
   ["WRONG_SCOPE_MAPPING", "科目映射有误"],
   ["OCR_ERROR", "读数有误"],
   ["DOUBLE_COUNT", "重复计量"],
+  ["MANUAL_ALLOWANCE", "人工暂估"],
   ["OTHER", "其他（须填写说明）"],
 ] as const;
 

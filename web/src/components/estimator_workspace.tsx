@@ -73,6 +73,13 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
   const [indexNumber, setIndexNumber] = useState("");
   const [indexTitle, setIndexTitle] = useState("");
   const [indexRevision, setIndexRevision] = useState("");
+  const [manualDescription, setManualDescription] = useState("");
+  const [manualQuantity, setManualQuantity] = useState("");
+  const [manualUnit, setManualUnit] = useState("ea");
+  const [manualScope, setManualScope] = useState("08");
+  const [manualReason, setManualReason] = useState("MISSED_ITEM");
+  const [manualComment, setManualComment] = useState("");
+  const [manualSku, setManualSku] = useState("");
 
   const drawings = project?.drawings || [];
   const expectedDrawings = project?.expected_drawings || [];
@@ -369,6 +376,42 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
     setEditScope(item.scope_code);
     setEditReason("WRONG_DIMENSION");
     setEditComment("");
+  };
+
+  const handleAddManualTakeoff = async (event: FormEvent) => {
+    event.preventDefault();
+    if (!manualDescription.trim() || !manualQuantity.trim() || !manualUnit.trim()) {
+      setError("补录必须填写说明、数量和单位。");
+      return;
+    }
+    setError("");
+    setBusy("正在补录漏项并生成新报价版本…");
+    try {
+      const body: Record<string, unknown> = {
+        description: manualDescription.trim(),
+        quantity: Number(manualQuantity),
+        unit: manualUnit.trim(),
+        scope_code: manualScope,
+        reason_code: manualReason,
+        comment: manualComment.trim() || null,
+      };
+      if (manualSku.trim()) body.sku = manualSku.trim();
+      const response = await fetch(`/engine/estimator/projects/${projectId}/takeoff/manual`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const payload = (await readEngineJson(response, "无法补录漏项")) as unknown as EstimatorProject;
+      applyProject(payload);
+      setManualDescription("");
+      setManualQuantity("");
+      setManualComment("");
+      setManualSku("");
+    } catch (caught: unknown) {
+      setError(caught instanceof Error ? caught.message : "无法补录漏项");
+    } finally {
+      setBusy("");
+    }
   };
 
   const handleCorrectTakeoff = async (itemId: string) => {
@@ -677,7 +720,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                     }),
                   });
                   const payload = await readEngineJson(response, "无法保存 Drawing Index");
-                  applyProject(payload as EstimatorProject);
+                  applyProject(payload as unknown as EstimatorProject);
                   setIndexNumber("");
                   setIndexTitle("");
                   setIndexRevision("");
@@ -743,7 +786,104 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
       ) : null}
 
       {tab === "takeoff" ? (
-        <section className="mt-6 overflow-x-auto">
+        <section className="mt-6 space-y-6">
+          <div className="rounded-2xl border border-[#d9d0c0] bg-white p-4">
+            <h3 className="font-medium">人工补录漏项</h3>
+            <p className="mt-1 text-sm text-[#5c6754]">
+              只追加取量与修正记录。金额只走价表 SKU，不能手写单价。重跑解析会保留 MANUAL 行，并生成新报价版本，旧版金额不变。
+            </p>
+            <form className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3" onSubmit={handleAddManualTakeoff}>
+              <label className="text-sm md:col-span-2">
+                说明
+                <input
+                  required
+                  value={manualDescription}
+                  onChange={(event) => setManualDescription(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="漏项说明"
+                />
+              </label>
+              <label className="text-sm">
+                数量
+                <input
+                  required
+                  type="number"
+                  min={0}
+                  step="any"
+                  value={manualQuantity}
+                  onChange={(event) => setManualQuantity(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="漏项数量"
+                />
+              </label>
+              <label className="text-sm">
+                单位
+                <input
+                  required
+                  value={manualUnit}
+                  onChange={(event) => setManualUnit(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="漏项单位"
+                />
+              </label>
+              <label className="text-sm">
+                科目
+                <select
+                  value={manualScope}
+                  onChange={(event) => setManualScope(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="漏项科目"
+                >
+                  {SCOPE_OPTIONS.map(([code, name]) => (
+                    <option key={code} value={code}>
+                      {code} {name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="text-sm">
+                理由
+                <select
+                  required
+                  value={manualReason}
+                  onChange={(event) => setManualReason(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="漏项理由"
+                >
+                  {CORRECTION_REASONS.map(([code, label]) => (
+                    <option key={code} value={code}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="text-sm">
+                价表 SKU（可选）
+                <input
+                  value={manualSku}
+                  onChange={(event) => setManualSku(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="漏项价表 SKU"
+                  placeholder="必须已在价表中"
+                />
+              </label>
+              <label className="text-sm md:col-span-2">
+                说明备注
+                <input
+                  value={manualComment}
+                  onChange={(event) => setManualComment(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="漏项备注"
+                />
+              </label>
+              <div className="flex items-end">
+                <Button type="submit" disabled={Boolean(busy)}>
+                  补录漏项
+                </Button>
+              </div>
+            </form>
+          </div>
+          <div className="overflow-x-auto">
           <table className="w-full min-w-[48rem] text-left text-sm">
             <thead>
               <tr className="border-b border-[#eee6d8] text-xs text-[#7b8474]">
@@ -761,7 +901,10 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                     <button type="button" className="text-left hover:underline" onClick={() => handleOpenEvidence(item)}>
                       {item.description}
                     </button>
-                    <p className="text-xs text-[#7b8474]">科目 {item.scope_code}</p>
+                    <p className="text-xs text-[#7b8474]">
+                      科目 {item.scope_code}
+                      {item.source_method === "MANUAL" ? " · 人工漏项" : ""}
+                    </p>
                   </td>
                   <td className="py-2 pr-3">
                     {item.quantity ?? "—"} {item.unit}
@@ -859,6 +1002,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
             </tbody>
           </table>
           {takeoff.length === 0 ? <p className="mt-3 text-sm text-[#5c6754]">还没有可复算的工程量。</p> : null}
+          </div>
         </section>
       ) : null}
 

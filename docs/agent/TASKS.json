@@ -175,22 +175,31 @@
       "scope_paths": [
         "server/app/estimator/takeoff.py",
         "server/app/estimator/router.py",
-        "server/app/estimator/store.py"
+        "server/app/estimator/store.py",
+        "server/tests/test_estimator_manual_takeoff.py",
+        "web/src/components/estimator_workspace.tsx",
+        "web/src/lib/estimator.ts"
       ],
       "excluded_scope": ["标定画线工具", "LLM 定价", "上线发布"],
       "acceptance": [
         "可新增一条带数量/单位/科目/理由的取量",
         "只追加 correction_events 或等价来源记录",
         "生成新报价版本且旧版金额不变",
-        "其他项目不可写入"
+        "其他项目不可写入",
+        "replace_takeoff / 重跑解析保留 source_method=MANUAL",
+        "不能手写金额或价表外 SKU"
       ],
       "validation": {
-        "commands": [],
-        "manual_steps": [],
-        "required_evidence": []
+        "commands": [
+          "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_manual_takeoff.py"
+        ],
+        "manual_steps": [
+          "若改了工作区表单：在 TAKEOFF 补一条漏项并确认旧报价版本金额不变"
+        ],
+        "required_evidence": ["pytest test_estimator_manual_takeoff.py exit 0"]
       },
-      "discovery_note": "2026-09-12：接口宜为 POST /estimator/projects/{id}/takeoff/manual。store.replace_takeoff 目前删除该项目全部取量，必须先改为保留 source_method=MANUAL，否则重跑解析会丢掉人工漏量。",
-      "initial_status": "DISCOVERY"
+      "discovery_note": "2026-09-12：接口为 POST /estimator/projects/{id}/takeoff/manual。replace_takeoff 已改为保留 source_method=MANUAL。",
+      "initial_status": "READY"
     },
     {
       "id": "N08-01",

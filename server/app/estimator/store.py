@@ -411,11 +411,16 @@ def add_evidence(row: dict[str, Any]) -> str:
 
 
 def replace_takeoff(project_id: str, items: list[dict[str, Any]]) -> None:
+    """Replace pipeline takeoff rows. Keep source_method=MANUAL missed items."""
     with session() as db:
         old = db.scalars(select(EstimatorTakeoffItem).where(EstimatorTakeoffItem.project_id == project_id)).all()
         for item in old:
+            if item.source_method == "MANUAL":
+                continue
             db.delete(item)
         for item in items:
+            if item.get("source_method") == "MANUAL":
+                continue
             db.add(
                 EstimatorTakeoffItem(
                     id=item["id"],
@@ -435,6 +440,38 @@ def replace_takeoff(project_id: str, items: list[dict[str, Any]]) -> None:
                 )
             )
         db.commit()
+
+
+def add_takeoff_item(project_id: str, item: dict[str, Any]) -> dict[str, Any]:
+    item_id = item.get("id") or new_id()
+    with session() as db:
+        project = db.get(EstimatorProject, project_id)
+        if not project:
+            raise KeyError(project_id)
+        row = EstimatorTakeoffItem(
+            id=item_id,
+            project_id=project_id,
+            scope_code=item["scope_code"],
+            description=item["description"],
+            quantity=item.get("quantity"),
+            unit=item["unit"],
+            status=item["status"],
+            confidence=float(item.get("confidence") or 0),
+            source_method=item["source_method"],
+            calculation_formula=item.get("calculation_formula"),
+            calculation_inputs=item.get("calculation_inputs") or {},
+            evidence_ids=item.get("evidence_ids") or [],
+            sku=item.get("sku"),
+            created_at=item.get("created_at") or now_iso(),
+        )
+        db.add(row)
+        db.commit()
+        db.refresh(row)
+        return _takeoff_dict(row)
+
+
+def list_manual_takeoff(project_id: str) -> list[dict[str, Any]]:
+    return [_takeoff_dict(item) for item in list_takeoff_items(project_id) if item.source_method == "MANUAL"]
 
 
 def replace_review(project_id: str, items: list[dict[str, Any]]) -> None:

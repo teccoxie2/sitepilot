@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Probe public Estimator endpoints. Prints no secrets."""
+"""Probe public Estimator endpoints. Prints no secrets or cookies."""
 
 from __future__ import annotations
 
+import http.cookiejar
 import json
 import sys
 import urllib.error
@@ -11,38 +12,103 @@ import urllib.request
 BASE = "https://demo-cost.vsense.co.nz"
 
 
-def fetch(method: str, path: str, body: bytes | None = None) -> tuple[int, str]:
+def fetch(
+    method: str,
+    path: str,
+    body: bytes | None = None,
+    opener: urllib.request.OpenerDirector | None = None,
+) -> tuple[int, str, str | None]:
     request = urllib.request.Request(
         BASE + path,
         data=body,
         method=method,
         headers={"Content-Type": "application/json", "Accept": "application/json"},
     )
+    client = opener or urllib.request.build_opener()
     try:
-        with urllib.request.urlopen(request, timeout=20) as response:
-            return response.getcode(), response.read().decode("utf-8", "replace")
+        with client.open(request, timeout=30) as response:
+            cookie = None
+            header = response.headers.get("Set-Cookie")
+            if header and "vsense_pilot=" in header:
+                cookie = "set"
+            return response.getcode(), response.read().decode("utf-8", "replace"), cookie
     except urllib.error.HTTPError as exc:
-        return exc.code, exc.read().decode("utf-8", "replace")
+        return exc.code, exc.read().decode("utf-8", "replace"), None
+
+
+def session() -> urllib.request.OpenerDirector:
+    jar = http.cookiejar.CookieJar()
+    return urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+
+
+def _json(body: str) -> dict:
+    try:
+        payload = json.loads(body)
+    except json.JSONDecodeError:
+        return {}
+    return payload if isinstance(payload, dict) else {}
 
 
 def main() -> int:
-    health_code, _ = fetch("GET", "/engine/health")
-    get_code, get_body = fetch("GET", "/engine/estimator/projects")
-    post_code, post_body = fetch("POST", "/engine/estimator/projects", b'{"name":"probe-no-fake"}')
+    health_code, _, _ = fetch("GET", "/engine/health")
+    get_code, get_body, _ = fetch("GET", "/engine/estimator/projects")
+    owner_a = session()
+    owner_b = session()
+    post_a_code, post_a_body, _ = fetch(
+        "POST",
+        "/engine/estimator/projects",
+        b'{"name":"probe-owner-a"}',
+        opener=owner_a,
+    )
+    post_b_code, post_b_body, _ = fetch(
+        "POST",
+        "/engine/estimator/projects",
+        b'{"name":"probe-owner-b"}',
+        opener=owner_b,
+    )
+    project_a = str(_json(post_a_body).get("id") or "")
+    project_b = str(_json(post_b_body).get("id") or "")
+    own_a_code = foreign_a_code = own_b_code = foreign_b_code = None
+    if project_a:
+        own_a_code, _, _ = fetch("GET", f"/engine/estimator/projects/{project_a}", opener=owner_a)
+        foreign_b_code, _, _ = fetch("GET", f"/engine/estimator/projects/{project_a}", opener=owner_b)
+    if project_b:
+        own_b_code, _, _ = fetch("GET", f"/engine/estimator/projects/{project_b}", opener=owner_b)
+        foreign_a_code, _, _ = fetch("GET", f"/engine/estimator/projects/{project_b}", opener=owner_a)
+
+    isolation_ok = (
+        post_a_code == 200
+        and post_b_code == 200
+        and bool(project_a)
+        and bool(project_b)
+        and project_a != project_b
+        and own_a_code == 200
+        and own_b_code == 200
+        and foreign_a_code == 404
+        and foreign_b_code == 404
+    )
     payload = {
         "health": health_code,
         "estimator_get": get_code,
-        "estimator_post": post_code,
+        "estimator_post_a": post_a_code,
+        "estimator_post_b": post_b_code,
+        "own_get_a": own_a_code,
+        "own_get_b": own_b_code,
+        "cross_get_a_reads_b": foreign_a_code,
+        "cross_get_b_reads_a": foreign_b_code,
+        "projects_created": 2 if project_a and project_b and project_a != project_b else 0,
+        "isolation_ok": isolation_ok,
         "get_is_error": get_code >= 400,
-        "post_is_error": post_code >= 400,
+        "post_is_error": post_a_code >= 400 or post_b_code >= 400,
         "get_body_excerpt": get_body[:180],
-        "post_body_excerpt": post_body[:180],
     }
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     if health_code != 200:
         return 2
-    if get_code >= 400 or post_code >= 400:
+    if get_code >= 400 or post_a_code >= 400 or post_b_code >= 400:
         return 3
+    if not isolation_ok:
+        return 4
     return 0
 
 

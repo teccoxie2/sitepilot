@@ -15,6 +15,7 @@ from . import jobs, store
 from .evals import run_574_eval
 from .pipeline import ensure_document_pdf, ingest_document, process_project
 from .takeoff import (
+    add_manual_takeoff_item,
     apply_review_action,
     build_estimate,
     build_takeoff_and_review,
@@ -67,6 +68,24 @@ class TakeoffCorrectBody(BaseModel):
         provided = set(self.model_fields_set) & {"quantity", "unit", "scope_code"}
         if not provided:
             raise ValueError("请至少修正数量、单位或科目")
+        return self
+
+
+class ManualTakeoffBody(BaseModel):
+    description: str = Field(min_length=1, max_length=200)
+    quantity: float
+    unit: str = Field(min_length=1, max_length=20)
+    scope_code: str = Field(min_length=1, max_length=8)
+    reason_code: str = Field(min_length=1, max_length=80)
+    comment: str | None = Field(default=None, max_length=2000)
+    sku: str | None = Field(default=None, max_length=80)
+    amount: float | None = None
+    unit_price: float | None = None
+
+    @model_validator(mode="after")
+    def reject_handwritten_money(self) -> ManualTakeoffBody:
+        if self.amount is not None or self.unit_price is not None:
+            raise ValueError("不能手写金额或单价，金额只走价表")
         return self
 
 
@@ -310,6 +329,28 @@ def post_takeoff(project_id: str, pilot: PilotIdentity = Depends(get_pilot)) -> 
     _owned_or_404(project_id, pilot.owner_id)
     build_takeoff_and_review(project_id)
     return _owned_or_404(project_id, pilot.owner_id)
+
+
+@router.post("/projects/{project_id}/takeoff/manual")
+def post_manual_takeoff(
+    project_id: str,
+    body: ManualTakeoffBody,
+    pilot: PilotIdentity = Depends(get_pilot),
+) -> dict[str, Any]:
+    _owned_or_404(project_id, pilot.owner_id)
+    try:
+        return add_manual_takeoff_item(
+            project_id,
+            description=body.description,
+            quantity=body.quantity,
+            unit=body.unit,
+            scope_code=body.scope_code,
+            reason_code=body.reason_code,
+            comment=body.comment,
+            sku=body.sku,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 @router.post("/projects/{project_id}/takeoff/{item_id}/correct")

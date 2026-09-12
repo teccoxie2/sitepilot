@@ -54,9 +54,9 @@ Prisma 认领（无连接串）：
 - 只写了 `DATABASE_URL`（production + preview）。未写 `CHECKPOINT_DATABASE_URL`。
 - 未提交 sqlite、上传件、`.env*`、连接串。
 
-## 6. 失败、遗留、下一步
+## 6. 失败、阻塞、遗留、下一步
 
-- 无当前 BLOCKED。风险：库到期未认领会再 500。
+- 无当前阻塞任务。风险：库到期未认领会再 500。
 - 下一步：N05-01 修订识别（先补验收命令）；或认领 Prisma。
 - 身份仍是 `vsense_pilot` Cookie。
 

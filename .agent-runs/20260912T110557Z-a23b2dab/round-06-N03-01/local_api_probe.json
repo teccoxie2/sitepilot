@@ -1,0 +1,10 @@
+{
+  "local_api": "http://127.0.0.1:8764",
+  "create": 200,
+  "missing_number": 422,
+  "add": 200,
+  "reread": 200,
+  "foreign_get": 404,
+  "cookie_isolation": true,
+  "note": "X-Pilot-Id ignored outside pytest; used vsense_pilot cookie"
+}

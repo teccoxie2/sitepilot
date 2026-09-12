@@ -1,0 +1,26 @@
+{
+  "task_id": "N00-03",
+  "contract_version": 1,
+  "acceptance": [
+    "classify_page_vision 在配置密钥时仍返回 None，不编造图号",
+    "ready 增加 vision_classification_implemented=false",
+    "说明写明 stub 不会读扫描页，且不含服务 URL"
+  ],
+  "validation": {
+    "commands": [
+      "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_vision_stub.py"
+    ],
+    "manual_steps": [],
+    "required_evidence": [
+      "pytest vision stub exit 0"
+    ]
+  },
+  "scope_paths": [
+    "server/app/estimator/vision.py",
+    "server/app/estimator/router.py",
+    "server/tests/test_estimator_vision_stub.py"
+  ],
+  "local_handler": "vision_stub_honesty",
+  "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "snapshot_at": "2026-09-12T11:06:33+00:00"
+}

@@ -1,0 +1,5 @@
+$ python3 -c "from pathlib import Path; t=Path('docs/agent/MORNING_REPORT.md').read_text(); assert '完成' in t and '阻塞' in t"
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+AssertionError
+

@@ -70,6 +70,9 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
   const [editComment, setEditComment] = useState("");
   const [viewedEstimate, setViewedEstimate] = useState<EstimatorEstimate | null>(null);
   const [viewedFrozen, setViewedFrozen] = useState(false);
+  const [indexNumber, setIndexNumber] = useState("");
+  const [indexTitle, setIndexTitle] = useState("");
+  const [indexRevision, setIndexRevision] = useState("");
 
   const drawings = project?.drawings || [];
   const expectedDrawings = project?.expected_drawings || [];
@@ -630,7 +633,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                 <div className="mt-4 rounded-2xl border border-[#d9d0c0] bg-white p-4 text-sm">
                   <p className="font-medium">证据</p>
                   {pageEvidence.length === 0 ? (
-                    <p className="mt-2 text-[#5c6754]">本页没有文字层证据。扫描页在未配置视觉密钥时保持空提取。</p>
+                    <p className="mt-2 text-[#5c6754]">本页没有文字层证据。扫描页在 Vision stub 未接通时保持空提取，不编造图号。</p>
                   ) : (
                     <ul className="mt-2 space-y-2">
                       {pageEvidence.map((item) => (
@@ -648,21 +651,94 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
               <p className="text-sm text-[#5c6754]">上传图纸后将在这里显示分页与证据框。</p>
             )}
           </div>
-          {expectedDrawings.length ? (
-            <div>
-              <h3 className="font-medium">期望图纸 / 缺失</h3>
-              <ul className="mt-2 text-sm">
+          <div className="rounded-2xl border border-[#d9d0c0] bg-white p-4">
+            <h3 className="font-medium">Drawing Index 人工维护</h3>
+            <p className="mt-1 text-sm text-[#5c6754]">
+              无文字层封面时在此补图号。不会编造缺失图纸内容。重跑解析只替换从封面读到的行，人工行会保留。
+            </p>
+            <form
+              className="mt-3 grid gap-3 md:grid-cols-[8rem_1fr_6rem_auto]"
+              onSubmit={async (event) => {
+                event.preventDefault();
+                if (!indexNumber.trim()) {
+                  setError("图号不能为空。");
+                  return;
+                }
+                setBusy("正在保存 Drawing Index");
+                setError("");
+                try {
+                  const response = await fetch(`/engine/estimator/projects/${projectId}/expected-drawings`, {
+                    method: "POST",
+                    headers: { "content-type": "application/json" },
+                    body: JSON.stringify({
+                      drawing_number: indexNumber.trim(),
+                      drawing_title: indexTitle.trim() || null,
+                      revision: indexRevision.trim() || null,
+                    }),
+                  });
+                  const payload = await readEngineJson(response, "无法保存 Drawing Index");
+                  applyProject(payload as EstimatorProject);
+                  setIndexNumber("");
+                  setIndexTitle("");
+                  setIndexRevision("");
+                } catch (caught: unknown) {
+                  setError(caught instanceof Error ? caught.message : "无法保存 Drawing Index");
+                } finally {
+                  setBusy("");
+                }
+              }}
+            >
+              <label className="text-sm">
+                图号
+                <input
+                  required
+                  value={indexNumber}
+                  onChange={(event) => setIndexNumber(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="期望图号"
+                />
+              </label>
+              <label className="text-sm">
+                标题
+                <input
+                  value={indexTitle}
+                  onChange={(event) => setIndexTitle(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="期望图名"
+                />
+              </label>
+              <label className="text-sm">
+                修订
+                <input
+                  value={indexRevision}
+                  onChange={(event) => setIndexRevision(event.target.value)}
+                  className="mt-1 w-full rounded-md border border-[#d9d0c0] px-2 py-1"
+                  aria-label="期望修订"
+                />
+              </label>
+              <div className="flex items-end">
+                <Button type="submit" disabled={Boolean(busy)}>
+                  加入目录
+                </Button>
+              </div>
+            </form>
+            {expectedDrawings.length ? (
+              <ul className="mt-4 space-y-1 text-sm">
                 {expectedDrawings.map((item) => {
                   const supplied = drawings.some((drawing) => drawing.drawing_number === item.drawing_number);
                   return (
-                    <li key={item.drawing_number} className={supplied ? "text-[#2f4a32]" : "text-[#9a6b12]"}>
-                      {item.drawing_number} {item.drawing_title || ""} {supplied ? "Available" : "Missing"}
+                    <li key={item.id || `${item.drawing_number}-${item.revision || ""}`} className={supplied ? "text-[#2f4a32]" : "text-[#9a6b12]"}>
+                      {item.drawing_number}
+                      {item.revision ? ` Rev ${item.revision}` : ""} {item.drawing_title || ""} ·{" "}
+                      {item.source === "manual" ? "人工" : "封面"} · {supplied ? "Available" : "Missing"}
                     </li>
                   );
                 })}
               </ul>
-            </div>
-          ) : null}
+            ) : (
+              <p className="mt-3 text-sm text-[#5c6754]">还没有期望图号。封面无 Drawing Index 时请人工补录，不要编造。</p>
+            )}
+          </div>
         </section>
       ) : null}
 

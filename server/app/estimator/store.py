@@ -244,6 +244,119 @@ def replace_expected(project_id: str, document_id: str, rows: list[dict[str, Any
         db.commit()
 
 
+def _clean_expected_fields(
+    drawing_number: str,
+    drawing_title: str | None,
+    revision: str | None,
+) -> tuple[str, str | None, str | None]:
+    number = (drawing_number or "").strip()
+    if not number:
+        raise ValueError("图号不能为空。")
+    if len(number) > 40:
+        raise ValueError("图号过长。")
+    title = (drawing_title or "").strip() or None
+    if title and len(title) > 200:
+        raise ValueError("标题过长。")
+    rev = (revision or "").strip() or None
+    if rev and len(rev) > 20:
+        raise ValueError("修订号过长。")
+    return number, title, rev
+
+
+def _expected_key(drawing_number: str, revision: str | None) -> tuple[str, str]:
+    from .extract import normalize_sheet
+
+    return (normalize_sheet(drawing_number), (revision or "").strip().upper())
+
+
+def add_expected_manual(
+    project_id: str,
+    drawing_number: str,
+    drawing_title: str | None = None,
+    revision: str | None = None,
+) -> dict[str, Any]:
+    number, title, rev = _clean_expected_fields(drawing_number, drawing_title, revision)
+    key = _expected_key(number, rev)
+    if not key[0]:
+        raise ValueError("图号不能为空。")
+    row_id = new_id()
+    with session() as db:
+        project = db.get(EstimatorProject, project_id)
+        if not project:
+            raise KeyError(project_id)
+        existing = db.scalars(
+            select(EstimatorExpectedDrawing).where(EstimatorExpectedDrawing.project_id == project_id)
+        ).all()
+        for item in existing:
+            if _expected_key(item.drawing_number, item.revision) == key:
+                raise ValueError("该图号与修订已在目录中。")
+        db.add(
+            EstimatorExpectedDrawing(
+                id=row_id,
+                project_id=project_id,
+                document_id=None,
+                drawing_number=number,
+                drawing_title=title,
+                revision=rev,
+                source="manual",
+            )
+        )
+        db.commit()
+    return {
+        "id": row_id,
+        "drawing_number": number,
+        "drawing_title": title,
+        "revision": rev,
+        "source": "manual",
+        "document_id": None,
+    }
+
+
+def update_expected_drawing(
+    project_id: str,
+    row_id: str,
+    drawing_number: str,
+    drawing_title: str | None = None,
+    revision: str | None = None,
+) -> dict[str, Any]:
+    number, title, rev = _clean_expected_fields(drawing_number, drawing_title, revision)
+    key = _expected_key(number, rev)
+    with session() as db:
+        row = db.get(EstimatorExpectedDrawing, row_id)
+        if not row or row.project_id != project_id:
+            raise KeyError(row_id)
+        others = db.scalars(
+            select(EstimatorExpectedDrawing).where(
+                EstimatorExpectedDrawing.project_id == project_id,
+                EstimatorExpectedDrawing.id != row_id,
+            )
+        ).all()
+        for item in others:
+            if _expected_key(item.drawing_number, item.revision) == key:
+                raise ValueError("该图号与修订已在目录中。")
+        row.drawing_number = number
+        row.drawing_title = title
+        row.revision = rev
+        db.commit()
+        return {
+            "id": row.id,
+            "drawing_number": row.drawing_number,
+            "drawing_title": row.drawing_title,
+            "revision": row.revision,
+            "source": row.source,
+            "document_id": row.document_id,
+        }
+
+
+def delete_expected_drawing(project_id: str, row_id: str) -> None:
+    with session() as db:
+        row = db.get(EstimatorExpectedDrawing, row_id)
+        if not row or row.project_id != project_id:
+            raise KeyError(row_id)
+        db.delete(row)
+        db.commit()
+
+
 def replace_references(project_id: str, source_drawing_id: str, rows: list[dict[str, Any]]) -> None:
     with session() as db:
         old = db.scalars(

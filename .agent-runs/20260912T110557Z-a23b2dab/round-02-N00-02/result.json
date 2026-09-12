@@ -1,0 +1,25 @@
+{
+  "task_id": "N00-02",
+  "requirement_ids": [
+    "J05",
+    "J06"
+  ],
+  "changed_paths": [],
+  "tests_run": [
+    "python3 -m pytest -q scripts/test_overnight_runner.py"
+  ],
+  "test_exit_codes": {
+    "python3 -m pytest -q scripts/test_overnight_runner.py": 0
+  },
+  "evidence_paths": [
+    ".agent-runs/20260912T110557Z-a23b2dab/round-02-N00-02"
+  ],
+  "unresolved": [],
+  "next_action": "select next READY task",
+  "decision_ids": [],
+  "status": "DONE",
+  "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "final_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "notes": "executor_exit=3 session=ab958894-7fa0-4165-a2de-a99681c578a2",
+  "written_at": "2026-09-12T11:05:58+00:00"
+}

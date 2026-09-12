@@ -1,0 +1,1 @@
+读取本轮任务文件与项目状态，只执行本轮任务并写入结果。 task_id=N00-02 snapshot=/workspace/.agent-runs/20260912T110557Z-a23b2dab/round-02-N00-02/acceptance_snapshot.json 不要恢复上一轮聊天。不要削弱验收。不要编造金额或地块事实。

@@ -1,0 +1,24 @@
+{
+  "task_id": "N07-01",
+  "contract_version": 1,
+  "acceptance": [
+    "报告回答协议第 12 节七问",
+    "列出未执行检查与原因"
+  ],
+  "validation": {
+    "commands": [
+      "python3 -c \"from pathlib import Path; t=Path('docs/agent/MORNING_REPORT.md').read_text(); assert '完成' in t and '阻塞' in t\""
+    ],
+    "manual_steps": [],
+    "required_evidence": [
+      "MORNING_REPORT.md"
+    ]
+  },
+  "scope_paths": [
+    "docs/agent/MORNING_REPORT.md",
+    "docs/agent/HANDOFF.md"
+  ],
+  "local_handler": null,
+  "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "snapshot_at": "2026-09-12T11:10:19+00:00"
+}

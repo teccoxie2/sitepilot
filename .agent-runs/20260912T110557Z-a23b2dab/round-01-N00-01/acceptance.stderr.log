@@ -1,0 +1,2 @@
+$ python3 -c "import json; from pathlib import Path; c=json.loads(Path('docs/agent/COVERAGE.json').read_text()); ids=[i['id'] for i in c['items']]; assert ids[0]=='A01' and ids[-1]=='J06' and len(ids)==60"
+

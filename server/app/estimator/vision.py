@@ -26,13 +26,18 @@ def vision_available() -> bool:
     return bool(llm_api_key())
 
 
+def vision_classification_implemented() -> bool:
+    """True only after classify_page_vision actually sends a page to a model."""
+    return False
+
+
 def _load_prompt(name: str) -> str:
     path = PROMPT_ROOT / name / "v1.md"
     return path.read_text(encoding="utf-8") if path.exists() else ""
 
 
 def classify_page_vision(_png_path: Path) -> PageClassificationSchema | None:
-    """Vision fallback. Without a configured provider, return None — never invent a sheet number."""
+    """Vision fallback. Even with a key, this stub does not read the page."""
     if not vision_available():
         return None
     _ = llm_base_url, llm_model_name, _load_prompt("page-classification")

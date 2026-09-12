@@ -310,3 +310,27 @@ Done
 
 首页三张阶段卡与顶栏「选址 / 图纸取量 / 物料验证」。V2 写明当前支持建筑面积、门窗表文字层和屋面斜面积；结构梁常未计价；其余专业不编造。V1 物料验证标明旧版并引导同一 V2 工作区。
 
+## 夜间协议初始化与调度器
+
+Done
+
+按夜间执行文件落地 `docs/agent/*`、`.cursor/rules/overnight.mdc` 与 `scripts/overnight_runner.py`。调度器用新进程跑一轮，独立执行验收；模拟失败不得标 DONE。本环境无 Cursor `agent` CLI、Vercel 未登录。
+
+## Vision stub 诚实披露
+
+Done
+
+`classify_page_vision` 有密钥仍返回 None。ready 增加 `vision_classification_implemented=false`，说明改为 stub 不会读扫描页。调度器 N00-03 独立验收见 `.agent-runs/20260912T110557Z-a23b2dab/round-03-N00-03`。
+
+## 报价快照与导出（源码已有，本轮复验）
+
+Done
+
+修正数量后新报价版本金额变化，GET/export 旧 `estimate_id` 仍为原金额。验收：`test_estimator_acl.py` 快照与导出差。
+
+## 人工 Drawing Index
+
+Done
+
+`POST/PATCH/DELETE /estimator/projects/{id}/expected-drawings` 写入 `source=manual`。管线 `replace_expected` 只替换同一 document 的封面行。缺图号 422/400；其他 Cookie 404。工作区有表单，本轮未做浏览器点选。
+

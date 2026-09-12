@@ -1,0 +1,3 @@
+$ PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_acl.py::test_correction_creates_new_estimate_and_keeps_old server/tests/test_estimator_acl.py::test_quote_snapshot_hand_calc_and_unpriced_doors
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+

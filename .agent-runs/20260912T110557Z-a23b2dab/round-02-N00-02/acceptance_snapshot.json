@@ -1,0 +1,29 @@
+{
+  "task_id": "N00-02",
+  "contract_version": 1,
+  "acceptance": [
+    "调度器单实例锁、原子写状态、独立执行验收命令",
+    "模拟 CLI 成功不单独决定 DONE，须验收通过",
+    "模拟失败不得标 DONE",
+    "中断后恢复同一任务而不直接接下一项",
+    "每轮新进程，不传 --resume"
+  ],
+  "validation": {
+    "commands": [
+      "python3 -m pytest -q scripts/test_overnight_runner.py"
+    ],
+    "manual_steps": [],
+    "required_evidence": [
+      "pytest scripts/test_overnight_runner.py exit 0"
+    ]
+  },
+  "scope_paths": [
+    "scripts/overnight_runner.py",
+    "scripts/overnight_local_agent.py",
+    "scripts/test_overnight_runner.py",
+    "docs/agent/runner_config.json"
+  ],
+  "local_handler": null,
+  "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "snapshot_at": "2026-09-12T11:05:58+00:00"
+}

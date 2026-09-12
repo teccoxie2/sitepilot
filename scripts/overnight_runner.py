@@ -248,6 +248,10 @@ class OvernightRunner:
         ok = True
         for command in (task.get("validation") or {}).get("commands") or []:
             started = time.time()
+            env = os.environ.copy()
+            server = self.repo / "server"
+            if server.is_dir():
+                env["PYTHONPATH"] = str(server) + os.pathsep + env.get("PYTHONPATH", "")
             proc = subprocess.run(
                 command,
                 cwd=self.repo,
@@ -255,6 +259,7 @@ class OvernightRunner:
                 capture_output=True,
                 text=True,
                 check=False,
+                env=env,
             )
             stdout = redact(proc.stdout or "")
             stderr = redact(proc.stderr or "")

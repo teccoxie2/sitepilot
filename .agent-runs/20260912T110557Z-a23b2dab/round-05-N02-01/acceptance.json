@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "command": "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_jobs.py server/tests/test_estimator_acl.py::test_two_pilots_cannot_read_each_other",
+      "exit_code": 0,
+      "seconds": 1.606,
+      "stdout_path": "acceptance.stdout.log",
+      "stderr_path": "acceptance.stderr.log"
+    }
+  ],
+  "ran_at": "2026-09-12T11:08:22+00:00"
+}

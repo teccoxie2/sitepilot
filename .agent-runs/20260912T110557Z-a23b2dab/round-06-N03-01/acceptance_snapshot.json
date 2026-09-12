@@ -1,0 +1,33 @@
+{
+  "task_id": "N03-01",
+  "contract_version": 1,
+  "acceptance": [
+    "当前项目可新增图号、标题和修订",
+    "缺少图号不能保存",
+    "重新 GET 项目仍能取得刚保存的清单",
+    "其他 owner 不能读取或修改本项目清单",
+    "管线 replace_expected 不删除 source=manual 的行"
+  ],
+  "validation": {
+    "commands": [
+      "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_index.py"
+    ],
+    "manual_steps": [
+      "若改了工作区表单：在本地图纸取量页补一条 index 并刷新"
+    ],
+    "required_evidence": [
+      "pytest test_estimator_index.py exit 0"
+    ]
+  },
+  "scope_paths": [
+    "server/app/estimator/store.py",
+    "server/app/estimator/router.py",
+    "server/app/estimator/models.py",
+    "web/src/components/estimator_workspace.tsx",
+    "web/src/lib/estimator.ts",
+    "server/tests/test_estimator_index.py"
+  ],
+  "local_handler": null,
+  "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "snapshot_at": "2026-09-12T11:08:22+00:00"
+}

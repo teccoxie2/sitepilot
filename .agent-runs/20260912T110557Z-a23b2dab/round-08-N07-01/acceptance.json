@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "command": "python3 -c \"from pathlib import Path; t=Path('docs/agent/MORNING_REPORT.md').read_text(); assert '完成' in t and '阻塞' in t\"",
+      "exit_code": 0,
+      "seconds": 0.019,
+      "stdout_path": "acceptance.stdout.log",
+      "stderr_path": "acceptance.stderr.log"
+    }
+  ],
+  "ran_at": "2026-09-12T11:10:31+00:00"
+}

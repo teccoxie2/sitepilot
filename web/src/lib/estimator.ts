@@ -80,9 +80,12 @@ export interface EstimatorProject {
     native_text: string;
   }>;
   expected_drawings: Array<{
+    id?: string;
     drawing_number: string;
     drawing_title?: string | null;
     revision?: string | null;
+    source?: string | null;
+    document_id?: string | null;
   }>;
   references: Array<{
     id: string;

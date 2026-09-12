@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "command": "python3 -c \"import json; from pathlib import Path; c=json.loads(Path('docs/agent/COVERAGE.json').read_text()); ids=[i['id'] for i in c['items']]; assert ids[0]=='A01' and ids[-1]=='J06' and len(ids)==60\"",
+      "exit_code": 0,
+      "seconds": 0.02,
+      "stdout_path": "acceptance.stdout.log",
+      "stderr_path": "acceptance.stderr.log"
+    }
+  ],
+  "ran_at": "2026-09-12T11:05:57+00:00"
+}

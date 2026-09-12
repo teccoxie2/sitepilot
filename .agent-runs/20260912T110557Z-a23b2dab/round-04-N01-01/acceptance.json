@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "command": "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_acl.py::test_correction_creates_new_estimate_and_keeps_old server/tests/test_estimator_acl.py::test_quote_snapshot_hand_calc_and_unpriced_doors",
+      "exit_code": 0,
+      "seconds": 1.711,
+      "stdout_path": "acceptance.stdout.log",
+      "stderr_path": "acceptance.stderr.log"
+    }
+  ],
+  "ran_at": "2026-09-12T11:08:20+00:00"
+}

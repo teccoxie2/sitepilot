@@ -23,7 +23,7 @@ from .takeoff import (
     export_project,
     quote_lines_csv,
 )
-from .vision import vision_available
+from .vision import vision_available, vision_classification_implemented
 
 router = APIRouter(prefix="/estimator", tags=["estimator"])
 
@@ -47,6 +47,12 @@ class EvidenceCorrectBody(BaseModel):
     y2: float
     reason_code: str = "OTHER"
     comment: str | None = None
+
+
+class ExpectedDrawingBody(BaseModel):
+    drawing_number: str = Field(min_length=1, max_length=40)
+    drawing_title: str | None = Field(default=None, max_length=200)
+    revision: str | None = Field(default=None, max_length=20)
 
 
 class TakeoffCorrectBody(BaseModel):
@@ -83,13 +89,17 @@ def _owned_or_404(project_id: str, owner_id: str) -> dict[str, Any]:
 
 @router.get("/ready")
 def estimator_ready() -> dict[str, Any]:
-    note = (
-        "已配置视觉密钥，扫描页可走 Vision。"
-        if vision_available()
-        else "未配置 CPA_API_KEY 或 OPENAI_API_KEY。无文字层页保持 UNKNOWN，不编造图号或工程量。"
-    )
+    configured = vision_available()
+    implemented = vision_classification_implemented()
+    if implemented and configured:
+        note = "已配置视觉密钥，扫描页可走 Vision。"
+    elif configured:
+        note = "已配置视觉密钥，但 classify_page_vision 仍是 stub，不会读扫描页，图号保持空，不编造。"
+    else:
+        note = "未配置 CPA_API_KEY 或 OPENAI_API_KEY。无文字层页保持 UNKNOWN，不编造图号或工程量。"
     return {
-        "vision": vision_available(),
+        "vision": configured,
+        "vision_classification_implemented": implemented,
         "note": public_note(note),
     }
 
@@ -106,6 +116,62 @@ def list_estimator_projects(pilot: PilotIdentity = Depends(get_pilot)) -> dict[s
 
 @router.get("/projects/{project_id}")
 def get_estimator_project(project_id: str, pilot: PilotIdentity = Depends(get_pilot)) -> dict[str, Any]:
+    return _owned_or_404(project_id, pilot.owner_id)
+
+
+@router.post("/projects/{project_id}/expected-drawings")
+def post_expected_drawing(
+    project_id: str,
+    body: ExpectedDrawingBody,
+    pilot: PilotIdentity = Depends(get_pilot),
+) -> dict[str, Any]:
+    _owned_or_404(project_id, pilot.owner_id)
+    try:
+        store.add_expected_manual(
+            project_id,
+            body.drawing_number,
+            body.drawing_title,
+            body.revision,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return _owned_or_404(project_id, pilot.owner_id)
+
+
+@router.patch("/projects/{project_id}/expected-drawings/{row_id}")
+def patch_expected_drawing(
+    project_id: str,
+    row_id: str,
+    body: ExpectedDrawingBody,
+    pilot: PilotIdentity = Depends(get_pilot),
+) -> dict[str, Any]:
+    _owned_or_404(project_id, pilot.owner_id)
+    try:
+        store.update_expected_drawing(
+            project_id,
+            row_id,
+            body.drawing_number,
+            body.drawing_title,
+            body.revision,
+        )
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail="目录行不存在") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return _owned_or_404(project_id, pilot.owner_id)
+
+
+@router.delete("/projects/{project_id}/expected-drawings/{row_id}")
+def delete_expected_drawing(
+    project_id: str,
+    row_id: str,
+    pilot: PilotIdentity = Depends(get_pilot),
+) -> dict[str, Any]:
+    _owned_or_404(project_id, pilot.owner_id)
+    try:
+        store.delete_expected_drawing(project_id, row_id)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail="目录行不存在") from exc
     return _owned_or_404(project_id, pilot.owner_id)
 
 

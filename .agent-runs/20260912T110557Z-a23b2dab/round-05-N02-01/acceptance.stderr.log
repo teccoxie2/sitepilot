@@ -1,0 +1,3 @@
+$ PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_jobs.py server/tests/test_estimator_acl.py::test_two_pilots_cannot_read_each_other
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+

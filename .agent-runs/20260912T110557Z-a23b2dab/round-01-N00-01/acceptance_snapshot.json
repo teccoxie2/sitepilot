@@ -1,0 +1,30 @@
+{
+  "task_id": "N00-01",
+  "contract_version": 1,
+  "acceptance": [
+    "coverage 保留 A01–J06 编号并写入源码路径",
+    "任务契约含真实路径与可执行验收命令",
+    "BRIEF/STATE/HANDOFF 已落盘"
+  ],
+  "validation": {
+    "commands": [
+      "python3 -c \"import json; from pathlib import Path; c=json.loads(Path('docs/agent/COVERAGE.json').read_text()); ids=[i['id'] for i in c['items']]; assert ids[0]=='A01' and ids[-1]=='J06' and len(ids)==60\""
+    ],
+    "manual_steps": [],
+    "required_evidence": [
+      "coverage item count 60",
+      "STATE.json exists"
+    ]
+  },
+  "scope_paths": [
+    "docs/agent/BRIEF.md",
+    "docs/agent/COVERAGE.json",
+    "docs/agent/TASKS.json",
+    "docs/agent/STATE.json",
+    "docs/agent/HANDOFF.md",
+    ".cursor/rules/overnight.mdc"
+  ],
+  "local_handler": null,
+  "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "snapshot_at": "2026-09-12T11:05:57+00:00"
+}

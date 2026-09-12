@@ -1,13 +1,13 @@
 {
-  "run_id": null,
+  "run_id": "20260912T110557Z-a23b2dab",
   "branch": "cursor/overnight-init-533b",
   "base_commit": "beb9bed27c6c0b8ab76007615ad70a75882a7836",
-  "started_at": null,
-  "last_updated": "2026-09-12T11:05:00+00:00",
+  "started_at": "2026-09-12T11:05:57+00:00",
+  "last_updated": "2026-09-12T11:10:31+00:00",
   "current_task_id": null,
   "incomplete_task_id": null,
-  "last_completed_task_id": null,
-  "rounds_completed": 0,
+  "last_completed_task_id": "N07-01",
+  "rounds_completed": 8,
   "cli": {
     "agent_present": false,
     "vercel_logged_in": false,
@@ -20,16 +20,80 @@
       "at": "2026-09-12T11:05:00+00:00"
     }
   ],
-  "next_action": "完成 N00-01 文件验收，再跑调度器短跑与 N00-03 Vision stub 诚实披露",
+  "next_action": "N04 人工漏量（先保留 MANUAL takeoff）或登录 Vercel 后重建生产库",
   "tasks": {
-    "N00-01": {"status": "READY", "attempts": 0},
-    "N00-02": {"status": "READY", "attempts": 0},
-    "N00-03": {"status": "READY", "attempts": 0},
-    "N01-01": {"status": "READY", "attempts": 0},
-    "N02-01": {"status": "READY", "attempts": 0},
-    "N03-01": {"status": "READY", "attempts": 0},
-    "N04-01": {"status": "DISCOVERY", "attempts": 0},
-    "N08-01": {"status": "BLOCKED", "attempts": 0, "last_error": "Vercel CLI logged out"},
-    "N07-01": {"status": "READY", "attempts": 0}
-  }
+    "N00-01": {
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-01-N00-01",
+      "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+      "done_at": "2026-09-12T11:05:57+00:00",
+      "verified_existing": false,
+      "last_error": null
+    },
+    "N00-02": {
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-02-N00-02",
+      "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+      "done_at": "2026-09-12T11:05:58+00:00",
+      "verified_existing": false,
+      "last_error": null
+    },
+    "N00-03": {
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-03-N00-03",
+      "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+      "done_at": "2026-09-12T11:06:35+00:00",
+      "verified_existing": false,
+      "last_error": null
+    },
+    "N01-01": {
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-04-N01-01",
+      "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+      "done_at": "2026-09-12T11:08:20+00:00",
+      "verified_existing": true,
+      "last_error": null
+    },
+    "N02-01": {
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-05-N02-01",
+      "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+      "done_at": "2026-09-12T11:08:22+00:00",
+      "verified_existing": false,
+      "last_error": null
+    },
+    "N03-01": {
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-06-N03-01",
+      "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+      "done_at": "2026-09-12T11:08:24+00:00",
+      "verified_existing": false,
+      "last_error": null
+    },
+    "N04-01": {
+      "status": "DISCOVERY",
+      "attempts": 0
+    },
+    "N08-01": {
+      "status": "BLOCKED",
+      "attempts": 0,
+      "last_error": "Vercel CLI logged out"
+    },
+    "N07-01": {
+      "status": "DONE",
+      "attempts": 2,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-08-N07-01",
+      "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+      "last_error": null,
+      "done_at": "2026-09-12T11:10:31+00:00",
+      "verified_existing": false
+    }
+  },
+  "last_round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-08-N07-01"
 }

@@ -1,0 +1,26 @@
+{
+  "task_id": "N01-01",
+  "contract_version": 1,
+  "acceptance": [
+    "修正数量后生成新报价版本",
+    "GET 旧 estimate_id 金额不变",
+    "export?estimate_id=旧版 不按新数量重算"
+  ],
+  "validation": {
+    "commands": [
+      "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_acl.py::test_correction_creates_new_estimate_and_keeps_old server/tests/test_estimator_acl.py::test_quote_snapshot_hand_calc_and_unpriced_doors"
+    ],
+    "manual_steps": [],
+    "required_evidence": [
+      "existing ACL snapshot tests exit 0"
+    ]
+  },
+  "scope_paths": [
+    "server/app/estimator/takeoff.py",
+    "server/app/estimator/store.py",
+    "server/tests/test_estimator_acl.py"
+  ],
+  "local_handler": null,
+  "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "snapshot_at": "2026-09-12T11:08:19+00:00"
+}

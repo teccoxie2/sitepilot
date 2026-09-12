@@ -1,0 +1,10 @@
+{
+  "session_id": "8c476385-3153-46f1-9d7b-6e52d2cebe2b",
+  "argv": [
+    "/usr/bin/python3",
+    "/workspace/scripts/overnight_local_agent.py"
+  ],
+  "exit_code": 3,
+  "seconds": 0.02,
+  "continue_old_session": false
+}

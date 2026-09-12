@@ -76,7 +76,7 @@
       ],
       "validation": {
         "commands": [
-          "python3 -m pytest -q server/tests/test_estimator_vision_stub.py"
+          "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_vision_stub.py"
         ],
         "manual_steps": [],
         "required_evidence": ["pytest vision stub exit 0"]
@@ -102,7 +102,7 @@
       ],
       "validation": {
         "commands": [
-          "python3 -m pytest -q server/tests/test_estimator_acl.py::test_correction_creates_new_estimate_and_keeps_old server/tests/test_estimator_acl.py::test_quote_snapshot_hand_calc_and_unpriced_doors"
+          "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_acl.py::test_correction_creates_new_estimate_and_keeps_old server/tests/test_estimator_acl.py::test_quote_snapshot_hand_calc_and_unpriced_doors"
         ],
         "manual_steps": [],
         "required_evidence": ["existing ACL snapshot tests exit 0"]
@@ -128,7 +128,7 @@
       ],
       "validation": {
         "commands": [
-          "python3 -m pytest -q server/tests/test_estimator_jobs.py server/tests/test_estimator_acl.py::test_two_pilots_cannot_read_each_other"
+          "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_jobs.py server/tests/test_estimator_acl.py::test_two_pilots_cannot_read_each_other"
         ],
         "manual_steps": [],
         "required_evidence": ["local persistence and isolation tests"]
@@ -158,7 +158,7 @@
       ],
       "validation": {
         "commands": [
-          "python3 -m pytest -q server/tests/test_estimator_index.py"
+          "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_index.py"
         ],
         "manual_steps": [
           "若改了工作区表单：在本地图纸取量页补一条 index 并刷新"
@@ -189,6 +189,7 @@
         "manual_steps": [],
         "required_evidence": []
       },
+      "discovery_note": "2026-09-12：接口宜为 POST /estimator/projects/{id}/takeoff/manual。store.replace_takeoff 目前删除该项目全部取量，必须先改为保留 source_method=MANUAL，否则重跑解析会丢掉人工漏量。",
       "initial_status": "DISCOVERY"
     },
     {

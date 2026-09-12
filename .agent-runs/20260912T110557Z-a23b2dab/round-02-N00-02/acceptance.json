@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "command": "python3 -m pytest -q scripts/test_overnight_runner.py",
+      "exit_code": 0,
+      "seconds": 0.55,
+      "stdout_path": "acceptance.stdout.log",
+      "stderr_path": "acceptance.stderr.log"
+    }
+  ],
+  "ran_at": "2026-09-12T11:05:58+00:00"
+}

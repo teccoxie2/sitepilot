@@ -1,0 +1,26 @@
+{
+  "task_id": "N02-01",
+  "contract_version": 1,
+  "acceptance": [
+    "本地隔离库可创建项目并在同一测试进程内按 id 读取",
+    "跨 owner 不能列到或打开别人的工作区"
+  ],
+  "validation": {
+    "commands": [
+      "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_jobs.py server/tests/test_estimator_acl.py::test_two_pilots_cannot_read_each_other"
+    ],
+    "manual_steps": [],
+    "required_evidence": [
+      "local persistence and isolation tests"
+    ]
+  },
+  "scope_paths": [
+    "server/app/store.py",
+    "server/app/estimator/store.py",
+    "server/app/job_store.py",
+    "server/tests/test_estimator_jobs.py"
+  ],
+  "local_handler": null,
+  "base_commit": "a22dc2dbe5ba9cf337c92c84006f3832dda2ab29",
+  "snapshot_at": "2026-09-12T11:08:21+00:00"
+}

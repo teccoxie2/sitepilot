@@ -20,3 +20,7 @@ agent-tools
 cpa-tunnel/.env
 .vercel/*
 !.vercel/project.json
+.agent-runs/*.lock
+.agent-runs/*.pid
+.agent-runs/STOP
+.agent-runs/**/cli-raw.log

@@ -1,0 +1,235 @@
+{
+  "contract_version": 1,
+  "generated_at": "2026-09-12",
+  "tasks": [
+    {
+      "id": "N00-01",
+      "requirement_ids": ["J05", "J06"],
+      "title": "源码核实并建立夜间状态入口",
+      "depends_on": [],
+      "scope_paths": [
+        "docs/agent/BRIEF.md",
+        "docs/agent/COVERAGE.json",
+        "docs/agent/TASKS.json",
+        "docs/agent/STATE.json",
+        "docs/agent/HANDOFF.md",
+        ".cursor/rules/overnight.mdc"
+      ],
+      "excluded_scope": ["整体重写解析引擎", "上线发布"],
+      "acceptance": [
+        "coverage 保留 A01–J06 编号并写入源码路径",
+        "任务契约含真实路径与可执行验收命令",
+        "BRIEF/STATE/HANDOFF 已落盘"
+      ],
+      "validation": {
+        "commands": [
+          "python3 -c \"import json; from pathlib import Path; c=json.loads(Path('docs/agent/COVERAGE.json').read_text()); ids=[i['id'] for i in c['items']]; assert ids[0]=='A01' and ids[-1]=='J06' and len(ids)==60\""
+        ],
+        "manual_steps": [],
+        "required_evidence": ["coverage item count 60", "STATE.json exists"]
+      },
+      "initial_status": "READY"
+    },
+    {
+      "id": "N00-02",
+      "requirement_ids": ["J05", "J06"],
+      "title": "实现夜间调度器并完成短跑/失败/恢复测试",
+      "depends_on": ["N00-01"],
+      "scope_paths": [
+        "scripts/overnight_runner.py",
+        "scripts/overnight_local_agent.py",
+        "scripts/test_overnight_runner.py",
+        "docs/agent/runner_config.json"
+      ],
+      "excluded_scope": ["上线发布", "修改业务金额规则"],
+      "acceptance": [
+        "调度器单实例锁、原子写状态、独立执行验收命令",
+        "模拟 CLI 成功不单独决定 DONE，须验收通过",
+        "模拟失败不得标 DONE",
+        "中断后恢复同一任务而不直接接下一项",
+        "每轮新进程，不传 --resume"
+      ],
+      "validation": {
+        "commands": [
+          "python3 -m pytest -q scripts/test_overnight_runner.py"
+        ],
+        "manual_steps": [],
+        "required_evidence": ["pytest scripts/test_overnight_runner.py exit 0"]
+      },
+      "initial_status": "READY"
+    },
+    {
+      "id": "N00-03",
+      "requirement_ids": ["D02"],
+      "title": "诚实披露 Vision stub：有密钥也不声称已读扫描页",
+      "depends_on": ["N00-02"],
+      "scope_paths": [
+        "server/app/estimator/vision.py",
+        "server/app/estimator/router.py",
+        "server/tests/test_estimator_vision_stub.py"
+      ],
+      "excluded_scope": ["接通真实 Vision 推理", "上线发布", "LLM 定价"],
+      "acceptance": [
+        "classify_page_vision 在配置密钥时仍返回 None，不编造图号",
+        "ready 增加 vision_classification_implemented=false",
+        "说明写明 stub 不会读扫描页，且不含服务 URL"
+      ],
+      "validation": {
+        "commands": [
+          "python3 -m pytest -q server/tests/test_estimator_vision_stub.py"
+        ],
+        "manual_steps": [],
+        "required_evidence": ["pytest vision stub exit 0"]
+      },
+      "local_handler": "vision_stub_honesty",
+      "initial_status": "READY"
+    },
+    {
+      "id": "N01-01",
+      "requirement_ids": ["E02", "E03", "J05"],
+      "title": "验收已有报价快照与指定版本导出不被重算",
+      "depends_on": ["N00-01"],
+      "scope_paths": [
+        "server/app/estimator/takeoff.py",
+        "server/app/estimator/store.py",
+        "server/tests/test_estimator_acl.py"
+      ],
+      "excluded_scope": ["上线发布", "新建报价引擎"],
+      "acceptance": [
+        "修正数量后生成新报价版本",
+        "GET 旧 estimate_id 金额不变",
+        "export?estimate_id=旧版 不按新数量重算"
+      ],
+      "validation": {
+        "commands": [
+          "python3 -m pytest -q server/tests/test_estimator_acl.py::test_correction_creates_new_estimate_and_keeps_old server/tests/test_estimator_acl.py::test_quote_snapshot_hand_calc_and_unpriced_doors"
+        ],
+        "manual_steps": [],
+        "required_evidence": ["existing ACL snapshot tests exit 0"]
+      },
+      "verified_existing_if_pass": true,
+      "initial_status": "READY"
+    },
+    {
+      "id": "N02-01",
+      "requirement_ids": ["C05", "J02", "J06"],
+      "title": "核实本地持久化；生产 Estimator 500 记为阻塞",
+      "depends_on": ["N00-01"],
+      "scope_paths": [
+        "server/app/store.py",
+        "server/app/estimator/store.py",
+        "server/app/job_store.py",
+        "server/tests/test_estimator_jobs.py"
+      ],
+      "excluded_scope": ["伪造生产库连接", "把连接串写入仓库"],
+      "acceptance": [
+        "本地隔离库可创建项目并在同一测试进程内按 id 读取",
+        "跨 owner 不能列到或打开别人的工作区"
+      ],
+      "validation": {
+        "commands": [
+          "python3 -m pytest -q server/tests/test_estimator_jobs.py server/tests/test_estimator_acl.py::test_two_pilots_cannot_read_each_other"
+        ],
+        "manual_steps": [],
+        "required_evidence": ["local persistence and isolation tests"]
+      },
+      "initial_status": "READY"
+    },
+    {
+      "id": "N03-01",
+      "requirement_ids": ["C02"],
+      "title": "人工补录 Drawing Index 并在重新读取后保留",
+      "depends_on": ["N00-03"],
+      "scope_paths": [
+        "server/app/estimator/store.py",
+        "server/app/estimator/router.py",
+        "server/app/estimator/models.py",
+        "web/src/components/estimator_workspace.tsx",
+        "web/src/lib/estimator.ts",
+        "server/tests/test_estimator_index.py"
+      ],
+      "excluded_scope": ["整体重写解析引擎", "上线发布", "编造图号"],
+      "acceptance": [
+        "当前项目可新增图号、标题和修订",
+        "缺少图号不能保存",
+        "重新 GET 项目仍能取得刚保存的清单",
+        "其他 owner 不能读取或修改本项目清单",
+        "管线 replace_expected 不删除 source=manual 的行"
+      ],
+      "validation": {
+        "commands": [
+          "python3 -m pytest -q server/tests/test_estimator_index.py"
+        ],
+        "manual_steps": [
+          "若改了工作区表单：在本地图纸取量页补一条 index 并刷新"
+        ],
+        "required_evidence": ["pytest test_estimator_index.py exit 0"]
+      },
+      "initial_status": "READY"
+    },
+    {
+      "id": "N04-01",
+      "requirement_ids": ["D03", "D04"],
+      "title": "人工新增漏量并保留理由，旧报价不改",
+      "depends_on": ["N01-01"],
+      "scope_paths": [
+        "server/app/estimator/takeoff.py",
+        "server/app/estimator/router.py",
+        "server/app/estimator/store.py"
+      ],
+      "excluded_scope": ["标定画线工具", "LLM 定价", "上线发布"],
+      "acceptance": [
+        "可新增一条带数量/单位/科目/理由的取量",
+        "只追加 correction_events 或等价来源记录",
+        "生成新报价版本且旧版金额不变",
+        "其他项目不可写入"
+      ],
+      "validation": {
+        "commands": [],
+        "manual_steps": [],
+        "required_evidence": []
+      },
+      "initial_status": "DISCOVERY"
+    },
+    {
+      "id": "N08-01",
+      "requirement_ids": ["C05", "J02", "J06"],
+      "title": "重建生产共享库并只交付认领链接",
+      "depends_on": ["N00-01"],
+      "scope_paths": ["vercel.json", "server/app/store.py"],
+      "excluded_scope": ["把连接串写入 git/README/回复", "提交 .env"],
+      "acceptance": [
+        "生产 GET/POST /engine/estimator/projects 不再 500",
+        "用户回复只含 claim URL，不含连接串"
+      ],
+      "validation": {
+        "commands": [
+          "python3 scripts/probe_estimator_prod.py"
+        ],
+        "manual_steps": ["Vercel 登录后写入 production+preview DATABASE_URL"],
+        "required_evidence": ["production estimator HTTP not 500", "claim URL"]
+      },
+      "initial_status": "READY"
+    },
+    {
+      "id": "N07-01",
+      "requirement_ids": ["J05", "J06"],
+      "title": "早晨报告：记录完成、阻塞与未测项",
+      "depends_on": ["N00-03"],
+      "scope_paths": ["docs/agent/MORNING_REPORT.md", "docs/agent/HANDOFF.md"],
+      "excluded_scope": ["把未完成标 DONE"],
+      "acceptance": [
+        "报告回答协议第 12 节七问",
+        "列出未执行检查与原因"
+      ],
+      "validation": {
+        "commands": [
+          "python3 -c \"from pathlib import Path; t=Path('docs/agent/MORNING_REPORT.md').read_text(); assert '完成' in t and '阻塞' in t\""
+        ],
+        "manual_steps": [],
+        "required_evidence": ["MORNING_REPORT.md"]
+      },
+      "initial_status": "READY"
+    }
+  ]
+}

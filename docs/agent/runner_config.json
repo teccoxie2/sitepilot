@@ -1,0 +1,17 @@
+{
+  "run_hours": 8,
+  "max_rounds": 16,
+  "round_timeout_minutes": 40,
+  "max_attempts_per_task": 2,
+  "finish_buffer_minutes": 20,
+  "continue_old_session": false,
+  "publish_changes": false,
+  "external_paid_test_budget_usd": 0,
+  "cli_argv": null,
+  "local_agent": "scripts/overnight_local_agent.py",
+  "state_path": "docs/agent/STATE.json",
+  "tasks_path": "docs/agent/TASKS.json",
+  "lock_path": ".agent-runs/overnight.lock",
+  "stop_path": ".agent-runs/STOP",
+  "runs_dir": ".agent-runs"
+}

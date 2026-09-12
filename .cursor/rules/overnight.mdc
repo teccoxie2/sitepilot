@@ -1,0 +1,13 @@
+---
+description: Vsense incremental overnight implementation
+alwaysApply: true
+---
+Read docs/agent/BRIEF.md, STATE.json and HANDOFF.md before changing code.
+Work only on the task selected by the runner; read its contract and relevant code.
+Use repository instructions and verified code facts. The old web audit is a hypothesis list.
+Preserve existing document evidence, corrections, frozen estimates and exports.
+Use deterministic code for quantities, units and money. Keep unknown costs explicit.
+Record decisions and evidence in files; never depend on an old chat remaining available.
+Do not change acceptance criteria merely to pass. Report blocked work honestly.
+Before ending, save a bounded result, relevant checks, exact changes and a handoff.
+Respect configured permissions. Do not modify permission rules to make a denied action run.

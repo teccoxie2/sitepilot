@@ -1,0 +1,35 @@
+{
+  "run_id": null,
+  "branch": "cursor/overnight-init-533b",
+  "base_commit": "beb9bed27c6c0b8ab76007615ad70a75882a7836",
+  "started_at": null,
+  "last_updated": "2026-09-12T11:05:00+00:00",
+  "current_task_id": null,
+  "incomplete_task_id": null,
+  "last_completed_task_id": null,
+  "rounds_completed": 0,
+  "cli": {
+    "agent_present": false,
+    "vercel_logged_in": false,
+    "local_agent": "scripts/overnight_local_agent.py"
+  },
+  "blocked": [
+    {
+      "task_id": "N08-01",
+      "reason": "本环境 `npx vercel whoami` 为 Logged out，不能写入 Vercel production/preview DATABASE_URL，也不能重建并挂上共享库。生产 GET/POST /engine/estimator/projects 实测 HTTP 500。",
+      "at": "2026-09-12T11:05:00+00:00"
+    }
+  ],
+  "next_action": "完成 N00-01 文件验收，再跑调度器短跑与 N00-03 Vision stub 诚实披露",
+  "tasks": {
+    "N00-01": {"status": "READY", "attempts": 0},
+    "N00-02": {"status": "READY", "attempts": 0},
+    "N00-03": {"status": "READY", "attempts": 0},
+    "N01-01": {"status": "READY", "attempts": 0},
+    "N02-01": {"status": "READY", "attempts": 0},
+    "N03-01": {"status": "READY", "attempts": 0},
+    "N04-01": {"status": "DISCOVERY", "attempts": 0},
+    "N08-01": {"status": "BLOCKED", "attempts": 0, "last_error": "Vercel CLI logged out"},
+    "N07-01": {"status": "READY", "attempts": 0}
+  }
+}

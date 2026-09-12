@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "command": "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_manual_takeoff.py",
+      "exit_code": 0
+    }
+  ],
+  "ran_at": "2026-09-12T12:27:49+00:00"
+}

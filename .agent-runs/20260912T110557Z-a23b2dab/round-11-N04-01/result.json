@@ -1,0 +1,9 @@
+{
+  "task_id": "N04-01",
+  "status": "DONE",
+  "at": "2026-09-12T12:27:53+00:00",
+  "pytest_exit_code": 0,
+  "pytest_path": ".agent-runs/20260912T110557Z-a23b2dab/round-11-N04-01/pytest.txt",
+  "browser_clicked": false,
+  "note": "API/unit tests cover add, isolation, frozen old estimate, MANUAL survive replace_takeoff. TAKEOFF form added; no browser click in this environment."
+}

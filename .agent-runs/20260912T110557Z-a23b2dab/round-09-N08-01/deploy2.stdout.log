@@ -1,0 +1,26 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_DGX8pvHqvanPQXCXGoVnkT88Ptjd",
+    "url": "https://temporary-fast-rowan-7ti4bm3-6tbb0c8n6-xentechs-projects.vercel.app",
+    "inspectorUrl": "https://vercel.com/xentechs-projects/temporary-fast-rowan-7ti4bm3/DGX8pvHqvanPQXCXGoVnkT88Ptjd",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_DGX8pvHqvanPQXCXGoVnkT88Ptjd"
+  },
+  "message": "Deployment temporary-fast-rowan-7ti4bm3-6tbb0c8n6-xentechs-projects.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://temporary-fast-rowan-7ti4bm3-6tbb0c8n6-xentechs-projects.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect temporary-fast-rowan-7ti4bm3-6tbb0c8n6-xentechs-projects.vercel.app --scope xentechs-projects",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope xentechs-projects",
+      "when": "Promote to production"
+    }
+  ]
+}

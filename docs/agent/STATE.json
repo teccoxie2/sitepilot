@@ -1,26 +1,21 @@
 {
   "run_id": "20260912T110557Z-a23b2dab",
-  "branch": "cursor/overnight-init-533b",
+  "branch": "cursor/overnight-n08-n04-e825",
   "base_commit": "beb9bed27c6c0b8ab76007615ad70a75882a7836",
   "started_at": "2026-09-12T11:05:57+00:00",
-  "last_updated": "2026-09-12T11:10:31+00:00",
+  "last_updated": "2026-09-12T12:28:00+00:00",
   "current_task_id": null,
   "incomplete_task_id": null,
-  "last_completed_task_id": "N07-01",
-  "rounds_completed": 8,
+  "last_completed_task_id": "N04-01",
+  "rounds_completed": 10,
   "cli": {
     "agent_present": false,
-    "vercel_logged_in": false,
+    "vercel_logged_in": true,
+    "vercel_user": "teccoxie2",
     "local_agent": "scripts/overnight_local_agent.py"
   },
-  "blocked": [
-    {
-      "task_id": "N08-01",
-      "reason": "本环境 `npx vercel whoami` 为 Logged out，不能写入 Vercel production/preview DATABASE_URL，也不能重建并挂上共享库。生产 GET/POST /engine/estimator/projects 实测 HTTP 500。",
-      "at": "2026-09-12T11:05:00+00:00"
-    }
-  ],
-  "next_action": "N04 人工漏量（先保留 MANUAL takeoff）或登录 Vercel 后重建生产库",
+  "blocked": [],
+  "next_action": "N05-01 修订识别（DISCOVERY：先读 pipeline/extract，补验收命令后再 READY）",
   "tasks": {
     "N00-01": {
       "status": "DONE",
@@ -77,13 +72,28 @@
       "last_error": null
     },
     "N04-01": {
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-10-N04-01",
+      "base_commit": "3c6e772cb715f43b6ffaf6288d94a0f76742df23",
+      "done_at": "2026-09-12T12:28:00+00:00",
+      "session_id": "9414436f-ce47-4743-aaef-312aab48eeb9",
+      "verified_existing": false,
+      "last_error": null
+    },
+    "N05-01": {
       "status": "DISCOVERY",
       "attempts": 0
     },
     "N08-01": {
-      "status": "BLOCKED",
-      "attempts": 0,
-      "last_error": "Vercel CLI logged out"
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-09-N08-01",
+      "base_commit": "3c6e772cb715f43b6ffaf6288d94a0f76742df23",
+      "done_at": "2026-09-12T12:27:30+00:00",
+      "session_id": "66b77556-7ad6-4a29-92ec-afebdc700adc",
+      "verified_existing": false,
+      "last_error": null
     },
     "N07-01": {
       "status": "DONE",
@@ -95,5 +105,5 @@
       "verified_existing": false
     }
   },
-  "last_round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-08-N07-01"
+  "last_round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-10-N04-01"
 }

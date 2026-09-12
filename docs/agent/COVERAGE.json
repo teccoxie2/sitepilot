@@ -6,8 +6,8 @@
     "base": "https://demo-cost.vsense.co.nz",
     "health": {"path": "/engine/health", "http": 200},
     "addresses_55_nelson": {"path": "/engine/addresses?q=55 Nelson Street", "http": 200, "source_name_present": true},
-    "estimator_projects_get": {"path": "/engine/estimator/projects", "http": 500, "body": "Internal Server Error"},
-    "estimator_projects_post": {"path": "POST /engine/estimator/projects", "http": 500, "body": "Internal Server Error"},
+    "estimator_projects_get": {"path": "/engine/estimator/projects", "http": 200, "body": "projects list"},
+    "estimator_projects_post": {"path": "POST /engine/estimator/projects", "http": 200, "isolation": "cross-cookie GET 404"},
     "estimator_ready": {"path": "/engine/estimator/ready", "http": 200, "vision_configured": true, "note_was_misleading": true}
   },
   "items": [
@@ -27,11 +27,11 @@
     {"id": "C02", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/estimator/extract.py", "server/app/estimator/store.py", "server/app/estimator/router.py", "web/src/components/estimator_workspace.tsx"], "tests": ["server/tests/test_estimator.py", "server/tests/test_estimator_index.py"], "note": "文字层解析 + 人工补录 expected-drawings；修订作废工作流仍缺。"},
     {"id": "C03", "audit": "已见实现证据", "source_status": "implemented", "paths": ["server/app/estimator/router.py", "web/src/components/estimator_workspace.tsx"], "tests": ["server/tests/test_estimator.py"], "note": "分页图像与证据框；人工改框只追加 MANUAL。"},
     {"id": "C04", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/estimator/models.py", "server/app/estimator/store.py"], "tests": ["server/tests/test_estimator.py"], "note": "有 document_set_version 与报价绑定；无单张图纸作废工作流。"},
-    {"id": "C05", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/store.py", "server/app/estimator/store.py", "web/src/lib/estimator_cache.ts"], "tests": ["server/tests/test_estimator_jobs.py"], "note": "代码写共享库 + IndexedDB 原件；生产 Estimator 接口 500。"},
+    {"id": "C05", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/store.py", "server/app/estimator/store.py", "web/src/lib/estimator_cache.ts"], "tests": ["server/tests/test_estimator_jobs.py", "scripts/probe_estimator_prod.py"], "note": "共享库 + IndexedDB 原件；2026-09-12 重建 24h Prisma 后生产 GET/POST /estimator/projects 不再 500。库仍是 24h TTL，需认领。"},
     {"id": "C06", "audit": "公开端未见", "source_status": "absent", "paths": [], "tests": [], "note": "无 RFI 工作流。"},
     {"id": "D01", "audit": "已见实现证据", "source_status": "implemented", "paths": ["server/app/estimator/takeoff.py", "server/app/estimator/extract.py"], "tests": ["server/tests/test_estimator.py"], "note": "文字层面积/门窗/屋面公式。"},
     {"id": "D02", "audit": "待核实", "source_status": "stub", "paths": ["server/app/estimator/vision.py", "server/app/estimator/pipeline.py"], "tests": ["server/tests/test_estimator.py"], "note": "classify_page_vision 有密钥也 return None；pipeline 未调用它。"},
-    {"id": "D03", "audit": "公开端未见", "source_status": "absent", "paths": ["server/app/estimator/router.py"], "tests": [], "note": "只能改已有取量；无标定/画线/新增漏项接口。"},
+    {"id": "D03", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/estimator/router.py", "server/app/estimator/takeoff.py", "server/app/estimator/store.py", "web/src/components/estimator_workspace.tsx"], "tests": ["server/tests/test_estimator_manual_takeoff.py"], "note": "可人工补录漏项（数量/单位/科目/理由）；无标定画线工具。replace_takeoff 保留 MANUAL。"},
     {"id": "D04", "audit": "已见实现证据", "source_status": "implemented", "paths": ["server/app/estimator/takeoff.py", "server/app/estimator/models.py"], "tests": ["server/tests/test_estimator.py", "server/tests/test_estimator_acl.py"], "note": "correct 追加 correction_events。"},
     {"id": "D05", "audit": "已见实现证据", "source_status": "implemented", "paths": ["server/app/estimator/takeoff.py", "server/app/estimator/router.py"], "tests": ["server/tests/test_estimator.py"], "note": "Accept/Reject/Unresolved。"},
     {"id": "D06", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/estimator/takeoff.py", "web/src/components/estimator_workspace.tsx"], "tests": ["server/tests/test_estimator.py"], "note": "覆盖建筑面积/门窗/屋面；梁常 UNPRICED；机电无证据不生成。"},
@@ -66,10 +66,10 @@
     {"id": "I05", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/estimator/models.py", "server/app/estimator/evals.py"], "tests": ["server/tests/test_estimator.py"], "note": "有 correction_events；无修正晋级评测集。574 PDF missing。"},
     {"id": "I06", "audit": "公开端未见", "source_status": "absent", "paths": [], "tests": [], "note": "无结项封存。"},
     {"id": "J01", "audit": "公开端未见", "source_status": "partial", "paths": ["server/app/identity.py"], "tests": ["server/tests/test_estimator_acl.py"], "note": "仅 vsense_pilot Cookie / 可选测试头，无成员角色。"},
-    {"id": "J02", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/job_store.py", "server/app/estimator/jobs.py"], "tests": ["server/tests/test_estimator_jobs.py"], "note": "任务可落库；生产 500 使恢复无法在线上验收。"},
+    {"id": "J02", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/job_store.py", "server/app/estimator/jobs.py"], "tests": ["server/tests/test_estimator_jobs.py", "scripts/probe_estimator_prod.py"], "note": "任务可落库；生产共享库已重建，Estimator 写入恢复。24h 库未认领会再过期。"},
     {"id": "J03", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/estimator/models.py", "server/app/llm_audit.py"], "tests": ["server/tests/test_estimator.py"], "note": "修正有时间与原/新值；操作者只到 owner_id。"},
     {"id": "J04", "audit": "待核实", "source_status": "partial", "paths": ["server/app/llm_audit.py"], "tests": [], "note": "有调用审计与日限额；无运维费用看板。"},
     {"id": "J05", "audit": "待核实", "source_status": "implemented", "paths": ["server/app/estimator/takeoff.py", "server/app/price_provider.py"], "tests": ["server/tests/test_estimator_acl.py"], "note": "源码与测试证明旧报价不重算。"},
-    {"id": "J06", "audit": "待核实", "source_status": "partial", "paths": ["server/app/identity.py", "server/app/estimator/router.py"], "tests": ["server/tests/test_estimator_acl.py", "server/tests/test_project_list_privacy.py"], "note": "本地隔离测试通过；生产 Estimator 500，跨项目线上未测。"}
+    {"id": "J06", "audit": "部分具备", "source_status": "partial", "paths": ["server/app/identity.py", "server/app/estimator/router.py"], "tests": ["server/tests/test_estimator_acl.py", "server/tests/test_project_list_privacy.py", "scripts/probe_estimator_prod.py"], "note": "本地与生产 Cookie 隔离均已测：跨 owner GET 404。备份/换设备恢复仍待测。"}
   ]
 }

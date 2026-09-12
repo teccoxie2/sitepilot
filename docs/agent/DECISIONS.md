@@ -21,8 +21,20 @@
 ## D004 · 生产库与 checkpoint
 
 - 日期：2026-09-12
-- 决定：Estimator 业务数据走 `DATABASE_URL`；LangGraph checkpoint 只走 `CHECKPOINT_DATABASE_URL`。本环境 Vercel CLI 未登录，不创建也无法写入生产库。
+- 决定：Estimator 业务数据走 `DATABASE_URL`；LangGraph checkpoint 只走 `CHECKPOINT_DATABASE_URL`。2026-09-12 续跑已登录 Vercel 并写入 production+preview `DATABASE_URL`，未写 checkpoint 变量。
 - 理由：仓库已分离；协议禁止把连接串写入 git / README / 用户可见回复。
+
+## D006 · 24h Prisma 只交付认领链接
+
+- 日期：2026-09-12
+- 决定：用 `create-db --region us-east-1 --ttl 24h` 重建共享库；回复与 HANDOFF 只写 claim URL 与删除时间。用户须在到期前认领。
+- 理由：过期 Prisma 导致生产 Estimator 500；连接串不能进 git。
+
+## D007 · 人工漏项取量
+
+- 日期：2026-09-12
+- 决定：漏项走 `POST /estimator/projects/{id}/takeoff/manual`，`source_method=MANUAL`、数量状态 `ALLOWANCE`。只追加 `correction_events`。`replace_takeoff` 不删除 MANUAL 行。可选 SKU 必须已在价表；拒绝手写金额/单价。有旧报价或项目 READY 时生成新报价版本，旧版不改。
+- 理由：重跑解析不能丢掉人工漏量；金额只经 PriceProvider。
 
 ## D005 · Drawing Index 人工行
 

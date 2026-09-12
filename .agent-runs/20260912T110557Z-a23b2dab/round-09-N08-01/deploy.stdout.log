@@ -1,0 +1,11 @@
+{
+  "status": "error",
+  "reason": "deploy_failed",
+  "message": "Command \"pnpm run build\" exited with 1",
+  "next": [
+    {
+      "command": "vercel deploy --scope xentechs-projects",
+      "when": "retry deploy"
+    }
+  ]
+}

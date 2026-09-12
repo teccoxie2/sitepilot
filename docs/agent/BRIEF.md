@@ -23,5 +23,5 @@
 - 评估首轮 1–8 已在源码：持久化、门窗表、人工修正、报价快照、导出/diff、Cookie 隔离、三入口。
 - `classify_page_vision()` 在密钥存在时仍 `return None`，不会读扫描页。
 - 574 原 PDF 未入库，eval 报 missing。
-- 生产 `GET/POST /engine/estimator/projects` 返回 500；`/engine/health` 与地址查询正常。
-- 本环境无 Cursor `agent` CLI；Vercel CLI 未登录，不能写生产 `DATABASE_URL`。
+- 生产 `GET/POST /engine/estimator/projects` 在 2026-09-12 重建 24h Prisma 后恢复；health 与 `55 Nelson Street` 地址检索正常。库未认领约 24h 后删除。
+- 本环境无 Cursor `agent` CLI。Vercel CLI 已登录 `teccoxie2` / `xentechs-projects`。

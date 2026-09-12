@@ -1,28 +1,32 @@
-# Handoff · 2026-09-12 收尾
+# Handoff · 2026-09-12 续跑
 
 ## 上轮做了什么
 
-- 夜间文件与调度器落地；短跑/失败/恢复测试 6 通过。
-- N00-03：Vision stub 诚实披露，调度器独立 pytest 通过。
-- N01-01：现有报价快照测试通过（verified_existing）。
-- N02-01：本地任务持久化与隔离通过。
-- N03-01：人工 Drawing Index API + 工作区表单；本地 `127.0.0.1:8764` Cookie 探针通过。
-- N08-01 保持 BLOCKED（Vercel 未登录）。未重建 Prisma。
+- 工作分支：`cursor/overnight-n08-n04-e825`。未开 PR。
+- N08-01：Vercel 已登录 `teccoxie2` / `--scope xentechs-projects`。重建 24h Prisma（us-east-1），写入 production + preview `DATABASE_URL`，未改 `CHECKPOINT_DATABASE_URL`。首次 `--prod` 因 Drawing Index TS 强转失败，修掉后发布成功，别名 `https://demo-cost.vsense.co.nz`。
+- 生产烟：`GET /engine/health` 200；`55 Nelson Street` 地址检索 200 且来源为议会 AC_Address；两 Cookie 各建项目，本 Cookie GET 200，跨 Cookie GET 404。
+- N04-01：`replace_takeoff` 保留 `source_method=MANUAL`。`POST /estimator/projects/{id}/takeoff/manual` 只追加取量与 `correction_events`，金额只走价表 SKU；生成新报价，旧版金额不变。TAKEOFF 页有补录表单。
 
 ## 未完成
 
-- Drawing Index 表单未做浏览器点选（无浏览器工具，web 未装依赖）。
-- N04 人工漏量：`store.replace_takeoff` 会删除全部旧行。
-- 生产 Estimator 500。
+- 24h Prisma **必须认领**，否则到期删除后 Estimator 会再 500。
+- Drawing Index / 漏项表单未做浏览器点选。
 - `classify_page_vision` 仍不读图。
+- N05 修订识别仍是 DISCOVERY（无验收命令）。
 
 ## 下一步
 
-1. 登录 Vercel 后重建共享库（N08-01），回复只给 claim URL。
-2. 或做 N04：新增漏量并保留 MANUAL，旧报价不改。
-3. 有浏览器时补 N03 表单点选。
+1. 用户打开 claim URL 认领库（见下方，不含连接串）。
+2. N05-01：先读 `pipeline.py` / `extract.py`，确认同图号不同修订是否会重复取量，再补测试后标 READY。
+3. 有浏览器时补 N03/N04 表单点选。
+
+## 认领（无连接串）
+
+- Claim：https://create-db.prisma.io/claim?projectID=proj_aux4dcghcmhx7f2dzmzauc1a&utm_source=create-db&utm_medium=cli
+- 删除时间：2026-09-13T12:22:18.441Z
 
 ## 证据
 
-- `.agent-runs/20260912T110557Z-a23b2dab/`
-- 本地引擎：`http://127.0.0.1:8764/health`
+- `.agent-runs/20260912T110557Z-a23b2dab/round-09-N08-01/`（建库与写环境变量，无连接串）
+- `.agent-runs/20260912T110557Z-a23b2dab/round-10-N08-01/probe.json`（health / 地址 / 双 Cookie 隔离）
+- `.agent-runs/20260912T110557Z-a23b2dab/round-10-N04-01/`（调度器独立 pytest 退出码 0）

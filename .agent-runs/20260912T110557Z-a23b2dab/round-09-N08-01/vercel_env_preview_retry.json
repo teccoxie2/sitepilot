@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "rm_exit": 0,
+  "add_exit": 0,
+  "rm_stderr": "Vercel CLI 59.16.0 (Node.js 22.14.0)\nRetrieving project\u2026\n! Removing this variable from Vercel does not revoke the credential. Rotate or disable it at its provider.\nRemoving\nRemoved Environment Variable [140ms]\n",
+  "add_stderr": "Vercel CLI 59.16.0 (Node.js 22.14.0)\nRetrieving project\u2026\nSaving\u2026\n\n\u2713 Overrode        DATABASE_URL\n  Project         xentechs-projects/temporary-fast-rowan-7ti4bm3\n  Environments    Preview\n  Type            Secret\nNext steps:\n- List Environment Variables:\n  vercel env ls --scope xentechs-projects\n- Pull Development Environment Variables into .env.local:\n  vercel env pull --scope xentechs-projects\n",
+  "at": "2026-09-12T12:22:55+00:00"
+}

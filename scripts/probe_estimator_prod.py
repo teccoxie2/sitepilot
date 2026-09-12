@@ -51,6 +51,11 @@ def _json(body: str) -> dict:
 
 def main() -> int:
     health_code, _, _ = fetch("GET", "/engine/health")
+    addr_code, addr_body, _ = fetch("GET", "/engine/addresses?q=55%20Nelson%20Street")
+    addresses = _json(addr_body).get("addresses") if addr_code == 200 else None
+    address_count = len(addresses) if isinstance(addresses, list) else 0
+    address_source = _json(addr_body).get("source_name") if addr_code == 200 else None
+    address_ok = addr_code == 200 and address_count > 0
     get_code, get_body, _ = fetch("GET", "/engine/estimator/projects")
     owner_a = session()
     owner_b = session()
@@ -89,6 +94,10 @@ def main() -> int:
     )
     payload = {
         "health": health_code,
+        "address_search": addr_code,
+        "address_count": address_count,
+        "address_source": address_source,
+        "address_ok": address_ok,
         "estimator_get": get_code,
         "estimator_post_a": post_a_code,
         "estimator_post_b": post_b_code,
@@ -105,6 +114,8 @@ def main() -> int:
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     if health_code != 200:
         return 2
+    if not address_ok:
+        return 5
     if get_code >= 400 or post_a_code >= 400 or post_b_code >= 400:
         return 3
     if not isolation_ok:

@@ -202,6 +202,31 @@
       "initial_status": "READY"
     },
     {
+      "id": "N05-01",
+      "requirement_ids": ["C04"],
+      "title": "同图号不同修订可区分，旧修订不重复进当前取量",
+      "depends_on": ["N03-01"],
+      "scope_paths": [
+        "server/app/estimator/store.py",
+        "server/app/estimator/pipeline.py",
+        "server/app/estimator/extract.py",
+        "server/app/estimator/takeoff.py"
+      ],
+      "excluded_scope": ["完整作废工作流", "上线发布", "LLM 定价"],
+      "acceptance": [
+        "同一 drawing_number 的不同 revision 在目录中可同时存在且可区分",
+        "当前取量只计入标明为有效的修订",
+        "旧修订页不重复生成同一构件数量"
+      ],
+      "validation": {
+        "commands": [],
+        "manual_steps": [],
+        "required_evidence": []
+      },
+      "discovery_note": "已有 expected 按图号+修订去重，以及 document_set_version。尚未核实 takeoff 是否按有效修订过滤。下一轮先读 pipeline/extract 再补验收命令。",
+      "initial_status": "DISCOVERY"
+    },
+    {
       "id": "N08-01",
       "requirement_ids": ["C05", "J02", "J06"],
       "title": "重建生产共享库并只交付认领链接",
@@ -210,7 +235,10 @@
       "excluded_scope": ["把连接串写入 git/README/回复", "提交 .env"],
       "acceptance": [
         "生产 GET/POST /engine/estimator/projects 不再 500",
-        "用户回复只含 claim URL，不含连接串"
+        "两个 Cookie 各建项目；跨 Cookie GET 为 404，本 Cookie GET 为 200",
+        "health 与 55 Nelson Street 地址检索仍可用",
+        "用户回复只含 claim URL，不含连接串",
+        "不把 LangGraph checkpoint 绑到 DATABASE_URL"
       ],
       "validation": {
         "commands": [

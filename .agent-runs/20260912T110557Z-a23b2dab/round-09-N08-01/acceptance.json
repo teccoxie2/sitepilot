@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "command": "python3 scripts/probe_estimator_prod.py",
+      "exit_code": 0
+    }
+  ],
+  "ran_at": "2026-09-12T12:27:49+00:00"
+}

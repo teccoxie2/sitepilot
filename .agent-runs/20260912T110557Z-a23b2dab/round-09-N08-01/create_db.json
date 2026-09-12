@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "claim_url": "https://create-db.prisma.io/claim?projectID=proj_aux4dcghcmhx7f2dzmzauc1a&utm_source=create-db&utm_medium=cli",
+  "expires_at": "2026-09-13T12:22:18.441Z",
+  "region": "us-east-1",
+  "name_present": true,
+  "url_scheme": "postgres",
+  "usable_postgres": true,
+  "checkpoint_touched": false,
+  "at": "2026-09-12T12:22:18+00:00",
+  "json_keys": [
+    "claimUrl",
+    "connectionString",
+    "deletionDate",
+    "name",
+    "projectId",
+    "region",
+    "success"
+  ]
+}

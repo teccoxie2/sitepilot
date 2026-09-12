@@ -334,3 +334,15 @@ Done
 
 `POST/PATCH/DELETE /estimator/projects/{id}/expected-drawings` 写入 `source=manual`。管线 `replace_expected` 只替换同一 document 的封面行。缺图号 422/400；其他 Cookie 404。工作区有表单，本轮未做浏览器点选。
 
+## 生产共享库重建（N08-01）
+
+Done
+
+Vercel 以 teccoxie2 登录后重建 24h Prisma，写入 production/preview `DATABASE_URL`，未绑 checkpoint。生产 health/地址检索/Estimator 创建与跨 Cookie 隔离已烟测。认领链接只写 HANDOFF，不写连接串。
+
+## 人工漏项并保留 MANUAL（N04-01）
+
+Done
+
+`POST /estimator/projects/{id}/takeoff/manual` 追加 ALLOWANCE 取量与 correction_events；SKU 必须在价表。`replace_takeoff` 保留 MANUAL。新报价版本，旧版金额不变。TAKEOFF 有表单，未做浏览器点选。首次 `--prod` 因 Drawing Index TS 强转失败，改为 `as unknown` 后发布成功。
+

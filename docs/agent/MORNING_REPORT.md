@@ -42,7 +42,7 @@ Prisma 认领（无连接串）：
 
 ## 4. 未执行的检查
 
-- 未跑全量 `server/tests` 与 `web` 本地 build（本轮只跑 ACL/Index/Manual 与生产探针）。
+- 未跑全量 `server/tests`。本轮跑了 Manual/ACL/Index 与生产探针；本地 `web` `pnpm run build` 已通过（为修 TS 强转）。
 - 未做浏览器点选 Drawing Index / 漏项表单。
 - 未上传真实扫描图或 574 原 PDF。
 - 未接通 `classify_page_vision` 真推理。

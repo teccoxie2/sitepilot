@@ -22,8 +22,9 @@
 
 ## 认领（无连接串）
 
-- Claim：https://create-db.prisma.io/claim?projectID=proj_aux4dcghcmhx7f2dzmzauc1a&utm_source=create-db&utm_medium=cli
+- Claim（当前 production/preview 使用的库）：https://create-db.prisma.io/claim?projectID=proj_aux4dcghcmhx7f2dzmzauc1a&utm_source=create-db&utm_medium=cli
 - 删除时间：2026-09-13T12:22:18.441Z
+- 同会话若另有 create-db 实例，不要认领；只认领上面这条，才对应线上 `demo-cost.vsense.co.nz`。
 
 ## 证据
 

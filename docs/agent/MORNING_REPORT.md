@@ -50,14 +50,14 @@ Prisma 认领（无连接串）：
 
 ## 5. 数据与部署
 
-- 生产共享 Postgres 为 24h Prisma（us-east-1）。未认领会到期删除。
+- 生产共享 Postgres 为已认领的 Prisma（用户 2026-09-13 确认；本环境未打开控制台复核）。
 - 只写了 `DATABASE_URL`（production + preview）。未写 `CHECKPOINT_DATABASE_URL`。
 - 未提交 sqlite、上传件、`.env*`、连接串。
 
 ## 6. 失败、阻塞、遗留、下一步
 
-- 无当前阻塞任务。风险：库到期未认领会再 500。
-- 下一步：N05-01 修订识别（先补验收命令）；或认领 Prisma。
+- 无当前阻塞任务。认领已由用户确认。
+- 下一步：N05-01 修订识别（先补验收命令）。
 - 身份仍是 `vsense_pilot` Cookie。
 
 ## 7. 费用

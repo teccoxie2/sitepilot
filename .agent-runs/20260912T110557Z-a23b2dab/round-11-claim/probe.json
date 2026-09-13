@@ -1,0 +1,19 @@
+{
+  "health": 200,
+  "address_search": 200,
+  "address_count": 4,
+  "address_source": "Auckland Council AC_Address（Open Data, CC-BY 4.0）",
+  "address_ok": true,
+  "estimator_get": 200,
+  "estimator_post_a": 200,
+  "estimator_post_b": 200,
+  "own_get_a": 200,
+  "own_get_b": 200,
+  "cross_get_a_reads_b": 404,
+  "cross_get_b_reads_a": 404,
+  "projects_created": 2,
+  "isolation_ok": true,
+  "get_is_error": false,
+  "post_is_error": false,
+  "get_body_excerpt": "{\"projects\":[]}"
+}

@@ -338,7 +338,7 @@ Done
 
 Done
 
-Vercel 以 teccoxie2 登录后重建 24h Prisma，写入 production/preview `DATABASE_URL`，未绑 checkpoint。生产 health/地址检索/Estimator 创建与跨 Cookie 隔离已烟测。认领链接只写 HANDOFF，不写连接串。
+Vercel 以 teccoxie2 登录后重建 Prisma，写入 production/preview `DATABASE_URL`，未绑 checkpoint。用户 2026-09-13 确认已认领；当场生产烟测仍通过。本环境未打开 Prisma 控制台复核认领页。
 
 ## 人工漏项并保留 MANUAL（N04-01）
 

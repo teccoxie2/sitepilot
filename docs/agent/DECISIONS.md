@@ -37,6 +37,12 @@
 - 决定：漏项走 `POST /estimator/projects/{id}/takeoff/manual`，`source_method=MANUAL`、数量状态 `ALLOWANCE`。只追加 `correction_events`。`replace_takeoff` 不删除 MANUAL 行。可选 SKU 必须已在价表；拒绝手写金额/单价。有旧报价或项目 READY 时生成新报价版本，旧版不改。
 - 理由：重跑解析不能丢掉人工漏量；金额只经 PriceProvider。
 
+## D008 · 有效修订
+
+- 日期：2026-09-13
+- 决定：同一 `drawing_number` 只把排序最高的修订标 `CURRENT`，其余 `SUPERSEDED`。空修订最旧；纯字母按 A<B<C<AA；纯数字高于字母。目录按图号+修订去重，不再按图号丢掉旧修订行。当前取量与审核跳过 SUPERSEDED 页。目录里旧修订若已有更新修订页，不算缺图。不是完整作废/批准工作流。
+- 理由：N05-01；避免旧版和新版重复计量。
+
 ## D005 · Drawing Index 人工行
 
 - 日期：2026-09-12

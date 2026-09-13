@@ -346,3 +346,9 @@ Done
 
 `POST /estimator/projects/{id}/takeoff/manual` 追加 ALLOWANCE 取量与 correction_events；SKU 必须在价表。`replace_takeoff` 保留 MANUAL。新报价版本，旧版金额不变。TAKEOFF 有表单，未做浏览器点选。首次 `--prod` 因 Drawing Index TS 强转失败，改为 `as unknown` 后发布成功。
 
+## 同图号修订不重复取量（N05-01）
+
+Done
+
+目录按图号+修订保留多行。同图号只把最高修订标 CURRENT，旧页 SUPERSEDED，取量不把旧页面积加进去。自造文字层 PDF 验收：100 与 120 并存时当前取量只有 120。不是完整作废工作流。
+

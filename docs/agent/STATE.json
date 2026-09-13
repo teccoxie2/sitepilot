@@ -3,11 +3,11 @@
   "branch": "cursor/overnight-n08-n04-e825",
   "base_commit": "beb9bed27c6c0b8ab76007615ad70a75882a7836",
   "started_at": "2026-09-12T11:05:57+00:00",
-  "last_updated": "2026-09-13T05:36:00+00:00",
+  "last_updated": "2026-09-13T08:30:00+00:00",
   "current_task_id": null,
   "incomplete_task_id": null,
-  "last_completed_task_id": "N04-01",
-  "rounds_completed": 10,
+  "last_completed_task_id": "N05-01",
+  "rounds_completed": 11,
   "cli": {
     "agent_present": false,
     "vercel_logged_in": true,
@@ -15,7 +15,7 @@
     "local_agent": "scripts/overnight_local_agent.py"
   },
   "blocked": [],
-  "next_action": "用户已确认认领生产 Prisma。下一步 N05-01 修订识别（DISCOVERY：先读 pipeline/extract，补验收命令后再 READY）",
+  "next_action": "N05-01 已完成。PLAN 中的 N06 尚无任务合约；未授权不上线发布。",
   "tasks": {
     "N00-01": {
       "status": "DONE",
@@ -82,8 +82,13 @@
       "last_error": null
     },
     "N05-01": {
-      "status": "DISCOVERY",
-      "attempts": 0
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-12-N05-01",
+      "base_commit": "1d4419c",
+      "done_at": "2026-09-13T08:30:00+00:00",
+      "verified_existing": false,
+      "last_error": null
     },
     "N08-01": {
       "status": "DONE",
@@ -105,5 +110,5 @@
       "verified_existing": false
     }
   },
-  "last_round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-11-claim"
+  "last_round_dir": ".agent-runs/20260912T110557Z-a23b2dab/round-12-N05-01"
 }

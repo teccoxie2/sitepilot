@@ -219,6 +219,24 @@ def replace_document_pages(document_id: str, drawings: list[dict[str, Any]]) -> 
         db.commit()
 
 
+def apply_revision_currency(project_id: str) -> None:
+    from .extract import current_revision_by_sheet, drawing_issue_status
+
+    with session() as db:
+        rows = db.scalars(
+            select(EstimatorDrawing).where(EstimatorDrawing.project_id == project_id)
+        ).all()
+        current = current_revision_by_sheet(
+            [{"drawing_number": row.drawing_number, "revision": row.revision} for row in rows]
+        )
+        for row in rows:
+            row.issue_status = drawing_issue_status(
+                {"drawing_number": row.drawing_number, "revision": row.revision},
+                current,
+            )
+        db.commit()
+
+
 def replace_expected(project_id: str, document_id: str, rows: list[dict[str, Any]]) -> None:
     with session() as db:
         old = db.scalars(

@@ -219,12 +219,14 @@
         "旧修订页不重复生成同一构件数量"
       ],
       "validation": {
-        "commands": [],
+        "commands": [
+          "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_revisions.py server/tests/test_estimator.py::test_drawing_index_and_completeness server/tests/test_estimator_index.py"
+        ],
         "manual_steps": [],
-        "required_evidence": []
+        "required_evidence": ["pytest test_estimator_revisions.py exit 0"]
       },
-      "discovery_note": "已有 expected 按图号+修订去重，以及 document_set_version。尚未核实 takeoff 是否按有效修订过滤。下一轮先读 pipeline/extract 再补验收命令。",
-      "initial_status": "DISCOVERY"
+      "discovery_note": "2026-09-13：目录按图号+修订保留；取量只计入 CURRENT。字母修订 A<B<C，数字修订大于字母；空修订最旧。不是完整作废工作流。",
+      "initial_status": "READY"
     },
     {
       "id": "N08-01",

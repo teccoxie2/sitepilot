@@ -91,10 +91,80 @@ OPENING_ROW_SPACE_RE = re.compile(
 )
 
 
+ISSUE_CURRENT = "CURRENT"
+ISSUE_SUPERSEDED = "SUPERSEDED"
+
+
 def normalize_sheet(value: str | None) -> str:
     if not value:
         return ""
     return re.sub(r"[\s\-]+", "", value).upper()
+
+
+def normalize_revision(value: str | None) -> str | None:
+    text = (value or "").strip().upper()
+    return text or None
+
+
+def revision_sort_key(revision: str | None) -> tuple[int, int, str]:
+    text = normalize_revision(revision) or ""
+    if not text:
+        return (0, 0, "")
+    if text.isdigit():
+        return (2, int(text), text)
+    if text.isalpha():
+        rank = 0
+        for char in text:
+            rank = rank * 26 + (ord(char) - 64)
+        return (1, rank, text)
+    return (1, 0, text)
+
+
+def same_revision(left: str | None, right: str | None) -> bool:
+    return normalize_revision(left) == normalize_revision(right)
+
+
+def current_revision_by_sheet(drawings: list[dict[str, Any]]) -> dict[str, str | None]:
+    winning: dict[str, str | None] = {}
+    winning_key: dict[str, tuple[int, int, str]] = {}
+    for drawing in drawings:
+        sheet = normalize_sheet(drawing.get("drawing_number"))
+        if not sheet:
+            continue
+        revision = normalize_revision(drawing.get("revision"))
+        key = revision_sort_key(revision)
+        if sheet not in winning_key or key > winning_key[sheet]:
+            winning_key[sheet] = key
+            winning[sheet] = revision
+    return winning
+
+
+def drawing_issue_status(
+    drawing: dict[str, Any],
+    current_by_sheet: dict[str, str | None],
+) -> str | None:
+    sheet = normalize_sheet(drawing.get("drawing_number"))
+    if not sheet:
+        return None
+    if same_revision(drawing.get("revision"), current_by_sheet.get(sheet)):
+        return ISSUE_CURRENT
+    return ISSUE_SUPERSEDED
+
+
+def expected_row_key(row: dict[str, Any]) -> tuple[str, str]:
+    return (normalize_sheet(str(row.get("drawing_number") or "")), normalize_revision(row.get("revision")) or "")
+
+
+def dedupe_expected_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    seen: set[tuple[str, str]] = set()
+    unique: list[dict[str, Any]] = []
+    for row in rows:
+        key = expected_row_key(row)
+        if not key[0] or key in seen:
+            continue
+        seen.add(key)
+        unique.append(row)
+    return unique
 
 
 def _first_match(pattern: re.Pattern[str], text: str) -> str | None:
@@ -197,13 +267,15 @@ def parse_drawing_index(text: str) -> list[dict[str, str | None]]:
             continue
         number = match.group(1).strip()
         title = match.group(2).strip()
-        if normalize_sheet(number) in {normalize_sheet(item["drawing_number"]) for item in rows}:
+        revision = match.group(3)
+        key = (normalize_sheet(number), normalize_revision(revision) or "")
+        if key in {(normalize_sheet(item["drawing_number"]), normalize_revision(item.get("revision")) or "") for item in rows}:
             continue
         rows.append(
             {
                 "drawing_number": number,
                 "drawing_title": title[:200],
-                "revision": match.group(3),
+                "revision": revision,
             }
         )
     return rows

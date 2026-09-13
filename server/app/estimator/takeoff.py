@@ -7,7 +7,7 @@ from ..price_provider import get_price_provider
 from . import store
 from .completeness import completeness
 from .enums import ROOF_COVER_WIDTH_M, SCOPE_TAXONOMY, UNCERTAINTY_BY_STATUS
-from .extract import is_opening_schedule_page
+from .extract import ISSUE_SUPERSEDED, is_opening_schedule_page
 
 PRICE = get_price_provider()
 
@@ -60,12 +60,20 @@ DESCRIPTION_BY_KIND = {
 
 
 def build_takeoff_and_review(project_id: str) -> dict[str, Any]:
+    store.apply_revision_currency(project_id)
     project = store.get_project(project_id)
     if not project:
         raise KeyError(project_id)
+    superseded = {
+        str(drawing["id"])
+        for drawing in project.get("drawings") or []
+        if drawing.get("issue_status") == ISSUE_SUPERSEDED
+    }
     takeoff_items: list[dict[str, Any]] = []
     for evidence in project.get("evidence") or []:
         if evidence.get("extraction_method") == "MANUAL":
+            continue
+        if str(evidence.get("drawing_id") or "") in superseded:
             continue
         value = evidence.get("structured_value") or {}
         kind = value.get("kind")
@@ -217,6 +225,8 @@ def _build_review(project: dict[str, Any], takeoff_items: list[dict[str, Any]]) 
         if drawing_id:
             opening_by_drawing[drawing_id] = opening_by_drawing.get(drawing_id, 0) + 1
     for drawing in project.get("drawings") or []:
+        if drawing.get("issue_status") == ISSUE_SUPERSEDED:
+            continue
         text = drawing.get("native_text") or ""
         candidates = (drawing.get("payload") or {}).get("page_type_candidates") or []
         if is_opening_schedule_page(text, drawing.get("page_type")) and opening_by_drawing.get(drawing["id"], 0) == 0:
@@ -282,8 +292,7 @@ def _build_review(project: dict[str, Any], takeoff_items: list[dict[str, Any]]) 
                 }
             )
     expected = project.get("expected_drawings") or []
-    supplied = [item.get("drawing_number") for item in project.get("drawings") or []]
-    missing = completeness(expected, supplied).get("missing_drawings") or []
+    missing = completeness(expected, project.get("drawings") or []).get("missing_drawings") or []
     for row in missing:
         items.append(
             {

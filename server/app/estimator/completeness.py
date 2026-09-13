@@ -2,7 +2,13 @@ from __future__ import annotations
 
 from typing import Any
 
-from .extract import is_opening_schedule_page, normalize_sheet
+from .extract import (
+    is_opening_schedule_page,
+    normalize_revision,
+    normalize_sheet,
+    revision_sort_key,
+    same_revision,
+)
 
 OPENING_KINDS = {"window_unit", "door_unit"}
 PRIMARY_PAGE_TYPES = {
@@ -18,21 +24,60 @@ PRIMARY_PAGE_TYPES = {
 }
 
 
-def completeness(expected: list[dict], supplied_numbers: list[str | None]) -> dict:
+def _supplied_entries(supplied: list[Any]) -> list[tuple[str, str | None, Any]]:
+    entries: list[tuple[str, str | None, Any]] = []
+    for item in supplied:
+        if isinstance(item, dict):
+            sheet = normalize_sheet(str(item.get("drawing_number") or ""))
+            revision = normalize_revision(item.get("revision"))
+        else:
+            sheet = normalize_sheet(str(item or ""))
+            revision = None
+        if sheet:
+            entries.append((sheet, revision, item))
+    return entries
+
+
+def _expected_row_satisfied(
+    sheet: str,
+    expected_revision: str | None,
+    supplied_entries: list[tuple[str, str | None, Any]],
+) -> bool:
+    same_sheet = [(revision, item) for item_sheet, revision, item in supplied_entries if item_sheet == sheet]
+    if not same_sheet:
+        return False
+    if expected_revision is None:
+        return True
+    has_explicit_revision = any(revision is not None for revision, _item in same_sheet)
+    if not has_explicit_revision:
+        return True
+    for revision, _item in same_sheet:
+        if same_revision(revision, expected_revision):
+            return True
+        if revision_sort_key(revision) > revision_sort_key(expected_revision):
+            return True
+    return False
+
+
+def completeness(expected: list[dict], supplied: list[Any]) -> dict:
     expected_keys = []
     for row in expected:
         key = normalize_sheet(str(row.get("drawing_number") or ""))
         if key:
             expected_keys.append((key, row))
-    supplied = {normalize_sheet(item) for item in supplied_numbers if item}
+    supplied_entries = _supplied_entries(supplied)
+    supplied_sheets = {sheet for sheet, _revision, _item in supplied_entries}
     missing = []
     found = []
     for key, row in expected_keys:
-        if key in supplied:
+        if _expected_row_satisfied(key, normalize_revision(row.get("revision")), supplied_entries):
             found.append(row)
         else:
             missing.append(row)
-    extra = [item for item in supplied_numbers if item and normalize_sheet(item) not in {k for k, _ in expected_keys}]
+    extra = []
+    for sheet, _revision, item in supplied_entries:
+        if sheet not in {key for key, _row in expected_keys}:
+            extra.append(item.get("drawing_number") if isinstance(item, dict) else item)
     expected_count = len(expected_keys)
     supplied_expected = len(found)
     return {
@@ -42,6 +87,7 @@ def completeness(expected: list[dict], supplied_numbers: list[str | None]) -> di
         "extra_supplied": extra,
         "document_completeness": (supplied_expected / expected_count) if expected_count else None,
         "missing_sheet_recall_denominator": expected_count,
+        "supplied_sheet_count": len(supplied_sheets),
     }
 
 

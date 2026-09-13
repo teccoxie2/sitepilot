@@ -619,10 +619,16 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                     }`}
                   >
                     <p className="font-medium">
-                      {drawing.drawing_number || "无图号"} · p.{drawing.page_number}
+                      {drawing.drawing_number || "无图号"}
+                      {drawing.revision ? ` Rev ${drawing.revision}` : ""} · p.{drawing.page_number}
                     </p>
                     <p className="text-xs text-[#7b8474]">
-                      {drawing.discipline} / {drawing.page_type}
+                      {drawing.issue_status === "CURRENT"
+                        ? "有效修订"
+                        : drawing.issue_status === "SUPERSEDED"
+                          ? "旧修订，不计入当前取量"
+                          : "未标修订状态"}{" "}
+                      · {drawing.discipline} / {drawing.page_type}
                     </p>
                   </button>
                 </li>
@@ -768,7 +774,11 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
             {expectedDrawings.length ? (
               <ul className="mt-4 space-y-1 text-sm">
                 {expectedDrawings.map((item) => {
-                  const supplied = drawings.some((drawing) => drawing.drawing_number === item.drawing_number);
+                  const supplied = drawings.some((drawing) => {
+                    if (drawing.drawing_number !== item.drawing_number) return false;
+                    if (!item.revision) return true;
+                    return (drawing.revision || "").toUpperCase() === item.revision.toUpperCase();
+                  });
                   return (
                     <li key={item.id || `${item.drawing_number}-${item.revision || ""}`} className={supplied ? "text-[#2f4a32]" : "text-[#9a6b12]"}>
                       {item.drawing_number}

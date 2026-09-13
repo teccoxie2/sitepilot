@@ -8,6 +8,7 @@ from . import store
 from .enums import NATIVE_TEXT_MIN_CHARS, RENDER_DPI
 from .extract import (
     classify_page,
+    dedupe_expected_rows,
     extract_title_block,
     normalize_sheet,
     parse_beams,
@@ -85,6 +86,7 @@ def process_project(project_id: str, note=lambda _m: None) -> dict[str, Any]:
         note("正在生成工程量…")
         from .takeoff import build_takeoff_and_review
 
+        store.apply_revision_currency(project_id)
         build_takeoff_and_review(project_id)
         store.set_project_status(project_id, "READY")
     except FileNotFoundError as exc:
@@ -176,7 +178,7 @@ def process_document(project_id: str, document_id: str, note=lambda _m: None) ->
 
     store.set_document_status(document_id, "BUILDING_MANIFEST")
     store.replace_document_pages(document_id, drawings)
-    store.replace_expected(project_id, document_id, expected_rows)
+    store.replace_expected(project_id, document_id, dedupe_expected_rows(expected_rows))
     supplied = [item.get("drawing_number") for item in drawings]
     supplied_keys = {normalize_sheet(item) for item in supplied if item}
     for drawing in drawings:
@@ -238,10 +240,10 @@ def _measurement_evidence(
 
 def manifest_for(project: dict[str, Any]) -> dict[str, Any]:
     expected = project.get("expected_drawings") or []
-    supplied = [item.get("drawing_number") for item in project.get("drawings") or []]
+    drawings = project.get("drawings") or []
     return {
         "documents": project.get("documents") or [],
-        "drawings": project.get("drawings") or [],
-        "completeness": completeness(expected, supplied),
+        "drawings": drawings,
+        "completeness": completeness(expected, drawings),
         "missing_references": project.get("missing_references") or [],
     }

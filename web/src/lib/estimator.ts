@@ -75,6 +75,7 @@ export interface EstimatorProject {
     drawing_number?: string | null;
     drawing_title?: string | null;
     revision?: string | null;
+    issue_status?: string | null;
     rotation_deg: number;
     confidence: number;
     native_text: string;

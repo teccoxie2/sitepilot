@@ -1,7 +1,8 @@
 import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, BarChart3, CheckCircle2, DollarSign, Mail, Shield, Sparkles, Users, Zap } from 'lucide-react'
+import { ArrowRight, BarChart3, CheckCircle2, DollarSign, Mail, Shield, Sparkles, Zap } from 'lucide-react'
+import PartnerLink from '@/components/PartnerLink'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 const metadataConfig: Metadata = {
@@ -179,6 +180,22 @@ export default function BestEmailMarketingTools2026() {
                     ))}
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section surface-muted">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="page-card-glow p-1.5">
+            <div className="page-card rounded-[1.8rem] p-7 md:p-10">
+              <div className="page-pill mb-4">Before you import or migrate your list</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-5">Add a list-hygiene step when invalid addresses are the bottleneck.</h2>
+              <p className="text-slate-600 text-lg leading-8 mb-7">An email verification service can sit before a sending platform to classify risky or invalid addresses and make suppression decisions. It does not replace your email platform, guarantee inbox placement, or remove the need for permission and data-processing controls.</p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/zerobounce-review" className="btn-brand">Read the ZeroBounce assessment <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <PartnerLink partner="zerobounce" source="email_marketing_list_hygiene">Check the official site <ArrowRight className="ml-2 h-4 w-4" /></PartnerLink>
               </div>
             </div>
           </div>

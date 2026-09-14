@@ -1,9 +1,9 @@
 # SitePilot 内容资产第一轮清单
 
-最后更新：2026-09-13
+最后更新：2026-09-14
 数据来源：`src/app/**/page.tsx` 路由扫描与当前生产 sitemap
 
-当前 App Router 保留 **147 个页面路由**（原有 140 页、6 个新专题入口、1 个从 Pages Router 迁入的现有工具）；3 页保留 `noindex,follow`，sitemap 包含 144 个可索引 URL。2 条 legacy URL 在 JSON 清单中标记为 `Merge`，并永久重定向到对应页面。主题归属以 `src/data/site-architecture.json` 为准。
+当前 App Router 保留 **149 个页面路由**（原有 140 页、6 个新专题入口、1 个从 Pages Router 迁入的现有工具、2 个联盟合作方评估页）；3 页保留 `noindex,follow`，sitemap 包含 146 个可索引 URL。2 条 legacy URL 在 JSON 清单中标记为 `Merge`，并永久重定向到对应页面。主题归属以 `src/data/site-architecture.json` 为准。
 
 ## 调整前主题分布（2026-08-14 历史基线）
 
@@ -55,7 +55,7 @@
 
 处理原则：如果页面能提供独立实测、真实工具使用或明确的 Web/AI 采购决策动作，则归入 `Keep`；否则合并到主航道页面或进入 `Noindex`/`Remove` 评估。
 
-本地 Review 信号：`CONTENT_REVIEW_SIGNALS.json` 由 `npm run content:review-signals -- --verify` 生成，只记录源码可证明的信号，不替代生产需求证据。当前 42 个 Review 页面分为 10 个 `tool`、17 个 `decision_path`、9 个 `evidence`、6 个 `content_only`；tool 页面下一步补事件，decision/evidence 页面下一步补真实行为或证据来源，content_only 页面优先检查合并或不索引。
+本地 Review 信号：`CONTENT_REVIEW_SIGNALS.json` 由 `npm run content:review-signals -- --verify` 生成，只记录源码可证明的信号，不替代生产需求证据。当前 42 个 Review 页面分为 10 个 `tool`、17 个 `decision_path`、12 个 `evidence`、3 个 `content_only`；tool 页面下一步补事件，decision/evidence 页面下一步补真实行为或证据来源，content_only 页面优先检查合并或不索引。
 
 ## 验收要求
 

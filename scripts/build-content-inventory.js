@@ -44,6 +44,7 @@ const keepExact = new Set([
   '/web-hosting',
   '/website-builders',
   '/proxies',
+  '/zerobounce-review',
   '/ip-leak-test',
   '/ip-reputation-checker',
   '/hosting-platform-fit-scorecard-2026',

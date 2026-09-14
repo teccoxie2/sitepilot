@@ -81,6 +81,11 @@ const clusterLinks = [
     href: '/proxies/best-residential-proxies-2026',
   },
   {
+    title: 'MarsProxies assessment',
+    desc: 'Review the published proxy types, pricing snapshots, and questions to verify before a controlled trial.',
+    href: '/proxies/marsproxies-review',
+  },
+  {
     title: 'Developer hub',
     desc: 'Technical guidance for operators who care about workflow design, automation fit, and implementation details.',
     href: '/proxies/developer-hub',

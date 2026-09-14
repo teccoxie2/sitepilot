@@ -14,7 +14,7 @@ The architecture keeps existing article URLs and gives each page one primary top
 
 ## Indexing and migration
 
-147 App Router pages are registered, including six new category pages and the existing `/tools/ai-risk-management-framework` moved from Pages Router at the same URL. 144 are indexable. Privacy, terms, and proxy recommendation retain their prior noindex/follow policy. Existing article and query-free tool canonicals remain self-referencing.
+149 App Router pages are registered, including six new category pages, two partner assessment pages, and the existing `/tools/ai-risk-management-framework` moved from Pages Router at the same URL. 146 are indexable. Privacy, terms, and proxy recommendation retain their prior noindex/follow policy. Existing article and query-free tool canonicals remain self-referencing.
 
 Two aliases already mapped in the content inventory now return permanent 308 redirects:
 

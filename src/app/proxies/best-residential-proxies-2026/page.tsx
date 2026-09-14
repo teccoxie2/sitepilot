@@ -89,7 +89,7 @@ const providers = [
       'Enterprise stack adds setup overhead',
     ],
     ctaLabel: 'Check Bright Data',
-    ctaHref: '#affiliate-bright-data',
+    ctaHref: 'https://brightdata.com/',
   },
   {
     rank: 2,
@@ -109,7 +109,7 @@ const providers = [
       'Best value usually appears at larger spend levels',
     ],
     ctaLabel: 'Check Oxylabs',
-    ctaHref: '#affiliate-oxylabs',
+    ctaHref: 'https://oxylabs.io/',
   },
   {
     rank: 3,
@@ -129,7 +129,7 @@ const providers = [
       'Hard-target performance may vary by use case',
     ],
     ctaLabel: 'Check Decodo',
-    ctaHref: '#affiliate-decodo',
+    ctaHref: 'https://decodo.com/',
   },
   {
     rank: 4,
@@ -149,7 +149,7 @@ const providers = [
       'Pricing can still be too rich for small tests',
     ],
     ctaLabel: 'Check Nimble',
-    ctaHref: '#affiliate-nimble',
+    ctaHref: 'https://www.nimbleway.com/',
   },
 ]
 
@@ -307,7 +307,7 @@ export default function BestResidentialProxies2026Page() {
                           <div className="text-sm text-slate-500 mb-2">Use this when</div>
                           <div className="text-lg font-semibold tracking-[-0.03em] text-slate-950 mb-4">{provider.useWhen}</div>
                         </div>
-                        <a href={provider.ctaHref} className="btn-brand w-full mt-6 inline-flex items-center justify-center">
+                        <a href={provider.ctaHref} target="_blank" rel="noopener noreferrer" className="btn-brand w-full mt-6 inline-flex items-center justify-center">
                           {provider.ctaLabel}
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
@@ -317,6 +317,22 @@ export default function BestResidentialProxies2026Page() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section surface-muted">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="page-card-glow p-1.5">
+            <div className="page-card rounded-[1.8rem] p-7 md:p-10">
+              <div className="page-pill mb-4">Additional option to verify</div>
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.04em] text-slate-950 mb-5">MarsProxies is worth a closer look for smaller trials.</h2>
+              <p className="text-slate-600 text-lg leading-8 mb-7">Its public catalogue spans residential, datacenter, ISP, and mobile products. That breadth may help when a team wants to test the connection model before scaling, but SitePilot has not independently benchmarked its speed or success rate. Compare the plan, target coverage, session controls, and actual usage against the providers above before choosing.</p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/proxies/marsproxies-review" className="btn-brand">Read the MarsProxies assessment <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <a href="https://marsproxies.com/pricing/" target="_blank" rel="noopener noreferrer" className="btn-secondary">View official pricing</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

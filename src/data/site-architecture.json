@@ -505,6 +505,12 @@
       "indexable": true
     },
     {
+      "path": "/zerobounce-review",
+      "title": "ZeroBounce Review: Email Verification Costs and Workflow Fit",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
       "path": "/best-free-ssl-certificates-2026",
       "title": "Best Free SSL Certificates",
       "parent": "/web-hosting",
@@ -783,6 +789,12 @@
     {
       "path": "/proxies/best-residential-proxies-2026",
       "title": "Best Residential Proxies: Top Providers Compared",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/marsproxies-review",
+      "title": "MarsProxies Review: Pricing, Proxy Types and Buying Trade-offs",
       "parent": "/proxies",
       "indexable": true
     },

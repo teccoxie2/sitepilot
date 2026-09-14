@@ -37,6 +37,12 @@ const content = {
       "body": "Record quality, review effort, cost, and integration gaps from a representative trial. If several teams will use the tool, bring the evidence into a shared procurement process.",
       "href": "/ai-tools/procurement",
       "label": "Continue to AI vendor selection"
+    },
+    {
+      "title": "Clean a list before you send",
+      "body": "If invalid or risky addresses are the bottleneck, evaluate a verification step alongside your sending platform and data-handling controls.",
+      "href": "/zerobounce-review",
+      "label": "Read the ZeroBounce assessment"
     }
   ]
 }

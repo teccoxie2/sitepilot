@@ -1584,6 +1584,18 @@
     "review_date": "2026-09-14"
   },
   {
+    "url": "https://sitepilot.co/proxies/marsproxies-review",
+    "category": "proxy-infrastructure",
+    "status": "Keep",
+    "target": "https://sitepilot.co/proxies/marsproxies-review",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/proxies/marsproxies-review/page.tsx :: keep-core-decision-path",
+    "behavior_signal": "not_applicable",
+    "behavior_source": "No direct tool event expected for this page type.",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
     "url": "https://sitepilot.co/proxies/mobile-proxy-farm-setup-guide-2026",
     "category": "proxy-infrastructure",
     "status": "Keep",
@@ -1760,6 +1772,18 @@
     "evidence_source": "src/app/website-security-checklist-2026/page.tsx :: review-provisional-unclassified",
     "behavior_signal": "unverified",
     "behavior_source": "Search Console, analytics, and lead data export pending.",
+    "owner": "SitePilot editorial",
+    "review_date": "2026-09-14"
+  },
+  {
+    "url": "https://sitepilot.co/zerobounce-review",
+    "category": "review",
+    "status": "Keep",
+    "target": "https://sitepilot.co/zerobounce-review",
+    "reason": "Core hub, evidence page, or operational tool in an active SitePilot decision path.",
+    "evidence_source": "src/app/zerobounce-review/page.tsx :: keep-core-decision-path",
+    "behavior_signal": "not_applicable",
+    "behavior_source": "No direct tool event expected for this page type.",
     "owner": "SitePilot editorial",
     "review_date": "2026-09-14"
   },

@@ -37,5 +37,8 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Validate SEO and internal architecture
+        run: npm run seo:check && npm run seo:architecture && npm run indexing:contract
+
       - name: Run Chromium smoke tests
-        run: npm run test -- --project=chromium
+        run: SITEPILOT_TEST_PRODUCTION=1 npm run test -- --project=chromium

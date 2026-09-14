@@ -1,0 +1,886 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "title": "Home",
+      "parent": null,
+      "indexable": true
+    },
+    {
+      "path": "/ai-automation-roi-measurement-2026",
+      "title": "AI Automation ROI Measurement Framework",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-automation-workflow-templates-2026",
+      "title": "25 AI Automation Workflow Templates - Ready-to-Use Business Optimization Plays",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-budget-planning-enterprise-2026",
+      "title": "Enterprise AI Budget Planning",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-budget-template-enterprise-2026",
+      "title": "AI Budget Template for Enterprise",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-change-management-framework-enterprise-2026",
+      "title": "Enterprise AI Change Management Framework",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-compliance-automation-assessment-tool",
+      "title": "AI Compliance Automation Assessment Tool: GDPR, HIPAA, CCPA, and SOX Risk Review",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-compliance-readiness-assessment-2026",
+      "title": "AI Compliance Readiness Assessment for Enterprise Rollouts: Gap Review, Risk Scoring, Remediation Plan",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-content-audit-tool-2026",
+      "title": "AI Content Audit Tool",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-content-calendar-tools-2026",
+      "title": "Best AI Content Calendar Tools for Content Ops Teams",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-content-creation-automation-2026",
+      "title": "Complete Guide to AI Content Creation Automation",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-content-generator-comparison",
+      "title": "AI Content Generator Comparison: ChatGPT vs Claude vs Jasper",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-content-marketing-strategy-2026",
+      "title": "AI Content Marketing Strategy for Enterprise Teams: Workflow, Governance, and ROI",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-content-optimization-framework-2026",
+      "title": "AI Content Optimization Framework",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-content-performance-analytics-2026",
+      "title": "AI Content Performance Analytics Tools: Compare Platforms for Reporting, ROI, and Workflow Control",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-content-workflow-automation-2026",
+      "title": "AI Content Workflow Automation for Marketing Teams: Tools, Handoffs, and Reporting Comparison",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-data-privacy-impact-assessment-2026",
+      "title": "AI Data Privacy Impact Assessment Tool",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-digital-transformation-roadmap-2026",
+      "title": "AI Digital Transformation Roadmap: Enterprise Implementation Guide",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-digital-transformation-roadmap-enterprise-2026",
+      "title": "Enterprise AI Digital Transformation Roadmap Guide",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-enterprise-security-compliance",
+      "title": "Enterprise AI Security & Compliance Framework",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-ethics-compliance-checklist-enterprise-2026",
+      "title": "AI Ethics and Compliance Checklist: Privacy, Transparency, Bias, Human Oversight",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-governance-compliance-framework-2026",
+      "title": "AI Governance and Compliance Framework for Enterprises",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-governance-framework-enterprise-2026",
+      "title": "Enterprise AI Governance Framework",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-governance-monitoring-dashboard-2026",
+      "title": "AI Governance Monitoring Dashboard",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-implementation-checklist-enterprise-2026",
+      "title": "AI Implementation Checklist for Enterprise Teams: Rollout, Governance, Pilot, Scale",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-implementation-cost-calculator-enterprise-2026",
+      "title": "Enterprise AI Implementation Cost Calculator",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-implementation-success-framework-2026",
+      "title": "AI Implementation Success Framework",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-implementation-success-patterns-2026",
+      "title": "AI Implementation Success Patterns for Enterprise Teams: Rollout Signals, Failure Risks, ROI",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-integration-timeline-calculator-2026",
+      "title": "AI Integration Timeline Calculator",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-investment-decision-framework-2026",
+      "title": "AI Investment Decision Framework",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-investment-payback-period-calculator-2026",
+      "title": "AI Investment Payback Period Calculator",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-investment-portfolio-optimizer-2026",
+      "title": "AI Investment Portfolio Optimizer",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-investment-roi-calculator-enterprise-2026",
+      "title": "Enterprise AI Investment ROI Calculator",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-investment-roi-matrix-calculator-enterprise-2026",
+      "title": "AI Investment ROI Matrix Calculator - Enterprise Decision Tool",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-marketing-attribution-analysis-tool-2026",
+      "title": "AI Marketing Attribution Analysis Tool: Multi-Channel ROI and Journey Review",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-performance-monitoring-dashboard-2026",
+      "title": "AI Performance Monitoring Dashboard",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-performance-monitoring-dashboard-enterprise-2026",
+      "title": "Enterprise AI Performance Monitoring Dashboard",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-procurement-decision-matrix-tool-2026",
+      "title": "AI Procurement Decision Matrix Tool",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/ai-procurement-evidence-benchmark-2026",
+      "title": "AI Procurement Evidence Benchmark",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/ai-productivity-tools-comparison-2026",
+      "title": "AI Productivity Tools Comparison Guide: Compare Workflow Fit, Cost, and Operating Load",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-project-risk-assessment-framework-2026",
+      "title": "AI Project Risk Assessment Framework",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-risk-management-dashboard-enterprise-2026",
+      "title": "AI Risk Management Dashboard Enterprise",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-roi-calculator",
+      "title": "AI ROI Calculator",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-security-framework-enterprise-2026",
+      "title": "Enterprise AI Security Framework",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-talent-optimization-calculator-2026",
+      "title": "AI Talent Optimization Calculator",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-team-productivity-assessment-tool-2026",
+      "title": "AI Team Productivity Assessment Tool",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-team-training-certification-2026",
+      "title": "AI Team Training & Certification Program",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tool-implementation-strategy-2026",
+      "title": "Ultimate AI Tool Implementation Strategy Guide for",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tool-shortlist-scorecard-template-2026",
+      "title": "AI Tool Shortlist Scorecard Template",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools",
+      "title": "AI tools and procurement",
+      "parent": "/",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools-budget-planning-enterprise-2026",
+      "title": "AI Tools Budget Planning for Enterprise Teams: Cost Model, ROI, Governance Checklist",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools-cost-benefit-analysis-2026",
+      "title": "AI Tools Cost-Benefit Analysis: Smart Investment Guide for SMBs",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools-cost-optimization-enterprise-2026",
+      "title": "Enterprise AI Tools Cost Optimization Guide",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools-for-bloggers-2026",
+      "title": "AI Tools for Bloggers: Editorial Comparison",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools-integration-roadmap-2026",
+      "title": "AI Tools Integration Roadmap",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools-risk-assessment-enterprise-2026",
+      "title": "Enterprise AI Tools Risk Assessment Framework",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools-security-compliance-checklist-2026",
+      "title": "Enterprise AI Tools Security and Compliance Audit Checklist",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools-usage-tracking-dashboard-2026",
+      "title": "AI Tools Usage Tracking Dashboard",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools/content-and-marketing",
+      "title": "AI content and business tools",
+      "parent": "/ai-tools",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools/costs-and-roi",
+      "title": "AI costs and ROI",
+      "parent": "/ai-tools",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools/governance",
+      "title": "AI governance and risk",
+      "parent": "/ai-tools",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools/implementation",
+      "title": "AI implementation",
+      "parent": "/ai-tools",
+      "indexable": true
+    },
+    {
+      "path": "/ai-tools/procurement",
+      "title": "AI vendor selection",
+      "parent": "/ai-tools",
+      "indexable": true
+    },
+    {
+      "path": "/ai-total-cost-ownership-calculator-enterprise-2026",
+      "title": "Enterprise AI Total Cost of Ownership Calculator",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-training-roi-calculator-2026",
+      "title": "AI Training ROI Calculator",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-transformation-roi-calculation-framework-2026",
+      "title": "AI Transformation ROI Calculation Framework for Enterprises",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/ai-transformation-success-metrics-enterprise-2026",
+      "title": "AI Transformation Success Metrics & KPIs for Enterprise",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/ai-vendor-comparison-enterprise-2026",
+      "title": "AI Vendor Comparison Tool",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/ai-vendor-contract-red-flags-2026",
+      "title": "AI Vendor Contract Red Flags Before You Sign? Procurement Checklist",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/ai-vendor-due-diligence-checklist-enterprise-2026",
+      "title": "AI Vendor Due Diligence Checklist: Security, Data Rights, Pricing, Contract Risk",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/ai-vendor-risk-evaluation-tool-2026",
+      "title": "Enterprise AI Vendor Risk Evaluation Tool",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/ai-vendor-selection-enterprise-decision-framework",
+      "title": "AI Vendor Selection: Enterprise Decision Framework",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/ai-workflow-automation-guide-2026",
+      "title": "AI Workflow Automation Implementation Guide",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/apply-for-audit",
+      "title": "Apply for an Infrastructure Audit",
+      "parent": "/",
+      "indexable": true
+    },
+    {
+      "path": "/best-ai-analytics-tools-bloggers-2026",
+      "title": "Best AI Analytics Tools for Bloggers",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-ai-automation-tools-bloggers-2026",
+      "title": "Best AI Automation Tools for Bloggers",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-ai-image-tools-bloggers-2026",
+      "title": "Best AI Image Tools for Bloggers",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-ai-seo-tools-2026",
+      "title": "Best AI SEO Tools: Comparison for Content, Briefs, and Monitoring",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-ai-tools-small-business-2026",
+      "title": "Best AI Tools for Small Business: Scenario-Based Solutions to Compare",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-ai-video-tools-bloggers-2026",
+      "title": "Best AI Video Tools for Bloggers",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-ai-writing-tools-2026",
+      "title": "Best AI Writing Tools: Complete Comparison & Reviews",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-domain-registrars-2026",
+      "title": "Best Domain Registrars",
+      "parent": "/domains",
+      "indexable": true
+    },
+    {
+      "path": "/best-ecommerce-website-builders-2026",
+      "title": "Best Ecommerce Website Builder? Shopify vs BigCommerce vs WooCommerce (2026 Comparison)",
+      "parent": "/website-builders",
+      "indexable": true
+    },
+    {
+      "path": "/best-email-marketing-tools-2026",
+      "title": "Best Email Marketing Tools: Workflow and Pricing Comparison",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-free-ssl-certificates-2026",
+      "title": "Best Free SSL Certificates",
+      "parent": "/web-hosting",
+      "indexable": true
+    },
+    {
+      "path": "/best-project-management-tools-2026",
+      "title": "Best Project Management Tools - Complete Guide & Comparison",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-social-media-management-tools-2026",
+      "title": "Best Social Media Management Tools - Complete Guide & Comparison",
+      "parent": "/ai-tools/content-and-marketing",
+      "indexable": true
+    },
+    {
+      "path": "/best-web-hosting-2026",
+      "title": "Best Web Hosting: SiteGround vs Hostinger vs WPX",
+      "parent": "/web-hosting",
+      "indexable": true
+    },
+    {
+      "path": "/best-website-builders-2026",
+      "title": "Best Website Builders",
+      "parent": "/website-builders",
+      "indexable": true
+    },
+    {
+      "path": "/best-wordpress-themes-2026",
+      "title": "Best WordPress Themes: Astra vs GeneratePress vs Divi",
+      "parent": "/website-builders",
+      "indexable": true
+    },
+    {
+      "path": "/cheap-hosting",
+      "title": "Cheap Web Hosting Under $5: Best Budget Hosts",
+      "parent": "/web-hosting",
+      "indexable": true
+    },
+    {
+      "path": "/cloud-hosting-vs-traditional-hosting-2026",
+      "title": "Cloud Hosting vs Traditional Hosting",
+      "parent": "/web-hosting",
+      "indexable": true
+    },
+    {
+      "path": "/com-vs-ai-vs-co-vs-io-2026",
+      "title": ".com vs .ai vs .co vs .io",
+      "parent": "/domains",
+      "indexable": true
+    },
+    {
+      "path": "/contact",
+      "title": "Contact Us",
+      "parent": "/",
+      "indexable": true
+    },
+    {
+      "path": "/domain-privacy-protection-2026",
+      "title": "Domain Privacy Protection",
+      "parent": "/domains",
+      "indexable": true
+    },
+    {
+      "path": "/domain-vs-hosting-2026",
+      "title": "Domain vs Hosting",
+      "parent": "/domains",
+      "indexable": true
+    },
+    {
+      "path": "/domains",
+      "title": "Domains",
+      "parent": "/",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-budget-optimization-calculator",
+      "title": "Enterprise AI Budget Optimization Calculator",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-deployment-risk-assessment-guide",
+      "title": "Enterprise AI Deployment Risk Assessment Guide",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-implementation-best-practices-2026",
+      "title": "Enterprise AI Implementation Best Practices",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-implementation-budget-planning-guide-2026",
+      "title": "Enterprise AI Implementation Budget Planning Guide",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-risk-assessment-tool-2026",
+      "title": "Enterprise AI Risk Assessment Tool",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-roi-calculation-model-2026",
+      "title": "Enterprise AI ROI Calculation Model",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-roi-optimization-framework-2026",
+      "title": "Enterprise AI ROI Optimization Framework - CFO Financial Analysis Guide",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-security-risk-management-guide-2026",
+      "title": "Enterprise AI Security & Risk Management Guide",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-success-patterns-analysis-2026",
+      "title": "Enterprise AI Success Patterns Analysis",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-transformation-roadmap-2026",
+      "title": "Enterprise AI Transformation Roadmap",
+      "parent": "/ai-tools/implementation",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-vendor-comparison-guide-2026",
+      "title": "Enterprise AI Vendor Comparison Guide",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-vendor-pilot-evaluation-checklist-2026",
+      "title": "Enterprise AI Vendor Pilot Evaluation Checklist",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-vendor-pricing-guide-2026",
+      "title": "Enterprise AI Vendor Pricing Guide",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-vendor-rfp-template-2026",
+      "title": "Enterprise AI Vendor RFP Template",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/enterprise-ai-vendor-shortlist-scorecard-2026",
+      "title": "Enterprise AI Vendor Shortlist Scorecard",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/free-website-builders-2026",
+      "title": "Free Website Builders: What You Actually Get for Free",
+      "parent": "/website-builders",
+      "indexable": true
+    },
+    {
+      "path": "/hosting",
+      "title": "Hosting provider reviews",
+      "parent": "/web-hosting",
+      "indexable": true
+    },
+    {
+      "path": "/hosting-platform-fit-scorecard-2026",
+      "title": "Hosting Platform Fit Scorecard",
+      "parent": "/web-hosting",
+      "indexable": true
+    },
+    {
+      "path": "/hosting/hostinger-review",
+      "title": "Hostinger Review",
+      "parent": "/hosting",
+      "indexable": true
+    },
+    {
+      "path": "/hosting/hostinger-vs-bluehost",
+      "title": "Hostinger vs Bluehost",
+      "parent": "/hosting",
+      "indexable": true
+    },
+    {
+      "path": "/hosting/siteground-review",
+      "title": "SiteGround Review",
+      "parent": "/hosting",
+      "indexable": true
+    },
+    {
+      "path": "/hosting/wordpress-hosting",
+      "title": "Top WordPress Hosting",
+      "parent": "/hosting",
+      "indexable": true
+    },
+    {
+      "path": "/how-to-buy-a-domain-name-2026",
+      "title": "How to Buy a Domain Name",
+      "parent": "/domains",
+      "indexable": true
+    },
+    {
+      "path": "/ip-leak-test",
+      "title": "IP Leak Test",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/ip-reputation-checker",
+      "title": "IP Reputation Checker",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/manufacturing-ai-roi-calculator-2026",
+      "title": "Manufacturing AI ROI Calculator",
+      "parent": "/ai-tools/costs-and-roi",
+      "indexable": true
+    },
+    {
+      "path": "/methodology",
+      "title": "Enterprise AI Vendor Evaluation Methodology",
+      "parent": "/",
+      "indexable": true
+    },
+    {
+      "path": "/namecheap-vs-godaddy-2026",
+      "title": "Namecheap vs GoDaddy",
+      "parent": "/domains",
+      "indexable": true
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy Policy",
+      "parent": "/",
+      "indexable": false
+    },
+    {
+      "path": "/proxies",
+      "title": "Proxy infrastructure",
+      "parent": "/",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/best-datacenter-proxies-2026",
+      "title": "Best Datacenter Proxies: Speed, Scale, and Cost Compared",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/best-isp-proxies-2026",
+      "title": "Best ISP Proxies: Static Residential Options Compared",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/best-mobile-proxies-2026",
+      "title": "Best Mobile Proxies: Top 4G and 5G Providers Compared",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/best-residential-proxies-2026",
+      "title": "Best Residential Proxies: Top Providers Compared",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/developer-hub",
+      "title": "Proxy Developer Hub: Automation, API & Agent Integration",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/mobile-proxy-farm-setup-guide-2026",
+      "title": "Mobile Proxy Farm Setup Guide",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/mobile-proxy-software-comparison-2026",
+      "title": "Mobile Proxy Software Comparison: Coronium vs LTESpace vs DIY",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/proxy-farm-hardware-selection-guide",
+      "title": "Proxy Farm Hardware Selection Guide",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/proxies/recommendation",
+      "title": "Proxy Network Recommendation Tool",
+      "parent": "/proxies",
+      "indexable": false
+    },
+    {
+      "path": "/proxies/residential-vs-mobile-proxies-comparison-2026",
+      "title": "Residential vs Mobile Proxies Comparison",
+      "parent": "/proxies",
+      "indexable": true
+    },
+    {
+      "path": "/readdy-ai-review",
+      "title": "Readdy.ai Review: AI-First Website Builder Evaluation",
+      "parent": "/website-builders",
+      "indexable": true
+    },
+    {
+      "path": "/terms",
+      "title": "Terms of Service",
+      "parent": "/",
+      "indexable": false
+    },
+    {
+      "path": "/tools/ai-compliance-audit-2026",
+      "title": "Enterprise AI Compliance Audit Tool",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/tools/ai-risk-management-framework",
+      "title": "AI risk management framework",
+      "parent": "/ai-tools/governance",
+      "indexable": true
+    },
+    {
+      "path": "/tools/evaluation-tools-2026",
+      "title": "AI Vendor Evaluation Tools: RFP, Due Diligence, Scorecard & Decision Matrix",
+      "parent": "/ai-tools/procurement",
+      "indexable": true
+    },
+    {
+      "path": "/trademark-check-before-buying-a-domain-2026",
+      "title": "Trademark Check Before Buying a Domain",
+      "parent": "/domains",
+      "indexable": true
+    },
+    {
+      "path": "/web-hosting",
+      "title": "Web hosting",
+      "parent": "/",
+      "indexable": true
+    },
+    {
+      "path": "/website-builder-vs-wordpress-2026",
+      "title": "Website Builder vs WordPress",
+      "parent": "/website-builders",
+      "indexable": true
+    },
+    {
+      "path": "/website-builders",
+      "title": "Website builders",
+      "parent": "/",
+      "indexable": true
+    },
+    {
+      "path": "/website-security-checklist-2026",
+      "title": "Website Security Checklist",
+      "parent": "/web-hosting",
+      "indexable": true
+    }
+  ]
+}

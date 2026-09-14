@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { ArrowRight, Shield, Cpu, Gauge, Network, CheckCircle2, Sparkles } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'SitePilot | Digital Infrastructure Buying Intelligence'
+const pageTitle = 'SitePilot | Hosting, Website Builder & Domain Guides'
 const pageDescription =
-  'Evidence-first buying intelligence for AI procurement and web infrastructure: independent comparisons, scorecards, audits, and practical decision tools.'
+  'Compare hosting, website builders, and domains with practical guides and decision tools. Explore separate AI procurement and proxy infrastructure resources.'
 const pageUrl = 'https://sitepilot.co'
 
 const metadataConfig: Metadata = {

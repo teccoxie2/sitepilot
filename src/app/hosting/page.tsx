@@ -14,16 +14,16 @@ import RelatedLinks, { hostingRelatedLinks } from '@/components/RelatedLinks'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 const metadataConfig: Metadata = {
-  title: 'Web Hosting Reviews & Comparisons 2026 | SitePilot',
+  title: 'Hosting Provider Reviews: Hostinger & SiteGround',
   description:
-    'In-depth web hosting reviews based on real testing. Compare performance, pricing, support quality, and use-case fit across top providers.',
+    'Read provider reviews covering hosting features, renewal terms, support questions, and workload fit. Check evidence before choosing a plan.',
   alternates: {
     canonical: 'https://sitepilot.co/hosting',
   },
   openGraph: {
-    title: 'Web Hosting Reviews & Comparisons 2026 | SitePilot',
+    title: 'Hosting Provider Reviews: Hostinger & SiteGround',
     description:
-      'In-depth web hosting reviews based on real testing. Compare performance, pricing, support quality, and use-case fit across top providers.',
+      'Read provider reviews covering hosting features, renewal terms, support questions, and workload fit. Check evidence before choosing a plan.',
     url: 'https://sitepilot.co/hosting',
     type: 'website',
   },
@@ -119,8 +119,8 @@ export default function HostingPage() {
     <div className="min-h-screen text-slate-900 overflow-x-hidden bg-white">
       <SchemaMarkup
         type="article"
-        title="Web Hosting Reviews & Comparisons 2026 | SitePilot"
-        description="In-depth web hosting reviews based on real testing. Compare performance, pricing, support quality, and use-case fit across top providers."
+        title="Hosting Provider Reviews: Hostinger & SiteGround"
+        description="Read provider reviews covering hosting features, renewal terms, support questions, and workload fit. Check evidence before choosing a plan."
         url="https://sitepilot.co/hosting"
         publishedDate="2026-04-18"
         modifiedDate="2026-04-20"

@@ -8,8 +8,8 @@ const projectRoot = process.cwd()
 const appDirectory = path.join(projectRoot, 'src', 'app')
 const outputPath = path.join(projectRoot, 'CONTENT_PORTFOLIO_INVENTORY.json')
 const baseUrl = 'https://sitepilot.co'
-const expectedActiveRouteCount = 140
-const expectedInventoryEntryCount = 142
+const expectedActiveRouteCount = JSON.parse(fs.readFileSync(path.join(projectRoot, 'src/data/site-architecture.json'), 'utf8')).pages.length
+const expectedInventoryEntryCount = expectedActiveRouteCount + 2
 const owner = 'SitePilot editorial'
 const reviewDate = '2026-09-14'
 const requiredFields = ['url', 'category', 'status', 'target', 'reason', 'evidence_source', 'behavior_signal', 'behavior_source', 'owner', 'review_date']
@@ -35,6 +35,7 @@ const noindexReasons = new Map([
 const keepExact = new Set([
   '/',
   '/ai-tools',
+  '/domains',
   '/tools/evaluation-tools-2026',
   '/methodology',
   '/apply-for-audit',

@@ -15,6 +15,12 @@ const contentSecurityPolicy = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    return [
+      { source: '/hosting/best-web-hosting', destination: '/best-web-hosting-2026', permanent: true },
+      { source: '/hosting/cheap-hosting', destination: '/cheap-hosting', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {

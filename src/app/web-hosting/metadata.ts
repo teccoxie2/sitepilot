@@ -1,7 +1,7 @@
 import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const pageTitle = 'Best Web Hosting 2026 | Reviews, Pricing & Fit'
+export const pageTitle = 'Web Hosting Guides: Types, Costs & Provider Reviews'
 export const pageDescription =
   'Compare web hosting by uptime discipline, support quality, renewal pricing, security defaults, scaling headroom, and lock-in risk.'
 export const pageUrl = 'https://sitepilot.co/web-hosting'

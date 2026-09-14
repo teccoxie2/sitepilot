@@ -1,7 +1,7 @@
 {
   "schema_id": "sitepilot-review-evidence-v1",
   "version": 1,
-  "description": "Versioned intake template for the 41 provisional Review routes. Null values mean data has not been collected; they are not estimates.",
+  "description": "Versioned intake template for the 42 provisional Review routes. Null values mean data has not been collected; they are not estimates.",
   "data_policy": "Populate only from dated production exports. Do not infer demand, conversion, or page decisions from missing values.",
   "source_registry": {
     "search_console_pages": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Asitepilot.co (Pages tab, Web search, 2026-05-14 to 2026-08-13)"
@@ -1566,6 +1566,45 @@
       "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
       "decided_at": null,
       "missing_data_note": "Search Console, tool behavior, apply, and affiliate data are pending production export; null values are intentional and not estimates."
+    },
+    {
+      "url": "https://sitepilot.co/tools/ai-risk-management-framework",
+      "search_console": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "average_position": null
+      },
+      "tool_behavior": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "tool_start": null,
+        "tool_complete": null,
+        "report_export": null,
+        "report_share": null
+      },
+      "apply_affiliate": {
+        "status": "missing",
+        "source": null,
+        "period_start": null,
+        "period_end": null,
+        "apply_submit": null,
+        "qualified_lead": null,
+        "affiliate_click": null,
+        "affiliate_conversion": null,
+        "affiliate_revenue": null
+      },
+      "decision_status": "pending",
+      "decision": null,
+      "decision_rationale": "Awaiting production exports; no Keep, Merge, Noindex, or Remove decision has been assigned.",
+      "decided_at": null,
+      "missing_data_note": "Existing Pages Router tool added to the content inventory during architecture migration. Search, behaviour, and conversion data are missing and pending collection; null values are not estimates."
     },
     {
       "url": "https://sitepilot.co/website-security-checklist-2026",

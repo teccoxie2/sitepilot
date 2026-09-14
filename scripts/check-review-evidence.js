@@ -9,7 +9,7 @@ const projectRoot = process.cwd()
 const evidencePath = path.join(projectRoot, 'CONTENT_REVIEW_EVIDENCE.json')
 const reviewEntries = buildInventory().filter((entry) => entry.status === 'Review')
 const reviewUrls = new Set(reviewEntries.map((entry) => entry.url))
-const expectedReviewCount = 41
+const expectedReviewCount = 42
 const allowedDataStatuses = new Set(['missing', 'available', 'not_applicable'])
 const allowedDecisionStatuses = new Set(['pending', 'decided'])
 const allowedDecisions = new Set(['Keep', 'Merge', 'Noindex', 'Remove'])

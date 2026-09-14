@@ -117,7 +117,7 @@ export default function SchemaMarkup({
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(getSchemaData())
+        __html: JSON.stringify(getSchemaData()).replace(/</g, '\\u003c')
       }}
     />
   )

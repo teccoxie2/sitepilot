@@ -4,8 +4,8 @@ const footerGroups = [
   {
     title: "Web Hosting",
     links: [
-      { href: "/web-hosting", label: "Best Web Hosting 2026" },
-      { href: "/best-domain-registrars-2026", label: "Best Domain Registrars" },
+      { href: "/web-hosting", label: "Web Hosting Guides" },
+      { href: "/domains", label: "Domain Buying Guides" },
       { href: "/domain-vs-hosting-2026", label: "Domain vs Hosting" },
       { href: "/hosting/wordpress-hosting", label: "WordPress Hosting" },
     ],
@@ -20,12 +20,12 @@ const footerGroups = [
     ],
   },
   {
-    title: "AI Strategy",
+    title: "AI & Proxy Resources",
     links: [
-      { href: "/best-ai-seo-tools-2026", label: "AI SEO Tools" },
-      { href: "/best-ai-writing-tools-2026", label: "AI Writing Tools" },
+      { href: "/ai-tools", label: "AI Tools & Procurement" },
+      { href: "/ai-tools/costs-and-roi", label: "AI Costs & ROI" },
       { href: "/enterprise-ai-vendor-shortlist-scorecard-2026", label: "Vendor Scorecards" },
-      { href: "/website-security-checklist-2026", label: "Security Guide" },
+      { href: "/proxies", label: "Proxy Infrastructure" },
     ],
   },
 ];

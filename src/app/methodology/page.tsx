@@ -5,7 +5,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import evidenceData from '@/data/evidence/sitepilot-evidence-v1.json'
 
-const pageTitle = 'Enterprise AI Vendor Evaluation Methodology 2026 | SitePilot'
+const pageTitle = 'Evaluation Methodology & Evidence Standards | SitePilot'
 const pageDescription =
   'How SitePilot evaluates enterprise AI vendors using evidence-first research, weighted decision criteria, and procurement-ready validation.'
 const pageUrl = 'https://sitepilot.co/methodology'

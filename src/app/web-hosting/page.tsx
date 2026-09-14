@@ -5,7 +5,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 
 export { metadata } from './metadata'
 
-const pageTitle = 'Best Web Hosting 2026 | Reviews, Pricing & Fit'
+const pageTitle = 'Web Hosting Guides: Types, Costs & Provider Reviews'
 const pageDescription = 'Compare web hosting by uptime discipline, support quality, renewal pricing, security defaults, scaling headroom, and lock-in risk.'
 const pageUrl = 'https://sitepilot.co/web-hosting'
 
@@ -115,7 +115,7 @@ export default function WebHostingHub2026() {
               </div>
 
               <h1 className="page-title text-5xl md:text-7xl mb-6">
-                Best web hosting 2026,
+                Choose the right web hosting,
                 <span className="brand-gradient-text block">compared beyond the promo page.</span>
               </h1>
 

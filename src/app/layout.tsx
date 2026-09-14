@@ -2,6 +2,8 @@ import { normalizeMetadata } from '@/lib/seo'
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SiteBreadcrumbs from "@/components/SiteBreadcrumbs";
+import TopicNavigation from "@/components/TopicNavigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnalyticsConsent from "@/components/AnalyticsConsent";
@@ -49,7 +51,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-slate-900`}>
         <div className="site-shell">
           <Header />
-          <main id="main-content" className="page-wrap min-h-screen">{children}</main>
+          <main id="main-content" className="page-wrap min-h-screen"><SiteBreadcrumbs />{children}<TopicNavigation /></main>
           <Footer />
           <AnalyticsConsent measurementId={gaMeasurementId} />
         </div>

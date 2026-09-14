@@ -83,7 +83,7 @@ test.describe('SitePilot smoke tests', () => {
     await page.setViewportSize({ width: 375, height: 667 })
     await page.goto('/')
 
-    const mobileMenuButton = page.locator('header button').last()
+    const mobileMenuButton = page.getByRole('button', { name: 'Open navigation', exact: true })
     await expect(mobileMenuButton).toBeVisible()
     await mobileMenuButton.click()
 

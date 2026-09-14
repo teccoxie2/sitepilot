@@ -1,5 +1,6 @@
+'use client'
+
 import { useState } from 'react'
-import Head from 'next/head'
 
 interface RiskProfile {
   category: string
@@ -174,15 +175,7 @@ export default function AIRiskManagementFramework() {
 
   return (
     <>
-      <Head>
-        <title>AI Risk Management Framework 2026 | SitePilot</title>
-        <meta
-          name="description"
-          content="Assess enterprise AI risk, compliance gaps, mitigation costs, and governance priorities with SitePilot's risk management framework."
-        />
-        <link rel="canonical" href="https://sitepilot.co/tools/ai-risk-management-framework" />
-      </Head>
-      <main id="main-content" className="relative min-h-screen overflow-x-hidden bg-white py-12 text-slate-900">
+      <div className="relative min-h-screen overflow-x-hidden bg-white py-12 text-slate-900">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(99,91,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.08),transparent_24%),linear-gradient(180deg,#f7f9ff_0%,#fbfcff_20%,#ffffff_42%,#fffdfb_72%,#ffffff_100%)]" />
         <div className="absolute inset-x-0 top-[32rem] h-[26rem] bg-[radial-gradient(circle_at_24%_30%,rgba(99,91,255,0.05),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(14,165,233,0.04),transparent_24%),radial-gradient(circle_at_52%_86%,rgba(244,114,182,0.04),transparent_30%)]" />
@@ -692,7 +685,7 @@ export default function AIRiskManagementFramework() {
           
         </div>
       </div>
-      </main>
+      </div>
     </>
   )
 }

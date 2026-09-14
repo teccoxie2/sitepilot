@@ -14,7 +14,7 @@ function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const filePath = path.join(directory, entry.name)
     if (entry.isDirectory()) return walk(filePath)
-    return /\.(ts|tsx)$/.test(entry.name) ? [filePath] : []
+    return /\.(ts|tsx|html)$/.test(entry.name) ? [filePath] : []
   })
 }
 
@@ -46,7 +46,8 @@ for (const filePath of walk(appDirectory)) {
 const imageRoute = path.join(appDirectory, 'opengraph-image.tsx')
 if (!fs.existsSync(imageRoute)) failures.push('src/app/opengraph-image.tsx is missing')
 
-const builtHtml = walk(buildDirectory).filter((filePath) => filePath.endsWith('.html'))
+const builtHtml = walk(buildDirectory).filter((filePath) => filePath.endsWith('.html') && !path.basename(filePath).startsWith('_'))
+if (!builtHtml.length) failures.push('No built HTML found; run npm run build before seo:check')
 for (const filePath of builtHtml) {
   const source = fs.readFileSync(filePath, 'utf8')
   const title = decodeHtml(source.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/\s+/g, ' ').trim()
@@ -54,6 +55,8 @@ for (const filePath of builtHtml) {
   const ogImage = getMetaContent(source, 'property', 'og:image')
   const h1Count = (source.match(/<h1\b/gi) || []).length
   const route = path.relative(buildDirectory, filePath)
+  if (!title) failures.push(`${route} is missing title`)
+  if (!description) failures.push(`${route} is missing description`)
   if (title.length > 60) failures.push(`${route} title exceeds 60 characters (${title.length})`)
   if (description.length > 155) failures.push(`${route} description exceeds 155 characters (${description.length})`)
   if (!ogImage) failures.push(`${route} is missing og:image`)
@@ -66,4 +69,4 @@ if (failures.length > 0) {
   process.exit(1)
 }
 
-console.log(`SEO metadata check passed: ${walk(appDirectory).length} app files scanned`)
+console.log(`SEO metadata check passed: ${builtHtml.length} built pages and ${walk(appDirectory).length} app files scanned`)

@@ -3,6 +3,7 @@ const baseUrl = 'https://sitepilot.co'
 const sitemapUrl = `${baseUrl}/sitemap.xml`
 const noindexRoutes = ['/privacy', '/terms', '/proxies/recommendation']
 const retiredRoutes = ['/hosting/best-web-hosting', '/hosting/cheap-hosting']
+const redirects = { '/hosting/best-web-hosting': '/best-web-hosting-2026', '/hosting/cheap-hosting': '/cheap-hosting' }
 
 function canonicalFrom(html) {
   return (html.match(/<link rel="canonical" href="([^"]+)"/i) || [])[1] || null
@@ -70,7 +71,8 @@ async function main() {
     const url = `${baseUrl}${route}`
     if (sitemap.includes(`<loc>${url}</loc>`)) failures.push(`${route} should be absent from sitemap`)
     const { response } = await fetchPage(url)
-    if (response.status !== 404) failures.push(`${route} should be retired with 404, got ${response.status}`)
+    if (![301, 308].includes(response.status)) failures.push(`${route} should redirect permanently, got ${response.status}`)
+    if (new URL(response.headers.get('location') || '/', baseUrl).pathname !== redirects[route]) failures.push(`${route} has an incorrect redirect target`)
   }
 
   if (failures.length > 0) {

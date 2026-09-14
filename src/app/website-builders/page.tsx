@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
-const pageTitle = 'Website Builder Comparison 2026: Wix, Shopify & Squarespace'
+const pageTitle = 'Website Builder Guides: Platforms, Costs & Ownership'
 const pageDescription =
   'Compare Wix, Shopify, Squarespace, Readdy, and WordPress by SEO control, ecommerce fit, publishing speed, and migration risk.'
 const pageUrl = 'https://sitepilot.co/website-builders'

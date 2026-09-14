@@ -45,11 +45,14 @@ export default function Header() {
   const navLinks = [
     { name: "Hosting", href: "/web-hosting" },
     { name: "Builders", href: "/website-builders" },
-    { name: "Domain", href: "/best-domain-registrars-2026" },
+    { name: "Domains", href: "/domains" },
+    { name: "AI Tools", href: "/ai-tools" },
     { name: "Proxies", href: "/proxies" }
   ];
 
   const toolsDropdownLinks = [
+    { name: "Hosting Fit Scorecard", href: "/hosting-platform-fit-scorecard-2026", description: "Compare hosting models for your workload." },
+    { name: "AI Evaluation Tools", href: "/tools/evaluation-tools-2026", description: "Compare vendors, costs, and procurement evidence." },
     {
       name: "IP Reputation Checker",
       href: "/ip-reputation-checker",
@@ -62,7 +65,7 @@ export default function Header() {
     },
   ];
 
-  const navHoverClasses = 'hover:text-[#635bff] hover:bg-indigo-50/55 rounded-full px-4 py-2.5';
+  const navHoverClasses = 'hover:text-[#635bff] hover:bg-indigo-50/55 rounded-full px-3 py-2.5';
 
   const headerClasses = scrolled
     ? 'bg-white/88 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_12px_28px_rgba(15,23,42,0.05)]'
@@ -116,7 +119,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <Link 
                 key={link.name}
@@ -153,8 +156,7 @@ export default function Header() {
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${toolsMenuOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              {toolsMenuOpen && (
-                <div className="absolute left-0 top-full pt-2">
+              <div hidden={!toolsMenuOpen} className="absolute left-0 top-full pt-2">
                   <div aria-hidden="true" className="absolute inset-x-0 -top-2 h-4" />
                   <div
                     id="tools-menu"
@@ -175,7 +177,6 @@ export default function Header() {
                     ))}
                   </div>
                 </div>
-              )}
             </div>
 
             <Link 
@@ -201,12 +202,12 @@ export default function Header() {
       </nav>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div
+      <div
+          hidden={!mobileMenuOpen}
           id="mobile-navigation"
           role="region"
           aria-label="Mobile navigation"
-          className={`lg:hidden p-8 space-y-4 animate-in slide-in-from-top duration-300 ${mobileMenuClasses}`}
+          className={`lg:hidden max-h-[calc(100dvh-5rem)] overflow-y-auto p-8 space-y-4 animate-in slide-in-from-top duration-300 ${mobileMenuClasses}`}
         >
           {navLinks.map((link) => (
             <Link 
@@ -231,8 +232,7 @@ export default function Header() {
               <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${mobileToolsOpen ? 'rotate-180' : ''}`} />
             </button>
 
-            {mobileToolsOpen && (
-              <div id="mobile-tools-menu" className="space-y-2 px-3 pb-3">
+            <div hidden={!mobileToolsOpen} id="mobile-tools-menu" className="space-y-2 px-3 pb-3">
                 {toolsDropdownLinks.map((link) => (
                   <Link
                     key={link.name}
@@ -248,7 +248,6 @@ export default function Header() {
                   </Link>
                 ))}
               </div>
-            )}
           </div>
 
           <Link 
@@ -259,7 +258,6 @@ export default function Header() {
             GET STARTED
           </Link>
         </div>
-      )}
     </header>
   );
 }

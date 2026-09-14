@@ -37,9 +37,9 @@ for (const relativeFile of noindexFiles) {
   }
 }
 
-const sitemapSource = fs.readFileSync(path.join(appDirectory, 'sitemap.xml', 'route.ts'), 'utf8')
+const architecture = JSON.parse(fs.readFileSync(path.join(projectRoot, 'src/data/site-architecture.json'), 'utf8'))
 for (const route of noindexRoutes) {
-  if (!sitemapSource.includes(`'${route}'`)) failures.push(`Sitemap exclusion missing for ${route}`)
+  if (!architecture.pages.some((page) => page.path === route && !page.indexable)) failures.push(`Sitemap exclusion missing for ${route}`)
 }
 
 for (const route of retiredRoutes) {

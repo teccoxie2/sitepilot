@@ -17,6 +17,7 @@
 - 日期：2026-09-12
 - 决定：`vision` 继续表示「已配置 CPA/OpenAI 密钥」。另增 `vision_classification_implemented`。密钥存在但 stub 未接通时，说明不得写成「扫描页可走 Vision」。
 - 理由：源码 `classify_page_vision()` 在有密钥时仍返回 None；生产 `/engine/estimator/ready` 曾误报可走 Vision。
+- 后续：2026-09-14 已接到 V1 同一套 CPA `chat/completions`。`vision_classification_implemented=true`。无文字层才送图；置信度封顶 0.72；审核标 LLM_INFERENCE；不编造工程量或金额。
 
 ## D004 · 生产库与 checkpoint
 

@@ -228,7 +228,25 @@ def _build_review(project: dict[str, Any], takeoff_items: list[dict[str, Any]]) 
         if drawing.get("issue_status") == ISSUE_SUPERSEDED:
             continue
         text = drawing.get("native_text") or ""
-        candidates = (drawing.get("payload") or {}).get("page_type_candidates") or []
+        payload = drawing.get("payload") or {}
+        if payload.get("classification_source") == "vision":
+            items.append(
+                {
+                    "id": store.new_id(),
+                    "entity_type": "drawing",
+                    "entity_id": drawing["id"],
+                    "queue_status": "NEEDS_REVIEW",
+                    "reason_code": "LLM_INFERENCE",
+                    "payload": {
+                        "page_number": drawing.get("page_number"),
+                        "drawing_number": drawing.get("drawing_number"),
+                        "note": "扫描页图号来自 Vision，未与文字层核对，不能标已核实。",
+                    },
+                    "created_at": store.now_iso(),
+                }
+            )
+            continue
+        candidates = payload.get("page_type_candidates") or []
         if is_opening_schedule_page(text, drawing.get("page_type")) and opening_by_drawing.get(drawing["id"], 0) == 0:
             items.append(
                 {

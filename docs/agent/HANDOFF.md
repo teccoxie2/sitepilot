@@ -1,4 +1,25 @@
-# Handoff · 2026-09-13 N05-01
+# Handoff · 2026-09-14 V2 Vision
+
+## 上轮做了什么
+
+- V2 `classify_page_vision` 走 V1 同一套 CPA/OpenAI `chat/completions`（图 + `page-classification` 提示词）。无文字层才调用。图号须像图号，否则丢弃。不标已核实，不编工程量。
+- `/estimator/ready`：`vision_classification_implemented=true`。
+
+## 未完成
+
+- 扫描页仍不抽门窗毫米/面积当已核实工程量。
+- 完整作废/批准、N06 合约、过夜代码合 `main` 仍未做。
+
+## 下一步
+
+1. 在生产 Estimator 上传无文字层扫描页，核图号是否进审核且取量为空。
+2. 需要时再合 `main`。
+
+## 证据
+
+- `server/tests/test_estimator_vision_stub.py`
+
+# 此前 · 2026-09-13 N05-01
 
 ## 上轮做了什么
 

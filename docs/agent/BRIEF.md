@@ -21,7 +21,7 @@
 ## 已核实事实（2026-09-12）
 
 - 评估首轮 1–8 已在源码：持久化、门窗表、人工修正、报价快照、导出/diff、Cookie 隔离、三入口。
-- `classify_page_vision()` 在密钥存在时仍 `return None`，不会读扫描页。
+- `classify_page_vision()` 已走 V1 同一套 CPA `chat/completions`（图+提示词）。无文字层才调用。读数不标已核实，不编工程量。
 - 574 原 PDF 未入库，eval 报 missing。
 - 生产 `GET/POST /engine/estimator/projects` 在 2026-09-12 重建 Prisma 后恢复。用户于 2026-09-13 确认已认领 `proj_aux4dcghcmhx7f2dzmzauc1a`；认领后烟测仍通过。本环境未打开 Prisma 控制台复核认领页。
 - 本环境无 Cursor `agent` CLI。Vercel CLI 已登录 `teccoxie2` / `xentechs-projects`。

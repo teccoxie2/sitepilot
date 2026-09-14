@@ -171,6 +171,8 @@ def test_process_manifest_takeoff_estimate_and_review(tmp_path, monkeypatch):
 
 def test_image_only_does_not_invent_sheet_numbers(tmp_path, monkeypatch):
     _isolated_db(tmp_path, monkeypatch)
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.delenv("CPA_API_KEY", raising=False)
     created = client.post("/estimator/projects", json={"name": "扫描夹具"}).json()
     scan = tmp_path / "architectural.pdf"
     _image_pdf(scan, 2)

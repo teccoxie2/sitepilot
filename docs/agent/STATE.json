@@ -3,7 +3,7 @@
   "branch": "cursor/overnight-n08-n04-e825",
   "base_commit": "beb9bed27c6c0b8ab76007615ad70a75882a7836",
   "started_at": "2026-09-12T11:05:57+00:00",
-  "last_updated": "2026-09-13T08:30:00+00:00",
+  "last_updated": "2026-09-14T04:20:00+00:00",
   "current_task_id": null,
   "incomplete_task_id": null,
   "last_completed_task_id": "N05-01",
@@ -15,7 +15,7 @@
     "local_agent": "scripts/overnight_local_agent.py"
   },
   "blocked": [],
-  "next_action": "N05-01 已完成。PLAN 中的 N06 尚无任务合约；未授权不上线发布。",
+  "next_action": "V2 Vision 已接到 CPA。用户在生产上传扫描页验证。",
   "tasks": {
     "N00-01": {
       "status": "DONE",

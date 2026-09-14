@@ -57,6 +57,7 @@ DEFAULT_DRAWING_MODEL = "gpt-5.6-luna"
 CHAT_TIMEOUT = httpx.Timeout(connect=8.0, read=210.0, write=30.0, pool=8.0)
 RETRY_CHAT_TIMEOUT = httpx.Timeout(connect=8.0, read=180.0, write=30.0, pool=8.0)
 PROBE_TIMEOUT = httpx.Timeout(connect=5.0, read=8.0, write=8.0, pool=5.0)
+VISION_TIMEOUT = httpx.Timeout(connect=8.0, read=90.0, write=30.0, pool=8.0)
 PAGE_CHUNK = 3_500
 FIRST_PAGE_CAP = 6_000
 PACKED_TEXT_LIMIT = 36_000
@@ -92,6 +93,19 @@ def llm_base_url() -> str:
 def llm_model_name(available: list[str] | None = None) -> str:
     requested = (
         os.environ.get("DRAWING_LLM_MODEL", "").strip()
+        or os.environ.get("SITE_VISION_MODEL", "").strip()
+        or DEFAULT_DRAWING_MODEL
+    )
+    lookup = {item.lower(): item for item in (available or [])}
+    if requested.lower() in lookup:
+        return lookup[requested.lower()]
+    return requested
+
+
+def vision_model_name(available: list[str] | None = None) -> str:
+    requested = (
+        os.environ.get("ESTIMATOR_VISION_MODEL", "").strip()
+        or os.environ.get("DRAWING_LLM_MODEL", "").strip()
         or os.environ.get("SITE_VISION_MODEL", "").strip()
         or DEFAULT_DRAWING_MODEL
     )
@@ -427,6 +441,7 @@ def _chat_completion(
     messages: list[dict[str, Any]],
     *,
     timeout: httpx.Timeout = CHAT_TIMEOUT,
+    kind: str = "drawing-chat",
 ) -> tuple[str, str]:
     base = llm_base_url()
     body = {
@@ -455,7 +470,7 @@ def _chat_completion(
         except HTTPException:
             raise
         except Exception:
-            record_llm_call(kind="drawing-chat", model_name=model, status="error")
+            record_llm_call(kind=kind, model_name=model, status="error")
             raise
         content = payload["choices"][0]["message"]["content"]
         if isinstance(content, list):
@@ -463,8 +478,22 @@ def _chat_completion(
                 str(part.get("text") or part) if isinstance(part, dict) else str(part) for part in content
             )
         used = str(payload.get("model") or model)
-        record_llm_call(kind="drawing-chat", model_name=used, status="ok")
+        record_llm_call(kind=kind, model_name=used, status="ok")
         return str(content or ""), used
+
+
+def call_vision_completion(prompt: str, image_data_url: str) -> tuple[str, str]:
+    model = vision_model_name()
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": prompt},
+                {"type": "image_url", "image_url": {"url": image_data_url}},
+            ],
+        }
+    ]
+    return _chat_completion(model, messages, timeout=VISION_TIMEOUT, kind="estimator-vision")
 
 
 def charts_prompt_block(charts: list[dict[str, Any]] | None) -> str:

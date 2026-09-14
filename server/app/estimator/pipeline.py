@@ -20,7 +20,7 @@ from .extract import (
     parse_roof_areas,
 )
 from .pdf import page_native_text, preflight_pdf, render_page_png, search_text_bbox, sha256_file
-from .vision import vision_available
+from .vision import classify_page_vision, vision_available
 
 
 def infer_kind(filename: str, declared: str | None) -> str:
@@ -118,24 +118,43 @@ def process_document(project_id: str, document_id: str, note=lambda _m: None) ->
         drawing_id = store.new_id()
         has_text = len(text.strip()) >= NATIVE_TEXT_MIN_CHARS
         drawing_number = title.get("drawing_number") if has_text else None
+        drawing_title = title.get("drawing_title") if has_text else None
+        revision = title.get("revision") if has_text else None
         # Filename/kind may hint discipline; never invent a sheet number without text or vision.
+        vision_hit = None
         if not has_text:
             classified = {
                 **classified,
                 "page_type": classified["page_type"] if classified["page_type"] != "UNKNOWN" else "UNKNOWN",
                 "confidence": min(float(classified.get("confidence") or 0), 0.5),
             }
-            if not vision_available():
+            if vision_available():
+                vision_hit = classify_page_vision(png_path)
+                if vision_hit:
+                    drawing_number = vision_hit.drawing_number
+                    drawing_title = vision_hit.drawing_title
+                    revision = vision_hit.revision
+                    classified = {
+                        "page_type": vision_hit.page_type,
+                        "discipline": vision_hit.discipline or classified.get("discipline") or "UNKNOWN",
+                        "confidence": vision_hit.confidence,
+                        "source": "vision",
+                        "page_type_candidates": [vision_hit.page_type] if vision_hit.page_type != "UNKNOWN" else [],
+                        "discipline_candidates": (
+                            [vision_hit.discipline] if vision_hit.discipline not in {None, "UNKNOWN"} else []
+                        ),
+                    }
+            if classified.get("source") != "vision":
                 classified["page_type"] = "UNKNOWN"
-                classified["confidence"] = min(classified["confidence"], 0.45)
+                classified["confidence"] = min(float(classified.get("confidence") or 0), 0.45)
         drawing = {
             "id": drawing_id,
             "page_number": page_number,
             "discipline": classified.get("discipline") or "UNKNOWN",
             "page_type": classified.get("page_type") or "UNKNOWN",
             "drawing_number": drawing_number,
-            "drawing_title": title.get("drawing_title") if has_text else None,
-            "revision": title.get("revision") if has_text else None,
+            "drawing_title": drawing_title,
+            "revision": revision,
             "scale": title.get("scale") if has_text else None,
             "rotation_deg": render_meta.get("rotation_deg") or 0,
             "confidence": float(max(classified.get("confidence") or 0, title.get("confidence") or 0)),
@@ -175,6 +194,30 @@ def process_document(project_id: str, document_id: str, note=lambda _m: None) ->
                     }
                 )
             expected_rows.extend(parse_drawing_index(text))
+        elif vision_hit and vision_hit.drawing_number:
+            box = (vision_hit.evidence or [{}])[0] if vision_hit.evidence else {}
+            evidence_rows.append(
+                {
+                    "project_id": project_id,
+                    "document_id": document_id,
+                    "drawing_id": drawing_id,
+                    "page_number": page_number,
+                    "evidence_type": "LLM_INFERENCE",
+                    "raw_text": str(vision_hit.drawing_number),
+                    "structured_value": {
+                        "field": "drawing_number",
+                        "value": vision_hit.drawing_number,
+                        "revision": vision_hit.revision,
+                        "page_type": vision_hit.page_type,
+                    },
+                    "x1": float(box.get("x1") or 0),
+                    "y1": float(box.get("y1") or 0),
+                    "x2": float(box.get("x2") or 0),
+                    "y2": float(box.get("y2") or 0),
+                    "extraction_method": "VISION",
+                    "confidence": float(vision_hit.confidence or 0),
+                }
+            )
 
     store.set_document_status(document_id, "BUILDING_MANIFEST")
     store.replace_document_pages(document_id, drawings)

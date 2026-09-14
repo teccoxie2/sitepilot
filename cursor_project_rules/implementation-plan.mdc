@@ -352,3 +352,9 @@ Done
 
 目录按图号+修订保留多行。同图号只把最高修订标 CURRENT，旧页 SUPERSEDED，取量不把旧页面积加进去。自造文字层 PDF 验收：100 与 120 并存时当前取量只有 120。不是完整作废工作流。
 
+## V2 Estimator 扫描页走 CPA Vision
+
+Done
+
+无文字层页把渲染图送给 V1 同一套 `chat/completions`。图号/修订/页类写入图纸并进审核（LLM_INFERENCE），不标 VERIFIED，不编造门窗或面积。`/estimator/ready` 的 `vision_classification_implemented` 为 true。
+

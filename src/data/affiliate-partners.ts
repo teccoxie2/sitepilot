@@ -17,15 +17,15 @@ export const affiliatePartners: Record<PartnerId, PartnerConfig> = {
     id: 'marsproxies',
     name: 'MarsProxies',
     officialUrl: 'https://marsproxies.com/',
-    partnershipStatus: 'pending',
-    trackingUrl: null,
+    partnershipStatus: 'active',
+    trackingUrl: 'https://marsproxies.sjv.io/c/7172006/3775278/48103',
   },
   zerobounce: {
     id: 'zerobounce',
     name: 'ZeroBounce',
     officialUrl: 'https://www.zerobounce.net/',
-    partnershipStatus: 'pending',
-    trackingUrl: null,
+    partnershipStatus: 'active',
+    trackingUrl: 'https://aff.zerobounce.net/c/7172006/3776877/31392',
   },
 }
 

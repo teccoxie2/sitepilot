@@ -1,6 +1,6 @@
 # Affiliate integration
 
-SitePilot keeps partner links behind a small, public-safe configuration in `src/data/affiliate-partners.ts`. The initial configuration is intentionally `pending` for every new partner and points readers to the verified official site. This allows content and SEO work to ship before a commercial relationship is enabled.
+SitePilot keeps partner links behind a small, public-safe configuration in `src/data/affiliate-partners.ts`. A partner stays `pending` until a complete HTTPS link has been copied from the Impact link builder and reviewed. The first-phase MarsProxies and ZeroBounce entries now use their verified Impact links; the configuration remains the single switch for enabling or pausing those placements.
 
 ## Enabling a partner
 
@@ -30,4 +30,4 @@ npm run seo:architecture
 SITEPILOT_TEST_PRODUCTION=1 npm run test -- --project=chromium
 ```
 
-The tests should verify that pending links remain navigable with JavaScript disabled, active links use the affiliate component and rel attributes, and no `#affiliate-*` placeholder is present. Never use a production tracking URL in an automated test or test it by creating a real order.
+The tests should verify that pending and paused links remain navigable with JavaScript disabled, active links use the affiliate component and rel attributes, and no `#affiliate-*` placeholder is present. Automated checks only inspect rendered attributes; they never follow a production tracking URL or create a real order.

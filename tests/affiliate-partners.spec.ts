@@ -1,17 +1,19 @@
 import { expect, test } from '@playwright/test'
-import { resolvePartnerLink } from '../src/data/affiliate-partners'
+import { affiliatePartners, resolvePartnerLink, type PartnerId } from '../src/data/affiliate-partners'
 
 const partnerRoutes = [
   {
     route: '/proxies/marsproxies-review',
-    partner: 'marsproxies',
+    partner: 'marsproxies' as PartnerId,
     officialUrl: 'https://marsproxies.com/',
+    trackingUrl: affiliatePartners.marsproxies.trackingUrl as string,
     title: /MarsProxies Review/,
   },
   {
     route: '/zerobounce-review',
-    partner: 'zerobounce',
+    partner: 'zerobounce' as PartnerId,
     officialUrl: 'https://www.zerobounce.net/',
+    trackingUrl: affiliatePartners.zerobounce.trackingUrl as string,
     title: /ZeroBounce Review/,
   },
 ]
@@ -35,10 +37,38 @@ test.describe('Impact partner integration', () => {
       trackingUrl: 'https://example.com/your-tracking-url',
     })
     expect(placeholder).toEqual({ href: 'https://marsproxies.com/', isAffiliate: false })
+
+    const pending = resolvePartnerLink({
+      id: 'marsproxies',
+      name: 'MarsProxies',
+      officialUrl: 'https://marsproxies.com/',
+      partnershipStatus: 'pending',
+      trackingUrl: 'https://impact.example/should-not-track',
+    })
+    expect(pending).toEqual({ href: 'https://marsproxies.com/', isAffiliate: false })
+
+    const paused = resolvePartnerLink({
+      id: 'marsproxies',
+      name: 'MarsProxies',
+      officialUrl: 'https://marsproxies.com/',
+      partnershipStatus: 'paused',
+      trackingUrl: 'https://impact.example/paused',
+    })
+    expect(paused).toEqual({ href: 'https://marsproxies.com/', isAffiliate: false })
+  })
+
+  test('both first-phase partners have valid active Impact links', () => {
+    for (const partner of Object.values(affiliatePartners)) {
+      expect(partner.partnershipStatus).toBe('active')
+      expect(resolvePartnerLink(partner)).toEqual({
+        href: partner.trackingUrl,
+        isAffiliate: true,
+      })
+    }
   })
 
   for (const item of partnerRoutes) {
-    test(`${item.partner} remains a normal official link while pending`, async ({ page, request }) => {
+    test(`${item.partner} renders its configured affiliate link`, async ({ page, request }) => {
       const response = await request.get(item.route)
       expect(response.status()).toBe(200)
       const html = await response.text()
@@ -48,10 +78,10 @@ test.describe('Impact partner integration', () => {
 
       await page.goto(item.route)
       await expect(page).toHaveTitle(item.title)
-      const partnerLinks = page.locator(`[data-partner-id="${item.partner}"]`)
-      await expect(partnerLinks.first()).toHaveAttribute('href', item.officialUrl)
-      await expect(partnerLinks.first()).toHaveAttribute('data-partnership-status', 'pending')
-      await expect(partnerLinks.first()).not.toHaveAttribute('rel', /sponsored/)
+      const partnerLinks = page.locator(`a[href="${item.trackingUrl}"]`)
+      await expect(partnerLinks.first()).toHaveAttribute('rel', /sponsored/)
+      await expect(partnerLinks.first()).toHaveAttribute('rel', /nofollow/)
+      await expect(page.locator(`[data-partner-id="${item.partner}"]`)).toHaveCount(0)
     })
   }
 

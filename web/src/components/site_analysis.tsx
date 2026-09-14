@@ -108,7 +108,7 @@ export default function SiteAnalysis({ project }: { project: ProjectRecord }) {
             <p className="mt-2 text-xs leading-5 text-[#5c6754]">
               {modelRan
                 ? vision?.note
-                : vision?.note || "未配置 OPENAI_API_KEY 时不把航拍送给模型，也不编造看见的树木、车道或空地。"}
+                : vision?.note || "未配置 OPENAI_API_KEY 时不调用航拍视觉模型，场地描述仅来自 LINZ 屋顶轮廓与地籍交叉。"}
             </p>
           </div>
         </div>

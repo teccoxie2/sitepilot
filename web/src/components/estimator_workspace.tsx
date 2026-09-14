@@ -174,12 +174,12 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
           /failed to fetch|networkerror|load failed|fetch failed/i.test(message);
         if (!transient) throw caught;
         failures += 1;
-        if (failures >= 8) throw new Error("无法连上核算服务。请稍后重试；未编造结果。");
+        if (failures >= 8) throw new Error("无法连上核算服务，请稍后重试。");
         setBusy("核算服务暂时连不上，继续查询…");
       }
       await new Promise((resolve) => window.setTimeout(resolve, 1500));
     }
-    throw new Error("处理超时。未编造数量或金额。");
+    throw new Error("处理超时，未返回结果。");
   };
 
   const processFiles = async (
@@ -555,7 +555,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
             <ul className="mt-2 list-disc space-y-1 pl-5">
               <li>有文字层的建筑平面：建筑面积、门窗表件数与窗面积公式。</li>
               <li>屋面斜面积文字，并按价表有效覆盖宽换算延米。</li>
-              <li>结构梁尺寸可进入取量，价表对不上则未计价，不编费率。</li>
+              <li>结构梁尺寸可进入取量，价表无对应 SKU 则标未计价。</li>
               <li>电气、给排水、暖通、景观等专业：没有文字证据就不生成工程量。</li>
             </ul>
             <p className="mt-3">下一步：上传图纸 → DOCUMENTS 核对证据 → TAKEOFF 人工修正（必填理由）→ ESTIMATE 导出绑定版本。</p>
@@ -575,10 +575,10 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
           ) : null}
           {expectedDrawings.length ? (
             <p className="text-sm text-[#9a6b12]">
-              Drawing Index 期望 {expectedDrawings.length} 张；缺图请到 DOCUMENTS 查看，不把缺图包装成完整报价。
+              Drawing Index 期望 {expectedDrawings.length} 张；缺图请到 DOCUMENTS 查看，缺图时报价不完整。
             </p>
           ) : (
-            <p className="text-sm text-[#5c6754]">还没有从封面读到 Drawing Index。无文字层时需人工补 index，不会编造图号。</p>
+            <p className="text-sm text-[#5c6754]">还没有从封面读到 Drawing Index。无文字层时需人工补录图号。</p>
           )}
         </section>
       ) : null}
@@ -601,7 +601,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
               </label>
             </div>
             <p className="mt-3 text-xs leading-5 text-[#7b8474]">
-              单份不超过 15MB；大于约 3.5MB 会自动分片。原件会保存在这台浏览器里，引擎换实例后会自动送回当前引擎，不编造图号或金额。
+              单份不超过 15MB；大于约 3.5MB 会自动分片。原件保存在本机浏览器；引擎换实例后会把原件送回当前引擎再解析。
             </p>
             <Button type="submit" className="mt-4" disabled={Boolean(busy)}>
               上传并生成 Manifest
@@ -639,7 +639,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                 <div className="relative overflow-hidden rounded-2xl border border-[#d9d0c0] bg-[#111]">
                   {pageFailed ? (
                     <p className="px-4 py-16 text-center text-sm text-[#f8e7dc]" role="status">
-                      这一页的渲染图不在当前引擎磁盘上。演示容器重启后原图会丢，请重新上传图纸，不会用缓存图顶上。
+                      这一页的渲染图不在当前引擎磁盘上。演示容器重启后原图会丢失，请重新上传图纸。
                     </p>
                   ) : (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -682,7 +682,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                 <div className="mt-4 rounded-2xl border border-[#d9d0c0] bg-white p-4 text-sm">
                   <p className="font-medium">证据</p>
                   {pageEvidence.length === 0 ? (
-                    <p className="mt-2 text-[#5c6754]">本页没有文字层证据。扫描页在 Vision stub 未接通时保持空提取，不编造图号。</p>
+                    <p className="mt-2 text-[#5c6754]">本页没有文字层证据。无文字层且 Vision 无返回时，本页无提取结果。</p>
                   ) : (
                     <ul className="mt-2 space-y-2">
                       {pageEvidence.map((item) => (
@@ -703,7 +703,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
           <div className="rounded-2xl border border-[#d9d0c0] bg-white p-4">
             <h3 className="font-medium">Drawing Index 人工维护</h3>
             <p className="mt-1 text-sm text-[#5c6754]">
-              无文字层封面时在此补图号。不会编造缺失图纸内容。重跑解析只替换从封面读到的行，人工行会保留。
+              无文字层封面时在此补图号。重跑解析只替换从封面读到的行，人工行保留。
             </p>
             <form
               className="mt-3 grid gap-3 md:grid-cols-[8rem_1fr_6rem_auto]"
@@ -789,7 +789,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
                 })}
               </ul>
             ) : (
-              <p className="mt-3 text-sm text-[#5c6754]">还没有期望图号。封面无 Drawing Index 时请人工补录，不要编造。</p>
+              <p className="mt-3 text-sm text-[#5c6754]">还没有期望图号。封面无 Drawing Index 时请人工补录。</p>
             )}
           </div>
         </section>

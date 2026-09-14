@@ -1,6 +1,6 @@
 # 奥克兰住宅开发核算台
 
-输入奥克兰地址后，系统读取公开地块面积、Unitary Plan 区划和 DEM 坡度，再用**最新公开航拍 / 历史镶嵌**和 LINZ 屋顶轮廓核对场地，给出**适合这块地的初版方案**。正式 **LIM 由客户上传**已购买的议会 PDF，系统只读文字层（污染、风区、土壤、洪水栏、地面径流、管网 LIR、许可编号），并按读到的字段写成中文**开发影响**，不贴 LIM 英文原文。扫描件或附图不做图像识别。你再选户型大小、厨房和卫生间数量，或上传 RC/BC 图纸按文字层套价。挡土墙、覆盖率和叠加层会写进建议；金额不由大模型生成。航拍不是直播，也不能改地籍数字。
+输入奥克兰地址后，系统读取公开地块面积、Unitary Plan 区划和 DEM 坡度，再用最新公开航拍 / 历史镶嵌和 LINZ 屋顶轮廓核对场地，给出适合这块地的初版方案。正式 LIM 由客户上传已购买的议会 PDF，系统只读文字层（污染、风区、土壤、洪水栏、地面径流、管网 LIR、许可编号），并按读到的字段写成中文开发影响，不贴 LIM 英文原文。扫描件或附图不做图像识别。再选户型大小、厨房和卫生间数量，或上传 RC/BC 图纸按文字层套价。挡土墙、覆盖率和叠加层会写进建议。金额只取价表。航拍为镶嵌影像，不改地籍数字。
 
 ## 能做什么
 
@@ -9,11 +9,11 @@
 - 客户选装：套数、层数、卧室、卫生间、厨房、建筑面积，按已读地块重新套价
 - 坡地建议：分台、挡土墙、E12 土方门槛（500m² / 250m³）；支撑建筑平台的墙按 surcharge 提示建筑许可
 - 户型模板工程量（尺寸进入木材、空腔、屋面、石膏板、卫生间洁具数量）
-- 分项总账按全包合同科目分组（前期准备 / 建筑主体 / 内装 / 室外 / 法定与专业费），并对照一份 184 项住宅逐行总账把未计价工种列成缺项。能核对到公开 SKU 的计入金额；无单价的科目列为缺项，不编价。华夫板混凝土按 Firth RibRaft 手册计入面层+肋梁+边梁；天花石膏板按 GFA 另计；屋面衬垫按 Thermakraft 215 公开零售。
+- 分项总账按全包合同科目分组（前期准备 / 建筑主体 / 内装 / 室外 / 法定与专业费），并对照一份 184 项住宅逐行总账把未计价工种列成缺项。能核对到公开 SKU 的计入金额；无单价的科目列为缺项，金额为 0。华夫板混凝土按 Firth RibRaft 手册计入面层+肋梁+边梁；天花石膏板按 GFA 另计；屋面衬垫按 Thermakraft 215 公开零售。
 - 法定费用含建工许可押金、BRANZ/MBIE/BCA 征费、CCC 基础费、占道检查费；有资源许可时计入 RC 押金；IGC/DC 按净增单元
 - 第二阶段：在项目页上传 RC / BC PDF，按文字层门窗表和面积套同一价库（扫描件无文字层会失败）
 - 图纸物料验证页 `/drawing-takeoff`：不经过选址，上传 RC/BC 后按页读文字层。门窗表、面积表、覆盖率表按行列抽出并在页面上列出每一行；几乎无文字的图页会标出且**不做 OCR**。正则与大模型结果合并；送给模型时优先保留表页，证据核对应全文。数量由服务器按公式、窗表或原文件数重算，单价只走价库。扫描件没有文字层或未配置 `OPENAI_API_KEY` / `CPA_API_KEY` 会失败。
-- **V2 Estimator** `/estimator`：并行图纸取量工作区。上传建筑图/结构图后做 SHA256 预检、分页渲染、Manifest、证据框、Floor Area / Beam / Roof / 门窗表取量、人工修正（必填理由）、审核队列与绑定价表版本的报价。无文字层且未配视觉密钥时不编造图号。金额仍只走价表；`MODEL` 费率不启用。导出绑定指定报价版本。工作区按浏览器会话隔离，不能打开别人的项目或原图。574 Remuera 评测目录在 `evals/574-remuera/`，原 PDF 未入库则 eval 报缺项。
+- **V2 Estimator** `/estimator`：并行图纸取量工作区。上传建筑图/结构图后做 SHA256 预检、分页渲染、Manifest、证据框、Floor Area / Beam / Roof / 门窗表取量、人工修正（必填理由）、审核队列与绑定价表版本的报价。无文字层且未配视觉密钥时图号为空；已配置时 Vision 只分类图号，读数进审核，不生成工程量。金额只取价表；`MODEL` 费率不启用。导出绑定指定报价版本。工作区按浏览器会话隔离，不能打开别人的项目或原图。574 Remuera 评测目录在 `evals/574-remuera/`，原 PDF 未入库则 eval 报缺项。
 
 ## 报价源（2026-08-24 检索）
 
@@ -76,7 +76,7 @@
 - 正式 LIM：客户上传议会 PDF，入口 `POST /projects/{id}/lim`，只读文字层
 - 挡土墙许可：[MBIE Schedule 1 exemption 20](https://www.building.govt.nz/projects-and-consents/planning-a-successful-build/scope-and-design/check-if-you-need-consents/building-work-that-doesnt-need-a-building-consent/technical-requirements-for-exempt-building-work/13-support-structures/13-2-retaining-walls-up-to-1-5-metres-depth-of-ground)、[Auckland Council AC2231](https://www.aucklandcouncil.govt.nz/content/dam/ac/docs/building-and-consents/ac2231-retaining-walls.pdf)
 
-替换价表：编辑 `server/app/data/pricebook.json` 与 `server/app/data/council_fees.json`，改完后重启 API（`pricebook()` 有缓存）。运行时只通过 `PriceProvider.get_rate(sku, qty, context)` 取单价：第一期是本地价表，设置 `PRICE_API_URL` 后会再问供应商 HTTP；接口失败或缺 SKU 一律标缺项，不编价。官方 Council / IGC / DC 走 `council_fees.json` 的版本化费率。
+替换价表：编辑 `server/app/data/pricebook.json` 与 `server/app/data/council_fees.json`，改完后重启 API（`pricebook()` 有缓存）。运行时只通过 `PriceProvider.get_rate(sku, qty, context)` 取单价：第一期是本地价表，设置 `PRICE_API_URL` 后会再问供应商 HTTP；接口失败或缺 SKU 一律标缺项，金额为 0。官方 Council / IGC / DC 走 `council_fees.json` 的版本化费率。
 
 ## 本地运行
 
@@ -105,7 +105,7 @@ pnpm dev
 - `PRICE_API_URL`：价源第二实现；未设置时只用价表。
 - `ENGINE_URL`：前端服务端请求核算 API，默认 `http://127.0.0.1:8764`。
 - `OPENAI_API_KEY`：可选（航拍视觉）/ 图纸物料验证也认这个密钥。航拍：设置后会把最多两张公开航拍送给视觉模型，只描述可见场地，**不得改面积/区划/坡度，不得定价**。
-- `CPA_BASE_URL` / `CPA_API_KEY` / 可选 `CPA_GATE_TOKEN`：本地 [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)（管理页如 `http://192.168.52.81:8317/management.html`）。核算台会改写成 OpenAI 兼容入口 `…/v1`，用客户端密钥调 `/v1/models` 与 `/v1/chat/completions`。仅当公网入口是本地 gate 时才设门禁令牌并发送 `X-CPA-Gate`。管理页登录密码不要当成模型密钥或门禁令牌。图纸推导默认模型为 `gpt-5.6-luna`。Vercel 生产环境打不到局域网 `192.168.52.81`；把 CPA 暴露为公网 `/v1` 后，用 `scripts/link-public-cpa.sh` 写入项目环境变量。未配置时就绪接口保持 `configured: false`，不编造模型结果。
+- `CPA_BASE_URL` / `CPA_API_KEY` / 可选 `CPA_GATE_TOKEN`：本地 [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)（管理页如 `http://192.168.52.81:8317/management.html`）。核算台会改写成 OpenAI 兼容入口 `…/v1`，用客户端密钥调 `/v1/models` 与 `/v1/chat/completions`。仅当公网入口是本地 gate 时才设门禁令牌并发送 `X-CPA-Gate`。管理页登录密码不要当成模型密钥或门禁令牌。图纸抽取默认模型为 `gpt-5.6-luna`。Vercel 生产环境打不到局域网 `192.168.52.81`；把 CPA 暴露为公网 `/v1` 后，用 `scripts/link-public-cpa.sh` 写入项目环境变量。未配置时就绪接口保持 `configured: false`。
 - `OPENAI_BASE_URL` / `SITE_VISION_MODEL` / `DRAWING_LLM_MODEL`：接口与模型名。`DRAWING_LLM_MODEL` 可覆盖默认的 `gpt-5.6-luna`。未走 CPA 时视觉默认 `https://api.openai.com/v1` 与 `gpt-4o-mini`。
 
 浏览器打开 `http://127.0.0.1:43124`。输入 `55 Nelson Street` 会列出 Howick 与 Auckland Central 等多条议会地址，必须点选一条。输入 `115 Bruce Road Glenfield` 时议会已无整宗 115，只会列出拆分后的 115A–F；点选其中一户后，页面只显示该户的议会地籍，并筛掉需要整宗地的方案。本机安全软件（如 Bitdefender）若给 DOM 注入属性，开发态错误浮层会被拦截，不影响核算。
@@ -160,17 +160,17 @@ docker run --rm -p 43124:43124 auckland-dev-cost
 
 ## 架构要点
 
-LangGraph 地址流：`geocode → land → rules → lim → site_vision → typology → quantity → building_rules → cost → explain → pm_gate`。`land` 合并规划区划、地籍与 DEM，并写入 `captured_at` 快照。`lim` 节点只留下「等待客户上传正式 LIM」；不查询公开洪水图层，也不把议会订购费计入造价。客户在项目页上传 PDF 后，`POST /projects/{id}/lim` 读文字层，按 s44A 栏写入污染、风区、土壤、洪水说明、地面径流、LIR 和许可编号。附图不识别。读到的地面径流或 LIR 只驱动缺项专家工作，不编造评估单价，也不把区划可行方案标成 infeasible。LIM 地址必须与当前项目门牌及郊区一致。`site_vision` 读取公开航拍与 LINZ 屋顶轮廓；失败只记 note，不让整图失败。hints 只影响方案排序与说明。`typology` 只做户型硬过滤；`cost` 才走 PriceProvider，并行节点不得写总价。选装走 `POST /projects/{id}/configure`，不再重新查 GIS。图纸流：`parse_drawings → drawing_template → drawing_cost → drawing_explain`，入口为 `POST /projects/{id}/drawings`。独立验证页 `POST /drawings/verify` 调用大模型读文字层并套同一价库。`pm_gate` 默认自动通过；`PM_HITL=1` 时 `interrupt()`。说明节点只写中文，不改金额。
+LangGraph 地址流：`geocode → land → rules → lim → site_vision → typology → quantity → building_rules → cost → explain → pm_gate`。`land` 合并规划区划、地籍与 DEM，并写入 `captured_at` 快照。`lim` 节点只留下「等待客户上传正式 LIM」；不查询公开洪水图层，也不把议会订购费计入造价。客户在项目页上传 PDF 后，`POST /projects/{id}/lim` 读文字层，按 s44A 栏写入污染、风区、土壤、洪水说明、地面径流、LIR 和许可编号。附图不识别。读到的地面径流或 LIR 只驱动缺项专家工作，不写入评估单价，也不把区划可行方案标成 infeasible。LIM 地址必须与当前项目门牌及郊区一致。`site_vision` 读取公开航拍与 LINZ 屋顶轮廓；失败只记 note，不让整图失败。hints 只影响方案排序与说明。`typology` 只做户型硬过滤；`cost` 才走 PriceProvider，并行节点不得写总价。选装走 `POST /projects/{id}/configure`，不再重新查 GIS。图纸流：`parse_drawings → drawing_template → drawing_cost → drawing_explain`，入口为 `POST /projects/{id}/drawings`。独立验证页 `POST /drawings/verify` 调用模型读文字层并套同一价库。`pm_gate` 默认自动通过；`PM_HITL=1` 时 `interrupt()`。说明节点只写中文，不改金额。
 
 ## 开发要求
 
-**不允许使用假数据。** 这是硬性要求，不是可选风格。
+数据来源与计价：
 
-- 地址、坐标、地籍、区划、叠加层、DEM、航拍 URL、屋顶轮廓必须来自奥克兰议会 / LINZ / Esri 等公开接口；选址必须从 `AC_Address` 下拉点选。正式 LIM 只认客户上传的议会 PDF 文字层，不能用公开洪水图或流域污染多边形冒充。
-- 金额必须来自带链接与取价日期的价表或官方费率表；禁止大模型定价，禁止编造单价或总价。视觉模型不得改写地籍面积、区划或坡度数字。LIM 订购费由客户在议会支付，不计入本页造价。图纸物料验证页可以把文字层送给大模型抽取字段/门窗表并选择已有 SKU，但**数量必须由服务器按公式或窗表重算**，模型输出的金额一律丢弃。
-- 没有可核对来源的科目标成缺项（`missing`），不要用估算、经验值、mock、默认地块或缓存值把页面凑完整。
-- 图纸和 LIM 只读 PDF 文字层；读不到面积就不要套户型模板的 110 m²，读不到厨卫就不要套模板洁具；读不到 LIM 栏就标未写明，不要用附图识别。
-- V2 Estimator：无文字层可走 OCR/Vision，但提取必须带页/bbox/confidence；Vision 读数不得标 `VERIFIED`；`CALCULATED` 必须有公式；金额禁止 LLM 定价。
-- 单测可以给纯函数喂显式数字或**标明来源的正式 LIM 正文摘录**；不得把假 GIS / 假价源当成议会或供应商返回值。
+- 地址、坐标、地籍、区划、叠加层、DEM、航拍 URL、屋顶轮廓必须来自奥克兰议会 / LINZ / Esri 等公开接口；选址必须从 `AC_Address` 下拉点选。正式 LIM 只认客户上传的议会 PDF 文字层，不读取公开洪水图或流域污染多边形。
+- 金额必须来自带链接与取价日期的价表或官方费率表。模型输出的金额一律丢弃。视觉模型不得改写地籍面积、区划或坡度数字。LIM 订购费由客户在议会支付，不计入本页造价。图纸物料验证页可以把文字层送给模型抽取字段/门窗表并选择已有 SKU，数量由服务器按公式或窗表重算。
+- 没有可核对来源的科目标成缺项（`missing`），金额为 0。接口失败时返回空列表、错误或 `missing`，不回填缓存值或默认地块。
+- 图纸和 LIM 只读 PDF 文字层；读不到面积不套户型模板面积，读不到厨卫不套模板洁具；读不到 LIM 栏标未写明。
+- V2 Estimator：无文字层可走 OCR/Vision，提取必须带页/bbox/confidence；Vision 读数不得标 `VERIFIED`；`CALCULATED` 必须有公式；金额只取价表。
+- 单测可以给纯函数喂显式数字或标明来源的正式 LIM 正文摘录；不得把夹具 GIS / 夹具价源当成议会或供应商返回值。
 
 Agent 实现时遵守 `.cursor/rules/no-fake-data.mdc` 与 `cursor_project_rules/development-requirements.mdc`。

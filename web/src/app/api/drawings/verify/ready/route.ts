@@ -20,7 +20,7 @@ export async function GET() {
         llm: false,
         configured: false,
         reachable: false,
-        note: "无法连上核算服务，暂时不能确认大模型是否就绪。",
+        note: "无法连上核算服务，暂时不能确认模型是否就绪。",
       }),
       { status: 200, headers: { "content-type": "application/json" } },
     );

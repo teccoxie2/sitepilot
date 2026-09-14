@@ -44,15 +44,15 @@ function errorMessage(data: unknown, fallback: string) {
 
 function networkErrorMessage(caught: unknown, fallback: string) {
   if (caught instanceof DOMException && (caught.name === "AbortError" || caught.name === "TimeoutError")) {
-    return "核对超时。请确认 CPA 隧道仍可用后重试。";
+    return "核对超时，请稍后重试。";
   }
   const name = caught instanceof Error ? caught.name : "";
   const message = caught instanceof Error ? caught.message : "";
   if (name === "AbortError" || name === "TimeoutError") {
-    return "核对超时。请确认 CPA 隧道仍可用后重试。";
+    return "核对超时，请稍后重试。";
   }
   if (/failed to fetch|networkerror|load failed|fetch failed/i.test(message)) {
-    return "无法连上核算服务（连接被中断）。请再试一次；若仍失败，请确认本页和 CPA 隧道都还开着。";
+    return "无法连上核算服务（连接中断），请稍后重试。";
   }
   return message || fallback;
 }
@@ -101,7 +101,7 @@ async function waitForVerifyJob(jobId: string, onNote: (note: string) => void) {
     }
     await new Promise((resolve) => window.setTimeout(resolve, 2000));
   }
-  throw new Error("核对超时（约 7 分钟）。大模型仍未返回，请确认 CPA 隧道仍开着后重试。");
+  throw new Error("核对超时（约 7 分钟），模型未返回，请稍后重试。");
 }
 
 function ZoneTable({ zone }: { zone: DrawingVerifyZone }) {
@@ -187,7 +187,7 @@ function PageAudit({
         <section className="rounded-2xl border border-[#e2b48a] bg-[#f8e7dc] p-4 sm:p-5" role="status">
           <h2 className="text-lg font-semibold text-[#8a3b1d]">这些页几乎没有文字层</h2>
           <p className="mt-2 text-sm leading-6 text-[#8a3b1d]">
-            平面/立面如果只是线条图，尺寸不会被读取，也不会做图像识别。请对照下表确认是否缺了门窗表或面积表页。
+            平面/立面如果只是线条图，文字层无法读取尺寸。请对照下表确认是否缺了门窗表或面积表页。
           </p>
           <ul className="mt-3 space-y-2 text-sm text-[#8a3b1d]">
             {noTextPages.map((item) => (
@@ -287,7 +287,7 @@ function PageAudit({
           ))}
         </section>
       ) : (
-        <p className="text-sm text-[#9a6b12]">文字层没有抽出可识别的表格行。若 PDF 是扫描件，不会对附图做识别。</p>
+        <p className="text-sm text-[#9a6b12]">文字层没有抽出可识别的表格行。扫描件无法读取附图尺寸。</p>
       )}
     </div>
   );
@@ -419,7 +419,7 @@ export default function DrawingVerify() {
     let cancelled = false;
     fetch("/engine/drawings/verify/ready", { cache: "no-store", signal: AbortSignal.timeout(12_000) })
       .then(async (response) => {
-        const payload = (await readEngineJson(response, "无法确认大模型是否已配置。")) as {
+        const payload = (await readEngineJson(response, "无法确认模型是否已配置。")) as {
           llm?: boolean;
           configured?: boolean;
           reachable?: boolean;
@@ -432,7 +432,7 @@ export default function DrawingVerify() {
       .catch(() => {
         if (!cancelled) {
           setLlmReady(false);
-          setLlmNote("无法确认大模型是否已配置。");
+          setLlmNote("无法确认模型是否已配置。");
         }
       });
     return () => {
@@ -512,7 +512,7 @@ export default function DrawingVerify() {
 
       {llmReady === false ? (
         <p className="mt-4 rounded-lg bg-[#f8e7dc] px-3 py-2 text-sm text-[#8a3b1d]" role="status">
-          {llmNote || "未配置 OPENAI_API_KEY，无法调用大模型做本页推导。"}
+          {llmNote || "未配置 OPENAI_API_KEY，无法调用模型做本页抽取。"}
         </p>
       ) : null}
       {llmReady === true && llmNote ? (
@@ -563,7 +563,7 @@ export default function DrawingVerify() {
         </p>
         <div className="mt-4">
           <Button type="submit" disabled={busy} aria-busy={busy}>
-            {busy ? "正在核对图纸…" : "用大模型推导材料"}
+            {busy ? "正在核对图纸…" : "按文字层抽取材料"}
           </Button>
         </div>
         {error ? (
@@ -575,7 +575,7 @@ export default function DrawingVerify() {
 
       {busy ? (
         <p className="mt-6 rounded-lg bg-[#eef3ea] px-3 py-2 text-sm text-[#2f4a32]" role="status">
-          {busyNote || "正在读取 PDF 文字层并调用大模型，可能需要几分钟。没有文字层或未配置密钥会失败，请不要关闭页面。"}
+          {busyNote || "正在读取 PDF 文字层并调用模型，可能需要几分钟。没有文字层或未配置密钥会失败。"}
         </p>
       ) : null}
 
@@ -583,7 +583,7 @@ export default function DrawingVerify() {
         <div className="mt-8 space-y-6">
           {result.llm ? (
             <section className="rounded-2xl border border-[#d9d0c0] bg-white p-4 sm:p-5">
-              <h2 className="text-xl font-semibold">大模型推导</h2>
+              <h2 className="text-xl font-semibold">模型抽取</h2>
               <p className="mt-2 text-sm leading-6 text-[#5c6754]">
                 {result.llm.model ? `模型 ${result.llm.model}。` : ""}
                 {result.llm.note || ""}
@@ -606,7 +606,7 @@ export default function DrawingVerify() {
           {compare ? (
             <Tabs
               tabs={[
-                { id: "llm", label: "大模型推导" },
+                { id: "llm", label: "模型抽取" },
                 { id: "rules", label: "公式对照" },
               ]}
               value={tab}

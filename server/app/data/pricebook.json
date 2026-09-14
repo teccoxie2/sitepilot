@@ -2,7 +2,7 @@
   "version": "2026-09-01",
   "currency": "NZD",
   "region": "Auckland / New Zealand national retail list",
-  "disclaimer": "材料单价取自检索当日公开标价，并标注 SKU 与链接。Bunnings 为全国零售价，奥克兰门店结账价可能不同，且不等于 PlaceMakers/ITM 贸易价。人工为公开市场收费区间中位，不是签约报价。缺项不编造数字。",
+  "disclaimer": "材料单价取自检索当日公开标价，并标注 SKU 与链接。Bunnings 为全国零售价，奥克兰门店结账价可能不同，且不等于 PlaceMakers/ITM 贸易价。人工为公开市场收费区间中位，不是签约报价。无单价科目标缺项，金额为 0。",
   "items": [
     {
       "id": "timber_sg8_90x45_h12",
@@ -680,7 +680,7 @@
     {
       "id": "scaffolding_weekly_safety_check",
       "name_zh": "外围脚手架周检",
-      "reason": "SK Scaffold 另收 $75/次周检，核算只计入官网最低 1 周租期，不编造检查次数。"
+      "reason": "SK Scaffold 另收 $75/次周检，核算只计入官网最低 1 周租期，周检次数未计入。"
     },
     {
       "id": "retaining_engineer_wall",

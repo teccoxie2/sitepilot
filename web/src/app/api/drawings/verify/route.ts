@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
   } catch (caught) {
     const name = caught instanceof Error ? caught.name : "";
     if (name === "TimeoutError" || name === "AbortError") {
-      return engineError("核算服务接收图纸超时。请确认后端仍在运行后重试。", 504);
+      return engineError("核算服务接收图纸超时，请稍后重试。", 504);
     }
-    return engineError("无法连上核算服务。请稍后重试，不要关闭本页。", 502);
+    return engineError("无法连上核算服务，请稍后重试。", 502);
   }
 }

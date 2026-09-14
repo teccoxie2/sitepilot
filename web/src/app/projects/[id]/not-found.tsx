@@ -10,7 +10,7 @@ export default function ProjectNotFound() {
       </Link>
       <h1 className="mt-6 text-2xl font-semibold">找不到这个项目</h1>
       <p className="mt-4 text-sm leading-6 text-[#5c6754]">
-        项目记录写在核算容器本地磁盘。演示环境重启或换实例后记录会消失，不会用缓存顶上。请从首页重新点选议会地址。
+        项目记录写在核算容器本地磁盘。演示环境重启或换实例后记录会消失。请从首页重新点选议会地址。
       </p>
     </main>
   );

@@ -12,7 +12,7 @@ export default function DrawingTakeoffPage() {
         <Link href="/estimator" className="underline">
           图纸取量 V2
         </Link>
-        ，不要在本页另开一套互不相通的项目。
+        。请使用同一项目，避免重复建档。
       </p>
       <DrawingVerify />
     </div>

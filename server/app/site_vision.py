@@ -48,7 +48,7 @@ def _analyze_site(site: dict[str, Any], rules: dict[str, Any]) -> dict[str, Any]
         "scheme_hints": hints,
         "findings": _findings(site, buildings, rules),
         "model": None,
-        "note": "公开航拍不是直播。未配置视觉模型时，只用 LINZ 屋顶轮廓与地籍交叉核对，不编造看见的内容。",
+        "note": "公开航拍为镶嵌影像。未配置视觉模型时，只用 LINZ 屋顶轮廓与地籍交叉核对。",
     }
     if imagery:
         vision["status"] = "buildings_only" if buildings.get("found") else "imagery_only"
@@ -142,7 +142,7 @@ def vision_advice(site: dict[str, Any]) -> list[dict[str, Any]]:
                 "title_zh": "视觉模型未运行",
                 "body_zh": (
                     vision.get("note")
-                    or "设置 OPENAI_API_KEY 后会把航拍送给视觉模型做补充判读；缺密钥时不编造看见的内容。"
+                    or "设置 OPENAI_API_KEY 后会把航拍送给视觉模型做补充判读；未配置时不调用视觉模型。"
                 ),
                 "source_name": None,
                 "source_url": None,
@@ -236,7 +236,7 @@ def _call_vision_model(
         "只返回 JSON："
         '{"observations":"中文简述可见场地","scheme_hints":[],"findings":["中文短句"]}'
         " scheme_hints 只能从 "
-        f"{sorted(ALLOWED_HINTS)} 里选。findings 只写航拍里能看见的：现有房屋、树木、车道、空地，不要编造平方米。"
+        f"{sorted(ALLOWED_HINTS)} 里选。findings 只写航拍可见对象：现有房屋、树木、车道、空地。不要填写无法从影像读出的平方米数。"
     )
     model = os.environ.get("SITE_VISION_MODEL", "gpt-4o-mini").strip() or "gpt-4o-mini"
     base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")

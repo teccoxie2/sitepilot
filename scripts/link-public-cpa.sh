@@ -61,7 +61,7 @@ if [[ "$http_code" == "401" || "$http_code" == "403" ]]; then
   exit 1
 fi
 if [[ "$http_code" != "200" ]]; then
-  echo "已连上 ${raw}/models，但 HTTP ${http_code}，未写入 Vercel，也未编造模型列表。" >&2
+  echo "已连上 ${raw}/models，但 HTTP ${http_code}，未写入 Vercel。" >&2
   head -c 400 "$tmp" >&2 || true
   echo >&2
   exit 1

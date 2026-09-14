@@ -67,7 +67,7 @@ def test_ready_discloses_vision_wired(monkeypatch):
     assert body["vision_classification_implemented"] is True
     assert "stub" not in body["note"]
     assert "http://" not in body["note"]
-    assert "不标已核实" in body["note"]
+    assert "LLM_INFERENCE" in body["note"]
 
 
 def test_pipeline_vision_does_not_create_takeoff_quantities(tmp_path, monkeypatch):

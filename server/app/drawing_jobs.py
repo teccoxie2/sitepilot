@@ -35,14 +35,14 @@ def _run_job(job_id: str, saved: list[dict[str, Any]], workdir: Path) -> None:
     try:
         job_store.update_job(job_id, status="running", note="正在读取 PDF 文字层…")
         parts = parse_files(saved)
-        job_store.update_job(job_id, note="正在调用大模型读文字层，可能需要几分钟…")
+        job_store.update_job(job_id, note="正在调用模型读文字层，可能需要几分钟…")
         payload = verify_drawing_parts(parts)
         if payload.get("error"):
             job_store.update_job(
                 job_id,
                 status="error",
                 detail=_http_detail(payload["error"]),
-                note="核对失败，未编造材料或金额。",
+                note="核对失败。",
             )
             return
         job_store.update_job(job_id, status="ok", result=payload, note="核对完成。")

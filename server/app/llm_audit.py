@@ -49,7 +49,7 @@ def assert_llm_quota() -> None:
     if used >= daily_limit():
         raise HTTPException(
             status_code=429,
-            detail="24 小时内模型调用已达上限。未编造图纸读数或金额。",
+            detail="24 小时内模型调用已达上限。",
         )
 
 

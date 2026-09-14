@@ -289,7 +289,7 @@ def coverage_from_audit(audit: dict[str, Any]) -> dict[str, Any]:
         "note": (
             "只读文字层。图表按行列抽出，不依赖模型才看见表行。"
             "送给模型的字符数可能少于全文，优先保留门窗表和面积页。"
-            "几乎无文字的图页不做图像识别，也不猜毫米。"
+            "几乎无文字的图页不做图像识别，无法读取尺寸。"
         ),
     }
 
@@ -358,7 +358,7 @@ def verify_drawing_parts(parts: list[dict[str, Any]], *, llm_payload: dict[str, 
         return {
             "error": {
                 "code": "drawing_empty",
-                "message": "图纸文字层里没有可核对的正文。扫描件无法量尺寸，也不会送给大模型猜毫米。",
+                "message": "图纸文字层里没有可核对的正文。扫描件无法读取尺寸，不送模型。",
             },
             "documents": documents_public(parts),
             "derivation": "llm",
@@ -371,26 +371,26 @@ def verify_drawing_parts(parts: list[dict[str, Any]], *, llm_payload: dict[str, 
             return {
                 "error": {
                     "code": "llm_unavailable",
-                    "message": "未配置 CPA_API_KEY / OPENAI_API_KEY，无法用大模型做本页材料推导。设置密钥后重试；金额仍只走价库。",
+                    "message": "未配置 CPA_API_KEY / OPENAI_API_KEY，无法调用模型做本页抽取。设置密钥后重试；金额仍只取价库。",
                 },
                 "documents": documents_public(parts),
                 "derivation": "llm",
                 "charts": merged.get("charts") or [],
                 "page_debug": merged.get("page_debug") or [],
                 "audit": drawing_audit(parts, merged, packed, source_text),
-                "llm": {"status": "unavailable", "model": None, "note": "缺密钥时不编造材料清单。"},
+                "llm": {"status": "unavailable", "model": None, "note": "未配置密钥，跳过模型抽取。"},
             }
         called = call_drawing_llm(packed, charts=merged.get("charts") or [])
         if not called.get("ok"):
             return {
                 "error": called.get("error")
-                or {"code": "llm_failed", "message": "大模型读取图纸失败。"},
+                or {"code": "llm_failed", "message": "模型读取图纸失败。"},
                 "documents": documents_public(parts),
                 "derivation": "llm",
                 "charts": merged.get("charts") or [],
                 "page_debug": merged.get("page_debug") or [],
                 "audit": drawing_audit(parts, merged, packed, source_text),
-                "llm": {"status": "failed", "model": llm_model_name(), "note": "模型调用失败，未编造材料或金额。"},
+                "llm": {"status": "failed", "model": llm_model_name(), "note": "模型调用失败。"},
             }
         model = called.get("model")
         llm_payload = called.get("payload") or {}
@@ -449,7 +449,7 @@ def build_llm_result(
         return {
             "error": {
                 "code": "llm_ungrounded",
-                "message": "大模型与正则都没有在图纸文字层对上面积、户型或门窗表。未编造材料。",
+                "message": "模型和正则都没有在图纸文字层对上面积、户型或门窗表。",
             },
             "documents": documents_public(parts),
             "derivation": "llm",
@@ -478,7 +478,7 @@ def build_llm_result(
         return {
             "error": {
                 "code": "llm_ungrounded",
-                "message": "大模型选出的材料无法对应价库或原文证据。未编造清单。",
+                "message": "模型选出的材料无法对应价库或原文证据。",
             },
             "documents": documents_public(parts),
             "derivation": "llm",
@@ -490,9 +490,9 @@ def build_llm_result(
         summary = ""
     n_win = sum(int(item["count"]) for item in windows)
     bits = [
-        "本页用大模型读 PDF 文字层，并与正则全文及图表行抽取合并。送给模型的是门窗表/面积页优先，接地核对应全文。",
-        "数量由服务器按公式、门窗表或原文件数重算，单价只走公开价库，模型不得定价。",
-        "模型未点名但已读到面积/厨卫/门窗的科目，会按价库公式补全，不会用图像识别猜毫米。",
+        "本页用模型读 PDF 文字层，并与正则全文及图表行抽取合并。送给模型的是门窗表/面积页优先，证据核对应全文。",
+        "数量由服务器按公式、门窗表或原文件数重算，单价只取公开价库。",
+        "模型未点名但已读到面积/厨卫/门窗的科目，会按价库公式补全。无文字层扫描件无法读取尺寸。",
     ]
     if fields.get("gfa_m2"):
         bits.append(f"读到建筑面积 {fields['gfa_m2']['value']} m²。")
@@ -760,7 +760,7 @@ def quantity_from_evidence(
         return None
     if not number_in_text(quantity, evidence):
         return None
-    return quantity, "按文字层证据中的件数计，未编造数量。", "件数来自图纸原文，不是面积公式。"
+    return quantity, "按文字层证据中的件数计。", "件数来自图纸原文，不是面积公式。"
 
 
 def joinery_from_windows(windows: list[dict[str, Any]]) -> list[dict[str, Any]]:

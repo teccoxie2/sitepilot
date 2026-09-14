@@ -52,7 +52,7 @@ export default function DrawingUpload({ projectId }: { projectId: string }) {
     <form onSubmit={handleSubmit} className="rounded-2xl border border-[#d9d0c0] bg-[#fffaf3] p-5 sm:p-6">
       <h2 className="text-lg font-semibold">第二阶段：RC / BC 图纸套价</h2>
       <p className="mt-1 text-sm leading-6 text-[#5c6754]">
-        上传可选中文字的 Resource Consent 或 Building Consent PDF。系统只读文字层里的面积、层高、覆盖率、砌块贴面和门窗表，再套同一份公开价库。扫描件没有文字层会报错，不会用图像识别猜毫米。开发完成后只按当前议会门牌地块校核；整宗开发图如果比本户大，会标成与现址不符，不会把 115A/B/C… 加总。
+        上传可选中文字的 Resource Consent 或 Building Consent PDF。系统只读文字层里的面积、层高、覆盖率、砌块贴面和门窗表，再套同一份公开价库。扫描件没有文字层会报错，无法读取尺寸。开发完成后只按当前议会门牌地块校核；整宗开发图如果比本户大，会标成与现址不符，不合计其他门牌。
       </p>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <label className="flex flex-col gap-1">
@@ -88,7 +88,7 @@ export default function DrawingUpload({ projectId }: { projectId: string }) {
         </label>
       </div>
       <p className="mt-3 text-xs leading-5 text-[#7b8474]">
-        单份不超过 15MB；大于约 3.5MB 会自动分片。读不到的尺寸和没有公开 SKU 的樘会标缺项，不会用户型模板面积顶上。
+        单份不超过 15MB；大于约 3.5MB 会自动分片。读不到的尺寸和没有公开 SKU 的樘会标缺项，不回填户型模板面积。
       </p>
       <div className="mt-4">
         <button

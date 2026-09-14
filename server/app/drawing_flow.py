@@ -90,7 +90,7 @@ def explain_node(state: DrawingState) -> dict[str, Any]:
     fields = extracted.get("fields") or {}
     windows = extracted.get("windows") or []
     n_win = sum(int(item["count"]) for item in windows)
-    bits = ["第二阶段按 RC/BC 图纸文字层套价，不是户型模板估算，也没有用 YOLO 猜毫米。"]
+    bits = ["第二阶段按 RC/BC 图纸文字层套价，数量不回填户型模板面积。"]
     if fields.get("gfa_m2"):
         bits.append(f"建筑面积 {fields['gfa_m2']['value']} m²（{fields['gfa_m2']['evidence']}）。")
     elif fields.get("footprint_m2"):

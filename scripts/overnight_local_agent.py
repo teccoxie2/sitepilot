@@ -61,7 +61,7 @@ def apply_vision_stub_honesty(root: Path) -> list[str]:
         old = '''    note = (
         "已配置视觉密钥，扫描页可走 Vision。"
         if vision_available()
-        else "未配置 CPA_API_KEY 或 OPENAI_API_KEY。无文字层页保持 UNKNOWN，不编造图号或工程量。"
+        else "未配置 CPA_API_KEY 或 OPENAI_API_KEY。无文字层页保持 UNKNOWN，图号和工程量均为空。"
     )
     return {
         "vision": vision_available(),
@@ -73,9 +73,9 @@ def apply_vision_stub_honesty(root: Path) -> list[str]:
     if implemented and configured:
         note = "已配置视觉密钥，扫描页可走 Vision。"
     elif configured:
-        note = "已配置视觉密钥，但 classify_page_vision 仍是 stub，不会读扫描页，图号保持空，不编造。"
+        note = "已配置视觉密钥，但页分类未接入模型。扫描页不送图，图号为空。"
     else:
-        note = "未配置 CPA_API_KEY 或 OPENAI_API_KEY。无文字层页保持 UNKNOWN，不编造图号或工程量。"
+        note = "未配置 CPA_API_KEY 或 OPENAI_API_KEY。无文字层页保持 UNKNOWN，图号和工程量均为空。"
     return {
         "vision": configured,
         "vision_classification_implemented": implemented,

@@ -383,7 +383,7 @@ def probe_llm(*, ping_chat: bool = False) -> dict[str, Any]:
             "base_url": None,
             "model": None,
             "models": [],
-            "note": "未配置 CPA_API_KEY 或 OPENAI_API_KEY，无法调用本地 CPA / 大模型，也不会编造材料清单。",
+            "note": "未配置 CPA_API_KEY 或 OPENAI_API_KEY，无法调用 CPA / 模型。",
         }
     base = llm_base_url()
     models, list_error, status = list_llm_models()
@@ -511,7 +511,7 @@ def charts_prompt_block(charts: list[dict[str, Any]] | None) -> str:
             }
         )
     if not compact:
-        return "服务器未从文字层抽出可识别的表格行。仍须逐页读正文，不要猜扫描图上的毫米。"
+        return "服务器未从文字层抽出可识别的表格行。只摘录正文或表单元格中已有的尺寸。"
     blob = json.dumps(compact, ensure_ascii=False)
     if len(blob) > 20_000:
         blob = blob[:20_000]
@@ -526,8 +526,8 @@ def _drawing_prompt(source_text: str, charts: list[dict[str, Any]] | None) -> st
         "只根据图纸正文和服务器抽出的表格行做穷尽抽取：每一行门窗表、每一处面积/覆盖率/层数/厨卫/卧室、以及正文提到的材料。"
         "服务器抽出的图表 JSON 里每一行都必须进入 windows 或 fields，不得合并、跳过或改数字。"
         "evidence 必须从 PAGE 正文或图表 line 逐字抄录（可去掉换行），数字必须与原文一致。"
-        "不要发明正文里没有的毫米、面积或件数。禁止输出任何价格、单价、总价、NZD 或 $。"
-        "几乎无文字的图页不要猜尺寸，也不要做图像识别。"
+        "只摘录正文里已有的毫米、面积或件数。不要输出价格、单价、总价、NZD 或 $。"
+        "几乎无文字的图页不提取尺寸，不做图像识别。"
         "门窗只能从文字层的门窗表或尺寸标注读取，每一樘都要列出，Qty 写在 count。"
         "材料行的 item_id 必须来自给定价库目录；目录不含单价，你也不许写单价。"
         "价库能对上的都写入 lines；对不上的写入 unmapped，不要省略。"
@@ -553,7 +553,7 @@ def call_drawing_llm(source_text: str, charts: list[dict[str, Any]] | None = Non
             "ok": False,
             "error": {
                 "code": "llm_unavailable",
-                "message": "未配置 CPA_API_KEY / OPENAI_API_KEY，无法用大模型读图纸文字层。数量与金额都不会编造；请设置密钥后再验证。",
+                "message": "未配置 CPA_API_KEY / OPENAI_API_KEY，无法调用模型读图纸文字层。请设置密钥后再验证。",
             },
         }
     if not source_text.strip():
@@ -583,7 +583,7 @@ def call_drawing_llm(source_text: str, charts: list[dict[str, Any]] | None = Non
                     "ok": False,
                     "error": {
                         "code": "llm_failed",
-                        "message": f"大模型读取图纸失败：{exc}。未编造材料或金额。",
+                        "message": f"模型读取图纸失败：{exc}。",
                     },
                 }
             shrunk = shrink_packed_text(packed, RETRY_TEXT_LIMIT)
@@ -599,7 +599,7 @@ def call_drawing_llm(source_text: str, charts: list[dict[str, Any]] | None = Non
             "ok": False,
             "error": {
                 "code": "llm_timeout",
-                "message": "大模型读取图纸超时，限定时间内没有返回。未编造材料或金额。请确认 CPA 隧道仍开着后重试。",
+                "message": "模型读取图纸超时，限定时间内没有返回。请稍后重试。",
             },
         }
     parsed = parse_llm_json(raw)
@@ -608,7 +608,7 @@ def call_drawing_llm(source_text: str, charts: list[dict[str, Any]] | None = Non
             "ok": False,
             "error": {
                 "code": "llm_failed",
-                "message": "大模型没有返回可解析的 JSON。未编造材料或金额。",
+                "message": "模型没有返回可解析的 JSON。",
             },
         }
     return {"ok": True, "model": used_model, "payload": parsed}

@@ -165,7 +165,7 @@ def runtime_egress() -> dict[str, str]:
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=502, detail=f"无法读取出口 IP：{exc}") from exc
     if not ip:
-        raise HTTPException(status_code=502, detail="出口 IP 接口没有返回地址，未编造。")
+        raise HTTPException(status_code=502, detail="出口 IP 接口没有返回地址。")
     return {
         "egress_ip": ip,
         "source_url": "https://api.ipify.org",

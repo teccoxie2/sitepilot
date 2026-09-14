@@ -27,7 +27,7 @@ export default function LimReport({ project }: { project: ProjectRecord }) {
 
         {lim?.status === "awaiting_upload" || !lim ? (
           <p className="mt-4 text-sm leading-6 text-[#9a6b12]" role="status">
-            还没有客户 LIM。地址查询不会用公开洪水图层冒充正式报告，也不会把订购费计入造价。
+            还没有客户 LIM。地址查询不读取公开洪水图层，LIM 订购费不计入造价。
           </p>
         ) : null}
 
@@ -158,7 +158,7 @@ function UploadForm({ projectId }: { projectId: string }) {
         />
       </label>
       <p className="mt-2 text-xs leading-5 text-[#7b8474]">
-        单份不超过 15MB；大于约 3.5MB 会自动分片。地址必须与当前项目一致。扫描件没有文字层会报错，不会用图像识别猜附图。
+        单份不超过 15MB；大于约 3.5MB 会自动分片。地址必须与当前项目一致。扫描件没有文字层会报错，无法读取附图。
       </p>
       <div className="mt-3">
         <button

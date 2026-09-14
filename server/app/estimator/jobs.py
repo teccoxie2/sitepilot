@@ -29,7 +29,7 @@ def submit(
             result = worker(set_note)
             job_store.update_job(job_id, status="ok", result=result, note="完成。")
         except Exception as exc:  # noqa: BLE001
-            job_store.update_job(job_id, status="error", detail=str(exc), note="失败，未编造数量或金额。")
+            job_store.update_job(job_id, status="error", detail=str(exc), note="处理失败。")
 
     _EXECUTOR.submit(run)
     return job

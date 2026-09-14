@@ -26,7 +26,7 @@ export default function HomePage() {
           href="/estimator"
           kicker="阶段 2 · V2"
           title="图纸取量"
-          body="建筑平面面积、门窗表文字层、屋面斜面积。结构梁常为未计价。其余专业不编造。"
+          body="建筑平面面积、门窗表文字层、屋面斜面积。结构梁常为未计价。电气、给排水、暖通等专业暂不取量。"
         />
         <StageCard
           href="/drawing-takeoff"

@@ -38,7 +38,7 @@ function gatewayError(status: number, fallback: string): Error {
     return new Error("这份 PDF 超过平台单次请求上限。请重新上传，系统会按约 3.5MB 自动分片。");
   }
   if (status === 504) {
-    return new Error("核算服务超时。请稍后重试；未编造结果。");
+    return new Error("核算服务超时，请稍后重试。");
   }
   if (status === 502 || status === 503) {
     return new Error("核算服务暂时连不上。请稍后重试。");

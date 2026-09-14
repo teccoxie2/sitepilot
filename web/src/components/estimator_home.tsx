@@ -70,7 +70,7 @@ export default function EstimatorHome() {
       <p className="text-sm tracking-[0.18em] text-[#7a5a2b]">ESTIMATOR V2</p>
       <h1 className="mt-2 text-3xl font-semibold">图纸取量工作区</h1>
       <p className="mt-3 max-w-2xl text-[15px] leading-7 text-[#5c6754]">
-        当前支持：建筑平面面积、门窗表文字层、屋面斜面积（文字）。结构梁通常没有对得上的价表 SKU，会标未计价。电气、给排水、暖通等专业不会从扫描图编造。金额只走价表。无文字层时不编造图号；即使已配置视觉密钥，扫描页分类仍是 stub，不会读图。选址核算在首页；旧版物料验证仍可对照文字层套价。
+        当前支持建筑平面面积、门窗表文字层、屋面斜面积（文字）。结构梁无对应价表 SKU 时标未计价。电气、给排水、暖通等专业暂不取量。金额只取价表。无文字层页可走 Vision 分类图号，读数进审核，不生成工程量。选址核算在首页；旧版物料验证仍可对照文字层套价。
       </p>
       <form onSubmit={handleSubmit} className="mt-8 space-y-3 rounded-2xl border border-[#d9d0c0] bg-[#fffaf3] p-5">
         <label className="block text-sm">

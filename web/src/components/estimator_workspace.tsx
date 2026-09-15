@@ -8,6 +8,8 @@ import {
   CORRECTION_REASONS,
   SCOPE_OPTIONS,
   disciplineHealthLabel,
+  estimatePublicationStatus,
+  estimateScopeAmount,
   processingStatusLabel,
   publicServiceNote,
 } from "@/lib/estimator";
@@ -1071,18 +1073,40 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
           {viewedEstimate ? (
             <>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                <Stat label="Expected" value={nzdExact(viewedEstimate.expected_total)} />
+                <Stat label="已计价" value={nzdExact(estimateScopeAmount(viewedEstimate, "priced_total"))} />
+                <Stat label="暂估" value={nzdExact(estimateScopeAmount(viewedEstimate, "allowance_total"))} />
                 <Stat
-                  label="Range"
+                  label="排除项"
+                  value={`${estimateScopeAmount(viewedEstimate, "excluded_count")} 项`}
+                />
+                <Stat
+                  label="区间"
                   value={`${nzdExact(viewedEstimate.range_low)} – ${nzdExact(viewedEstimate.range_high)}`}
                 />
-                <Stat label="Scope" value={`${Math.round(viewedEstimate.scope_completeness * 100)}%`} />
-                <Stat label="Pricing" value={`${Math.round(viewedEstimate.pricing_completeness * 100)}%`} />
               </div>
               <p className="text-sm text-[#5c6754]">
-                Reliability {viewedEstimate.reliability} · 绑定图纸集 v{viewedEstimate.document_set_version} · 价表{" "}
+                发布状态{" "}
+                {estimatePublicationStatus(viewedEstimate) === "unissued" ? "未发布" : estimatePublicationStatus(viewedEstimate)}
+                {" · "}
+                Reliability {viewedEstimate.reliability} · 图纸集 v{viewedEstimate.document_set_version} · 价表{" "}
                 {viewedEstimate.pricebook_version}
               </p>
+              <p className="text-sm text-[#9a6b12]">
+                取量审核 Accept 不是预算批准。当前没有批准或发布接口。
+              </p>
+              {(viewedEstimate.payload?.not_included || []).length ? (
+                <div className="rounded-2xl border border-[#d9d0c0] bg-white p-4">
+                  <p className="text-sm font-medium">排除项（金额 0，不计入已计价）</p>
+                  <ul className="mt-2 space-y-1 text-sm text-[#5c6754]">
+                    {(viewedEstimate.payload?.not_included || []).map((item, index) => (
+                      <li key={item.id || `${item.description}-${index}`}>
+                        {item.description || "未命名"} · {item.status}
+                        {item.payload?.unpriced_reason ? ` · ${item.payload.unpriced_reason}` : ""}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <table className="w-full min-w-[40rem] text-left text-sm">
                 <thead>
                   <tr className="border-b border-[#eee6d8] text-xs text-[#7b8474]">
@@ -1118,7 +1142,7 @@ export default function EstimatorWorkspace({ projectId }: { projectId: string })
               <p className="text-sm text-[#9a6b12]">{viewedEstimate.payload?.note}</p>
             </>
           ) : (
-            <p className="text-sm text-[#5c6754]">处理图纸后再生成报价。缺图与无价科目不会进入确定总价。</p>
+            <p className="text-sm text-[#5c6754]">处理图纸后再生成报价。未计价与缺图科目不计入已计价。</p>
           )}
         </section>
       ) : null}

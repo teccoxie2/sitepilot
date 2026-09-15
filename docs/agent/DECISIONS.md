@@ -44,6 +44,12 @@
 - 决定：同一 `drawing_number` 只把排序最高的修订标 `CURRENT`，其余 `SUPERSEDED`。空修订最旧；纯字母按 A<B<C<AA；纯数字高于字母。目录按图号+修订去重，不再按图号丢掉旧修订行。当前取量与审核跳过 SUPERSEDED 页。目录里旧修订若已有更新修订页，不算缺图。不是完整作废/批准工作流。
 - 理由：N05-01；避免旧版和新版重复计量。
 
+## D009 · 报价口径与未发布边界
+
+- 日期：2026-09-15
+- 决定：`priced_total` 只加 VERIFIED/CALCULATED；`allowance_total` 单独计 ALLOWANCE；UNPRICED/UNRESOLVED 进排除项，金额 0。`expected_total` 仍含已计价+暂估（及已有费率的 INFERRED），以保持旧快照。`publication_status` 固定 `unissued`。不设批准/发布接口；取量审核 Accept 不改变该状态。
+- 理由：N06-01 / E05 最小切片 + E06 不伪造批准。
+
 ## D005 · Drawing Index 人工行
 
 - 日期：2026-09-12

@@ -26,3 +26,4 @@
 - 生产 `GET/POST /engine/estimator/projects` 在 2026-09-12 重建 Prisma 后恢复。用户于 2026-09-13 确认已认领 `proj_aux4dcghcmhx7f2dzmzauc1a`；认领后烟测仍通过。本环境未打开 Prisma 控制台复核认领页。
 - 本环境无 Cursor `agent` CLI。Vercel CLI 已登录 `teccoxie2` / `xentechs-projects`。
 - 2026-09-13：同图号不同修订可留在目录；取量只计入 CURRENT 修订页。
+- 2026-09-15：N06-01 报价拆已计价/暂估/排除；`publication_status` 固定 unissued。

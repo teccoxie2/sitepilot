@@ -181,6 +181,12 @@ export interface EstimatorEstimate {
   document_set_version: number;
   pricebook_version?: string | null;
   expected_total: number;
+  priced_total?: number;
+  allowance_total?: number;
+  inferred_total?: number;
+  excluded_count?: number;
+  publication_status?: string;
+  publication_blockers?: string[];
   range_low: number;
   range_high: number;
   scope_completeness: number;
@@ -189,10 +195,36 @@ export interface EstimatorEstimate {
   created_at?: string;
   quote_lines: EstimatorQuoteLine[];
   payload?: {
-    not_included?: unknown[];
+    not_included?: Array<{
+      id?: string;
+      description?: string;
+      status?: string;
+      payload?: { unpriced_reason?: string | null };
+    }>;
     note?: string;
     status_counts?: Record<string, number>;
+    priced_total?: number;
+    allowance_total?: number;
+    inferred_total?: number;
+    excluded_count?: number;
+    publication_status?: string;
+    publication_blockers?: string[];
   };
+}
+
+export function estimateScopeAmount(
+  estimate: EstimatorEstimate,
+  key: "priced_total" | "allowance_total" | "inferred_total" | "excluded_count",
+): number {
+  const top = estimate[key];
+  if (typeof top === "number") return top;
+  const nested = estimate.payload?.[key];
+  if (typeof nested === "number") return nested;
+  return 0;
+}
+
+export function estimatePublicationStatus(estimate: EstimatorEstimate): string {
+  return estimate.publication_status || estimate.payload?.publication_status || "unissued";
 }
 
 export const SCOPE_OPTIONS = [

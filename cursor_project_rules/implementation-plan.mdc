@@ -358,3 +358,9 @@ Done
 
 无文字层页把渲染图送给 V1 同一套 `chat/completions`。图号/修订/页类写入图纸并进审核（LLM_INFERENCE），不标 VERIFIED，不编造门窗或面积。`/estimator/ready` 的 `vision_classification_implemented` 为 true。
 
+## N06-01 报价已计价/暂估/排除与未发布边界
+
+Done
+
+报价增加 `priced_total`、`allowance_total`、排除项与 `publication_status=unissued`。旧快照 `expected_total` 不变。无批准/发布接口；取量审核 Accept 不改变发布状态。ESTIMATE 页分栏展示。
+

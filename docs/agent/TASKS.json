@@ -252,6 +252,43 @@
       "initial_status": "READY"
     },
     {
+      "id": "N06-01",
+      "requirement_ids": ["E05", "E06"],
+      "title": "报价拆已计价/暂估/排除，发布状态固定未发布",
+      "depends_on": ["N01-01"],
+      "scope_paths": [
+        "server/app/estimator/takeoff.py",
+        "server/app/estimator/store.py",
+        "web/src/components/estimator_workspace.tsx",
+        "web/src/lib/estimator.ts",
+        "server/tests/test_estimator_scope.py"
+      ],
+      "excluded_scope": [
+        "成员角色与预算审批人",
+        "批准/发布接口",
+        "用审核 Accept 冒充预算批准",
+        "补齐全部施工工种",
+        "上线发布"
+      ],
+      "acceptance": [
+        "报价返回 priced_total（VERIFIED/CALCULATED）、allowance_total（ALLOWANCE）、excluded_count（UNPRICED/UNRESOLVED）",
+        "expected_total 仍含已计价与暂估，旧快照金额不变",
+        "publication_status 固定 unissued；不存在 approve/publish 接口",
+        "取量审核 Accept 不把报价标成已批准或已发布",
+        "JSON/CSV 导出带上述分项；CSV 有 scope_bucket",
+        "ESTIMATE 页分别展示已计价、暂估、排除项，并写明未发布"
+      ],
+      "validation": {
+        "commands": [
+          "PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_scope.py server/tests/test_estimator_acl.py::test_correction_creates_new_estimate_and_keeps_old server/tests/test_estimator_manual_takeoff.py::test_manual_takeoff_keeps_old_estimate_and_survives_replace"
+        ],
+        "manual_steps": [],
+        "required_evidence": ["pytest test_estimator_scope.py exit 0"]
+      },
+      "discovery_note": "2026-09-15：E05 本切片只拆总价口径，不补齐材料/人工/机械/分包。E06 只标未发布边界，不做批准流。",
+      "initial_status": "READY"
+    },
+    {
       "id": "N07-01",
       "requirement_ids": ["J05", "J06"],
       "title": "早晨报告：记录完成、阻塞与未测项",

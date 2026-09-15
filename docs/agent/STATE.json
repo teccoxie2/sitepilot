@@ -3,11 +3,11 @@
   "branch": "cursor/overnight-n08-n04-e825",
   "base_commit": "beb9bed27c6c0b8ab76007615ad70a75882a7836",
   "started_at": "2026-09-12T11:05:57+00:00",
-  "last_updated": "2026-09-14T04:20:00+00:00",
+  "last_updated": "2026-09-15T08:45:00+00:00",
   "current_task_id": null,
   "incomplete_task_id": null,
-  "last_completed_task_id": "N05-01",
-  "rounds_completed": 11,
+  "last_completed_task_id": "N06-01",
+  "rounds_completed": 12,
   "cli": {
     "agent_present": false,
     "vercel_logged_in": true,
@@ -15,7 +15,7 @@
     "local_agent": "scripts/overnight_local_agent.py"
   },
   "blocked": [],
-  "next_action": "V2 Vision 已接到 CPA。用户在生产上传扫描页验证。",
+  "next_action": "N06-01 已完成。下一独立项仍是完整作废/批准（无合约）或合 main（须明确指示）。",
   "tasks": {
     "N00-01": {
       "status": "DONE",
@@ -78,6 +78,15 @@
       "base_commit": "3c6e772cb715f43b6ffaf6288d94a0f76742df23",
       "done_at": "2026-09-12T12:28:00+00:00",
       "session_id": "9414436f-ce47-4743-aaef-312aab48eeb9",
+      "verified_existing": false,
+      "last_error": null
+    },
+    "N06-01": {
+      "status": "DONE",
+      "attempts": 1,
+      "round_dir": null,
+      "base_commit": "ff71084",
+      "done_at": "2026-09-15T08:45:00+00:00",
       "verified_existing": false,
       "last_error": null
     },

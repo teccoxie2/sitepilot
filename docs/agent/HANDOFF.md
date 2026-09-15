@@ -1,46 +1,25 @@
-# Handoff · 2026-09-14 V2 Vision
+# Handoff · 2026-09-15 N06-01
 
 ## 上轮做了什么
 
-- V2 `classify_page_vision` 走 V1 同一套 CPA/OpenAI `chat/completions`（图 + `page-classification` 提示词）。无文字层才调用。图号须像图号，否则丢弃。不标已核实，不编工程量。
-- `/estimator/ready`：`vision_classification_implemented=true`。
+- 给 N06 写了任务合约 `N06-01`，并按合约落地：报价拆 `priced_total` / `allowance_total` / 排除项；`publication_status` 固定 `unissued`。
+- 旧报价版本仍按冻结分项回算口径；`expected_total` 不变。
+- ESTIMATE 页分别显示已计价、暂估、排除项，并写明取量审核不是预算批准。
+- 验收：`PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_scope.py server/tests/test_estimator_acl.py::test_correction_creates_new_estimate_and_keeps_old server/tests/test_estimator_manual_takeoff.py::test_manual_takeoff_keeps_old_estimate_and_survives_replace` 退出码 0。
 
 ## 未完成
 
-- 扫描页仍不抽门窗毫米/面积当已核实工程量。
-- 完整作废/批准、N06 合约、过夜代码合 `main` 仍未做。
-
-## 下一步
-
-1. 在生产 Estimator 上传无文字层扫描页，核图号是否进审核且取量为空。
-2. 需要时再合 `main`。
-
-## 证据
-
-- `server/tests/test_estimator_vision_stub.py`
-
-# 此前 · 2026-09-13 N05-01
-
-## 上轮做了什么
-
-- N05-01：同图号不同修订可同时留在 Drawing Index。页按修订排序，最高为 `CURRENT`，其余 `SUPERSEDED`。取量和审核不计入旧修订页。自造文字层 PDF：旧页 GFA 100、新页 120，当前取量只有 120。
-- 验收：`PYTHONPATH=server python3 -m pytest -q server/tests/test_estimator_revisions.py server/tests/test_estimator.py::test_drawing_index_and_completeness server/tests/test_estimator_index.py` 退出码 0。
-- 未部署生产（任务排除上线发布）。
-
-## 未完成
-
-- 完整作废/批准工作流未做。
+- 完整作废/批准工作流未做；无成员角色。
+- 施工范围（材料/人工/机械/分包）未补齐。
 - Drawing Index / 漏项表单未做浏览器点选。
-- `classify_page_vision` 仍不读图。
-- N06 已计价范围 / 正式发布边界：PLAN 有，`TASKS.json` 无合约。
 - 过夜代码未合进 `main`。
 
 ## 下一步
 
-1. 若要继续：先给 N06 写任务合约与验收命令（DISCOVERY），不要伪造批准。
+1. 需要时再写完整作废/批准的独立合约（有角色后再做，不要用审核按钮冒充）。
 2. 有浏览器时补 N03/N04 表单点选。
-3. 需要时再合过夜分支进 `main` 或发布（须你明确说）。
+3. 需要时再合过夜分支进 `main` 或发布（须明确说）。
 
 ## 证据
 
-- `.agent-runs/20260912T110557Z-a23b2dab/round-12-N05-01/`
+- `server/tests/test_estimator_scope.py`

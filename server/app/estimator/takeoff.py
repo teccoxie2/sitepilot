@@ -11,6 +11,12 @@ from .extract import ISSUE_SUPERSEDED, is_opening_schedule_page
 
 PRICE = get_price_provider()
 
+PRICED_LINE_STATUSES = {"VERIFIED", "CALCULATED"}
+ALLOWANCE_LINE_STATUSES = {"ALLOWANCE"}
+INFERRED_LINE_STATUSES = {"INFERRED"}
+EXCLUDED_LINE_STATUSES = {"UNPRICED", "UNRESOLVED"}
+PUBLICATION_UNISSUED = "unissued"
+
 SCOPE_BY_KIND = {
     "floor_area": "05",
     "footprint": "05",
@@ -413,23 +419,124 @@ def build_estimate(project_id: str) -> dict[str, Any]:
         reliability = "MEDIUM"
     else:
         reliability = "LOW"
-    not_included = [line for line in lines if line["status"] in {"UNPRICED", "UNRESOLVED"}]
+    missing_drawings = completeness(
+        project.get("expected_drawings") or [],
+        project.get("drawings") or [],
+    ).get("missing_drawings") or []
+    unresolved_review = [
+        item for item in project.get("review") or [] if item.get("queue_status") == "UNRESOLVED"
+    ]
+    breakdown = scope_breakdown(
+        lines,
+        missing_drawing_count=len(missing_drawings),
+        unresolved_review_count=len(unresolved_review),
+    )
     payload = {
         "pricebook_version": book.get("version"),
         "expected_total": round(expected, 2),
+        "priced_total": breakdown["priced_total"],
+        "allowance_total": breakdown["allowance_total"],
+        "inferred_total": breakdown["inferred_total"],
         "range_low": round(range_low, 2),
         "range_high": round(range_high, 2),
         "scope_completeness": round(scope_completeness, 4),
         "pricing_completeness": round(pricing_completeness, 4),
         "reliability": reliability,
         "status_counts": status_counts,
-        "not_included": not_included,
+        "not_included": breakdown["not_included"],
+        "excluded_count": breakdown["excluded_count"],
+        "publication_status": PUBLICATION_UNISSUED,
+        "publication_blockers": breakdown["publication_blockers"],
         "scope_taxonomy": [{"code": code, "name": name} for code, name in SCOPE_TAXONOMY],
         "v2_takeoff_scope": ["Floor Area", "Structural Beam", "Roof", "Windows & Doors"],
-        "note": "未计价与未解决项不进入确定总价。金额只来自价表，不采用模型费率。缺价与单位不符不会伪装成 0 成交。",
+        "note": (
+            "已计价只含 VERIFIED/CALCULATED。"
+            "暂估是 ALLOWANCE，不并入已计价。"
+            "未计价与未解决项金额为 0，不进入确定总价。"
+            "报价未发布；取量审核 Accept 不是预算批准。"
+        ),
     }
     store.save_estimate(project_id, payload, lines)
     return store.get_project(project_id) or {}
+
+
+def line_scope_bucket(status: str | None) -> str:
+    if status in PRICED_LINE_STATUSES:
+        return "priced"
+    if status in ALLOWANCE_LINE_STATUSES:
+        return "allowance"
+    if status in INFERRED_LINE_STATUSES:
+        return "inferred"
+    return "excluded"
+
+
+def scope_breakdown(
+    lines: list[dict[str, Any]],
+    *,
+    missing_drawing_count: int = 0,
+    unresolved_review_count: int = 0,
+) -> dict[str, Any]:
+    priced_total = 0.0
+    allowance_total = 0.0
+    inferred_total = 0.0
+    not_included: list[dict[str, Any]] = []
+    for line in lines:
+        status = str(line.get("status") or "")
+        amount = float(line.get("amount_incl_gst") or 0)
+        bucket = line_scope_bucket(status)
+        if bucket == "priced":
+            priced_total += amount
+        elif bucket == "allowance":
+            allowance_total += amount
+        elif bucket == "inferred":
+            inferred_total += amount
+        else:
+            not_included.append(line)
+    blockers: list[str] = []
+    if not_included:
+        blockers.append("UNPRICED_OR_UNRESOLVED")
+    if inferred_total:
+        blockers.append("INFERRED_IN_TOTAL")
+    if missing_drawing_count:
+        blockers.append("MISSING_DRAWINGS")
+    if unresolved_review_count:
+        blockers.append("UNRESOLVED_REVIEW")
+    return {
+        "priced_total": round(priced_total, 2),
+        "allowance_total": round(allowance_total, 2),
+        "inferred_total": round(inferred_total, 2),
+        "excluded_count": len(not_included),
+        "not_included": not_included,
+        "publication_status": PUBLICATION_UNISSUED,
+        "publication_blockers": blockers,
+    }
+
+
+def attach_scope_breakdown(estimate: dict[str, Any]) -> dict[str, Any]:
+    payload = dict(estimate.get("payload") or {})
+    stored_blockers = payload.get("publication_blockers")
+    breakdown = scope_breakdown(estimate.get("quote_lines") or [])
+    if isinstance(stored_blockers, list) and stored_blockers:
+        breakdown["publication_blockers"] = [str(item) for item in stored_blockers]
+    estimate["priced_total"] = breakdown["priced_total"]
+    estimate["allowance_total"] = breakdown["allowance_total"]
+    estimate["inferred_total"] = breakdown["inferred_total"]
+    estimate["excluded_count"] = breakdown["excluded_count"]
+    estimate["publication_status"] = PUBLICATION_UNISSUED
+    estimate["publication_blockers"] = breakdown["publication_blockers"]
+    payload.update(
+        {
+            "priced_total": breakdown["priced_total"],
+            "allowance_total": breakdown["allowance_total"],
+            "inferred_total": breakdown["inferred_total"],
+            "excluded_count": breakdown["excluded_count"],
+            "not_included": breakdown["not_included"],
+            "publication_status": PUBLICATION_UNISSUED,
+            "publication_blockers": breakdown["publication_blockers"],
+        }
+    )
+    estimate["payload"] = payload
+    return estimate
 
 
 def units_compatible(takeoff_unit: str | None, price_unit: str | None) -> bool:
@@ -800,6 +907,8 @@ def export_project(project_id: str, estimate_id: str | None = None) -> dict[str,
     else:
         estimate = project.get("estimate")
     unresolved = [item for item in project.get("review") or [] if item.get("queue_status") == "UNRESOLVED"]
+    if estimate:
+        attach_scope_breakdown(estimate)
     unpriced = [
         line
         for line in (estimate or {}).get("quote_lines") or []
@@ -813,11 +922,15 @@ def export_project(project_id: str, estimate_id: str | None = None) -> dict[str,
         "document_set_version": project.get("document_set_version"),
         "pricebook_version": (estimate or {}).get("pricebook_version") or project.get("pricebook_version"),
         "estimate": estimate,
+        "priced_total": (estimate or {}).get("priced_total"),
+        "allowance_total": (estimate or {}).get("allowance_total"),
+        "inferred_total": (estimate or {}).get("inferred_total"),
+        "publication_status": PUBLICATION_UNISSUED,
         "current_takeoff": project.get("takeoff") or [],
         "unpriced": unpriced,
         "unresolved_review": unresolved,
         "correction_events": project.get("correction_events") or [],
-        "note": "导出绑定该报价版本的冻结分项，未按最新价重算。当前工程量单独列出，便于对照修正后的取量。",
+        "note": "导出绑定该报价版本的冻结分项，未按最新价重算。当前工程量单独列出。报价未发布，取量审核不是预算批准。",
     }
 
 
@@ -842,6 +955,7 @@ def quote_lines_csv(estimate: dict[str, Any]) -> str:
             "source_url",
             "retrieved_at",
             "unpriced_reason",
+            "scope_bucket",
         ]
     )
     for line in estimate.get("quote_lines") or []:
@@ -861,6 +975,7 @@ def quote_lines_csv(estimate: dict[str, Any]) -> str:
                 payload.get("source_url") or "",
                 payload.get("retrieved_at") or "",
                 payload.get("unpriced_reason") or "",
+                line_scope_bucket(str(line.get("status") or "")),
             ]
         )
     return buffer.getvalue()

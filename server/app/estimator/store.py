@@ -900,32 +900,36 @@ def _review_dict(row: EstimatorReviewItem) -> dict[str, Any]:
 
 
 def _estimate_dict(row: EstimatorEstimate, lines: list[EstimatorQuoteLine]) -> dict[str, Any]:
-    return {
-        "id": row.id,
-        "version": row.version,
-        "document_set_version": row.document_set_version,
-        "pricebook_version": row.pricebook_version,
-        "expected_total": row.expected_total,
-        "range_low": row.range_low,
-        "range_high": row.range_high,
-        "scope_completeness": row.scope_completeness,
-        "pricing_completeness": row.pricing_completeness,
-        "reliability": row.reliability,
-        "payload": row.payload,
-        "created_at": row.created_at,
-        "quote_lines": [
-            {
-                "id": line.id,
-                "takeoff_id": line.takeoff_id,
-                "scope_code": line.scope_code,
-                "description": line.description,
-                "quantity": line.quantity,
-                "unit": line.unit,
-                "rate_id": line.rate_id,
-                "amount_incl_gst": line.amount_incl_gst,
-                "status": line.status,
-                "payload": line.payload,
-            }
-            for line in lines
-        ],
-    }
+    from .takeoff import attach_scope_breakdown
+
+    return attach_scope_breakdown(
+        {
+            "id": row.id,
+            "version": row.version,
+            "document_set_version": row.document_set_version,
+            "pricebook_version": row.pricebook_version,
+            "expected_total": row.expected_total,
+            "range_low": row.range_low,
+            "range_high": row.range_high,
+            "scope_completeness": row.scope_completeness,
+            "pricing_completeness": row.pricing_completeness,
+            "reliability": row.reliability,
+            "payload": row.payload,
+            "created_at": row.created_at,
+            "quote_lines": [
+                {
+                    "id": line.id,
+                    "takeoff_id": line.takeoff_id,
+                    "scope_code": line.scope_code,
+                    "description": line.description,
+                    "quantity": line.quantity,
+                    "unit": line.unit,
+                    "rate_id": line.rate_id,
+                    "amount_incl_gst": line.amount_incl_gst,
+                    "status": line.status,
+                    "payload": line.payload,
+                }
+                for line in lines
+            ],
+        }
+    )

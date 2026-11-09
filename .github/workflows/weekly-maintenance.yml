@@ -1,0 +1,37 @@
+name: Weekly maintenance issue
+
+on:
+  schedule:
+    # Monday 08:00 NZDT = Sunday 19:00 UTC. Keep the cron in UTC.
+    - cron: '0 19 * * 0'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  open:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().slice(0, 10)
+            const body = [
+              '@teccoxie2 weekly maintenance review. Read PROJECT_PLAN.md and CONTENT_CLAIM_LEDGER.md first.',
+              '',
+              'Check and report, with evidence:',
+              '- evidence review dates that are due or overdue in CONTENT_CLAIM_LEDGER.md',
+              '- claims that are expired, contradictory, or still marked example/estimate without a dated source',
+              '- broken or stale internal links, and sitemap or canonical drift',
+              '- page disposition states (Keep / Merge / Noindex / Remove) that contradict the plan',
+              '- CI health on main, and any outdated direct dependency worth a small pull request',
+              '',
+              'Do only evidence-backed edits, on a branch in a pull request. Write decisions that need the owner back on this issue. Do not add generic keyword pages.',
+            ].join('\n')
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Weekly maintenance ${date}`,
+              body,
+            })

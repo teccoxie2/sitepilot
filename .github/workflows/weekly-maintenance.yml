@@ -29,9 +29,28 @@ jobs:
               '',
               'Do only evidence-backed edits, on a branch in a pull request. Write decisions that need the owner back on this issue. Do not add generic keyword pages.',
             ].join('\n')
-            await github.rest.issues.create({
+            const title = `Weekly maintenance ${date}`
+            // Reuse an already-open issue for the same date instead of creating a duplicate
+            // when the workflow is dispatched more than once in a day.
+            const open = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Weekly maintenance ${date}`,
-              body,
+              state: 'open',
+              per_page: 50,
             })
+            const existing = open.data.find((issue) => issue.title === title && !issue.pull_request)
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Weekly run executed again at ${new Date().toISOString()}. Reusing this issue rather than opening a duplicate.`,
+              })
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              })
+            }

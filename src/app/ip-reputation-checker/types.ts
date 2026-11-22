@@ -35,6 +35,7 @@ export type LiveReputationResult = {
   networkType: string
   networkRange: string
   riskScore: number
+  riskNote?: string | null
   confidence: number | null
   proxy: boolean
   vpn: boolean

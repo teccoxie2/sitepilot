@@ -120,7 +120,19 @@ function stripDecorators(target: string) {
     return trimmed.replace(/:\d{2,5}$/, '')
   }
 
+  if (trimmed.startsWith('[')) {
+    return trimmed.replace(/^\[/, '').replace(/\]:\d{1,5}$/, '').replace(/\]$/, '')
+  }
+
   return trimmed
+}
+
+function normalizeNetworkRange(range?: string | null) {
+  if (!range) return 'Unavailable'
+  const trimmed = range.trim()
+  // Some upstream rows hand back malformed IPv6 CIDRs like "2606:4700:::/46".
+  const collapsed = trimmed.replace(/:{3,}(\/)/g, '::' + '$1')
+  return collapsed || 'Unavailable'
 }
 
 async function lookupReverseDns(ip: string) {
@@ -184,6 +196,19 @@ function formatCurrency(location?: ProxycheckLocation) {
   if (!currency) return 'Unavailable'
   const parts = [currency.code, currency.name, currency.symbol].filter(Boolean)
   return parts.length ? parts.join(' · ') : 'Unavailable'
+}
+
+// proxycheck occasionally reports a high risk score on an address whose own
+// signals contradict it (for example 8.8.8.8 comes back anonymous + risk 100
+// while proxy/vpn/tor are all false). Surface the contradiction instead of
+// publishing a number the evidence does not support.
+function reconcileRiskScore(detections: ProxycheckDetections) {
+  const raw = typeof detections?.risk === 'number' ? detections.risk : 0
+  const flagged = Boolean(detections?.proxy || detections?.vpn || detections?.tor || detections?.compromised)
+  if (raw >= 60 && !flagged) {
+    return { score: raw, note: 'Upstream risk score is not corroborated by any proxy, VPN, TOR or compromise signal.' }
+  }
+  return { score: raw, note: null as string | null }
 }
 
 function buildSignals(node: ProxycheckNode): SignalResult[] {
@@ -273,6 +298,7 @@ export async function fetchProxycheckResult(input: string): Promise<LiveReputati
       networkType: isSpecialUse ? 'Special-use' : 'Unavailable',
       networkRange: 'Unavailable',
       riskScore: 0,
+      riskNote: null,
       confidence: null,
       proxy: false,
       vpn: false,
@@ -351,7 +377,7 @@ export async function fetchProxycheckResult(input: string): Promise<LiveReputati
   }
 
   const detections = node?.detections || {}
-  const riskScore = typeof detections.risk === 'number' ? detections.risk : 0
+  const riskScore = reconcileRiskScore(detections)
 
   const proxyHostname = node?.network?.hostname || hostname
   const proxyLocation = formatLocation(node?.location)
@@ -368,8 +394,9 @@ export async function fetchProxycheckResult(input: string): Promise<LiveReputati
     reverseDns,
     addressScope,
     networkType: node?.network?.type || (isSpecialUse ? 'Special-use' : 'Unavailable'),
-    networkRange: node?.network?.range || 'Unavailable',
-    riskScore,
+    networkRange: normalizeNetworkRange(node?.network?.range),
+    riskScore: riskScore.score,
+    riskNote: riskScore.note,
     confidence: typeof detections.confidence === 'number' ? detections.confidence : null,
     proxy: Boolean(detections.proxy),
     vpn: Boolean(detections.vpn),

@@ -91,6 +91,14 @@ function derivePurity(result: LiveReputationResult) {
     }
   }
 
+  if (result.riskNote) {
+    return {
+      label: 'Contradictory signals',
+      tone: 'watch' as const,
+      summary: result.riskNote,
+    }
+  }
+
   if (result.riskScore <= 59) {
     return {
       label: 'Moderate purity',

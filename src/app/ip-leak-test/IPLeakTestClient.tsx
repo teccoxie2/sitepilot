@@ -108,7 +108,12 @@ async function probeWebRtc(timeoutMs = 1800): Promise<WebRtcProbe> {
     }
   }
 
-  const pc = new RTCPeerConnection({ iceServers: [] })
+  // Without a STUN server the browser never emits a server-reflexive candidate,
+  // so "no public candidate" would only prove the probe was blind, not that the
+  // visitor is hidden. A public STUN server makes the reflexive test meaningful.
+  const pc = new RTCPeerConnection({
+    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }],
+  })
   const candidates: string[] = []
   let finished = false
 
@@ -183,10 +188,18 @@ function deriveLeakVerdict(result: WebRtcProbe) {
     }
   }
 
+  if (result.status !== 'done') {
+    return {
+      label: 'Inconclusive',
+      tone: 'watch' as const,
+      summary: 'The browser probe did not finish cleanly, so no exposure conclusion can be drawn from this pass.',
+    }
+  }
+
   return {
-    label: 'No obvious leak',
+    label: 'No leak detected',
     tone: 'good' as const,
-    summary: 'No obvious private or reflexive candidates were collected during this pass.',
+    summary: 'No private or public address was readable from the browser during this pass.',
   }
 }
 
@@ -316,6 +329,7 @@ export default function IPLeakTestClient({ initialTarget }: Props) {
       { label: 'Hosting', value: boolLabel(result.hosting), tone: result.hosting ? 'watch' : 'good' },
       { label: 'Anonymous', value: boolLabel(result.anonymous), tone: result.anonymous ? 'watch' : 'good' },
       { label: 'Compromised', value: boolLabel(result.compromised), tone: result.compromised ? 'bad' : 'good' },
+      { label: 'Risk score', value: String(result.riskScore), tone: result.riskScore >= 60 ? 'bad' : result.riskScore >= 40 ? 'watch' : 'good' },
     ]
   }, [result])
 
@@ -402,8 +416,9 @@ export default function IPLeakTestClient({ initialTarget }: Props) {
               <div>
                 <div className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Leak verdict</div>
                 <div className="mt-2 flex items-end gap-3">
-                  <span className="text-5xl font-semibold tracking-[-0.05em] text-slate-950">{loading || !result ? '—' : result.riskScore}</span>
-                  <span className="pb-1 text-sm font-medium text-slate-500">signal</span>
+                  <span className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+                    {probe.status === 'running' ? 'Probing browser' : leakVerdict.label}
+                  </span>
                 </div>
                 <div className="mt-2 text-lg font-semibold text-slate-950">{loading ? 'Loading' : leakVerdict.label}</div>
                 <div className="mt-2 text-sm text-slate-600">{loading ? 'Fetching live data and probing the browser.' : leakVerdict.summary}</div>
